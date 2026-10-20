@@ -1,0 +1,166 @@
+# DISEÑO HISTÓRICO: no se consume por el prototipo v0.5.
+# Las 16 etiquetas siguientes no son 16 vulnerabilidades verificadas del banco actual.
+# Algunas acciones previstas quedaron fuera del alcance autorizado del documento.
+# El evaluador Docker usa .lab/ground_truth.json generado por laboratorio preparar;
+# contiene cuatro condiciones IPv4 positivas y cuatro controles negativos.
+# ─────────────────────────────────────────────────────────────
+#  Ground truth pre-registrado (Anexo G · Tabla 5)
+#  Las 16 vulnerabilidades plantadas en el entorno dual-stack.
+#  El conjunto se CONGELA antes del experimento y no se modifica
+#  entre los dos brazos (multi-agente vs. agente único).
+#  Referencia para el KPI IDE y la prueba de Wilcoxon.
+# ─────────────────────────────────────────────────────────────
+meta:
+  total: 16
+  categorias: [ipv4_servicios, ipv4_credenciales, ipv6_ndp_slaac, ipv6_fragmentacion]
+  por_categoria: 4
+  cvss_calculadora: "NVD v3.1"
+
+vulnerabilidades:
+  # ── IPv4 Servicios (GT-01..04) → Agente IPv4-Servicios ──────────────
+  - id: GT-01
+    categoria: ipv4_servicios
+    identificador: CVE-2011-2523
+    titulo: "Backdoor en vsftpd 2.3.4 (21/TCP)"
+    plantacion: "Imagen Metasploitable3 con el daemon vulnerable activo"
+    verificacion: "Conexión que dispara el shell en el puerto 6200"
+    cvss: 10.0
+    severidad: critical
+
+  - id: GT-02
+    categoria: ipv4_servicios
+    identificador: CVE-2007-2447
+    titulo: "Inyección de comandos en Samba username map script (139/445 TCP)"
+    plantacion: "smbd vulnerable"
+    verificacion: "Ejecución remota controlada con módulo Metasploit"
+    cvss: 6.0
+    severidad: medium
+
+  - id: GT-03
+    categoria: ipv4_servicios
+    identificador: CVE-2014-3704
+    titulo: "Drupalgeddon: inyección SQL en Drupal 7.x (80/TCP)"
+    plantacion: "Drupal vulnerable en LAMP"
+    verificacion: "Creación de usuario administrador vía exploit"
+    cvss: 7.5
+    severidad: high
+
+  - id: GT-04
+    categoria: ipv4_servicios
+    identificador: CVE-2009-2698
+    titulo: "Escalada local por NULL pointer en sock_sendpage (kernel Linux)"
+    plantacion: "Kernel vulnerable"
+    verificacion: "PoC que obtiene shell root"
+    cvss: 7.2
+    severidad: high
+
+  # ── IPv4 Credenciales (GT-05..08) → Agente IPv4-Credenciales ────────
+  - id: GT-05
+    categoria: ipv4_credenciales
+    identificador: "Default credentials"
+    titulo: "Cuenta msfadmin:msfadmin en SSH (22/TCP)"
+    plantacion: "Por defecto en Metasploitable3"
+    verificacion: "Login exitoso por agente IPv4-Credenciales con Hydra"
+    cvss: 9.8
+    severidad: critical
+
+  - id: GT-06
+    categoria: ipv4_credenciales
+    identificador: "Weak credentials"
+    titulo: "Cuenta tomcat:tomcat en Tomcat Manager (8180/TCP)"
+    plantacion: "manager-app expuesto"
+    verificacion: "Despliegue de WAR controlado por el agente"
+    cvss: 9.8
+    severidad: critical
+
+  - id: GT-07
+    categoria: ipv4_credenciales
+    identificador: "Default credentials"
+    titulo: "Cuenta postgres:postgres en PostgreSQL (5432/TCP)"
+    plantacion: "pg_hba permisivo"
+    verificacion: "Ejecución de SELECT con cuenta de superusuario"
+    cvss: 9.1
+    severidad: critical
+
+  - id: GT-08
+    categoria: ipv4_credenciales
+    identificador: "Anonymous access"
+    titulo: "Acceso anónimo en FTP con lectura (21/TCP)"
+    plantacion: "anonymous_enable=YES en vsftpd"
+    verificacion: "Listado del directorio raíz por el agente"
+    cvss: 5.3
+    severidad: medium
+
+  # ── IPv6 NDP/SLAAC (GT-09..12) → Agente IPv6-NDP/SLAAC ──────────────
+  - id: GT-09
+    categoria: ipv6_ndp_slaac
+    identificador: "RFC 4861 §11"
+    titulo: "Suplantación de Router Advertisement (prefijo/gateway falsos)"
+    plantacion: "radvd con prefijo legítimo y aceptación de RA habilitada en hosts"
+    verificacion: "Agente con Scapy envía RA y observa cambio de gateway en la víctima"
+    cvss: 8.0
+    severidad: high
+
+  - id: GT-10
+    categoria: ipv6_ndp_slaac
+    identificador: "RFC 4861 §7.2"
+    titulo: "Envenenamiento de caché NDP por Neighbor Advertisement no solicitado"
+    plantacion: "Host con NDP por defecto"
+    verificacion: "Tabla NDP de la víctima registra MAC controlada por el agente"
+    cvss: 7.5
+    severidad: high
+
+  - id: GT-11
+    categoria: ipv6_ndp_slaac
+    identificador: "RFC 4862 §5.4"
+    titulo: "DoS sobre Duplicate Address Detection (DAD)"
+    plantacion: "Segmento con DAD activo"
+    verificacion: "El agente responde a cada solicitud DAD e impide la autoconfiguración"
+    cvss: 6.5
+    severidad: medium
+
+  - id: GT-12
+    categoria: ipv6_ndp_slaac
+    identificador: "RFC 4861 §6.2.4"
+    titulo: "Rogue IPv6 router con MTU baja para forzar fragmentación"
+    plantacion: "radvd con MTU = 1280"
+    verificacion: "Cambio de MTU observado en la víctima por el agente"
+    cvss: 5.4
+    severidad: medium
+
+  # ── IPv6 Fragmentación (GT-13..16) → Agente IPv6-Fragmentación ──────
+  - id: GT-13
+    categoria: ipv6_fragmentacion
+    identificador: "RFC 5722"
+    titulo: "Fragmentos solapados con sobre-escritura del primer byte"
+    plantacion: "Paquete fragmentado con Scapy (modelo Di Paolo et al. [20])"
+    verificacion: "Stack no conforme acepta el fragmento reensamblado y registra logs"
+    cvss: 7.5
+    severidad: high
+
+  - id: GT-14
+    categoria: ipv6_fragmentacion
+    identificador: "RFC 5722"
+    titulo: "Fragmentos solapados con sobre-escritura intermedia"
+    plantacion: "Igual que GT-13 con offset en zona media"
+    verificacion: "Ídem GT-13"
+    cvss: 7.5
+    severidad: high
+
+  - id: GT-15
+    categoria: ipv6_fragmentacion
+    identificador: "RFC 8200 §4.5"
+    titulo: "Cadena de extension headers + fragmento atómico para evasión de IDS"
+    plantacion: "Scapy combinando Hop-by-Hop, Destination y Fragment"
+    verificacion: "El IDS de control no detecta el payload mientras el host objetivo sí lo procesa"
+    cvss: 6.5
+    severidad: medium
+
+  - id: GT-16
+    categoria: ipv6_fragmentacion
+    identificador: "RFC 8200 §4.5"
+    titulo: "Tiny fragment evasion (primer fragmento bajo el umbral de inspección)"
+    plantacion: "Scapy"
+    verificacion: "El payload reensamblado dispara una regla solo en el host objetivo"
+    cvss: 6.5
+    severidad: medium

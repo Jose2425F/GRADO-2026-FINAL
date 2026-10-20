@@ -1,0 +1,6 @@
+*.pdf binary
+*.pcap binary
+*.docx binary
+*.sqlite binary
+*.sqlite3 binary
+docs/**/runs/**/report.html -whitespace

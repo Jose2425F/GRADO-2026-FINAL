@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Auditoría {{ report.audit_id }}</title>
+  <style>
+    body {font: 16px/1.5 system-ui, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; color: #172b3a}
+    h1, h2 {color: #16445e} table {border-collapse: collapse; width: 100%} th, td {border: 1px solid #cbd5df; padding: .6rem; text-align: left; overflow-wrap: anywhere}
+    th {background: #eef3f7} .note {padding: .8rem; background: #fff4cf}
+  </style>
+</head>
+<body>
+  <h1>Auditoría {{ report.audit_id }}</h1>
+  <p>Estado: <strong>{{ report.status }}</strong> · Modo: {{ report.mode }}</p>
+  <p>Operador: {{ report.operator }} · Autorización: {{ report.authorization_ref }}</p>
+  <p class="note">{{ report.note }}</p>
+  {% if report.execution_control and report.execution_control.stopped %}
+  <p class="note">Pruebas detenidas tras acceso verificado y corroborado. Tarea: {{ report.execution_control.trigger_task_id }}.
+    Tareas canceladas: {{ report.execution_control.cancelled_tasks }}. La cobertura de esta demo es parcial.</p>
+  {% endif %}
+  <h2>Hallazgos verificados</h2>
+  <p>Arquitectura: {{ report.architecture or 'multiagent' }} · Hallazgos: {{ report.findings|length }}.</p>
+  {% for finding in report.findings %}<article><h3>{{ finding.asset_id }}: {{ finding.title }}</h3>
+  <p>{{ finding.defect_key }} · {{ finding.severity }}</p><p>{{ finding.remediation }}</p>
+  <p>Evidencia: {{ finding.evidence_ref }} · Corroboración: {{ finding.confirmation_ref }}</p>
+  <p>Referencia: <a href="{{ finding.reference }}">Criterio de validación</a></p></article>
+  {% else %}<p>No hay hallazgos verificados.</p>{% endfor %}
+  <h2>Tareas</h2>
+  <table><thead><tr><th>Agente</th><th>ID</th><th>Estado</th><th>Motivo</th><th>Evidencia</th><th>Diagnóstico</th></tr></thead><tbody>
+  {% for task in report.tasks %}<tr><td>{{ task.agent_name or '—' }}</td><td>{{ task.task_id }}</td><td>{{ task.status }}</td><td>{{ task.reason_code or '—' }}</td><td>{{ task.evidence_ref or '—' }}</td><td>{{ task.diagnostic_ref or '—' }}</td></tr>{% endfor %}
+  </tbody></table>
+  <h2>Validación de observaciones</h2>
+  <p>Gemini: {{ report.llm.status }}{% if report.llm.model %} ({{ report.llm.model }}){% endif %}. Los candidatos requieren corroboración independiente.</p>
+  <table><thead><tr><th>Activo / tarea</th><th>Caso</th><th>Estado</th><th>Motivo</th><th>Evidencia íntegra</th></tr></thead><tbody>
+  {% for item in report.validation %}<tr><td>{{ item.asset_id }} / {{ item.task_id }}</td><td>{{ item.case_id or '—' }}</td><td>{{ item.state }}</td><td>{{ item.reason }}</td><td>{{ 'sí' if item.evidence_integrity.valid is true else 'no' if item.evidence_integrity.valid is false else 'no generada' }}</td></tr>{% endfor %}
+  </tbody></table>
+  <h2>Inventario de servicios</h2>
+  <table><thead><tr><th>Tarea</th><th>Puerto</th><th>Protocolo</th><th>Servicio</th><th>Producto</th></tr></thead><tbody>
+  {% for item in report.inventory %}{% for service in item.services %}<tr><td>{{ item.task_id }}</td><td>{{ service.port }}</td><td>{{ service.protocol }}</td><td>{{ service.name or '—' }}</td><td>{{ service.product or '—' }}</td></tr>{% endfor %}{% endfor %}
+  </tbody></table>
+  <h2>Autenticación</h2>
+  <table><thead><tr><th>Tarea</th><th>Servicio</th><th>Puerto</th><th>Referencia</th><th>Resultado</th></tr></thead><tbody>
+  {% for item in report.authentication %}<tr><td>{{ item.task_id }}</td><td>{{ item.service }}</td><td>{{ item.port }}</td><td>{{ item.credential_ref }}</td><td>{{ item.outcome }}</td></tr>{% endfor %}
+  </tbody></table>
+</body>
+</html>

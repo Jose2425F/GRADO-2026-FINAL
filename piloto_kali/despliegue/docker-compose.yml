@@ -1,0 +1,74 @@
+# Objetivos IPv4 del laboratorio. Docker Engine se ejecuta en la VM Kali.
+# Este puente NO es el enlace L2 de VirtualBox 192.168.56.0/24; no recibe RA.
+# Cargar las variables LAB_* en el entorno antes de ejecutar docker compose.
+# Fijar los digest SHA-256 de las imagenes en el manifiesto antes del piloto.
+
+networks:
+  auditoria_ipv4:
+    name: lab_auditoria_ipv4
+    driver: bridge
+    internal: true
+    driver_opts:
+      com.docker.network.bridge.name: br-lab-audit
+    ipam:
+      config:
+        - subnet: 192.168.57.0/24
+          gateway: 192.168.57.1
+
+services:
+
+  # --- Objetivo SSH (credenciales IPv4, ASR-04 / RF-18) ---------------------
+  objetivo-ssh:
+    image: linuxserver/openssh-server:latest
+    container_name: obj-ssh
+    hostname: obj-ssh
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Bogota
+      - USER_NAME=labuser
+      - USER_PASSWORD=${LAB_SSH_PASSWORD:?Defina LAB_SSH_PASSWORD}
+      - PASSWORD_ACCESS=true
+    networks:
+      auditoria_ipv4:
+        ipv4_address: 192.168.57.11
+    restart: "no"
+
+  # --- Objetivo FTP (acceso anonimo evaluado por politica, RF-18) ----------
+  objetivo-ftp:
+    image: fauria/vsftpd:latest
+    container_name: obj-ftp
+    hostname: obj-ftp
+    environment:
+      - FTP_USER=labftp
+      - FTP_PASS=${LAB_FTP_PASSWORD:?Defina LAB_FTP_PASSWORD}
+      - PASV_ADDRESS=192.168.57.12
+    networks:
+      auditoria_ipv4:
+        ipv4_address: 192.168.57.12
+    restart: "no"
+
+  # --- Objetivo Apache Tomcat HTTP. Manager requiere provision adicional. --
+  objetivo-tomcat:
+    image: tomcat:9.0-jdk11
+    container_name: obj-tomcat
+    hostname: obj-tomcat
+    networks:
+      auditoria_ipv4:
+        ipv4_address: 192.168.57.13
+    # Manager no tiene usuario/rol por defecto. No asumir prueba de credenciales.
+    restart: "no"
+
+  # --- Objetivo PostgreSQL (autenticacion de base de datos, RF-18) ---------
+  objetivo-postgres:
+    image: postgres:16-alpine
+    container_name: obj-postgres
+    hostname: obj-postgres
+    environment:
+      - POSTGRES_USER=labdb
+      - POSTGRES_PASSWORD=${LAB_POSTGRES_PASSWORD:?Defina LAB_POSTGRES_PASSWORD}
+      - POSTGRES_DB=lab
+    networks:
+      auditoria_ipv4:
+        ipv4_address: 192.168.57.14
+    restart: "no"

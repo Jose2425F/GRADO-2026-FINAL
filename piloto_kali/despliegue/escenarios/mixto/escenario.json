@@ -1,0 +1,16 @@
+{
+  "id": "mixto",
+  "name": "NovaFlow · Empresa Mixta",
+  "difficulty": "3 · Mixto",
+  "detail": "Más activos y distribución diferente de credenciales, permisos web y confianza IPv6.",
+  "targets": 10,
+  "containers": 12,
+  "tasks": 32,
+  "ipv4": [
+    "192.168.130.0/24",
+    "192.168.131.0/24",
+    "192.168.132.0/24"
+  ],
+  "version": "novaflow-suite-2/mixto",
+  "acceptance": "pending"
+}

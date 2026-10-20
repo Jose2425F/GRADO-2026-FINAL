@@ -1,0 +1,51 @@
+name: auditoria-robusto
+x-app: &app
+  build:
+    context: ./robusto
+    dockerfile: Dockerfile.app
+  cap_drop: [ALL]
+  read_only: true
+  tmpfs:
+    - /tmp:rw,noexec,nosuid,size=8m,mode=1777
+  security_opt: [no-new-privileges:true]
+  mem_limit: 128m
+  pids_limit: 64
+  cpus: 0.5
+  restart: "no"
+networks:
+  apps:
+    name: lab_robusto_apps
+    driver: bridge
+    internal: true
+    enable_ipv6: true
+    driver_opts:
+      com.docker.network.bridge.name: br-audit-apps
+    ipam:
+      config:
+        - subnet: 192.168.59.0/24
+        - subnet: fd57:2026:59::/64
+services:
+  node-a:
+    <<: *app
+    container_name: robust-node-a
+    environment: {LAB_SCENARIO: alpha}
+    networks:
+      apps: {ipv4_address: 192.168.59.11, ipv6_address: 'fd57:2026:59::11'}
+  node-b:
+    <<: *app
+    container_name: robust-node-b
+    environment: {LAB_SCENARIO: beta}
+    networks:
+      apps: {ipv4_address: 192.168.59.12, ipv6_address: 'fd57:2026:59::12'}
+  node-c:
+    <<: *app
+    container_name: robust-node-c
+    environment: {LAB_SCENARIO: gamma}
+    networks:
+      apps: {ipv4_address: 192.168.59.13, ipv6_address: 'fd57:2026:59::13'}
+  node-d:
+    <<: *app
+    container_name: robust-node-d
+    environment: {LAB_SCENARIO: strict}
+    networks:
+      apps: {ipv4_address: 192.168.59.14, ipv6_address: 'fd57:2026:59::14'}

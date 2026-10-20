@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auditoría dual-stack · Arquitectura en vivo</title>
+<link rel="stylesheet" href="/viewer.css">
+<header>
+  <div><small>ARCHIFY 3.0.1 / OBSERVADOR LOCAL</small><h1>Arquitectura en vivo</h1></div>
+  <div class="controls"><label for="run">Corrida</label><select id="run"><option value="">Sin corridas</option></select><span id="connection" role="status">Conectando…</span></div>
+</header>
+<main>
+  <section class="diagram-area" aria-label="Diagrama interactivo">
+    <iframe id="diagram" src="/diagram" title="Arquitectura interactiva generada con Archify"></iframe>
+    <div id="halos" aria-hidden="true"></div>
+  </section>
+  <aside>
+    <h2>Actividad observada</h2>
+    <p id="summary" role="status">Esperando al panel local.</p>
+    <div class="legend"><span class="dot green"></span> Verde: tareas activas o supervisión de la corrida.<br><span class="dot amber"></span> Ámbar: nuevo evento persistido observado.</div>
+    <h2>Agentes / tareas</h2><div id="agents"></div>
+    <h2>Últimos eventos</h2><ol id="events"></ol>
+    <p class="note">Consulta cada segundo. Un evento breve puede terminar entre consultas; aparecerá en la bitácora. Ámbar indica un registro observado, no una escritura en curso.</p>
+    <p class="note">Validación, planificador, laboratorio e informes conservan su vista estática: faltan eventos de inicio y fin para medir esas fases. El diagrama describe una auditoría; no es un sensor de ataques.</p>
+    <a href="/diagram" target="_blank" rel="noopener">Abrir diagrama base y exportar</a>
+  </aside>
+</main>
+<script src="/viewer.js"></script>
+</html>

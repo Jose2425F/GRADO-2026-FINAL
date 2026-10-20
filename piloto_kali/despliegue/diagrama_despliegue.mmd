@@ -1,0 +1,52 @@
+flowchart TB
+    INTERNET["Internet<br/>API LLM y fuentes tecnicas permitidas"]
+
+    subgraph CONTROL["ZONA DE CONTROL"]
+        NAT["NAT Network VirtualBox<br/>192.168.10.0/24"]
+        KALI["Kali, maquina de control y host Docker<br/>monolito modular / agente unico<br/>Nmap, Hydra, Scapy, SQLite"]
+        NAT --> KALI
+    end
+
+    subgraph AUDITORIA["ZONA DE AUDITORIA: dos enlaces aislados"]
+        subgraph AUD_A["Enlace A: red interna de VM lab_auditoria_l2<br/>192.168.56.0/24 · fd6a:9b21:4c70:1::/64"]
+            L2A(("Switch virtual L2"))
+            META["Metasploitable3<br/>192.168.56.20"]
+            ROUTER["Router RA / radvd<br/>192.168.56.254 · IPv6 ::1"]
+            RX["Receptor IPv6<br/>192.168.56.30 · SLAAC"]
+            L2A --- META
+            L2A --- ROUTER
+            L2A --- RX
+        end
+        subgraph AUD_B["Enlace B: puente Docker interno lab_auditoria_ipv4<br/>192.168.57.0/24 · solo IPv4"]
+            BR(("br-lab-audit<br/>192.168.57.1"))
+            SSH["obj-ssh<br/>192.168.57.11:2222"]
+            FTP["obj-ftp<br/>192.168.57.12:21"]
+            TOMCAT["obj-tomcat<br/>192.168.57.13:8080"]
+            PG["obj-postgres<br/>192.168.57.14:5432"]
+            BR --- SSH
+            BR --- FTP
+            BR --- TOMCAT
+            BR --- PG
+        end
+    end
+
+    subgraph GESTION["ZONA DE GESTION: red interna de VM lab_gestion · 192.168.99.0/24"]
+        L2M(("Switch de gestion"))
+        OBS["Observador FastAPI<br/>192.168.99.10<br/>API de solo lectura"]
+        L2M --- OBS
+    end
+
+    INTERNET --> NAT
+    KALI -->|"NIC auditoria .56.2 / IPv6 ::2"| L2A
+    KALI -->|"host Docker; acceso local autorizado"| BR
+    KALI -->|"NIC gestion .99.2; consultas del controlador"| L2M
+    ROUTER -.->|"telemetria .99.254"| L2M
+    RX -.->|"telemetria .99.30"| L2M
+    META -.->|"gestion opcional .99.20"| L2M
+
+    classDef control fill:#fff0d6,stroke:#b87b22,color:#1f1f1f
+    classDef audit fill:#e8f0fe,stroke:#3869aa,color:#1f1f1f
+    classDef management fill:#e6f4e8,stroke:#438852,color:#1f1f1f
+    class KALI,NAT control
+    class L2A,META,ROUTER,RX,BR,SSH,FTP,TOMCAT,PG audit
+    class L2M,OBS management

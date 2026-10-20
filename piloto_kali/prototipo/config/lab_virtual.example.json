@@ -1,0 +1,12 @@
+{
+  "asset_id": "receptor_ipv6_vm",
+  "audit_interface": "eth1",
+  "audit_network": "fd6a:9b21:4c70:1::/64",
+  "kali_address": "fd6a:9b21:4c70:1::2",
+  "sender_address": "fd6a:9b21:4c70:1::1",
+  "target_address": "fd6a:9b21:4c70:1::30",
+  "management_interface": "eth2",
+  "observer_url": "https://192.168.99.30:8443",
+  "observer_ca_path": "/RUTA/CA-del-laboratorio.pem",
+  "observer_token_env": "LAB_OBSERVER_TOKEN"
+}

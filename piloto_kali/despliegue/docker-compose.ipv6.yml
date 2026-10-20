@@ -1,0 +1,45 @@
+name: auditoria-piloto-ipv6
+
+networks:
+  auditoria_ipv6:
+    name: lab_auditoria_ipv6
+    driver: bridge
+    internal: true
+    enable_ipv6: true
+    driver_opts:
+      com.docker.network.bridge.name: br-lab-ipv6
+    ipam:
+      config:
+        - subnet: 192.168.58.0/24
+        - subnet: fd57:2026:9:28::/64
+
+services:
+  objetivo-ipv6:
+    build:
+      context: .
+      dockerfile: Dockerfile.ipv6
+    container_name: obj-ipv6
+    command: ["python", "-u", "/app/ipv6_target.py"]
+    cap_drop: [ALL]
+    cap_add: [NET_RAW, NET_ADMIN]
+    networks:
+      auditoria_ipv6:
+        ipv6_address: fd57:2026:9:28::20
+    mem_limit: 256m
+    pids_limit: 128
+    restart: "no"
+
+  emisor-ipv6:
+    build:
+      context: .
+      dockerfile: Dockerfile.ipv6
+    container_name: emisor-ipv6
+    command: ["sleep", "infinity"]
+    cap_drop: [ALL]
+    cap_add: [NET_RAW]
+    networks:
+      auditoria_ipv6:
+        ipv6_address: fd57:2026:9:28::10
+    mem_limit: 256m
+    pids_limit: 128
+    restart: "no"

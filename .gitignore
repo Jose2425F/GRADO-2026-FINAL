@@ -1,0 +1,67 @@
+# Entornos, dependencias y cachés
+.venv*/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+node_modules/
+.pytest_cache/
+.ruff_cache/
+.coverage*
+htmlcov/
+build/
+dist/
+
+# Credenciales y configuración privada
+.env
+.env.*
+!.env.example
+*.local
+**/.lab*/
+**/.manual-restorations*
+**/private/
+**/privado/
+**/private-evidence/
+hydra.restore*
+
+# Auditorías, evidencias y artefactos locales
+**/corridas/
+**/archivo_corridas/
+**/experimentos/
+runs/
+reportes_generados/
+.verificacion*/
+*.sqlite*
+*.db
+*.pcap*
+*.log
+*.pid
+*.trace
+*.zip
+*.tar*
+*.gz
+phoenix_data/
+
+# Documentos académicos y respaldos
+*.docx
+*.pdf
+*.xlsx
+~$*
+respaldos/
+docs/evaluacion-*/
+docs/verificacion-postevaluacion/
+
+# Configuraciones locales de editores y asistentes
+.codex/
+.claude/
+.agents/
+.archify/
+AGENTS.md
+CLAUDE.md
+CONTEXTO.md
+SKILL.md
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

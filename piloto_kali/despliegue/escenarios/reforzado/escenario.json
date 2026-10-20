@@ -1,0 +1,16 @@
+{
+  "id": "reforzado",
+  "name": "NovaFlow · Entorno Reforzado",
+  "difficulty": "4 · Mayor carga y controles",
+  "detail": "Más servicios y controles negativos; receptores IPv6 protegidos. No implica explotación más avanzada.",
+  "targets": 12,
+  "containers": 14,
+  "tasks": 37,
+  "ipv4": [
+    "192.168.140.0/24",
+    "192.168.141.0/24",
+    "192.168.142.0/24"
+  ],
+  "version": "novaflow-suite-2/reforzado",
+  "acceptance": "pending"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "comercial",
+  "name": "NovaFlow · Operación Comercial",
+  "difficulty": "2 · Intermedio",
+  "detail": "Servicios mixtos; descarga codificada, permisos por familia y controles que rechazan acceso.",
+  "targets": 8,
+  "containers": 10,
+  "tasks": 28,
+  "ipv4": [
+    "192.168.120.0/24",
+    "192.168.121.0/24",
+    "192.168.122.0/24"
+  ],
+  "version": "novaflow-suite-2/comercial",
+  "acceptance": "pending"
+}

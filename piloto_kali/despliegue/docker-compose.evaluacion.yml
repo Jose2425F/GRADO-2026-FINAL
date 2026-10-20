@@ -1,0 +1,94 @@
+# Banco sintético; las dos variantes reciben los mismos intentos del auditor.
+name: auditoria-evaluacion
+networks:
+  auditoria_ipv4:
+    name: lab_auditoria_ipv4
+    driver: bridge
+    internal: true
+    driver_opts:
+      com.docker.network.bridge.name: br-lab-audit
+    ipam:
+      config:
+        - subnet: 192.168.57.0/24
+          gateway: 192.168.57.1
+services:
+  obj-auth-lab:
+    container_name: obj-auth-lab
+    build:
+      context: .
+      dockerfile: Dockerfile.credentials
+    environment:
+      LAB_TARGET_PASSWORD: lab2026
+    networks:
+      auditoria_ipv4:
+        ipv4_address: 192.168.57.11
+    mem_limit: 256m
+    pids_limit: 128
+    restart: "no"
+  obj-tomcat-lab:
+    container_name: obj-tomcat-lab
+    image: tomcat:9.0.122-jdk11-temurin-noble
+    volumes:
+      - ./tomcat_lab.sh:/opt/tomcat_lab.sh:ro
+    command: ["sh", "/opt/tomcat_lab.sh"]
+    environment:
+      LAB_TARGET_PASSWORD: lab2026
+    networks:
+      auditoria_ipv4:
+        ipv4_address: 192.168.57.13
+    mem_limit: 256m
+    pids_limit: 128
+    restart: "no"
+  obj-postgres-lab:
+    container_name: obj-postgres-lab
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: labuser
+      POSTGRES_DB: labdb
+      POSTGRES_PASSWORD: lab2026
+    networks:
+      auditoria_ipv4:
+        ipv4_address: 192.168.57.14
+    mem_limit: 256m
+    pids_limit: 128
+    restart: "no"
+  obj-auth-control:
+    container_name: obj-auth-control
+    build:
+      context: .
+      dockerfile: Dockerfile.credentials
+    environment:
+      LAB_TARGET_PASSWORD: ${LAB_CONTROL_PASSWORD:?Prepare el laboratorio}
+    networks:
+      auditoria_ipv4:
+        ipv4_address: 192.168.57.21
+    mem_limit: 256m
+    pids_limit: 128
+    restart: "no"
+  obj-tomcat-control:
+    container_name: obj-tomcat-control
+    image: tomcat:9.0.122-jdk11-temurin-noble
+    volumes:
+      - ./tomcat_lab.sh:/opt/tomcat_lab.sh:ro
+    command: ["sh", "/opt/tomcat_lab.sh"]
+    environment:
+      LAB_TARGET_PASSWORD: ${LAB_CONTROL_PASSWORD:?Prepare el laboratorio}
+    networks:
+      auditoria_ipv4:
+        ipv4_address: 192.168.57.23
+    mem_limit: 256m
+    pids_limit: 128
+    restart: "no"
+  obj-postgres-control:
+    container_name: obj-postgres-control
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: labuser
+      POSTGRES_DB: labdb
+      POSTGRES_PASSWORD: ${LAB_CONTROL_PASSWORD:?Prepare el laboratorio}
+    networks:
+      auditoria_ipv4:
+        ipv4_address: 192.168.57.24
+    mem_limit: 256m
+    pids_limit: 128
+    restart: "no"

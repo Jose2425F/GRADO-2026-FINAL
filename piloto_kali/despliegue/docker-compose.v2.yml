@@ -1,0 +1,121 @@
+name: auditoria-lab-v2
+
+x-app: &app
+  image: auditoria-lab-v2-app:local
+  build:
+    context: .
+    dockerfile: v2/Dockerfile.app
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  read_only: true
+  tmpfs: ['/tmp:rw,noexec,nosuid,size=16m,mode=1777']
+  mem_limit: 64m
+  pids_limit: 32
+  cpus: 0.25
+  restart: "no"
+  environment:
+    LAB_FIXTURE_SEED: ${LAB_FIXTURE_SEED:?Ejecute laboratorio-v2 preparar}
+
+x-protocol: &protocol
+  image: auditoria-lab-v2-protocol:local
+  build:
+    context: .
+    dockerfile: v2/Dockerfile.protocol
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  read_only: true
+  tmpfs: ['/tmp:rw,noexec,nosuid,size=16m,mode=1777', '/run:rw,noexec,nosuid,size=4m']
+  mem_limit: 96m
+  pids_limit: 32
+  cpus: 1.0
+  restart: "no"
+
+networks:
+  apps:
+    name: lab_v2_apps
+    internal: true
+    enable_ipv6: true
+    driver_opts: {com.docker.network.bridge.name: br-lab-v2-apps}
+    ipam:
+      config:
+        - subnet: 192.168.59.0/24
+        - subnet: fd57:2026:59::/64
+  protocols:
+    name: lab_v2_protocols
+    internal: true
+    enable_ipv6: true
+    driver_opts: {com.docker.network.bridge.name: br-lab-v2-ndp}
+    ipam:
+      config:
+        - subnet: 192.168.60.0/24
+        - subnet: fd57:2026:60::/64
+
+services:
+  app-a:
+    <<: *app
+    container_name: v2-app-a
+    environment: {LAB_SCENARIO: alpha, LAB_FIXTURE_SEED: '${LAB_FIXTURE_SEED:?Ejecute laboratorio-v2 preparar}'}
+    networks:
+      apps: {ipv4_address: 192.168.59.11, ipv6_address: 'fd57:2026:59::11'}
+  app-b:
+    <<: *app
+    container_name: v2-app-b
+    environment: {LAB_SCENARIO: beta, LAB_FIXTURE_SEED: '${LAB_FIXTURE_SEED:?Ejecute laboratorio-v2 preparar}'}
+    networks:
+      apps: {ipv4_address: 192.168.59.12, ipv6_address: 'fd57:2026:59::12'}
+  app-c:
+    <<: *app
+    container_name: v2-app-c
+    environment: {LAB_SCENARIO: gamma, LAB_FIXTURE_SEED: '${LAB_FIXTURE_SEED:?Ejecute laboratorio-v2 preparar}'}
+    networks:
+      apps: {ipv4_address: 192.168.59.13, ipv6_address: 'fd57:2026:59::13'}
+  app-d:
+    <<: *app
+    container_name: v2-app-d
+    environment: {LAB_SCENARIO: strict, LAB_FIXTURE_SEED: '${LAB_FIXTURE_SEED:?Ejecute laboratorio-v2 preparar}'}
+    networks:
+      apps: {ipv4_address: 192.168.59.14, ipv6_address: 'fd57:2026:59::14'}
+  router:
+    <<: *protocol
+    container_name: v2-router
+    cap_add: [NET_ADMIN, NET_RAW, SETUID, SETGID]
+    command: [radvd, -n, -m, stderr, -C, /app/v2/radvd.conf, -p, /run/radvd.pid]
+    sysctls:
+      net.ipv6.conf.all.forwarding: "1"
+    networks:
+      protocols:
+        ipv4_address: 192.168.60.254
+        ipv6_address: fd57:2026:60::fe
+        mac_address: '02:57:20:26:60:fe'
+  sender:
+    <<: *protocol
+    container_name: v2-sender
+    cap_add: [NET_RAW]
+    command: [sleep, infinity]
+    networks:
+      protocols:
+        ipv4_address: 192.168.60.10
+        ipv6_address: fd57:2026:60::10
+        mac_address: '02:57:20:26:60:10'
+  receiver-a:
+    <<: *protocol
+    container_name: v2-receiver-a
+    cap_add: [NET_ADMIN, NET_RAW]
+    command: [python, /app/v2/receiver.py]
+    environment: {LAB_GUARDED: "0"}
+    networks:
+      protocols:
+        ipv4_address: 192.168.60.20
+        ipv6_address: fd57:2026:60::20
+        mac_address: '02:57:20:26:60:20'
+  receiver-b:
+    <<: *protocol
+    container_name: v2-receiver-b
+    cap_add: [NET_ADMIN, NET_RAW]
+    command: [python, /app/v2/receiver.py]
+    environment: {LAB_GUARDED: "1"}
+    networks:
+      protocols:
+        ipv4_address: 192.168.60.21
+        ipv6_address: fd57:2026:60::21
+        mac_address: '02:57:20:26:60:21'

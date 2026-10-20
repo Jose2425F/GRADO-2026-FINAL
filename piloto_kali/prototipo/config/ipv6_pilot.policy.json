@@ -1,0 +1,14 @@
+{
+  "policy_id": "lab-ipv6-docker-v1",
+  "segments": [
+    {
+      "name": "auditoria-ipv6-docker",
+      "network": "fd57:2026:9:28::/64",
+      "interface": "br-lab-ipv6",
+      "allowed_ports": [53000]
+    }
+  ],
+  "allowed_categories": ["ipv6_ndp", "ipv6_fragmentation"],
+  "allowed_case_ids": ["GT-09", "GT-10", "GT-11", "GT-12", "GT-13", "GT-14", "GT-15", "GT-16"],
+  "max_token_budget": 512
+}

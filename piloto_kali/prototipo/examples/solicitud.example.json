@@ -1,0 +1,16 @@
+{
+  "audit_id": "piloto01",
+  "operator": "operador-lab",
+  "authorization_ref": "acta-laboratorio-001",
+  "scope_ipv4": ["192.168.57.0/24"],
+  "scope_ipv6": [],
+  "categories": ["ipv4_services"],
+  "targets": [
+    {"asset_id": "obj_tomcat", "address": "192.168.57.13", "interface": "br-lab-audit", "ports": [8080]}
+  ],
+  "not_before": "2026-09-23T00:00:00-05:00",
+  "not_after": "2026-09-30T23:59:59-05:00",
+  "max_runtime_seconds": 120,
+  "max_attempts": 1,
+  "token_budget": 0
+}

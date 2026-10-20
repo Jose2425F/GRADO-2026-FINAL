@@ -1,0 +1,18 @@
+{
+  "policy_id": "lab-v1",
+  "segments": [
+    {
+      "name": "auditoria-a-ipv4",
+      "network": "192.168.56.0/24",
+      "interface": "eth1",
+      "allowed_ports": [21, 22, 80, 443, 8080, 5432]
+    },
+    {
+      "name": "auditoria-b-docker",
+      "network": "192.168.57.0/24",
+      "interface": "br-lab-audit",
+      "allowed_ports": [21, 22, 80, 443, 8080, 5432]
+    }
+  ],
+  "allowed_categories": ["ipv4_services"]
+}

@@ -1,0 +1,208 @@
+name: novaflow-lab
+
+# Laboratorio NovaFlow S.A.S.: empresa sintética mediana-grande para medir las cinco
+# capacidades del auditor en un solo banco. Tres segmentos internos aislados:
+#   dmz         -> servicios IPv4 y credenciales (nmap + hydra)
+#   corp        -> aplicaciones dual-stack (acceso de aplicación)
+#   datacenter  -> protocolos IPv6 (NDP/SLAAC y fragmentación)
+# Todas las redes son internal: no hay NAT ni puertos publicados en el anfitrión.
+
+x-app: &app
+  image: auditoria-lab-v2-app:local
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  read_only: true
+  tmpfs: ['/tmp:rw,noexec,nosuid,size=16m,mode=1777']
+  mem_limit: 64m
+  pids_limit: 32
+  cpus: 0.25
+  restart: "no"
+
+x-protocol: &protocol
+  image: novaflow-lab-protocol:local
+  build:
+    context: ..
+    dockerfile: empresa/datacenter/Dockerfile.protocol
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  read_only: true
+  tmpfs: ['/tmp:rw,noexec,nosuid,size=16m,mode=1777', '/run:rw,noexec,nosuid,size=4m']
+  mem_limit: 96m
+  pids_limit: 32
+  cpus: 1.0
+  restart: "no"
+
+networks:
+  dmz:
+    name: nova_dmz
+    internal: true
+    driver_opts: {com.docker.network.bridge.name: br-nova-dmz}
+    ipam:
+      config:
+        - subnet: 192.168.71.0/24
+          gateway: 192.168.71.1
+  corp:
+    name: nova_corp
+    internal: true
+    enable_ipv6: true
+    driver_opts: {com.docker.network.bridge.name: br-nova-corp}
+    ipam:
+      config:
+        - subnet: 192.168.69.0/24
+        - subnet: fd57:2026:69::/64
+  datacenter:
+    name: nova_datacenter
+    internal: true
+    enable_ipv6: true
+    driver_opts: {com.docker.network.bridge.name: br-nova-dc}
+    ipam:
+      config:
+        - subnet: 192.168.70.0/24
+        - subnet: fd57:2026:70::/64
+
+services:
+  # --- DMZ: servicios IPv4 y credenciales ---------------------------------
+  portal:
+    build:
+      context: ..
+      dockerfile: empresa/dmz/Dockerfile.credentials
+    image: novaflow-lab-credentials:local
+    container_name: nova-portal
+    hostname: nova-portal
+    cap_drop: [ALL]
+    cap_add: [CHOWN, SETUID, SETGID, DAC_OVERRIDE, SYS_CHROOT]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 128m
+    pids_limit: 64
+    cpus: 0.5
+    restart: "no"
+    environment:
+      LAB_TARGET_PASSWORD: '${LAB_NOVA_PORTAL:?Ejecute laboratorio-empresa preparar}'
+    networks:
+      dmz: {ipv4_address: 192.168.71.11}
+
+  bastion:
+    image: novaflow-lab-credentials:local
+    container_name: nova-bastion
+    hostname: nova-bastion
+    cap_drop: [ALL]
+    cap_add: [CHOWN, SETUID, SETGID, DAC_OVERRIDE, SYS_CHROOT]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 128m
+    pids_limit: 64
+    cpus: 0.5
+    restart: "no"
+    environment:
+      LAB_TARGET_PASSWORD: '${LAB_NOVA_BASTION_REAL:?Ejecute laboratorio-empresa preparar}'
+    networks:
+      dmz: {ipv4_address: 192.168.71.12}
+
+  legacy:
+    build:
+      context: ..
+      dockerfile: empresa/dmz/Dockerfile.http
+    image: novaflow-lab-http:local
+    container_name: nova-legacy
+    hostname: nova-legacy
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    read_only: true
+    mem_limit: 64m
+    pids_limit: 32
+    cpus: 0.25
+    restart: "no"
+    environment:
+      LAB_HTTP_USER: console
+      LAB_HTTP_PASSWORD: '${LAB_NOVA_HTTP:?Ejecute laboratorio-empresa preparar}'
+    networks:
+      dmz: {ipv4_address: 192.168.71.13}
+
+  records:
+    image: postgres:16-alpine
+    container_name: nova-records
+    hostname: nova-records
+    security_opt: [no-new-privileges:true]
+    mem_limit: 192m
+    pids_limit: 128
+    cpus: 0.5
+    restart: "no"
+    tmpfs: ['/var/lib/postgresql/data:rw,size=128m', '/run/postgresql:rw,size=8m', '/tmp:rw,size=8m']
+    environment:
+      POSTGRES_USER: labuser
+      POSTGRES_DB: labdb
+      POSTGRES_PASSWORD: '${LAB_NOVA_DB:?Ejecute laboratorio-empresa preparar}'
+      POSTGRES_HOST_AUTH_METHOD: scram-sha-256
+    networks:
+      dmz: {ipv4_address: 192.168.71.14}
+
+  # --- Corporativo: aplicaciones dual-stack -------------------------------
+  app-crm:
+    <<: *app
+    container_name: nova-app-crm
+    environment: {LAB_SCENARIO: alpha, LAB_FIXTURE_SEED: '${LAB_FIXTURE_SEED:?Ejecute laboratorio-empresa preparar}'}
+    networks:
+      corp: {ipv4_address: 192.168.69.11, ipv6_address: 'fd57:2026:69::11'}
+  app-erp:
+    <<: *app
+    container_name: nova-app-erp
+    environment: {LAB_SCENARIO: beta, LAB_FIXTURE_SEED: '${LAB_FIXTURE_SEED:?Ejecute laboratorio-empresa preparar}'}
+    networks:
+      corp: {ipv4_address: 192.168.69.12, ipv6_address: 'fd57:2026:69::12'}
+  app-portal:
+    <<: *app
+    container_name: nova-app-portal
+    environment: {LAB_SCENARIO: gamma, LAB_FIXTURE_SEED: '${LAB_FIXTURE_SEED:?Ejecute laboratorio-empresa preparar}'}
+    networks:
+      corp: {ipv4_address: 192.168.69.13, ipv6_address: 'fd57:2026:69::13'}
+  app-intranet:
+    <<: *app
+    container_name: nova-app-intranet
+    environment: {LAB_SCENARIO: strict, LAB_FIXTURE_SEED: '${LAB_FIXTURE_SEED:?Ejecute laboratorio-empresa preparar}'}
+    networks:
+      corp: {ipv4_address: 192.168.69.14, ipv6_address: 'fd57:2026:69::14'}
+
+  # --- Datacenter: protocolos IPv6 ----------------------------------------
+  router:
+    <<: *protocol
+    container_name: nova-router
+    cap_add: [NET_ADMIN, NET_RAW, SETUID, SETGID]
+    command: [radvd, -n, -m, stderr, -C, /app/datacenter/radvd.conf, -p, /run/radvd.pid]
+    sysctls:
+      net.ipv6.conf.all.forwarding: "1"
+    networks:
+      datacenter:
+        ipv4_address: 192.168.70.254
+        ipv6_address: fd57:2026:70::fe
+        mac_address: '02:57:20:26:70:fe'
+  sender:
+    <<: *protocol
+    container_name: nova-sender
+    cap_add: [NET_RAW]
+    command: [sleep, infinity]
+    networks:
+      datacenter:
+        ipv4_address: 192.168.70.10
+        ipv6_address: fd57:2026:70::10
+        mac_address: '02:57:20:26:70:10'
+  receiver-a:
+    <<: *protocol
+    container_name: nova-receiver-a
+    cap_add: [NET_ADMIN, NET_RAW]
+    command: [python, /app/datacenter/receiver.py]
+    environment: {LAB_GUARDED: "0"}
+    networks:
+      datacenter:
+        ipv4_address: 192.168.70.20
+        ipv6_address: fd57:2026:70::20
+        mac_address: '02:57:20:26:70:20'
+  receiver-b:
+    <<: *protocol
+    container_name: nova-receiver-b
+    cap_add: [NET_ADMIN, NET_RAW]
+    command: [python, /app/datacenter/receiver.py]
+    environment: {LAB_GUARDED: "1"}
+    networks:
+      datacenter:
+        ipv4_address: 192.168.70.21
+        ipv6_address: fd57:2026:70::21
+        mac_address: '02:57:20:26:70:21'

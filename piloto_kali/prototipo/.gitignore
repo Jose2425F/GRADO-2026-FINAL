@@ -1,0 +1,23 @@
+.venv/
+.venv312/
+.venv313/
+.verificacion/
+corridas/
+.env
+__pycache__/
+.pytest_cache/
+*.pyc
+*.egg-info/
+
+.lab/
+.lab-v2/
+experimentos/
+.coverage
+
+# Archivo recuperable y configuración privada del banco integrado
+archivo_corridas/
+.manual-restorations.json
+.manual-restorations.lock
+.lab-empresa/
+
+.lab-suite/

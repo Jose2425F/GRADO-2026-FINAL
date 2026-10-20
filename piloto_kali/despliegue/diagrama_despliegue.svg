@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 860" role="img" aria-labelledby="title desc">
+  <title id="title">Topología corregida del laboratorio</title>
+  <desc id="desc">Tres zonas: control, auditoría con dos enlaces separados, y gestión. Kali accede a los dos enlaces de auditoría; el observador reside en gestión.</desc>
+  <style>
+    text{font-family:Arial,Helvetica,sans-serif;fill:#17212b}
+    .h1{font-size:22px;font-weight:700}.zone{font-size:17px;font-weight:700}
+    .label{font-size:14px;font-weight:700}.detail{font-size:12px}.small{font-size:11px}
+    .ctl{fill:#fff2de;stroke:#bd812e;stroke-width:2}.audit{fill:#eaf1fb;stroke:#4473b0;stroke-width:2}
+    .mgmt{fill:#eaf6ed;stroke:#4b9860;stroke-width:2}.node{fill:#fff;stroke:#56616b;stroke-width:1.5}
+    .line{stroke:#53616f;stroke-width:2;fill:none}.dotted{stroke:#668875;stroke-width:1.5;stroke-dasharray:6 5;fill:none}
+  </style>
+  <rect width="1200" height="860" fill="#ffffff"/>
+  <text x="600" y="34" text-anchor="middle" class="h1">Topología del laboratorio dual-stack</text>
+  <text x="600" y="57" text-anchor="middle" class="detail">Tres zonas de seguridad y dos enlaces de auditoría independientes</text>
+
+  <rect x="380" y="75" width="440" height="54" rx="8" class="node"/>
+  <text x="600" y="99" text-anchor="middle" class="label">Internet</text>
+  <text x="600" y="117" text-anchor="middle" class="small">API del LLM y fuentes técnicas permitidas</text>
+  <path d="M600 129 V151" class="line"/>
+
+  <rect x="70" y="151" width="1060" height="158" rx="12" class="ctl"/>
+  <text x="92" y="177" class="zone">Zona de control</text>
+  <text x="92" y="197" class="detail">NAT Network VirtualBox 192.168.10.0/24</text>
+  <rect x="410" y="187" width="380" height="96" rx="8" class="node"/>
+  <text x="600" y="211" text-anchor="middle" class="label">Kali: máquina de control y host Docker</text>
+  <text x="600" y="231" text-anchor="middle" class="detail">Monolito modular / agente único</text>
+  <text x="600" y="249" text-anchor="middle" class="detail">LangGraph · Nmap · Hydra · Scapy · SQLite</text>
+  <text x="600" y="267" text-anchor="middle" class="small">Control .10.2 · Auditoría A .56.2 / IPv6 ::2 · Gestión .99.2</text>
+
+  <rect x="70" y="350" width="1060" height="344" rx="12" class="audit"/>
+  <text x="92" y="377" class="zone">Zona de auditoría</text>
+  <text x="92" y="398" class="detail">Dos enlaces aislados; sin reenvío a Internet o gestión desde los objetivos</text>
+  <path d="M525 283 V350" class="line"/>
+  <path d="M675 283 V350" class="line"/>
+
+  <rect x="95" y="417" width="495" height="252" rx="8" fill="#f7faff" stroke="#7595bd"/>
+  <text x="113" y="440" class="label">Auditoría A: red interna de VM</text>
+  <text x="113" y="460" class="detail">192.168.56.0/24 · fd6a:9b21:4c70:1::/64</text>
+  <text x="113" y="477" class="small">NDP, RA/SLAAC y fragmentación IPv6</text>
+  <rect x="113" y="499" width="210" height="66" rx="6" class="node"/>
+  <text x="218" y="523" text-anchor="middle" class="label">Metasploitable3</text>
+  <text x="218" y="544" text-anchor="middle" class="detail">192.168.56.20</text>
+  <rect x="344" y="499" width="225" height="66" rx="6" class="node"/>
+  <text x="456" y="523" text-anchor="middle" class="label">Router RA · radvd</text>
+  <text x="456" y="544" text-anchor="middle" class="detail">.56.254 · IPv6 ::1</text>
+  <rect x="230" y="582" width="225" height="66" rx="6" class="node"/>
+  <text x="342" y="606" text-anchor="middle" class="label">Receptor IPv6</text>
+  <text x="342" y="627" text-anchor="middle" class="detail">.56.30 · dirección SLAAC</text>
+
+  <rect x="610" y="417" width="495" height="252" rx="8" fill="#f7faff" stroke="#7595bd"/>
+  <text x="628" y="440" class="label">Auditoría B: puente Docker interno</text>
+  <text x="628" y="460" class="detail">192.168.57.0/24 · br-lab-audit .57.1 · solo IPv4</text>
+  <text x="628" y="477" class="small">Sin puertos publicados, RA ni salida externa</text>
+  <rect x="628" y="499" width="216" height="66" rx="6" class="node"/>
+  <text x="736" y="523" text-anchor="middle" class="label">obj-ssh</text>
+  <text x="736" y="544" text-anchor="middle" class="detail">192.168.57.11:2222</text>
+  <rect x="862" y="499" width="225" height="66" rx="6" class="node"/>
+  <text x="974" y="523" text-anchor="middle" class="label">obj-ftp</text>
+  <text x="974" y="544" text-anchor="middle" class="detail">192.168.57.12:21</text>
+  <rect x="628" y="582" width="216" height="66" rx="6" class="node"/>
+  <text x="736" y="606" text-anchor="middle" class="label">obj-tomcat</text>
+  <text x="736" y="627" text-anchor="middle" class="detail">192.168.57.13:8080</text>
+  <rect x="862" y="582" width="225" height="66" rx="6" class="node"/>
+  <text x="974" y="606" text-anchor="middle" class="label">obj-postgres</text>
+  <text x="974" y="627" text-anchor="middle" class="detail">192.168.57.14:5432</text>
+
+  <rect x="70" y="730" width="1060" height="102" rx="12" class="mgmt"/>
+  <text x="92" y="757" class="zone">Zona de gestión</text>
+  <text x="92" y="778" class="detail">Red interna de VM 192.168.99.0/24 · telemetría separada</text>
+  <rect x="655" y="748" width="440" height="65" rx="8" class="node"/>
+  <text x="875" y="773" text-anchor="middle" class="label">Observador FastAPI · 192.168.99.10</text>
+  <text x="875" y="793" text-anchor="middle" class="detail">Lecturas autorizadas por el controlador; sin ground truth</text>
+  <path d="M790 235 H1150 V715 H875 V748" class="dotted"/>
+  <path d="M342 648 V730" class="dotted"/>
+  <text x="358" y="711" class="small">telemetría de router, receptor y objetivo instrumentado</text>
+</svg>

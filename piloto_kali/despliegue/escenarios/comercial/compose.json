@@ -1,0 +1,437 @@
+{
+  "name": "novaflow-suite-comercial",
+  "networks": {
+    "dmz": {
+      "name": "nf2_dmz",
+      "internal": true,
+      "driver_opts": {
+        "com.docker.network.bridge.name": "br-nf2-dmz"
+      },
+      "ipam": {
+        "config": [
+          {
+            "subnet": "192.168.122.0/24",
+            "gateway": "192.168.122.1"
+          }
+        ]
+      }
+    },
+    "corp": {
+      "name": "nf2_corp",
+      "internal": true,
+      "enable_ipv6": true,
+      "driver_opts": {
+        "com.docker.network.bridge.name": "br-nf2-corp"
+      },
+      "ipam": {
+        "config": [
+          {
+            "subnet": "192.168.120.0/24"
+          },
+          {
+            "subnet": "fd57:2026:120::/64"
+          }
+        ]
+      }
+    },
+    "datacenter": {
+      "name": "nf2_dc",
+      "internal": true,
+      "enable_ipv6": true,
+      "driver_opts": {
+        "com.docker.network.bridge.name": "br-nf2-dc"
+      },
+      "ipam": {
+        "config": [
+          {
+            "subnet": "192.168.121.0/24"
+          },
+          {
+            "subnet": "fd57:2026:121::/64"
+          }
+        ]
+      }
+    }
+  },
+  "services": {
+    "portal": {
+      "image": "novaflow-lab-credentials:local",
+      "container_name": "nf2-portal",
+      "hostname": "nf2-portal",
+      "cap_drop": [
+        "ALL"
+      ],
+      "cap_add": [
+        "CHOWN",
+        "SETUID",
+        "SETGID",
+        "DAC_OVERRIDE",
+        "SYS_CHROOT"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mem_limit": "128m",
+      "pids_limit": 64,
+      "cpus": 0.5,
+      "restart": "no",
+      "environment": {
+        "LAB_TARGET_PASSWORD": "${LAB_ACTUAL_PORTAL}"
+      },
+      "networks": {
+        "dmz": {
+          "ipv4_address": "192.168.122.11"
+        }
+      },
+      "labels": {
+        "novaflow.suite": "1",
+        "novaflow.scenario": "comercial"
+      },
+      "volumes": []
+    },
+    "legacy": {
+      "image": "novaflow-lab-http:local",
+      "container_name": "nf2-legacy",
+      "hostname": "nf2-legacy",
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "read_only": true,
+      "mem_limit": "64m",
+      "pids_limit": 32,
+      "cpus": 0.25,
+      "restart": "no",
+      "environment": {
+        "LAB_HTTP_USER": "console",
+        "LAB_HTTP_PASSWORD": "${LAB_ACTUAL_LEGACY}"
+      },
+      "networks": {
+        "dmz": {
+          "ipv4_address": "192.168.122.13"
+        }
+      },
+      "labels": {
+        "novaflow.suite": "1",
+        "novaflow.scenario": "comercial"
+      },
+      "volumes": [
+        "./http_target.py:/app/http_target.py:ro"
+      ]
+    },
+    "records": {
+      "image": "postgres:16-alpine",
+      "container_name": "nf2-records",
+      "hostname": "nf2-records",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mem_limit": "192m",
+      "pids_limit": 128,
+      "cpus": 0.5,
+      "restart": "no",
+      "tmpfs": [
+        "/var/lib/postgresql/data:rw,size=128m",
+        "/run/postgresql:rw,size=8m",
+        "/tmp:rw,size=8m"
+      ],
+      "environment": {
+        "POSTGRES_USER": "labuser",
+        "POSTGRES_DB": "labdb",
+        "POSTGRES_PASSWORD": "${LAB_ACTUAL_RECORDS}",
+        "POSTGRES_HOST_AUTH_METHOD": "scram-sha-256"
+      },
+      "networks": {
+        "dmz": {
+          "ipv4_address": "192.168.122.14"
+        }
+      },
+      "labels": {
+        "novaflow.suite": "1",
+        "novaflow.scenario": "comercial"
+      },
+      "volumes": []
+    },
+    "app-crm": {
+      "image": "auditoria-lab-v2-app:local",
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "read_only": true,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=16m,mode=1777"
+      ],
+      "mem_limit": "64m",
+      "pids_limit": 32,
+      "cpus": 0.25,
+      "restart": "no",
+      "container_name": "nf2-app-crm",
+      "environment": {
+        "LAB_SCENARIO": "beta",
+        "LAB_FIXTURE_SEED": "${LAB_FIXTURE_SEED:?Ejecute laboratorio-empresa preparar}"
+      },
+      "networks": {
+        "corp": {
+          "ipv4_address": "192.168.120.11",
+          "ipv6_address": "fd57:2026:120::11"
+        }
+      },
+      "labels": {
+        "novaflow.suite": "1",
+        "novaflow.scenario": "comercial"
+      },
+      "volumes": []
+    },
+    "app-erp": {
+      "image": "auditoria-lab-v2-app:local",
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "read_only": true,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=16m,mode=1777"
+      ],
+      "mem_limit": "64m",
+      "pids_limit": 32,
+      "cpus": 0.25,
+      "restart": "no",
+      "container_name": "nf2-app-erp",
+      "environment": {
+        "LAB_SCENARIO": "gamma",
+        "LAB_FIXTURE_SEED": "${LAB_FIXTURE_SEED:?Ejecute laboratorio-empresa preparar}"
+      },
+      "networks": {
+        "corp": {
+          "ipv4_address": "192.168.120.12",
+          "ipv6_address": "fd57:2026:120::12"
+        }
+      },
+      "labels": {
+        "novaflow.suite": "1",
+        "novaflow.scenario": "comercial"
+      },
+      "volumes": []
+    },
+    "app-intranet": {
+      "image": "auditoria-lab-v2-app:local",
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "read_only": true,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=16m,mode=1777"
+      ],
+      "mem_limit": "64m",
+      "pids_limit": 32,
+      "cpus": 0.25,
+      "restart": "no",
+      "container_name": "nf2-app-intranet",
+      "environment": {
+        "LAB_SCENARIO": "strict",
+        "LAB_FIXTURE_SEED": "${LAB_FIXTURE_SEED:?Ejecute laboratorio-empresa preparar}"
+      },
+      "networks": {
+        "corp": {
+          "ipv4_address": "192.168.120.14",
+          "ipv6_address": "fd57:2026:120::14"
+        }
+      },
+      "labels": {
+        "novaflow.suite": "1",
+        "novaflow.scenario": "comercial"
+      },
+      "volumes": []
+    },
+    "router": {
+      "image": "novaflow-lab-protocol:local",
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "read_only": true,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=16m,mode=1777",
+        "/run:rw,noexec,nosuid,size=4m"
+      ],
+      "mem_limit": "96m",
+      "pids_limit": 32,
+      "cpus": 1.0,
+      "restart": "no",
+      "container_name": "nf2-router",
+      "cap_add": [
+        "NET_ADMIN",
+        "NET_RAW",
+        "SETUID",
+        "SETGID"
+      ],
+      "command": [
+        "radvd",
+        "-n",
+        "-m",
+        "stderr",
+        "-C",
+        "/app/datacenter/radvd.conf",
+        "-p",
+        "/run/radvd.pid"
+      ],
+      "sysctls": {
+        "net.ipv6.conf.all.forwarding": "1"
+      },
+      "networks": {
+        "datacenter": {
+          "ipv4_address": "192.168.121.254",
+          "ipv6_address": "fd57:2026:121::fe",
+          "mac_address": "02:57:20:26:a2:fe"
+        }
+      },
+      "labels": {
+        "novaflow.suite": "1",
+        "novaflow.scenario": "comercial"
+      },
+      "volumes": [
+        "./protocol:/app/datacenter:ro"
+      ]
+    },
+    "sender": {
+      "image": "novaflow-lab-protocol:local",
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "read_only": true,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=16m,mode=1777",
+        "/run:rw,noexec,nosuid,size=4m"
+      ],
+      "mem_limit": "96m",
+      "pids_limit": 32,
+      "cpus": 1.0,
+      "restart": "no",
+      "container_name": "nf2-sender",
+      "cap_add": [
+        "NET_RAW"
+      ],
+      "command": [
+        "sleep",
+        "infinity"
+      ],
+      "networks": {
+        "datacenter": {
+          "ipv4_address": "192.168.121.10",
+          "ipv6_address": "fd57:2026:121::10",
+          "mac_address": "02:57:20:26:a2:10"
+        }
+      },
+      "labels": {
+        "novaflow.suite": "1",
+        "novaflow.scenario": "comercial"
+      },
+      "volumes": [
+        "./protocol:/app/datacenter:ro"
+      ]
+    },
+    "receiver-a": {
+      "image": "novaflow-lab-protocol:local",
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "read_only": true,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=16m,mode=1777",
+        "/run:rw,noexec,nosuid,size=4m"
+      ],
+      "mem_limit": "96m",
+      "pids_limit": 32,
+      "cpus": 1.0,
+      "restart": "no",
+      "container_name": "nf2-receiver-a",
+      "cap_add": [
+        "NET_ADMIN",
+        "NET_RAW"
+      ],
+      "command": [
+        "python",
+        "/app/datacenter/receiver.py"
+      ],
+      "environment": {
+        "LAB_GUARDED": "0"
+      },
+      "networks": {
+        "datacenter": {
+          "ipv4_address": "192.168.121.20",
+          "ipv6_address": "fd57:2026:121::20",
+          "mac_address": "02:57:20:26:a2:20"
+        }
+      },
+      "labels": {
+        "novaflow.suite": "1",
+        "novaflow.scenario": "comercial"
+      },
+      "volumes": [
+        "./protocol:/app/datacenter:ro"
+      ]
+    },
+    "receiver-b": {
+      "image": "novaflow-lab-protocol:local",
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "read_only": true,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=16m,mode=1777",
+        "/run:rw,noexec,nosuid,size=4m"
+      ],
+      "mem_limit": "96m",
+      "pids_limit": 32,
+      "cpus": 1.0,
+      "restart": "no",
+      "container_name": "nf2-receiver-b",
+      "cap_add": [
+        "NET_ADMIN",
+        "NET_RAW"
+      ],
+      "command": [
+        "python",
+        "/app/datacenter/receiver.py"
+      ],
+      "environment": {
+        "LAB_GUARDED": "1"
+      },
+      "networks": {
+        "datacenter": {
+          "ipv4_address": "192.168.121.21",
+          "ipv6_address": "fd57:2026:121::21",
+          "mac_address": "02:57:20:26:a2:21"
+        }
+      },
+      "labels": {
+        "novaflow.suite": "1",
+        "novaflow.scenario": "comercial"
+      },
+      "volumes": [
+        "./protocol:/app/datacenter:ro"
+      ]
+    }
+  }
+}

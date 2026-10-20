@@ -1,0 +1,140 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Capacidades y ampliación del prototipo DualStack</title><style>
+*{box-sizing:border-box}body{background:#f3f5f7;color:#26384b;font:15px/1.75 system-ui,sans-serif;margin:0}main{max-width:1100px;margin:25px auto;padding:35px;background:white;border:1px solid #e0e7ed;border-radius:12px}h1{font-size:30px;line-height:1.25}h2{margin-top:35px;font-size:21px}a{color:#176847}code{background:#eff3f5;padding:2px 4px;font-size:12px;overflow-wrap:anywhere}table{display:block;overflow:auto;border-collapse:collapse;font-size:12px;margin:20px 0}th,td{min-width:130px;max-width:330px;border:1px solid #dfe7e9;padding:12px;vertical-align:top;text-align:left}th{background:#edf4e9}li{margin:8px 0}.bar{display:flex;gap:20px;flex-wrap:wrap}button{padding:8px 12px;border:0;background:#bbe87c;border-radius:6px;cursor:pointer}@media(max-width:650px){main{margin:10px;padding:20px}h1{font-size:25px}}@media print{@page{size:A4;margin:17mm}body{font-size:10px;background:white}main{margin:0;padding:0;max-width:none;border:0}.bar{display:none}table{display:table;width:100%;font-size:8px}th,td{min-width:0;max-width:none;padding:6px}tr{break-inside:avoid}h2{break-after:avoid}}
+</style><main><div class="bar"><a href="/#new">Volver al panel</a><button onclick="window.print()">Imprimir o guardar PDF</button></div><h1>Capacidades del prototipo y diseño de un laboratorio ampliado</h1>
+<p>El prototipo ejecuta una auditoría acotada de redes y aplicaciones de laboratorio, conserva evidencia y compara dos formas de organizar las mismas pruebas: agente único y agentes especializados. Su detector es un conjunto de perfiles y validadores programados. La IA elige la siguiente opción autorizada del catálogo; no descubre por sí sola cualquier vulnerabilidad, no escribe scripts ni determina la veracidad de los hallazgos.</p>
+<p>Esta guía describe los bancos certificados v1/v2. El panel también ofrece <strong>Mi laboratorio por IP</strong>, inventario TCP por IP/rango, credenciales IPv4 opcionales y tres pruebas web configurables con sesión y recursos ficticios conocidos. No aplica automáticamente las detecciones de protocolo IPv6 a receptores desconocidos. La certificación experimental debe realizarse por banco y versión. La guía de operación está en docs/MI_LABORATORIO_POR_IP.md; selecciona Auditoría de red por IP o rango en Nueva auditoría..</p>
+<h2>Flujo de una auditoría</h2>
+<ol>
+<li>El operador indica autorización, alcance, arquitectura y presupuesto. El controlador comprueba política, disponibilidad y dependencias.</li>
+<li>Se construye un catálogo de tareas. Con IA, el modelo elige una opción permitida; sin IA se sigue una selección determinista.</li>
+<li>Los adaptadores ejecutan clientes HTTP, inventario, autenticación finita o pruebas IPv6 según el banco. El agente único admite una tarea en vuelo; el multiagente admite hasta dos independientes. Las modificaciones IPv6 de un mismo segmento se serializan.</li>
+<li>Se guardan resultados, estados del receptor, capturas y huellas. Un validador contrasta la evidencia; un segundo cliente o canal independiente corrobora cuando lo exige el perfil.</li>
+<li>Se publican hallazgos confirmados, cobertura, incidencias, tiempos y consumo. El panel ofrece informes técnico y ejecutivo desde esa misma evidencia, sin IA adicional.</li>
+</ol>
+<h2>Extensión por IP implementada el 16 de octubre</h2>
+<p>El modo libre conecta el inventario con pruebas HTTP de autorización por objeto, límite de descarga y diferencias de permisos IPv4/IPv6. Permite hasta 16 aplicaciones con IP/puerto del alcance, sesión privada Cookie/Authorization y recursos ficticios con marcadores conocidos. Contrasta dos clientes independientes en la misma familia, sin proxies ni redirecciones; respuestas ambiguas, incompatibilidad y falta de configuración quedan explícitas. El control propio debe ser accesible con la sesión y rechazado con 401/403 sin ella. No descubre automáticamente sesiones, recursos ajenos o todas las rutas web. Las pruebas de protocolo IPv6 sobre receptores desconocidos siguen requiriendo adaptación. La guía por IP detalla configuración, controles y límites.</p>
+<h2>Qué detecta el banco v2 del panel</h2>
+<p>Hay seis clases de condición confirmable, distribuidas entre activos. Tener nueve condiciones presentes no significa implementar nueve tipos diferentes ni nueve CVE. Algunas pruebas buscan comprobar un control correcto y deben terminar sin hallazgos.</p>
+<table>
+<thead>
+<tr>
+<th>Condición</th>
+<th>Perfil o mecanismo</th>
+<th>Evidencia exigida</th>
+<th>Caso que debes programar en el laboratorio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acceso al documento de otro usuario, relacionado con CWE-639</td>
+<td>http_application_dualstack_v2; clientes HTTP por ambas familias</td>
+<td>Contenido del documento y propietario; contraste de dos clientes y traza del servidor</td>
+<td>Una cuenta de prueba, recurso propio, recurso ajeno e identificador señuelo; un servicio que permita el acceso ajeno y otro que lo deniegue</td>
+</tr>
+<tr>
+<td>Descarga fuera del directorio permitido, relacionada con CWE-22</td>
+<td>El mismo perfil HTTP; variantes de codificación</td>
+<td>Recurso interno sintético reconocible; no basta HTTP 200; variantes deduplicadas</td>
+<td>Descarga pública e interna ficticias; configuraciones con y sin comprobación del límite del directorio</td>
+</tr>
+<tr>
+<td>Autorización administrativa distinta por familia, relacionada con CWE-863</td>
+<td>El mismo perfil compara IPv4 e IPv6</td>
+<td>Mismo usuario y recursos; denegación IPv4 y acceso administrativo IPv6 corroborados</td>
+<td>Un servicio con control incorrecto en IPv6 y otro con permisos equivalentes por ambas familias</td>
+</tr>
+<tr>
+<td>Confianza en anuncios de router no autorizado</td>
+<td>ipv6_ra_route_v2 y ipv6_ra_mtu_v2</td>
+<td>Captura de llegada y cambio de ruta o MTU; estado anterior, posterior y restaurado</td>
+<td>Router legítimo, emisor y receptor permisivo frente a receptor que filtre los anuncios; ruta y MTU comparten una condición por activo</td>
+</tr>
+<tr>
+<td>Sustitución de la asociación de un vecino</td>
+<td>ipv6_na_neighbor_v2</td>
+<td>Asociación conocida antes y después del anuncio, observador y restauración</td>
+<td>Vecino conocido y políticas contrastables de aceptación de anuncios</td>
+</tr>
+<tr>
+<td>Interferencia con detección de direcciones duplicadas</td>
+<td>ipv6_dad_na_v2</td>
+<td>Observación del intercambio y dirección marcada dadfailed; restauración</td>
+<td>Receptor que configura una dirección y un emisor de respuesta de prueba; control protegido equivalente</td>
+</tr>
+</tbody>
+</table>
+<p>Las dos primeras condiciones también se observan por IPv6: no son vulnerabilidades exclusivas de IPv4. El caso administrativo comprueba específicamente una diferencia de autorización entre familias.</p>
+<h2>Qué comprueba sin etiquetarlo como vulnerabilidad</h2>
+<ul>
+<li><code>ipv6_slaac_v2</code>: configuración legítima de una dirección mediante anuncios del router.</li>
+<li><code>ipv6_overlap_v2</code> e <code>ipv6_overlap_middle_v2</code>: descarte de fragmentos solapados.</li>
+<li><code>ipv6_atomic_v2</code>: procesamiento del fragmento atómico conforme al criterio del caso. Su aceptación válida no demuestra evasión de IDS.</li>
+<li><code>ipv6_incomplete_chain_v2</code>: comportamiento frente a una cadena incompleta, con control UDP y captura.</li>
+</ul>
+<p>La ausencia de una entrega UDP no demuestra por sí sola protección: se requiere el control y la observación definidos. Una captura demuestra paquetes observados, no automáticamente una vulnerabilidad. Las reglas concretas se encuentran en <code>v2_agent.assess</code> y <code>lab_v2.nd_effect</code>.</p>
+<h2>Qué existe además en v1</h2>
+<table>
+<thead>
+<tr>
+<th>Capacidad implementada</th>
+<th>Herramientas</th>
+<th>Límite</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inventario de puertos TCP y reconocimiento de servicios IPv4</td>
+<td>Nmap, perfil nmap_tcp_services_v1</td>
+<td>Un puerto abierto o una versión no confirma una CVE</td>
+</tr>
+<tr>
+<td>Confirmación de que una credencial autorizada permite acceso a SSH, FTP, PostgreSQL o HTTP Basic de Tomcat</td>
+<td>Hydra y corroboración con Paramiko, ftplib, psycopg o urllib</td>
+<td>Una credencial sintética por perfil; no es búsqueda general de contraseñas ni prueba de inyección; sin acciones posteriores a autenticación</td>
+</tr>
+<tr>
+<td>Observación de ruta, vecino, DAD y MTU IPv6</td>
+<td>Adaptadores Scapy y control de estado del banco v1</td>
+<td>En v1 los efectos ND no tienen la misma referencia positiva/negativa certificada que v2; no se mezclan sus hallazgos/KPI</td>
+</tr>
+<tr>
+<td>Cuatro variantes de fragmentación</td>
+<td>Scapy, control UDP y PCAP</td>
+<td>Ensayos de protocolo, no catálogo de exploits del kernel</td>
+</tr>
+</tbody>
+</table>
+<p>El panel unificado inicia únicamente el banco v2. No ejecuta automáticamente las pruebas de Nmap e Hydra del banco v1. Los comandos <code>demo</code> y <code>experimento</code> conservan v1; <code>demo-v2</code> y <code>experimento-v2</code> usan v2.</p>
+<h2>Qué no implementa actualmente</h2>
+<p>No hay detector general de SQL injection, XSS, SSRF, deserialización, RCE, escalada local, Active Directory, malware, phishing, TLS o un catálogo universal de CVE. No se ejecutan Metasploit ni sqlmap desde el flujo actual. No hay rastreador web que descubra automáticamente formularios o APIs de una aplicación desconocida. Tener una herramienta instalada no significa que el auditor la invoque. Los casos de diseño históricos retirados no cuentan como capacidades implementadas.</p>
+<h2>Dependencias concretas del banco actual</h2>
+<p>El banco v2 tiene ocho contenedores, seis objetivos auditados y 22 tareas. Las cuatro aplicaciones usan HTTP/8088 y las rutas <code>/session</code>, <code>/catalog</code>, <code>/objects/{id}</code>, <code>/download</code>, <code>/admin</code> y <code>/trace</code>, con estructuras de respuesta y marcadores sintéticos específicos. El auditor conoce ese contrato; una web cualquiera con esas palabras no basta para obtener un diagnóstico válido.</p>
+<p>Los receptores requieren observador HTTP/8000, interfaz del caso, estado IPv6 consultable y control UDP/53000. El adaptador usa los contenedores conocidos, el emisor Scapy y la restauración del receptor. Los nombres, redes, puertos y activos se verifican contra el catálogo. En el modo v2 no existe selección libre de subred, número de equipos ni URL externa. El modo separado por IP admite IPv4 literal/lista/CIDR/rango e IPv6 por lista, hasta 256 direcciones y 32 puertos TCP. Permite configurar aplicaciones con sesiones y marcadores de prueba para tres clases web; los perfiles de protocolo IPv6 todavía requieren observadores y acceso al enlace.</p>
+<p>La entrada genérica <code>auditar</code> de v1 permite solicitudes y políticas declarativas, pero no elimina los límites de sus adaptadores ni adapta las acciones IPv6 a una VM externa. Los casos v2 exigen su preflight y catálogo exactos. Para auditar otro banco se debe desarrollar y verificar el adaptador correspondiente.</p>
+<h2>Propuesta concreta para un banco mayor</h2>
+<p>La siguiente es una especificación de desarrollo, no una configuración ya habilitada.</p>
+<ol>
+<li>Definir una versión nueva del banco y del protocolo. Mantener v2 congelado para las 15 parejas preparadas; no cambiar su verdad de referencia, código o imágenes a mitad de un estudio.</li>
+<li>Separar tres metas: más activos con los mismos defectos, mayor diversidad de implementaciones y nuevas clases de defecto. Solo la primera puede lograrse replicando fixtures; no añade nuevas capacidades de detección.</li>
+<li>Para aplicaciones, comenzar con una instancia permisiva y una protegida por cada una de las tres clases HTTP. Mantener datos sintéticos y publicar el contrato de sesión, recursos y evidencia. Si se incorporan aplicaciones diferentes, crear un adaptador por contrato: autenticación, localizadores, contenido esperado y corroboración.</li>
+<li>Para redes, mantener router legítimo, emisor y controles protegidos/permisivos. Si se pretende comparar sistemas operativos, usar receptores en VM independientes y desarrollar transporte, observador y restauración para cada sistema. Docker comparte el kernel del anfitrión; replicar contenedores no proporciona diversidad de kernels.</li>
+<li>Externalizar el catálogo de activos y perfiles para la nueva versión; sustituir las listas fijas en <code>lab_v2.py</code>, <code>v2_agent.targets</code>, <code>build_plan</code> y <code>authorize_v2</code>, adaptar certificación, preflight y formulario. No basta cambiar IPs o nombres empresariales.</li>
+<li>Para cada caso, definir antes de medir: condición, activo, estado inicial, resultado positivo, control negativo, evidencia requerida, deduplicación y restauración. Certificar cada configuración con comprobaciones independientes del LLM. Mantener la referencia fuera del contexto del planificador.</li>
+<li>Ejecutar primero una prueba funcional sin IA en cada adaptador y probar rechazos, tiempos de espera, errores y restauración. Luego un piloto API separado para presupuestar consumo real. Dimensionar tiempo, concurrencia y tokens con ese piloto; no extrapolar linealmente el consumo de seis objetivos a una empresa completa.</li>
+<li>Fijar después el experimento comparativo: mismo catálogo, modelo, recursos, herramientas y límites en ambas arquitecturas; orden emparejado y aleatorio. Las repeticiones son ejecuciones, no vulnerabilidades diferentes. Un banco nuevo requiere resultados y KPI separados.</li>
+</ol>
+<p>Una propuesta inicial de contenido puede incluir dos o más implementaciones por condición HTTP, pares protegidos/permisivos IPv6 y servicios de autenticación con credenciales sintéticas. Es una elección para ampliar diversidad, no un mínimo académico ni una cantidad que garantice aceptación. La rúbrica y el director determinan la suficiencia del trabajo.</p>
+<h2>Cómo ver lo que hace</h2>
+<p>En Seguimiento y resultados, abre <strong>Consola técnica</strong>. INICIO y CIERRE provienen de eventos; PERFIL describe el código asociado. Las respuestas HTTP y metadatos de captura se publican cuando la evidencia de la tarea está disponible. No existen eventos individuales para cada subcomando interno de v2. La consola no simula una sesión de shell ni acepta órdenes.</p>
+<p>El <strong>informe técnico</strong> presenta cobertura, perfiles, bibliotecas/herramientas, corroboración, referencias y contraste de integridad del estado. El <strong>informe ejecutivo</strong> agrupa las mismas condiciones por consecuencias y acciones para los responsables. Ninguno añade hallazgos ni realiza llamadas extra al modelo. Pueden guardarse como HTML o imprimirse a PDF.</p>
+<h2>Evidencia y fuentes</h2>
+<ul>
+<li>Código del repositorio: <code>piloto_kali/prototipo/src/auditoria/v2_agent.py</code>, <code>lab_v2.py</code>, <code>policy.py</code>, <code>agentes/agente_administrador.py</code>, <code>agente_ipv4_servicios.py</code>, <code>agente_ipv4_credenciales.py</code> y <code>validation.py</code>.</li>
+<li>Banco y controles actuales: Guía del laboratorio v2, archivo piloto_kali/prototipo/GUIA_LABORATORIO_V2.md.</li>
+<li>Taxonomía de las tres condiciones de aplicaciones: <a href="https://cwe.mitre.org/data/definitions/639.html">CWE-639</a>, <a href="https://cwe.mitre.org/data/definitions/22.html">CWE-22</a>, <a href="https://cwe.mitre.org/data/definitions/863.html">CWE-863</a>. Las referencias identifican clases; no certifican que cualquier aplicación las tenga.</li>
+<li>Fragmentación: <a href="https://www.rfc-editor.org/rfc/rfc5722">RFC 5722</a> y <a href="https://www.rfc-editor.org/rfc/rfc6946">RFC 6946</a>.</li>
+<li>Contención y kernel compartido: <a href="https://docs.docker.com/engine/security/">Docker Engine security</a>.</li>
+</ul>
+<p>Fuentes normativas consultadas el 14 de octubre de 2026. El inventario de capacidades se apoya en el código local, no en una promesa de las herramientas o del proveedor de IA.</p>
+</main></html>

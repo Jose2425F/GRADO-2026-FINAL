@@ -1,0 +1,16 @@
+name: Pruebas del prototipo
+on: [push, pull_request]
+jobs:
+  contratos-y-evidencias:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: piloto_kali/prototipo
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install -e '.[test,ipv6]' 'coverage>=7,<8'
+      - run: python -m coverage run --source=src/auditoria -m pytest -q
+      - run: python -m coverage report

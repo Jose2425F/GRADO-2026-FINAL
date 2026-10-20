@@ -1,0 +1,16 @@
+{
+  "id": "sucursal",
+  "name": "NovaFlow · Sucursal Esencial",
+  "difficulty": "1 · Básico",
+  "detail": "Pocos activos, fallos evidentes y controles protegidos. Punto de partida.",
+  "targets": 6,
+  "containers": 8,
+  "tasks": 25,
+  "ipv4": [
+    "192.168.110.0/24",
+    "192.168.111.0/24",
+    "192.168.112.0/24"
+  ],
+  "version": "novaflow-suite-2/sucursal",
+  "acceptance": "pending"
+}

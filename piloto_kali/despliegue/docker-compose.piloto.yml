@@ -1,0 +1,40 @@
+# Primer objetivo real: Tomcat en puente Docker interno, sin credenciales.
+# No publicar puertos en NAT ni en el anfitrión.
+name: auditoria-piloto
+
+networks:
+  auditoria_ipv4:
+    name: lab_auditoria_ipv4
+    driver: bridge
+    internal: true
+    driver_opts:
+      com.docker.network.bridge.name: br-lab-audit
+    ipam:
+      config:
+        - subnet: 192.168.57.0/24
+          gateway: 192.168.57.1
+
+services:
+  objetivo-tomcat:
+    image: tomcat:9.0.122-jdk11-temurin-noble
+    container_name: obj-tomcat
+    hostname: obj-tomcat
+    networks:
+      auditoria_ipv4:
+        ipv4_address: 192.168.57.13
+    restart: "no"
+
+  objetivo-ssh:
+    image: linuxserver/openssh-server:latest
+    container_name: obj-ssh
+    hostname: obj-ssh
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - USER_NAME=labuser
+      - USER_PASSWORD=${LAB_SSH_PASSWORD:?Defina LAB_SSH_PASSWORD}
+      - PASSWORD_ACCESS=true
+    networks:
+      auditoria_ipv4:
+        ipv4_address: 192.168.57.11
+    restart: "no"
