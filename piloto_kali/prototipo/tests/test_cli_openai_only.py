@@ -1,3 +1,4 @@
+from rich.text import Text
 from typer.testing import CliRunner
 
 from auditoria.cli import app
@@ -9,9 +10,12 @@ def test_cli_exposes_only_current_provider_flags():
     for command in ["demo", "experimento", "piloto-ipv6"]:
         result = runner.invoke(app, [command, "--help"])
         assert result.exit_code == 0, result.output
-        assert "--openai" in result.output
-        assert "--gemini" not in result.output
-    assert "--sin-ia" in runner.invoke(app, ["experimento", "--help"]).output
+        help_text = Text.from_ansi(result.output).plain
+        assert "--openai" in help_text
+        assert "--gemini" not in help_text
+    result = runner.invoke(app, ["experimento", "--help"])
+    assert result.exit_code == 0, result.output
+    assert "--sin-ia" in Text.from_ansi(result.output).plain
 
 
 def test_lab_request_distinguishes_openai_from_disabled_without_old_provider():
