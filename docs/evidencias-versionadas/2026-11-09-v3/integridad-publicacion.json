@@ -1,0 +1,51 @@
+{
+  "schema": "centinela-publication-integrity/1",
+  "files": [
+    {
+      "path": "LEEME.txt",
+      "bytes": 4051,
+      "sha256": "fb945f880aeafe6ce1592123883a2845935b2df62db550328120bde3509c27e4"
+    },
+    {
+      "path": "conservacion-publica.json",
+      "bytes": 4111,
+      "sha256": "911f0094c707c97dbe350ccc029b090377ffb35173ef5944757d92d66a126451"
+    },
+    {
+      "path": "evidencias-reportes-v3-20261109.zip",
+      "bytes": 761235,
+      "sha256": "621fdb1e9692e269ce09df6207a8171141264645e57e64446a08e322293c5d46"
+    },
+    {
+      "path": "fuentes-aprobadas.json",
+      "bytes": 72125,
+      "sha256": "8630f11c6e664ba002dfbe2d3a506295a7b3197032485639597b966a7fafbe56"
+    },
+    {
+      "path": "integridad-evidencias.json",
+      "bytes": 25909,
+      "sha256": "cbf32cebd8b4a36a473a71b832cd4027f8d4e593a7ff4671675980d7ccf39345"
+    },
+    {
+      "path": "privacidad-publicacion.json",
+      "bytes": 1262,
+      "sha256": "9f698e44a72c3dd95c8e26c0f123a683afa31b39e8cfc50df96e856cd33d226e"
+    },
+    {
+      "path": "resumen-validacion.json",
+      "bytes": 2567,
+      "sha256": "a4afbdb46d645f7904ea0622c3a71eb8663f33033db7bd17200975696920682d"
+    },
+    {
+      "path": "suplementos/LEEME.txt",
+      "bytes": 293,
+      "sha256": "8106555901de0a9a52533d8cf7919b6a6fc241abc6d6aca9427148ff7db51c29"
+    },
+    {
+      "path": "verificar.py",
+      "bytes": 8164,
+      "sha256": "9708f96b5cd35830503c611491a24ae174c37bab071f8186f949d8eff19a2ca2"
+    }
+  ],
+  "scope": "This v3 base package only. Later supplements require independent manifests."
+}

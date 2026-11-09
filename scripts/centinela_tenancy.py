@@ -57,6 +57,7 @@ class Workspaces:
                 root.mkdir(parents=True,exist_ok=True,mode=0o700)
                 cls=type(self.base) if legacy else self.PrivatePanel
                 self.panels[uid]=cls(root,operations=self.SharedOperations(root),diagram=self.base.diagram)
+                self.panels[uid].operations.workspace_id=uid
             return self.panels[uid]
     def for_session(self,user):
         uid=user['workspace'] if user['role']=='admin' and user.get('workspace') else user['id']

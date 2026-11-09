@@ -1,0 +1,27 @@
+EVIDENCIAS DE LA REVISIÓN V3 — TRAZABILIDAD DE REPORTES
+9 de noviembre de 2026
+
+Este paquete añade evidencia sin sustituir los originales de octubre, noviembre, 11.3 o recuperación. La tesis y la norma se distribuyen de forma privada y no están incluidas.
+
+CORTE DE REPORTES
+La corrección aislada aprobó 73 pruebas dirigidas y 44 subpruebas. La regresión separada aprobó 1013 pruebas y 110 subpruebas, con 2 omisiones de fixtures históricos no distribuidos, 1 advertencia y 1 deselección explícita del caso Nmap real. La guarda de ese pase rechazó las herramientas y conexiones externas. Las fuentes no cambiaron durante la prueba.
+
+El cotejo leyó 6 casos de aceptación ya guardados: 154 resultados Single y 32 suplementarios Multiagent, separados. Conserva solicitudes, planes y reportes completos aprobados para publicación, 59 hallazgos, 77 registros de dirección y 30 rangos declarados. Se generaron copias JSON/HTML/PDF para contrastar alcance, identificación de hallazgos, tareas, intentos y evidencia. No se ejecutaron nuevas auditorías ni se modificó el paquete de origen.
+
+Dos fixtures adicionales simularon fallos al registrar el evento final, transitorio y persistente. JSON, HTML y PDF conservaron partial y graph_trace_error, sin repetir herramientas/proveedor simulados. Los rechazos previos a la admisión mantienen JSON y vista dinámica; no se prometen archivos HTML/PDF estáticos para esa frontera. El criterio RF-40 se refiere a JSON; no se añaden reportes TXT o DOCX.
+
+SUPLEMENTO DE VALIDACIÓN, SEPARADO
+Se conserva 1 test con 2 subpruebas y 4 invocaciones Nmap contra los sockets IPv4/IPv6 de la propia fixture en loopback. Usa perfil fijo, copia ELF sin capacidades de archivo y NoNewPrivs=1; no es aceptación de bancos protegidos. Se añadieron 6 pruebas del paquete legado, 4 DOM, Chromium de cuenta temporal y comprobación de CLI/arranque. El suplemento y la regresión tienen el mismo mapa de 592 fuentes. Su unión compatible cubre 1014 pruebas y 112 subpruebas, con 2 omisiones; NO fue una ejecución única completa. No se suman estas pruebas al tamaño de las campañas KPI.
+
+PROCEDENCIA Y PRIVACIDAD
+El punto de partida es 957972c; el patch y los inventarios describen la corrección de reportes probada. No atribuir estos resultados a cambios posteriores de instalación o API. Las copias con localizadores privados depurados se identifican en fuentes-aprobadas.json y export-map.json, con hash de origen y de copia. Los originales privados permanecen intactos. Los registros sintéticos completos ya eran públicos; sus bytes originales se conservan donde se indica. No se incluyen secretos configurados, políticas privadas, sesiones, imágenes Docker, el ejecutable Nmap ni imágenes de cuentas, incluso temporales. El escaneo por patrones no demuestra ausencia de todo secreto desconocido.
+
+VERIFICACIÓN SIN HERRAMIENTAS NI RED
+    python3 verificar.py
+Requiere un clon completo para cotejar también los 11 ZIP anteriores. Para una carpeta aislada:
+    python3 verificar.py --solo-paquete
+El verificador usa sólo biblioteca estándar, lee el ZIP sin extraerlo y comprueba tamaños, SHA-256, inventarios, referencias entre datos e invariantes del cotejo. No inicia Docker, Nmap, Hydra, emisores, brokers, API o conexión alguna. No recalcula KPI históricos. El cotejo PDF publicado fue una lectura adicional con pypdf/pdfplumber y 6 muestras visuales; el verificador estándar acredita sus bytes, no vuelve a renderizarlo.
+
+Los scripts usados para producir proyecciones se conservan como fuentes auxiliares. Si se desea repetir esa lectura, copiar a un directorio de trabajo nuevo, restaurar las fuentes ensayadas desde 957972c + patch y comprobar su mapa. No ejecutar scripts sobre los originales archivados. No confundir reproducción de proyecciones con aceptación de una nueva versión del ejecutor.
+
+Los futuros suplementos llevan su propio manifiesto en suplementos/. Nada de este paquete prueba despliegue en AWS, aceptación de nuevos bancos o funcionamiento global de API/VM.

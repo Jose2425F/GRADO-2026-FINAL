@@ -1,0 +1,83 @@
+{
+  "schema": "centinela-public-archive-preservation/1",
+  "scope": "Existing public ZIP artifacts only; no retired Word documents required.",
+  "files": [
+    {
+      "path": "docs/ajustes-profesor/2026-11-09-ro02/evidencias-ro02-20261109.zip",
+      "git_blob": "61aec4c931176ed2beb194896f6d75098c5d132b",
+      "bytes": 96585,
+      "sha256": "2fdcdefc7661e98309b8fb2380699927abb20655b0da2c50882b2536b25086b8",
+      "hash_source": "Independent post-purge mirror audit; reused, not KPI recalculation."
+    },
+    {
+      "path": "docs/evaluacion-langgraph/evaluacion-langgraph.zip",
+      "git_blob": "6b6b24aff3bee8a1c17cdf63faffe5d35444bad0",
+      "bytes": 28894,
+      "sha256": "5f3abe9d74fba3b4a4ebbb0fe1c6e33b2fe806657a0192d48266c89608bf96f4",
+      "hash_source": "Independent post-purge mirror audit; reused, not KPI recalculation."
+    },
+    {
+      "path": "docs/evidencias-historicas/2026-10-18/aceptacion-original.zip",
+      "git_blob": "55b4fb560b17acf52ac9a933e30df9dbd15566a7",
+      "bytes": 628571,
+      "sha256": "8f7fbe9043b636f1d510a5e3abb33e991eecf8a3b0a8220fc3c04a77f9e22fe4",
+      "hash_source": "Independent post-purge mirror audit; reused, not KPI recalculation."
+    },
+    {
+      "path": "docs/evidencias-historicas/2026-10-18/auditorias-originales.zip",
+      "git_blob": "b1c975ce7f97142179e8dfb1ed9813478bf8503f",
+      "bytes": 6281340,
+      "sha256": "4bd763f64a8ce3a5958ee7fadde5dcbfbf8d14e0fde304cded92b7d0c1ac0e7e",
+      "hash_source": "Independent post-purge mirror audit; reused, not KPI recalculation."
+    },
+    {
+      "path": "docs/evidencias-historicas/2026-10-18/soportes-academicos.zip",
+      "git_blob": "5fe3b806eb88ca3d2c6fdbc78c716ea6672008f5",
+      "bytes": 1830099,
+      "sha256": "1c4feb2cfcf2064126ea90110e808d4028f95182c9ca143ca6108ab05a945096",
+      "hash_source": "Independent post-purge mirror audit; reused, not KPI recalculation."
+    },
+    {
+      "path": "docs/evidencias-historicas/2026-10-18/verificaciones-originales.zip",
+      "git_blob": "eb76a94bc375fe9b723bc5caae58667af3ffffad",
+      "bytes": 308063,
+      "sha256": "f0f2fba9228492e8450be7fd7115a5a54700bd0cd338a71e15e6655aede671b0",
+      "hash_source": "Independent post-purge mirror audit; reused, not KPI recalculation."
+    },
+    {
+      "path": "docs/evidencias-versionadas/2026-11-09-11-3-recuperacion/evidencias-recuperacion-20261109.zip",
+      "git_blob": "30df1a560dc66f50e7a412c5d1f8bc52b1ecb2d2",
+      "bytes": 242493,
+      "sha256": "adae040eb3d4f1199aebc192c08b4b568ce578531a0e94ade971b815e806707d",
+      "hash_source": "Independent post-purge mirror audit; reused, not KPI recalculation."
+    },
+    {
+      "path": "docs/evidencias-versionadas/2026-11-09-11-3/evidencias-roles-origen-20261109.zip",
+      "git_blob": "07241ba978619ea81e8e2e70d4a9f24bc96298d5",
+      "bytes": 2801628,
+      "sha256": "5e6230ce2e059182663be8af8912617c8d003739f74a340111f6b604a00210a5",
+      "hash_source": "Independent post-purge mirror audit; reused, not KPI recalculation."
+    },
+    {
+      "path": "docs/evidencias-versionadas/2026-11-09/campana-api-20261108.zip",
+      "git_blob": "69e73b5dfad1fa5215658d65d7429b5e079e3cd6",
+      "bytes": 6013563,
+      "sha256": "60edc45719fbce61e7b97c64422f36b94186d983df6e7242dfee60f6aac2a740",
+      "hash_source": "Independent post-purge mirror audit; reused, not KPI recalculation."
+    },
+    {
+      "path": "docs/evidencias-versionadas/2026-11-09/verificaciones-20261109.zip",
+      "git_blob": "c10badf951a5c8df37e5f6b831f1aab7f554a376",
+      "bytes": 644033,
+      "sha256": "8a8cbc95eb00a6169bb6ad6fba7a765555b6db274a29ab60ad2789123d846c25",
+      "hash_source": "Independent post-purge mirror audit; reused, not KPI recalculation."
+    },
+    {
+      "path": "docs/evidencias-versionadas/2026-11-09/verificaciones-editoriales-20261109.zip",
+      "git_blob": "5b385c7c2ac3825f8daa9e436a4eebb435980bc9",
+      "bytes": 31648,
+      "sha256": "cb096dc4c75845c7ee76f6cdbf83dbe5c40042ac9e021e8fae13292f0ebec5bd",
+      "hash_source": "Independent post-purge mirror audit; reused, not KPI recalculation."
+    }
+  ]
+}

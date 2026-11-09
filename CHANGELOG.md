@@ -1,6 +1,17 @@
 # Registro de cambios
 
-## Pendiente de publicación · integración del punto 11.3
+## 0.6.0 · integración protegida del panel y revisión de reportes
+
+- Conecta el panel con una cola local del operador. Limita las solicitudes a los cinco bancos instalados y vincula cada trabajo a una cuenta activa y una credencial privada de acceso.
+- Instala una copia fijada por huellas de código, intérprete, dependencias e imágenes en un daemon separado. Las operaciones de preparación, comprobación, recuperación y cierre conservan los bloqueos y las cuarentenas.
+- Separa las consultas al proveedor del controlador y de los trabajadores. La clave permanece en la configuración privada del operador; el intermediario aplica límites de tiempo, peticiones y presupuesto.
+- Conserva los cierres parciales y verifica los recibos antes de publicar un resultado. Corrige las proyecciones JSON, HTML y PDF y la relación entre solicitud, plan, intento, evidencia y hallazgo.
+- Unifica en `0.6.0` los dos proyectos y sus metadatos de ejecución, sin cambiar las versiones externas fijadas. Añade pruebas de contrato y verificadores de los nuevos paquetes públicos a CI.
+- Conserva íntegramente las campañas y evidencias anteriores. Los paquetes `2026-11-09-v3` y `2026-11-09-v4` identifican sus propios cortes de código, pruebas y alcance; la tesis se distribuye por vía privada.
+
+Los recibos de aceptación y despliegue se consultan en el paquete v4. Esta versión no recupera el código ni las imágenes exactas de octubre y no convierte una prueba funcional del proveedor en una nueva campaña comparable de KPI.
+
+## Integración del punto 11.3 · corte previo 957972c
 
 Integra `ajustes/11-3-cierre-20261109` sobre el mantenimiento de `main`, conservando la historia pública depurada y sus etiquetas.
 

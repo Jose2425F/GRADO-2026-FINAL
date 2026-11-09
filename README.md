@@ -8,7 +8,7 @@ El aplicativo vigente está en `piloto_kali/prototipo/` y expone el paquete `aud
 
 Las auditorías reales de esta integración requieren la instalación del [ejecutor protegido del operador](docs/ajustes-profesor/2026-11-09-roles-origen/Operacion_ejecutor_protegido.txt). El controlador, Nmap e Hydra usan identidades separadas; el acceso a Docker queda limitado a perfiles del banco y la red filtra origen, destino y rol en IPv4 e IPv6. Sin el descriptor instalado y la identidad autorizada, las entradas de auditoría rechazan el despacho.
 
-La [evidencia de 11.3](docs/evidencias-versionadas/2026-11-09-11-3/LEEME.txt) se conserva aparte de las campañas anteriores. La aceptación protegida comprende los cinco bancos cerrados sin API. Su integración con el panel desplegado, la API y las extensiones por IP o VM requiere una aceptación propia; abrir el panel con las instrucciones siguientes no instala esos permisos. El grupo Docker de los requisitos corresponde al operador, no a las identidades del controlador o de sus trabajadores.
+La [evidencia de 11.3](docs/evidencias-versionadas/2026-11-09-11-3/LEEME.txt) se conserva aparte de las campañas anteriores. Su aceptación comprende los cinco bancos cerrados sin API. La versión `0.6.0` incorpora una cola local entre el panel y el operador, un instalador privado y un intermediario de API separado. Los recibos de esta integración tienen un [paquete propio](docs/evidencias-versionadas/2026-11-09-v4/LEEME.txt); no amplían retroactivamente aquella aceptación ni las cohortes de KPI. Las extensiones por IP o VM requieren una aceptación propia. Abrir el panel con las instrucciones siguientes no instala los permisos del ejecutor. El grupo Docker de los requisitos corresponde al operador, no al proceso web ni al controlador o sus trabajadores.
 
 Las acciones `preflight` y `recover` del operador y sus pruebas de cuarentena se documentan en la [continuación de recuperación](docs/ajustes-profesor/2026-11-09-recuperacion/Recuperacion_y_propiedad_de_leases.txt). Sus evidencias mantienen separado el código y el alcance de la aceptación anterior.
 
@@ -77,6 +77,8 @@ Abre [el panel local](http://127.0.0.1:8765/) e inicia sesión con la cuenta cre
 
 La apertura del panel y las pruebas de software no requieren una clave de OpenAI. La configuración privada del proveedor se gestiona aparte y las auditorías con API pueden generar cargos.
 
+En una instalación protegida, `CENTINELA_EXECUTOR_SOCKET` identifica el socket Unix preparado por el operador. El panel envía operaciones del catálogo instalado y recibe resultados sólo después del cierre de los roles. Cada trabajo se asocia a un usuario activo y a una credencial privada de acceso; los resultados se mantienen en su espacio de trabajo. El proceso web no necesita el grupo Docker. Consulta el [procedimiento del operador](docs/operacion/2026-11-09-v4/LEEME.txt) para preparar el ejecutor y sus servicios. La receta de arranque anterior sirve para revisar la interfaz; las auditorías reales requieren además esa instalación.
+
 ## 4. Construir las imágenes la primera vez
 
 El panel puede abrirse sin construir los laboratorios. Para usar los cinco bancos se necesitan las imágenes locales y la descarga inicial de PostgreSQL. Ejecuta esta sección únicamente en el Docker del equipo de laboratorio preparado para estas pruebas.
@@ -125,6 +127,8 @@ La integridad de los paquetes públicos de 11.3 y recuperación se comprueba sin
 ```bash
 piloto_kali/prototipo/.venv/bin/python docs/evidencias-versionadas/2026-11-09-11-3/verificar.py
 piloto_kali/prototipo/.venv/bin/python docs/evidencias-versionadas/2026-11-09-11-3-recuperacion/verificar.py
+piloto_kali/prototipo/.venv/bin/python docs/evidencias-versionadas/2026-11-09-v3/verificar.py
+piloto_kali/prototipo/.venv/bin/python docs/evidencias-versionadas/2026-11-09-v4/verificar.py
 ```
 
 Estos verificadores se incluyen en CI. Su opción `--historicos` describe el inventario original completo, con los Word retirados y el LEEME anterior; requiere la copia privada correspondiente y no se ejecuta sobre el árbol público actual. Los manifiestos conservan sus hashes originales. El alcance de esta fusión se registra en [INTEGRACION_11_3.txt](docs/mantenimiento/2026-11-09/INTEGRACION_11_3.txt).

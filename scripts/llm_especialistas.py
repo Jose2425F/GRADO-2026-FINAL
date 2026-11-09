@@ -21,7 +21,8 @@ REVIEW_VALIDATION_REASONS={'invalid_review','invalid_review_text','invalid_revie
 class ExpertScheduler(OpenAIScheduler):
     def __init__(self,store,*,architecture,budget,deadline):
         super().__init__(store,architecture=architecture,budget=budget,deadline=deadline)
-        self.transport=TracedOpenAITransport(self.config,store)
+        if not getattr(self.transport,'protected_proxy',False):
+            self.transport=TracedOpenAITransport(self.config,store)
         self.full_budget=budget
         self.review_budget=budget*2//5
         self.budget=budget-self.review_budget
@@ -159,7 +160,7 @@ class ExpertScheduler(OpenAIScheduler):
         value=super().summary()
         if not any(c.get('generation_sent') for c in self.calls):value['status']='not_started'
         value['configuration']['output_contract']='authorized_choice_and_specialist_review_json_schema'
-        value['configuration'].update(transport_version='traced-no-retry-1',review_timeout_seconds=REVIEW_TIMEOUT_SECONDS,review_max_output_tokens=REVIEW_MAX_OUTPUT_TOKENS)
+        value['configuration'].update(transport_version='protected-provider-ipc-1' if getattr(self.transport,'protected_proxy',False) else 'traced-no-retry-1',review_timeout_seconds=REVIEW_TIMEOUT_SECONDS,review_max_output_tokens=REVIEW_MAX_OUTPUT_TOKENS)
         value.update(specialist_prompt_version='specialist-review-4',budget=self.full_budget,expert_mode=True,planning_budget=self.budget,review_budget=self.review_budget,
                      specialist_reviews=self.reviews,specialist_review_seconds=self.review_seconds,
                      specialist_reviews_expected_roles=self.specialist_reviews_expected_roles)

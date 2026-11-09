@@ -27,7 +27,7 @@ def main():
     output=Path(data['output']);output.mkdir(parents=True,exist_ok=True)
     (output/'controller-identity.json').write_text(json.dumps(identity(),indent=2)+'\n')
     action=data.get('action','audit')
-    if action not in {'audit','preflight'}:raise ValueError('Acción protegida no admitida.')
+    if action not in {'audit','audit-live','preflight'}:raise ValueError('Acción protegida no admitida.')
     if action=='preflight':
         from tesis.restauracion_banco import kernel_ok
         kernel_ok()

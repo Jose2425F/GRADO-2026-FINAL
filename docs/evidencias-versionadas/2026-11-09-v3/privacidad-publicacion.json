@@ -1,0 +1,28 @@
+{
+  "schema": "centinela-public-privacy-scan/1",
+  "scan_at": "2026-11-09T09:15:53.587973+00:00",
+  "allowlist_only": true,
+  "patterns_checked": [
+    "openai_like",
+    "github_token",
+    "aws_access_key",
+    "google_key",
+    "private_key",
+    "known_private_password"
+  ],
+  "findings": [],
+  "pdfs_text_scanned": 14,
+  "fictitious_fixture_literal_removed_in_public_copy": {
+    "token_sha256": "3193831645bd691450f50c575c8f3019bcd83b9be8448321f223ef36671e03c5",
+    "source_file": "piloto_kali/prototipo/tests/test_persistence_sanitization.py",
+    "source_sha256": "d603393286d6c577759ef059b96dc80a4e4c642cc3834016fd35e87d91e1d4a8",
+    "source_line": 49,
+    "prior_public_approval": "2026-11-09-11-3/fuentes-aprobadas.json",
+    "configured_key": false
+  },
+  "thesis_docx_or_pdf_included": false,
+  "private_env_authorizations_sessions_or_configured_keys_included": false,
+  "evaluator_labels_included": false,
+  "temporary_account_screenshot_excluded": true,
+  "limits": "Pattern/field scan and explicit allowlist; not a proof against every unknown secret. Full synthetic request/plan/report cases were already approved for publication. Original private receipts remain unchanged; public locator-redacted copies are identified by origin SHA-256."
+}

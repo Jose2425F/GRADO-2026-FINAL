@@ -38,6 +38,18 @@ class OpenAIConfig:
 
     @classmethod
     def from_environment(cls):
+        if os.environ.get("CENTINELA_PROTECTED_RUNTIME") == "1":
+            from .secure_runtime import require_protected_runtime
+            data = require_protected_runtime().get("provider", {}).get("config", {})
+            if (not isinstance(data, dict) or set(data) != {"model", "reasoning_effort", "max_output_tokens"}
+                    or data.get("model") != "gpt-6.1-sol"
+                    or not isinstance(data.get("reasoning_effort"), str)
+                    or data.get("reasoning_effort") not in REASONING_EFFORTS
+                    or type(data.get("max_output_tokens")) is not int
+                    or not 256 <= data["max_output_tokens"] <= 2048):
+                raise ValueError("protected_provider_configuration_unavailable")
+            # La llave permanece únicamente en el proceso de salida del operador.
+            return cls(data["model"], "", data["reasoning_effort"], data["max_output_tokens"])
         key = os.environ.get("OPENAI_API_KEY", "").strip()
         model = os.environ.get("OPENAI_MODEL", "").strip()
         effort = os.environ.get("OPENAI_REASONING_EFFORT", "low").strip()
@@ -52,6 +64,8 @@ class OpenAIConfig:
 
 
 def load_openai_config(root: Path):
+    if os.environ.get("CENTINELA_PROTECTED_RUNTIME") == "1":
+        return OpenAIConfig.from_environment()
     path = root / "openai.json"
     if path.exists():
         if path.is_symlink() or path.stat().st_mode & 0o077:
@@ -88,6 +102,8 @@ class NoRedirects(HTTPRedirectHandler):
 
 class OpenAITransport:
     def __init__(self, config: OpenAIConfig):
+        if os.environ.get("CENTINELA_PROTECTED_RUNTIME") == "1":
+            raise ValueError("protected_provider_requires_ipc")
         self.config = config
         # Conserva validación de CA y hostname. Nunca acepta certificados sin verificar.
         self.opener = build_opener(
@@ -217,7 +233,11 @@ def estimated_cost(calls: list[dict], *, complete: bool) -> dict:
 class OpenAIScheduler(Scheduler):
     def __init__(self, store, *, architecture: str, budget: int, deadline: float):
         self.config = OpenAIConfig.from_environment()
-        self.transport = OpenAITransport(self.config)
+        if os.environ.get("CENTINELA_PROTECTED_RUNTIME") == "1":
+            from .provider_proxy import ProviderProxyTransport
+            self.transport = ProviderProxyTransport(self.config, store)
+        else:
+            self.transport = OpenAITransport(self.config)
         self.store, self.architecture, self.budget, self.deadline = (
             store,
             architecture,

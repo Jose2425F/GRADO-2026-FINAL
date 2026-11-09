@@ -238,6 +238,11 @@ def label_interfaces(items):
 
 
 def lab_runtime():
+    from panel_ejecutor import configured, health
+    if configured():
+        remote = health()
+        return {'available': remote.get('available', False),
+                **{bank: value.get('running_containers', 0) for bank, value in remote.get('banks', {}).items()}}
     with _lab_runtime_lock:
         if _lab_runtime_cache['at'] and time.monotonic() - _lab_runtime_cache['at'] < 4:
             return dict(_lab_runtime_cache['value'])
@@ -271,6 +276,8 @@ class Operations:
 
     def snapshot(self):
         with self.lock:
+            from panel_ejecutor import configured, health
+            protected = health() if configured() else {}
             for job in self.jobs:
                 if job["action"] == "audit" and not job["run_key"] and job["status"] in {"queued", "running", "stopping"}:
                     candidates = list((self.root / "panel" / job["id"]).glob("*/request.json"))
@@ -299,7 +306,8 @@ class Operations:
                     'execution_guard': {'blocked': bool(warning), 'reason': 'kernel_fault' if warning else None,
                                         'message': warning or ''},
                     'study_progress': external, 'acceptance_five': five_acceptance,
-                    "busy": self.reserved or external.get('active',False) or suite.get('active',False) or five_acceptance.get('active',False) or any(job["status"] in {"queued", "running", "stopping"} for job in self.jobs)}
+                    'protected_execution': protected,
+                    "busy": self.reserved or protected.get('busy', False) or external.get('active',False) or suite.get('active',False) or five_acceptance.get('active',False) or any(job["status"] in {"queued", "running", "stopping"} for job in self.jobs)}
 
     @contextmanager
     def reserve(self):
@@ -316,10 +324,16 @@ class Operations:
 
     def start(self, action: str, options: dict | None = None):
         with self.lock:
+            from panel_ejecutor import configured
+            if configured() and action in {'personal_check', 'check', 'restore'}:
+                raise ValueError('Esta instalación permite preparar y comprobar los cinco laboratorios de Centinela.')
             if self.snapshot()["busy"] or study_summary()['active'] or any(r["status"] == "running" for r in collect_state(self.root)["runs"]):
                 raise ValueError("Hay una auditoría u operación activa. Espera a que termine.")
             if action == "audit":
                 options = validate_options(options)
+                from panel_ejecutor import configured
+                if configured() and options['mode'] == 'live' and options['scope'] != 'empresa':
+                    raise ValueError('Selecciona uno de los cinco laboratorios instalados. Otros entornos requieren una validación propia.')
                 from tesis.evaluacion_manual import ensure_empty_position
                 ensure_empty_position(self.root,options)
                 position=None
@@ -389,8 +403,12 @@ class Operations:
             return dict(job)
 
     def _run(self, job):
+        from auditoria.store import write_json
         output = self.root / "panel" / job["id"]
         try:
+            from panel_ejecutor import configured, supports, run_job
+            if configured() and supports(job['action'], job.get('options') or {}):
+                return run_job(self, job, output)
             if job['action']=='personal_check':
                 try:
                     from autorizacion_personal import AuthorizationGuard
@@ -494,7 +512,8 @@ class Operations:
             job = next((j for j in reversed(self.jobs) if j["action"] == "audit" and j["status"] == "running"), None)
             if not job or self.process is None:
                 raise ValueError("No hay una auditoría iniciada desde este panel para detener.")
-            os.killpg(self.process.pid, signal.SIGTERM)
+            if getattr(self.process, 'remote', False): self.process.cancel()
+            else: os.killpg(self.process.pid, signal.SIGTERM)
             job.update(status="stopping", message="Deteniendo la auditoría. Su cobertura quedará incompleta.")
             return dict(job)
 
@@ -579,6 +598,8 @@ class Panel:
             except OSError:
                 configured = False
             configured = configured or bool(os.environ.get("OPENAI_API_KEY", "").strip() and os.environ.get("OPENAI_MODEL", "").strip())
+            from panel_ejecutor import configured as protected_configured, health
+            if protected_configured(): configured = bool(health().get('api_configured'))
             study = study_summary()
             from tesis.workspace import archives
             from tesis.alcance import summary as thesis_summary, preparation
@@ -1050,6 +1071,8 @@ def make_server(panel: Panel, port: int = 8765, identity=None):
                 elif path=='/api/lab/personal/check':
                     job=panel.operations.start('personal_check',options)
                 elif path=='/api/lab/personal/discover':
+                    from panel_ejecutor import configured
+                    if configured(): raise ValueError('El descubrimiento personal requiere la validación de ese entorno. Usa uno de los cinco laboratorios instalados.')
                     from descubrimiento_red import discover
                     if set(options)!={'interface','authorization'}:raise ValueError('Indica la interfaz y la referencia de autorización registrada.')
                     with panel.operations.reserve():

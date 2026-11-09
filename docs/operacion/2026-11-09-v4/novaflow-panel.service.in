@@ -1,0 +1,40 @@
+[Unit]
+Description=Centinela panel web sin privilegios del laboratorio
+After=network.target centinela-operador.service
+Wants=centinela-operador.service
+
+[Service]
+Type=simple
+User=centinela-web
+Group=centinela-web
+RuntimeDirectory=centinela-web
+RuntimeDirectoryMode=0700
+WorkingDirectory=@BASE@/repo
+Environment=HOME=@DATA@
+Environment=TMPDIR=/run/centinela-web
+Environment=CENTINELA_DATA_DIR=@DATA@
+Environment=CENTINELA_EXECUTOR_SOCKET=/run/centinela-operator/control.sock
+Environment=PYTHONPATH=@BASE@/repo/piloto_kali/prototipo/src:@BASE@/repo/scripts
+Environment=PYTHONNOUSERSITE=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=LANGSMITH_TRACING=false
+Environment=LANGCHAIN_TRACING_V2=false
+Environment=DOCKER_HOST=unix:///run/centinela-no-docker.sock
+ExecStart=@BASE@/venv/bin/python @BASE@/repo/scripts/dualstack_panel.py --runs @DATA@/legacy-runs --port 8765
+UMask=0077
+NoNewPrivileges=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=@DATA@ /run/centinela-web
+RestrictNamespaces=true
+RestrictSUIDSGID=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=45
+
+[Install]
+WantedBy=multi-user.target

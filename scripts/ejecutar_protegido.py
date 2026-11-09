@@ -276,6 +276,62 @@ def create_listener(path):
     return value
 
 
+def live_options(base,bank,architecture,job):
+    """Sólo un archivo creado por el servicio operador; sin rutas del navegador."""
+    from dualstack_panel import validate_options
+    path=Path(job)
+    if path.parent!=base/'private' or not re.fullmatch(r'job-[a-f0-9]{16,64}\.json',path.name):
+        raise OperatorError('El trabajo no pertenece a la cola privada del operador.')
+    trusted(path,private=True);info=path.stat()
+    if stat.S_IMODE(info.st_mode)!=0o600 or info.st_nlink!=1 or info.st_size>65536:
+        raise OperatorError('El trabajo privado no conserva su identidad o límites.')
+    value=json.loads(path.read_text())
+    allowed={'name','authorization','architecture','ia','tokens','mode','scope','creds','expert_mode','scenario'}
+    if (not isinstance(value,dict) or set(value)!={'options'} or not isinstance(value['options'],dict)
+            or set(value['options'])-allowed):
+        raise OperatorError('El trabajo contiene campos fuera del contrato.')
+    options=validate_options(value['options'])
+    if (options['scope']!='empresa' or options['mode']!='live' or options['authorization']!='LAB-PROPIO'
+            or options['architecture']!=architecture or options.get('scenario','integrado')!=bank
+            or options.get('creds') is not False
+            or (options['ia']=='openai' and not 256<=options['tokens']<=60000)):
+        raise OperatorError('El trabajo no coincide con el banco o arquitectura del operador.')
+    return options
+
+
+def provider_configuration(base):
+    from auditoria.provider_proxy import public_config
+    path=trusted(base/'private/openai.json',private=True);info=path.stat()
+    if stat.S_IMODE(info.st_mode)!=0o600 or info.st_nlink!=1 or info.st_size>4096:
+        raise OperatorError('La configuración privada del proveedor no es válida.')
+    try:
+        secret=json.loads(path.read_text());config=public_config(secret)
+    except Exception:
+        raise OperatorError('La configuración privada del proveedor no es válida.') from None
+    return secret,config
+
+
+def provider_summary(path):
+    result={'generation_calls':0,'input_token_calls':0,'known_tokens':0,'usage_complete':True}
+    if not path.exists():return result|{'usage_complete':False}
+    if path.stat().st_size>2_000_000:raise OperatorError('Registro de proveedor fuera del límite.')
+    outstanding=0
+    for line in path.read_text().splitlines():
+        row=json.loads(line)
+        if row.get('event')=='provider_request_started':
+            outstanding+=1
+            if row.get('endpoint')=='responses':result['generation_calls']+=1
+            elif row.get('endpoint')=='responses/input_tokens':result['input_token_calls']+=1
+        elif row.get('event')=='provider_request_completed':
+            outstanding-=1
+            result['known_tokens']=row.get('known_tokens',result['known_tokens'])
+        elif row.get('event')=='provider_request_failed':
+            outstanding-=1
+            result['usage_complete']=False
+    if outstanding!=0:result['usage_complete']=False
+    return result
+
+
 def identity_when_ready(process,uid,deadline=8):
     from auditoria.tool_worker import identity,unprivileged
     until=time.monotonic()+deadline
@@ -306,7 +362,7 @@ def worker_when_ready(process,path,uid):
 def spawn_role(base,namespace,uid,gid,args,env,log,*,fds=()):
     trusted(log.parent,directory=True)
     descriptor=os.open(log,os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW,0o600)
-    command=['/usr/sbin/ip','netns','exec',namespace,'/usr/bin/setpriv',
+    command=([ '/usr/sbin/ip','netns','exec',namespace] if namespace is not None else [])+['/usr/bin/setpriv',
         '--reuid='+str(uid),'--regid='+str(gid),'--clear-groups','--inh-caps=-all',
         '--ambient-caps=-all','--bounding-set=-all','--no-new-privs',
         str(base/'venv/bin/python'),'-I','-B',*args]
@@ -532,11 +588,17 @@ def preflight_evaluation(output,private,runroot,bank,state,principal,netns):
     return result
 
 
-def execute(base,bank,architecture,*,action='audit'):
+def execute(base,bank,architecture,*,action='audit',job=None):
     from auditoria.tool_worker import identity
     from auditoria.privilege_broker import build_policy
-    if action not in {'audit','preflight'}:raise OperatorError('Acción protegida no admitida.')
+    if action not in {'audit','audit-live','preflight'}:raise OperatorError('Acción protegida no admitida.')
     trusted(base,directory=True);trusted(base/'private',directory=True,private=True)
+    if (action=='audit-live')!=(job is not None):raise OperatorError('La auditoría viva requiere un trabajo privado propio.')
+    options=(live_options(base,bank,architecture,job) if action=='audit-live' else
+        {'name':'Aceptación protegida '+bank,'authorization':'LAB-PROPIO','architecture':architecture,
+         'ia':'none','tokens':0,'mode':'live','scope':'empresa','creds':False})
+    if bank!='integrado':options['scenario']=bank
+    provider_secret,provider_config=(provider_configuration(base) if options['ia']=='openai' else (None,None))
     manifest=json.loads(trusted(base/'private/bootstrap.json',private=True).read_text())
     if manifest['protected_repo']!=str(ROOT) or ROOT!=base/'repo':raise OperatorError('El ejecutor no pertenece al stage instalado.')
     if manifest['docker_host']!='unix://'+str(base/'private/docker.sock'):raise OperatorError('Daemon ajeno a la instalación.')
@@ -559,7 +621,7 @@ def execute(base,bank,architecture,*,action='audit'):
         executables,receipt['tool_installation']=prepare_tools(base)
         network_path,network=select_network(base,bank)
         receipt['network_receipt']=str(network_path);receipt['audit_netns']=network['namespace_inode']
-        if action=='audit':
+        if action in {'audit','audit-live'}:
             version=run(['/usr/sbin/ip','netns','exec',network['namespace'],'/usr/bin/setpriv',
                 '--reuid=65532','--regid=65532','--clear-groups','--inh-caps=-all',
                 '--ambient-caps=-all','--bounding-set=-all','--no-new-privs',executables['nmap'],'--version'])
@@ -591,7 +653,7 @@ def execute(base,bank,architecture,*,action='audit'):
         os.close(gate_read);gates.remove(gate_read)
         controller_identity=identity_when_ready(controller,UIDS['controller'])
         receipt['controller_identity']=controller_identity
-        expires=time.time()+3000
+        expires=time.time()+(2700 if action=='audit-live' else 3000)
         lab,agent=bank_modules(bank,state)
         tool_policies,task_count=policies(lab,agent,environment,controller_identity,network['namespace_inode'],expires,
                                          executables=executables)
@@ -602,15 +664,12 @@ def execute(base,bank,architecture,*,action='audit'):
             task_count=0;broker_policy['senders']=[]
             for policy in tool_policies.values():policy['commands']=[];policy['credential_profiles']=[]
         write_json(private/'broker-policy.json',broker_policy)
-        options={'name':'Aceptación protegida '+bank,'authorization':'LAB-PROPIO','architecture':architecture,
-            'ia':'none','tokens':0,'mode':'live','scope':'empresa','creds':False}
-        if bank!='integrado':options['scenario']=bank
         descriptor={'version':1,'bank':bank,'action':action,'controller_uid':UIDS['controller'],'controller_gid':UIDS['controller'],
             'principal':{'pid':controller.pid,'start_time':controller_identity['start_time'],
                          'boot_id':Path('/proc/sys/kernel/random/boot_id').read_text().strip()},
             'audit_netns':network['namespace_inode'],'expires_at':expires,'source_hashes':pinned,
             'broker_socket':broker_socket,'worker_sockets':sockets,'state':str(state),'output':str(output),
-            'segment_lock_root':str(locks),'options':options,'acceptance_checks':action=='audit'}
+            'segment_lock_root':str(locks),'options':options,'acceptance_checks':action in {'audit','audit-live'}}
         write_json(descriptor_path,descriptor,mode=0o444)
         receipt['descriptor_sha256']=digest(descriptor_path);receipt['catalogue_tasks']=task_count
         receipt['broker_policy_sha256']=digest(private/'broker-policy.json')
@@ -623,6 +682,40 @@ def execute(base,bank,architecture,*,action='audit'):
                 ['-m','auditoria.tool_worker','--policy',str(policy_path),'--listen-fd',str(listener.fileno()),'--audit-log',str(audit)],
                 {**common,'HOME':str(homes/role),'TMPDIR':str(homes/role)},private/(role+'-stdout.log'),fds=[listener.fileno()])
             processes.append(worker);receipt[role+'_identity']=worker_when_ready(worker,audit,UIDS[role])
+        if provider_secret is not None:
+            from auditoria.provider_proxy import PROVIDER_UID,limits_for
+            provider_path=root_directory(runroot/'provider')
+            provider_home=actor_directory(homes/'provider',PROVIDER_UID)
+            provider_socket=endpoints/'provider.sock'
+            provider_limits=limits_for(options['tokens'])
+            provider_policy={'version':1,'role':'provider','worker_uid':PROVIDER_UID,'worker_gid':PROVIDER_UID,
+                'controller_uid':UIDS['controller'],'controller_gid':UIDS['controller'],'controller_pid':controller.pid,
+                'controller_start_time':controller_identity['start_time'],
+                'controller_boot_id':descriptor['principal']['boot_id'],'proxy_netns':identity()['netns'],
+                'expires_at':expires,'config':provider_config,'limits':provider_limits}
+            policy_path=provider_path/'policy.json';write_json(policy_path,provider_policy,mode=0o640,gid=PROVIDER_UID)
+            audit=provider_path/'audit.jsonl';fd=os.open(audit,os.O_CREAT|os.O_EXCL|os.O_WRONLY|os.O_NOFOLLOW,0o600)
+            os.fchown(fd,PROVIDER_UID,PROVIDER_UID);os.close(fd)
+            listener=create_listener(provider_socket);listeners.append(listener)
+            secret_read,secret_write=os.pipe()
+            try:
+                os.write(secret_write,json.dumps(provider_secret).encode());os.close(secret_write);secret_write=None
+                provider_secret=None
+                proxy=spawn_role(base,None,PROVIDER_UID,PROVIDER_UID,
+                    ['-m','auditoria.provider_proxy','--policy',str(policy_path),'--listen-fd',str(listener.fileno()),
+                     '--secret-fd',str(secret_read),'--audit-log',str(audit)],
+                    {**common,'HOME':str(provider_home),'TMPDIR':str(provider_home)},private/'provider-stdout.log',
+                    fds=[listener.fileno(),secret_read])
+                processes.append(proxy)
+            finally:
+                os.close(secret_read)
+                if secret_write is not None:os.close(secret_write)
+            proxy_identity=worker_when_ready(proxy,audit,PROVIDER_UID)
+            receipt['provider_identity']=proxy_identity;receipt['provider_audit_log']=str(audit)
+            descriptor['provider']={'socket':str(provider_socket),'uid':PROVIDER_UID,'gid':PROVIDER_UID,
+                'principal':{'pid':proxy.pid,'start_time':proxy_identity['start_time'],'boot_id':descriptor['principal']['boot_id']},
+                'config':provider_config,'limits':provider_limits}
+            write_json(descriptor_path,descriptor,mode=0o444);receipt['descriptor_sha256']=digest(descriptor_path)
         refresh_pair=socket.socketpair();parent_fd,broker_fd=refresh_pair
         refresh_thread=threading.Thread(target=refresh_service,args=(parent_fd,network_path,set(broker_policy['containers']),private/'refresh.jsonl',refresh_stop),daemon=True)
         refresh_thread.start()
@@ -642,7 +735,7 @@ def execute(base,bank,architecture,*,action='audit'):
             raise OperatorError('El broker conserva privilegios de proceso no autorizados.')
         for worker in processes[1:]:
             if worker.poll() is not None:raise OperatorError('Un servicio protegido terminó antes de liberar al controlador.')
-        if action=='audit':
+        if action in {'audit','audit-live'}:
             from tesis.pruebas_roles import operator_selftest
             receipt['role_negative_checks']=operator_selftest(descriptor_path,private,network_path)
             if receipt['role_negative_checks'].get('passed') is not True:
@@ -658,13 +751,18 @@ def execute(base,bank,architecture,*,action='audit'):
         # No role or inherited tool may still modify evidence during evaluation.
         for role_process in reversed(processes):stop_process(role_process)
         receipt['roles_stopped_before_evaluation']=True
+        if 'provider_audit_log' in receipt:
+            receipt['provider_usage']=provider_summary(Path(receipt['provider_audit_log']))
+            receipt['api_calls']=receipt['provider_usage']['generation_calls']
         try:
             if action=='preflight':
                 receipt['protected_preflight']=preflight_evaluation(output,private,runroot,bank,state,descriptor['principal'],descriptor['audit_netns'])
             else:
                 evaluation=evaluate_snapshot(output,private,runroot,bank,Path(state_receipt['private_original']))
                 receipt['operator_evaluation']=evaluation['evaluation']
-                if evaluation['evaluation'].get('acceptance_passed') is not True:
+                receipt['catalogue_acceptance_required']=action=='audit'
+                if ((action=='audit' and evaluation['evaluation'].get('acceptance_passed') is not True)
+                        or (action=='audit-live' and evaluation['evaluation'].get('evidence_valid') is not True)):
                     receipt['status']='acceptance_failed';code=code or 4
         except Exception as exc:
             receipt['operator_evaluation_error']=type(exc).__name__+': '+str(exc)
@@ -683,6 +781,14 @@ def execute(base,bank,architecture,*,action='audit'):
         for process in reversed(processes):
             try:stop_process(process)
             except BaseException as exc:cleanup_errors.append(type(exc).__name__)
+        if 'provider_audit_log' in receipt:
+            try:
+                receipt['provider_usage']=provider_summary(Path(receipt['provider_audit_log']))
+                receipt['api_calls']=receipt['provider_usage']['generation_calls']
+            except Exception:
+                receipt['provider_usage']={'usage_complete':False,'reason':'provider_usage_unavailable'}
+                receipt['api_calls']=None
+                cleanup_errors.append('provider_usage_unavailable')
         if cleanup_errors:
             receipt['cleanup_errors']=cleanup_errors;receipt['status']='cleanup_failed'
         refresh_stop.set()
@@ -761,8 +867,10 @@ def main():
     parser.add_argument('--base',type=Path,required=True)
     parser.add_argument('--bank',choices=SCENARIOS,required=True)
     parser.add_argument('--architecture',choices=['single','multiagent'],default='single')
-    parser.add_argument('--action',choices=['audit','preflight','recover'],default='audit')
+    parser.add_argument('--action',choices=['audit','audit-live','preflight','recover'],default='audit')
+    parser.add_argument('--job',type=Path)
     args=parser.parse_args()
+    if (args.action=='audit-live')!=(args.job is not None):parser.error('--job sólo es obligatorio y admitido con audit-live.')
     if os.geteuid()!=0:parser.error('Esta entrada corresponde exclusivamente al operador root.')
     if args.base.parent!=Path('/var/tmp') or not re.fullmatch(r'c113-[0-9a-f]{12}',args.base.name):
         parser.error('Stage no admitido; use una instalación c113 del operador.')
@@ -785,7 +893,8 @@ def main():
         if args.action=='recover':
             receipt=recover_protocols(args.base,args.bank)
             print(json.dumps({'status':'recovered','receipt':str(receipt)}));return 0
-        code,receipt=execute(args.base,args.bank,args.architecture,action=args.action)
+        code,receipt=execute(args.base,args.bank,args.architecture,action=args.action,
+                             **({'job':args.job} if args.job is not None else {}))
         print(json.dumps({'status':'finished' if code==0 else 'failed','exit_code':code,'receipt':str(receipt)}))
         return code
     finally:

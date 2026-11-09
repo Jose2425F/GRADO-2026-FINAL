@@ -1,0 +1,22 @@
+[Unit]
+Description=Centinela cola protegida del operador
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=centinela-web
+UMask=0077
+RuntimeDirectory=centinela-operator
+RuntimeDirectoryMode=0750
+WorkingDirectory=@BASE@/repo
+Environment=PYTHONNOUSERSITE=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=@BASE@/venv/bin/python @BASE@/repo/scripts/operador_web.py --base @BASE@ --spool @BASE@/private/web-jobs --socket /run/centinela-operator/control.sock --panel-uid 65529 --accounts @DATA@/accounts.sqlite3
+Restart=on-failure
+RestartSec=10
+KillMode=control-group
+TimeoutStopSec=60
+
+[Install]
+WantedBy=multi-user.target

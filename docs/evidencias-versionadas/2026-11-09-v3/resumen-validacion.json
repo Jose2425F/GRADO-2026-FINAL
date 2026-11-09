@@ -1,0 +1,84 @@
+{
+  "schema": "centinela-v3-validation/1",
+  "date": "2026-11-09",
+  "scope": "Stored report traceability and software checks; not new bank audits or AWS deployment.",
+  "source_base_commit": "957972c471483c5aeef7207640fb64c9f95aaca7",
+  "tested_source_files": 592,
+  "tested_source_canonical_sha256": "5da82ef060f6c94f6d0c569207a8ece68513533c680dad0094528d5dbd3fd5fc",
+  "source_epoch": "Frozen reporting correction; later installer/API source changes are a separate uncredited epoch.",
+  "directed": {
+    "passed": 73,
+    "subtests_passed": 44
+  },
+  "broad_regression": {
+    "passed": 1013,
+    "subtests_passed": 110,
+    "skipped": 2,
+    "deselected": 1,
+    "warnings": 1,
+    "seconds": 191.68,
+    "real_nmap_case_excluded": true
+  },
+  "separate_supplement": {
+    "passed": 1,
+    "subtests_passed": 2,
+    "real_nmap_calls_to_owned_loopback": 4,
+    "legacy_passed": 6,
+    "dom_passed": 4,
+    "chromium_scenarios_passed": 1,
+    "protected_bank_acceptance": false
+  },
+  "compatible_union": {
+    "passed": 1014,
+    "subtests_passed": 112,
+    "skipped": 2,
+    "single_complete_execution": false,
+    "same_592_source_map": true
+  },
+  "stored_case_comparison": {
+    "accepted_runs": 6,
+    "canonical_single_results": 154,
+    "supplementary_multiagent_results": 32,
+    "total_results_read": 186,
+    "findings": 59,
+    "inventory_address_records": 77,
+    "declared_ranges": 30,
+    "formats": [
+      "JSON",
+      "HTML",
+      "PDF"
+    ],
+    "new_audits": false
+  },
+  "close_error_cases": {
+    "cases": 2,
+    "simulated": true,
+    "json_html_pdf_partial_with_graph_trace_error": true,
+    "tools_or_provider_reexecuted": false
+  },
+  "visual_review": {
+    "pdf_samples_opened": 6,
+    "banks": [
+      "integrado",
+      "reforzado"
+    ],
+    "pages": [
+      "first",
+      "densest",
+      "last"
+    ],
+    "clipping_or_overlap_observed": false,
+    "all_six_pdf_text_bounds_checked": true
+  },
+  "early_rejection_limit": "Pre-admission rejection: JSON and dynamic web view; static downloadable HTML/PDF not promised or assessed.",
+  "not_included": [
+    "Thesis Word/PDF or NTC PDF",
+    "Private environment files, authorization policies, accounts, sessions and configured keys",
+    "Docker images or copied Nmap executable",
+    "New evaluator reference labels",
+    "Private Word draft text"
+  ],
+  "historical_kpis_recomputed": false,
+  "aws_deployed": false,
+  "supplements_later_than_this_source_epoch": "Must be appended as separately manifested supplements; do not replace this archive or reassign its test counts."
+}

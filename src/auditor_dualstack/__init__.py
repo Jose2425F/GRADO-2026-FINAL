@@ -10,4 +10,4 @@ Arquitectura de 6 componentes (véase capítulo 3 del anteproyecto):
   6. Módulo de Reportes      — informes de remediación priorizados por CVSS
 """
 
-__version__ = "0.1.0"
+__version__ = "0.6.0"

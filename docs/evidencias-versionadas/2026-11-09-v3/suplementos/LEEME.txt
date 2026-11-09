@@ -1,0 +1,1 @@
+Suplementos posteriores a esta publicación deben tener archivos y manifiestos propios. No modificar el ZIP base ni atribuirle pruebas de nuevas fuentes, API, instalador o bancos. El suplemento de loopback/Chromium sobre las mismas 592 fuentes ya se conserva por separado dentro del ZIP base.

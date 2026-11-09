@@ -1,0 +1,73 @@
+{
+  "schema": "centinela-v3-public-package-verification/1",
+  "verified": true,
+  "full_clone": {
+    "verified": true,
+    "publication_files": 9,
+    "zip_entries": 142,
+    "stored_cases": 6,
+    "stored_results_read": 186,
+    "stored_findings_read": 59,
+    "historical_zip_files_checked": 11,
+    "directed_tests": 73,
+    "directed_subtests": 44,
+    "broad_regression_tests": 1013,
+    "broad_regression_subtests": 110,
+    "supplement_tests": 1,
+    "supplement_subtests": 2,
+    "compatible_union_tests": 1014,
+    "compatible_union_subtests": 112,
+    "single_complete_regression_execution": false,
+    "new_audits_executed": false,
+    "historical_kpis_recomputed": false,
+    "network": false,
+    "tools_executed": false,
+    "zip_extracted": false
+  },
+  "standalone": {
+    "verified": true,
+    "publication_files": 9,
+    "zip_entries": 142,
+    "stored_cases": 6,
+    "stored_results_read": 186,
+    "stored_findings_read": 59,
+    "historical_zip_files_checked": 0,
+    "directed_tests": 73,
+    "directed_subtests": 44,
+    "broad_regression_tests": 1013,
+    "broad_regression_subtests": 110,
+    "supplement_tests": 1,
+    "supplement_subtests": 2,
+    "compatible_union_tests": 1014,
+    "compatible_union_subtests": 112,
+    "single_complete_regression_execution": false,
+    "new_audits_executed": false,
+    "historical_kpis_recomputed": false,
+    "network": false,
+    "tools_executed": false,
+    "zip_extracted": false
+  },
+  "tamper_checks": [
+    {
+      "case": "changed_archive",
+      "rejected": true,
+      "exception": "ValueError"
+    },
+    {
+      "case": "changed_readme",
+      "rejected": true,
+      "exception": "ValueError"
+    },
+    {
+      "case": "symlinked_readme",
+      "rejected": true,
+      "exception": "ValueError"
+    }
+  ],
+  "verifier_forbidden_attempts": [],
+  "audit_hook_scope": "Verifier execution only; socket/process calls and write opens forbidden.",
+  "thesis_or_configured_secret_content_read": false,
+  "new_audits": false,
+  "network": false,
+  "archive_sha256": "621fdb1e9692e269ce09df6207a8171141264645e57e64446a08e322293c5d46"
+}

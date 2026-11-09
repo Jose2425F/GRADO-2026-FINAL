@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "auditoria-dualstack"
-version = "0.5.0"
+version = "0.6.0"
 description = "Prototipo controlado de auditoria dual-stack para laboratorio"
 requires-python = ">=3.13,<3.14"
 dependencies = [
