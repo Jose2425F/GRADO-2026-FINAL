@@ -391,7 +391,7 @@ async function start(mode) {
   }
 }
 function renderState() {
-  $('architecture-details').hidden=!state.thesis?.diagram_available;
+  $('architecture-details').hidden=!state.diagram_available;
   renderAcceptanceFive();
   const guard=state.execution_guard;
   $('runtime-blocker').hidden=!guard?.blocked;
@@ -511,7 +511,7 @@ function renderDetail() {
   $('executive-report-link').hidden=!brief.final;
   $('executive-report-link').href='/report?audience=executive&key='+encodeURIComponent(run.key);
   $('findings-count').textContent=num(brief.is_inventory?brief.service_count:brief.cards.length);
-  $('architecture-details').hidden=!state.thesis?.diagram_available;
+  $('architecture-details').hidden=!state.diagram_available;
   renderFindings();renderTasks();renderEvents();renderMap();renderAgents();updateButtons();if(tab==='console')renderConsole();if(tab==='agents')renderAgents();
 }
 function renderFindings() {
