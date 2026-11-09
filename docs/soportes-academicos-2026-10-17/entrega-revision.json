@@ -1,0 +1,96 @@
+{
+  "fecha_utc": "2026-10-18T03:47:10.490844+00:00",
+  "estado": "ACTUALIZACION_DOCUMENTAL_VERIFICADA",
+  "paginas": {
+    "principal": 73,
+    "anexos": 64
+  },
+  "controles_documentales": 178,
+  "cotejos_independientes": 19,
+  "cobertura_visual": 137,
+  "maestros": [
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/TrabajoDeGrado_II_Completo.docx",
+      "sha256": "adedca4e7a980e30e23d92d8dae8820a52ac73b23ae6bf450d402cd3b72991b8"
+    },
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/TrabajoDeGrado_II_Completo.pdf",
+      "sha256": "4dc8f67a45188a4c026f54616b811c5a7dad8a5269cf05781a3ae939aeec9b5b"
+    },
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/TrabajoDeGrado_II_Anexos.docx",
+      "sha256": "d7ad69c982066725d87e061c99854f7dc26d7dffa7af2aaa9745fd496497a75a"
+    },
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/TrabajoDeGrado_II_Anexos.pdf",
+      "sha256": "6f4ebf2f8c2c25571b0e4c3116ead880076c300456c48d6ea9ba44b286d72162"
+    }
+  ],
+  "recibos": [
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/soportes-academicos-2026-10-17/recepcion.json",
+      "sha256": "596a4e8aff8cbb4762c579e26a48a8e25083c3c7f46069ef408ea6fa7ec8b47d"
+    },
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/soportes-academicos-2026-10-17/cotejo-presupuesto-cronograma.json",
+      "sha256": "a0f739412f7d3a792609f0ff70ef03dc1c089c7e129f5c050b6407f1ea7eb682"
+    },
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/soportes-academicos-2026-10-17/cotejo-matrices.json",
+      "sha256": "180b5edb5dbd0259bcd09ac50aa14ea119dd8727b135c4322580f74815cfa066"
+    },
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/soportes-academicos-2026-10-17/construccion.json",
+      "sha256": "7d47f31844ace98e5d03925b597f3aed6853344b88f82a473310a1115f6e0bef"
+    },
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/soportes-academicos-2026-10-17/verificacion-documental.json",
+      "sha256": "37e476d36a4ef6edf7b2414ad7ce4ee361f11adb3cb9a35bcce299aef09c5873"
+    },
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/soportes-academicos-2026-10-17/revision-visual-documental.json",
+      "sha256": "bc404b7b3f5a735f33d884954b5e8ee996be8f39ce09d32177b37fc256038594"
+    },
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/soportes-academicos-2026-10-17/cotejo-cambios-documentales.json",
+      "sha256": "8be92516c46042848e91847c600f99c46cc43b27a0b11d222a37693640fde91a"
+    },
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/soportes-academicos-2026-10-17/cotejo-final-independiente.json",
+      "sha256": "fa4ee555c1b65be5300dcf86f27945386ac3ebb865b347d1f934e8b0ac94784d"
+    },
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/soportes-academicos-2026-10-17/LEEME.md",
+      "sha256": "49321f241a978855540cb4f0991233c13c73347f25ecad678a1ebb4714aace38"
+    }
+  ],
+  "guias": [
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/CONTEXTO.md",
+      "sha256": "e8d78d63d1dc6b8aeacfe66bdefd92a6d09a52bd864792d4062e0af7a320bcc5"
+    },
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/DOCUMENTO_PROYECTO.md",
+      "sha256": "02c3d0a7f88e9fee22fb46684681501f1b44ae65b75e46fc82f0fa110cfab26a"
+    },
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/revision-academica-2026-10-17/DICTAMEN.md",
+      "sha256": "93cab2cbb34909c901180effd9067823d58e8514a5b0bb5a6ef7fbaaa1d2131d"
+    },
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/cierre-final-2026-10-17/documentacion.md",
+      "sha256": "8709291b090ac525165085c81e83585dcdba35ac94bc2cf3d291a3bc1276a20c"
+    },
+    {
+      "ruta": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/cierre-final-2026-10-17/ESTADO.md",
+      "sha256": "b4cfdfde28caff7661ca93bdf06be1ac247ce1240a6f36730f1c563f45e7b775"
+    }
+  ],
+  "limites": [
+    "Originales Excel intactos, preservados en privado, sin recálculo ni publicación.",
+    "Soportes bibliométricos y datos de Scopus/cribado no localizados en la carpeta del proyecto ni Descargas; no se inspeccionó carpeta OneDrive por requerir sesión.",
+    "La rúbrica docente sin puntajes no acredita aprobación institucional.",
+    "No se ejecutaron auditorías, llamadas API de pago, Docker ni push; evidencia experimental sin cambios."
+  ],
+  "corte_anterior": "docs/revision-academica-2026-10-17/ y respaldo privado previo a recepción. Sus hashes de maestros son históricos."
+}

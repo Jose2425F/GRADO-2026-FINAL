@@ -1,0 +1,350 @@
+{
+  "schema": "novaflow-real-isolation/1",
+  "requirement": "RNF-08",
+  "lab": "original",
+  "status": "PASS",
+  "requirement_status": "PARCIAL",
+  "created_at": "2026-10-19T08:31:00.581013+00:00",
+  "config_paths": {
+    "compose": "piloto_kali/despliegue/empresa/docker-compose.empresa.yml",
+    "env": "piloto_kali/prototipo/.lab-empresa/lab.env"
+  },
+  "representatives": [
+    {
+      "segment": "corp",
+      "network": "nova_corp",
+      "source": "nova-app-crm",
+      "peer": "nova-app-erp",
+      "port": 8088,
+      "families": [
+        4,
+        6
+      ]
+    },
+    {
+      "segment": "dc",
+      "network": "nova_datacenter",
+      "source": "nova-sender",
+      "peer": "nova-receiver-a",
+      "port": 8000,
+      "families": [
+        4,
+        6
+      ]
+    },
+    {
+      "segment": "dmz",
+      "network": "nova_dmz",
+      "source": "nova-portal",
+      "peer": "nova-legacy",
+      "port": 8080,
+      "families": [
+        4
+      ]
+    }
+  ],
+  "api_calls": 0,
+  "audit_runs": 0,
+  "limits": {
+    "lab_seconds": 240,
+    "command_seconds": 15,
+    "socket_seconds": 0.65,
+    "payload_bytes": 0,
+    "positive_max_attempts": 5
+  },
+  "limitations": [
+    "Solo tres contenedores representantes por banco: portal, app-crm y sender; no todos los procesos ni miembros.",
+    "Conexiones TCP sin payload: DMZ IPv4, corporativo y datacenter IPv4/IPv6; no son auditorías de aplicación.",
+    "Negativos solo a endpoints vivos de otros segmentos de ESTE banco; ningún sistema externo real.",
+    "No se prueba salida del anfitrión, DNS, UDP, servicios externos, ataques ni configuraciones futuras.",
+    "La validación literal de RNF-08 permanece PARCIAL aunque el alcance observado resulte PASS.",
+    "Un timeout, rechazo TCP o control positivo fallido nunca basta para acreditar bloqueo.",
+    "Las capacidades del PID 1 y del proceso Python de comprobación son una instantánea, no todos los procesos."
+  ],
+  "checker_sha256": "5c965e9d78e1f7cc2b0830de42c70638f69bd26de4545bf93914a7df5f76b973",
+  "started_at": "2026-10-19T08:31:00.581329+00:00",
+  "execution": "REAL",
+  "reason_codes": [],
+  "lifecycle": [
+    {
+      "action": "compose_up_existing_no_build_no_recreate_no_pull",
+      "status": "PASS",
+      "at": "2026-10-19T08:31:10.856346+00:00"
+    },
+    {
+      "action": "compose_stop_conserve_containers_and_data",
+      "status": "PASS",
+      "at": "2026-10-19T08:31:31.150872+00:00"
+    }
+  ],
+  "segments": [
+    {
+      "segment": "corp",
+      "status": "PASS",
+      "requirement_status": "PARCIAL",
+      "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-corp.json"
+    },
+    {
+      "segment": "dc",
+      "status": "PASS",
+      "requirement_status": "PARCIAL",
+      "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-dc.json"
+    },
+    {
+      "segment": "dmz",
+      "status": "PASS",
+      "requirement_status": "PARCIAL",
+      "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-dmz.json"
+    }
+  ],
+  "protected_before": {
+    "files_checked": 3810,
+    "changed_or_missing": 0,
+    "unchanged": true,
+    "manifest_sha256": "083eab28274a94a81858fb47048d5e64b833604b673b0d94354753c42e887b9f"
+  },
+  "jobs_before": [],
+  "configuration": {
+    "compose": "piloto_kali/despliegue/empresa/docker-compose.empresa.yml",
+    "env": "piloto_kali/prototipo/.lab-empresa/lab.env",
+    "compose_sha256": "49d0f7a09796624ecc22cf10fc23883b5b7361a5a091be192e3d7ed58f26bda8",
+    "env_sha256": "1b170f02cd0f647396dfc4ca13fceaf7000e2535ea30a7e87cab52f63d8f32cd",
+    "images": [
+      "auditoria-lab-v2-app:local",
+      "novaflow-lab-credentials:local",
+      "novaflow-lab-http:local",
+      "novaflow-lab-protocol:local",
+      "postgres:16-alpine"
+    ]
+  },
+  "stage": "final_identity_check",
+  "images": [
+    {
+      "id": "sha256:9c9ebabe9145b0e5ec42c3af732d2f2f44aadc035151dc7f5ea373c8599de9b5"
+    },
+    {
+      "id": "sha256:6f53a0dc93982eecc420075692fce9b0bccdf4777e9892d6eb0acff806297f53"
+    },
+    {
+      "id": "sha256:6678985a00807094f9fd71a44772d7949e953af3bec3719c4baaa096dc791399"
+    },
+    {
+      "id": "sha256:7c9add5baee0edf9d60a81c96564476e654ba6ae3bac3f79271379bcb018ab94"
+    },
+    {
+      "id": "sha256:721873c34ceb9f8d8fc265984940dc982404c105f19ad51be9fdc5970a6080ea"
+    }
+  ],
+  "network_checks": {
+    "nova_corp": {
+      "status": "PASS",
+      "reasons": [],
+      "expected": {
+        "name": "nova_corp",
+        "bridge": "br-nova-corp",
+        "subnets": [
+          "192.168.69.0/24",
+          "fd57:2026:69::/64"
+        ],
+        "members": [
+          "nova-app-crm",
+          "nova-app-erp",
+          "nova-app-intranet",
+          "nova-app-portal"
+        ]
+      },
+      "observed": {
+        "name": "nova_corp",
+        "id": "987525d9f6a5420e6d0cd8e8401a2b36dbb7cbc58b79549af2043cbd88b7400c",
+        "internal": true,
+        "driver": "bridge",
+        "enable_ipv6": true,
+        "ipam": [
+          {
+            "Gateway": "192.168.69.1",
+            "Subnet": "192.168.69.0/24"
+          },
+          {
+            "Gateway": "fd57:2026:69::1",
+            "Subnet": "fd57:2026:69::/64"
+          }
+        ],
+        "options": {
+          "com.docker.network.bridge.name": "br-nova-corp"
+        },
+        "members": {
+          "8066b952d3704c4dd6f4450956a173999fac46b688ce92f112ff2120b6279dca": {
+            "EndpointID": "8b78a970378607aeeb277b7d5fe77601173ad101235d77ef4b73a71e8ac5d203",
+            "IPv4Address": "192.168.69.12/24",
+            "IPv6Address": "fd57:2026:69::12/64",
+            "MacAddress": "22:a7:73:4f:56:ab",
+            "Name": "nova-app-erp"
+          },
+          "835ca799463aff3f703f10a266f7a4e1a7605bd3513bc60e1532f71506fc2c5f": {
+            "EndpointID": "acb5058dbb5be4cf1f1d307f3c6abaa063c1c95dd342a4f895cd59c5feea4fa8",
+            "IPv4Address": "192.168.69.14/24",
+            "IPv6Address": "fd57:2026:69::14/64",
+            "MacAddress": "d6:d4:3e:67:5f:79",
+            "Name": "nova-app-intranet"
+          },
+          "9ea7dfe93164e9007d0d2f1417bdee4127907335e7b48953b1e1612cd0747455": {
+            "EndpointID": "ced1f2f4ad340a7171c4fc8e16d2e211f7e9e946598e9f01b98dfc67272984f2",
+            "IPv4Address": "192.168.69.13/24",
+            "IPv6Address": "fd57:2026:69::13/64",
+            "MacAddress": "2e:58:a2:5d:77:6e",
+            "Name": "nova-app-portal"
+          },
+          "f45d4d74e7691a4069185c29d4932adbdee6125daf768b6c96694196c5871e56": {
+            "EndpointID": "fb3f6465805cabecc498b0fa92033ceec09cfb630d81eaf5246343798dc9cac5",
+            "IPv4Address": "192.168.69.11/24",
+            "IPv6Address": "fd57:2026:69::11/64",
+            "MacAddress": "06:9d:28:60:50:f7",
+            "Name": "nova-app-crm"
+          }
+        }
+      }
+    },
+    "nova_datacenter": {
+      "status": "PASS",
+      "reasons": [],
+      "expected": {
+        "name": "nova_datacenter",
+        "bridge": "br-nova-dc",
+        "subnets": [
+          "192.168.70.0/24",
+          "fd57:2026:70::/64"
+        ],
+        "members": [
+          "nova-receiver-a",
+          "nova-receiver-b",
+          "nova-router",
+          "nova-sender"
+        ]
+      },
+      "observed": {
+        "name": "nova_datacenter",
+        "id": "166f03dcea53ab9406c76d61dea8bec6d47b5f39ff4de89738b1141ffe64cf72",
+        "internal": true,
+        "driver": "bridge",
+        "enable_ipv6": true,
+        "ipam": [
+          {
+            "Gateway": "192.168.70.1",
+            "Subnet": "192.168.70.0/24"
+          },
+          {
+            "Gateway": "fd57:2026:70::1",
+            "Subnet": "fd57:2026:70::/64"
+          }
+        ],
+        "options": {
+          "com.docker.network.bridge.name": "br-nova-dc"
+        },
+        "members": {
+          "38247c2bf315a324b0b2d79ce70df450debe91b6b6bbb088e6d2dd196355fbf5": {
+            "EndpointID": "aa08646cdaf498a98425efe0aa0460c38c56a55d31ef9a1764a039f943afe025",
+            "IPv4Address": "192.168.70.254/24",
+            "IPv6Address": "fd57:2026:70::fe/64",
+            "MacAddress": "02:57:20:26:70:fe",
+            "Name": "nova-router"
+          },
+          "a30218775786f63168f806e9fa05fe453baa4f1a0d373cf85457e6ea85d791e3": {
+            "EndpointID": "cd75cc579d1ebe941b38a9d5c1e716a998eff9e2aef5a41bbfe3fed699597c06",
+            "IPv4Address": "192.168.70.21/24",
+            "IPv6Address": "fd57:2026:70::21/64",
+            "MacAddress": "02:57:20:26:70:21",
+            "Name": "nova-receiver-b"
+          },
+          "ae765c8546eef07dfb8fc8eb3fc97499bbbb40ba70f2250ad53fdb12ae1e0c3e": {
+            "EndpointID": "804286df9fff0c87105787c9b8f8d8f64dba5e89459696d1be6fc2b47dc1df09",
+            "IPv4Address": "192.168.70.10/24",
+            "IPv6Address": "fd57:2026:70::10/64",
+            "MacAddress": "02:57:20:26:70:10",
+            "Name": "nova-sender"
+          },
+          "b7467918e7dcb40861921f3de22d349b42bb38c86e023c7c56eb12f5307ce03c": {
+            "EndpointID": "b977efe4d05aeb41277a159e782286206cf15fca4bd04432614155fc20224ae4",
+            "IPv4Address": "192.168.70.20/24",
+            "IPv6Address": "fd57:2026:70::20/64",
+            "MacAddress": "02:57:20:26:70:20",
+            "Name": "nova-receiver-a"
+          }
+        }
+      }
+    },
+    "nova_dmz": {
+      "status": "PASS",
+      "reasons": [],
+      "expected": {
+        "name": "nova_dmz",
+        "bridge": "br-nova-dmz",
+        "subnets": [
+          "192.168.71.0/24"
+        ],
+        "members": [
+          "nova-bastion",
+          "nova-legacy",
+          "nova-portal",
+          "nova-records"
+        ]
+      },
+      "observed": {
+        "name": "nova_dmz",
+        "id": "e89f123bb855197ce080893808607d9e8c0d14e8f946b9cf316d4060d5c5e6cd",
+        "internal": true,
+        "driver": "bridge",
+        "enable_ipv6": false,
+        "ipam": [
+          {
+            "Gateway": "192.168.71.1",
+            "Subnet": "192.168.71.0/24"
+          }
+        ],
+        "options": {
+          "com.docker.network.bridge.name": "br-nova-dmz"
+        },
+        "members": {
+          "5443f14a6f5977a32a51e669630127d92d46b5cfd338ce8de04d5757fd479533": {
+            "EndpointID": "b4fe5fd81d36f127b7e13f5df238b1bddd0c3996d296e78c86a2fd3026ad5dcb",
+            "IPv4Address": "192.168.71.12/24",
+            "IPv6Address": "",
+            "MacAddress": "22:1c:fc:1a:a1:b3",
+            "Name": "nova-bastion"
+          },
+          "c5d2344200a326d39662d77f8ffd62a9879159ce5a8fb6a2869ff9fbeee0b485": {
+            "EndpointID": "23a6f32ad94739d9a63cc7051dd488377639d54ec9fccf832ee23e7ca8c9c3cc",
+            "IPv4Address": "192.168.71.14/24",
+            "IPv6Address": "",
+            "MacAddress": "36:aa:cd:1a:22:0f",
+            "Name": "nova-records"
+          },
+          "c9421ab93b9d030275795bd341e2348928ea88328355d2ecfc1ecb3fc2c73aa4": {
+            "EndpointID": "e361903e4195be17bb12eb9a9efa133a012ef1fe0d8dde68c334314e6b76219f",
+            "IPv4Address": "192.168.71.11/24",
+            "IPv6Address": "",
+            "MacAddress": "4a:f1:c4:41:46:a4",
+            "Name": "nova-portal"
+          },
+          "f6b20ec9019ecf0fe3ae0390ea910c67bf72bb607da4d5dfe3ab276d58669a9a": {
+            "EndpointID": "b55393013fcc9f986d66825e03557761c2673bf58928adec16600adb8438fbd1",
+            "IPv4Address": "192.168.71.13/24",
+            "IPv6Address": "",
+            "MacAddress": "76:d7:17:82:07:8e",
+            "Name": "nova-legacy"
+          }
+        }
+      }
+    }
+  },
+  "all_containers_stable_during_verification": true,
+  "no_running_containers_after": true,
+  "protected_after": {
+    "files_checked": 3810,
+    "changed_or_missing": 0,
+    "unchanged": true,
+    "manifest_sha256": "083eab28274a94a81858fb47048d5e64b833604b673b0d94354753c42e887b9f"
+  },
+  "configuration_unchanged": true,
+  "finished_at": "2026-10-19T08:31:31.283093+00:00",
+  "elapsed_seconds": 30.702
+}

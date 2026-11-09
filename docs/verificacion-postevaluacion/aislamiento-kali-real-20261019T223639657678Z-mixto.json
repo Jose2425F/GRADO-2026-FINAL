@@ -1,0 +1,4290 @@
+{
+  "schema": "novaflow-real-isolation/2",
+  "requirement": "RNF-08",
+  "lab": "mixto",
+  "status": "NO_VERIFICADO",
+  "requirement_status": "PARCIAL",
+  "created_at": "2026-10-19T22:37:13.483880+00:00",
+  "mode": "kali",
+  "script_version": "novaflow-real-isolation/2-kali",
+  "config_paths": {
+    "compose": "piloto_kali/prototipo/.lab-suite/mixto/compose.json",
+    "env": "piloto_kali/prototipo/.lab-suite/mixto/lab.env"
+  },
+  "representatives": [
+    {
+      "segment": "corp",
+      "network": "nf3_corp",
+      "source": "nf3-app-crm",
+      "peer": "nf3-app-erp",
+      "port": 8088,
+      "families": [
+        4,
+        6
+      ],
+      "interface": "br-nf3-corp"
+    },
+    {
+      "segment": "dc",
+      "network": "nf3_dc",
+      "source": "nf3-sender",
+      "peer": "nf3-receiver-a",
+      "port": 8000,
+      "families": [
+        4,
+        6
+      ],
+      "interface": "br-nf3-dc"
+    },
+    {
+      "segment": "dmz",
+      "network": "nf3_dmz",
+      "source": "nf3-portal",
+      "peer": "nf3-legacy",
+      "port": 8080,
+      "families": [
+        4
+      ],
+      "interface": "br-nf3-dmz"
+    }
+  ],
+  "api_calls": 0,
+  "audit_runs": 0,
+  "limits": {
+    "lab_seconds": 240,
+    "command_seconds": 15,
+    "socket_seconds": 0.65,
+    "payload_bytes": 0,
+    "positive_max_attempts": 5
+  },
+  "limitations": [
+    "TCP finito sin payload desde direcciones reales del anfitrión asignadas a bridges del banco; no se prueba la aplicación.",
+    "Solo endpoints controlados, activos y obtenidos del inventario Docker del mismo banco; nunca se conecta a destinos externos.",
+    "La ruta se consulta de nuevo después de bind y antes de cada connect; se exige el bridge del destino sin gateway.",
+    "La matriz L3 entre segmentos desde el anfitrión no está fijada: los negativos intersegmento son solo consultas de ruta, NO VERIFICADO.",
+    "La salida externa se examina únicamente con route get a direcciones de documentación; no se transmiten paquetes a ellas.",
+    "El JSON del firewall es una captura de solo lectura, no una comprobación de las reglas vigentes después del arranque del banco.",
+    "Un timeout o rechazo no demuestra aislamiento. RNF-08 permanece PARCIAL; no se extrapola a todo puerto, protocolo o proceso."
+  ],
+  "checker_sha256": "af9ede0f1f3e51166860507481d407548d2b459a5c045ac4dca5024dfba6b026",
+  "source_selection": {
+    "segment": "todos",
+    "interface": null,
+    "address": null,
+    "actual_addresses_selected_only_during_execution": true
+  },
+  "firewall_snapshot": {
+    "status": "SNAPSHOT_READ_ONLY",
+    "path": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/verificacion-postevaluacion/rnf08-cortafuegos-operador-20261019_182838.json",
+    "sha256": "8e389855165a6c321b14758c11e34d8ca03861c80c563af952f8df33e7790600",
+    "tables": 4,
+    "chains": 21,
+    "rules": 130,
+    "output_hooks": [
+      {
+        "family": "ip",
+        "table": "nat",
+        "name": "OUTPUT",
+        "handle": 4,
+        "type": "nat",
+        "hook": "output",
+        "prio": -100,
+        "policy": "accept"
+      },
+      {
+        "family": "ip6",
+        "table": "nat",
+        "name": "OUTPUT",
+        "handle": 4,
+        "type": "nat",
+        "hook": "output",
+        "prio": -100,
+        "policy": "accept"
+      }
+    ],
+    "output_filter_present": false,
+    "docker_user": [
+      {
+        "family": "ip",
+        "table": "filter",
+        "handle": 51,
+        "rules": 0
+      },
+      {
+        "family": "ip6",
+        "table": "filter",
+        "handle": 26,
+        "rules": 0
+      }
+    ],
+    "opaque_xt": [
+      {
+        "family": "ip",
+        "table": "nat",
+        "chain": "PREROUTING",
+        "handle": 3,
+        "extensions": [
+          "addrtype"
+        ]
+      },
+      {
+        "family": "ip",
+        "table": "nat",
+        "chain": "OUTPUT",
+        "handle": 5,
+        "extensions": [
+          "addrtype"
+        ]
+      },
+      {
+        "family": "ip",
+        "table": "nat",
+        "chain": "POSTROUTING",
+        "handle": 8,
+        "extensions": [
+          "MASQUERADE"
+        ]
+      },
+      {
+        "family": "ip",
+        "table": "filter",
+        "chain": "DOCKER-CT",
+        "handle": 55,
+        "extensions": [
+          "conntrack"
+        ]
+      },
+      {
+        "family": "ip6",
+        "table": "nat",
+        "chain": "PREROUTING",
+        "handle": 3,
+        "extensions": [
+          "addrtype"
+        ]
+      },
+      {
+        "family": "ip6",
+        "table": "nat",
+        "chain": "OUTPUT",
+        "handle": 5,
+        "extensions": [
+          "addrtype"
+        ]
+      }
+    ],
+    "eth0_rules": [],
+    "nonzero_counters": 0,
+    "limitations": [
+      "Snapshot supplied by the operator; not refreshed with privileged commands.",
+      "NAT output hooks do not establish filtering of host-originated traffic.",
+      "Opaque xt extension arguments and other namespaces/mechanisms are not reconstructed."
+    ]
+  },
+  "started_at": "2026-10-19T22:37:13.495969+00:00",
+  "execution": "REAL",
+  "reason_codes": [],
+  "lifecycle": [
+    {
+      "action": "compose_up_existing_no_build_no_recreate_no_pull",
+      "status": "PASS",
+      "at": "2026-10-19T22:37:18.307170+00:00"
+    },
+    {
+      "action": "compose_stop_conserve_containers_and_data",
+      "status": "PASS",
+      "at": "2026-10-19T22:37:23.888907+00:00"
+    }
+  ],
+  "segments": [
+    {
+      "segment": "corp",
+      "status": "NO_VERIFICADO",
+      "requirement_status": "PARCIAL",
+      "receipt": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto-corp.json"
+    },
+    {
+      "segment": "dc",
+      "status": "NO_VERIFICADO",
+      "requirement_status": "PARCIAL",
+      "receipt": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto-dc.json"
+    },
+    {
+      "segment": "dmz",
+      "status": "NO_VERIFICADO",
+      "requirement_status": "PARCIAL",
+      "receipt": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto-dmz.json"
+    }
+  ],
+  "protected_before": {
+    "files_checked": 3810,
+    "changed_or_missing": 0,
+    "unchanged": true,
+    "manifest_sha256": "083eab28274a94a81858fb47048d5e64b833604b673b0d94354753c42e887b9f"
+  },
+  "jobs_before": [],
+  "configuration": {
+    "compose": "piloto_kali/prototipo/.lab-suite/mixto/compose.json",
+    "env": "piloto_kali/prototipo/.lab-suite/mixto/lab.env",
+    "compose_sha256": "7e9da6b8889f24092606fcbd2f90b8a949831e6f246821a02d3e9688663053a1",
+    "images": [
+      "auditoria-lab-v2-app:local",
+      "novaflow-lab-credentials:local",
+      "novaflow-lab-http:local",
+      "novaflow-lab-protocol:local",
+      "postgres:16-alpine"
+    ]
+  },
+  "stage": "kali_passive_negative_controls",
+  "images": [
+    {
+      "id": "sha256:9c9ebabe9145b0e5ec42c3af732d2f2f44aadc035151dc7f5ea373c8599de9b5"
+    },
+    {
+      "id": "sha256:6f53a0dc93982eecc420075692fce9b0bccdf4777e9892d6eb0acff806297f53"
+    },
+    {
+      "id": "sha256:6678985a00807094f9fd71a44772d7949e953af3bec3719c4baaa096dc791399"
+    },
+    {
+      "id": "sha256:7c9add5baee0edf9d60a81c96564476e654ba6ae3bac3f79271379bcb018ab94"
+    },
+    {
+      "id": "sha256:721873c34ceb9f8d8fc265984940dc982404c105f19ad51be9fdc5970a6080ea"
+    }
+  ],
+  "network_checks": {
+    "nf3_corp": {
+      "status": "PASS",
+      "reasons": [],
+      "expected": {
+        "name": "nf3_corp",
+        "bridge": "br-nf3-corp",
+        "subnets": [
+          "192.168.130.0/24",
+          "fd57:2026:130::/64"
+        ],
+        "members": [
+          "nf3-app-crm",
+          "nf3-app-erp",
+          "nf3-app-intranet",
+          "nf3-app-portal"
+        ]
+      },
+      "observed": {
+        "name": "nf3_corp",
+        "id": "26f1e7c8f65a81c76ef43cba2f3cafce8d5f6c88bc214cdd759cbcc9932811d1",
+        "internal": true,
+        "driver": "bridge",
+        "enable_ipv6": true,
+        "ipam": [
+          {
+            "Gateway": "192.168.130.1",
+            "Subnet": "192.168.130.0/24"
+          },
+          {
+            "Gateway": "fd57:2026:130::1",
+            "Subnet": "fd57:2026:130::/64"
+          }
+        ],
+        "options": {
+          "com.docker.network.bridge.name": "br-nf3-corp"
+        },
+        "members": {
+          "7f2d520b3966dd1f77b027915e6bee14883497527ae09472e627f3d0d5b8c3eb": {
+            "EndpointID": "9745b0ac4afdf47c5a6f9c6356d06cdb0dcbfbaeb66028ce683bc61693ed2e63",
+            "IPv4Address": "192.168.130.11/24",
+            "IPv6Address": "fd57:2026:130::11/64",
+            "MacAddress": "de:a5:e8:48:0d:4b",
+            "Name": "nf3-app-crm"
+          },
+          "d1bbfa9cb9b12be3e361ae251235a5ea56894334d510d7263fc3af64ac954b2e": {
+            "EndpointID": "71c1c46c54a77266d58642f9307133f6ca7fda9c385be8e48d76e51cac075807",
+            "IPv4Address": "192.168.130.12/24",
+            "IPv6Address": "fd57:2026:130::12/64",
+            "MacAddress": "32:0d:61:b7:82:5e",
+            "Name": "nf3-app-erp"
+          },
+          "eaa2133ed16da459c354f69a9858af11cf1c9650c90182e7ed14c31540c7f459": {
+            "EndpointID": "7eb7d2a4b557ee6c1bf4463340e6ceaad23f7cb08dc0079b739b5ef01b4581aa",
+            "IPv4Address": "192.168.130.14/24",
+            "IPv6Address": "fd57:2026:130::14/64",
+            "MacAddress": "92:d7:29:52:ea:68",
+            "Name": "nf3-app-intranet"
+          },
+          "f273ca2bac66f35899e206c0e8fff628cf8803b38bbeaa0fac289b9447e9e977": {
+            "EndpointID": "3d269a069ff7b5e4a8acdb54afce9f189bf0443d1ec1d0272462779e0ece44b9",
+            "IPv4Address": "192.168.130.13/24",
+            "IPv6Address": "fd57:2026:130::13/64",
+            "MacAddress": "de:b8:d5:11:f5:ee",
+            "Name": "nf3-app-portal"
+          }
+        }
+      }
+    },
+    "nf3_dc": {
+      "status": "PASS",
+      "reasons": [],
+      "expected": {
+        "name": "nf3_dc",
+        "bridge": "br-nf3-dc",
+        "subnets": [
+          "192.168.131.0/24",
+          "fd57:2026:131::/64"
+        ],
+        "members": [
+          "nf3-receiver-a",
+          "nf3-receiver-b",
+          "nf3-router",
+          "nf3-sender"
+        ]
+      },
+      "observed": {
+        "name": "nf3_dc",
+        "id": "bfbda055d7f40470a03f38d473913caf9f2abcc8a06822b29a6fe6b8478bcb5e",
+        "internal": true,
+        "driver": "bridge",
+        "enable_ipv6": true,
+        "ipam": [
+          {
+            "Gateway": "192.168.131.1",
+            "Subnet": "192.168.131.0/24"
+          },
+          {
+            "Gateway": "fd57:2026:131::1",
+            "Subnet": "fd57:2026:131::/64"
+          }
+        ],
+        "options": {
+          "com.docker.network.bridge.name": "br-nf3-dc"
+        },
+        "members": {
+          "1525efcd1d2ffc06966ef275664966ed74a11d19bd0ba94e6c5ad23e651b0dc4": {
+            "EndpointID": "51edb1b2cf422daf323de1c4fdcb54d21f7ccc42f2af76077e93d0222e9e040c",
+            "IPv4Address": "192.168.131.10/24",
+            "IPv6Address": "fd57:2026:131::10/64",
+            "MacAddress": "02:57:20:26:a3:10",
+            "Name": "nf3-sender"
+          },
+          "34935f8f47bb754bc288b405c5bfbac444eeb59b48a87db61ea29476808c647c": {
+            "EndpointID": "7eb8056dcdc4418ac10895b1c5b34d291b24e5af9c1bdb614a95b09459a009df",
+            "IPv4Address": "192.168.131.21/24",
+            "IPv6Address": "fd57:2026:131::21/64",
+            "MacAddress": "02:57:20:26:a3:21",
+            "Name": "nf3-receiver-b"
+          },
+          "481aabf42ca88d2aaccd74137e3be2e9f3288a2c8486d836dfe12af6f60c917f": {
+            "EndpointID": "257764ec49ef8837a94cd9b264238b8938c55ee36d077e2c80a56b342393d264",
+            "IPv4Address": "192.168.131.254/24",
+            "IPv6Address": "fd57:2026:131::fe/64",
+            "MacAddress": "02:57:20:26:a3:fe",
+            "Name": "nf3-router"
+          },
+          "d2b468e7745c16504b2ee51aeedafa155b21ba432ea655674f018d8713b7b54b": {
+            "EndpointID": "8d2613bc72042caa8173ef5a8eebeea278c9fcc38bc70c708cb0a584bc411c6b",
+            "IPv4Address": "192.168.131.20/24",
+            "IPv6Address": "fd57:2026:131::20/64",
+            "MacAddress": "02:57:20:26:a3:20",
+            "Name": "nf3-receiver-a"
+          }
+        }
+      }
+    },
+    "nf3_dmz": {
+      "status": "PASS",
+      "reasons": [],
+      "expected": {
+        "name": "nf3_dmz",
+        "bridge": "br-nf3-dmz",
+        "subnets": [
+          "192.168.132.0/24"
+        ],
+        "members": [
+          "nf3-bastion",
+          "nf3-legacy",
+          "nf3-portal",
+          "nf3-records"
+        ]
+      },
+      "observed": {
+        "name": "nf3_dmz",
+        "id": "12b35bd114f2da3fb9e0f73822d5ed9818dc0e4a44aeed741b50f0f490e55198",
+        "internal": true,
+        "driver": "bridge",
+        "enable_ipv6": false,
+        "ipam": [
+          {
+            "Gateway": "192.168.132.1",
+            "Subnet": "192.168.132.0/24"
+          }
+        ],
+        "options": {
+          "com.docker.network.bridge.name": "br-nf3-dmz"
+        },
+        "members": {
+          "1a3422bcfb9524b06cc7b733c6bcd95f8fb28615f6b4b658e719ad3a21185604": {
+            "EndpointID": "e8f282a7f926185ffeed393b9581ab78631beab4e80a200d63052f35813ad02c",
+            "IPv4Address": "192.168.132.11/24",
+            "IPv6Address": "",
+            "MacAddress": "b6:33:e0:3b:74:72",
+            "Name": "nf3-portal"
+          },
+          "2395cbe27430c488671c0fde2f54802664600e0fd29dfecdb2e6155e80feddcb": {
+            "EndpointID": "e5e207cd93f653bcc3ea172963c328bdd4ac134ef9ef763b24792843705dfc42",
+            "IPv4Address": "192.168.132.13/24",
+            "IPv6Address": "",
+            "MacAddress": "ae:63:a2:58:88:6a",
+            "Name": "nf3-legacy"
+          },
+          "500fa57c7bb9ea1c22b5dc5b0c9a24cec80f1322fb04125c7b9400dee7d9fdd9": {
+            "EndpointID": "a26f43157b8d88a89f1b0274d84683c1fbf46469793db97aa5b87fc38239c208",
+            "IPv4Address": "192.168.132.14/24",
+            "IPv6Address": "",
+            "MacAddress": "3a:ba:b6:cd:90:16",
+            "Name": "nf3-records"
+          },
+          "a8fe40e3a54eeec73caabb29688a4a2e7db3999dbce2a94d0bc8b8c0ce62f8dd": {
+            "EndpointID": "f69d5080a303f5834b6f4aa5812dbf967de5575903511bdebc4f2804c95b278d",
+            "IPv4Address": "192.168.132.12/24",
+            "IPv6Address": "",
+            "MacAddress": "02:fe:44:4c:dc:82",
+            "Name": "nf3-bastion"
+          }
+        }
+      }
+    }
+  },
+  "host_network_state": {
+    "addresses": [
+      {
+        "ifindex": 1,
+        "ifname": "lo",
+        "flags": [
+          "LOOPBACK",
+          "UP",
+          "LOWER_UP"
+        ],
+        "mtu": 65536,
+        "qdisc": "noqueue",
+        "operstate": "UNKNOWN",
+        "group": "default",
+        "txqlen": 1000,
+        "link_type": "loopback",
+        "address": "00:00:00:00:00:00",
+        "broadcast": "00:00:00:00:00:00",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "127.0.0.1",
+            "prefixlen": 8,
+            "scope": "host",
+            "label": "lo",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "::1",
+            "prefixlen": 128,
+            "scope": "host",
+            "noprefixroute": true,
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 2,
+        "ifname": "eth0",
+        "flags": [
+          "BROADCAST",
+          "MULTICAST",
+          "UP",
+          "LOWER_UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "fq_codel",
+        "operstate": "UP",
+        "group": "default",
+        "txqlen": 1000,
+        "link_type": "ether",
+        "address": "08:00:27:5a:87:bc",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "10.0.2.15",
+            "prefixlen": 24,
+            "broadcast": "10.0.2.255",
+            "scope": "global",
+            "dynamic": true,
+            "noprefixroute": true,
+            "label": "eth0",
+            "valid_life_time": 30562,
+            "preferred_life_time": 30562
+          },
+          {
+            "family": "inet6",
+            "local": "fd17:625c:f037:2:7aca:5523:14ad:3b72",
+            "prefixlen": 64,
+            "scope": "global",
+            "dynamic": true,
+            "noprefixroute": true,
+            "valid_life_time": 86368,
+            "preferred_life_time": 14368
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::def8:3d5c:a56b:5f6c",
+            "prefixlen": 64,
+            "scope": "link",
+            "noprefixroute": true,
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 3,
+        "ifname": "br-lab-v2-ndp",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "66:12:0a:a9:2b:42",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.60.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.60.255",
+            "scope": "global",
+            "label": "br-lab-v2-ndp",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fd57:2026:60::1",
+            "prefixlen": 64,
+            "scope": "global",
+            "nodad": true,
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 4,
+        "ifname": "br-andes",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "8a:94:08:7e:88:39",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.80.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.80.255",
+            "scope": "global",
+            "label": "br-andes",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 5,
+        "ifname": "br-delta",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "9a:ec:86:bd:67:67",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.81.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.81.255",
+            "scope": "global",
+            "label": "br-delta",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 6,
+        "ifname": "br-nf4-dc",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "a2:cd:8b:65:34:45",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.141.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.141.255",
+            "scope": "global",
+            "label": "br-nf4-dc",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fd57:2026:141::1",
+            "prefixlen": 64,
+            "scope": "global",
+            "nodad": true,
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::a0cd:8bff:fe65:3445",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 7,
+        "ifname": "br-dificil",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "0e:00:9d:f2:8f:00",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.84.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.84.255",
+            "scope": "global",
+            "label": "br-dificil",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 8,
+        "ifname": "br-lab-ipv6",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "ba:1f:a5:69:fd:d6",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.58.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.58.255",
+            "scope": "global",
+            "label": "br-lab-ipv6",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fd57:2026:9:28::1",
+            "prefixlen": 64,
+            "scope": "global",
+            "nodad": true,
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 9,
+        "ifname": "br-medio",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "ae:bf:14:71:6a:bf",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.83.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.83.255",
+            "scope": "global",
+            "label": "br-medio",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 10,
+        "ifname": "br-nf4-dmz",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "ee:95:74:5b:00:ee",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.142.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.142.255",
+            "scope": "global",
+            "label": "br-nf4-dmz",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::ec95:74ff:fe5b:ee",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 11,
+        "ifname": "br-lab-audit",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "d6:6a:32:f2:c3:95",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.57.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.57.255",
+            "scope": "global",
+            "label": "br-lab-audit",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 12,
+        "ifname": "docker0",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "b2:85:e7:89:7d:38",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "172.17.0.1",
+            "prefixlen": 16,
+            "broadcast": "172.17.255.255",
+            "scope": "global",
+            "label": "docker0",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 13,
+        "ifname": "br-facil",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "12:19:e8:b4:c6:82",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.82.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.82.255",
+            "scope": "global",
+            "label": "br-facil",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 14,
+        "ifname": "br-nf4-corp",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "ae:ef:37:79:1f:a6",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.140.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.140.255",
+            "scope": "global",
+            "label": "br-nf4-corp",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fd57:2026:140::1",
+            "prefixlen": 64,
+            "scope": "global",
+            "nodad": true,
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::acef:37ff:fe79:1fa6",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 15,
+        "ifname": "br-lab-v2-apps",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "5e:bb:b8:5e:38:12",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.59.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.59.255",
+            "scope": "global",
+            "label": "br-lab-v2-apps",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fd57:2026:59::1",
+            "prefixlen": 64,
+            "scope": "global",
+            "nodad": true,
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 16,
+        "ifname": "br-nova-dmz",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "82:85:0b:a6:6d:db",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.71.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.71.255",
+            "scope": "global",
+            "label": "br-nova-dmz",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::8085:bff:fea6:6ddb",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 17,
+        "ifname": "br-nova-dc",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "d2:01:15:ee:e5:84",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.70.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.70.255",
+            "scope": "global",
+            "label": "br-nova-dc",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fd57:2026:70::1",
+            "prefixlen": 64,
+            "scope": "global",
+            "nodad": true,
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::d001:15ff:feee:e584",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 18,
+        "ifname": "br-nova-corp",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "fa:52:95:fe:f2:47",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.69.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.69.255",
+            "scope": "global",
+            "label": "br-nova-corp",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fd57:2026:69::1",
+            "prefixlen": 64,
+            "scope": "global",
+            "nodad": true,
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::f852:95ff:fefe:f247",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 43,
+        "ifname": "br-nf1-corp",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "1e:24:04:8a:6f:f3",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.110.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.110.255",
+            "scope": "global",
+            "label": "br-nf1-corp",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fd57:2026:110::1",
+            "prefixlen": 64,
+            "scope": "global",
+            "nodad": true,
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::1c24:4ff:fe8a:6ff3",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 44,
+        "ifname": "br-nf1-dmz",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "5a:68:e7:8d:1b:8b",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.112.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.112.255",
+            "scope": "global",
+            "label": "br-nf1-dmz",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::5868:e7ff:fe8d:1b8b",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 45,
+        "ifname": "br-nf1-dc",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "ba:b2:c3:57:30:ae",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.111.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.111.255",
+            "scope": "global",
+            "label": "br-nf1-dc",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fd57:2026:111::1",
+            "prefixlen": 64,
+            "scope": "global",
+            "nodad": true,
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::b8b2:c3ff:fe57:30ae",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 62,
+        "ifname": "br-nf2-dmz",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "b6:df:cc:5d:b4:9b",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.122.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.122.255",
+            "scope": "global",
+            "label": "br-nf2-dmz",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::b4df:ccff:fe5d:b49b",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 63,
+        "ifname": "br-nf2-dc",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "d6:ad:5a:42:09:25",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.121.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.121.255",
+            "scope": "global",
+            "label": "br-nf2-dc",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fd57:2026:121::1",
+            "prefixlen": 64,
+            "scope": "global",
+            "nodad": true,
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::d4ad:5aff:fe42:925",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 64,
+        "ifname": "br-nf2-corp",
+        "flags": [
+          "NO-CARRIER",
+          "BROADCAST",
+          "MULTICAST",
+          "UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "DOWN",
+        "group": "default",
+        "link_type": "ether",
+        "address": "d2:ae:c3:fd:ed:f8",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.120.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.120.255",
+            "scope": "global",
+            "label": "br-nf2-corp",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fd57:2026:120::1",
+            "prefixlen": 64,
+            "scope": "global",
+            "nodad": true,
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::d0ae:c3ff:fefd:edf8",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 85,
+        "ifname": "br-nf3-dc",
+        "flags": [
+          "BROADCAST",
+          "MULTICAST",
+          "UP",
+          "LOWER_UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "UP",
+        "group": "default",
+        "link_type": "ether",
+        "address": "fe:b0:b7:d5:b1:1b",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.131.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.131.255",
+            "scope": "global",
+            "label": "br-nf3-dc",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fd57:2026:131::1",
+            "prefixlen": 64,
+            "scope": "global",
+            "nodad": true,
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::fcb0:b7ff:fed5:b11b",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 86,
+        "ifname": "br-nf3-dmz",
+        "flags": [
+          "BROADCAST",
+          "MULTICAST",
+          "UP",
+          "LOWER_UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "UP",
+        "group": "default",
+        "link_type": "ether",
+        "address": "9a:17:5b:e2:ee:36",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.132.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.132.255",
+            "scope": "global",
+            "label": "br-nf3-dmz",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::9817:5bff:fee2:ee36",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 87,
+        "ifname": "br-nf3-corp",
+        "flags": [
+          "BROADCAST",
+          "MULTICAST",
+          "UP",
+          "LOWER_UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "operstate": "UP",
+        "group": "default",
+        "link_type": "ether",
+        "address": "b2:0d:78:6b:92:cc",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "addr_info": [
+          {
+            "family": "inet",
+            "local": "192.168.130.1",
+            "prefixlen": 24,
+            "broadcast": "192.168.130.255",
+            "scope": "global",
+            "label": "br-nf3-corp",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fd57:2026:130::1",
+            "prefixlen": 64,
+            "scope": "global",
+            "nodad": true,
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          },
+          {
+            "family": "inet6",
+            "local": "fe80::b00d:78ff:fe6b:92cc",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 200,
+        "link_index": 2,
+        "ifname": "veth29df938",
+        "flags": [
+          "BROADCAST",
+          "MULTICAST",
+          "UP",
+          "LOWER_UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "master": "br-nf3-dc",
+        "operstate": "UP",
+        "group": "default",
+        "link_type": "ether",
+        "address": "6e:23:d0:ff:24:06",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "link_netnsid": 0,
+        "addr_info": [
+          {
+            "family": "inet6",
+            "local": "fe80::6c23:d0ff:feff:2406",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 201,
+        "link_index": 2,
+        "ifname": "veth9bf202e",
+        "flags": [
+          "BROADCAST",
+          "MULTICAST",
+          "UP",
+          "LOWER_UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "master": "br-nf3-dmz",
+        "operstate": "UP",
+        "group": "default",
+        "link_type": "ether",
+        "address": "56:58:64:e7:0d:c0",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "link_netnsid": 1,
+        "addr_info": [
+          {
+            "family": "inet6",
+            "local": "fe80::5458:64ff:fee7:dc0",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 202,
+        "link_index": 2,
+        "ifname": "veth19d320f",
+        "flags": [
+          "BROADCAST",
+          "MULTICAST",
+          "UP",
+          "LOWER_UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "master": "br-nf3-dc",
+        "operstate": "UP",
+        "group": "default",
+        "link_type": "ether",
+        "address": "1e:ee:bf:7f:50:14",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "link_netnsid": 2,
+        "addr_info": [
+          {
+            "family": "inet6",
+            "local": "fe80::1cee:bfff:fe7f:5014",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 203,
+        "link_index": 2,
+        "ifname": "veth692ddff",
+        "flags": [
+          "BROADCAST",
+          "MULTICAST",
+          "UP",
+          "LOWER_UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "master": "br-nf3-corp",
+        "operstate": "UP",
+        "group": "default",
+        "link_type": "ether",
+        "address": "be:b6:4f:97:6e:2c",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "link_netnsid": 3,
+        "addr_info": [
+          {
+            "family": "inet6",
+            "local": "fe80::bcb6:4fff:fe97:6e2c",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 204,
+        "link_index": 2,
+        "ifname": "vethc205539",
+        "flags": [
+          "BROADCAST",
+          "MULTICAST",
+          "UP",
+          "LOWER_UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "master": "br-nf3-corp",
+        "operstate": "UP",
+        "group": "default",
+        "link_type": "ether",
+        "address": "3a:5e:3d:90:87:34",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "link_netnsid": 4,
+        "addr_info": [
+          {
+            "family": "inet6",
+            "local": "fe80::385e:3dff:fe90:8734",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 205,
+        "link_index": 2,
+        "ifname": "veth4f25990",
+        "flags": [
+          "BROADCAST",
+          "MULTICAST",
+          "UP",
+          "LOWER_UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "master": "br-nf3-corp",
+        "operstate": "UP",
+        "group": "default",
+        "link_type": "ether",
+        "address": "0e:83:13:fe:ef:ed",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "link_netnsid": 5,
+        "addr_info": [
+          {
+            "family": "inet6",
+            "local": "fe80::c83:13ff:fefe:efed",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 206,
+        "link_index": 2,
+        "ifname": "veth09944ad",
+        "flags": [
+          "BROADCAST",
+          "MULTICAST",
+          "UP",
+          "LOWER_UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "master": "br-nf3-dmz",
+        "operstate": "UP",
+        "group": "default",
+        "link_type": "ether",
+        "address": "f2:b3:c8:b0:cf:5a",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "link_netnsid": 6,
+        "addr_info": [
+          {
+            "family": "inet6",
+            "local": "fe80::f0b3:c8ff:feb0:cf5a",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 207,
+        "link_index": 2,
+        "ifname": "veth71097ec",
+        "flags": [
+          "BROADCAST",
+          "MULTICAST",
+          "UP",
+          "LOWER_UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "master": "br-nf3-dmz",
+        "operstate": "UP",
+        "group": "default",
+        "link_type": "ether",
+        "address": "3e:9f:99:1a:ca:78",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "link_netnsid": 7,
+        "addr_info": [
+          {
+            "family": "inet6",
+            "local": "fe80::3c9f:99ff:fe1a:ca78",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 208,
+        "link_index": 2,
+        "ifname": "veth8aa2119",
+        "flags": [
+          "BROADCAST",
+          "MULTICAST",
+          "UP",
+          "LOWER_UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "master": "br-nf3-dc",
+        "operstate": "UP",
+        "group": "default",
+        "link_type": "ether",
+        "address": "6e:5e:73:85:58:c4",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "link_netnsid": 8,
+        "addr_info": [
+          {
+            "family": "inet6",
+            "local": "fe80::6c5e:73ff:fe85:58c4",
+            "prefixlen": 64,
+            "scope": "link",
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 209,
+        "link_index": 2,
+        "ifname": "veth0b9a5d6",
+        "flags": [
+          "BROADCAST",
+          "MULTICAST",
+          "UP",
+          "LOWER_UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "master": "br-nf3-dc",
+        "operstate": "UP",
+        "group": "default",
+        "link_type": "ether",
+        "address": "3a:1d:3d:d0:fe:34",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "link_netnsid": 9,
+        "addr_info": [
+          {
+            "family": "inet6",
+            "local": "fe80::381d:3dff:fed0:fe34",
+            "prefixlen": 64,
+            "scope": "link",
+            "tentative": true,
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 210,
+        "link_index": 2,
+        "ifname": "vethe8229a5",
+        "flags": [
+          "BROADCAST",
+          "MULTICAST",
+          "UP",
+          "LOWER_UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "master": "br-nf3-dmz",
+        "operstate": "UP",
+        "group": "default",
+        "link_type": "ether",
+        "address": "62:07:13:87:bc:3a",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "link_netnsid": 10,
+        "addr_info": [
+          {
+            "family": "inet6",
+            "local": "fe80::6007:13ff:fe87:bc3a",
+            "prefixlen": 64,
+            "scope": "link",
+            "tentative": true,
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      },
+      {
+        "ifindex": 211,
+        "link_index": 2,
+        "ifname": "veth9a26c42",
+        "flags": [
+          "BROADCAST",
+          "MULTICAST",
+          "UP",
+          "LOWER_UP"
+        ],
+        "mtu": 1500,
+        "qdisc": "noqueue",
+        "master": "br-nf3-corp",
+        "operstate": "UP",
+        "group": "default",
+        "link_type": "ether",
+        "address": "2e:af:15:2d:32:a9",
+        "broadcast": "ff:ff:ff:ff:ff:ff",
+        "link_netnsid": 11,
+        "addr_info": [
+          {
+            "family": "inet6",
+            "local": "fe80::2caf:15ff:fe2d:32a9",
+            "prefixlen": 64,
+            "scope": "link",
+            "tentative": true,
+            "protocol": "kernel_ll",
+            "valid_life_time": 4294967295,
+            "preferred_life_time": 4294967295
+          }
+        ]
+      }
+    ],
+    "routes": {
+      "4": [
+        {
+          "dst": "default",
+          "gateway": "10.0.2.2",
+          "dev": "eth0",
+          "protocol": "dhcp",
+          "prefsrc": "10.0.2.15",
+          "metric": 100,
+          "flags": []
+        },
+        {
+          "dst": "10.0.2.0/24",
+          "dev": "eth0",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "10.0.2.15",
+          "metric": 100,
+          "flags": []
+        },
+        {
+          "dst": "172.17.0.0/16",
+          "dev": "docker0",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "172.17.0.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.57.0/24",
+          "dev": "br-lab-audit",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.57.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.58.0/24",
+          "dev": "br-lab-ipv6",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.58.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.59.0/24",
+          "dev": "br-lab-v2-apps",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.59.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.60.0/24",
+          "dev": "br-lab-v2-ndp",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.60.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.69.0/24",
+          "dev": "br-nova-corp",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.69.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.70.0/24",
+          "dev": "br-nova-dc",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.70.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.71.0/24",
+          "dev": "br-nova-dmz",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.71.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.80.0/24",
+          "dev": "br-andes",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.80.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.81.0/24",
+          "dev": "br-delta",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.81.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.82.0/24",
+          "dev": "br-facil",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.82.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.83.0/24",
+          "dev": "br-medio",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.83.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.84.0/24",
+          "dev": "br-dificil",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.84.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.110.0/24",
+          "dev": "br-nf1-corp",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.110.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.111.0/24",
+          "dev": "br-nf1-dc",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.111.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.112.0/24",
+          "dev": "br-nf1-dmz",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.112.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.120.0/24",
+          "dev": "br-nf2-corp",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.120.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.121.0/24",
+          "dev": "br-nf2-dc",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.121.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.122.0/24",
+          "dev": "br-nf2-dmz",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.122.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.130.0/24",
+          "dev": "br-nf3-corp",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.130.1",
+          "flags": []
+        },
+        {
+          "dst": "192.168.131.0/24",
+          "dev": "br-nf3-dc",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.131.1",
+          "flags": []
+        },
+        {
+          "dst": "192.168.132.0/24",
+          "dev": "br-nf3-dmz",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.132.1",
+          "flags": []
+        },
+        {
+          "dst": "192.168.140.0/24",
+          "dev": "br-nf4-corp",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.140.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.141.0/24",
+          "dev": "br-nf4-dc",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.141.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "dst": "192.168.142.0/24",
+          "dev": "br-nf4-dmz",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.142.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "10.0.2.15",
+          "dev": "eth0",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "10.0.2.15",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "10.0.2.255",
+          "dev": "eth0",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "10.0.2.15",
+          "flags": []
+        },
+        {
+          "type": "local",
+          "dst": "127.0.0.0/8",
+          "dev": "lo",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "127.0.0.1",
+          "flags": []
+        },
+        {
+          "type": "local",
+          "dst": "127.0.0.1",
+          "dev": "lo",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "127.0.0.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "127.255.255.255",
+          "dev": "lo",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "127.0.0.1",
+          "flags": []
+        },
+        {
+          "type": "local",
+          "dst": "172.17.0.1",
+          "dev": "docker0",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "172.17.0.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "172.17.255.255",
+          "dev": "docker0",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "172.17.0.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.57.1",
+          "dev": "br-lab-audit",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.57.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.57.255",
+          "dev": "br-lab-audit",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.57.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.58.1",
+          "dev": "br-lab-ipv6",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.58.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.58.255",
+          "dev": "br-lab-ipv6",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.58.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.59.1",
+          "dev": "br-lab-v2-apps",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.59.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.59.255",
+          "dev": "br-lab-v2-apps",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.59.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.60.1",
+          "dev": "br-lab-v2-ndp",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.60.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.60.255",
+          "dev": "br-lab-v2-ndp",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.60.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.69.1",
+          "dev": "br-nova-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.69.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.69.255",
+          "dev": "br-nova-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.69.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.70.1",
+          "dev": "br-nova-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.70.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.70.255",
+          "dev": "br-nova-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.70.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.71.1",
+          "dev": "br-nova-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.71.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.71.255",
+          "dev": "br-nova-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.71.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.80.1",
+          "dev": "br-andes",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.80.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.80.255",
+          "dev": "br-andes",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.80.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.81.1",
+          "dev": "br-delta",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.81.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.81.255",
+          "dev": "br-delta",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.81.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.82.1",
+          "dev": "br-facil",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.82.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.82.255",
+          "dev": "br-facil",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.82.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.83.1",
+          "dev": "br-medio",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.83.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.83.255",
+          "dev": "br-medio",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.83.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.84.1",
+          "dev": "br-dificil",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.84.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.84.255",
+          "dev": "br-dificil",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.84.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.110.1",
+          "dev": "br-nf1-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.110.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.110.255",
+          "dev": "br-nf1-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.110.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.111.1",
+          "dev": "br-nf1-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.111.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.111.255",
+          "dev": "br-nf1-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.111.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.112.1",
+          "dev": "br-nf1-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.112.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.112.255",
+          "dev": "br-nf1-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.112.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.120.1",
+          "dev": "br-nf2-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.120.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.120.255",
+          "dev": "br-nf2-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.120.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.121.1",
+          "dev": "br-nf2-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.121.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.121.255",
+          "dev": "br-nf2-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.121.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.122.1",
+          "dev": "br-nf2-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.122.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.122.255",
+          "dev": "br-nf2-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.122.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.130.1",
+          "dev": "br-nf3-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.130.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.130.255",
+          "dev": "br-nf3-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.130.1",
+          "flags": []
+        },
+        {
+          "type": "local",
+          "dst": "192.168.131.1",
+          "dev": "br-nf3-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.131.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.131.255",
+          "dev": "br-nf3-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.131.1",
+          "flags": []
+        },
+        {
+          "type": "local",
+          "dst": "192.168.132.1",
+          "dev": "br-nf3-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.132.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.132.255",
+          "dev": "br-nf3-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.132.1",
+          "flags": []
+        },
+        {
+          "type": "local",
+          "dst": "192.168.140.1",
+          "dev": "br-nf4-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.140.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.140.255",
+          "dev": "br-nf4-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.140.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.141.1",
+          "dev": "br-nf4-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.141.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.141.255",
+          "dev": "br-nf4-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.141.1",
+          "flags": [
+            "linkdown"
+          ]
+        },
+        {
+          "type": "local",
+          "dst": "192.168.142.1",
+          "dev": "br-nf4-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "host",
+          "prefsrc": "192.168.142.1",
+          "flags": []
+        },
+        {
+          "type": "broadcast",
+          "dst": "192.168.142.255",
+          "dev": "br-nf4-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "scope": "link",
+          "prefsrc": "192.168.142.1",
+          "flags": [
+            "linkdown"
+          ]
+        }
+      ],
+      "6": [
+        {
+          "dst": "fd17:625c:f037:2::/64",
+          "dev": "eth0",
+          "protocol": "ra",
+          "metric": 100,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fd57:2026:9:28::/64",
+          "dev": "br-lab-ipv6",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fd57:2026:59::/64",
+          "dev": "br-lab-v2-apps",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fd57:2026:60::/64",
+          "dev": "br-lab-v2-ndp",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fd57:2026:69::/64",
+          "dev": "br-nova-corp",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fd57:2026:70::/64",
+          "dev": "br-nova-dc",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fd57:2026:110::/64",
+          "dev": "br-nf1-corp",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fd57:2026:111::/64",
+          "dev": "br-nf1-dc",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fd57:2026:120::/64",
+          "dev": "br-nf2-corp",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fd57:2026:121::/64",
+          "dev": "br-nf2-dc",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fd57:2026:130::/64",
+          "dev": "br-nf3-corp",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fd57:2026:131::/64",
+          "dev": "br-nf3-dc",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fd57:2026:140::/64",
+          "dev": "br-nf4-corp",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fd57:2026:141::/64",
+          "dev": "br-nf4-dc",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "br-nova-dmz",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "br-nova-corp",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "br-nova-dc",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "br-nf1-dc",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "br-nf1-corp",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "br-nf1-dmz",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "br-nf2-dc",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "br-nf2-corp",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "br-nf2-dmz",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "br-nf3-dc",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "br-nf3-corp",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "br-nf3-dmz",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "br-nf4-dmz",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "br-nf4-dc",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "br-nf4-corp",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "veth29df938",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "veth9bf202e",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "veth19d320f",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "veth692ddff",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "vethc205539",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "veth4f25990",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "veth09944ad",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "veth71097ec",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "veth8aa2119",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "veth0b9a5d6",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "vethe8229a5",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "veth9a26c42",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "fe80::/64",
+          "dev": "eth0",
+          "protocol": "kernel",
+          "metric": 1024,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "dst": "default",
+          "gateway": "fe80::2",
+          "dev": "eth0",
+          "protocol": "ra",
+          "metric": 100,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "::1",
+          "dev": "lo",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fd17:625c:f037:2::",
+          "dev": "eth0",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fd17:625c:f037:2:7aca:5523:14ad:3b72",
+          "dev": "eth0",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fd57:2026:9:28::",
+          "dev": "br-lab-ipv6",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fd57:2026:9:28::1",
+          "dev": "br-lab-ipv6",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fd57:2026:59::",
+          "dev": "br-lab-v2-apps",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fd57:2026:59::1",
+          "dev": "br-lab-v2-apps",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fd57:2026:60::",
+          "dev": "br-lab-v2-ndp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fd57:2026:60::1",
+          "dev": "br-lab-v2-ndp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fd57:2026:69::",
+          "dev": "br-nova-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fd57:2026:69::1",
+          "dev": "br-nova-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fd57:2026:70::",
+          "dev": "br-nova-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fd57:2026:70::1",
+          "dev": "br-nova-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fd57:2026:110::",
+          "dev": "br-nf1-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fd57:2026:110::1",
+          "dev": "br-nf1-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fd57:2026:111::",
+          "dev": "br-nf1-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fd57:2026:111::1",
+          "dev": "br-nf1-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fd57:2026:120::",
+          "dev": "br-nf2-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fd57:2026:120::1",
+          "dev": "br-nf2-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fd57:2026:121::",
+          "dev": "br-nf2-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fd57:2026:121::1",
+          "dev": "br-nf2-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fd57:2026:130::",
+          "dev": "br-nf3-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fd57:2026:130::1",
+          "dev": "br-nf3-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fd57:2026:131::",
+          "dev": "br-nf3-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fd57:2026:131::1",
+          "dev": "br-nf3-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fd57:2026:140::",
+          "dev": "br-nf4-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fd57:2026:140::1",
+          "dev": "br-nf4-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fd57:2026:141::",
+          "dev": "br-nf4-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fd57:2026:141::1",
+          "dev": "br-nf4-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "eth0",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "br-nova-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "br-nova-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "br-nova-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "br-nf1-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "br-nf1-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "br-nf1-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "br-nf2-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "br-nf2-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "br-nf2-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "br-nf3-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "br-nf3-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "br-nf3-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "br-nf4-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "br-nf4-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "br-nf4-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "veth9bf202e",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "veth29df938",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "veth19d320f",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "vethc205539",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "veth692ddff",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "veth09944ad",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "veth71097ec",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "veth4f25990",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "anycast",
+          "dst": "fe80::",
+          "dev": "veth8aa2119",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::c83:13ff:fefe:efed",
+          "dev": "veth4f25990",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::1c24:4ff:fe8a:6ff3",
+          "dev": "br-nf1-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::1cee:bfff:fe7f:5014",
+          "dev": "veth19d320f",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::385e:3dff:fe90:8734",
+          "dev": "vethc205539",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::3c9f:99ff:fe1a:ca78",
+          "dev": "veth71097ec",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::5458:64ff:fee7:dc0",
+          "dev": "veth9bf202e",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::5868:e7ff:fe8d:1b8b",
+          "dev": "br-nf1-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::6c23:d0ff:feff:2406",
+          "dev": "veth29df938",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::6c5e:73ff:fe85:58c4",
+          "dev": "veth8aa2119",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::8085:bff:fea6:6ddb",
+          "dev": "br-nova-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::9817:5bff:fee2:ee36",
+          "dev": "br-nf3-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::a0cd:8bff:fe65:3445",
+          "dev": "br-nf4-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::acef:37ff:fe79:1fa6",
+          "dev": "br-nf4-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::b00d:78ff:fe6b:92cc",
+          "dev": "br-nf3-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::b4df:ccff:fe5d:b49b",
+          "dev": "br-nf2-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::b8b2:c3ff:fe57:30ae",
+          "dev": "br-nf1-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::bcb6:4fff:fe97:6e2c",
+          "dev": "veth692ddff",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::d001:15ff:feee:e584",
+          "dev": "br-nova-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::d0ae:c3ff:fefd:edf8",
+          "dev": "br-nf2-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::d4ad:5aff:fe42:925",
+          "dev": "br-nf2-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::def8:3d5c:a56b:5f6c",
+          "dev": "eth0",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::ec95:74ff:fe5b:ee",
+          "dev": "br-nf4-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::f0b3:c8ff:feb0:cf5a",
+          "dev": "veth09944ad",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::f852:95ff:fefe:f247",
+          "dev": "br-nova-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "local",
+          "dst": "fe80::fcb0:b7ff:fed5:b11b",
+          "dev": "br-nf3-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 0,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "eth0",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "br-nova-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "br-nova-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "br-nova-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "br-nf1-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "br-nf1-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "br-nf1-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "br-nf2-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "br-nf2-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "br-nf2-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "br-nf3-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "br-nf3-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "br-nf3-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "br-nf4-dmz",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "br-nf4-dc",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "br-nf4-corp",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [
+            "linkdown"
+          ],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "veth29df938",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "veth9bf202e",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "veth19d320f",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "veth692ddff",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "vethc205539",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "veth4f25990",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "veth09944ad",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "veth71097ec",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "veth8aa2119",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "veth0b9a5d6",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "vethe8229a5",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        },
+        {
+          "type": "multicast",
+          "dst": "ff00::/8",
+          "dev": "veth9a26c42",
+          "table": "local",
+          "protocol": "kernel",
+          "metric": 256,
+          "flags": [],
+          "pref": "medium"
+        }
+      ]
+    },
+    "rules": {
+      "4": [
+        {
+          "priority": 0,
+          "src": "all",
+          "table": "local"
+        },
+        {
+          "priority": 32766,
+          "src": "all",
+          "table": "main"
+        },
+        {
+          "priority": 32767,
+          "src": "all",
+          "table": "default"
+        }
+      ],
+      "6": [
+        {
+          "priority": 0,
+          "src": "all",
+          "table": "local"
+        },
+        {
+          "priority": 32766,
+          "src": "all",
+          "table": "main"
+        }
+      ]
+    }
+  },
+  "all_containers_stable_during_verification": true,
+  "no_running_containers_after": true,
+  "protected_after": {
+    "files_checked": 3810,
+    "changed_or_missing": 0,
+    "unchanged": true,
+    "manifest_sha256": "083eab28274a94a81858fb47048d5e64b833604b673b0d94354753c42e887b9f"
+  },
+  "configuration_unchanged": true,
+  "finished_at": "2026-10-19T22:37:24.015111+00:00",
+  "elapsed_seconds": 10.519
+}

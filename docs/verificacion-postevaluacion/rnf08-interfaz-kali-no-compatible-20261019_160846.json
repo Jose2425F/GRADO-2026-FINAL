@@ -1,0 +1,605 @@
+{
+  "schema": "novaflow-rnf08-interface-compatibility/1",
+  "created_at": "2026-10-19T20:09:35.522413+00:00",
+  "type": "compatibility_assessment_not_connectivity_test",
+  "requirement": "RNF-08",
+  "requirement_status": "PARCIAL",
+  "status": "NOT_EXECUTED_FROM_KALI_INTERFACE",
+  "checker": "scripts/tesis/verificar_aislamiento_real.py",
+  "checker_sha256": "5c965e9d78e1f7cc2b0830de42c70638f69bd26de4545bf93914a7df5f76b973",
+  "checker_modified": false,
+  "executed_command": [
+    "piloto_kali/prototipo/.venv/bin/python",
+    "scripts/tesis/verificar_aislamiento_real.py",
+    "--lab",
+    "todos"
+  ],
+  "execution_mode": "existing_checker_plan_only",
+  "cli_help": "usage: verificar_aislamiento_real.py [-h]\n                                     [--lab {original,sucursal,comercial,mixto,reforzado,todos}]\n                                     [--ejecutar]\n                                     [--autorizacion AUTORIZACION]\n                                     [--salida SALIDA]\n\nRecibos RNF-08 reales, finitos y sin API; conserva bancos y experimentos. El\nplan es el modo predeterminado. --ejecutar --autorizacion LAB-PROPIO permite\niniciar SOLO configuraciones ya existentes, sin build/pull/recreate, verificar\nTCP en tres representantes y detener el banco conservando contenedores y\ndatos. No ejecuta prepare/preflight, auditorías, HTTP, shell dentro del banco\nni cambios de firewall/rutas. No confunde pruebas unitarias con ejecución\nreal.\n\noptions:\n  -h, --help            show this help message and exit\n  --lab {original,sucursal,comercial,mixto,reforzado,todos}\n  --ejecutar\n  --autorizacion AUTORIZACION\n  --salida SALIDA\n",
+  "initial_runtime_attempt": {
+    "runtime": "bundled_document_python",
+    "mode": "plan",
+    "returncode": 1,
+    "reason": "ModuleNotFoundError_yaml",
+    "connectivity_probes": 0,
+    "resolution": "Se ejecutó el mismo script sin cambios con el entorno virtual existente del prototipo, que ya contiene la dependencia."
+  },
+  "api_calls": 0,
+  "audit_runs": 0,
+  "connectivity_probes": 0,
+  "external_targets_contacted": 0,
+  "reason": "El verificador existente ejecuta las sondas mediante docker exec desde portal, app-crm y sender. No admite interfaz de origen ni sondas desde el anfitrión Kali; su alcance excluye la salida del anfitrión.",
+  "hash_method": "SHA-256 de los bytes completos del recibo; huella en el archivo lateral .json.sha256. No se incluyen valores ni huellas de contraseñas.",
+  "laboratories": [
+    {
+      "lab": "original",
+      "created_at": "2026-10-19T20:09:35.387622+00:00",
+      "interface": {
+        "requested": "interfaz de auditoría de Kali",
+        "name": null,
+        "tested": false,
+        "reason": "source_interface_not_supported_by_existing_checker"
+      },
+      "destinations": {
+        "authorized_candidates": [
+          {
+            "segment": "corp",
+            "network": "nova_corp",
+            "source": "nova-app-crm",
+            "peer": "nova-app-erp",
+            "port": 8088,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "segment": "dc",
+            "network": "nova_datacenter",
+            "source": "nova-sender",
+            "peer": "nova-receiver-a",
+            "port": 8000,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "segment": "dmz",
+            "network": "nova_dmz",
+            "source": "nova-portal",
+            "peer": "nova-legacy",
+            "port": 8080,
+            "families": [
+              4
+            ]
+          }
+        ],
+        "negative_candidates": [
+          {
+            "from_segment": "corp",
+            "to_segment": "dc",
+            "target_container": "nova-receiver-a",
+            "port": 8000,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "from_segment": "corp",
+            "to_segment": "dmz",
+            "target_container": "nova-legacy",
+            "port": 8080,
+            "families": [
+              4
+            ]
+          },
+          {
+            "from_segment": "dc",
+            "to_segment": "corp",
+            "target_container": "nova-app-erp",
+            "port": 8088,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "from_segment": "dc",
+            "to_segment": "dmz",
+            "target_container": "nova-legacy",
+            "port": 8080,
+            "families": [
+              4
+            ]
+          },
+          {
+            "from_segment": "dmz",
+            "to_segment": "corp",
+            "target_container": "nova-app-erp",
+            "port": 8088,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "from_segment": "dmz",
+            "to_segment": "dc",
+            "target_container": "nova-receiver-a",
+            "port": 8000,
+            "families": [
+              4,
+              6
+            ]
+          }
+        ],
+        "external": [],
+        "addresses_resolved": false
+      },
+      "positive_control": "NOT_EXECUTED_FROM_KALI_INTERFACE",
+      "negative_control": "NOT_EXECUTED_FROM_KALI_INTERFACE",
+      "connectivity_probes": 0,
+      "status": "NOT_EXECUTED",
+      "requirement_status": "PARCIAL",
+      "reason": "El verificador existente ejecuta las sondas mediante docker exec desde portal, app-crm y sender. No admite interfaz de origen ni sondas desde el anfitrión Kali; su alcance excluye la salida del anfitrión."
+    },
+    {
+      "lab": "sucursal",
+      "created_at": "2026-10-19T20:09:35.413515+00:00",
+      "interface": {
+        "requested": "interfaz de auditoría de Kali",
+        "name": null,
+        "tested": false,
+        "reason": "source_interface_not_supported_by_existing_checker"
+      },
+      "destinations": {
+        "authorized_candidates": [
+          {
+            "segment": "corp",
+            "network": "nf1_corp",
+            "source": "nf1-app-crm",
+            "peer": "nf1-app-intranet",
+            "port": 8088,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "segment": "dc",
+            "network": "nf1_dc",
+            "source": "nf1-sender",
+            "peer": "nf1-receiver-a",
+            "port": 8000,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "segment": "dmz",
+            "network": "nf1_dmz",
+            "source": "nf1-portal",
+            "peer": "nf1-legacy",
+            "port": 8080,
+            "families": [
+              4
+            ]
+          }
+        ],
+        "negative_candidates": [
+          {
+            "from_segment": "corp",
+            "to_segment": "dc",
+            "target_container": "nf1-receiver-a",
+            "port": 8000,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "from_segment": "corp",
+            "to_segment": "dmz",
+            "target_container": "nf1-legacy",
+            "port": 8080,
+            "families": [
+              4
+            ]
+          },
+          {
+            "from_segment": "dc",
+            "to_segment": "corp",
+            "target_container": "nf1-app-intranet",
+            "port": 8088,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "from_segment": "dc",
+            "to_segment": "dmz",
+            "target_container": "nf1-legacy",
+            "port": 8080,
+            "families": [
+              4
+            ]
+          },
+          {
+            "from_segment": "dmz",
+            "to_segment": "corp",
+            "target_container": "nf1-app-intranet",
+            "port": 8088,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "from_segment": "dmz",
+            "to_segment": "dc",
+            "target_container": "nf1-receiver-a",
+            "port": 8000,
+            "families": [
+              4,
+              6
+            ]
+          }
+        ],
+        "external": [],
+        "addresses_resolved": false
+      },
+      "positive_control": "NOT_EXECUTED_FROM_KALI_INTERFACE",
+      "negative_control": "NOT_EXECUTED_FROM_KALI_INTERFACE",
+      "connectivity_probes": 0,
+      "status": "NOT_EXECUTED",
+      "requirement_status": "PARCIAL",
+      "reason": "El verificador existente ejecuta las sondas mediante docker exec desde portal, app-crm y sender. No admite interfaz de origen ni sondas desde el anfitrión Kali; su alcance excluye la salida del anfitrión."
+    },
+    {
+      "lab": "comercial",
+      "created_at": "2026-10-19T20:09:35.423988+00:00",
+      "interface": {
+        "requested": "interfaz de auditoría de Kali",
+        "name": null,
+        "tested": false,
+        "reason": "source_interface_not_supported_by_existing_checker"
+      },
+      "destinations": {
+        "authorized_candidates": [
+          {
+            "segment": "corp",
+            "network": "nf2_corp",
+            "source": "nf2-app-crm",
+            "peer": "nf2-app-erp",
+            "port": 8088,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "segment": "dc",
+            "network": "nf2_dc",
+            "source": "nf2-sender",
+            "peer": "nf2-receiver-a",
+            "port": 8000,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "segment": "dmz",
+            "network": "nf2_dmz",
+            "source": "nf2-portal",
+            "peer": "nf2-legacy",
+            "port": 8080,
+            "families": [
+              4
+            ]
+          }
+        ],
+        "negative_candidates": [
+          {
+            "from_segment": "corp",
+            "to_segment": "dc",
+            "target_container": "nf2-receiver-a",
+            "port": 8000,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "from_segment": "corp",
+            "to_segment": "dmz",
+            "target_container": "nf2-legacy",
+            "port": 8080,
+            "families": [
+              4
+            ]
+          },
+          {
+            "from_segment": "dc",
+            "to_segment": "corp",
+            "target_container": "nf2-app-erp",
+            "port": 8088,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "from_segment": "dc",
+            "to_segment": "dmz",
+            "target_container": "nf2-legacy",
+            "port": 8080,
+            "families": [
+              4
+            ]
+          },
+          {
+            "from_segment": "dmz",
+            "to_segment": "corp",
+            "target_container": "nf2-app-erp",
+            "port": 8088,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "from_segment": "dmz",
+            "to_segment": "dc",
+            "target_container": "nf2-receiver-a",
+            "port": 8000,
+            "families": [
+              4,
+              6
+            ]
+          }
+        ],
+        "external": [],
+        "addresses_resolved": false
+      },
+      "positive_control": "NOT_EXECUTED_FROM_KALI_INTERFACE",
+      "negative_control": "NOT_EXECUTED_FROM_KALI_INTERFACE",
+      "connectivity_probes": 0,
+      "status": "NOT_EXECUTED",
+      "requirement_status": "PARCIAL",
+      "reason": "El verificador existente ejecuta las sondas mediante docker exec desde portal, app-crm y sender. No admite interfaz de origen ni sondas desde el anfitrión Kali; su alcance excluye la salida del anfitrión."
+    },
+    {
+      "lab": "mixto",
+      "created_at": "2026-10-19T20:09:35.435420+00:00",
+      "interface": {
+        "requested": "interfaz de auditoría de Kali",
+        "name": null,
+        "tested": false,
+        "reason": "source_interface_not_supported_by_existing_checker"
+      },
+      "destinations": {
+        "authorized_candidates": [
+          {
+            "segment": "corp",
+            "network": "nf3_corp",
+            "source": "nf3-app-crm",
+            "peer": "nf3-app-erp",
+            "port": 8088,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "segment": "dc",
+            "network": "nf3_dc",
+            "source": "nf3-sender",
+            "peer": "nf3-receiver-a",
+            "port": 8000,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "segment": "dmz",
+            "network": "nf3_dmz",
+            "source": "nf3-portal",
+            "peer": "nf3-legacy",
+            "port": 8080,
+            "families": [
+              4
+            ]
+          }
+        ],
+        "negative_candidates": [
+          {
+            "from_segment": "corp",
+            "to_segment": "dc",
+            "target_container": "nf3-receiver-a",
+            "port": 8000,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "from_segment": "corp",
+            "to_segment": "dmz",
+            "target_container": "nf3-legacy",
+            "port": 8080,
+            "families": [
+              4
+            ]
+          },
+          {
+            "from_segment": "dc",
+            "to_segment": "corp",
+            "target_container": "nf3-app-erp",
+            "port": 8088,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "from_segment": "dc",
+            "to_segment": "dmz",
+            "target_container": "nf3-legacy",
+            "port": 8080,
+            "families": [
+              4
+            ]
+          },
+          {
+            "from_segment": "dmz",
+            "to_segment": "corp",
+            "target_container": "nf3-app-erp",
+            "port": 8088,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "from_segment": "dmz",
+            "to_segment": "dc",
+            "target_container": "nf3-receiver-a",
+            "port": 8000,
+            "families": [
+              4,
+              6
+            ]
+          }
+        ],
+        "external": [],
+        "addresses_resolved": false
+      },
+      "positive_control": "NOT_EXECUTED_FROM_KALI_INTERFACE",
+      "negative_control": "NOT_EXECUTED_FROM_KALI_INTERFACE",
+      "connectivity_probes": 0,
+      "status": "NOT_EXECUTED",
+      "requirement_status": "PARCIAL",
+      "reason": "El verificador existente ejecuta las sondas mediante docker exec desde portal, app-crm y sender. No admite interfaz de origen ni sondas desde el anfitrión Kali; su alcance excluye la salida del anfitrión."
+    },
+    {
+      "lab": "reforzado",
+      "created_at": "2026-10-19T20:09:35.446698+00:00",
+      "interface": {
+        "requested": "interfaz de auditoría de Kali",
+        "name": null,
+        "tested": false,
+        "reason": "source_interface_not_supported_by_existing_checker"
+      },
+      "destinations": {
+        "authorized_candidates": [
+          {
+            "segment": "corp",
+            "network": "nf4_corp",
+            "source": "nf4-app-crm",
+            "peer": "nf4-app-erp",
+            "port": 8088,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "segment": "dc",
+            "network": "nf4_dc",
+            "source": "nf4-sender",
+            "peer": "nf4-receiver-a",
+            "port": 8000,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "segment": "dmz",
+            "network": "nf4_dmz",
+            "source": "nf4-portal",
+            "peer": "nf4-legacy",
+            "port": 8080,
+            "families": [
+              4
+            ]
+          }
+        ],
+        "negative_candidates": [
+          {
+            "from_segment": "corp",
+            "to_segment": "dc",
+            "target_container": "nf4-receiver-a",
+            "port": 8000,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "from_segment": "corp",
+            "to_segment": "dmz",
+            "target_container": "nf4-legacy",
+            "port": 8080,
+            "families": [
+              4
+            ]
+          },
+          {
+            "from_segment": "dc",
+            "to_segment": "corp",
+            "target_container": "nf4-app-erp",
+            "port": 8088,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "from_segment": "dc",
+            "to_segment": "dmz",
+            "target_container": "nf4-legacy",
+            "port": 8080,
+            "families": [
+              4
+            ]
+          },
+          {
+            "from_segment": "dmz",
+            "to_segment": "corp",
+            "target_container": "nf4-app-erp",
+            "port": 8088,
+            "families": [
+              4,
+              6
+            ]
+          },
+          {
+            "from_segment": "dmz",
+            "to_segment": "dc",
+            "target_container": "nf4-receiver-a",
+            "port": 8000,
+            "families": [
+              4,
+              6
+            ]
+          }
+        ],
+        "external": [],
+        "addresses_resolved": false
+      },
+      "positive_control": "NOT_EXECUTED_FROM_KALI_INTERFACE",
+      "negative_control": "NOT_EXECUTED_FROM_KALI_INTERFACE",
+      "connectivity_probes": 0,
+      "status": "NOT_EXECUTED",
+      "requirement_status": "PARCIAL",
+      "reason": "El verificador existente ejecuta las sondas mediante docker exec desde portal, app-crm y sender. No admite interfaz de origen ni sondas desde el anfitrión Kali; su alcance excluye la salida del anfitrión."
+    }
+  ]
+}

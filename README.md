@@ -58,6 +58,6 @@ node scripts/tests/manual_langgraph.browser.mjs
 
 Las pruebas automatizadas usan dobles de herramientas y proveedor; no sustituyen las auditorías reales del usuario. Un fallo previo del kernel bloquea las pruebas de red y requiere recuperar/reiniciar Kali. No se elimina ni se ignora ese control.
 
-Esta distribución publica el código fuente, la interfaz, los adaptadores, los laboratorios y las pruebas automatizadas. Las auditorías ejecutadas, sus evidencias privadas, las credenciales y el documento académico se conservan por separado y no forman parte de este repositorio.
+Esta distribución publica el código fuente, la interfaz, los adaptadores, los laboratorios y las pruebas automatizadas. El [respaldo histórico de la evaluación del 18–19 de octubre de 2026](docs/evidencias-historicas/2026-10-18/README.md) incorpora las 50 auditorías originales, la aceptación de los cinco laboratorios, los recibos de pruebas y un verificador local de integridad y KPI. Las credenciales, la configuración privada y el documento académico se conservan por separado.
 
 El paquete que ejecuta el panel está en `piloto_kali/prototipo/`; utiliza el comando de instalación indicado arriba. Sus dependencias y versión de LangGraph se declaran en su propio `pyproject.toml` y `uv.lock`.

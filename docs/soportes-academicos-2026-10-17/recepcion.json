@@ -1,0 +1,47 @@
+{
+  "fecha_utc": "2026-10-18T03:30:05.174217+00:00",
+  "motivo": "Recepción de soportes descargados y aportados por el usuario después del dictamen académico.",
+  "fuentes": [
+    {
+      "nombre": "Cronograma_Gantt_TG2026.xlsx",
+      "origen": "/home/kali/Desktop/Trabajo de Grado/Cronograma_Gantt_TG2026.xlsx",
+      "copia_privada": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/piloto_kali/prototipo/.verificacion/soportes-academicos-20261018T033005Z/originales/Cronograma_Gantt_TG2026.xlsx",
+      "sha256": "d31635450a13d4db012a155088fa0053e3304a8b9d19de88f6e5d4ab7f05a88c",
+      "bytes": 19414,
+      "copia_descargas_sha256": "d31635450a13d4db012a155088fa0053e3304a8b9d19de88f6e5d4ab7f05a88c",
+      "coincide_descargas": true
+    },
+    {
+      "nombre": "Matriz_ASR_UtilityTree_UCatolica.xlsx",
+      "origen": "/home/kali/Desktop/Trabajo de Grado/Matriz_ASR_UtilityTree_UCatolica.xlsx",
+      "copia_privada": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/piloto_kali/prototipo/.verificacion/soportes-academicos-20261018T033005Z/originales/Matriz_ASR_UtilityTree_UCatolica.xlsx",
+      "sha256": "4276cc05e4b40db87dee3bf72c5df47403aa6a230186ce4c9c257e41ac0e975a",
+      "bytes": 110759,
+      "copia_descargas_sha256": "4276cc05e4b40db87dee3bf72c5df47403aa6a230186ce4c9c257e41ac0e975a",
+      "coincide_descargas": true
+    },
+    {
+      "nombre": "Matriz_Comparativa_TG2026.xlsx",
+      "origen": "/home/kali/Desktop/Trabajo de Grado/Matriz_Comparativa_TG2026.xlsx",
+      "copia_privada": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/piloto_kali/prototipo/.verificacion/soportes-academicos-20261018T033005Z/originales/Matriz_Comparativa_TG2026.xlsx",
+      "sha256": "0856343090d11bb538850c67e8e61e729eb261c6da0189dfd665d3741a5e2357",
+      "bytes": 12523,
+      "copia_descargas_sha256": "0856343090d11bb538850c67e8e61e729eb261c6da0189dfd665d3741a5e2357",
+      "coincide_descargas": true
+    },
+    {
+      "nombre": "Presupuesto_TG2026.xlsx",
+      "origen": "/home/kali/Desktop/Trabajo de Grado/Presupuesto_TG2026.xlsx",
+      "copia_privada": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/piloto_kali/prototipo/.verificacion/soportes-academicos-20261018T033005Z/originales/Presupuesto_TG2026.xlsx",
+      "sha256": "14120e88d59a74be4370a16384b5711ac5aed77b04555300442268c94fd41efa",
+      "bytes": 15780,
+      "copia_descargas_sha256": "14120e88d59a74be4370a16384b5711ac5aed77b04555300442268c94fd41efa",
+      "coincide_descargas": true
+    }
+  ],
+  "preservacion": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/piloto_kali/prototipo/.verificacion/soportes-academicos-20261018T033005Z/respaldo-previo/manifest.json",
+  "originales_modificados": false,
+  "enlace_cloud": "Comprobación web sin acceso; navegador de la carpeta redirigido a la pantalla Sign in to your account de Microsoft. Sin sesión autorizada disponible. Se analizan copias locales aportadas; no se afirma haber inventariado la carpeta remota.",
+  "ejecuciones_api_iniciadas": 0,
+  "evidencias_experimentales_modificadas": false
+}

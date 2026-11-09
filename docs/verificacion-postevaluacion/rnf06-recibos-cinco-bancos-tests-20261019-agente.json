@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "verification": "RNF06_CINCO_BANCOS_Y_REUSO_SEGURO_RECIBOS",
+  "executed_at_utc": "2026-10-19T08:31:40.839851+00:00",
+  "result": "PASS",
+  "tests": 10,
+  "cases": [
+    {
+      "name": "test_ro11_partial_fn_and_time_stay_in_descriptive_denominator",
+      "result": "PASS"
+    },
+    {
+      "name": "test_ro11_rejects_table_that_silently_excludes_partial",
+      "result": "PASS"
+    },
+    {
+      "name": "test_ro11_accepts_table_with_all_initiated_attempts",
+      "result": "PASS"
+    },
+    {
+      "name": "test_rnf06_effective_capabilities_zero_is_distinct_from_inheritable",
+      "result": "PASS"
+    },
+    {
+      "name": "test_rnf06_docker_projection_excludes_secrets_and_never_executes",
+      "result": "PASS"
+    },
+    {
+      "name": "test_rnf06_missing_process_does_not_fabricate_effective_capabilities",
+      "result": "PASS"
+    },
+    {
+      "name": "test_rnf06_recognizes_all_five_current_laboratories_and_separates_legacy",
+      "result": "PASS"
+    },
+    {
+      "name": "test_rnf06_current_banks_reach_read_only_inspect_projection",
+      "result": "PASS"
+    },
+    {
+      "name": "test_rnf06_process_projection_requires_real_fields_and_excludes_free_text",
+      "result": "PASS"
+    },
+    {
+      "name": "test_rnf06_reuses_15_current_receipts_without_docker_or_secret_fields",
+      "result": "PASS"
+    }
+  ],
+  "junit": "docs/verificacion-postevaluacion/rnf06-recibos-cinco-bancos-tests-20261019-agente.xml",
+  "regressions": [
+    "nf1..nf4 además nova; v2 sólo legado",
+    "integración 15 representantes sin subprocess ni copia de campos privados",
+    "CapEff ausente nunca se infiere como cero"
+  ],
+  "environment_warning": "pytest asyncio_mode desconocido; las diez pruebas se ejecutaron."
+}

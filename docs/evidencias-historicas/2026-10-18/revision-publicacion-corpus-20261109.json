@@ -1,0 +1,923 @@
+{
+  "type": "post_evaluation_original_artifact_secret_verification",
+  "schema_version": 1,
+  "requirement": "RNF-07",
+  "created_at_utc": "2026-11-09T00:46:19.975302+00:00",
+  "execution": {
+    "offline": true,
+    "network_or_api_calls": 0,
+    "agent_or_graph_executions": 0,
+    "original_artifacts_modified": 0,
+    "original_and_reference_files_checked_unchanged": 3666,
+    "sqlite_mode": "mode=ro&immutable=1; query_only=ON",
+    "secrets_and_individual_secret_hashes_emitted": false
+  },
+  "inventory": {
+    "json_path": "docs/evaluacion-langgraph/runs.json",
+    "csv_path": "docs/evaluacion-langgraph/evaluacion-langgraph-corridas.csv",
+    "runs_expected": 50,
+    "runs_listed": 50,
+    "runs_found": 50,
+    "json_csv_run_ids_match": true
+  },
+  "references": {
+    "source_files": 15,
+    "source_paths": [
+      "piloto_kali/prototipo/.lab-empresa/lab.env",
+      "piloto_kali/prototipo/.lab-empresa/policy.json",
+      "piloto_kali/prototipo/.lab-suite/comercial/compose.json",
+      "piloto_kali/prototipo/.lab-suite/comercial/lab.env",
+      "piloto_kali/prototipo/.lab-suite/comercial/policy.json",
+      "piloto_kali/prototipo/.lab-suite/mixto/compose.json",
+      "piloto_kali/prototipo/.lab-suite/mixto/lab.env",
+      "piloto_kali/prototipo/.lab-suite/mixto/policy.json",
+      "piloto_kali/prototipo/.lab-suite/reforzado/compose.json",
+      "piloto_kali/prototipo/.lab-suite/reforzado/lab.env",
+      "piloto_kali/prototipo/.lab-suite/reforzado/policy.json",
+      "piloto_kali/prototipo/.lab-suite/sucursal/compose.json",
+      "piloto_kali/prototipo/.lab-suite/sucursal/lab.env",
+      "piloto_kali/prototipo/.lab-suite/sucursal/policy.json",
+      "piloto_kali/prototipo/src/auditoria/empresa_agent.py"
+    ],
+    "distinct_reference_passwords_in_memory": 29,
+    "distinct_reference_usernames_in_memory": 2,
+    "run_fixture_hashes_matched_in_memory": 50,
+    "unresolved_reference_values": 0
+  },
+  "coverage": {
+    "original_files_scanned": 3649,
+    "bytes_scanned": 33246072,
+    "artifact_types": {
+      "retained_run_state_metadata": 150,
+      "events_database": 50,
+      "technical_evidence": 1901,
+      "provider_prompt_context": 1348,
+      "manifest": 50,
+      "plan": 50,
+      "report": 50,
+      "request": 50
+    },
+    "file_extensions": {
+      ".json": 1698,
+      ".sqlite3": 50,
+      ".xml": 190,
+      ".pcap": 363,
+      ".txt": 1348
+    },
+    "decoded_json_documents": 3046,
+    "sqlite": {
+      "tables": 50,
+      "rows": 17692,
+      "text_cells": 109515,
+      "databases_read_only_immutable": 50
+    },
+    "provider_prompts": {
+      "reference_present": 1348,
+      "hash_verified": 1348,
+      "context_present": 1348,
+      "report_calls": 1348,
+      "generations_reported": 1348,
+      "planner_calls": 1217,
+      "review_calls": 131,
+      "event_decisions": 1348
+    },
+    "per_run": [
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/b0044cf8746b/emp_single_fb73c485a609_20261018T224152",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 20,
+          "hash_verified": 20,
+          "context_present": 20,
+          "report_calls": 20,
+          "generations_reported": 20,
+          "planner_calls": 19,
+          "review_calls": 1,
+          "event_decisions": 20
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/7bef155eb03e/emp_multiagent_768b2c956f9c_20261018T225330",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 36,
+          "hash_verified": 36,
+          "context_present": 36,
+          "report_calls": 36,
+          "generations_reported": 36,
+          "planner_calls": 32,
+          "review_calls": 4,
+          "event_decisions": 36
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/db52e98470ed/emp_single_76225c07de35_20261018T234154",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 20,
+          "hash_verified": 20,
+          "context_present": 20,
+          "report_calls": 20,
+          "generations_reported": 20,
+          "planner_calls": 19,
+          "review_calls": 1,
+          "event_decisions": 20
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/8cf17c4df185/emp_multiagent_eb3c70c7ec8a_20261018T234838",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 37,
+          "hash_verified": 37,
+          "context_present": 37,
+          "report_calls": 37,
+          "generations_reported": 37,
+          "planner_calls": 33,
+          "review_calls": 4,
+          "event_decisions": 37
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/4d134e39fdaf/emp_multiagent_190d822d1380_20261018T235200",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 38,
+          "hash_verified": 38,
+          "context_present": 38,
+          "report_calls": 38,
+          "generations_reported": 38,
+          "planner_calls": 34,
+          "review_calls": 4,
+          "event_decisions": 38
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/3974c9c9fb45/emp_single_b2c1b0525fcd_20261018T235528",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 20,
+          "hash_verified": 20,
+          "context_present": 20,
+          "report_calls": 20,
+          "generations_reported": 20,
+          "planner_calls": 19,
+          "review_calls": 1,
+          "event_decisions": 20
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/4122d0ea89c8/emp_single_762ec1c31eaf_20261019T000012",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 20,
+          "hash_verified": 20,
+          "context_present": 20,
+          "report_calls": 20,
+          "generations_reported": 20,
+          "planner_calls": 19,
+          "review_calls": 1,
+          "event_decisions": 20
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/9e9b3c5e683f/emp_multiagent_03e59ec9515f_20261019T000422",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 38,
+          "hash_verified": 38,
+          "context_present": 38,
+          "report_calls": 38,
+          "generations_reported": 38,
+          "planner_calls": 34,
+          "review_calls": 4,
+          "event_decisions": 38
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/d13f4ec89d96/emp_multiagent_31c6159d9c64_20261019T000805",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 38,
+          "hash_verified": 38,
+          "context_present": 38,
+          "report_calls": 38,
+          "generations_reported": 38,
+          "planner_calls": 34,
+          "review_calls": 4,
+          "event_decisions": 38
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/842185267899/emp_single_6252a35a40a1_20261019T001156",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 20,
+          "hash_verified": 20,
+          "context_present": 20,
+          "report_calls": 20,
+          "generations_reported": 20,
+          "planner_calls": 19,
+          "review_calls": 1,
+          "event_decisions": 20
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/489269040600/emp_multiagent_cd3ca153bf36_20261019T001738",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 26,
+          "hash_verified": 26,
+          "context_present": 26,
+          "report_calls": 26,
+          "generations_reported": 26,
+          "planner_calls": 21,
+          "review_calls": 5,
+          "event_decisions": 26
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/78f1127cb5a7/emp_single_ed0ac84b0dc8_20261019T002207",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 16,
+          "hash_verified": 16,
+          "context_present": 16,
+          "report_calls": 16,
+          "generations_reported": 16,
+          "planner_calls": 15,
+          "review_calls": 1,
+          "event_decisions": 16
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/76df73b31501/emp_single_b20830851642_20261019T002602",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 16,
+          "hash_verified": 16,
+          "context_present": 16,
+          "report_calls": 16,
+          "generations_reported": 16,
+          "planner_calls": 15,
+          "review_calls": 1,
+          "event_decisions": 16
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/ba458706b6d8/emp_multiagent_5ae2f7b74abc_20261019T003011",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 26,
+          "hash_verified": 26,
+          "context_present": 26,
+          "report_calls": 26,
+          "generations_reported": 26,
+          "planner_calls": 22,
+          "review_calls": 4,
+          "event_decisions": 26
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/f3e28137d409/emp_single_5111f19159de_20261019T003320",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 16,
+          "hash_verified": 16,
+          "context_present": 16,
+          "report_calls": 16,
+          "generations_reported": 16,
+          "planner_calls": 15,
+          "review_calls": 1,
+          "event_decisions": 16
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/1f4b7b8e89a4/emp_multiagent_4df0d0d61ad2_20261019T003700",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 28,
+          "hash_verified": 28,
+          "context_present": 28,
+          "report_calls": 28,
+          "generations_reported": 28,
+          "planner_calls": 23,
+          "review_calls": 5,
+          "event_decisions": 28
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/59a0b5a7ae0a/emp_multiagent_dc392a663bc9_20261019T004014",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 28,
+          "hash_verified": 28,
+          "context_present": 28,
+          "report_calls": 28,
+          "generations_reported": 28,
+          "planner_calls": 23,
+          "review_calls": 5,
+          "event_decisions": 28
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/bcc3e074fa29/emp_single_76be082a5a1a_20261019T004325",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 16,
+          "hash_verified": 16,
+          "context_present": 16,
+          "report_calls": 16,
+          "generations_reported": 16,
+          "planner_calls": 15,
+          "review_calls": 1,
+          "event_decisions": 16
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/aa51416802c4/emp_multiagent_f69761c26004_20261019T004713",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 28,
+          "hash_verified": 28,
+          "context_present": 28,
+          "report_calls": 28,
+          "generations_reported": 28,
+          "planner_calls": 23,
+          "review_calls": 5,
+          "event_decisions": 28
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/623f7bc071a6/emp_single_f9f661b57b87_20261019T005036",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 16,
+          "hash_verified": 16,
+          "context_present": 16,
+          "report_calls": 16,
+          "generations_reported": 16,
+          "planner_calls": 15,
+          "review_calls": 1,
+          "event_decisions": 16
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/adac284b40ad/emp_single_21dfdcbb639a_20261019T005508",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 17,
+          "hash_verified": 17,
+          "context_present": 17,
+          "report_calls": 17,
+          "generations_reported": 17,
+          "planner_calls": 16,
+          "review_calls": 1,
+          "event_decisions": 17
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/5abaaf7477d7/emp_multiagent_321733da6791_20261019T005915",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 27,
+          "hash_verified": 27,
+          "context_present": 27,
+          "report_calls": 27,
+          "generations_reported": 27,
+          "planner_calls": 23,
+          "review_calls": 4,
+          "event_decisions": 27
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 29,
+          "hash_verified": 29,
+          "context_present": 29,
+          "report_calls": 29,
+          "generations_reported": 29,
+          "planner_calls": 24,
+          "review_calls": 5,
+          "event_decisions": 29
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 17,
+          "hash_verified": 17,
+          "context_present": 17,
+          "report_calls": 17,
+          "generations_reported": 17,
+          "planner_calls": 16,
+          "review_calls": 1,
+          "event_decisions": 17
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/6f491cbef691/emp_multiagent_d88ce9ccb41b_20261019T011034",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 29,
+          "hash_verified": 29,
+          "context_present": 29,
+          "report_calls": 29,
+          "generations_reported": 29,
+          "planner_calls": 25,
+          "review_calls": 4,
+          "event_decisions": 29
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/9fb8acb81634/emp_single_4e8bc523359f_20261019T011419",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 17,
+          "hash_verified": 17,
+          "context_present": 17,
+          "report_calls": 17,
+          "generations_reported": 17,
+          "planner_calls": 16,
+          "review_calls": 1,
+          "event_decisions": 17
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/fa41fb98ef2b/emp_single_d6e2e98e7042_20261019T011813",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 17,
+          "hash_verified": 17,
+          "context_present": 17,
+          "report_calls": 17,
+          "generations_reported": 17,
+          "planner_calls": 16,
+          "review_calls": 1,
+          "event_decisions": 17
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/32f8de22313a/emp_multiagent_c5653142fe85_20261019T012218",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 28,
+          "hash_verified": 28,
+          "context_present": 28,
+          "report_calls": 28,
+          "generations_reported": 28,
+          "planner_calls": 23,
+          "review_calls": 5,
+          "event_decisions": 28
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/56e47351ee0a/emp_multiagent_538962b4dc88_20261019T012556",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 29,
+          "hash_verified": 29,
+          "context_present": 29,
+          "report_calls": 29,
+          "generations_reported": 29,
+          "planner_calls": 25,
+          "review_calls": 4,
+          "event_decisions": 29
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/4091920045c7/emp_single_4599614962a2_20261019T012931",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 17,
+          "hash_verified": 17,
+          "context_present": 17,
+          "report_calls": 17,
+          "generations_reported": 17,
+          "planner_calls": 16,
+          "review_calls": 1,
+          "event_decisions": 17
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/756fd20ca29a/emp_single_97277b21af88_20261019T013333",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 20,
+          "hash_verified": 20,
+          "context_present": 20,
+          "report_calls": 20,
+          "generations_reported": 20,
+          "planner_calls": 19,
+          "review_calls": 1,
+          "event_decisions": 20
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/af4fdc557abc/emp_multiagent_cb7c6bf2ebe6_20261019T013833",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 38,
+          "hash_verified": 38,
+          "context_present": 38,
+          "report_calls": 38,
+          "generations_reported": 38,
+          "planner_calls": 34,
+          "review_calls": 4,
+          "event_decisions": 38
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/f23bf4e375d2/emp_multiagent_87c6a52edf90_20261019T014220",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 37,
+          "hash_verified": 37,
+          "context_present": 37,
+          "report_calls": 37,
+          "generations_reported": 37,
+          "planner_calls": 33,
+          "review_calls": 4,
+          "event_decisions": 37
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/9716ea76344f/emp_single_cc1dfbe1158c_20261019T014623",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 20,
+          "hash_verified": 20,
+          "context_present": 20,
+          "report_calls": 20,
+          "generations_reported": 20,
+          "planner_calls": 19,
+          "review_calls": 1,
+          "event_decisions": 20
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/5504485351a7/emp_single_576fbf44964b_20261019T015141",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 20,
+          "hash_verified": 20,
+          "context_present": 20,
+          "report_calls": 20,
+          "generations_reported": 20,
+          "planner_calls": 19,
+          "review_calls": 1,
+          "event_decisions": 20
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/3cd831cb2fb2/emp_multiagent_8e5b439ca4a3_20261019T015626",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 37,
+          "hash_verified": 37,
+          "context_present": 37,
+          "report_calls": 37,
+          "generations_reported": 37,
+          "planner_calls": 33,
+          "review_calls": 4,
+          "event_decisions": 37
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/fee0a3a17e39/emp_multiagent_6c2bfcb2ef4d_20261019T020029",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 38,
+          "hash_verified": 38,
+          "context_present": 38,
+          "report_calls": 38,
+          "generations_reported": 38,
+          "planner_calls": 34,
+          "review_calls": 4,
+          "event_decisions": 38
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/1d8495a89d05/emp_single_4944d6d4c34a_20261019T020451",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 20,
+          "hash_verified": 20,
+          "context_present": 20,
+          "report_calls": 20,
+          "generations_reported": 20,
+          "planner_calls": 19,
+          "review_calls": 1,
+          "event_decisions": 20
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/6066e9723ee5/emp_single_f61ab333d639_20261019T020941",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 20,
+          "hash_verified": 20,
+          "context_present": 20,
+          "report_calls": 20,
+          "generations_reported": 20,
+          "planner_calls": 19,
+          "review_calls": 1,
+          "event_decisions": 20
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/5a6cf83a8426/emp_multiagent_d55a8e58bb9f_20261019T021425",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 35,
+          "hash_verified": 35,
+          "context_present": 35,
+          "report_calls": 35,
+          "generations_reported": 35,
+          "planner_calls": 31,
+          "review_calls": 4,
+          "event_decisions": 35
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/822375b234be/emp_multiagent_846794b8de91_20261019T021843",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 44,
+          "hash_verified": 44,
+          "context_present": 44,
+          "report_calls": 44,
+          "generations_reported": 44,
+          "planner_calls": 40,
+          "review_calls": 4,
+          "event_decisions": 44
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/cccef3d26dbe/emp_single_d08f31a946dc_20261019T022259",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 23,
+          "hash_verified": 23,
+          "context_present": 23,
+          "report_calls": 23,
+          "generations_reported": 23,
+          "planner_calls": 22,
+          "review_calls": 1,
+          "event_decisions": 23
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/a7960f951221/emp_single_bec31fd725e9_20261019T022909",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 23,
+          "hash_verified": 23,
+          "context_present": 23,
+          "report_calls": 23,
+          "generations_reported": 23,
+          "planner_calls": 22,
+          "review_calls": 1,
+          "event_decisions": 23
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/fc81ed7ece82/emp_multiagent_9875303519bc_20261019T023456",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 46,
+          "hash_verified": 46,
+          "context_present": 46,
+          "report_calls": 46,
+          "generations_reported": 46,
+          "planner_calls": 42,
+          "review_calls": 4,
+          "event_decisions": 46
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/ecc1486d2d14/emp_single_4e1e250acf16_20261019T023927",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 23,
+          "hash_verified": 23,
+          "context_present": 23,
+          "report_calls": 23,
+          "generations_reported": 23,
+          "planner_calls": 22,
+          "review_calls": 1,
+          "event_decisions": 23
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/f0b950afed9a/emp_multiagent_12cce97f053f_20261019T024541",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 43,
+          "hash_verified": 43,
+          "context_present": 43,
+          "report_calls": 43,
+          "generations_reported": 43,
+          "planner_calls": 39,
+          "review_calls": 4,
+          "event_decisions": 43
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/ee41281dd8a8/emp_single_ac60d12b5183_20261019T025038",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 23,
+          "hash_verified": 23,
+          "context_present": 23,
+          "report_calls": 23,
+          "generations_reported": 23,
+          "planner_calls": 22,
+          "review_calls": 1,
+          "event_decisions": 23
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/1b42e7f24ff0/emp_multiagent_f95da8ce81ac_20261019T025612",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 43,
+          "hash_verified": 43,
+          "context_present": 43,
+          "report_calls": 43,
+          "generations_reported": 43,
+          "planner_calls": 39,
+          "review_calls": 4,
+          "event_decisions": 43
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/96358bce8d43/emp_multiagent_8e9df3070993_20261019T030102",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 42,
+          "hash_verified": 42,
+          "context_present": 42,
+          "report_calls": 42,
+          "generations_reported": 42,
+          "planner_calls": 38,
+          "review_calls": 4,
+          "event_decisions": 42
+        }
+      },
+      {
+        "path": "piloto_kali/prototipo/corridas/panel/fcede35b38cd/emp_single_ff31a804c833_20261019T030605",
+        "required_artifacts_present": 5,
+        "reference_fixture_matched": true,
+        "report_event_references_match": true,
+        "prompt_coverage": {
+          "reference_present": 23,
+          "hash_verified": 23,
+          "context_present": 23,
+          "report_calls": 23,
+          "generations_reported": 23,
+          "planner_calls": 22,
+          "review_calls": 1,
+          "event_decisions": 23
+        }
+      }
+    ]
+  },
+  "detection": {
+    "known_representations": [
+      "UTF-8 plaintext",
+      "UTF-16 LE/BE",
+      "JSON escaping",
+      "URL encoding",
+      "base64 password",
+      "base64 username:password"
+    ],
+    "additional_checks": [
+      "populated sensitive JSON fields",
+      "private key markers",
+      "API-key shape",
+      "authorization header values"
+    ],
+    "count_semantics": "Occurrences by representation and scan surface; decoded/raw surfaces may count the same occurrence. No individual credential identifiers or excerpts are retained.",
+    "files_with_matches": 0,
+    "match_records": 0,
+    "occurrences_by_surface": 0,
+    "matches": []
+  },
+  "limitations": [
+    "The check covers only original artifacts preserved for the listed 50 runs; it does not recreate past execution or invoke the provider.",
+    "Saved llm_*.txt evidence preserves prompt text and its JSON context, linked to report calls and event decisions by references and prompt integrity hashes checked only in memory.",
+    "Complete HTTP request bodies, headers and provider-side captures are not preserved as independent evidence; absence in every transmitted byte cannot be established.",
+    "No complete historical process-memory or LangGraph checkpoint snapshots were found as independent artifacts; only serialized task/report/plan/event state is available.",
+    "Matching is bounded to local known fixture credentials and listed encodings, populated sensitive fields and token shapes; unknown secrets, arbitrary transformations or encrypted/compressed content are not exhaustively detectable.",
+    "Reference and original artifact values, credential excerpts and individual password fingerprints are never written to the receipt or console."
+  ],
+  "issues": [],
+  "result": {
+    "status": "sin_coincidencias_en_corpus_conservado",
+    "corpus_check_passed": true,
+    "rnf07_exhaustively_closed": false,
+    "basis": "Direct inspection of preserved original evidence; unit tests only validate the verifier. The result is limited to the retained corpus and does not prove unrecorded runtime state or every byte sent to the provider."
+  }
+}

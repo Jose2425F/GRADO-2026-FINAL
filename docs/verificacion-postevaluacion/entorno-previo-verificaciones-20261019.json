@@ -1,0 +1,63 @@
+{
+  "verification": "ESTABILIDAD_Y_CONSERVACION_PREVIA",
+  "created_at": "2026-10-19T08:29:44.088231+00:00",
+  "kernel_tainted": 0,
+  "kernel": {
+    "returncode": 0,
+    "output": "6.19.14+kali-amd64",
+    "reason": null
+  },
+  "docker": {
+    "returncode": 0,
+    "output": "29.8.2",
+    "reason": null
+  },
+  "running_containers": {
+    "returncode": 0,
+    "output": "",
+    "reason": null
+  },
+  "sudo_noninteractive_available": false,
+  "free_disk_bytes": 44613791744,
+  "api_calls": 0,
+  "frozen_experiment_backup_created": true,
+  "protected_files_count": 3805,
+  "restoration_performed": false,
+  "limitations": [
+    "Es una observación puntual de disponibilidad, no una prueba de carga prolongada.",
+    "La comprobación usará arranque sin recreación; no se ejecuta down --volumes, restore ni borrado de contenedores."
+  ],
+  "scenario_configuration": {
+    "original": {
+      "compose_exists": true,
+      "environment_exists": true,
+      "prepared_exists": false,
+      "configuration_contents_disclosed": false
+    },
+    "sucursal": {
+      "compose_exists": true,
+      "environment_exists": true,
+      "prepared_exists": true,
+      "configuration_contents_disclosed": false
+    },
+    "comercial": {
+      "compose_exists": true,
+      "environment_exists": true,
+      "prepared_exists": true,
+      "configuration_contents_disclosed": false
+    },
+    "mixto": {
+      "compose_exists": true,
+      "environment_exists": true,
+      "prepared_exists": true,
+      "configuration_contents_disclosed": false
+    },
+    "reforzado": {
+      "compose_exists": true,
+      "environment_exists": true,
+      "prepared_exists": true,
+      "configuration_contents_disclosed": false
+    }
+  },
+  "result": "PASS"
+}

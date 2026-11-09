@@ -1,0 +1,870 @@
+{
+  "schema_version": "1.0",
+  "verification": "NOVAFLOW_POSTEVALUACION_CIERRE_SEGURIDAD_KALI",
+  "created_at_utc": "2026-10-19T22:54:50.583572+00:00",
+  "scope": "Verificaciones posteriores separadas del estudio original de 50 auditorías; sin llamadas API",
+  "api_calls": 0,
+  "new_study_audits": 0,
+  "published_to_github": false,
+  "production_code_modified": false,
+  "verification_code_changes": [
+    {
+      "path": "scripts/tesis/verificar_aislamiento_real.py",
+      "before_sha256": "5c965e9d78e1f7cc2b0830de42c70638f69bd26de4545bf93914a7df5f76b973",
+      "after_sha256": "af9ede0f1f3e51166860507481d407548d2b459a5c045ac4dca5024dfba6b026"
+    },
+    {
+      "path": "scripts/tests/test_verificar_aislamiento_real.py",
+      "before_sha256": "3ba36958b0dbaa5b23eb859742d30d184a09ddd1ed46d6de6b155ebf7ad55be6",
+      "after_sha256": "660de57cd2499de4711fcf5b6c39cc310b6fae6db2c73cc8e20f0ac306899597"
+    }
+  ],
+  "network": {
+    "host_state_source": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-original.json",
+    "controller_interface": "eth0",
+    "controller_addresses": [
+      {
+        "family": "inet",
+        "local": "10.0.2.15",
+        "prefixlen": 24
+      },
+      {
+        "family": "inet6",
+        "local": "fd17:625c:f037:2:7aca:5523:14ad:3b72",
+        "prefixlen": 64
+      },
+      {
+        "family": "inet6",
+        "local": "fe80::def8:3d5c:a56b:5f6c",
+        "prefixlen": 64
+      }
+    ],
+    "default_routes": {
+      "4": [
+        {
+          "dst": "default",
+          "gateway": "10.0.2.2",
+          "dev": "eth0",
+          "protocol": "dhcp",
+          "prefsrc": "10.0.2.15",
+          "metric": 100,
+          "flags": []
+        }
+      ],
+      "6": [
+        {
+          "dst": "default",
+          "gateway": "fe80::2",
+          "dev": "eth0",
+          "protocol": "ra",
+          "metric": 100,
+          "flags": [],
+          "pref": "medium"
+        }
+      ]
+    },
+    "audit_sources_by_lab": [
+      {
+        "lab": "original",
+        "sources": [
+          {
+            "interface": "br-nova-corp",
+            "address": "192.168.69.1",
+            "family": 4,
+            "prefix_length": 24,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nova-corp",
+            "address": "fd57:2026:69::1",
+            "family": 6,
+            "prefix_length": 64,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nova-dc",
+            "address": "192.168.70.1",
+            "family": 4,
+            "prefix_length": 24,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nova-dc",
+            "address": "fd57:2026:70::1",
+            "family": 6,
+            "prefix_length": 64,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nova-dmz",
+            "address": "192.168.71.1",
+            "family": 4,
+            "prefix_length": 24,
+            "selection": "active_host_address_in_configured_subnet"
+          }
+        ]
+      },
+      {
+        "lab": "sucursal",
+        "sources": [
+          {
+            "interface": "br-nf1-corp",
+            "address": "192.168.110.1",
+            "family": 4,
+            "prefix_length": 24,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nf1-corp",
+            "address": "fd57:2026:110::1",
+            "family": 6,
+            "prefix_length": 64,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nf1-dc",
+            "address": "192.168.111.1",
+            "family": 4,
+            "prefix_length": 24,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nf1-dc",
+            "address": "fd57:2026:111::1",
+            "family": 6,
+            "prefix_length": 64,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nf1-dmz",
+            "address": "192.168.112.1",
+            "family": 4,
+            "prefix_length": 24,
+            "selection": "active_host_address_in_configured_subnet"
+          }
+        ]
+      },
+      {
+        "lab": "comercial",
+        "sources": [
+          {
+            "interface": "br-nf2-corp",
+            "address": "192.168.120.1",
+            "family": 4,
+            "prefix_length": 24,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nf2-corp",
+            "address": "fd57:2026:120::1",
+            "family": 6,
+            "prefix_length": 64,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nf2-dc",
+            "address": "192.168.121.1",
+            "family": 4,
+            "prefix_length": 24,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nf2-dc",
+            "address": "fd57:2026:121::1",
+            "family": 6,
+            "prefix_length": 64,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nf2-dmz",
+            "address": "192.168.122.1",
+            "family": 4,
+            "prefix_length": 24,
+            "selection": "active_host_address_in_configured_subnet"
+          }
+        ]
+      },
+      {
+        "lab": "mixto",
+        "sources": [
+          {
+            "interface": "br-nf3-corp",
+            "address": "192.168.130.1",
+            "family": 4,
+            "prefix_length": 24,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nf3-corp",
+            "address": "fd57:2026:130::1",
+            "family": 6,
+            "prefix_length": 64,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nf3-dc",
+            "address": "192.168.131.1",
+            "family": 4,
+            "prefix_length": 24,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nf3-dc",
+            "address": "fd57:2026:131::1",
+            "family": 6,
+            "prefix_length": 64,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nf3-dmz",
+            "address": "192.168.132.1",
+            "family": 4,
+            "prefix_length": 24,
+            "selection": "active_host_address_in_configured_subnet"
+          }
+        ]
+      },
+      {
+        "lab": "reforzado",
+        "sources": [
+          {
+            "interface": "br-nf4-corp",
+            "address": "192.168.140.1",
+            "family": 4,
+            "prefix_length": 24,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nf4-corp",
+            "address": "fd57:2026:140::1",
+            "family": 6,
+            "prefix_length": 64,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nf4-dc",
+            "address": "192.168.141.1",
+            "family": 4,
+            "prefix_length": 24,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nf4-dc",
+            "address": "fd57:2026:141::1",
+            "family": 6,
+            "prefix_length": 64,
+            "selection": "active_host_address_in_configured_subnet"
+          },
+          {
+            "interface": "br-nf4-dmz",
+            "address": "192.168.142.1",
+            "family": 4,
+            "prefix_length": 24,
+            "selection": "active_host_address_in_configured_subnet"
+          }
+        ]
+      }
+    ],
+    "policy": {
+      "allowed": "Kali hacia el servicio catalogado por el bridge correspondiente; emisor IPv6 hacia receptores dentro del datacenter.",
+      "intersegment_denial_matrix": "No se acredita una matriz L3 explícita por origen del anfitrión; las consultas de ruta no se presentan como intentos bloqueados.",
+      "controller": "OpenAI, Nmap, Hydra y HTTP se ejecutan en el anfitrión; las sondas Scapy usan Docker. El acceso legítimo del controlador a OpenAI se distingue del alcance de auditoría.",
+      "snapshot_firewall": "docs/verificacion-postevaluacion/rnf08-cortafuegos-operador-20261019_182838.json",
+      "filter_input_hook_in_supplied_snapshot": false,
+      "filter_output_hook_in_supplied_snapshot": false,
+      "forward_policy_in_supplied_snapshot": {
+        "IPv4": "drop",
+        "IPv6": "drop"
+      }
+    }
+  },
+  "requirements": {
+    "RNF-08": {
+      "status": "PARCIAL",
+      "criticality": "Crítico",
+      "positive_controls_passed": 25,
+      "intersegment_passive_not_verified": 40,
+      "egress_passive_not_verified": 25,
+      "external_probes_sent": 0,
+      "negative_connections_attempted": 0,
+      "labs": [
+        {
+          "lab": "original",
+          "positive_pass": 5,
+          "positive_fail": 0,
+          "intersegment_passive_not_verified": 8,
+          "egress_passive_not_verified": 5,
+          "status": "PARCIAL"
+        },
+        {
+          "lab": "sucursal",
+          "positive_pass": 5,
+          "positive_fail": 0,
+          "intersegment_passive_not_verified": 8,
+          "egress_passive_not_verified": 5,
+          "status": "PARCIAL"
+        },
+        {
+          "lab": "comercial",
+          "positive_pass": 5,
+          "positive_fail": 0,
+          "intersegment_passive_not_verified": 8,
+          "egress_passive_not_verified": 5,
+          "status": "PARCIAL"
+        },
+        {
+          "lab": "mixto",
+          "positive_pass": 5,
+          "positive_fail": 0,
+          "intersegment_passive_not_verified": 8,
+          "egress_passive_not_verified": 5,
+          "status": "PARCIAL"
+        },
+        {
+          "lab": "reforzado",
+          "positive_pass": 5,
+          "positive_fail": 0,
+          "intersegment_passive_not_verified": 8,
+          "egress_passive_not_verified": 5,
+          "status": "PARCIAL"
+        }
+      ],
+      "previous_container_checks": {
+        "representatives": 15,
+        "positive_tcp_passed": 25,
+        "negative_tcp_blocked": 50,
+        "receipt_index": "docs/verificacion-postevaluacion/indice-verificaciones-reales-20261019.json",
+        "scope": "Contenedores, separado de los nuevos positivos desde Kali."
+      },
+      "limitations": [
+        "Positivos limitados a cinco endpoints TCP por banco (tres IPv4 y dos IPv6), sin payload. No es una auditoría ni la ejecución del catálogo.",
+        "Se verificaron bind, getsockname y ruta antes de connect; no se realizó captura privilegiada de paquetes.",
+        "La salida de Kali conserva rutas por eth0; no se emitieron paquetes a las direcciones de documentación de las consultas de ruta.",
+        "La captura nft fue proporcionada por el operador y no se refrescó con privilegios durante las conexiones.",
+        "Falta demostrar bloqueo real de comunicaciones no autorizadas desde las interfaces de auditoría en IPv4 e IPv6 según una política explícita."
+      ]
+    },
+    "RNF-06": {
+      "status": "PARCIAL",
+      "criticality": "Crítico",
+      "basis": "Verificador del anfitrión UID1000/CapEff0 y herramientas sin setuid/capacidades de archivo; sin observación efectiva de todos los procesos y adaptadores. NET_RAW/UID0 de objetivos no valida privilegio mínimo de agentes. El grupo docker mantiene autoridad sobre el daemon."
+    },
+    "RNF-07": {
+      "status": "VALIDADO",
+      "criticality": null,
+      "original_receipt": "docs/verificacion-postevaluacion/rnf07-artefactos-originales-20261019.json",
+      "confirmation": "docs/verificacion-postevaluacion/rnf07-confirmacion-cierre-kali-20261019_182838.json",
+      "limit": "Corpus conservado; sin acreditación de instantáneas completas de memoria ni de todos los cuerpos y cabeceras HTTP"
+    },
+    "RO-11": {
+      "status": "VALIDADO",
+      "criticality": null,
+      "checks_passed": 7,
+      "descriptive_runs": 50,
+      "single_attempts": 25,
+      "multi_attempts": 25,
+      "completed_runs": 48,
+      "partial_runs": 2,
+      "eligible_pairs": 23,
+      "receipt": "docs/verificacion-postevaluacion/ro11-cotejo-cierre-kali-maquetacion-20261019_182838.json"
+    }
+  },
+  "regression": {
+    "passed": 708,
+    "skipped": 2,
+    "failed": 0,
+    "errors": 0,
+    "subtests_passed": 59,
+    "previous_passed": 660,
+    "added_testcases": 48,
+    "removed_testcases": 0,
+    "verifier_unit_tests": 66,
+    "unit_failed": 0,
+    "elapsed_seconds": 62.299,
+    "skip_reason": "Dos casos requieren corpus de capturas, certificado y observaciones independientes no distribuido.",
+    "guards": {
+      "nonlocal_connections_blocked": 0,
+      "external_dns_blocked": 0,
+      "raw_inet_sockets_blocked": 0,
+      "operational_subprocesses_blocked": 1,
+      "bounded_loopback_nmap_allowed": 4
+    },
+    "prior_attempt_preserved": {
+      "file": "piloto_kali/prototipo/.verificacion/cierre-kali-20261019_182838/regresion-completa.xml",
+      "passed_main_tests": 708,
+      "failed_subtests": 2,
+      "passed_subtests": 57,
+      "skipped": 2,
+      "reason": "La guarda inicial prohibía ejecutar Nmap incluso contra 127.0.0.1 y ::1; los dos subcasos de integración devolvieron estado incompleto. No se modificaron pruebas, criterios ni código funcional para resolverlo. La segunda ejecución permitió únicamente el perfil Nmap TCP unprivileged acotado en lo."
+    },
+    "warning": "Advertencia de obsolescencia FFDH de Scapy/cryptography; sin fallo de prueba."
+  },
+  "preservation": {
+    "protected_files": 3810,
+    "protected_modified": [],
+    "functional_files": 654,
+    "functional_modified": [],
+    "new_artifacts_scanned": 31,
+    "known_matches": 0,
+    "populated_sensitive_fields": 0
+  },
+  "document": {
+    "path": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/TrabajoDeGrado_II_Completo_6.docx",
+    "sha256": "9ebad4ad9d04e4168bd7d342f238bc4075f45813e3a87911617052ff25e9c091",
+    "backup": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/respaldos/TrabajoDeGrado_II_Completo_6_respaldo_20261019_182948.docx",
+    "backup_sha256": "30c5ba849c47bcd853e71511ae317f82b92ad87f10f195f4a0979f85d1c133c7",
+    "baseline_confirmed": {
+      "tests_passed": 660,
+      "validated": 48,
+      "partial": 31,
+      "critical": 7,
+      "study_audits": 50,
+      "eligible_pairs": 23
+    },
+    "final_totals": {
+      "total": 79,
+      "validated": 48,
+      "partial": 31,
+      "not_verified": 0,
+      "critical": 7,
+      "major": 21,
+      "minor": 3
+    },
+    "summary_columns": [
+      "Tipo",
+      "Total",
+      "Validados",
+      "Parciales",
+      "No verificados",
+      "Críticos",
+      "Mayores",
+      "Menores"
+    ],
+    "summary_rows_derived_from_79_unique_rows": [
+      [
+        "RF",
+        "45",
+        "28",
+        "17",
+        "0",
+        "3",
+        "13",
+        "1"
+      ],
+      [
+        "RNF",
+        "22",
+        "11",
+        "11",
+        "0",
+        "2",
+        "7",
+        "2"
+      ],
+      [
+        "RO",
+        "12",
+        "9",
+        "3",
+        "0",
+        "2",
+        "1",
+        "0"
+      ],
+      [
+        "Total",
+        "79",
+        "48",
+        "31",
+        "0",
+        "7",
+        "21",
+        "3"
+      ]
+    ],
+    "state_changes": [],
+    "criticality_changes": [],
+    "pages_through_bibliography": 78,
+    "bibliography_pages": [
+      72,
+      78
+    ],
+    "annexes_start": 79,
+    "total_pages": 122,
+    "index_entries_verified": 139,
+    "tables_modified_or_added": [
+      "1",
+      "9",
+      "14",
+      "H.1",
+      "H.2",
+      "H.3",
+      "H.4"
+    ],
+    "sections_updated": [
+      "4.7",
+      "5.5",
+      "Conclusión OE3",
+      "Anexo G.4",
+      "Anexo H"
+    ],
+    "structural_verification": {
+      "word_sha256": "9ebad4ad9d04e4168bd7d342f238bc4075f45813e3a87911617052ff25e9c091",
+      "unchanged_cover": true,
+      "unchanged_bibliography": true,
+      "unchanged_styles_numbering_media_headers_footers": 19,
+      "unchanged_section_margins": true,
+      "unchanged_equations": 3,
+      "unexpected_table_changes": [],
+      "experimental_tables_unchanged": true,
+      "unique_requirement_rows": 79,
+      "states": {
+        "VALIDADO": 48,
+        "PARCIAL": 31
+      },
+      "criticality": {
+        "Mayor": 21,
+        "Menor": 3,
+        "Crítico": 7
+      },
+      "table_count": 40,
+      "tables_with_source": 40,
+      "index_entries": 139,
+      "comments": 0,
+      "tracked_changes": 0,
+      "other_documents_changed": [],
+      "summary_abstract_and_oe4_preserved": true,
+      "protected_summary_paragraphs": 7
+    },
+    "other_copies_untouched": [
+      {
+        "path": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/TrabajoDeGrado_II_Completo_6_respaldo_antes_ajustes_seguridad.docx",
+        "sha256": "f612bede3773459540f4dd9f20183a6e082df7f0a227248f230f99d2e49a181f"
+      },
+      {
+        "path": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/TrabajoDeGrado_II_Anexos.docx",
+        "sha256": "c0f0f1a5e6318ae75d84bca9e1c9936a05d0fad08b9614d95bd6f3f2269dc0d8"
+      },
+      {
+        "path": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/TrabajoDeGrado_II_Completo.docx",
+        "sha256": "ae6b59bf5f4424b07d698b71c830dbb33aedbf88d3f43659651c08d4bf8a648a"
+      },
+      {
+        "path": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/TrabajoDeGrado_II_Base.docx",
+        "sha256": "7089c9933914a2d0a14fa5a30211295099610ad7ca8fcdcfbc87a56f4f155a62"
+      },
+      {
+        "path": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/TrabajoDeGrado_II_Completo_6_respaldo_antes_verificaciones_reales_20261019.docx",
+        "sha256": "23065b255a15339f9b924f558423ff236c975785531f9f40dfda98e0f325815f"
+      },
+      {
+        "path": "/home/kali/Desktop/Trabajo de Grado/TrabajoDeGrado_II_.docx",
+        "sha256": "7089c9933914a2d0a14fa5a30211295099610ad7ca8fcdcfbc87a56f4f155a62",
+        "location": "Fuera de docs; únicamente identificado, sin editar"
+      }
+    ],
+    "pdf_review_artifact": {
+      "path": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/piloto_kali/prototipo/.verificacion/cierre-kali-20261019_182838/render-final/TrabajoDeGrado_II_Completo_6.pdf",
+      "purpose": "QA interna; no es una nueva versión académica oficial",
+      "sha256": "672e14d15959955583ac5168ab5cc575b4035b474c25e6ddde162576027a691c"
+    },
+    "typographic_observation_preexisting": {
+      "page": 95,
+      "observation": "Una línea final de párrafo, modelo., queda aislada al comienzo de página. Ya estaba presente en la página94 de la base. Se conserva sin cambios fuera del alcance solicitado."
+    },
+    "visual_review": {
+      "renderer": "LibreOffice incluido en el runtime de documentos de Codex; no se usó Word nativo",
+      "pages_total": 122,
+      "pages_reviewed": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "review_detail": "original / resolución completa",
+      "result": "PASS_CON_OBSERVACION_MENOR_PREEXISTENTE",
+      "new_layout_defects": 0,
+      "no_clipping_overlap_or_illegible_text": true,
+      "preexisting_note": {
+        "page": 95,
+        "observation": "Una línea final de párrafo, modelo., queda aislada al comienzo de página. Ya estaba presente en la página94 de la base. Se conserva sin cambios fuera del alcance solicitado."
+      }
+    },
+    "visual_review_receipt": {
+      "path": "piloto_kali/prototipo/.verificacion/cierre-kali-20261019_182838/revision-visual-final.json",
+      "sha256": "55f1f69e2fda38334fb81a5b579e1b9292e698b8f28a19aadabdbaab64880a88"
+    }
+  },
+  "new_public_receipts": [
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-comercial-corp.json",
+      "sha256": "f37baf448d25871d886f5f3252882efc36f5d22d3c316071d50ccd2267b34532",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-comercial-corp.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-comercial-dc.json",
+      "sha256": "2faec84a51e0d73e256fd7be648685bd157684e1240617f18c6ba43ca8ff91bf",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-comercial-dc.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-comercial-dmz.json",
+      "sha256": "77cbf807ee74c0810e04bcfde84fed3bd0ba3e23fec8bcafb743bf7bc1fe15a1",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-comercial-dmz.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-comercial.json",
+      "sha256": "512ba841e34429d719a59768ee201ab45331e27276762626042c76c2266b3b41",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-comercial.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto-corp.json",
+      "sha256": "32205f008e93b03417324388a745f42ff65c71492d516994a531a32f658485c5",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto-corp.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto-dc.json",
+      "sha256": "6922982b4f22cd40c3ac8a2a71a56c7e82e0b0fbd8efc493c8529117ba245315",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto-dc.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto-dmz.json",
+      "sha256": "c659ae9c84a0de21a8a09bc1088683883934e8466edad66e9dd51e27df2acf13",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto-dmz.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto.json",
+      "sha256": "3b615802b742044fc06c009bfc6c045a3889845bebe536cf2c41f51d728da4f4",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-original-corp.json",
+      "sha256": "3b0bae9b2512f2119ee9017bd8ffad20d0057891a6ad951624af948e006f3082",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-original-corp.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-original-dc.json",
+      "sha256": "8af0f6e1ad37fea1324473c2831264003cbba4c51a3e58edbbf594e20f53e809",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-original-dc.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-original-dmz.json",
+      "sha256": "3ef6538512f14f02a983323d93a0fd1fae22775548d84804c80b1208155cebf0",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-original-dmz.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-original.json",
+      "sha256": "42cd0d8acc4654ceb8db679e74e5894cf81a2ddcc809ab0f095f2b4be4fa3428",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-original.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-reforzado-corp.json",
+      "sha256": "fde726acb7087bef7558e6d3016c2dced72aeac25472aa8ac949d92a0cfb00f5",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-reforzado-corp.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-reforzado-dc.json",
+      "sha256": "0207693d7dbadad230f86c098bfa1dd0cc412fd92651353c2f8cee8b7513cc9b",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-reforzado-dc.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-reforzado-dmz.json",
+      "sha256": "b6c06555e1fdcee3d141de1eb9938627d4ebd726127f64f41d20274c18ee4098",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-reforzado-dmz.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-reforzado.json",
+      "sha256": "98fd9a0c0261ff106aa78c216a0039ac82068bc239c9f3806c4a42592865be41",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-reforzado.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-sucursal-corp.json",
+      "sha256": "7707dd4e7d010681e65c500828615858df84a371def1dffb7ef5f2b770f13444",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-sucursal-corp.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-sucursal-dc.json",
+      "sha256": "017365970ee4b0ffe5bad4a50b23c46cf28f435fdb66dc60b608e8881a7b130b",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-sucursal-dc.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-sucursal-dmz.json",
+      "sha256": "eff0906291781d0e674a64f83ace0970ece65c1a18674144b17c5c64a7bded82",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-sucursal-dmz.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-sucursal.json",
+      "sha256": "5db3f8d7cfa78419b1350bb12a086772506420e28fe9223bcbcf78b684a26aaf",
+      "sha256_file": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-sucursal.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/pruebas-automatizadas-cierre-kali-20261019_182838.json",
+      "sha256": "6e0cc24febefd7d9d1373a63ae58e7c02daa371001539382ea08878bcddd418c",
+      "sha256_file": "docs/verificacion-postevaluacion/pruebas-automatizadas-cierre-kali-20261019_182838.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/rnf06-host-adaptadores-20261019_182838.json",
+      "sha256": "1d0b59167eb1a9a31ba114ceb82191b1321c91085b72cf23161762587a6a10aa",
+      "sha256_file": "docs/verificacion-postevaluacion/rnf06-host-adaptadores-20261019_182838.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/rnf07-confirmacion-cierre-kali-20261019_182838.json",
+      "sha256": "037f236af6de660a95fe40d1191fe81938cd3d8e50f6c7d8d69821539fd0d445",
+      "sha256_file": "docs/verificacion-postevaluacion/rnf07-confirmacion-cierre-kali-20261019_182838.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/rnf08-cortafuegos-operador-20261019_182838.json",
+      "sha256": "8e389855165a6c321b14758c11e34d8ca03861c80c563af952f8df33e7790600",
+      "sha256_file": "docs/verificacion-postevaluacion/rnf08-cortafuegos-operador-20261019_182838.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/rnf08-resumen-kali-20261019_182838.json",
+      "sha256": "835de0df81d63396ab985b6783f091da73d4fe4d8290411993e8565b74baa7c0",
+      "sha256_file": "docs/verificacion-postevaluacion/rnf08-resumen-kali-20261019_182838.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/rnf08-revision-cortafuegos-20261019_182838.json",
+      "sha256": "38a06ced2ec111cacfde7f402bd9ed2400425b8f7daf2751c78441e33c088d16",
+      "sha256_file": "docs/verificacion-postevaluacion/rnf08-revision-cortafuegos-20261019_182838.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/ro11-cotejo-cierre-kali-20261019_182838.json",
+      "sha256": "3cf101b0f7f0283dd29e48d9a6da350c0bbc4864aeb198a5af32fa6b1e7fdaae",
+      "sha256_file": "docs/verificacion-postevaluacion/ro11-cotejo-cierre-kali-20261019_182838.json.sha256"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/ro11-cotejo-cierre-kali-maquetacion-20261019_182838.json",
+      "sha256": "c1dd157d5f72b7e63d1b2476f765485f5d4cabebe4427a54681f0d7a80ab43f0",
+      "sha256_file": "docs/verificacion-postevaluacion/ro11-cotejo-cierre-kali-maquetacion-20261019_182838.json.sha256"
+    }
+  ],
+  "integrity_scope": "Huellas de archivos completos; no se registran contraseñas ni huellas individuales de secretos.",
+  "manual_network_firewall_or_docker_configuration_changes": false,
+  "runtime_lifecycle": "Se iniciaron y detuvieron los contenedores existentes para las comprobaciones. No se hicieron pull, build, recreaciones, borrado de volúmenes ni cambios manuales de rutas, direcciones, interfaces o reglas. Todos quedaron detenidos conservando datos.",
+  "finalized_at_utc": "2026-10-19T22:58:38.780287+00:00",
+  "final_new_artifacts_secret_check": {
+    "new_public_receipts_scanned": 28,
+    "word_xml_checked": true,
+    "central_index_checked_before_write": true,
+    "known_secret_matches": 0,
+    "populated_sensitive_fields": 0,
+    "reference_values_retained_only_in_memory": true
+  }
+}

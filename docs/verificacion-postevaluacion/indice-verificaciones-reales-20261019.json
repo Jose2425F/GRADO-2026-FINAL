@@ -1,0 +1,178 @@
+{
+  "verification": "INDICE_VERIFICACIONES_POSTERIORES",
+  "created_at_utc": "2026-10-19T08:36:04.230855+00:00",
+  "status": "technical_checks_and_document_update_completed",
+  "experiment_files_and_production_sources_unchanged": 3810,
+  "new_api_audits": 0,
+  "receipts_scanned_for_known_reference_secrets": 51,
+  "receipt_secret_matches": 0,
+  "tests": {
+    "passed": 660,
+    "skipped": 2,
+    "subtests_passed": 59,
+    "new_cases_this_task": 46
+  },
+  "laboratories": {
+    "comercial": {
+      "observed_status": "PASS",
+      "requirement_status": "PARCIAL",
+      "segment_receipts": [
+        "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-corp.json",
+        "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-dc.json",
+        "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-dmz.json"
+      ],
+      "positive_connected": 5,
+      "negative_blocked": 10,
+      "summary_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial.json"
+    },
+    "mixto": {
+      "observed_status": "PASS",
+      "requirement_status": "PARCIAL",
+      "segment_receipts": [
+        "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-corp.json",
+        "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-dc.json",
+        "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-dmz.json"
+      ],
+      "positive_connected": 5,
+      "negative_blocked": 10,
+      "summary_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto.json"
+    },
+    "original": {
+      "observed_status": "PASS",
+      "requirement_status": "PARCIAL",
+      "segment_receipts": [
+        "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-corp.json",
+        "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-dc.json",
+        "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-dmz.json"
+      ],
+      "positive_connected": 5,
+      "negative_blocked": 10,
+      "summary_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original.json"
+    },
+    "reforzado": {
+      "observed_status": "PASS",
+      "requirement_status": "PARCIAL",
+      "segment_receipts": [
+        "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-corp.json",
+        "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dc.json",
+        "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dmz.json"
+      ],
+      "positive_connected": 5,
+      "negative_blocked": 10,
+      "summary_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado.json"
+    },
+    "sucursal": {
+      "observed_status": "PASS",
+      "requirement_status": "PARCIAL",
+      "segment_receipts": [
+        "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-corp.json",
+        "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-dc.json",
+        "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-dmz.json"
+      ],
+      "positive_connected": 5,
+      "negative_blocked": 10,
+      "summary_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal.json"
+    }
+  },
+  "preserved_unsuccessful_attempt_receipts": [
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-comercial-corp.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-comercial-dc.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-comercial-dmz.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-comercial.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-mixto-corp.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-mixto-dc.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-mixto-dmz.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-mixto.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-original-corp.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-original-dc.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-original-dmz.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-original.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-reforzado-corp.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-reforzado-dc.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-reforzado-dmz.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-reforzado.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-sucursal-corp.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-sucursal-dc.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-sucursal-dmz.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-sucursal.json"
+  ],
+  "receipts": [
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-comercial-corp.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-comercial-dc.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-comercial-dmz.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-comercial.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-mixto-corp.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-mixto-dc.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-mixto-dmz.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-mixto.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-original-corp.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-original-dc.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-original-dmz.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-original.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-reforzado-corp.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-reforzado-dc.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-reforzado-dmz.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-reforzado.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-sucursal-corp.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-sucursal-dc.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-sucursal-dmz.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-sucursal.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-corp.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-dc.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-dmz.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-corp.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-dc.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-dmz.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-corp.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-dc.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-dmz.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-corp.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dc.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dmz.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-corp.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-dc.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-dmz.json",
+    "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal.json",
+    "docs/verificacion-postevaluacion/entorno-previo-verificaciones-20261019.json",
+    "docs/verificacion-postevaluacion/pruebas-automatizadas.json",
+    "docs/verificacion-postevaluacion/rnf06-capacidades-reales-cinco-bancos-20261019-agente.json",
+    "docs/verificacion-postevaluacion/rnf06-capacidades-reales-cinco-bancos-tests-20261019-agente.json",
+    "docs/verificacion-postevaluacion/rnf06-privilegios-efectivos-20261019-agente.json",
+    "docs/verificacion-postevaluacion/rnf06-privilegios-efectivos-final-20261019-agente.json",
+    "docs/verificacion-postevaluacion/rnf06-recibos-cinco-bancos-tests-20261019-agente.json",
+    "docs/verificacion-postevaluacion/rnf06-regresion-cinco-bancos-20261019-agente.json",
+    "docs/verificacion-postevaluacion/rnf06-ro11-tests-20261019-agente.json",
+    "docs/verificacion-postevaluacion/rnf07-artefactos-originales-20261019.json",
+    "docs/verificacion-postevaluacion/ro11-denominadores-50-20261019-agente.json",
+    "docs/verificacion-postevaluacion/ro11-denominadores-documento-actualizado-20261019.json"
+  ],
+  "requirement_statuses": {
+    "RO-11": "VALIDADO",
+    "RNF-06": "PARCIAL",
+    "RNF-07": "PARCIAL",
+    "RNF-08": "PARCIAL"
+  },
+  "document": {
+    "path": "docs/TrabajoDeGrado_II_Completo_6.docx",
+    "sha256": "c09adda3711313de5bd93ae2289e28ce53d4cbf82e1d0b255396357d39fb85cd",
+    "pages": 121,
+    "pages_through_bibliography": 77,
+    "within_80": true,
+    "requirements": {
+      "VALIDADO": 47,
+      "PARCIAL": 32
+    },
+    "criticality": {
+      "Mayor": 21,
+      "Menor": 3,
+      "Crítico": 8
+    },
+    "equations_unchanged_editable": 3,
+    "pdf_visual_review": "PASS",
+    "native_microsoft_word_session_available": false
+  }
+}

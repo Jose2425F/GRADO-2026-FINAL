@@ -1,0 +1,2595 @@
+{
+  "schema_version": 1,
+  "verification": "RNF06_PRIVILEGIOS_EFECTIVOS_READ_ONLY",
+  "executed_at_utc": "2026-10-19T08:32:39.440874+00:00",
+  "result": "PASS",
+  "proposed_status": "PARCIAL",
+  "checks": [
+    {
+      "name": "RNF06_USUARIO_Y_CAPEFF_HOST_OBSERVADOS",
+      "result": "PASS"
+    },
+    {
+      "name": "RNF06_NMAP_HYDRA_SIN_SETID_NI_FILECAPS",
+      "result": "PASS"
+    },
+    {
+      "name": "RNF06_INVOCACIONES_SIN_CAMBIO_CREDENCIALES",
+      "result": "PASS"
+    },
+    {
+      "name": "RNF06_DOCKER_CONFIGURACION_OBSERVADA",
+      "result": "PASS"
+    },
+    {
+      "name": "RNF06_CAPACIDADES_REALES_15_REPRESENTANTES_CINCO_BANCOS",
+      "result": "PASS"
+    }
+  ],
+  "identity": {
+    "uid": [
+      1000,
+      1000,
+      1000
+    ],
+    "gid": [
+      1000,
+      1000,
+      1000
+    ],
+    "username": "kali",
+    "groups": [
+      {
+        "gid": 4,
+        "name": "adm"
+      },
+      {
+        "gid": 20,
+        "name": "dialout"
+      },
+      {
+        "gid": 24,
+        "name": "cdrom"
+      },
+      {
+        "gid": 25,
+        "name": "floppy"
+      },
+      {
+        "gid": 27,
+        "name": "sudo"
+      },
+      {
+        "gid": 29,
+        "name": "audio"
+      },
+      {
+        "gid": 30,
+        "name": "dip"
+      },
+      {
+        "gid": 44,
+        "name": "video"
+      },
+      {
+        "gid": 46,
+        "name": "plugdev"
+      },
+      {
+        "gid": 100,
+        "name": "users"
+      },
+      {
+        "gid": 101,
+        "name": "netdev"
+      },
+      {
+        "gid": 102,
+        "name": "scanner"
+      },
+      {
+        "gid": 118,
+        "name": "wireshark"
+      },
+      {
+        "gid": 119,
+        "name": "kaboxer"
+      },
+      {
+        "gid": 968,
+        "name": "vboxsf"
+      },
+      {
+        "gid": 982,
+        "name": "bluetooth"
+      },
+      {
+        "gid": 983,
+        "name": "docker"
+      },
+      {
+        "gid": 999,
+        "name": "lpadmin"
+      },
+      {
+        "gid": 1000,
+        "name": "kali"
+      }
+    ],
+    "self_process": {
+      "CapEff": "0000000000000000",
+      "CapInh": "0000000800000000",
+      "CapPrm": "0000000000000000",
+      "CapAmb": "0000000000000000",
+      "Uid": "1000\t1000\t1000\t1000",
+      "CapBnd": "000001ffffffffff",
+      "Groups": "4 20 24 25 27 29 30 44 46 100 101 102 118 119 968 982 983 999 1000",
+      "Seccomp": "0",
+      "NoNewPrivs": "0",
+      "Name": "python",
+      "Gid": "1000\t1000\t1000\t1000",
+      "decoded_capabilities": {
+        "CapInh": [
+          "CAP_WAKE_ALARM"
+        ],
+        "CapPrm": [],
+        "CapEff": [],
+        "CapBnd": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_DAC_READ_SEARCH",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_SETGID",
+          "CAP_SETUID",
+          "CAP_SETPCAP",
+          "CAP_LINUX_IMMUTABLE",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_NET_BROADCAST",
+          "CAP_NET_ADMIN",
+          "CAP_NET_RAW",
+          "CAP_IPC_LOCK",
+          "CAP_IPC_OWNER",
+          "CAP_SYS_MODULE",
+          "CAP_SYS_RAWIO",
+          "CAP_SYS_CHROOT",
+          "CAP_SYS_PTRACE",
+          "CAP_SYS_PACCT",
+          "CAP_SYS_ADMIN",
+          "CAP_SYS_BOOT",
+          "CAP_SYS_NICE",
+          "CAP_SYS_RESOURCE",
+          "CAP_SYS_TIME",
+          "CAP_SYS_TTY_CONFIG",
+          "CAP_MKNOD",
+          "CAP_LEASE",
+          "CAP_AUDIT_WRITE",
+          "CAP_AUDIT_CONTROL",
+          "CAP_SETFCAP",
+          "CAP_MAC_OVERRIDE",
+          "CAP_MAC_ADMIN",
+          "CAP_SYSLOG",
+          "CAP_WAKE_ALARM",
+          "CAP_BLOCK_SUSPEND",
+          "CAP_AUDIT_READ",
+          "CAP_PERFMON",
+          "CAP_BPF",
+          "CAP_CHECKPOINT_RESTORE"
+        ],
+        "CapAmb": []
+      },
+      "available": true
+    },
+    "parent_process": {
+      "CapEff": "0000000000000000",
+      "CapInh": "0000000800000000",
+      "CapPrm": "0000000000000000",
+      "CapAmb": "0000000000000000",
+      "Uid": "1000\t1000\t1000\t1000",
+      "CapBnd": "000001ffffffffff",
+      "Groups": "4 20 24 25 27 29 30 44 46 100 101 102 118 119 968 982 983 999 1000",
+      "Seccomp": "0",
+      "NoNewPrivs": "0",
+      "Name": "codex",
+      "Gid": "1000\t1000\t1000\t1000",
+      "decoded_capabilities": {
+        "CapInh": [
+          "CAP_WAKE_ALARM"
+        ],
+        "CapPrm": [],
+        "CapEff": [],
+        "CapBnd": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_DAC_READ_SEARCH",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_SETGID",
+          "CAP_SETUID",
+          "CAP_SETPCAP",
+          "CAP_LINUX_IMMUTABLE",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_NET_BROADCAST",
+          "CAP_NET_ADMIN",
+          "CAP_NET_RAW",
+          "CAP_IPC_LOCK",
+          "CAP_IPC_OWNER",
+          "CAP_SYS_MODULE",
+          "CAP_SYS_RAWIO",
+          "CAP_SYS_CHROOT",
+          "CAP_SYS_PTRACE",
+          "CAP_SYS_PACCT",
+          "CAP_SYS_ADMIN",
+          "CAP_SYS_BOOT",
+          "CAP_SYS_NICE",
+          "CAP_SYS_RESOURCE",
+          "CAP_SYS_TIME",
+          "CAP_SYS_TTY_CONFIG",
+          "CAP_MKNOD",
+          "CAP_LEASE",
+          "CAP_AUDIT_WRITE",
+          "CAP_AUDIT_CONTROL",
+          "CAP_SETFCAP",
+          "CAP_MAC_OVERRIDE",
+          "CAP_MAC_ADMIN",
+          "CAP_SYSLOG",
+          "CAP_WAKE_ALARM",
+          "CAP_BLOCK_SUSPEND",
+          "CAP_AUDIT_READ",
+          "CAP_PERFMON",
+          "CAP_BPF",
+          "CAP_CHECKPOINT_RESTORE"
+        ],
+        "CapAmb": []
+      },
+      "available": true
+    }
+  },
+  "executables": {
+    "python_verifier": {
+      "path": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/piloto_kali/prototipo/.venv/bin/python",
+      "resolved": "/usr/bin/python3.13",
+      "available": true,
+      "uid": 0,
+      "gid": 0,
+      "mode_octal": "0o755",
+      "setuid": false,
+      "setgid": false,
+      "effective_read": true,
+      "effective_write": false,
+      "effective_execute_or_search": true,
+      "file_capabilities_available": true,
+      "file_capabilities": ""
+    },
+    "python_prototype": {
+      "path": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/piloto_kali/prototipo/.venv/bin/python",
+      "resolved": "/usr/bin/python3.13",
+      "available": true,
+      "uid": 0,
+      "gid": 0,
+      "mode_octal": "0o755",
+      "setuid": false,
+      "setgid": false,
+      "effective_read": true,
+      "effective_write": false,
+      "effective_execute_or_search": true,
+      "file_capabilities_available": true,
+      "file_capabilities": ""
+    },
+    "nmap": {
+      "path": "/usr/bin/nmap",
+      "resolved": "/usr/bin/nmap",
+      "available": true,
+      "uid": 0,
+      "gid": 0,
+      "mode_octal": "0o755",
+      "setuid": false,
+      "setgid": false,
+      "effective_read": true,
+      "effective_write": false,
+      "effective_execute_or_search": true,
+      "file_capabilities_available": true,
+      "file_capabilities": ""
+    },
+    "hydra": {
+      "path": "/usr/bin/hydra",
+      "resolved": "/usr/bin/hydra",
+      "available": true,
+      "uid": 0,
+      "gid": 0,
+      "mode_octal": "0o755",
+      "setuid": false,
+      "setgid": false,
+      "effective_read": true,
+      "effective_write": false,
+      "effective_execute_or_search": true,
+      "file_capabilities_available": true,
+      "file_capabilities": ""
+    },
+    "docker": {
+      "path": "/usr/bin/docker",
+      "resolved": "/usr/bin/docker",
+      "available": true,
+      "uid": 0,
+      "gid": 0,
+      "mode_octal": "0o755",
+      "setuid": false,
+      "setgid": false,
+      "effective_read": true,
+      "effective_write": false,
+      "effective_execute_or_search": true,
+      "file_capabilities_available": true,
+      "file_capabilities": ""
+    }
+  },
+  "effective_path_permissions": [
+    {
+      "path": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026",
+      "resolved": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026",
+      "available": true,
+      "uid": 1000,
+      "gid": 1000,
+      "mode_octal": "0o775",
+      "setuid": false,
+      "setgid": false,
+      "effective_read": true,
+      "effective_write": true,
+      "effective_execute_or_search": true
+    },
+    {
+      "path": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/piloto_kali/prototipo/corridas",
+      "resolved": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/piloto_kali/prototipo/corridas",
+      "available": true,
+      "uid": 1000,
+      "gid": 1000,
+      "mode_octal": "0o700",
+      "setuid": false,
+      "setgid": false,
+      "effective_read": true,
+      "effective_write": true,
+      "effective_execute_or_search": true
+    },
+    {
+      "path": "/dev/shm",
+      "resolved": "/dev/shm",
+      "available": true,
+      "uid": 0,
+      "gid": 0,
+      "mode_octal": "0o1777",
+      "setuid": false,
+      "setgid": false,
+      "effective_read": true,
+      "effective_write": true,
+      "effective_execute_or_search": true
+    },
+    {
+      "path": "/var/run/docker.sock",
+      "resolved": "/run/docker.sock",
+      "available": true,
+      "uid": 0,
+      "gid": 983,
+      "mode_octal": "0o660",
+      "setuid": false,
+      "setgid": false,
+      "effective_read": true,
+      "effective_write": true,
+      "effective_execute_or_search": false
+    }
+  ],
+  "source_invocations": [
+    {
+      "path": "piloto_kali/prototipo/src/auditoria/agentes/agente_ipv4_servicios.py",
+      "references": [
+        {
+          "line": 22,
+          "anchor": "\"nmap\", \"-n\", \"-Pn\", \"-sT\""
+        },
+        {
+          "line": 53,
+          "anchor": "subprocess.run("
+        }
+      ],
+      "privilege_change_calls": [],
+      "sudo_or_setcap_literal": false,
+      "subprocess_privilege_keywords": []
+    },
+    {
+      "path": "piloto_kali/prototipo/src/auditoria/agentes/agente_ipv4_credenciales.py",
+      "references": [
+        {
+          "line": 29,
+          "anchor": "\"hydra\","
+        },
+        {
+          "line": 136,
+          "anchor": "\"hydra\","
+        },
+        {
+          "line": 108,
+          "anchor": "subprocess.run("
+        },
+        {
+          "line": 104,
+          "anchor": "password_path.chmod(0o600)"
+        }
+      ],
+      "privilege_change_calls": [],
+      "sudo_or_setcap_literal": false,
+      "subprocess_privilege_keywords": []
+    },
+    {
+      "path": "piloto_kali/prototipo/src/auditoria/lab_empresa.py",
+      "references": [
+        {
+          "line": 228,
+          "anchor": "http.client.HTTPConnection"
+        },
+        {
+          "line": 244,
+          "anchor": "def app_family"
+        },
+        {
+          "line": 336,
+          "anchor": "\"docker\", \"exec\", \"nova-sender\""
+        }
+      ],
+      "privilege_change_calls": [],
+      "sudo_or_setcap_literal": false,
+      "subprocess_privilege_keywords": []
+    },
+    {
+      "path": "piloto_kali/prototipo/src/auditoria/lab_v2.py",
+      "references": [
+        {
+          "line": 186,
+          "anchor": "http.client.HTTPConnection"
+        },
+        {
+          "line": 389,
+          "anchor": "\"docker\", \"exec\", \"v2-sender\""
+        }
+      ],
+      "privilege_change_calls": [],
+      "sudo_or_setcap_literal": false,
+      "subprocess_privilege_keywords": []
+    }
+  ],
+  "protocol_configuration_evidence": {
+    "compose_path": "piloto_kali/despliegue/empresa/docker-compose.empresa.yml",
+    "protocol_references": [
+      {
+        "line": 167,
+        "text": "container_name: nova-router"
+      },
+      {
+        "line": 168,
+        "text": "cap_add: [NET_ADMIN, NET_RAW, SETUID, SETGID]"
+      },
+      {
+        "line": 179,
+        "text": "container_name: nova-sender"
+      },
+      {
+        "line": 180,
+        "text": "cap_add: [NET_RAW]"
+      },
+      {
+        "line": 189,
+        "text": "container_name: nova-receiver-a"
+      },
+      {
+        "line": 190,
+        "text": "cap_add: [NET_ADMIN, NET_RAW]"
+      },
+      {
+        "line": 200,
+        "text": "container_name: nova-receiver-b"
+      },
+      {
+        "line": 201,
+        "text": "cap_add: [NET_ADMIN, NET_RAW]"
+      }
+    ],
+    "protocol_dockerfile": "piloto_kali/despliegue/empresa/datacenter/Dockerfile.protocol",
+    "dockerfile_overrides_user": false,
+    "interpretation": "Dockerfile sin USER y compose de protocolos sin user: conserva usuario root por defecto de la imagen; verificar CapEff exige proceso activo.",
+    "current_suite_compose": [
+      {
+        "scenario": "comercial",
+        "path": "piloto_kali/prototipo/.lab-suite/comercial/compose.json",
+        "protocol_services": [
+          {
+            "service": "router",
+            "container_name": "nf2-router",
+            "configured_user": "",
+            "cap_add": [
+              "NET_ADMIN",
+              "NET_RAW",
+              "SETUID",
+              "SETGID"
+            ],
+            "cap_drop": [
+              "ALL"
+            ]
+          },
+          {
+            "service": "sender",
+            "container_name": "nf2-sender",
+            "configured_user": "",
+            "cap_add": [
+              "NET_RAW"
+            ],
+            "cap_drop": [
+              "ALL"
+            ]
+          },
+          {
+            "service": "receiver-a",
+            "container_name": "nf2-receiver-a",
+            "configured_user": "",
+            "cap_add": [
+              "NET_ADMIN",
+              "NET_RAW"
+            ],
+            "cap_drop": [
+              "ALL"
+            ]
+          },
+          {
+            "service": "receiver-b",
+            "container_name": "nf2-receiver-b",
+            "configured_user": "",
+            "cap_add": [
+              "NET_ADMIN",
+              "NET_RAW"
+            ],
+            "cap_drop": [
+              "ALL"
+            ]
+          }
+        ]
+      },
+      {
+        "scenario": "mixto",
+        "path": "piloto_kali/prototipo/.lab-suite/mixto/compose.json",
+        "protocol_services": [
+          {
+            "service": "router",
+            "container_name": "nf3-router",
+            "configured_user": "",
+            "cap_add": [
+              "NET_ADMIN",
+              "NET_RAW",
+              "SETUID",
+              "SETGID"
+            ],
+            "cap_drop": [
+              "ALL"
+            ]
+          },
+          {
+            "service": "sender",
+            "container_name": "nf3-sender",
+            "configured_user": "",
+            "cap_add": [
+              "NET_RAW"
+            ],
+            "cap_drop": [
+              "ALL"
+            ]
+          },
+          {
+            "service": "receiver-a",
+            "container_name": "nf3-receiver-a",
+            "configured_user": "",
+            "cap_add": [
+              "NET_ADMIN",
+              "NET_RAW"
+            ],
+            "cap_drop": [
+              "ALL"
+            ]
+          },
+          {
+            "service": "receiver-b",
+            "container_name": "nf3-receiver-b",
+            "configured_user": "",
+            "cap_add": [
+              "NET_ADMIN",
+              "NET_RAW"
+            ],
+            "cap_drop": [
+              "ALL"
+            ]
+          }
+        ]
+      },
+      {
+        "scenario": "reforzado",
+        "path": "piloto_kali/prototipo/.lab-suite/reforzado/compose.json",
+        "protocol_services": [
+          {
+            "service": "router",
+            "container_name": "nf4-router",
+            "configured_user": "",
+            "cap_add": [
+              "NET_ADMIN",
+              "NET_RAW",
+              "SETUID",
+              "SETGID"
+            ],
+            "cap_drop": [
+              "ALL"
+            ]
+          },
+          {
+            "service": "sender",
+            "container_name": "nf4-sender",
+            "configured_user": "",
+            "cap_add": [
+              "NET_RAW"
+            ],
+            "cap_drop": [
+              "ALL"
+            ]
+          },
+          {
+            "service": "receiver-a",
+            "container_name": "nf4-receiver-a",
+            "configured_user": "",
+            "cap_add": [
+              "NET_ADMIN",
+              "NET_RAW"
+            ],
+            "cap_drop": [
+              "ALL"
+            ]
+          },
+          {
+            "service": "receiver-b",
+            "container_name": "nf4-receiver-b",
+            "configured_user": "",
+            "cap_add": [
+              "NET_ADMIN",
+              "NET_RAW"
+            ],
+            "cap_drop": [
+              "ALL"
+            ]
+          }
+        ]
+      },
+      {
+        "scenario": "sucursal",
+        "path": "piloto_kali/prototipo/.lab-suite/sucursal/compose.json",
+        "protocol_services": [
+          {
+            "service": "router",
+            "container_name": "nf1-router",
+            "configured_user": "",
+            "cap_add": [
+              "NET_ADMIN",
+              "NET_RAW",
+              "SETUID",
+              "SETGID"
+            ],
+            "cap_drop": [
+              "ALL"
+            ]
+          },
+          {
+            "service": "sender",
+            "container_name": "nf1-sender",
+            "configured_user": "",
+            "cap_add": [
+              "NET_RAW"
+            ],
+            "cap_drop": [
+              "ALL"
+            ]
+          },
+          {
+            "service": "receiver-a",
+            "container_name": "nf1-receiver-a",
+            "configured_user": "",
+            "cap_add": [
+              "NET_ADMIN",
+              "NET_RAW"
+            ],
+            "cap_drop": [
+              "ALL"
+            ]
+          },
+          {
+            "service": "receiver-b",
+            "container_name": "nf1-receiver-b",
+            "configured_user": "",
+            "cap_add": [
+              "NET_ADMIN",
+              "NET_RAW"
+            ],
+            "cap_drop": [
+              "ALL"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "active_auditor_processes": [],
+  "docker_read_only_observation": {
+    "available": true,
+    "method": "reuse_existing_RNF08_receipts_no_Docker_invocation",
+    "coverage_complete_15_representatives": true,
+    "representative_processes": [
+      {
+        "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-corp.json",
+        "lab": "original",
+        "protocol_scenario": "integrado",
+        "segment": "corp",
+        "source_status": "PASS",
+        "representative": "nova-app-crm",
+        "pid1": {
+          "CapEff": "0000000000000000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000000000",
+          "CapAmb": "0000000000000000",
+          "Uid": "65534\t65534\t65534\t65534",
+          "CapBnd": "0000000000000000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "65534\t65534\t65534\t65534",
+          "decoded_capabilities": {
+            "CapEff": [],
+            "CapPrm": [],
+            "CapBnd": [],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_process": {
+          "CapEff": "0000000000000000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000000000",
+          "CapAmb": "0000000000000000",
+          "Uid": "65534\t65534\t65534\t65534",
+          "CapBnd": "0000000000000000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "65534\t65534\t65534\t65534",
+          "decoded_capabilities": {
+            "CapEff": [],
+            "CapPrm": [],
+            "CapBnd": [],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_uid": 65534,
+        "exec_euid": 65534,
+        "exec_gid": 65534
+      },
+      {
+        "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-dc.json",
+        "lab": "original",
+        "protocol_scenario": "integrado",
+        "segment": "dc",
+        "source_status": "PASS",
+        "representative": "nova-sender",
+        "pid1": {
+          "CapEff": "0000000000002000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000002000",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "0000000000002000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_NET_RAW"
+            ],
+            "CapPrm": [
+              "CAP_NET_RAW"
+            ],
+            "CapBnd": [
+              "CAP_NET_RAW"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_process": {
+          "CapEff": "0000000000002000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000002000",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "0000000000002000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_NET_RAW"
+            ],
+            "CapPrm": [
+              "CAP_NET_RAW"
+            ],
+            "CapBnd": [
+              "CAP_NET_RAW"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_uid": 0,
+        "exec_euid": 0,
+        "exec_gid": 0
+      },
+      {
+        "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-dmz.json",
+        "lab": "original",
+        "protocol_scenario": "integrado",
+        "segment": "dmz",
+        "source_status": "PASS",
+        "representative": "nova-portal",
+        "pid1": {
+          "CapEff": "00000000000400c3",
+          "CapInh": "0000000000000000",
+          "CapPrm": "00000000000400c3",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "00000000000400c3",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapPrm": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapBnd": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_process": {
+          "CapEff": "00000000000400c3",
+          "CapInh": "0000000000000000",
+          "CapPrm": "00000000000400c3",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "00000000000400c3",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapPrm": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapBnd": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_uid": 0,
+        "exec_euid": 0,
+        "exec_gid": 0
+      },
+      {
+        "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-corp.json",
+        "lab": "sucursal",
+        "protocol_scenario": "sucursal",
+        "segment": "corp",
+        "source_status": "PASS",
+        "representative": "nf1-app-crm",
+        "pid1": {
+          "CapEff": "0000000000000000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000000000",
+          "CapAmb": "0000000000000000",
+          "Uid": "65534\t65534\t65534\t65534",
+          "CapBnd": "0000000000000000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "65534\t65534\t65534\t65534",
+          "decoded_capabilities": {
+            "CapEff": [],
+            "CapPrm": [],
+            "CapBnd": [],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_process": {
+          "CapEff": "0000000000000000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000000000",
+          "CapAmb": "0000000000000000",
+          "Uid": "65534\t65534\t65534\t65534",
+          "CapBnd": "0000000000000000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "65534\t65534\t65534\t65534",
+          "decoded_capabilities": {
+            "CapEff": [],
+            "CapPrm": [],
+            "CapBnd": [],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_uid": 65534,
+        "exec_euid": 65534,
+        "exec_gid": 65534
+      },
+      {
+        "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-dc.json",
+        "lab": "sucursal",
+        "protocol_scenario": "sucursal",
+        "segment": "dc",
+        "source_status": "PASS",
+        "representative": "nf1-sender",
+        "pid1": {
+          "CapEff": "0000000000002000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000002000",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "0000000000002000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_NET_RAW"
+            ],
+            "CapPrm": [
+              "CAP_NET_RAW"
+            ],
+            "CapBnd": [
+              "CAP_NET_RAW"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_process": {
+          "CapEff": "0000000000002000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000002000",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "0000000000002000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_NET_RAW"
+            ],
+            "CapPrm": [
+              "CAP_NET_RAW"
+            ],
+            "CapBnd": [
+              "CAP_NET_RAW"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_uid": 0,
+        "exec_euid": 0,
+        "exec_gid": 0
+      },
+      {
+        "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-dmz.json",
+        "lab": "sucursal",
+        "protocol_scenario": "sucursal",
+        "segment": "dmz",
+        "source_status": "PASS",
+        "representative": "nf1-portal",
+        "pid1": {
+          "CapEff": "00000000000400c3",
+          "CapInh": "0000000000000000",
+          "CapPrm": "00000000000400c3",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "00000000000400c3",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapPrm": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapBnd": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_process": {
+          "CapEff": "00000000000400c3",
+          "CapInh": "0000000000000000",
+          "CapPrm": "00000000000400c3",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "00000000000400c3",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapPrm": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapBnd": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_uid": 0,
+        "exec_euid": 0,
+        "exec_gid": 0
+      },
+      {
+        "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-corp.json",
+        "lab": "comercial",
+        "protocol_scenario": "comercial",
+        "segment": "corp",
+        "source_status": "PASS",
+        "representative": "nf2-app-crm",
+        "pid1": {
+          "CapEff": "0000000000000000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000000000",
+          "CapAmb": "0000000000000000",
+          "Uid": "65534\t65534\t65534\t65534",
+          "CapBnd": "0000000000000000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "65534\t65534\t65534\t65534",
+          "decoded_capabilities": {
+            "CapEff": [],
+            "CapPrm": [],
+            "CapBnd": [],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_process": {
+          "CapEff": "0000000000000000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000000000",
+          "CapAmb": "0000000000000000",
+          "Uid": "65534\t65534\t65534\t65534",
+          "CapBnd": "0000000000000000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "65534\t65534\t65534\t65534",
+          "decoded_capabilities": {
+            "CapEff": [],
+            "CapPrm": [],
+            "CapBnd": [],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_uid": 65534,
+        "exec_euid": 65534,
+        "exec_gid": 65534
+      },
+      {
+        "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-dc.json",
+        "lab": "comercial",
+        "protocol_scenario": "comercial",
+        "segment": "dc",
+        "source_status": "PASS",
+        "representative": "nf2-sender",
+        "pid1": {
+          "CapEff": "0000000000002000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000002000",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "0000000000002000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_NET_RAW"
+            ],
+            "CapPrm": [
+              "CAP_NET_RAW"
+            ],
+            "CapBnd": [
+              "CAP_NET_RAW"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_process": {
+          "CapEff": "0000000000002000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000002000",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "0000000000002000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_NET_RAW"
+            ],
+            "CapPrm": [
+              "CAP_NET_RAW"
+            ],
+            "CapBnd": [
+              "CAP_NET_RAW"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_uid": 0,
+        "exec_euid": 0,
+        "exec_gid": 0
+      },
+      {
+        "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-dmz.json",
+        "lab": "comercial",
+        "protocol_scenario": "comercial",
+        "segment": "dmz",
+        "source_status": "PASS",
+        "representative": "nf2-portal",
+        "pid1": {
+          "CapEff": "00000000000400c3",
+          "CapInh": "0000000000000000",
+          "CapPrm": "00000000000400c3",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "00000000000400c3",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapPrm": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapBnd": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_process": {
+          "CapEff": "00000000000400c3",
+          "CapInh": "0000000000000000",
+          "CapPrm": "00000000000400c3",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "00000000000400c3",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapPrm": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapBnd": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_uid": 0,
+        "exec_euid": 0,
+        "exec_gid": 0
+      },
+      {
+        "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-corp.json",
+        "lab": "mixto",
+        "protocol_scenario": "mixto",
+        "segment": "corp",
+        "source_status": "PASS",
+        "representative": "nf3-app-crm",
+        "pid1": {
+          "CapEff": "0000000000000000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000000000",
+          "CapAmb": "0000000000000000",
+          "Uid": "65534\t65534\t65534\t65534",
+          "CapBnd": "0000000000000000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "65534\t65534\t65534\t65534",
+          "decoded_capabilities": {
+            "CapEff": [],
+            "CapPrm": [],
+            "CapBnd": [],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_process": {
+          "CapEff": "0000000000000000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000000000",
+          "CapAmb": "0000000000000000",
+          "Uid": "65534\t65534\t65534\t65534",
+          "CapBnd": "0000000000000000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "65534\t65534\t65534\t65534",
+          "decoded_capabilities": {
+            "CapEff": [],
+            "CapPrm": [],
+            "CapBnd": [],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_uid": 65534,
+        "exec_euid": 65534,
+        "exec_gid": 65534
+      },
+      {
+        "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-dc.json",
+        "lab": "mixto",
+        "protocol_scenario": "mixto",
+        "segment": "dc",
+        "source_status": "PASS",
+        "representative": "nf3-sender",
+        "pid1": {
+          "CapEff": "0000000000002000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000002000",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "0000000000002000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_NET_RAW"
+            ],
+            "CapPrm": [
+              "CAP_NET_RAW"
+            ],
+            "CapBnd": [
+              "CAP_NET_RAW"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_process": {
+          "CapEff": "0000000000002000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000002000",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "0000000000002000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_NET_RAW"
+            ],
+            "CapPrm": [
+              "CAP_NET_RAW"
+            ],
+            "CapBnd": [
+              "CAP_NET_RAW"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_uid": 0,
+        "exec_euid": 0,
+        "exec_gid": 0
+      },
+      {
+        "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-dmz.json",
+        "lab": "mixto",
+        "protocol_scenario": "mixto",
+        "segment": "dmz",
+        "source_status": "PASS",
+        "representative": "nf3-portal",
+        "pid1": {
+          "CapEff": "00000000000400c3",
+          "CapInh": "0000000000000000",
+          "CapPrm": "00000000000400c3",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "00000000000400c3",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapPrm": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapBnd": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_process": {
+          "CapEff": "00000000000400c3",
+          "CapInh": "0000000000000000",
+          "CapPrm": "00000000000400c3",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "00000000000400c3",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapPrm": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapBnd": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_uid": 0,
+        "exec_euid": 0,
+        "exec_gid": 0
+      },
+      {
+        "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-corp.json",
+        "lab": "reforzado",
+        "protocol_scenario": "reforzado",
+        "segment": "corp",
+        "source_status": "PASS",
+        "representative": "nf4-app-crm",
+        "pid1": {
+          "CapEff": "0000000000000000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000000000",
+          "CapAmb": "0000000000000000",
+          "Uid": "65534\t65534\t65534\t65534",
+          "CapBnd": "0000000000000000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "65534\t65534\t65534\t65534",
+          "decoded_capabilities": {
+            "CapEff": [],
+            "CapPrm": [],
+            "CapBnd": [],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_process": {
+          "CapEff": "0000000000000000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000000000",
+          "CapAmb": "0000000000000000",
+          "Uid": "65534\t65534\t65534\t65534",
+          "CapBnd": "0000000000000000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "65534\t65534\t65534\t65534",
+          "decoded_capabilities": {
+            "CapEff": [],
+            "CapPrm": [],
+            "CapBnd": [],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_uid": 65534,
+        "exec_euid": 65534,
+        "exec_gid": 65534
+      },
+      {
+        "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dc.json",
+        "lab": "reforzado",
+        "protocol_scenario": "reforzado",
+        "segment": "dc",
+        "source_status": "PASS",
+        "representative": "nf4-sender",
+        "pid1": {
+          "CapEff": "0000000000002000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000002000",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "0000000000002000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_NET_RAW"
+            ],
+            "CapPrm": [
+              "CAP_NET_RAW"
+            ],
+            "CapBnd": [
+              "CAP_NET_RAW"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_process": {
+          "CapEff": "0000000000002000",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000002000",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "0000000000002000",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_NET_RAW"
+            ],
+            "CapPrm": [
+              "CAP_NET_RAW"
+            ],
+            "CapBnd": [
+              "CAP_NET_RAW"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_uid": 0,
+        "exec_euid": 0,
+        "exec_gid": 0
+      },
+      {
+        "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dmz.json",
+        "lab": "reforzado",
+        "protocol_scenario": "reforzado",
+        "segment": "dmz",
+        "source_status": "PASS",
+        "representative": "nf4-portal",
+        "pid1": {
+          "CapEff": "00000000000400c3",
+          "CapInh": "0000000000000000",
+          "CapPrm": "00000000000400c3",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "00000000000400c3",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapPrm": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapBnd": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_process": {
+          "CapEff": "00000000000400c3",
+          "CapInh": "0000000000000000",
+          "CapPrm": "00000000000400c3",
+          "CapAmb": "0000000000000000",
+          "Uid": "0\t0\t0\t0",
+          "CapBnd": "00000000000400c3",
+          "Seccomp": "2",
+          "NoNewPrivs": "1",
+          "Gid": "0\t0\t0\t0",
+          "decoded_capabilities": {
+            "CapEff": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapPrm": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapBnd": [
+              "CAP_CHOWN",
+              "CAP_DAC_OVERRIDE",
+              "CAP_SETGID",
+              "CAP_SETUID",
+              "CAP_SYS_CHROOT"
+            ],
+            "CapInh": [],
+            "CapAmb": []
+          },
+          "available": true
+        },
+        "exec_uid": 0,
+        "exec_euid": 0,
+        "exec_gid": 0
+      }
+    ],
+    "containers": [
+      {
+        "name": "nova-app-crm",
+        "lab": "original",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-corp.json"
+      },
+      {
+        "name": "nova-app-erp",
+        "lab": "original",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-corp.json"
+      },
+      {
+        "name": "nova-app-intranet",
+        "lab": "original",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-corp.json"
+      },
+      {
+        "name": "nova-app-portal",
+        "lab": "original",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-corp.json"
+      },
+      {
+        "name": "nova-receiver-a",
+        "lab": "original",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_ADMIN",
+          "CAP_NET_RAW"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-dc.json"
+      },
+      {
+        "name": "nova-receiver-b",
+        "lab": "original",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_ADMIN",
+          "CAP_NET_RAW"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-dc.json"
+      },
+      {
+        "name": "nova-router",
+        "lab": "original",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_ADMIN",
+          "CAP_NET_RAW",
+          "CAP_SETGID",
+          "CAP_SETUID"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-dc.json"
+      },
+      {
+        "name": "nova-sender",
+        "lab": "original",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_RAW"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-dc.json"
+      },
+      {
+        "name": "nova-bastion",
+        "lab": "original",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_SETGID",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-dmz.json"
+      },
+      {
+        "name": "nova-legacy",
+        "lab": "original",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-dmz.json"
+      },
+      {
+        "name": "nova-portal",
+        "lab": "original",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_SETGID",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-dmz.json"
+      },
+      {
+        "name": "nova-records",
+        "lab": "original",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": null,
+        "cap_drop": null,
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-original-dmz.json"
+      },
+      {
+        "name": "nf1-app-crm",
+        "lab": "sucursal",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-corp.json"
+      },
+      {
+        "name": "nf1-app-intranet",
+        "lab": "sucursal",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-corp.json"
+      },
+      {
+        "name": "nf1-receiver-a",
+        "lab": "sucursal",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_ADMIN",
+          "CAP_NET_RAW"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-dc.json"
+      },
+      {
+        "name": "nf1-receiver-b",
+        "lab": "sucursal",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_ADMIN",
+          "CAP_NET_RAW"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-dc.json"
+      },
+      {
+        "name": "nf1-router",
+        "lab": "sucursal",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_ADMIN",
+          "CAP_NET_RAW",
+          "CAP_SETGID",
+          "CAP_SETUID"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-dc.json"
+      },
+      {
+        "name": "nf1-sender",
+        "lab": "sucursal",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_RAW"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-dc.json"
+      },
+      {
+        "name": "nf1-legacy",
+        "lab": "sucursal",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-dmz.json"
+      },
+      {
+        "name": "nf1-portal",
+        "lab": "sucursal",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_SETGID",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-dmz.json"
+      },
+      {
+        "name": "nf2-app-crm",
+        "lab": "comercial",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-corp.json"
+      },
+      {
+        "name": "nf2-app-erp",
+        "lab": "comercial",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-corp.json"
+      },
+      {
+        "name": "nf2-app-intranet",
+        "lab": "comercial",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-corp.json"
+      },
+      {
+        "name": "nf2-receiver-a",
+        "lab": "comercial",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_ADMIN",
+          "CAP_NET_RAW"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-dc.json"
+      },
+      {
+        "name": "nf2-receiver-b",
+        "lab": "comercial",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_ADMIN",
+          "CAP_NET_RAW"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-dc.json"
+      },
+      {
+        "name": "nf2-router",
+        "lab": "comercial",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_ADMIN",
+          "CAP_NET_RAW",
+          "CAP_SETGID",
+          "CAP_SETUID"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-dc.json"
+      },
+      {
+        "name": "nf2-sender",
+        "lab": "comercial",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_RAW"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-dc.json"
+      },
+      {
+        "name": "nf2-legacy",
+        "lab": "comercial",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-dmz.json"
+      },
+      {
+        "name": "nf2-portal",
+        "lab": "comercial",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_SETGID",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-dmz.json"
+      },
+      {
+        "name": "nf2-records",
+        "lab": "comercial",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": null,
+        "cap_drop": null,
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-comercial-dmz.json"
+      },
+      {
+        "name": "nf3-app-crm",
+        "lab": "mixto",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-corp.json"
+      },
+      {
+        "name": "nf3-app-erp",
+        "lab": "mixto",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-corp.json"
+      },
+      {
+        "name": "nf3-app-intranet",
+        "lab": "mixto",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-corp.json"
+      },
+      {
+        "name": "nf3-app-portal",
+        "lab": "mixto",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-corp.json"
+      },
+      {
+        "name": "nf3-receiver-a",
+        "lab": "mixto",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_ADMIN",
+          "CAP_NET_RAW"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-dc.json"
+      },
+      {
+        "name": "nf3-receiver-b",
+        "lab": "mixto",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_ADMIN",
+          "CAP_NET_RAW"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-dc.json"
+      },
+      {
+        "name": "nf3-router",
+        "lab": "mixto",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_ADMIN",
+          "CAP_NET_RAW",
+          "CAP_SETGID",
+          "CAP_SETUID"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-dc.json"
+      },
+      {
+        "name": "nf3-sender",
+        "lab": "mixto",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_RAW"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-dc.json"
+      },
+      {
+        "name": "nf3-bastion",
+        "lab": "mixto",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_SETGID",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-dmz.json"
+      },
+      {
+        "name": "nf3-legacy",
+        "lab": "mixto",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-dmz.json"
+      },
+      {
+        "name": "nf3-portal",
+        "lab": "mixto",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_SETGID",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-dmz.json"
+      },
+      {
+        "name": "nf3-records",
+        "lab": "mixto",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": null,
+        "cap_drop": null,
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-mixto-dmz.json"
+      },
+      {
+        "name": "nf4-app-crm",
+        "lab": "reforzado",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-corp.json"
+      },
+      {
+        "name": "nf4-app-erp",
+        "lab": "reforzado",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-corp.json"
+      },
+      {
+        "name": "nf4-app-intranet",
+        "lab": "reforzado",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-corp.json"
+      },
+      {
+        "name": "nf4-app-portal",
+        "lab": "reforzado",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-corp.json"
+      },
+      {
+        "name": "nf4-receiver-a",
+        "lab": "reforzado",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_ADMIN",
+          "CAP_NET_RAW"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dc.json"
+      },
+      {
+        "name": "nf4-receiver-b",
+        "lab": "reforzado",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_ADMIN",
+          "CAP_NET_RAW"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dc.json"
+      },
+      {
+        "name": "nf4-router",
+        "lab": "reforzado",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_ADMIN",
+          "CAP_NET_RAW",
+          "CAP_SETGID",
+          "CAP_SETUID"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dc.json"
+      },
+      {
+        "name": "nf4-sender",
+        "lab": "reforzado",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_NET_RAW"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dc.json"
+      },
+      {
+        "name": "nf4-bastion",
+        "lab": "reforzado",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_SETGID",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dmz.json"
+      },
+      {
+        "name": "nf4-legacy",
+        "lab": "reforzado",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dmz.json"
+      },
+      {
+        "name": "nf4-legacy-ops",
+        "lab": "reforzado",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "65534:65534",
+        "cap_add": null,
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dmz.json"
+      },
+      {
+        "name": "nf4-portal",
+        "lab": "reforzado",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_SETGID",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dmz.json"
+      },
+      {
+        "name": "nf4-portal-ops",
+        "lab": "reforzado",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_SETGID",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cap_drop": [
+          "ALL"
+        ],
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dmz.json"
+      },
+      {
+        "name": "nf4-records",
+        "lab": "reforzado",
+        "observation_scope": "current_five_laboratories",
+        "configured_user": "",
+        "cap_add": null,
+        "cap_drop": null,
+        "privileged": false,
+        "running_at_observation": true,
+        "source_receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dmz.json"
+      }
+    ],
+    "scope_note": "Instantáneas reales de 3 representantes por cada uno de 5 bancos; no son procesos de los adaptadores ni acreditan todos los procesos."
+  },
+  "adapters": {
+    "services_nmap": {
+      "location": "host",
+      "profile": "nmap_tcp_services_v1 (-sT)",
+      "inference": "Hereda credenciales del auditor según invocación, sin setuid/setgid/filecaps o sustitución de usuario; no se ejecutó la herramienta.",
+      "effective_execution_observed": false
+    },
+    "credentials_hydra": {
+      "location": "host",
+      "profile": "autenticación finita por TCP; archivo temporal 0600",
+      "inference": "Hereda credenciales del auditor según invocación, sin setuid/setgid/filecaps o sustitución de usuario; no se ejecutó la herramienta.",
+      "effective_execution_observed": false
+    },
+    "application_http": {
+      "location": "proceso Python del auditor",
+      "profile": "http.client.HTTPConnection + cliente independiente",
+      "inference": "Código en proceso sin cambio de UID/capacidades; sólo credenciales actuales del verificador observadas.",
+      "effective_execution_observed": false
+    },
+    "protocols_scapy": {
+      "location": "Docker nova-sender y nf1..nf4-sender; receptores/router para observar y restaurar",
+      "profile": "Scapy por docker exec configurado en el código",
+      "configured_privileges": "Los compose actuales declaran sender root por defecto+NET_RAW; receptores root+NET_ADMIN/NET_RAW; router añade SETUID/SETGID. La configuración v2 se etiqueta como histórica y no acredita los cinco bancos actuales.",
+      "effective_execution_observed": false,
+      "current_sender_representatives_observed": 5
+    }
+  },
+  "limitations": [
+    "El verificador no ejecuta ningún adaptador; las credenciales de un proceso de auditoría histórico no se pueden recuperar desde su PID pasado.",
+    "Contenedores detenidos o ausentes impiden leer sus capacidades efectivas; Config.User/CapAdd documentan configuración, no CapEff ejecutada.",
+    "Scapy y las operaciones de estado IPv6 requieren capacidades en contenedores; no se cambian ni se amplían privilegios para probarlos.",
+    "La pertenencia al grupo docker permite acceso al daemon: UID no root y CapEff=0 no demuestran por sí solos privilegio mínimo del conjunto.",
+    "RNF-06 permanece PARCIAL; el PASS sólo acredita la recolección defensiva y los cotejos expresamente nombrados."
+  ],
+  "actions": [
+    "/proc read",
+    "filesystem metadata and os.access",
+    "getcap read",
+    "read existing RNF08 process capability receipts; no Docker invocation"
+  ],
+  "not_performed": [
+    "API",
+    "network probes",
+    "audit executions",
+    "sudo",
+    "setcap",
+    "Docker exec/start/stop/compose",
+    "privilege mutation"
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "started_at": 1792365343.5753806,
+  "finished_at": 1792366579.9960973,
+  "reason": null,
+  "run_id": "20261018T231543_aa76a0e0",
+  "orchestration": {
+    "engine": "langgraph",
+    "version": "1.2.12",
+    "graph": "novaflow-langgraph-1",
+    "graph_version": "novaflow-langgraph-1",
+    "nodes": [
+      "preflight",
+      "admission",
+      "execution",
+      "validation",
+      "abort",
+      "review",
+      "close"
+    ],
+    "source_sha256": "f749ba6c91f1537a0e38b2f8672a9d1c2447ae2fdf8d9c41353d6515f7422e55",
+    "checkpointing": "disabled",
+    "decision_trace": "node_transitions_only"
+  },
+  "status": "accepted",
+  "active": false,
+  "accepted": true,
+  "completed_labs": 5,
+  "total_labs": 5,
+  "known_tokens": 0,
+  "new_api_generations": 0,
+  "scenarios": [
+    {
+      "id": "integrado",
+      "name": "NovaFlow · banco integrado",
+      "status": "accepted",
+      "phase": "finished",
+      "expected_tasks": 32,
+      "output": "acceptance_five/20261018T231543_aa76a0e0/integrado",
+      "reason": null,
+      "evaluation": {
+        "tasks_checked": 32,
+        "tasks_valid": 32,
+        "TP": 13,
+        "FP": 0,
+        "FN": 0,
+        "TN": 11,
+        "acceptance_passed": true,
+        "evidence_valid": true
+      },
+      "full_catalogue": true,
+      "zero_api": true,
+      "orchestration": {
+        "checkpointing": "disabled",
+        "decision_trace": "node_transitions_only",
+        "engine": "langgraph",
+        "graph": "novaflow-langgraph-1",
+        "graph_version": "novaflow-langgraph-1",
+        "nodes": [
+          "preflight",
+          "admission",
+          "execution",
+          "validation",
+          "abort",
+          "review",
+          "close"
+        ],
+        "source_sha256": "f749ba6c91f1537a0e38b2f8672a9d1c2447ae2fdf8d9c41353d6515f7422e55",
+        "version": "1.2.12"
+      },
+      "artifacts": {
+        "report.json": "45e6d6d60af6d69e06d3bed53552d4b6f638e96fdadaf7694476641296e84d3f",
+        "evaluation.json": "e7e6c05a8af20d32fa2f6d921a0f20bdd36ba402fde7b93b259bec30c26af4f5",
+        "manifest.json": "5ebbde315ef52c38fa0a813527429bb914b24c1af53ae3be41f4d17e16562d65",
+        "plan.json": "0bed673fe2ba479d040ac553d271b3055adb2b4aa6cc377a08f15d3f8c0bcaa7",
+        "request.json": "cc651c354d9054ce34b78f3ca13e44c90a1210cccb598984e96df0be17ab9e31"
+      },
+      "directory": "emp_single_0ebce953dc3e_20261018T231559"
+    },
+    {
+      "id": "sucursal",
+      "name": "NovaFlow · Sucursal Esencial",
+      "status": "accepted",
+      "phase": "finished",
+      "expected_tasks": 25,
+      "output": "acceptance_five/20261018T231543_aa76a0e0/sucursal",
+      "reason": null,
+      "evaluation": {
+        "tasks_checked": 25,
+        "tasks_valid": 25,
+        "TP": 9,
+        "FP": 0,
+        "FN": 0,
+        "TN": 6,
+        "acceptance_passed": true,
+        "evidence_valid": true
+      },
+      "full_catalogue": true,
+      "zero_api": true,
+      "orchestration": {
+        "checkpointing": "disabled",
+        "decision_trace": "node_transitions_only",
+        "engine": "langgraph",
+        "graph": "novaflow-langgraph-1",
+        "graph_version": "novaflow-langgraph-1",
+        "nodes": [
+          "preflight",
+          "admission",
+          "execution",
+          "validation",
+          "abort",
+          "review",
+          "close"
+        ],
+        "source_sha256": "f749ba6c91f1537a0e38b2f8672a9d1c2447ae2fdf8d9c41353d6515f7422e55",
+        "version": "1.2.12"
+      },
+      "artifacts": {
+        "report.json": "60403834f03a43ade2d2166ef0c55aba4b63c11dad0280246fbbea46248c2e3b",
+        "evaluation.json": "4f826fce02f66347a8782407ab9d43e5acd956d30402de3787246da37d4bf4d1",
+        "manifest.json": "2b81f67ed4c57b8205fea29c337774296e38e41fbb44bfb9a2832894163bff04",
+        "plan.json": "cb83ec7ba667a096d4f43ba5d880f1f504829fbe85f696e404b232aefc973a6c",
+        "request.json": "d5261b21eb9fc53731813c1973c934ad323953681e121017a6dc332f2ef41456"
+      },
+      "directory": "emp_single_027028a6187c_20261018T232010"
+    },
+    {
+      "id": "comercial",
+      "name": "NovaFlow · Operación Comercial",
+      "status": "accepted",
+      "phase": "finished",
+      "expected_tasks": 28,
+      "output": "acceptance_five/20261018T231543_aa76a0e0/comercial",
+      "reason": null,
+      "evaluation": {
+        "tasks_checked": 28,
+        "tasks_valid": 28,
+        "TP": 9,
+        "FP": 0,
+        "FN": 0,
+        "TN": 10,
+        "acceptance_passed": true,
+        "evidence_valid": true
+      },
+      "full_catalogue": true,
+      "zero_api": true,
+      "orchestration": {
+        "checkpointing": "disabled",
+        "decision_trace": "node_transitions_only",
+        "engine": "langgraph",
+        "graph": "novaflow-langgraph-1",
+        "graph_version": "novaflow-langgraph-1",
+        "nodes": [
+          "preflight",
+          "admission",
+          "execution",
+          "validation",
+          "abort",
+          "review",
+          "close"
+        ],
+        "source_sha256": "f749ba6c91f1537a0e38b2f8672a9d1c2447ae2fdf8d9c41353d6515f7422e55",
+        "version": "1.2.12"
+      },
+      "artifacts": {
+        "report.json": "979a955ecfa4487fc45f52b427e945053e5e1fab8218db0170eab4bb2434a4ec",
+        "evaluation.json": "6851e4cd1c459c83f7370908b6f07e85369fce616b04bc88021b18d804512c9e",
+        "manifest.json": "8ac3bb8867d97c7d6b6b943b04f0680cfd51a212c95838acca6660a63cca9d95",
+        "plan.json": "22383904d37671b769a0415b6d1bfcf974b2f4e01d69ecd6f22f8f1f4b7b0a65",
+        "request.json": "4a8d56aa85634d541206c260d87f1572230943a0b8b1949bc717d13ebf1abc4f"
+      },
+      "directory": "emp_single_eb162a96ad2d_20261018T232337"
+    },
+    {
+      "id": "mixto",
+      "name": "NovaFlow · Empresa Mixta",
+      "status": "accepted",
+      "phase": "finished",
+      "expected_tasks": 32,
+      "output": "acceptance_five/20261018T231543_aa76a0e0/mixto",
+      "reason": null,
+      "evaluation": {
+        "tasks_checked": 32,
+        "tasks_valid": 32,
+        "TP": 11,
+        "FP": 0,
+        "FN": 0,
+        "TN": 13,
+        "acceptance_passed": true,
+        "evidence_valid": true
+      },
+      "full_catalogue": true,
+      "zero_api": true,
+      "orchestration": {
+        "checkpointing": "disabled",
+        "decision_trace": "node_transitions_only",
+        "engine": "langgraph",
+        "graph": "novaflow-langgraph-1",
+        "graph_version": "novaflow-langgraph-1",
+        "nodes": [
+          "preflight",
+          "admission",
+          "execution",
+          "validation",
+          "abort",
+          "review",
+          "close"
+        ],
+        "source_sha256": "f749ba6c91f1537a0e38b2f8672a9d1c2447ae2fdf8d9c41353d6515f7422e55",
+        "version": "1.2.12"
+      },
+      "artifacts": {
+        "report.json": "a375904824d4eb5fefe254d2789ee21e63b0792a72302a377611b38e7437d3d3",
+        "evaluation.json": "9afb20cf9ce2b1afee2257f9559e1e687354e264ac63cc9dd2905d81a814a6f6",
+        "manifest.json": "a4c23ccca2a7635511bbbce2bc4e1fe621ff05acd71f43862947ecc3d73cea2b",
+        "plan.json": "42d5e6132a1a14c2df739bccd83081475287c8481ee395894c702e6eaf9d83d7",
+        "request.json": "a89674160a61059b86c0ae5d50b51426e1ed75cae770fe1fb5dde934134fb57b"
+      },
+      "directory": "emp_single_9866c2f44257_20261018T232658"
+    },
+    {
+      "id": "reforzado",
+      "name": "NovaFlow · Entorno Reforzado",
+      "status": "accepted",
+      "phase": "finished",
+      "expected_tasks": 37,
+      "output": "acceptance_five/20261018T231543_aa76a0e0/reforzado",
+      "reason": null,
+      "evaluation": {
+        "tasks_checked": 37,
+        "tasks_valid": 37,
+        "TP": 4,
+        "FP": 0,
+        "FN": 0,
+        "TN": 23,
+        "acceptance_passed": true,
+        "evidence_valid": true
+      },
+      "full_catalogue": true,
+      "zero_api": true,
+      "orchestration": {
+        "checkpointing": "disabled",
+        "decision_trace": "node_transitions_only",
+        "engine": "langgraph",
+        "graph": "novaflow-langgraph-1",
+        "graph_version": "novaflow-langgraph-1",
+        "nodes": [
+          "preflight",
+          "admission",
+          "execution",
+          "validation",
+          "abort",
+          "review",
+          "close"
+        ],
+        "source_sha256": "f749ba6c91f1537a0e38b2f8672a9d1c2447ae2fdf8d9c41353d6515f7422e55",
+        "version": "1.2.12"
+      },
+      "artifacts": {
+        "report.json": "68e86deeb42ac0dd5e869c4d49e9153d293a9ae18cefa605e5b950a6224e9627",
+        "evaluation.json": "f6da95355856568c42daba8a9696e7b524f54071c04110c38541f526f265e6f8",
+        "manifest.json": "0d5dc7dba5818f6c2e7bc7bfd164a7791654a3f789afcd8f2178acad7f72a077",
+        "plan.json": "9eb4bb8f145593044594a7196bc53e1f9a2ef572ffd71d9fb1794c2d3630f50a",
+        "request.json": "c0da7a8786e7982f1417c1c4b53c1dc9672dbde3d6073d050925c5b89d611dc5"
+      },
+      "directory": "emp_single_fb98e0bb2437_20261018T233113"
+    }
+  ]
+}

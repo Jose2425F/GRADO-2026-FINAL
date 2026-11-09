@@ -1,0 +1,70 @@
+{
+  "fecha_utc": "2026-10-18T03:42:28.231029+00:00",
+  "estado": "APROBADA",
+  "alcance": "Cotejo textual complementario entre maestros previos73/64 y recepción de soportes, sin editar evidencias.",
+  "documentos": {
+    "TrabajoDeGrado_II_Completo.docx": {
+      "parrafos_antes": 859,
+      "parrafos_despues": 859,
+      "tablas_antes": 16,
+      "tablas_despues": 16,
+      "todas_las_celdas_identicas": true,
+      "parrafos_modificados": [
+        {
+          "indice_base_cero": 536,
+          "antes": "Los escenarios, dictámenes y compromisos disponibles se presentan en las tablas de este capítulo y del Anexo H. El archivo digital Matriz_ASR_UtilityTree_UCatolica.xlsx mencionado por la propuesta no está incorporado en la entrega; no se afirma disponer de una matriz editable distinta de esas tablas.",
+          "despues": "Los escenarios, dictámenes y compromisos se presentan en este capítulo y en el Anexo H. Se recuperó Matriz_ASR_UtilityTree_UCatolica.xlsx: sus 25 candidatos y 12 medidas concuerdan con las tablas del diseño. La copia privada y su huella constan en el registro de soportes académicos. Sus dictámenes de diseño no acreditan pruebas ejecutadas ni aprobación docente."
+        }
+      ]
+    },
+    "TrabajoDeGrado_II_Anexos.docx": {
+      "parrafos_antes": 274,
+      "parrafos_despues": 274,
+      "tablas_antes": 30,
+      "tablas_despues": 30,
+      "todas_las_celdas_identicas": true,
+      "parrafos_modificados": [
+        {
+          "indice_base_cero": 37,
+          "antes": "El capítulo 2 revisa sistemas de pentesting con LLM. PentestGPT organiza módulos para mantener contexto [2]; PentestAgent utiliza colaboración multiagente [3]; VulnBot emplea un grafo de tareas [4]. Las métricas de sus publicaciones no son resultados de este banco. No se ejecutaron estos sistemas bajo el protocolo del prototipo y no se afirma que la solución los supere. La matriz histórica completa Matriz_Comparativa_TG2026.xlsx no está incluida en este repositorio; su conciliación requiere el archivo original y evidencia por capacidad. Una celda sin evidencia no demuestra que una herramienta sea incapaz de usar IPv6.",
+          "despues": "El capítulo 2 revisa sistemas de pentesting con LLM. PentestGPT organiza módulos para mantener contexto [2]; PentestAgent utiliza colaboración multiagente [3]; VulnBot emplea un grafo de tareas [4]. Las métricas de sus publicaciones no son resultados de este banco. No se ejecutaron estos sistemas bajo el protocolo del prototipo y no se afirma que la solución los supere. Se recuperó Matriz_Comparativa_TG2026.xlsx y se preservó una copia privada con huella en el registro de soportes académicos. Las celdas F3, F5 y G3 de «Matriz comparativa» conservan caracterizaciones anteriores a las precisiones del capítulo 2; E2:E8 no prueba ausencia universal de IPv6. Su numeración bibliográfica histórica no reemplaza las referencias actuales. Una celda sin evidencia no demuestra incapacidad de una herramienta."
+        },
+        {
+          "indice_base_cero": 69,
+          "antes": "La Figura E.1 se conserva como facsímil del calendario propuesto. Su raster no permite leer con fiabilidad todas las actividades y fechas internas y no se dispone de una exportación editable para reconstruirlas. El texto de este anexo describe sus fases previstas; las fechas efectivas del cierre y sus productos se documentan en O.6 y O.7. La imagen no se usa para certificar ejecución ni asignación real de trabajo.",
+          "despues": "La Figura E.1 es un facsímil de una versión previa, con rótulos pequeños; sus fechas no representan la hoja recuperada Cronograma_Gantt_TG2026.xlsx. La copia privada conserva la programación posterior: revisión del 19 al 23 de octubre y entrega el 30 de octubre. En «Cronograma Gantt», E8:E45 depende de TODAY(): «Logrado» en E38 no consulta los KPI. B30, B32, B35 y B37 incluyen alcances y análisis del diseño inicial que difieren de lo ejecutado. Es programación, no ejecución ni aprobación institucional; el cierre efectivo consta en O.6 y O.7."
+        },
+        {
+          "indice_base_cero": 72,
+          "antes": "El presupuesto histórico se describe en el Anexo F en dos vistas propuestas: (i) presupuesto por rubros, discriminado en aportes en especie y gastos en efectivo, y (ii) distribución temporal del presupuesto por fase del cronograma, que vincula cada rubro con la fase donde se ejecuta. Las horas de talento humano se distribuyen según la dedicación estimada de los investigadores en cada fase: mayor concentración en la redacción del anteproyecto (Fase 2) y la implementación del prototipo (Fase 5). Los consumos de APIs LLM se concentran en las fases 5 y 6 porque ahí se ejecutan los experimentos del prototipo y la evaluación contra el agente único baseline. La depreciación de equipos, la conectividad y el transporte se distribuyen de forma lineal a lo largo de los 10 meses del proyecto. La impresión y el empaste se concentran en las fases de entrega (F3 y F7). Las matrículas universitarias no se incluyen en el presupuesto del proyecto al no constituir un gasto operativo del trabajo de grado, según la propuesta histórica. La conciliación por fase se presenta a continuación. El archivo histórico Presupuesto_TG2026.xlsx no está incorporado en esta entrega; se conserva únicamente el facsímil y la conciliación textual. No se pueden verificar fórmulas ni detalle editable.",
+          "despues": "El presupuesto histórico se describe en el Anexo F en dos vistas propuestas: (i) presupuesto por rubros, discriminado en aportes en especie y gastos en efectivo, y (ii) distribución temporal del presupuesto por fase del cronograma, que vincula cada rubro con la fase donde se ejecuta. Las horas de talento humano se distribuyen según la dedicación estimada de los investigadores en cada fase: mayor concentración en la redacción del anteproyecto (Fase 2) y la implementación del prototipo (Fase 5). Los consumos de APIs LLM se concentran en las fases 5 y 6 porque ahí se ejecutan los experimentos del prototipo y la evaluación contra el agente único baseline. La depreciación de equipos, la conectividad y el transporte se distribuyen de forma lineal a lo largo de los 10 meses del proyecto. La impresión y el empaste se concentran en las fases de entrega (F3 y F7). Las matrículas universitarias no se incluyen en el presupuesto del proyecto al no constituir un gasto operativo del trabajo de grado, según la propuesta histórica. La conciliación por fase se presenta a continuación. Se recuperó Presupuesto_TG2026.xlsx y se preservó en copia privada con huella. Sus tres hojas contienen cero fórmulas, pese al recálculo anunciado en «Parámetros», A2. Los subtotales E17:H17 de «Distribución por fase» difieren del detalle B5:H16; la conciliación siguiente conserva el total general y explicita la corrección. Son importes propuestos, no gasto ejecutado."
+        },
+        {
+          "indice_base_cero": 82,
+          "antes": "Este anexo documenta el origen y la verificación de las capacidades del prototipo. Los requisitos funcionales describen comportamientos observables; los no funcionales establecen cualidades y restricciones medibles. Las metas TRTO, IDE y ETV pertenecen a la evaluación experimental y no sustituyen las pruebas de aceptación del software.",
+          "despues": "Este anexo documenta el origen y la verificación de las capacidades del prototipo. Los requisitos funcionales describen comportamientos observables; los no funcionales establecen cualidades y restricciones medibles. Las metas TRTO, IDE y ETV pertenecen a la evaluación experimental y no sustituyen las pruebas de aceptación del software. El soporte recuperado Matriz_ASR_UtilityTree_UCatolica.xlsx concuerda con los 25 candidatos del diseño y las 12 medidas del árbol de utilidad; «1. Matriz ASR», A8:X32, y «3. Utility Tree», B10:I21. La rúbrica G6:G11 está sin puntajes. Ese diseño no equivale a la aceptación de los 79 requisitos de la matriz P. El registro digital se localiza en docs/soportes-academicos-2026-10-17/recepcion.json; LEEME.md y los cotejos de esa carpeta detallan las celdas y discrepancias de los cuatro soportes."
+        },
+        {
+          "indice_base_cero": 117,
+          "antes": "Producto histórico previsto: cronograma incremental con fases, actividades, hitos y responsables. Cronograma_Gantt_TG2026.xlsx no está incorporado en esta entrega y permanece pendiente de recuperación; el Anexo E conserva un facsímil del calendario propuesto, no un registro editable verificado de ejecución.",
+          "despues": "Producto histórico recuperado: Cronograma_Gantt_TG2026.xlsx, con fases, actividades, hitos y responsables propuestos. Su copia privada y huella constan en el registro de recepción. El Anexo E conserva el facsímil y distingue los estados por fecha de la evidencia real de ejecución; el archivo no certifica aprobación institucional."
+        },
+        {
+          "indice_base_cero": 118,
+          "antes": "Producto histórico previsto: presupuesto por rubros y fases, con aportes en especie y efectivo. Presupuesto_TG2026.xlsx no está incorporado en esta entrega y permanece pendiente de recuperación. El Anexo F conserva el facsímil y la descripción de la propuesta.",
+          "despues": "Producto histórico recuperado: Presupuesto_TG2026.xlsx, preservado en copia privada con huella. El Anexo F conserva el facsímil y la conciliación: la hoja no contiene fórmulas y sus subtotales históricos por fase requieren las correcciones indicadas. No acredita gasto real ni sustituye el consumo medido de la campaña."
+        },
+        {
+          "indice_base_cero": 247,
+          "antes": "Esta matriz es un cribado conservador por familias de capacidad. Las referencias a archivos de prueba no adjudican individualmente todos los criterios del Anexo H. Las doce verificaciones críticas enlazan los casos concretos comprobados, sus aserciones, resultados y hashes; los demás criterios mantienen evidencia parcial hasta una revisión individual.",
+          "despues": "Esta matriz es un cribado conservador por familias de capacidad. Las referencias a archivos de prueba no adjudican individualmente todos los criterios del Anexo H. Las doce verificaciones críticas enlazan los casos concretos comprobados, sus aserciones, resultados y hashes; los demás criterios mantienen evidencia parcial hasta una revisión individual. La matriz ASR recuperada es soporte de diseño y no modifica estos estados; su rúbrica sin calificaciones no acredita aceptación de requisitos."
+        }
+      ]
+    }
+  },
+  "evidencias_experimentales": {
+    "docs/cierre-final-2026-10-17/evidencias/inventario.json": "b09ba608c18a7c1963b39ccda73a7b081b285e8f21510e766527803fc3b7257c",
+    "docs/cierre-final-2026-10-17/evidencias/trazabilidad.csv": "eb7b9790fb0aeb2d4546d33b4d9ad3a2c26f0d341c2a08477c515484c126ca87",
+    "docs/cierre-final-2026-10-17/resumen-academico.json": "6f9ef78f633b1967d6dcca2e0d0dec58ed3093806b1a8bb104f31aa0c1bd5abd"
+  }
+}

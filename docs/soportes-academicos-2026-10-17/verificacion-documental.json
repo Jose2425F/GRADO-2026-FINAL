@@ -1,0 +1,1032 @@
+{
+  "generado_utc": "2026-10-18T03:42:42.775923+00:00",
+  "estado": "APROBADA",
+  "controles": [
+    {
+      "control": "Formulación original íntegra Título",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Formulación original íntegra Pregunta",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Formulación original íntegra Objetivo general",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Formulación original íntegra OE1",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Formulación original íntegra OE2",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Formulación original íntegra OE3",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Formulación original íntegra OE4",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Una única pregunta de investigación",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Títulos sin lista automática huérfana",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "19 títulos decimales estables del capítulo1",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Sin capítulos0.x en títulos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Puntuación decimal sin punto final de numeral subordinado",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Tercer nivel con inicial y punto de cierre",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Soporte recuperado íntegro Cronograma_Gantt_TG2026.xlsx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Soporte registrado en construcción Cronograma_Gantt_TG2026.xlsx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Soporte recuperado íntegro Matriz_ASR_UtilityTree_UCatolica.xlsx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Soporte registrado en construcción Matriz_ASR_UtilityTree_UCatolica.xlsx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Soporte recuperado íntegro Matriz_Comparativa_TG2026.xlsx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Soporte registrado en construcción Matriz_Comparativa_TG2026.xlsx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Soporte recuperado íntegro Presupuesto_TG2026.xlsx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Soporte registrado en construcción Presupuesto_TG2026.xlsx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Disponibilidad recuperada reconocida Cronograma_Gantt_TG2026.xlsx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Disponibilidad recuperada reconocida Matriz_ASR_UtilityTree_UCatolica.xlsx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Disponibilidad recuperada reconocida Matriz_Comparativa_TG2026.xlsx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Disponibilidad recuperada reconocida Presupuesto_TG2026.xlsx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "No se confunde rúbrica ASR con aceptación",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Cronograma por fecha no acredita KPI",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Presupuesto estático y discrepancias conservadas",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Límite bibliométrico no resuelto por las matrices",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Respaldo íntegro TrabajoDeGrado_II_Completo.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Respaldo íntegro TrabajoDeGrado_II_Anexos.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Word coincide con construcción TrabajoDeGrado_II_Completo.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Word coincide con construcción TrabajoDeGrado_II_Anexos.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Insumo del corte íntegro docs/cierre-final-2026-10-17/evidencias/inventario.json",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Insumo del corte íntegro docs/cierre-final-2026-10-17/evidencias/trazabilidad.csv",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Insumo del corte íntegro docs/cierre-final-2026-10-17/resumen-academico.json",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "66 referencias conservadas",
+      "aprobado": true,
+      "detalle": 66
+    },
+    {
+      "control": "Referencias textuales sin cambio respecto al corte previo",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Numeración continua de referencias",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 1 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 2 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 3 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 4 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 5 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 6 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 7 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 8 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 9 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 10 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 11 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 12 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 13 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 14 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 15 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 16 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 17 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 18 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 19 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 20 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 21 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 22 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 23 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 24 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 25 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 26 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 27 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 28 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 29 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 30 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 31 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 32 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 33 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 34 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 35 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 36 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 37 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 38 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 39 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 40 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 41 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 42 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 43 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 44 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 45 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 46 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 47 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 48 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 49 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 50 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 51 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 52 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 53 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 54 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 55 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 56 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 57 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 58 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 59 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 60 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 61 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 62 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 63 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 64 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 65 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 66 idéntica en principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Sin citas huérfanas principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencias ordenadas y únicas principal",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 1 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 2 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 3 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 4 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 16 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 18 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 31 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 32 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 33 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 51 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 52 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 53 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 54 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 61 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 62 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 63 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 64 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 65 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencia 66 idéntica en anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Sin citas huérfanas anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Referencias ordenadas y únicas anexos",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Citas por primera aparición IEEE",
+      "aprobado": true,
+      "detalle": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ]
+    },
+    {
+      "control": "Capítulos 1 a 7 presentes",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Arquitectura implementada descrita",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Evaluación y cierre diferenciados",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Anexos A a P presentes",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Marcador de anexo C",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Marcador de anexo K",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Marcador de anexo L",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Marcador de anexo M",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Marcador de anexo N",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Marcador de anexo O",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Marcador de anexo P",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Sin marcas de revisión TrabajoDeGrado_II_Completo.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Sin tokens de herramientas TrabajoDeGrado_II_Completo.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Carta y márgenes digitales2cm TrabajoDeGrado_II_Completo.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Interlineado sencillo uniforme TrabajoDeGrado_II_Completo.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Tablas con fuente mínima10pt TrabajoDeGrado_II_Completo.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Capítulos en página independiente TrabajoDeGrado_II_Completo.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Fuente Arial y texto negro TrabajoDeGrado_II_Completo.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Arial y negro también en tablas y enlaces TrabajoDeGrado_II_Completo.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Variable primaria explícita en tabla de cierre TrabajoDeGrado_II_Completo.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "URL y DOI bibliográficos con enlaces activos TrabajoDeGrado_II_Completo.docx",
+      "aprobado": true,
+      "detalle": {
+        "enlaces": 62,
+        "localizadores": 62
+      }
+    },
+    {
+      "control": "Sin marcas de revisión TrabajoDeGrado_II_Anexos.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Sin tokens de herramientas TrabajoDeGrado_II_Anexos.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Carta y márgenes digitales2cm TrabajoDeGrado_II_Anexos.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Interlineado sencillo uniforme TrabajoDeGrado_II_Anexos.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Tablas con fuente mínima10pt TrabajoDeGrado_II_Anexos.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Capítulos en página independiente TrabajoDeGrado_II_Anexos.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Fuente Arial y texto negro TrabajoDeGrado_II_Anexos.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Arial y negro también en tablas y enlaces TrabajoDeGrado_II_Anexos.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Variable primaria explícita en tabla de cierre TrabajoDeGrado_II_Anexos.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "URL y DOI bibliográficos con enlaces activos TrabajoDeGrado_II_Anexos.docx",
+      "aprobado": true,
+      "detalle": {
+        "enlaces": 15,
+        "localizadores": 15
+      }
+    },
+    {
+      "control": "PNG por cada página TrabajoDeGrado_II_Completo.docx",
+      "aprobado": true,
+      "detalle": {
+        "png": 73,
+        "pdf": 73
+      }
+    },
+    {
+      "control": "Sin glifos de sustitución TrabajoDeGrado_II_Completo.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "PDF entregado coincide con render TrabajoDeGrado_II_Completo.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Principal no supera 80 páginas",
+      "aprobado": true,
+      "detalle": 73
+    },
+    {
+      "control": "Cubierta completa en página1",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Portada completa en página2",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Aceptación inicia en página3",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Sin lista vacía de cuadros",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "PNG por cada página TrabajoDeGrado_II_Anexos.docx",
+      "aprobado": true,
+      "detalle": {
+        "png": 64,
+        "pdf": 64
+      }
+    },
+    {
+      "control": "Sin glifos de sustitución TrabajoDeGrado_II_Anexos.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "PDF entregado coincide con render TrabajoDeGrado_II_Anexos.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Todos los títulos y leyendas tienen localizador",
+      "aprobado": true,
+      "detalle": {
+        "esperados": 110,
+        "mapeados": 110
+      }
+    },
+    {
+      "control": "Índice contiene página en cada título",
+      "aprobado": true,
+      "detalle": 89
+    },
+    {
+      "control": "Cada página del índice coincide con su localizador",
+      "aprobado": true,
+      "detalle": 89
+    },
+    {
+      "control": "Localizadores cotejados contra el texto del PDF",
+      "aprobado": true,
+      "detalle": {
+        "correctos": 110,
+        "total": 110
+      }
+    },
+    {
+      "control": "Listas15tablas y6figuras con páginas del cuerpo",
+      "aprobado": true,
+      "detalle": {
+        "Tabla": 15,
+        "Figura": 6
+      }
+    },
+    {
+      "control": "Figura actual incluida y localizada",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Figuras del principal continuas",
+      "aprobado": true,
+      "detalle": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "paginas": {
+    "TrabajoDeGrado_II_Completo.docx": 73,
+    "TrabajoDeGrado_II_Anexos.docx": 64
+  },
+  "revision_visual": "Inspección adicional de la revisión académica; este script no la sustituye.",
+  "formato_institucional": "Criterios digitales documentados de NTC1486:2022 con referencias IEEE. No certifica rúbrica ni aprobación institucional. Arial solicitada enWord, sustituida físicamente porLiberationSans al renderizar.",
+  "revision_academica": {
+    "formulacion_original_sha256": "7089c9933914a2d0a14fa5a30211295099610ad7ca8fcdcfbc87a56f4f155a62",
+    "titulos_lista_huerfana_corregidos": 19,
+    "numeracion": "decimal literal única, con estilos semánticos",
+    "presentacion": "Criterios digitales de NTC 1486:2022 según guía institucional consultada; referencias IEEE. No certificación de rúbrica universitaria.",
+    "fuente_presentacion": "https://pascualbravo.edu.co/wp-content/uploads/2024/12/ICONTEC.pdf",
+    "tipografia_docx": "Arial 12; tablas mínimo10; interlineado sencillo; texto negro",
+    "tipografia_pdf": "Arial no instalada; sustitución por Liberation Sans en el renderizador Linux",
+    "espaciado_cuerpo": "0pt antes y6pt después; sin sangría inicial; justificado. Excepciones: preliminares, títulos, tablas, índices y referencias.",
+    "titulo_formal": "Se conservan las20palabras recibidas; excede la recomendación de15 de la guía consultada. Cualquier cambio requiere validación del director.",
+    "tercer_nivel": "Inicial mayúscula y punto final; se mantienen títulos independientes por navegación. La guía universitaria específica no fue aportada.",
+    "enlaces_referencias": {
+      "principal": 62,
+      "anexos": 15
+    },
+    "supersede_corte_anterior": "Corte73/64 de la revisión académica, preservado en respaldo-previo del registro de soportes; recepción posterior sin cambios experimentales."
+  },
+  "archivos": {
+    "docs/TrabajoDeGrado_II_Completo.docx": {
+      "sha256": "adedca4e7a980e30e23d92d8dae8820a52ac73b23ae6bf450d402cd3b72991b8",
+      "bytes": 1335171
+    },
+    "docs/TrabajoDeGrado_II_Anexos.docx": {
+      "sha256": "d7ad69c982066725d87e061c99854f7dc26d7dffa7af2aaa9745fd496497a75a",
+      "bytes": 1078116
+    },
+    "docs/TrabajoDeGrado_II_Completo.pdf": {
+      "sha256": "4dc8f67a45188a4c026f54616b811c5a7dad8a5269cf05781a3ae939aeec9b5b",
+      "bytes": 1306340
+    },
+    "docs/TrabajoDeGrado_II_Anexos.pdf": {
+      "sha256": "6f4ebf2f8c2c25571b0e4c3116ead880076c300456c48d6ea9ba44b286d72162",
+      "bytes": 1302598
+    }
+  }
+}

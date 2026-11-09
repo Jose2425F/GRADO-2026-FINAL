@@ -1,0 +1,78 @@
+{
+  "fecha_utc": "2026-10-18T03:41:24.847531+00:00",
+  "criterios": {
+    "formulacion_original_sha256": "7089c9933914a2d0a14fa5a30211295099610ad7ca8fcdcfbc87a56f4f155a62",
+    "titulos_lista_huerfana_corregidos": 19,
+    "numeracion": "decimal literal única, con estilos semánticos",
+    "presentacion": "Criterios digitales de NTC 1486:2022 según guía institucional consultada; referencias IEEE. No certificación de rúbrica universitaria.",
+    "fuente_presentacion": "https://pascualbravo.edu.co/wp-content/uploads/2024/12/ICONTEC.pdf",
+    "tipografia_docx": "Arial 12; tablas mínimo10; interlineado sencillo; texto negro",
+    "tipografia_pdf": "Arial no instalada; sustitución por Liberation Sans en el renderizador Linux",
+    "espaciado_cuerpo": "0pt antes y6pt después; sin sangría inicial; justificado. Excepciones: preliminares, títulos, tablas, índices y referencias.",
+    "titulo_formal": "Se conservan las20palabras recibidas; excede la recomendación de15 de la guía consultada. Cualquier cambio requiere validación del director.",
+    "tercer_nivel": "Inicial mayúscula y punto final; se mantienen títulos independientes por navegación. La guía universitaria específica no fue aportada.",
+    "enlaces_referencias": {
+      "principal": 62,
+      "anexos": 15
+    },
+    "supersede_corte_anterior": "Corte73/64 de la revisión académica, preservado en respaldo-previo del registro de soportes; recepción posterior sin cambios experimentales."
+  },
+  "salidas": {
+    "docs/TrabajoDeGrado_II_Completo.docx": {
+      "sha256": "adedca4e7a980e30e23d92d8dae8820a52ac73b23ae6bf450d402cd3b72991b8",
+      "bytes": 1335171
+    },
+    "docs/TrabajoDeGrado_II_Anexos.docx": {
+      "sha256": "d7ad69c982066725d87e061c99854f7dc26d7dffa7af2aaa9745fd496497a75a",
+      "bytes": 1078116
+    }
+  },
+  "insumos_editoriales": {
+    "docs/TrabajoDeGrado_II_Base.docx": "7089c9933914a2d0a14fa5a30211295099610ad7ca8fcdcfbc87a56f4f155a62",
+    "docs/revision-academica-2026-10-17/hallazgos-editoriales.json": "1ededd039dab06d00f93879cf181adc06b5176f985e3177d0914674cf7f80e62",
+    "docs/revision-academica-2026-10-17/hallazgos-metodologicos.json": "19a7b4b76f8486f9f914969df44d4c7d82497c098dd35e1b97dd1b42f44f6d0f",
+    "docs/revision-academica-2026-10-17/revision-referencias-estructura.json": "f808b35e5293305a5b7ab965722e7e81f2338cc90385dcfff2ecb87129259967",
+    "docs/revision-academica-2026-10-17/bootstrap-cotejo.json": "b7b7679c2bf09adb131835e731f1dffd2de7bd99bbd826595f779ece5a0b1e29",
+    "docs/soportes-academicos-2026-10-17/recepcion.json": "596a4e8aff8cbb4762c579e26a48a8e25083c3c7f46069ef408ea6fa7ec8b47d",
+    "docs/soportes-academicos-2026-10-17/cotejo-matrices.json": "180b5edb5dbd0259bcd09ac50aa14ea119dd8727b135c4322580f74815cfa066",
+    "docs/soportes-academicos-2026-10-17/cotejo-presupuesto-cronograma.json": "a0f739412f7d3a792609f0ff70ef03dc1c089c7e129f5c050b6407f1ea7eb682",
+    "docs/soportes-academicos-2026-10-17/paginacion.json": "fcd37e06bbe288fbfd6cf4de3f845300509f5e4f2bf9dddcbf5dfa41388e7037"
+  },
+  "codigo_constructor": {
+    "scripts/consolidar_documento_final.py": "8aa4d6c8d3c2e436522775f13a5a59a03565cd7195d7eaa9e53f1669ddc4dd1b",
+    "scripts/verificar_documento_final.py": "19bf19af3feb4f467d3349e6870349e26d86432ce45640f21b4ad3f8a5654426"
+  },
+  "insumos_experimentales_sin_cambio": {
+    "docs/cierre-final-2026-10-17/evidencias/inventario.json": {
+      "sha256": "b09ba608c18a7c1963b39ccda73a7b081b285e8f21510e766527803fc3b7257c",
+      "bytes": 935397
+    },
+    "docs/cierre-final-2026-10-17/evidencias/trazabilidad.csv": {
+      "sha256": "eb7b9790fb0aeb2d4546d33b4d9ad3a2c26f0d341c2a08477c515484c126ca87",
+      "bytes": 47604
+    },
+    "docs/cierre-final-2026-10-17/resumen-academico.json": {
+      "sha256": "6f9ef78f633b1967d6dcca2e0d0dec58ed3093806b1a8bb104f31aa0c1bd5abd",
+      "bytes": 24580
+    }
+  },
+  "soportes_recuperados": {
+    "Cronograma_Gantt_TG2026.xlsx": {
+      "sha256": "d31635450a13d4db012a155088fa0053e3304a8b9d19de88f6e5d4ab7f05a88c",
+      "copia_privada_verificada": true
+    },
+    "Matriz_ASR_UtilityTree_UCatolica.xlsx": {
+      "sha256": "4276cc05e4b40db87dee3bf72c5df47403aa6a230186ce4c9c257e41ac0e975a",
+      "copia_privada_verificada": true
+    },
+    "Matriz_Comparativa_TG2026.xlsx": {
+      "sha256": "0856343090d11bb538850c67e8e61e729eb261c6da0189dfd665d3741a5e2357",
+      "copia_privada_verificada": true
+    },
+    "Presupuesto_TG2026.xlsx": {
+      "sha256": "14120e88d59a74be4370a16384b5711ac5aed77b04555300442268c94fd41efa",
+      "copia_privada_verificada": true
+    }
+  },
+  "fuentes_de_desarrollo": "No se ejecutan auditorías, API ni Docker. Los Excel originales no se modifican, recalculan ni publican; los dictámenes de diseño no equivalen a ejecución."
+}

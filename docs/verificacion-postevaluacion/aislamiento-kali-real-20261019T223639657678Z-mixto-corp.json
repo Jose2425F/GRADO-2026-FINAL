@@ -1,0 +1,363 @@
+{
+  "schema": "novaflow-real-isolation-segment/1",
+  "lab": "mixto",
+  "segment": "corp",
+  "requirement": "RNF-08",
+  "requirement_status": "PARCIAL",
+  "execution": "REAL",
+  "mode": "kali",
+  "script_version": "novaflow-real-isolation/2-kali",
+  "status": "NO_VERIFICADO",
+  "representative": {
+    "segment": "corp",
+    "network": "nf3_corp",
+    "source": "nf3-app-crm",
+    "peer": "nf3-app-erp",
+    "port": 8088,
+    "families": [
+      4,
+      6
+    ],
+    "interface": "br-nf3-corp"
+  },
+  "positive_attempts": [
+    {
+      "target_segment": "corp",
+      "target_container": "nf3-app-erp",
+      "family": 4,
+      "address": "192.168.130.12",
+      "port": 8088,
+      "checked_at": "2026-10-19T22:37:19.094624+00:00",
+      "interface": "br-nf3-corp",
+      "source_address": "192.168.130.1",
+      "protocol": "TCP",
+      "expected_policy": "PERMITIR_HOST_A_SEGMENTO_SERVICIO_CATALOGADO",
+      "test": "bound_tcp_connect_no_payload",
+      "connection_attempted": true,
+      "payload_bytes": 0,
+      "status": "PASS",
+      "script_version": "novaflow-real-isolation/2-kali",
+      "route_before_bind": {
+        "dst": "192.168.130.12",
+        "from": "192.168.130.1",
+        "dev": "br-nf3-corp",
+        "flags": [],
+        "uid": 1000,
+        "cache": []
+      },
+      "bound_source": "192.168.130.1",
+      "route_immediately_before_connect": {
+        "dst": "192.168.130.12",
+        "from": "192.168.130.1",
+        "dev": "br-nf3-corp",
+        "flags": [],
+        "uid": 1000,
+        "cache": []
+      },
+      "observed": "connected",
+      "effective_source_address": "192.168.130.1",
+      "attempt": 1
+    },
+    {
+      "target_segment": "corp",
+      "target_container": "nf3-app-erp",
+      "family": 6,
+      "address": "fd57:2026:130::12",
+      "port": 8088,
+      "checked_at": "2026-10-19T22:37:19.144011+00:00",
+      "interface": "br-nf3-corp",
+      "source_address": "fd57:2026:130::1",
+      "protocol": "TCP",
+      "expected_policy": "PERMITIR_HOST_A_SEGMENTO_SERVICIO_CATALOGADO",
+      "test": "bound_tcp_connect_no_payload",
+      "connection_attempted": true,
+      "payload_bytes": 0,
+      "status": "PASS",
+      "script_version": "novaflow-real-isolation/2-kali",
+      "route_before_bind": {
+        "dst": "fd57:2026:130::12",
+        "from": "fd57:2026:130::1",
+        "dev": "br-nf3-corp",
+        "protocol": "kernel",
+        "prefsrc": "fd57:2026:130::1",
+        "metric": 256,
+        "flags": [],
+        "pref": "medium"
+      },
+      "bound_source": "fd57:2026:130::1",
+      "route_immediately_before_connect": {
+        "dst": "fd57:2026:130::12",
+        "from": "fd57:2026:130::1",
+        "dev": "br-nf3-corp",
+        "protocol": "kernel",
+        "prefsrc": "fd57:2026:130::1",
+        "metric": 256,
+        "flags": [],
+        "pref": "medium"
+      },
+      "observed": "connected",
+      "effective_source_address": "fd57:2026:130::1",
+      "attempt": 1
+    }
+  ],
+  "negative": [
+    {
+      "target_segment": "dc",
+      "target_container": "nf3-receiver-a",
+      "family": 4,
+      "address": "192.168.131.20",
+      "port": 8000,
+      "checked_at": "2026-10-19T22:37:19.265140+00:00",
+      "interface": "br-nf3-corp",
+      "source_address": "192.168.130.1",
+      "protocol": "TCP_NOT_SENT",
+      "expected_policy": "MATRIZ_L3_INTERSEGMENTOS_NO_FIJADA",
+      "test": "passive_route_lookup_only",
+      "connection_attempted": false,
+      "status": "NO_VERIFICADO",
+      "reason": "no_explicit_intersegment_deny_policy_no_connection",
+      "script_version": "novaflow-real-isolation/2-kali",
+      "route": {
+        "dst": "192.168.131.20",
+        "from": "192.168.130.1",
+        "dev": "br-nf3-dc",
+        "flags": [],
+        "uid": 1000,
+        "cache": []
+      },
+      "route_to_controlled_bridge_without_gateway": true,
+      "endpoint_positive_control": true
+    },
+    {
+      "target_segment": "dmz",
+      "target_container": "nf3-legacy",
+      "family": 4,
+      "address": "192.168.132.13",
+      "port": 8080,
+      "checked_at": "2026-10-19T22:37:19.267520+00:00",
+      "interface": "br-nf3-corp",
+      "source_address": "192.168.130.1",
+      "protocol": "TCP_NOT_SENT",
+      "expected_policy": "MATRIZ_L3_INTERSEGMENTOS_NO_FIJADA",
+      "test": "passive_route_lookup_only",
+      "connection_attempted": false,
+      "status": "NO_VERIFICADO",
+      "reason": "no_explicit_intersegment_deny_policy_no_connection",
+      "script_version": "novaflow-real-isolation/2-kali",
+      "route": {
+        "dst": "192.168.132.13",
+        "from": "192.168.130.1",
+        "dev": "br-nf3-dmz",
+        "flags": [],
+        "uid": 1000,
+        "cache": []
+      },
+      "route_to_controlled_bridge_without_gateway": true,
+      "endpoint_positive_control": true
+    },
+    {
+      "target_segment": "dc",
+      "target_container": "nf3-receiver-a",
+      "family": 6,
+      "address": "fd57:2026:131::20",
+      "port": 8000,
+      "checked_at": "2026-10-19T22:37:19.272894+00:00",
+      "interface": "br-nf3-corp",
+      "source_address": "fd57:2026:130::1",
+      "protocol": "TCP_NOT_SENT",
+      "expected_policy": "MATRIZ_L3_INTERSEGMENTOS_NO_FIJADA",
+      "test": "passive_route_lookup_only",
+      "connection_attempted": false,
+      "status": "NO_VERIFICADO",
+      "reason": "no_explicit_intersegment_deny_policy_no_connection",
+      "script_version": "novaflow-real-isolation/2-kali",
+      "route": {
+        "dst": "fd57:2026:131::20",
+        "from": "fd57:2026:130::1",
+        "dev": "br-nf3-dc",
+        "protocol": "kernel",
+        "prefsrc": "fd57:2026:131::1",
+        "metric": 256,
+        "flags": [],
+        "pref": "medium"
+      },
+      "route_to_controlled_bridge_without_gateway": true,
+      "endpoint_positive_control": true
+    }
+  ],
+  "reason_codes": [],
+  "limitations": [
+    "TCP finito sin payload desde direcciones reales del anfitrión asignadas a bridges del banco; no se prueba la aplicación.",
+    "Solo endpoints controlados, activos y obtenidos del inventario Docker del mismo banco; nunca se conecta a destinos externos.",
+    "La ruta se consulta de nuevo después de bind y antes de cada connect; se exige el bridge del destino sin gateway.",
+    "La matriz L3 entre segmentos desde el anfitrión no está fijada: los negativos intersegmento son solo consultas de ruta, NO VERIFICADO.",
+    "La salida externa se examina únicamente con route get a direcciones de documentación; no se transmiten paquetes a ellas.",
+    "El JSON del firewall es una captura de solo lectura, no una comprobación de las reglas vigentes después del arranque del banco.",
+    "Un timeout o rechazo no demuestra aislamiento. RNF-08 permanece PARCIAL; no se extrapola a todo puerto, protocolo o proceso."
+  ],
+  "configuration": {
+    "status": "PASS",
+    "reasons": [],
+    "expected": {
+      "name": "nf3_corp",
+      "bridge": "br-nf3-corp",
+      "subnets": [
+        "192.168.130.0/24",
+        "fd57:2026:130::/64"
+      ],
+      "members": [
+        "nf3-app-crm",
+        "nf3-app-erp",
+        "nf3-app-intranet",
+        "nf3-app-portal"
+      ]
+    },
+    "observed": {
+      "name": "nf3_corp",
+      "id": "26f1e7c8f65a81c76ef43cba2f3cafce8d5f6c88bc214cdd759cbcc9932811d1",
+      "internal": true,
+      "driver": "bridge",
+      "enable_ipv6": true,
+      "ipam": [
+        {
+          "Gateway": "192.168.130.1",
+          "Subnet": "192.168.130.0/24"
+        },
+        {
+          "Gateway": "fd57:2026:130::1",
+          "Subnet": "fd57:2026:130::/64"
+        }
+      ],
+      "options": {
+        "com.docker.network.bridge.name": "br-nf3-corp"
+      },
+      "members": {
+        "7f2d520b3966dd1f77b027915e6bee14883497527ae09472e627f3d0d5b8c3eb": {
+          "EndpointID": "9745b0ac4afdf47c5a6f9c6356d06cdb0dcbfbaeb66028ce683bc61693ed2e63",
+          "IPv4Address": "192.168.130.11/24",
+          "IPv6Address": "fd57:2026:130::11/64",
+          "MacAddress": "de:a5:e8:48:0d:4b",
+          "Name": "nf3-app-crm"
+        },
+        "d1bbfa9cb9b12be3e361ae251235a5ea56894334d510d7263fc3af64ac954b2e": {
+          "EndpointID": "71c1c46c54a77266d58642f9307133f6ca7fda9c385be8e48d76e51cac075807",
+          "IPv4Address": "192.168.130.12/24",
+          "IPv6Address": "fd57:2026:130::12/64",
+          "MacAddress": "32:0d:61:b7:82:5e",
+          "Name": "nf3-app-erp"
+        },
+        "eaa2133ed16da459c354f69a9858af11cf1c9650c90182e7ed14c31540c7f459": {
+          "EndpointID": "7eb7d2a4b557ee6c1bf4463340e6ceaad23f7cb08dc0079b739b5ef01b4581aa",
+          "IPv4Address": "192.168.130.14/24",
+          "IPv6Address": "fd57:2026:130::14/64",
+          "MacAddress": "92:d7:29:52:ea:68",
+          "Name": "nf3-app-intranet"
+        },
+        "f273ca2bac66f35899e206c0e8fff628cf8803b38bbeaa0fac289b9447e9e977": {
+          "EndpointID": "3d269a069ff7b5e4a8acdb54afce9f189bf0443d1ec1d0272462779e0ece44b9",
+          "IPv4Address": "192.168.130.13/24",
+          "IPv6Address": "fd57:2026:130::13/64",
+          "MacAddress": "de:b8:d5:11:f5:ee",
+          "Name": "nf3-app-portal"
+        }
+      }
+    }
+  },
+  "firewall_snapshot_reference": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/verificacion-postevaluacion/rnf08-cortafuegos-operador-20261019_182838.json",
+  "sources": [
+    {
+      "interface": "br-nf3-corp",
+      "address": "192.168.130.1",
+      "family": 4,
+      "prefix_length": 24,
+      "selection": "active_host_address_in_configured_subnet"
+    },
+    {
+      "interface": "br-nf3-corp",
+      "address": "fd57:2026:130::1",
+      "family": 6,
+      "prefix_length": 64,
+      "selection": "active_host_address_in_configured_subnet"
+    }
+  ],
+  "selected_sources": [
+    {
+      "interface": "br-nf3-corp",
+      "address": "192.168.130.1",
+      "family": 4,
+      "prefix_length": 24,
+      "selection": "active_host_address_in_configured_subnet"
+    },
+    {
+      "interface": "br-nf3-corp",
+      "address": "fd57:2026:130::1",
+      "family": 6,
+      "prefix_length": 64,
+      "selection": "active_host_address_in_configured_subnet"
+    }
+  ],
+  "positive_status": "PASS",
+  "external_route_inspections": [
+    {
+      "checked_at": "2026-10-19T22:37:19.269641+00:00",
+      "interface": "br-nf3-corp",
+      "source_address": "192.168.130.1",
+      "family": 4,
+      "address": "192.0.2.1",
+      "port": null,
+      "protocol": "ROUTE_LOOKUP_ONLY",
+      "expected_policy": "DENEGAR_SALIDA_NO_AUTORIZADA",
+      "test": "passive_external_route_and_firewall_snapshot",
+      "connection_attempted": false,
+      "payload_bytes": 0,
+      "status": "NO_VERIFICADO",
+      "destination_is_documentation_not_probed": true,
+      "script_version": "novaflow-real-isolation/2-kali",
+      "output_filter_in_snapshot": false,
+      "reason": "external_connectivity_never_probed_and_egress_not_fully_accredited",
+      "route": {
+        "dst": "192.0.2.1",
+        "from": "192.168.130.1",
+        "gateway": "10.0.2.2",
+        "dev": "eth0",
+        "flags": [],
+        "uid": 1000,
+        "cache": []
+      },
+      "potential_egress_outside_audit_bridge": true
+    },
+    {
+      "checked_at": "2026-10-19T22:37:19.274650+00:00",
+      "interface": "br-nf3-corp",
+      "source_address": "fd57:2026:130::1",
+      "family": 6,
+      "address": "2001:db8::1",
+      "port": null,
+      "protocol": "ROUTE_LOOKUP_ONLY",
+      "expected_policy": "DENEGAR_SALIDA_NO_AUTORIZADA",
+      "test": "passive_external_route_and_firewall_snapshot",
+      "connection_attempted": false,
+      "payload_bytes": 0,
+      "status": "NO_VERIFICADO",
+      "destination_is_documentation_not_probed": true,
+      "script_version": "novaflow-real-isolation/2-kali",
+      "output_filter_in_snapshot": false,
+      "reason": "external_connectivity_never_probed_and_egress_not_fully_accredited",
+      "route": {
+        "dst": "2001:db8::1",
+        "from": "fd57:2026:130::1",
+        "gateway": "fe80::2",
+        "dev": "eth0",
+        "protocol": "ra",
+        "prefsrc": "fd17:625c:f037:2:7aca:5523:14ad:3b72",
+        "metric": 100,
+        "flags": [],
+        "pref": "medium"
+      },
+      "potential_egress_outside_audit_bridge": true
+    }
+  ],
+  "lab_reason_codes": [],
+  "started_at": "2026-10-19T22:37:13.495969+00:00",
+  "finished_at": "2026-10-19T22:37:24.015111+00:00"
+}

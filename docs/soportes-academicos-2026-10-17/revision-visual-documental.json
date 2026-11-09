@@ -1,0 +1,1017 @@
+{
+  "schema_version": 1,
+  "generado_utc": "2026-10-18T03:43:15.318666+00:00",
+  "estado": "REVISADA_COMPLETA_CON_LIMITACIONES_HISTORICAS_DECLARADAS",
+  "alcance": "Actualización mínima por recuperación de cuatro soportes; todos los137PNG cubiertos mediante inspección nueva o identidad exacta con el corte previamente revisado. No certifica aprobación institucional ni valida por sí sola resultados experimentales.",
+  "cobertura": {
+    "principal": 73,
+    "anexos": 64,
+    "total": 137,
+    "completa": true,
+    "faltantes": [],
+    "inspeccion_nueva_principal": 1,
+    "inspeccion_nueva_anexos": 17,
+    "png_identicos_con_revision_previa": 119
+  },
+  "renders": {
+    "principal": "piloto_kali/prototipo/.verificacion/soportes-academicos-20261018T033005Z/principal-2",
+    "anexos": "piloto_kali/prototipo/.verificacion/soportes-academicos-20261018T033005Z/anexos-2"
+  },
+  "maestros": {
+    "docs/TrabajoDeGrado_II_Completo.docx": {
+      "sha256": "adedca4e7a980e30e23d92d8dae8820a52ac73b23ae6bf450d402cd3b72991b8",
+      "bytes": 1335171
+    },
+    "docs/TrabajoDeGrado_II_Completo.pdf": {
+      "sha256": "4dc8f67a45188a4c026f54616b811c5a7dad8a5269cf05781a3ae939aeec9b5b",
+      "bytes": 1306340
+    },
+    "docs/TrabajoDeGrado_II_Anexos.docx": {
+      "sha256": "d7ad69c982066725d87e061c99854f7dc26d7dffa7af2aaa9745fd496497a75a",
+      "bytes": 1078116
+    },
+    "docs/TrabajoDeGrado_II_Anexos.pdf": {
+      "sha256": "6f4ebf2f8c2c25571b0e4c3116ead880076c300456c48d6ea9ba44b286d72162",
+      "bytes": 1302598
+    }
+  },
+  "comprobantes_fuente": {
+    "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json": "7029e4b677735c9525b685468ed88d070e864ecf19d5018def261f16379f100e",
+    "docs/soportes-academicos-2026-10-17/revision-visual-anexos-root.json": "0d79287639c3ddfd07dfa7e025ec28de5ab2ffd66b9eadb6825a13d438df8eeb",
+    "docs/soportes-academicos-2026-10-17/revision-visual-anexos-academico.json": "9fc73983e120146b4c6d16897af593e41802b40fe725b907d877d012844c5ceb",
+    "docs/revision-academica-2026-10-17/revision-visual-documental.json": "e74a34ddefeb70d003aedb3112232563bac4c7b92fe71e08d8875d69df19b591"
+  },
+  "verificacion_automatica": {
+    "ruta": "docs/soportes-academicos-2026-10-17/verificacion-documental.json",
+    "sha256": "37e476d36a4ef6edf7b2414ad7ce4ee361f11adb3cb9a35bcce299aef09c5873",
+    "controles": 178,
+    "estado": "APROBADA"
+  },
+  "limitaciones": [
+    "Los facsímiles históricos bibliométrico, cronograma y presupuesto conservan rótulos internos pequeños; no se certifica lectura completa de sus datos rasterizados.",
+    "El facsímil del cronograma pertenece a una versión previa y no representa las fechas de la hoja recuperada. El texto diferencia esas versiones y la planificación de la ejecución.",
+    "La copia editable recuperada de ASR es soporte de diseño, no aceptación docente o cumplimiento global de los79requisitos.",
+    "Los originales Excel se mantienen privados y sin modificación; los cotejos no resuelven los soportes bibliométricos ausentes."
+  ],
+  "paginas": [
+    {
+      "tomo": "principal",
+      "pagina": 1,
+      "png_sha256": "e0782ce559f64da19fbe82a04aac5fdccdac81eb1dc529a263e48f59e00e5bd4",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 2,
+      "png_sha256": "3a6b844b903f6b7cb566ff265b4b3c589c2486781be2d972b21dec8044663ee2",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 3,
+      "png_sha256": "2ba72894856747db82f04dd0e9e4ea3bc05fba172175c79bf3cbb245944ea1e3",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 4,
+      "png_sha256": "a2e80efa4ad80dc7419be28fe305127aba6e75924bc5b606bd0ce76ad9f700e4",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 5,
+      "png_sha256": "a499bc1d7f50037c5aa8795d69d83125145df5e8ae7b1b9c63a3fa821c28da6d",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 6,
+      "png_sha256": "8bd3fbe6650fa6bd086def5d268f6da99a88d7b3525f458d983ddb54515c5094",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 7,
+      "png_sha256": "47ef0dd9c9a1baf5945bfc039af6cd2bd6f15e10cd76b8bb5711b00271c30f8e",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 8,
+      "png_sha256": "69be4dfa192cc92ba94bc5ac33cdf9d9062e38bb1fd30bf3418546decc7fb96e",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 9,
+      "png_sha256": "9ea145604da625a607d4e609f14be78b0db3c77d5bf0c05f51b96db346c572bc",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 10,
+      "png_sha256": "2997f07712725fc61ea428b2c31ccab628ebf3d3fd63835252bb2d1ca4457511",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 11,
+      "png_sha256": "402220b8607a4c1bbee9b7d43efc61f02bc79e171b95c4b60e4606e454797eb5",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 12,
+      "png_sha256": "898134c0aac72167275cbae022082871f9f97fd4a4d4c90f36ecb7fea8217d13",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 13,
+      "png_sha256": "31ca4679e0389b4d40b810f472bb2dbc4c5fb770db2149058fc68cfb3b68ca22",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 14,
+      "png_sha256": "039c787f87b0711a95cbcd8692334954cffe647da4147fed03aa4b7e9b59c4a4",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 15,
+      "png_sha256": "de4a11aded0ceff7d0329653f7238843fda964349b9ea7cddd4fb839c64d10e8",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 16,
+      "png_sha256": "02dddcfb8ba3f38d44f560c7188389c94a4490601bb5f3e01d41cb0f4475bcb5",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 17,
+      "png_sha256": "1f026d39fd74f011c1e3bd616bb38f5ea35871493ecee04f2c6241277231f4c2",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 18,
+      "png_sha256": "9b610a5398a40a36dc3cbe88e357e0c88cc1bc41c0c24055a66869f8eb16650d",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 19,
+      "png_sha256": "09b3fed8e28e98c51ee28a71201eefb8914d4ee1d220d94b0fcbdbf2adf52095",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 20,
+      "png_sha256": "c14293208f0d828a915206c9ecb667840591662752e54d5033223c645f2146b5",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 21,
+      "png_sha256": "5629544d61ee12eefb22e3884ee62c852d755cc6cf957482633ecbe007c818d3",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 22,
+      "png_sha256": "e17d4a84ad963ee919e0cdac3ba8cadf0dc8e488e9a3381d8d54506eb3bed93c",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 23,
+      "png_sha256": "5139f061ad99da13d465d64ab7b072c46e61bd485a4a653e3bfa47a8fab942ef",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 24,
+      "png_sha256": "13b868ffc0916b4c1a0aff611a1ee7badfc4bc5696081492e368602c6aa36b3a",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 25,
+      "png_sha256": "402de956f96f517098b1c0f535871321e09a0ca3672281d4e019bdef62837d04",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 26,
+      "png_sha256": "198f5a8eb2f310fadaffa928ba45f523a9c08868e1edee7d49d1abf0cd9fb9e2",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 27,
+      "png_sha256": "42daa0275066ab05b8c72b7a6d285cfe785e7dc58b6a79cd1de22d2b83145d8b",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 28,
+      "png_sha256": "016cd0afca7f19d5628fc1be401edf4e8d65459b4717cdf28a5c6640cec16872",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 29,
+      "png_sha256": "a6aeb99ae90003fe3fc6d9598a931f19d9295541d597c7751d8b2af3fe4ebbc5",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 30,
+      "png_sha256": "a4a6a4cc76f36567fe4d85ad43daed29976efb546fc134fb9f9a093cc4fe001a",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 31,
+      "png_sha256": "d368e79988600ecdaf4063496f126499caf2a47d95720e5ae5cebee0549c2f8b",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 32,
+      "png_sha256": "d31577bd95aceb713cae22ca5e95464c42d9649a4729fbdc26284585c32ed4f7",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 33,
+      "png_sha256": "54293d5a584923c49a1e24c77b8e0ddc9b6f49d01bd6d73b4062864a122c5d26",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 34,
+      "png_sha256": "6339e7567021058873ef8ed9fb1423929ea6bed30fafdeb5fc4bd6cb220a50a8",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 35,
+      "png_sha256": "cc5d4d0c186cf5446a367a8f624fc1fe86d5de17b9cdd09aa2172e06503e15eb",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 36,
+      "png_sha256": "b37e16787742e94b9c623dedac410f91015179d964410c2e948f52d8b697a289",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 37,
+      "png_sha256": "54f963ccc3cabcef7c6f9c7264f7ad2ad2a0ebb5900c836ecac0f2e234877bfd",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Inspección individual original con view_image; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 38,
+      "png_sha256": "b3cf5fe1e2690852bedccd67d8fa8326250804ad39ee5ba5f1fc62c4b3019306",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 39,
+      "png_sha256": "7f46546722b5dcc22d4a54a2f7993ed7af48bf58533cc0278ad9151ba1d0687b",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 40,
+      "png_sha256": "568c9700c81b8efe227f041f4fa3d469ac71c1ea4a434aa460a8d443404658d9",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 41,
+      "png_sha256": "3eaa9da627ca3ae4064655e580c0ed70a919911c0332b8343abfd9449a51a81d",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 42,
+      "png_sha256": "2f18a383ae64be5fc50f104362e95abb9f28bd0c0ff16e5681fa8f3225f425ab",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 43,
+      "png_sha256": "93ff6b1817293bb65416e581b7110cf780683baf7d397352896ba7aca6b02f62",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 44,
+      "png_sha256": "179e43d7cccc386bd927ddd050d7bd39c14d34892f9249e708b7a3a6f9c0c251",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 45,
+      "png_sha256": "36cfb32e96651c010f8d3f7f706f12c729032c82fbe4ea68c4f1c2333adad7e8",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 46,
+      "png_sha256": "342cb80505798f34229237080bc0dad8aa4b91bb055c7f616b3cd903d25e440a",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 47,
+      "png_sha256": "087d678394755a4cbc545637b33b48f2e5037ad120860fffc5a695e1498f9c44",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 48,
+      "png_sha256": "7253369204e52516290a8d946d3fe27389b177a9b9d18d811787012fb79d4a1a",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 49,
+      "png_sha256": "c70c6500fee93a9761a34fdc92edb430957740265abdc3d8b8dc7bc6f1b36954",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 50,
+      "png_sha256": "3de6512e6478109a16dfa8cf6d6a474f6f701e60e3f143ba105a1f0679ae76d0",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 51,
+      "png_sha256": "20dcb710acf47e6ca576484da799ad54c13a728d6679cacd2c065a3c907efd25",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 52,
+      "png_sha256": "8a9a57803733136110f56f0dc5971633817d211ccae4a4aec58c5330d46f7417",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 53,
+      "png_sha256": "36f7947020db98d662867a0244f621d546f8c1ba64e264f403f074f7354c97c9",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 54,
+      "png_sha256": "e5e2889c4d461c17369c19aa96d53604e5a7327c6b81559149ac5895e0c32eee",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 55,
+      "png_sha256": "c14cfb92480f8c73a23c71a47d681902e28c4e9e8bce25edd7a7528513485ee1",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 56,
+      "png_sha256": "2b4d9498aafbee6bab834466319b858c49611b14c0a1fd1aa6c96dfbbc0c2a8e",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 57,
+      "png_sha256": "378b0296e48754eb809e306906434f2df2b5d9e5c0b44999cd1fc1c4e2d0883a",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 58,
+      "png_sha256": "41e48068f1de0179619082488078d893c2bd9146a8f74411028acf18c8956caf",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 59,
+      "png_sha256": "23c4e366cb2f9477853372c206d7dd1a19015d655cafcc7a4c86b907d30c6e17",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 60,
+      "png_sha256": "20f7cb993eb180dbffc8b5cce4f5d1024b6ef3e039609cde1205c71e4572c226",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 61,
+      "png_sha256": "bac1e52c7c22ddf77a5bb5ae91e05878ec2aa6eecfd09baa08922b4a4229f131",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 62,
+      "png_sha256": "fb0882cd2d700056133f45b1799c54733a6295d1e584390209d9a06e6b661859",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 63,
+      "png_sha256": "390a4dbbad80334e05bdc04947eef1e8803679e1631b3209384c2969953ae399",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 64,
+      "png_sha256": "f97a1ec6026546db4d3c5ad3325c942b7bba8c09fc3df763658f97c76f1a5195",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 65,
+      "png_sha256": "1d9bc30749f6ea9441d52c906023fe3e95eaff635d2a52ada748ce1e65c4baf8",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 66,
+      "png_sha256": "0a886d28f7f7eadd0adebadb20fd71fe648afb54d2381347e7df2b574263e27f",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 67,
+      "png_sha256": "aeae31e15bb04d46d8915740cb9ed71cca1fc63fc11500440374e71aef82186d",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 68,
+      "png_sha256": "63654039660a58863575027c2fa0d83bf3d1f3a6a83119c58ab2d2de5b334b7a",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 69,
+      "png_sha256": "4e52b3a2ec43c0b4a0357e54053252c86c26f5ed217165854ca6eb68106ef731",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 70,
+      "png_sha256": "38c937666aac28d96485d6664ab9cea56056eab77b588ce6b5ea3d354ef44659",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 71,
+      "png_sha256": "6152ecf4c990163ec1941d1ed13ca1dfcf08f8b99b83994dbb92d625b696a742",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 72,
+      "png_sha256": "6d58d14a2e7c7c8387fdddb1a82a78fab7d19c820c1d4c4e2c047f1ef6b4031f",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "principal",
+      "pagina": 73,
+      "png_sha256": "c3fd08eb0b8f5c06394f34ada7e45a802bee9a9d8926d3d4a3f51194e467c48e",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-principal-root.json",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado; igualdad verificada entre principal-1 y principal-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 1,
+      "png_sha256": "a8ba21480ee5286ad4673671874a581e4f613ce61895e93541ac8b8a24f937c2",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 2,
+      "png_sha256": "313781edcf9824c4e3c928b12a8ba0b81b9ddf2c7a41ddb5fa049d8ea4afa451",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 3,
+      "png_sha256": "d95008c5f60fdc16d647124c681d03cf229e4429e973918ed2e513100c1d9baf",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 4,
+      "png_sha256": "9137d7795897dca84364f56ac58ca91b540df3acce159a04d4440530b86c2d1d",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 5,
+      "png_sha256": "ca03ce01e078c9b0e4de70b0e95551a4d42222f956f73beb210557bc0f65d048",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-anexos-root.json",
+      "metodo": "Inspección individual original con view_image Igualdad verificada entre anexos-1 y anexos-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 6,
+      "png_sha256": "9bfca6fd4e4e76ef78e8bbd77327e3e705f81c1b698a7916eb7d7255206d1b63",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 7,
+      "png_sha256": "5f5c29b5bd266f04eb27af2072ef18986651053e172e80cc966bb0222e63cd41",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 8,
+      "png_sha256": "3f693588fba7758387c2ee7330b07384ceae58dd40a1f168bde1be780b93c129",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 9,
+      "png_sha256": "8589eec903a6209189a1317040f347539f4c524da0ede5bc192f75ef73a20268",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 10,
+      "png_sha256": "fc81d568b211df7a825ddb948d18cde8b5442447f70b3b0231a2c2d8724a3a68",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-anexos-root.json",
+      "metodo": "Inspección individual original con view_image Igualdad verificada entre anexos-1 y anexos-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 11,
+      "png_sha256": "b3320392fec6b3ad1be32d5104f1d1c4882f3fe1e9980be88962c1ffaf7e05ba",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-anexos-root.json",
+      "metodo": "Inspección individual original con view_image Igualdad verificada entre anexos-1 y anexos-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 12,
+      "png_sha256": "3ef731da64c543a37d1bfe5021232499b97fb2d7165eaf822cc12df9cef2dd6a",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 13,
+      "png_sha256": "948e4fcab6ab65410bc33a10608d3aefbb56220ee694ac92df48135d19eeff29",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 14,
+      "png_sha256": "dd94b3d4ffa94ae1e12d14b952228c6d1d992b9fbf84ad914ffb4736779bb301",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 15,
+      "png_sha256": "2e45946a1bb572eb49ae9e1ca9439d2acec076459ec2cdfcfe2dac892f51e424",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-anexos-root.json",
+      "metodo": "Inspección individual original con view_image Igualdad verificada entre anexos-1 y anexos-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 16,
+      "png_sha256": "b0f26ce90b58938a9fabb1c1dfc6cf0751b6bb7f7e1803f456eb8b3726cbfd31",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-anexos-root.json",
+      "metodo": "Inspección individual original con view_image Igualdad verificada entre anexos-1 y anexos-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 17,
+      "png_sha256": "6d40a8b6ddf0579c53d6cc95be157eb60e462e74b5aae7590b150b10a6cd5122",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-anexos-root.json",
+      "metodo": "Inspección individual original con view_image Igualdad verificada entre anexos-1 y anexos-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 18,
+      "png_sha256": "9e746d2aad49c4069ae197b42d02ca4e56a4ea63059127654c03bddd7a137e9e",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-anexos-root.json",
+      "metodo": "Inspección individual original con view_image Igualdad verificada entre anexos-1 y anexos-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 19,
+      "png_sha256": "9b2900141272e85b5dda7a9e6110c9adbba19fcd3fb60074cba77b6f154f78a5",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-anexos-root.json",
+      "metodo": "Inspección individual original con view_image Igualdad verificada entre anexos-1 y anexos-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 20,
+      "png_sha256": "3df2cb74113871d7d3d11138138f5fa1981fa41fb60c6dcf05e163a7173dca21",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-anexos-root.json",
+      "metodo": "Inspección individual original con view_image Igualdad verificada entre anexos-1 y anexos-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 21,
+      "png_sha256": "68f920c7e7897fcc84db82f32cb514d85366d39848b9decdd29e75ff13d65af5",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-anexos-root.json",
+      "metodo": "Inspección individual original con view_image Igualdad verificada entre anexos-1 y anexos-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 22,
+      "png_sha256": "7506584f46839288ce6a2a9e70c866c0403a34d0ff2b0ccad295ddeccc71be50",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 23,
+      "png_sha256": "10253910f5b4741357572f51afe7abe86de62bb4e37bf30747d7e043d843c8eb",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 24,
+      "png_sha256": "a2e9e91e9ffa1e18da5ec70a328f53ecaaf4b04da250fcdbdf35ab3a7bc52d8c",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 25,
+      "png_sha256": "66b70a65dec9918ea811428edde3915aaf83bfec96dca1bdc1f63b18c0ec4508",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 26,
+      "png_sha256": "cf445ee4b22370219376077f4bfab925af66e61f70d6675934fc1f7ed974dcc7",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-anexos-academico.json",
+      "metodo": "Inspección individual a resolución original de anexos-1, heredada a anexos-2 por identidad exacta del PNG. Igualdad verificada entre anexos-1 y anexos-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 27,
+      "png_sha256": "478b1a8fbfc3fe1b42900715a59ed5ee040ef4d9975b193eefa67f2dedd4a3d4",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 28,
+      "png_sha256": "55fa9af8591b3da93ebf930670dad8d5b3e274922000b05ec5d5c491a1c42b5a",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 29,
+      "png_sha256": "900ea8789c8411fe3dfc747c28b3094b281d7a951965b71ad5af59d68b32b72f",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 30,
+      "png_sha256": "11b8bb11d489c21fb6fc4143c7b6a5b1ead7ec9408d2fe7b1b2baa6f21b44e34",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 31,
+      "png_sha256": "a7a85a4022c54057bb37e65cf7fd5836e5e5dc01f334b0caa925f1772137e8e1",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 32,
+      "png_sha256": "fe5b8a5f449c0ace7be31fcdee47c2df37e796f4b8da4299b2a92f4836bde1cb",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 33,
+      "png_sha256": "48162c75914914e120ad568c6b442e0649307ae92eb3a44640423ca43b861ad7",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 34,
+      "png_sha256": "d93e4b0e3f8c3e1f2e3f75701ba0a64f29c1eb5f54e476f6290fa8a83d80d7db",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 35,
+      "png_sha256": "723c9beda8a324f850499d1122f5ea9a019c667ac3333531712cc5d2374414d5",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 36,
+      "png_sha256": "6013516768585dd9ca74f5db16dd4e031c085bf4fa7da3ec984fc0526e8d3da0",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 37,
+      "png_sha256": "5c689d18674ffe2d6a11dceb476e4b8f45214e637a46c38c112f3b5c9e80db99",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 38,
+      "png_sha256": "c129e569bc5f1a7581b0f2e260a699d33af9c6ce6ffeb6f3b1e2b59d5e7ebc96",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 39,
+      "png_sha256": "00c7e331d3368bd06d71073ee0cf199bef0b20efda7bf95276ef60ffd5ee330e",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 40,
+      "png_sha256": "dc46d48591c35de0d444c38a1c788c1cc668add0bb20363c88b26710970faf9b",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 41,
+      "png_sha256": "498629a3b9b3d935e737c295382a6350ff48a03d2f270bc03b3cf72faf0403d4",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 42,
+      "png_sha256": "69f14ada9a32dff5059cf8d0308b1c0b1bc022ba16778efe628d83be18f8507d",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 43,
+      "png_sha256": "68abc40e77f94875d53ef22789279ef6bc1dc7881e4b131f70ab0c02de6a3080",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 44,
+      "png_sha256": "1b4797feeb1e546c42b048083b39a6b67900ef81ed2f779330ecb17064df2b09",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 45,
+      "png_sha256": "4f04ad1761996caed1d2f7f67d6e142d6522a75db429aa8379856d59e53d3dbf",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 46,
+      "png_sha256": "08223d9f0f9d9fcaa1e8975c9723d9661b76cf4a673b8bdffbf3020def5911d6",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 47,
+      "png_sha256": "c58778f7ae03b19be0883e3b13f6989c71063af9d3871fd27ae0f0c2493ce9f9",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 48,
+      "png_sha256": "9d140087072bd19f376af66d6b3ba4807cc3251fc3b6bb65ca9acb0148f333d2",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 49,
+      "png_sha256": "6eeb480c35471edb27c972d63ff2e392f9966142451c43125121700aada98733",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 50,
+      "png_sha256": "1918ccec5760def8cdf55a09f0792bdbea8a66240dff2711acd79545cfde839f",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 51,
+      "png_sha256": "809e97332ee3dc018974fb84a50f1fe6734a4f7de3999dbeb3e17dfaf1ad1820",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 52,
+      "png_sha256": "c1449e8ec5ce5a93016e0b5f264e9dbd4818bc8f4f2d3fecd137565bf7d6d301",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-anexos-academico.json",
+      "metodo": "Inspección individual a resolución original de anexos-1, heredada a anexos-2 por identidad exacta del PNG. Igualdad verificada entre anexos-1 y anexos-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 53,
+      "png_sha256": "3cd3bb9e82212ca836996744955188ccbb5414bb38a6194c5f373445c61108b3",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-anexos-academico.json",
+      "metodo": "Inspección individual a resolución original de anexos-1, heredada a anexos-2 por identidad exacta del PNG. Igualdad verificada entre anexos-1 y anexos-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 54,
+      "png_sha256": "5d1d3037b09331fead76efd124dffbe3e217914137bb059a98a1f3164a75848c",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-anexos-academico.json",
+      "metodo": "Inspección individual a resolución original de anexos-1, heredada a anexos-2 por identidad exacta del PNG. Igualdad verificada entre anexos-1 y anexos-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 55,
+      "png_sha256": "2560e9a7ba973f87387524f69ca506792eade1a9216072a36a58f080d76070fa",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-anexos-academico.json",
+      "metodo": "Inspección individual a resolución original de anexos-1, heredada a anexos-2 por identidad exacta del PNG. Igualdad verificada entre anexos-1 y anexos-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 56,
+      "png_sha256": "741519ea372cd30f4d97b4c5064ab21f6cbf1216a98a980f9eb1a4fff50afc1f",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-anexos-academico.json",
+      "metodo": "Inspección individual a resolución original de anexos-1, heredada a anexos-2 por identidad exacta del PNG. Igualdad verificada entre anexos-1 y anexos-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 57,
+      "png_sha256": "8e71aadb219bbde15f3f62ad3b62014718e6f4b508faaa4da38d582378d0ccf0",
+      "comprobante": "docs/soportes-academicos-2026-10-17/revision-visual-anexos-academico.json",
+      "metodo": "Inspección individual a resolución original de anexos-1, heredada a anexos-2 por identidad exacta del PNG. Igualdad verificada entre anexos-1 y anexos-2."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 58,
+      "png_sha256": "6056cc9452295d223bda682a885d539c3457b6719557cc4c20a3a5cd1c340f59",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 59,
+      "png_sha256": "df4a84f4f8c8d245947796c660874a1ce7e332d7f8e613201039ab370c883f9d",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 60,
+      "png_sha256": "91fc414cc4b6f7aee30d02a8554ef86a377ef04b4b2d8d70139c17aa657922ab",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 61,
+      "png_sha256": "63e809f0590931356a29bb244c3ab800221e82ea9763365e45fab0837563bfb0",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 62,
+      "png_sha256": "844bf54c0ab3353811a55a1973a3222961e164f417362abb610c35cdc3f72976",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 63,
+      "png_sha256": "e39a24cb3266b941bb948f8709c47b266a4dc194c3e20dab48a8748190e9985c",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    },
+    {
+      "tomo": "anexos",
+      "pagina": 64,
+      "png_sha256": "a254d625ce475440da11a76f4706b8c6035f5fc31c99796cc974cdd2654beb37",
+      "comprobante": "docs/revision-academica-2026-10-17/revision-visual-documental.json",
+      "metodo": "Herencia de la inspección anterior por identidad exacta del PNG; sin cambios de cuerpo ni número de página."
+    }
+  ]
+}

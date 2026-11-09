@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "fecha_utc": "2026-10-18T03:33:18.582543+00:00",
+  "modo": "Lectura de las copias privadas exactas; sin editar, recalcular ni exportar los Excel y sin llamadas API o laboratorios.",
+  "archivos": {
+    "Matriz_Comparativa_TG2026.xlsx": {
+      "sha256": "0856343090d11bb538850c67e8e61e729eb261c6da0189dfd665d3741a5e2357",
+      "bytes": 12523,
+      "metadatos": {
+        "created": "2026-05-05 17:08:50",
+        "modified": "2026-10-18 02:41:29",
+        "autor_y_cuenta": "No publicados; originales preservados en copia privada.",
+        "nota": "Las fechas de metadatos no acreditan origen histórico, autoría ni ejecución."
+      },
+      "enlaces_externos": 0,
+      "hojas_ocultas": 0,
+      "comentarios": 0,
+      "hojas": [
+        {
+          "nombre": "Matriz comparativa",
+          "rango": "A1:H9",
+          "formulas": 0,
+          "errores_almacenados": 0,
+          "formulas_con_cache_vacio": 0
+        },
+        {
+          "nombre": "Notas",
+          "rango": "A1:A15",
+          "formulas": 0,
+          "errores_almacenados": 0,
+          "formulas_con_cache_vacio": 0
+        }
+      ]
+    },
+    "Matriz_ASR_UtilityTree_UCatolica.xlsx": {
+      "sha256": "4276cc05e4b40db87dee3bf72c5df47403aa6a230186ce4c9c257e41ac0e975a",
+      "bytes": 110759,
+      "metadatos": {
+        "created": "2026-08-18 21:44:35",
+        "modified": "2026-09-18 23:29:27",
+        "autor_y_cuenta": "No publicados; originales preservados en copia privada.",
+        "nota": "Las fechas de metadatos no acreditan origen histórico, autoría ni ejecución."
+      },
+      "enlaces_externos": 0,
+      "hojas_ocultas": 0,
+      "comentarios": 0,
+      "hojas": [
+        {
+          "nombre": "0. Cómo usar",
+          "rango": "A1:E43",
+          "formulas": 0,
+          "errores_almacenados": 0,
+          "formulas_con_cache_vacio": 0
+        },
+        {
+          "nombre": "1. Matriz ASR",
+          "rango": "A1:X43",
+          "formulas": 50,
+          "errores_almacenados": 0,
+          "formulas_con_cache_vacio": 0
+        },
+        {
+          "nombre": "2. Ejemplos resueltos",
+          "rango": "A1:X26",
+          "formulas": 16,
+          "errores_almacenados": 0,
+          "formulas_con_cache_vacio": 0
+        },
+        {
+          "nombre": "3. Utility Tree",
+          "rango": "A1:I75",
+          "formulas": 126,
+          "errores_almacenados": 0,
+          "formulas_con_cache_vacio": 42
+        },
+        {
+          "nombre": "4. Restricciones y funciones",
+          "rango": "A1:H36",
+          "formulas": 96,
+          "errores_almacenados": 0,
+          "formulas_con_cache_vacio": 42
+        },
+        {
+          "nombre": "5. Tácticas y trade-offs",
+          "rango": "A1:H29",
+          "formulas": 12,
+          "errores_almacenados": 0,
+          "formulas_con_cache_vacio": 0
+        },
+        {
+          "nombre": "6. Cómo medir",
+          "rango": "A1:F26",
+          "formulas": 0,
+          "errores_almacenados": 0,
+          "formulas_con_cache_vacio": 0
+        },
+        {
+          "nombre": "7. Escalas VN e IA",
+          "rango": "A1:G30",
+          "formulas": 0,
+          "errores_almacenados": 0,
+          "formulas_con_cache_vacio": 0
+        },
+        {
+          "nombre": "8. Casos de contraste",
+          "rango": "A1:I20",
+          "formulas": 0,
+          "errores_almacenados": 0,
+          "formulas_con_cache_vacio": 0
+        },
+        {
+          "nombre": "9. Rúbrica",
+          "rango": "A1:J23",
+          "formulas": 2,
+          "errores_almacenados": 0,
+          "formulas_con_cache_vacio": 1
+        },
+        {
+          "nombre": "10. Catálogos y fuentes",
+          "rango": "A1:F49",
+          "formulas": 0,
+          "errores_almacenados": 0,
+          "formulas_con_cache_vacio": 0
+        }
+      ]
+    }
+  },
+  "hallazgos": [
+    {
+      "id": "MAT-01",
+      "tipo": "Disponibilidad recuperada",
+      "archivo": "Matriz_Comparativa_TG2026.xlsx",
+      "rangos": [
+        "Matriz comparativa!A1:H9",
+        "Notas!A1:A15"
+      ],
+      "resultado": "Se recuperan siete antecedentes y una fila del prototipo. Resuelve la ausencia del archivo citado en B.1; no acredita que cada caracterización sea correcta ni que se ejecutaran los sistemas de terceros."
+    },
+    {
+      "id": "MAT-02",
+      "tipo": "Caracterizaciones incompatibles",
+      "archivo": "Matriz_Comparativa_TG2026.xlsx",
+      "rangos": [
+        "Matriz comparativa!F3",
+        "Matriz comparativa!F5",
+        "Matriz comparativa!G3"
+      ],
+      "resultado": "Las caracterizaciones de PentestAgent, VulnBot y el comparador temporal divergen de las precisiones del capítulo2. Conservar el Excel como antecedente y usar en la tesis las caracterizaciones corregidas, sin importar las afirmaciones como resultados verificados."
+    },
+    {
+      "id": "MAT-03",
+      "tipo": "Alcance no acreditado",
+      "archivo": "Matriz_Comparativa_TG2026.xlsx",
+      "rangos": [
+        "Matriz comparativa!E2:E8",
+        "Notas!A9",
+        "Notas!A15"
+      ],
+      "resultado": "Las afirmaciones universales sobre ausencia de IPv6 y cierre simultáneo de todos los vacíos no se sostienen solo por las celdas. Se requiere evidencia primaria por capacidad. No equivalen a una comparación experimental de superioridad."
+    },
+    {
+      "id": "MAT-04",
+      "tipo": "Referencias históricas",
+      "archivo": "Matriz_Comparativa_TG2026.xlsx",
+      "rangos": [
+        "Matriz comparativa!A2:A8"
+      ],
+      "correspondencia_a_referencias_actuales": {
+        "PentestGPT": 2,
+        "PentestAgent": 3,
+        "PENTESTAI": 34,
+        "VulnBot": 4,
+        "HackingBuddyGPT": [
+          37,
+          38
+        ],
+        "PTGroup": 35,
+        "CurriculumPT": 36
+      },
+      "resultado": "La numeración IEEE de la hoja pertenece a otra versión; no copiarla a las66 referencias actuales."
+    },
+    {
+      "id": "MAT-05",
+      "tipo": "Propuesta anterior al cierre",
+      "archivo": "Matriz_Comparativa_TG2026.xlsx",
+      "rangos": [
+        "Matriz comparativa!C9",
+        "Matriz comparativa!F9:H9",
+        "Matriz comparativa!B6"
+      ],
+      "resultado": "La alternativa de modelos, la arquitectura LangGraph de cuatro especialistas, las metas por validar y la publicación pendiente describen una propuesta histórica. NovaFlow integrado y sus resultados se describen en3.11/5.11. La fecha bibliográfica de HackingBuddyGPT requiere conservar la edición del registro actual, sin reemplazarla por el año resumido en la matriz."
+    },
+    {
+      "id": "MAT-06",
+      "tipo": "Concordancia de diseño",
+      "archivo": "Matriz_ASR_UtilityTree_UCatolica.xlsx",
+      "rangos": [
+        "1. Matriz ASR!A8:X32",
+        "3. Utility Tree!B10:I21",
+        "4. Restricciones y funciones!B11:H15",
+        "4. Restricciones y funciones!B24:H27"
+      ],
+      "resultado": "Los25 identificadores, nombres, prioridades, orígenes y dictámenes coinciden con la Tabla2 del principal; las12 medidas del Utility Tree coinciden exactamente con la Tabla3. Son21 aceptados de diseño (12calidad/5restricciones/4funciones),3 descartados y1 por validar. Esto resuelve la falta del soporte editable de diseño; no acredita ejecución de sus métodos de prueba."
+    },
+    {
+      "id": "MAT-07",
+      "tipo": "Pendientes de diseño conservados",
+      "archivo": "Matriz_ASR_UtilityTree_UCatolica.xlsx",
+      "rangos": [
+        "1. Matriz ASR!O21:P21",
+        "1. Matriz ASR!R21:U21",
+        "1. Matriz ASR!N8:N32",
+        "1. Matriz ASR!P26"
+      ],
+      "resultado": "ASR14 conserva elementos y decisión vacíos, prioridad y dictamen por validar; el Word lo precisa como diseño inicial. Las condiciones de30corridas/15pares y restauración por máquinas virtuales son compromisos de diseño; el cierre real usa Docker y completó26/30 posiciones. El Excel no completa ni valida esas posiciones."
+    },
+    {
+      "id": "MAT-08",
+      "tipo": "Fórmulas y valores almacenados",
+      "archivo": "Matriz_ASR_UtilityTree_UCatolica.xlsx",
+      "rangos": [
+        "1. Matriz ASR!W8:X32",
+        "3. Utility Tree!C10:I27",
+        "4. Restricciones y funciones!C11:H31",
+        "9. Rúbrica!G6:G13"
+      ],
+      "formulas_total": 302,
+      "resultado": "Las fórmulas enrutan, recuperan campos y cuentan celdas diligenciadas; no calculan cumplimiento de requisitos. Hay85 valores de fórmula almacenados vacíos, coherentes con filas de plantilla sin ID y rúbrica sin puntajes. No se observaron errores de celda almacenados. No se ejecutó recálculo nativo."
+    },
+    {
+      "id": "MAT-09",
+      "tipo": "Sin calificación ni aval",
+      "archivo": "Matriz_ASR_UtilityTree_UCatolica.xlsx",
+      "rangos": [
+        "9. Rúbrica!G6:G13",
+        "9. Rúbrica!B15:G19",
+        "1. Matriz ASR!A41:B41"
+      ],
+      "resultado": "Los seis puntajes y la retroalimentación están vacíos. La suma almacenada es0 y la nota está vacía. El dictamen ASR es un dato argumentado de diseño; su casilla Sí y el conteo22/22 no son pruebas aprobadas ni aceptación docente. No cambia los estados PARCIAL del AnexoP."
+    },
+    {
+      "id": "MAT-10",
+      "tipo": "Privacidad y redistribución",
+      "archivo": "Matriz_ASR_UtilityTree_UCatolica.xlsx",
+      "rangos": [
+        "0. Cómo usar!B7:E43",
+        "9. Rúbrica!B1:J23",
+        "10. Catálogos y fuentes!B1:F49"
+      ],
+      "resultado": "El libro contiene logotipo institucional, material docente y datos identificativos de una persona ajena a la autoría del proyecto. No se identificaron calificaciones reales, clientes ni credenciales. Conservar copias exactas privadas; publicar solo metadatos técnicos y hallazgos propios hasta aclarar derechos de redistribución."
+    }
+  ],
+  "cambios_minimos_propuestos": [
+    "Reconocer recepción y archivo privado de ambas matrices mediante nombre, SHA y manifest.",
+    "Sustituir las frases que declaran ausencia del archivo comparativo y del ASR, conservando reservas de contenido y carácter histórico.",
+    "Conservar las66 referencias corregidas y las cifras experimentales, sin importar numeración ni metas de los Excel.",
+    "Remitir a las celdas históricas pertinentes en B/H/P sin adjuntar el material docente ni convertir dictámenes de diseño en requisitos validados."
+  ],
+  "no_resuelto": [
+    "Conciliación bibliométrica, exportaciones Scopus y registros de cribado, que estos dos archivos no contienen.",
+    "Validez experimental externa,30corridas completas, metas TRTO/IDE y aceptación institucional."
+  ],
+  "originales_modificados": false
+}

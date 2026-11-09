@@ -1,0 +1,366 @@
+{
+  "schema": "novaflow-real-isolation/1",
+  "requirement": "RNF-08",
+  "lab": "reforzado",
+  "status": "PASS",
+  "requirement_status": "PARCIAL",
+  "created_at": "2026-10-19T08:32:13.454895+00:00",
+  "config_paths": {
+    "compose": "piloto_kali/prototipo/.lab-suite/reforzado/compose.json",
+    "env": "piloto_kali/prototipo/.lab-suite/reforzado/lab.env"
+  },
+  "representatives": [
+    {
+      "segment": "corp",
+      "network": "nf4_corp",
+      "source": "nf4-app-crm",
+      "peer": "nf4-app-erp",
+      "port": 8088,
+      "families": [
+        4,
+        6
+      ]
+    },
+    {
+      "segment": "dc",
+      "network": "nf4_dc",
+      "source": "nf4-sender",
+      "peer": "nf4-receiver-a",
+      "port": 8000,
+      "families": [
+        4,
+        6
+      ]
+    },
+    {
+      "segment": "dmz",
+      "network": "nf4_dmz",
+      "source": "nf4-portal",
+      "peer": "nf4-legacy",
+      "port": 8080,
+      "families": [
+        4
+      ]
+    }
+  ],
+  "api_calls": 0,
+  "audit_runs": 0,
+  "limits": {
+    "lab_seconds": 240,
+    "command_seconds": 15,
+    "socket_seconds": 0.65,
+    "payload_bytes": 0,
+    "positive_max_attempts": 5
+  },
+  "limitations": [
+    "Solo tres contenedores representantes por banco: portal, app-crm y sender; no todos los procesos ni miembros.",
+    "Conexiones TCP sin payload: DMZ IPv4, corporativo y datacenter IPv4/IPv6; no son auditorías de aplicación.",
+    "Negativos solo a endpoints vivos de otros segmentos de ESTE banco; ningún sistema externo real.",
+    "No se prueba salida del anfitrión, DNS, UDP, servicios externos, ataques ni configuraciones futuras.",
+    "La validación literal de RNF-08 permanece PARCIAL aunque el alcance observado resulte PASS.",
+    "Un timeout, rechazo TCP o control positivo fallido nunca basta para acreditar bloqueo.",
+    "Las capacidades del PID 1 y del proceso Python de comprobación son una instantánea, no todos los procesos."
+  ],
+  "checker_sha256": "5c965e9d78e1f7cc2b0830de42c70638f69bd26de4545bf93914a7df5f76b973",
+  "started_at": "2026-10-19T08:32:13.467684+00:00",
+  "execution": "REAL",
+  "reason_codes": [],
+  "lifecycle": [
+    {
+      "action": "compose_up_existing_no_build_no_recreate_no_pull",
+      "status": "PASS",
+      "at": "2026-10-19T08:32:18.325364+00:00"
+    },
+    {
+      "action": "compose_stop_conserve_containers_and_data",
+      "status": "PASS",
+      "at": "2026-10-19T08:32:25.074597+00:00"
+    }
+  ],
+  "segments": [
+    {
+      "segment": "corp",
+      "status": "PASS",
+      "requirement_status": "PARCIAL",
+      "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-corp.json"
+    },
+    {
+      "segment": "dc",
+      "status": "PASS",
+      "requirement_status": "PARCIAL",
+      "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dc.json"
+    },
+    {
+      "segment": "dmz",
+      "status": "PASS",
+      "requirement_status": "PARCIAL",
+      "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-reforzado-dmz.json"
+    }
+  ],
+  "protected_before": {
+    "files_checked": 3810,
+    "changed_or_missing": 0,
+    "unchanged": true,
+    "manifest_sha256": "083eab28274a94a81858fb47048d5e64b833604b673b0d94354753c42e887b9f"
+  },
+  "jobs_before": [],
+  "configuration": {
+    "compose": "piloto_kali/prototipo/.lab-suite/reforzado/compose.json",
+    "env": "piloto_kali/prototipo/.lab-suite/reforzado/lab.env",
+    "compose_sha256": "b123fad00a35e94b6a9db48f075fee4bb1321918ab67620ad104a95c3ccae160",
+    "env_sha256": "669300ed65a02de70fdd6edae9f5e933ed4414b76400af48ca964d446ee3c7c5",
+    "images": [
+      "auditoria-lab-v2-app:local",
+      "novaflow-lab-credentials:local",
+      "novaflow-lab-http:local",
+      "novaflow-lab-protocol:local",
+      "postgres:16-alpine"
+    ]
+  },
+  "stage": "final_identity_check",
+  "images": [
+    {
+      "id": "sha256:9c9ebabe9145b0e5ec42c3af732d2f2f44aadc035151dc7f5ea373c8599de9b5"
+    },
+    {
+      "id": "sha256:6f53a0dc93982eecc420075692fce9b0bccdf4777e9892d6eb0acff806297f53"
+    },
+    {
+      "id": "sha256:6678985a00807094f9fd71a44772d7949e953af3bec3719c4baaa096dc791399"
+    },
+    {
+      "id": "sha256:7c9add5baee0edf9d60a81c96564476e654ba6ae3bac3f79271379bcb018ab94"
+    },
+    {
+      "id": "sha256:721873c34ceb9f8d8fc265984940dc982404c105f19ad51be9fdc5970a6080ea"
+    }
+  ],
+  "network_checks": {
+    "nf4_corp": {
+      "status": "PASS",
+      "reasons": [],
+      "expected": {
+        "name": "nf4_corp",
+        "bridge": "br-nf4-corp",
+        "subnets": [
+          "192.168.140.0/24",
+          "fd57:2026:140::/64"
+        ],
+        "members": [
+          "nf4-app-crm",
+          "nf4-app-erp",
+          "nf4-app-intranet",
+          "nf4-app-portal"
+        ]
+      },
+      "observed": {
+        "name": "nf4_corp",
+        "id": "c2c672e19b0164a62e2aed7551d38ef3b54d004a897e56c2ff2baf90e62fea7c",
+        "internal": true,
+        "driver": "bridge",
+        "enable_ipv6": true,
+        "ipam": [
+          {
+            "Gateway": "192.168.140.1",
+            "Subnet": "192.168.140.0/24"
+          },
+          {
+            "Gateway": "fd57:2026:140::1",
+            "Subnet": "fd57:2026:140::/64"
+          }
+        ],
+        "options": {
+          "com.docker.network.bridge.name": "br-nf4-corp"
+        },
+        "members": {
+          "9c480c87bcd13b0b6056f6baae50fb32e3b65a9190ee7e0104c19d167a5814f0": {
+            "EndpointID": "900017c6635a2b7837a33ca1da7fe546c0b255848647beb714073a38c816fd8c",
+            "IPv4Address": "192.168.140.14/24",
+            "IPv6Address": "fd57:2026:140::14/64",
+            "MacAddress": "ca:49:2d:39:38:e4",
+            "Name": "nf4-app-intranet"
+          },
+          "a5e103b589769b276126eec4ea0b436434134ba612301f6e41185d58fb7cd27b": {
+            "EndpointID": "5d6731968b5e70d344fe48bcd15ddd3c00a0b6d46a95b69b2abea885ff35e187",
+            "IPv4Address": "192.168.140.12/24",
+            "IPv6Address": "fd57:2026:140::12/64",
+            "MacAddress": "42:d0:07:b4:ee:f4",
+            "Name": "nf4-app-erp"
+          },
+          "b7f7d6b745367a97bf1dd7ea8b51723f3a86271e49bbcda040e00746251ea337": {
+            "EndpointID": "6a576324d179db58382aa79e84a83006aa824793acf3f14e3aa7474730a7251e",
+            "IPv4Address": "192.168.140.11/24",
+            "IPv6Address": "fd57:2026:140::11/64",
+            "MacAddress": "32:67:2e:20:fe:ac",
+            "Name": "nf4-app-crm"
+          },
+          "d64fafd852ef8131385e2213caba279aa136036ccc4b4c937e064944c004f08b": {
+            "EndpointID": "b908a908c82bc6f5526f78e722e9b9f7d327907493e46206768a2bd25a8749c5",
+            "IPv4Address": "192.168.140.13/24",
+            "IPv6Address": "fd57:2026:140::13/64",
+            "MacAddress": "4e:31:c6:e6:97:26",
+            "Name": "nf4-app-portal"
+          }
+        }
+      }
+    },
+    "nf4_dc": {
+      "status": "PASS",
+      "reasons": [],
+      "expected": {
+        "name": "nf4_dc",
+        "bridge": "br-nf4-dc",
+        "subnets": [
+          "192.168.141.0/24",
+          "fd57:2026:141::/64"
+        ],
+        "members": [
+          "nf4-receiver-a",
+          "nf4-receiver-b",
+          "nf4-router",
+          "nf4-sender"
+        ]
+      },
+      "observed": {
+        "name": "nf4_dc",
+        "id": "88b53fb548968152d117d8abae2c7166977902b8d41671f453b81b9cb4dbeb84",
+        "internal": true,
+        "driver": "bridge",
+        "enable_ipv6": true,
+        "ipam": [
+          {
+            "Gateway": "192.168.141.1",
+            "Subnet": "192.168.141.0/24"
+          },
+          {
+            "Gateway": "fd57:2026:141::1",
+            "Subnet": "fd57:2026:141::/64"
+          }
+        ],
+        "options": {
+          "com.docker.network.bridge.name": "br-nf4-dc"
+        },
+        "members": {
+          "c484d57bf73d9e82212d2a3015e128bbc746831bb468415b119f057b2409df76": {
+            "EndpointID": "10af7447f42900550e7fb7a6150113c53f9c167c771d635a474e2f197a0649fc",
+            "IPv4Address": "192.168.141.21/24",
+            "IPv6Address": "fd57:2026:141::21/64",
+            "MacAddress": "02:57:20:26:a4:21",
+            "Name": "nf4-receiver-b"
+          },
+          "d3877b90a13e236aad315f5881b9e735fcd597d6be983c2f266b98ee9d1c792f": {
+            "EndpointID": "17ae86e62cf824e584afe67f1488c1dfd5e2166e271f8f122b76117d92d2fdc3",
+            "IPv4Address": "192.168.141.10/24",
+            "IPv6Address": "fd57:2026:141::10/64",
+            "MacAddress": "02:57:20:26:a4:10",
+            "Name": "nf4-sender"
+          },
+          "d46d4366b81c4317713334c2fe0b16281d759f1f0cca9ecbac2c3a514cf57af0": {
+            "EndpointID": "09f0dc13532290523601589fec15ce31ea34c0b120747cc1f2e186f296288fed",
+            "IPv4Address": "192.168.141.254/24",
+            "IPv6Address": "fd57:2026:141::fe/64",
+            "MacAddress": "02:57:20:26:a4:fe",
+            "Name": "nf4-router"
+          },
+          "de5fcfee7af12282a6d9b624459931eee7f39bb59dbff85ce2e6d1a09b4cee2b": {
+            "EndpointID": "138928d1648a63755677ce647735f5f5f1a7333df68fb31a7a0475b9a8a74a09",
+            "IPv4Address": "192.168.141.20/24",
+            "IPv6Address": "fd57:2026:141::20/64",
+            "MacAddress": "02:57:20:26:a4:20",
+            "Name": "nf4-receiver-a"
+          }
+        }
+      }
+    },
+    "nf4_dmz": {
+      "status": "PASS",
+      "reasons": [],
+      "expected": {
+        "name": "nf4_dmz",
+        "bridge": "br-nf4-dmz",
+        "subnets": [
+          "192.168.142.0/24"
+        ],
+        "members": [
+          "nf4-bastion",
+          "nf4-legacy",
+          "nf4-legacy-ops",
+          "nf4-portal",
+          "nf4-portal-ops",
+          "nf4-records"
+        ]
+      },
+      "observed": {
+        "name": "nf4_dmz",
+        "id": "24127f837905bba06773c0ff3ecde7741993e4f91785c5856791fe3b4cd911c7",
+        "internal": true,
+        "driver": "bridge",
+        "enable_ipv6": false,
+        "ipam": [
+          {
+            "Gateway": "192.168.142.1",
+            "Subnet": "192.168.142.0/24"
+          }
+        ],
+        "options": {
+          "com.docker.network.bridge.name": "br-nf4-dmz"
+        },
+        "members": {
+          "0bcfb30ddf42de2cbba995b7581b028ec6ac8b27ce862eb29753232bdb7ccff1": {
+            "EndpointID": "f18f16b63df005b2a869021bc7206a83ab6d33eb7b20452d6f85a6c2d17b4eb5",
+            "IPv4Address": "192.168.142.11/24",
+            "IPv6Address": "",
+            "MacAddress": "02:84:31:5e:5f:9f",
+            "Name": "nf4-portal"
+          },
+          "10c104803807f5bc444be593d2618b87828b71cf71f85fd713d4f360c6d6e8d2": {
+            "EndpointID": "23ca806a0c17631adf4dd7f3c47e5e1ea3a80d76fe313400654942ce0f6530d0",
+            "IPv4Address": "192.168.142.12/24",
+            "IPv6Address": "",
+            "MacAddress": "46:c5:dd:66:ed:6e",
+            "Name": "nf4-bastion"
+          },
+          "2808b5bbe91d92ffefd05cae8075ed86832422abc9f71a0b9b8cbafed78ca3a1": {
+            "EndpointID": "62255f08a9401a47a41864bd1ba9f00a395e355c88fb8e9c4b5d003977c38581",
+            "IPv4Address": "192.168.142.16/24",
+            "IPv6Address": "",
+            "MacAddress": "56:9c:cb:93:00:84",
+            "Name": "nf4-legacy-ops"
+          },
+          "5d7b34318f79619a3a8a29c34386f63874e95f54f281beb0e40d7f931ade0806": {
+            "EndpointID": "f318e236ed65b4b238e72755e756696036092aa2964e46f48a53eaf809cf36ac",
+            "IPv4Address": "192.168.142.13/24",
+            "IPv6Address": "",
+            "MacAddress": "32:ba:f6:9a:d6:28",
+            "Name": "nf4-legacy"
+          },
+          "9b427dd3661d4f291ca9c3087ae0869f2039b27e47be9ef84b40a198311666e1": {
+            "EndpointID": "9e6ad10334cc55d5d2e97bda705e4f67c6778397335a6305dfde864eec8a25fa",
+            "IPv4Address": "192.168.142.14/24",
+            "IPv6Address": "",
+            "MacAddress": "ee:db:0e:8f:f4:1b",
+            "Name": "nf4-records"
+          },
+          "f61a1af980686863e780b7dceb046ae290add444fac767318d1c8291096d7a7f": {
+            "EndpointID": "44575bcb0257e6995e4890a097251ab7291b59a3ceed1909a97ea2cd3a45cf6f",
+            "IPv4Address": "192.168.142.15/24",
+            "IPv6Address": "",
+            "MacAddress": "66:07:ca:7c:ce:9f",
+            "Name": "nf4-portal-ops"
+          }
+        }
+      }
+    }
+  },
+  "all_containers_stable_during_verification": true,
+  "no_running_containers_after": true,
+  "protected_after": {
+    "files_checked": 3810,
+    "changed_or_missing": 0,
+    "unchanged": true,
+    "manifest_sha256": "083eab28274a94a81858fb47048d5e64b833604b673b0d94354753c42e887b9f"
+  },
+  "configuration_unchanged": true,
+  "finished_at": "2026-10-19T08:32:25.193565+00:00",
+  "elapsed_seconds": 11.726
+}

@@ -1,0 +1,121 @@
+{
+  "schema": "novaflow-real-isolation/1",
+  "requirement": "RNF-08",
+  "lab": "reforzado",
+  "status": "PARTIAL",
+  "requirement_status": "PARCIAL",
+  "created_at": "2026-10-19T08:30:19.461860+00:00",
+  "config_paths": {
+    "compose": "piloto_kali/prototipo/.lab-suite/reforzado/compose.json",
+    "env": "piloto_kali/prototipo/.lab-suite/reforzado/lab.env"
+  },
+  "representatives": [
+    {
+      "segment": "corp",
+      "network": "nf4_corp",
+      "source": "nf4-app-crm",
+      "peer": "nf4-app-erp",
+      "port": 8088,
+      "families": [
+        4,
+        6
+      ]
+    },
+    {
+      "segment": "dc",
+      "network": "nf4_dc",
+      "source": "nf4-sender",
+      "peer": "nf4-receiver-a",
+      "port": 8000,
+      "families": [
+        4,
+        6
+      ]
+    },
+    {
+      "segment": "dmz",
+      "network": "nf4_dmz",
+      "source": "nf4-portal",
+      "peer": "nf4-legacy",
+      "port": 8080,
+      "families": [
+        4
+      ]
+    }
+  ],
+  "api_calls": 0,
+  "audit_runs": 0,
+  "limits": {
+    "lab_seconds": 240,
+    "command_seconds": 15,
+    "socket_seconds": 0.65,
+    "payload_bytes": 0,
+    "positive_max_attempts": 5
+  },
+  "limitations": [
+    "Solo tres contenedores representantes por banco: portal, app-crm y sender; no todos los procesos ni miembros.",
+    "Conexiones TCP sin payload: DMZ IPv4, corporativo y datacenter IPv4/IPv6; no son auditorías de aplicación.",
+    "Negativos solo a endpoints vivos de otros segmentos de ESTE banco; ningún sistema externo real.",
+    "No se prueba salida del anfitrión, DNS, UDP, servicios externos, ataques ni configuraciones futuras.",
+    "La validación literal de RNF-08 permanece PARCIAL aunque el alcance observado resulte PASS.",
+    "Un timeout, rechazo TCP o control positivo fallido nunca basta para acreditar bloqueo.",
+    "Las capacidades del PID 1 y del proceso Python de comprobación son una instantánea, no todos los procesos."
+  ],
+  "checker_sha256": "3ef089479c1e1dce0c04a206bd6f136f87f80264ec0e462b71038e5e5a34a2fc",
+  "started_at": "2026-10-19T08:30:19.477106+00:00",
+  "execution": "REAL",
+  "reason_codes": [
+    "command_failed"
+  ],
+  "lifecycle": [],
+  "segments": [
+    {
+      "segment": "corp",
+      "status": "PARTIAL",
+      "requirement_status": "PARCIAL",
+      "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-reforzado-corp.json"
+    },
+    {
+      "segment": "dc",
+      "status": "PARTIAL",
+      "requirement_status": "PARCIAL",
+      "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-reforzado-dc.json"
+    },
+    {
+      "segment": "dmz",
+      "status": "PARTIAL",
+      "requirement_status": "PARCIAL",
+      "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083017427637Z-reforzado-dmz.json"
+    }
+  ],
+  "protected_before": {
+    "files_checked": 3810,
+    "changed_or_missing": 0,
+    "unchanged": true,
+    "manifest_sha256": "083eab28274a94a81858fb47048d5e64b833604b673b0d94354753c42e887b9f"
+  },
+  "jobs_before": [],
+  "configuration": {
+    "compose": "piloto_kali/prototipo/.lab-suite/reforzado/compose.json",
+    "env": "piloto_kali/prototipo/.lab-suite/reforzado/lab.env",
+    "compose_sha256": "b123fad00a35e94b6a9db48f075fee4bb1321918ab67620ad104a95c3ccae160",
+    "env_sha256": "669300ed65a02de70fdd6edae9f5e933ed4414b76400af48ca964d446ee3c7c5",
+    "images": [
+      "auditoria-lab-v2-app:local",
+      "novaflow-lab-credentials:local",
+      "novaflow-lab-http:local",
+      "novaflow-lab-protocol:local",
+      "postgres:16-alpine"
+    ]
+  },
+  "no_running_containers_after": true,
+  "protected_after": {
+    "files_checked": 3810,
+    "changed_or_missing": 0,
+    "unchanged": true,
+    "manifest_sha256": "083eab28274a94a81858fb47048d5e64b833604b673b0d94354753c42e887b9f"
+  },
+  "configuration_unchanged": true,
+  "finished_at": "2026-10-19T08:30:19.882494+00:00",
+  "elapsed_seconds": 0.405
+}

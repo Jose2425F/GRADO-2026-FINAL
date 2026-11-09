@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "study_id": "langgraph_manual_20261018",
+  "experiment_dates_utc": [
+    "2026-10-18",
+    "2026-10-19"
+  ],
+  "recovered_and_checked_date_utc": "2026-11-09",
+  "source_folder": "https://drive.google.com/drive/folders/1emhLvAsmxDM5rhzU7agHlsPQJB0n16GV",
+  "protocol_sha256": "34e4066e28895a08d43438ec97f5fe20397e6800287251da165b9debe604e4ef",
+  "document": {
+    "file_name": "TrabajoDeGrado_II_Completo_6.docx",
+    "sha256": "193e81204a2ef57284abe2d3c740d9b3417bdf6fb7d1a48baa66c3e7fedfed2e",
+    "uploaded": false,
+    "backup_matches_user_copy_byte_for_byte": true
+  },
+  "archives": [
+    {
+      "file": "auditorias-originales.zip",
+      "sha256": "4bd763f64a8ce3a5958ee7fadde5dcbfbf8d14e0fde304cded92b7d0c1ac0e7e",
+      "bytes": 6281340,
+      "file_count": 3649
+    },
+    {
+      "file": "aceptacion-original.zip",
+      "sha256": "8f7fbe9043b636f1d510a5e3abb33e991eecf8a3b0a8220fc3c04a77f9e22fe4",
+      "bytes": 628571,
+      "file_count": 447
+    },
+    {
+      "file": "verificaciones-originales.zip",
+      "sha256": "f0f2fba9228492e8450be7fd7115a5a54700bd0cd338a71e15e6655aede671b0",
+      "bytes": 308063,
+      "file_count": 41
+    },
+    {
+      "file": "soportes-academicos.zip",
+      "sha256": "1c4feb2cfcf2064126ea90110e808d4028f95182c9ca143ca6108ab05a945096",
+      "bytes": 1830099,
+      "file_count": 5
+    }
+  ],
+  "original_files": 3649,
+  "supplemental_files": 636,
+  "new_audits": 0,
+  "new_api_generations": 0,
+  "limitations": [
+    "Los 31 requisitos parciales y los siete pendientes críticos conservan su estado.",
+    "Las verificaciones de recuperación no son nuevas ejecuciones experimentales.",
+    "No se publican credenciales, archivos lab.env, configuración privada ni imágenes Docker.",
+    "El Word se identifica por su huella; su contenido no se publica en este paquete."
+  ]
+}

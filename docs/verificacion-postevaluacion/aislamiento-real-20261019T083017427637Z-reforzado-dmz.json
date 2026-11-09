@@ -1,0 +1,36 @@
+{
+  "schema": "novaflow-real-isolation-segment/1",
+  "lab": "reforzado",
+  "segment": "dmz",
+  "requirement": "RNF-08",
+  "requirement_status": "PARCIAL",
+  "execution": "REAL",
+  "status": "PARTIAL",
+  "representative": {
+    "segment": "dmz",
+    "network": "nf4_dmz",
+    "source": "nf4-portal",
+    "peer": "nf4-legacy",
+    "port": 8080,
+    "families": [
+      4
+    ]
+  },
+  "positive_attempts": [],
+  "negative": [],
+  "reason_codes": [],
+  "limitations": [
+    "Solo tres contenedores representantes por banco: portal, app-crm y sender; no todos los procesos ni miembros.",
+    "Conexiones TCP sin payload: DMZ IPv4, corporativo y datacenter IPv4/IPv6; no son auditorías de aplicación.",
+    "Negativos solo a endpoints vivos de otros segmentos de ESTE banco; ningún sistema externo real.",
+    "No se prueba salida del anfitrión, DNS, UDP, servicios externos, ataques ni configuraciones futuras.",
+    "La validación literal de RNF-08 permanece PARCIAL aunque el alcance observado resulte PASS.",
+    "Un timeout, rechazo TCP o control positivo fallido nunca basta para acreditar bloqueo.",
+    "Las capacidades del PID 1 y del proceso Python de comprobación son una instantánea, no todos los procesos."
+  ],
+  "lab_reason_codes": [
+    "command_failed"
+  ],
+  "started_at": "2026-10-19T08:30:19.477106+00:00",
+  "finished_at": "2026-10-19T08:30:19.882494+00:00"
+}

@@ -1,0 +1,157 @@
+{
+  "type": "RNF07_POST_EVALUATION_CONFIRMATION",
+  "created_at_utc": "2026-10-19T22:50:09.245176+00:00",
+  "scope": "Confirmación del recibo existente y análisis limitado a artefactos nuevos; sin reexaminar el corpus original",
+  "original_receipt": {
+    "path": "docs/verificacion-postevaluacion/rnf07-artefactos-originales-20261019.json",
+    "sha256_observed_now": "6161e0f75486de044ea16521161b8ad9f7ba7b3bef244f97900e6408a8e4ec2a",
+    "json_valid": true,
+    "corpus_check_passed": true,
+    "files_scanned_in_original_receipt": 3649,
+    "sqlite_databases_in_original_receipt": 50,
+    "prompts_in_original_receipt": 1348,
+    "integrity_basis": "El recibo permanece disponible y coherente; el corpus protegido coincide byte a byte con su manifiesto previo. La huella del recibo se ancla en este cierre; no equivale a una firma histórica independiente."
+  },
+  "protected_corpus": {
+    "files": 3810,
+    "modified": 0,
+    "functional_files": 654,
+    "functional_modified": 0
+  },
+  "new_artifact_scan": {
+    "files": 31,
+    "word_xml_parts_scanned": true,
+    "known_matches": {},
+    "populated_sensitive_fields": 0,
+    "artifacts": [
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-comercial-corp.json",
+        "sha256": "f37baf448d25871d886f5f3252882efc36f5d22d3c316071d50ccd2267b34532"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-comercial-dc.json",
+        "sha256": "2faec84a51e0d73e256fd7be648685bd157684e1240617f18c6ba43ca8ff91bf"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-comercial-dmz.json",
+        "sha256": "77cbf807ee74c0810e04bcfde84fed3bd0ba3e23fec8bcafb743bf7bc1fe15a1"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-comercial.json",
+        "sha256": "512ba841e34429d719a59768ee201ab45331e27276762626042c76c2266b3b41"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto-corp.json",
+        "sha256": "32205f008e93b03417324388a745f42ff65c71492d516994a531a32f658485c5"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto-dc.json",
+        "sha256": "6922982b4f22cd40c3ac8a2a71a56c7e82e0b0fbd8efc493c8529117ba245315"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto-dmz.json",
+        "sha256": "c659ae9c84a0de21a8a09bc1088683883934e8466edad66e9dd51e27df2acf13"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto.json",
+        "sha256": "3b615802b742044fc06c009bfc6c045a3889845bebe536cf2c41f51d728da4f4"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-original-corp.json",
+        "sha256": "3b0bae9b2512f2119ee9017bd8ffad20d0057891a6ad951624af948e006f3082"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-original-dc.json",
+        "sha256": "8af0f6e1ad37fea1324473c2831264003cbba4c51a3e58edbbf594e20f53e809"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-original-dmz.json",
+        "sha256": "3ef6538512f14f02a983323d93a0fd1fae22775548d84804c80b1208155cebf0"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-original.json",
+        "sha256": "42cd0d8acc4654ceb8db679e74e5894cf81a2ddcc809ab0f095f2b4be4fa3428"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-reforzado-corp.json",
+        "sha256": "fde726acb7087bef7558e6d3016c2dced72aeac25472aa8ac949d92a0cfb00f5"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-reforzado-dc.json",
+        "sha256": "0207693d7dbadad230f86c098bfa1dd0cc412fd92651353c2f8cee8b7513cc9b"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-reforzado-dmz.json",
+        "sha256": "b6c06555e1fdcee3d141de1eb9938627d4ebd726127f64f41d20274c18ee4098"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-reforzado.json",
+        "sha256": "98fd9a0c0261ff106aa78c216a0039ac82068bc239c9f3806c4a42592865be41"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-sucursal-corp.json",
+        "sha256": "7707dd4e7d010681e65c500828615858df84a371def1dffb7ef5f2b770f13444"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-sucursal-dc.json",
+        "sha256": "017365970ee4b0ffe5bad4a50b23c46cf28f435fdb66dc60b608e8881a7b130b"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-sucursal-dmz.json",
+        "sha256": "eff0906291781d0e674a64f83ace0970ece65c1a18674144b17c5c64a7bded82"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-sucursal.json",
+        "sha256": "5db3f8d7cfa78419b1350bb12a086772506420e28fe9223bcbcf78b684a26aaf"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/pruebas-automatizadas-cierre-kali-20261019_182838.json",
+        "sha256": "6e0cc24febefd7d9d1373a63ae58e7c02daa371001539382ea08878bcddd418c"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/rnf06-host-adaptadores-20261019_182838.json",
+        "sha256": "1d0b59167eb1a9a31ba114ceb82191b1321c91085b72cf23161762587a6a10aa"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/rnf08-cortafuegos-operador-20261019_182838.json",
+        "sha256": "8e389855165a6c321b14758c11e34d8ca03861c80c563af952f8df33e7790600"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/rnf08-resumen-kali-20261019_182838.json",
+        "sha256": "835de0df81d63396ab985b6783f091da73d4fe4d8290411993e8565b74baa7c0"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/rnf08-revision-cortafuegos-20261019_182838.json",
+        "sha256": "38a06ced2ec111cacfde7f402bd9ed2400425b8f7daf2751c78441e33c088d16"
+      },
+      {
+        "path": "docs/verificacion-postevaluacion/ro11-cotejo-cierre-kali-20261019_182838.json",
+        "sha256": "3cf101b0f7f0283dd29e48d9a6da350c0bbc4864aeb198a5af32fa6b1e7fdaae"
+      },
+      {
+        "path": "piloto_kali/prototipo/.verificacion/cierre-kali-20261019_182838/unitarias-kali-final.xml",
+        "sha256": "32b2a6b2df0434400adfcd6d05f23c81c530625c5313652d1289b27723aa8833"
+      },
+      {
+        "path": "piloto_kali/prototipo/.verificacion/cierre-kali-20261019_182838/regresion-completa.xml",
+        "sha256": "9954142832b72410ecfc60570d513ac8566b4d07d92ca38db0e9e6077434d807"
+      },
+      {
+        "path": "piloto_kali/prototipo/.verificacion/cierre-kali-20261019_182838/regresion-local-completa.xml",
+        "sha256": "66a7583c2f81419d91056f1e956fa63ba033abaa6839f391630f5711ea70a786"
+      },
+      {
+        "path": "piloto_kali/prototipo/.verificacion/cierre-kali-20261019_182838/regresion-completa.txt",
+        "sha256": "1382cd9fe963a4a8c29239712750fa1bd67ee2f42f08927b1976ef9b4492f751"
+      },
+      {
+        "path": "piloto_kali/prototipo/.verificacion/cierre-kali-20261019_182838/regresion-local-completa.txt",
+        "sha256": "6ce6f3731cf99998d5a9cb43ac02600bf657fd8fd18d6e01dbe0c8081bca2f9f"
+      }
+    ]
+  },
+  "requirement_status": "VALIDADO",
+  "exhaustively_closed": false,
+  "limitation": "Validado sobre el corpus conservado; no se conservaron instantáneas completas de memoria ni todos los cuerpos y cabeceras HTTP, por lo que la ausencia de secretos no se acredita en esos estados",
+  "no_password_values_or_individual_fingerprints_recorded": true
+}

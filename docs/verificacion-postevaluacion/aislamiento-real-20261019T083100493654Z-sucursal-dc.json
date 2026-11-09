@@ -1,0 +1,1527 @@
+{
+  "schema": "novaflow-real-isolation-segment/1",
+  "lab": "sucursal",
+  "segment": "dc",
+  "requirement": "RNF-08",
+  "requirement_status": "PARCIAL",
+  "execution": "REAL",
+  "status": "PASS",
+  "representative": {
+    "segment": "dc",
+    "network": "nf1_dc",
+    "source": "nf1-sender",
+    "peer": "nf1-receiver-a",
+    "port": 8000,
+    "families": [
+      4,
+      6
+    ]
+  },
+  "positive_attempts": [
+    {
+      "attempt": 1,
+      "at": "2026-10-19T08:31:36.425425+00:00",
+      "observation": {
+        "method": "docker_exec_existing_python_netlink_read_only",
+        "privileges": {
+          "pid1": {
+            "Uid": "0\t0\t0\t0",
+            "Gid": "0\t0\t0\t0",
+            "CapInh": "0000000000000000",
+            "CapPrm": "0000000000002000",
+            "CapEff": "0000000000002000",
+            "CapBnd": "0000000000002000",
+            "CapAmb": "0000000000000000",
+            "NoNewPrivs": "1",
+            "Seccomp": "2"
+          },
+          "exec_process": {
+            "Uid": "0\t0\t0\t0",
+            "Gid": "0\t0\t0\t0",
+            "CapInh": "0000000000000000",
+            "CapPrm": "0000000000002000",
+            "CapEff": "0000000000002000",
+            "CapBnd": "0000000000002000",
+            "CapAmb": "0000000000000000",
+            "NoNewPrivs": "1",
+            "Seccomp": "2"
+          },
+          "exec_uid": 0,
+          "exec_euid": 0,
+          "exec_gid": 0
+        },
+        "network_state": {
+          "status": "available",
+          "links": [
+            {
+              "index": 1,
+              "name": "lo",
+              "up": true,
+              "lower_up": true
+            },
+            {
+              "index": 2,
+              "name": "eth0",
+              "up": true,
+              "lower_up": true
+            }
+          ],
+          "addresses": [
+            {
+              "family": 4,
+              "address": "127.0.0.1",
+              "prefix": 8,
+              "interface": 1,
+              "tentative": false,
+              "dadfailed": false
+            },
+            {
+              "family": 4,
+              "address": "192.168.111.10",
+              "prefix": 24,
+              "interface": 2,
+              "tentative": false,
+              "dadfailed": false
+            },
+            {
+              "family": 6,
+              "address": "::1",
+              "prefix": 128,
+              "interface": 1,
+              "tentative": false,
+              "dadfailed": false
+            },
+            {
+              "family": 6,
+              "address": "fd57:2026:111::10",
+              "prefix": 64,
+              "interface": 2,
+              "tentative": false,
+              "dadfailed": false
+            },
+            {
+              "family": 6,
+              "address": "fe80::57:20ff:fe26:a110",
+              "prefix": 64,
+              "interface": 2,
+              "tentative": false,
+              "dadfailed": false
+            }
+          ],
+          "routes": {
+            "4": [
+              {
+                "family": 4,
+                "dst": "192.168.111.0/24",
+                "table": 254,
+                "type": 1,
+                "scope": 253,
+                "protocol": 2,
+                "flags": 0,
+                "interface": 2,
+                "source": "192.168.111.10"
+              },
+              {
+                "family": 4,
+                "dst": "127.0.0.0/8",
+                "table": 255,
+                "type": 2,
+                "scope": 254,
+                "protocol": 2,
+                "flags": 0,
+                "interface": 1,
+                "source": "127.0.0.1"
+              },
+              {
+                "family": 4,
+                "dst": "127.0.0.1/32",
+                "table": 255,
+                "type": 2,
+                "scope": 254,
+                "protocol": 2,
+                "flags": 0,
+                "interface": 1,
+                "source": "127.0.0.1"
+              },
+              {
+                "family": 4,
+                "dst": "127.255.255.255/32",
+                "table": 255,
+                "type": 3,
+                "scope": 253,
+                "protocol": 2,
+                "flags": 0,
+                "interface": 1,
+                "source": "127.0.0.1"
+              },
+              {
+                "family": 4,
+                "dst": "192.168.111.10/32",
+                "table": 255,
+                "type": 2,
+                "scope": 254,
+                "protocol": 2,
+                "flags": 0,
+                "interface": 2,
+                "source": "192.168.111.10"
+              },
+              {
+                "family": 4,
+                "dst": "192.168.111.255/32",
+                "table": 255,
+                "type": 3,
+                "scope": 253,
+                "protocol": 2,
+                "flags": 0,
+                "interface": 2,
+                "source": "192.168.111.10"
+              }
+            ],
+            "6": [
+              {
+                "family": 6,
+                "dst": "fd57:2026:111::/64",
+                "table": 254,
+                "type": 1,
+                "scope": 0,
+                "protocol": 2,
+                "flags": 0,
+                "interface": 2
+              },
+              {
+                "family": 6,
+                "dst": "fe80::/64",
+                "table": 254,
+                "type": 1,
+                "scope": 0,
+                "protocol": 2,
+                "flags": 0,
+                "interface": 2
+              },
+              {
+                "family": 6,
+                "dst": "::1/128",
+                "table": 255,
+                "type": 2,
+                "scope": 0,
+                "protocol": 2,
+                "flags": 0,
+                "interface": 1
+              },
+              {
+                "family": 6,
+                "dst": "fd57:2026:111::10/128",
+                "table": 255,
+                "type": 2,
+                "scope": 0,
+                "protocol": 2,
+                "flags": 0,
+                "interface": 2
+              },
+              {
+                "family": 6,
+                "dst": "fe80::57:20ff:fe26:a110/128",
+                "table": 255,
+                "type": 2,
+                "scope": 0,
+                "protocol": 2,
+                "flags": 0,
+                "interface": 2
+              },
+              {
+                "family": 6,
+                "dst": "ff00::/8",
+                "table": 255,
+                "type": 5,
+                "scope": 0,
+                "protocol": 2,
+                "flags": 0,
+                "interface": 2
+              }
+            ]
+          },
+          "rules": {
+            "4": [
+              {
+                "family": 4,
+                "table": 255,
+                "action": 1,
+                "flags": 0,
+                "dst_prefix": 0,
+                "src_prefix": 0,
+                "tos": 0,
+                "priority": 0,
+                "suppress_prefixlen": 4294967295,
+                "selector_attributes": []
+              },
+              {
+                "family": 4,
+                "table": 254,
+                "action": 1,
+                "flags": 0,
+                "dst_prefix": 0,
+                "src_prefix": 0,
+                "tos": 0,
+                "priority": 32766,
+                "suppress_prefixlen": 4294967295,
+                "selector_attributes": []
+              },
+              {
+                "family": 4,
+                "table": 253,
+                "action": 1,
+                "flags": 0,
+                "dst_prefix": 0,
+                "src_prefix": 0,
+                "tos": 0,
+                "priority": 32767,
+                "suppress_prefixlen": 4294967295,
+                "selector_attributes": []
+              }
+            ],
+            "6": [
+              {
+                "family": 6,
+                "table": 255,
+                "action": 1,
+                "flags": 0,
+                "dst_prefix": 0,
+                "src_prefix": 0,
+                "tos": 0,
+                "priority": 0,
+                "suppress_prefixlen": 4294967295,
+                "selector_attributes": []
+              },
+              {
+                "family": 6,
+                "table": 254,
+                "action": 1,
+                "flags": 0,
+                "dst_prefix": 0,
+                "src_prefix": 0,
+                "tos": 0,
+                "priority": 32766,
+                "suppress_prefixlen": 4294967295,
+                "selector_attributes": []
+              }
+            ]
+          }
+        },
+        "probes": [
+          {
+            "target_segment": "dc",
+            "target_container": "nf1-receiver-a",
+            "family": 4,
+            "address": "192.168.111.20",
+            "port": 8000,
+            "connect": {
+              "status": "connected"
+            },
+            "elapsed_seconds": 0.007619
+          },
+          {
+            "target_segment": "dc",
+            "target_container": "nf1-receiver-a",
+            "family": 6,
+            "address": "fd57:2026:111::20",
+            "port": 8000,
+            "connect": {
+              "status": "connected"
+            },
+            "elapsed_seconds": 0.000268
+          }
+        ]
+      }
+    }
+  ],
+  "negative": [
+    {
+      "target_segment": "corp",
+      "target_container": "nf1-app-intranet",
+      "family": 4,
+      "address": "192.168.110.14",
+      "port": 8088,
+      "connect": {
+        "status": "blocked",
+        "errno": 101
+      },
+      "elapsed_seconds": 2.8e-05,
+      "endpoint_positive_control": true,
+      "status": "PASS",
+      "reason": "blocked_with_live_endpoint_and_no_route"
+    },
+    {
+      "target_segment": "corp",
+      "target_container": "nf1-app-intranet",
+      "family": 6,
+      "address": "fd57:2026:110::14",
+      "port": 8088,
+      "connect": {
+        "status": "blocked",
+        "errno": 101
+      },
+      "elapsed_seconds": 1.7e-05,
+      "endpoint_positive_control": true,
+      "status": "PASS",
+      "reason": "blocked_with_live_endpoint_and_no_route"
+    },
+    {
+      "target_segment": "dmz",
+      "target_container": "nf1-legacy",
+      "family": 4,
+      "address": "192.168.112.13",
+      "port": 8080,
+      "connect": {
+        "status": "blocked",
+        "errno": 101
+      },
+      "elapsed_seconds": 7e-06,
+      "endpoint_positive_control": true,
+      "status": "PASS",
+      "reason": "blocked_with_live_endpoint_and_no_route"
+    }
+  ],
+  "reason_codes": [],
+  "limitations": [
+    "Solo tres contenedores representantes por banco: portal, app-crm y sender; no todos los procesos ni miembros.",
+    "Conexiones TCP sin payload: DMZ IPv4, corporativo y datacenter IPv4/IPv6; no son auditorías de aplicación.",
+    "Negativos solo a endpoints vivos de otros segmentos de ESTE banco; ningún sistema externo real.",
+    "No se prueba salida del anfitrión, DNS, UDP, servicios externos, ataques ni configuraciones futuras.",
+    "La validación literal de RNF-08 permanece PARCIAL aunque el alcance observado resulte PASS.",
+    "Un timeout, rechazo TCP o control positivo fallido nunca basta para acreditar bloqueo.",
+    "Las capacidades del PID 1 y del proceso Python de comprobación son una instantánea, no todos los procesos."
+  ],
+  "configuration": {
+    "status": "PASS",
+    "reasons": [],
+    "expected": {
+      "name": "nf1_dc",
+      "bridge": "br-nf1-dc",
+      "subnets": [
+        "192.168.111.0/24",
+        "fd57:2026:111::/64"
+      ],
+      "members": [
+        "nf1-receiver-a",
+        "nf1-receiver-b",
+        "nf1-router",
+        "nf1-sender"
+      ]
+    },
+    "observed": {
+      "name": "nf1_dc",
+      "id": "6ed9173425f8af2fa06c038ab3e1b0d2dfd457a48ab42149e6f7fa41283fcb4c",
+      "internal": true,
+      "driver": "bridge",
+      "enable_ipv6": true,
+      "ipam": [
+        {
+          "Gateway": "192.168.111.1",
+          "Subnet": "192.168.111.0/24"
+        },
+        {
+          "Gateway": "fd57:2026:111::1",
+          "Subnet": "fd57:2026:111::/64"
+        }
+      ],
+      "options": {
+        "com.docker.network.bridge.name": "br-nf1-dc"
+      },
+      "members": {
+        "0b36548aea2571b79187099a9e3b4c16c5d2772c0af3874dd2ea2dde3ea1df65": {
+          "EndpointID": "e8cb01f1b4694a3ec188904b127562053d392981a1de1a0917dbc00fe9c7e6ab",
+          "IPv4Address": "192.168.111.254/24",
+          "IPv6Address": "fd57:2026:111::fe/64",
+          "MacAddress": "02:57:20:26:a1:fe",
+          "Name": "nf1-router"
+        },
+        "327220ee797e926274a668163050a8ddaaa25cfe7418e1e2cf7138c752464212": {
+          "EndpointID": "df3b17dd83ea62309e8a2db6e2b21fd6d1a0c2fbeed750c530bc26581edff83d",
+          "IPv4Address": "192.168.111.20/24",
+          "IPv6Address": "fd57:2026:111::20/64",
+          "MacAddress": "02:57:20:26:a1:20",
+          "Name": "nf1-receiver-a"
+        },
+        "c8c08c4fae7ee0a6db2ee1ed435f3c639a90d056304909d12116e88315197f8b": {
+          "EndpointID": "a8a90623138285ae2b72f3611a9845491b95f665ae0313eaf3ec2441b04e39d6",
+          "IPv4Address": "192.168.111.10/24",
+          "IPv6Address": "fd57:2026:111::10/64",
+          "MacAddress": "02:57:20:26:a1:10",
+          "Name": "nf1-sender"
+        },
+        "db08c13d307d86d5acbf31b94f68708fa3c9ce6fdc8e45156c585dffab803a74": {
+          "EndpointID": "3577139e7bdb25423a591d6306b390fb66114ea04d61ba3a1a35328f9dfaa57a",
+          "IPv4Address": "192.168.111.21/24",
+          "IPv6Address": "fd57:2026:111::21/64",
+          "MacAddress": "02:57:20:26:a1:21",
+          "Name": "nf1-receiver-b"
+        }
+      }
+    }
+  },
+  "container_snapshots": {
+    "nf1-receiver-a": {
+      "id": "327220ee797e926274a668163050a8ddaaa25cfe7418e1e2cf7138c752464212",
+      "name": "/nf1-receiver-a",
+      "pid": 56585,
+      "running": true,
+      "network_mode": "nf1_dc",
+      "privileged": false,
+      "user": "",
+      "cap_add": [
+        "CAP_NET_ADMIN",
+        "CAP_NET_RAW"
+      ],
+      "cap_drop": [
+        "ALL"
+      ],
+      "networks": {
+        "nf1_dc": {
+          "Aliases": [
+            "nf1-receiver-a",
+            "receiver-a"
+          ],
+          "DNSNames": [
+            "nf1-receiver-a",
+            "receiver-a",
+            "327220ee797e"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "df3b17dd83ea62309e8a2db6e2b21fd6d1a0c2fbeed750c530bc26581edff83d",
+          "Gateway": "",
+          "GlobalIPv6Address": "fd57:2026:111::20",
+          "GlobalIPv6PrefixLen": 64,
+          "GwPriority": 0,
+          "IPAMConfig": {
+            "IPv4Address": "192.168.111.20",
+            "IPv6Address": "fd57:2026:111::20"
+          },
+          "IPAddress": "192.168.111.20",
+          "IPPrefixLen": 24,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "02:57:20:26:a1:20",
+          "NetworkID": "6ed9173425f8af2fa06c038ab3e1b0d2dfd457a48ab42149e6f7fa41283fcb4c"
+        }
+      }
+    },
+    "nf1-receiver-b": {
+      "id": "db08c13d307d86d5acbf31b94f68708fa3c9ce6fdc8e45156c585dffab803a74",
+      "name": "/nf1-receiver-b",
+      "pid": 57035,
+      "running": true,
+      "network_mode": "nf1_dc",
+      "privileged": false,
+      "user": "",
+      "cap_add": [
+        "CAP_NET_ADMIN",
+        "CAP_NET_RAW"
+      ],
+      "cap_drop": [
+        "ALL"
+      ],
+      "networks": {
+        "nf1_dc": {
+          "Aliases": [
+            "nf1-receiver-b",
+            "receiver-b"
+          ],
+          "DNSNames": [
+            "nf1-receiver-b",
+            "receiver-b",
+            "db08c13d307d"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "3577139e7bdb25423a591d6306b390fb66114ea04d61ba3a1a35328f9dfaa57a",
+          "Gateway": "",
+          "GlobalIPv6Address": "fd57:2026:111::21",
+          "GlobalIPv6PrefixLen": 64,
+          "GwPriority": 0,
+          "IPAMConfig": {
+            "IPv4Address": "192.168.111.21",
+            "IPv6Address": "fd57:2026:111::21"
+          },
+          "IPAddress": "192.168.111.21",
+          "IPPrefixLen": 24,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "02:57:20:26:a1:21",
+          "NetworkID": "6ed9173425f8af2fa06c038ab3e1b0d2dfd457a48ab42149e6f7fa41283fcb4c"
+        }
+      }
+    },
+    "nf1-router": {
+      "id": "0b36548aea2571b79187099a9e3b4c16c5d2772c0af3874dd2ea2dde3ea1df65",
+      "name": "/nf1-router",
+      "pid": 56845,
+      "running": true,
+      "network_mode": "nf1_dc",
+      "privileged": false,
+      "user": "",
+      "cap_add": [
+        "CAP_NET_ADMIN",
+        "CAP_NET_RAW",
+        "CAP_SETGID",
+        "CAP_SETUID"
+      ],
+      "cap_drop": [
+        "ALL"
+      ],
+      "networks": {
+        "nf1_dc": {
+          "Aliases": [
+            "nf1-router",
+            "router"
+          ],
+          "DNSNames": [
+            "nf1-router",
+            "router",
+            "0b36548aea25"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "e8cb01f1b4694a3ec188904b127562053d392981a1de1a0917dbc00fe9c7e6ab",
+          "Gateway": "",
+          "GlobalIPv6Address": "fd57:2026:111::fe",
+          "GlobalIPv6PrefixLen": 64,
+          "GwPriority": 0,
+          "IPAMConfig": {
+            "IPv4Address": "192.168.111.254",
+            "IPv6Address": "fd57:2026:111::fe"
+          },
+          "IPAddress": "192.168.111.254",
+          "IPPrefixLen": 24,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "02:57:20:26:a1:fe",
+          "NetworkID": "6ed9173425f8af2fa06c038ab3e1b0d2dfd457a48ab42149e6f7fa41283fcb4c"
+        }
+      }
+    },
+    "nf1-sender": {
+      "id": "c8c08c4fae7ee0a6db2ee1ed435f3c639a90d056304909d12116e88315197f8b",
+      "name": "/nf1-sender",
+      "pid": 56713,
+      "running": true,
+      "network_mode": "nf1_dc",
+      "privileged": false,
+      "user": "",
+      "cap_add": [
+        "CAP_NET_RAW"
+      ],
+      "cap_drop": [
+        "ALL"
+      ],
+      "networks": {
+        "nf1_dc": {
+          "Aliases": [
+            "nf1-sender",
+            "sender"
+          ],
+          "DNSNames": [
+            "nf1-sender",
+            "sender",
+            "c8c08c4fae7e"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "a8a90623138285ae2b72f3611a9845491b95f665ae0313eaf3ec2441b04e39d6",
+          "Gateway": "",
+          "GlobalIPv6Address": "fd57:2026:111::10",
+          "GlobalIPv6PrefixLen": 64,
+          "GwPriority": 0,
+          "IPAMConfig": {
+            "IPv4Address": "192.168.111.10",
+            "IPv6Address": "fd57:2026:111::10"
+          },
+          "IPAddress": "192.168.111.10",
+          "IPPrefixLen": 24,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "02:57:20:26:a1:10",
+          "NetworkID": "6ed9173425f8af2fa06c038ab3e1b0d2dfd457a48ab42149e6f7fa41283fcb4c"
+        }
+      }
+    }
+  },
+  "positive_status": "PASS",
+  "route_check": {
+    "status": "PASS",
+    "reasons": [],
+    "default_routes": [],
+    "forbidden_routes": [],
+    "observed": {
+      "status": "available",
+      "links": [
+        {
+          "index": 1,
+          "name": "lo",
+          "up": true,
+          "lower_up": true
+        },
+        {
+          "index": 2,
+          "name": "eth0",
+          "up": true,
+          "lower_up": true
+        }
+      ],
+      "addresses": [
+        {
+          "family": 4,
+          "address": "127.0.0.1",
+          "prefix": 8,
+          "interface": 1,
+          "tentative": false,
+          "dadfailed": false
+        },
+        {
+          "family": 4,
+          "address": "192.168.111.10",
+          "prefix": 24,
+          "interface": 2,
+          "tentative": false,
+          "dadfailed": false
+        },
+        {
+          "family": 6,
+          "address": "::1",
+          "prefix": 128,
+          "interface": 1,
+          "tentative": false,
+          "dadfailed": false
+        },
+        {
+          "family": 6,
+          "address": "fd57:2026:111::10",
+          "prefix": 64,
+          "interface": 2,
+          "tentative": false,
+          "dadfailed": false
+        },
+        {
+          "family": 6,
+          "address": "fe80::57:20ff:fe26:a110",
+          "prefix": 64,
+          "interface": 2,
+          "tentative": false,
+          "dadfailed": false
+        }
+      ],
+      "routes": {
+        "4": [
+          {
+            "family": 4,
+            "dst": "192.168.111.0/24",
+            "table": 254,
+            "type": 1,
+            "scope": 253,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2,
+            "source": "192.168.111.10"
+          },
+          {
+            "family": 4,
+            "dst": "127.0.0.0/8",
+            "table": 255,
+            "type": 2,
+            "scope": 254,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 1,
+            "source": "127.0.0.1"
+          },
+          {
+            "family": 4,
+            "dst": "127.0.0.1/32",
+            "table": 255,
+            "type": 2,
+            "scope": 254,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 1,
+            "source": "127.0.0.1"
+          },
+          {
+            "family": 4,
+            "dst": "127.255.255.255/32",
+            "table": 255,
+            "type": 3,
+            "scope": 253,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 1,
+            "source": "127.0.0.1"
+          },
+          {
+            "family": 4,
+            "dst": "192.168.111.10/32",
+            "table": 255,
+            "type": 2,
+            "scope": 254,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2,
+            "source": "192.168.111.10"
+          },
+          {
+            "family": 4,
+            "dst": "192.168.111.255/32",
+            "table": 255,
+            "type": 3,
+            "scope": 253,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2,
+            "source": "192.168.111.10"
+          }
+        ],
+        "6": [
+          {
+            "family": 6,
+            "dst": "fd57:2026:111::/64",
+            "table": 254,
+            "type": 1,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2
+          },
+          {
+            "family": 6,
+            "dst": "fe80::/64",
+            "table": 254,
+            "type": 1,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2
+          },
+          {
+            "family": 6,
+            "dst": "::1/128",
+            "table": 255,
+            "type": 2,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 1
+          },
+          {
+            "family": 6,
+            "dst": "fd57:2026:111::10/128",
+            "table": 255,
+            "type": 2,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2
+          },
+          {
+            "family": 6,
+            "dst": "fe80::57:20ff:fe26:a110/128",
+            "table": 255,
+            "type": 2,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2
+          },
+          {
+            "family": 6,
+            "dst": "ff00::/8",
+            "table": 255,
+            "type": 5,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2
+          }
+        ]
+      },
+      "rules": {
+        "4": [
+          {
+            "family": 4,
+            "table": 255,
+            "action": 1,
+            "flags": 0,
+            "dst_prefix": 0,
+            "src_prefix": 0,
+            "tos": 0,
+            "priority": 0,
+            "suppress_prefixlen": 4294967295,
+            "selector_attributes": []
+          },
+          {
+            "family": 4,
+            "table": 254,
+            "action": 1,
+            "flags": 0,
+            "dst_prefix": 0,
+            "src_prefix": 0,
+            "tos": 0,
+            "priority": 32766,
+            "suppress_prefixlen": 4294967295,
+            "selector_attributes": []
+          },
+          {
+            "family": 4,
+            "table": 253,
+            "action": 1,
+            "flags": 0,
+            "dst_prefix": 0,
+            "src_prefix": 0,
+            "tos": 0,
+            "priority": 32767,
+            "suppress_prefixlen": 4294967295,
+            "selector_attributes": []
+          }
+        ],
+        "6": [
+          {
+            "family": 6,
+            "table": 255,
+            "action": 1,
+            "flags": 0,
+            "dst_prefix": 0,
+            "src_prefix": 0,
+            "tos": 0,
+            "priority": 0,
+            "suppress_prefixlen": 4294967295,
+            "selector_attributes": []
+          },
+          {
+            "family": 6,
+            "table": 254,
+            "action": 1,
+            "flags": 0,
+            "dst_prefix": 0,
+            "src_prefix": 0,
+            "tos": 0,
+            "priority": 32766,
+            "suppress_prefixlen": 4294967295,
+            "selector_attributes": []
+          }
+        ]
+      }
+    }
+  },
+  "privileges": {
+    "pid1": {
+      "Uid": "0\t0\t0\t0",
+      "Gid": "0\t0\t0\t0",
+      "CapInh": "0000000000000000",
+      "CapPrm": "0000000000002000",
+      "CapEff": "0000000000002000",
+      "CapBnd": "0000000000002000",
+      "CapAmb": "0000000000000000",
+      "NoNewPrivs": "1",
+      "Seccomp": "2"
+    },
+    "exec_process": {
+      "Uid": "0\t0\t0\t0",
+      "Gid": "0\t0\t0\t0",
+      "CapInh": "0000000000000000",
+      "CapPrm": "0000000000002000",
+      "CapEff": "0000000000002000",
+      "CapBnd": "0000000000002000",
+      "CapAmb": "0000000000000000",
+      "NoNewPrivs": "1",
+      "Seccomp": "2"
+    },
+    "exec_uid": 0,
+    "exec_euid": 0,
+    "exec_gid": 0
+  },
+  "negative_observation": {
+    "method": "docker_exec_existing_python_netlink_read_only",
+    "privileges": {
+      "pid1": {
+        "Uid": "0\t0\t0\t0",
+        "Gid": "0\t0\t0\t0",
+        "CapInh": "0000000000000000",
+        "CapPrm": "0000000000002000",
+        "CapEff": "0000000000002000",
+        "CapBnd": "0000000000002000",
+        "CapAmb": "0000000000000000",
+        "NoNewPrivs": "1",
+        "Seccomp": "2"
+      },
+      "exec_process": {
+        "Uid": "0\t0\t0\t0",
+        "Gid": "0\t0\t0\t0",
+        "CapInh": "0000000000000000",
+        "CapPrm": "0000000000002000",
+        "CapEff": "0000000000002000",
+        "CapBnd": "0000000000002000",
+        "CapAmb": "0000000000000000",
+        "NoNewPrivs": "1",
+        "Seccomp": "2"
+      },
+      "exec_uid": 0,
+      "exec_euid": 0,
+      "exec_gid": 0
+    },
+    "network_state": {
+      "status": "available",
+      "links": [
+        {
+          "index": 1,
+          "name": "lo",
+          "up": true,
+          "lower_up": true
+        },
+        {
+          "index": 2,
+          "name": "eth0",
+          "up": true,
+          "lower_up": true
+        }
+      ],
+      "addresses": [
+        {
+          "family": 4,
+          "address": "127.0.0.1",
+          "prefix": 8,
+          "interface": 1,
+          "tentative": false,
+          "dadfailed": false
+        },
+        {
+          "family": 4,
+          "address": "192.168.111.10",
+          "prefix": 24,
+          "interface": 2,
+          "tentative": false,
+          "dadfailed": false
+        },
+        {
+          "family": 6,
+          "address": "::1",
+          "prefix": 128,
+          "interface": 1,
+          "tentative": false,
+          "dadfailed": false
+        },
+        {
+          "family": 6,
+          "address": "fd57:2026:111::10",
+          "prefix": 64,
+          "interface": 2,
+          "tentative": false,
+          "dadfailed": false
+        },
+        {
+          "family": 6,
+          "address": "fe80::57:20ff:fe26:a110",
+          "prefix": 64,
+          "interface": 2,
+          "tentative": false,
+          "dadfailed": false
+        }
+      ],
+      "routes": {
+        "4": [
+          {
+            "family": 4,
+            "dst": "192.168.111.0/24",
+            "table": 254,
+            "type": 1,
+            "scope": 253,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2,
+            "source": "192.168.111.10"
+          },
+          {
+            "family": 4,
+            "dst": "127.0.0.0/8",
+            "table": 255,
+            "type": 2,
+            "scope": 254,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 1,
+            "source": "127.0.0.1"
+          },
+          {
+            "family": 4,
+            "dst": "127.0.0.1/32",
+            "table": 255,
+            "type": 2,
+            "scope": 254,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 1,
+            "source": "127.0.0.1"
+          },
+          {
+            "family": 4,
+            "dst": "127.255.255.255/32",
+            "table": 255,
+            "type": 3,
+            "scope": 253,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 1,
+            "source": "127.0.0.1"
+          },
+          {
+            "family": 4,
+            "dst": "192.168.111.10/32",
+            "table": 255,
+            "type": 2,
+            "scope": 254,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2,
+            "source": "192.168.111.10"
+          },
+          {
+            "family": 4,
+            "dst": "192.168.111.255/32",
+            "table": 255,
+            "type": 3,
+            "scope": 253,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2,
+            "source": "192.168.111.10"
+          }
+        ],
+        "6": [
+          {
+            "family": 6,
+            "dst": "fd57:2026:111::/64",
+            "table": 254,
+            "type": 1,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2
+          },
+          {
+            "family": 6,
+            "dst": "fe80::/64",
+            "table": 254,
+            "type": 1,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2
+          },
+          {
+            "family": 6,
+            "dst": "::1/128",
+            "table": 255,
+            "type": 2,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 1
+          },
+          {
+            "family": 6,
+            "dst": "fd57:2026:111::10/128",
+            "table": 255,
+            "type": 2,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2
+          },
+          {
+            "family": 6,
+            "dst": "fe80::57:20ff:fe26:a110/128",
+            "table": 255,
+            "type": 2,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2
+          },
+          {
+            "family": 6,
+            "dst": "ff00::/8",
+            "table": 255,
+            "type": 5,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2
+          }
+        ]
+      },
+      "rules": {
+        "4": [
+          {
+            "family": 4,
+            "table": 255,
+            "action": 1,
+            "flags": 0,
+            "dst_prefix": 0,
+            "src_prefix": 0,
+            "tos": 0,
+            "priority": 0,
+            "suppress_prefixlen": 4294967295,
+            "selector_attributes": []
+          },
+          {
+            "family": 4,
+            "table": 254,
+            "action": 1,
+            "flags": 0,
+            "dst_prefix": 0,
+            "src_prefix": 0,
+            "tos": 0,
+            "priority": 32766,
+            "suppress_prefixlen": 4294967295,
+            "selector_attributes": []
+          },
+          {
+            "family": 4,
+            "table": 253,
+            "action": 1,
+            "flags": 0,
+            "dst_prefix": 0,
+            "src_prefix": 0,
+            "tos": 0,
+            "priority": 32767,
+            "suppress_prefixlen": 4294967295,
+            "selector_attributes": []
+          }
+        ],
+        "6": [
+          {
+            "family": 6,
+            "table": 255,
+            "action": 1,
+            "flags": 0,
+            "dst_prefix": 0,
+            "src_prefix": 0,
+            "tos": 0,
+            "priority": 0,
+            "suppress_prefixlen": 4294967295,
+            "selector_attributes": []
+          },
+          {
+            "family": 6,
+            "table": 254,
+            "action": 1,
+            "flags": 0,
+            "dst_prefix": 0,
+            "src_prefix": 0,
+            "tos": 0,
+            "priority": 32766,
+            "suppress_prefixlen": 4294967295,
+            "selector_attributes": []
+          }
+        ]
+      }
+    },
+    "probes": [
+      {
+        "target_segment": "corp",
+        "target_container": "nf1-app-intranet",
+        "family": 4,
+        "address": "192.168.110.14",
+        "port": 8088,
+        "connect": {
+          "status": "blocked",
+          "errno": 101
+        },
+        "elapsed_seconds": 2.8e-05
+      },
+      {
+        "target_segment": "corp",
+        "target_container": "nf1-app-intranet",
+        "family": 6,
+        "address": "fd57:2026:110::14",
+        "port": 8088,
+        "connect": {
+          "status": "blocked",
+          "errno": 101
+        },
+        "elapsed_seconds": 1.7e-05
+      },
+      {
+        "target_segment": "dmz",
+        "target_container": "nf1-legacy",
+        "family": 4,
+        "address": "192.168.112.13",
+        "port": 8080,
+        "connect": {
+          "status": "blocked",
+          "errno": 101
+        },
+        "elapsed_seconds": 7e-06
+      }
+    ]
+  },
+  "negative_route_check": {
+    "status": "PASS",
+    "reasons": [],
+    "default_routes": [],
+    "forbidden_routes": [],
+    "observed": {
+      "status": "available",
+      "links": [
+        {
+          "index": 1,
+          "name": "lo",
+          "up": true,
+          "lower_up": true
+        },
+        {
+          "index": 2,
+          "name": "eth0",
+          "up": true,
+          "lower_up": true
+        }
+      ],
+      "addresses": [
+        {
+          "family": 4,
+          "address": "127.0.0.1",
+          "prefix": 8,
+          "interface": 1,
+          "tentative": false,
+          "dadfailed": false
+        },
+        {
+          "family": 4,
+          "address": "192.168.111.10",
+          "prefix": 24,
+          "interface": 2,
+          "tentative": false,
+          "dadfailed": false
+        },
+        {
+          "family": 6,
+          "address": "::1",
+          "prefix": 128,
+          "interface": 1,
+          "tentative": false,
+          "dadfailed": false
+        },
+        {
+          "family": 6,
+          "address": "fd57:2026:111::10",
+          "prefix": 64,
+          "interface": 2,
+          "tentative": false,
+          "dadfailed": false
+        },
+        {
+          "family": 6,
+          "address": "fe80::57:20ff:fe26:a110",
+          "prefix": 64,
+          "interface": 2,
+          "tentative": false,
+          "dadfailed": false
+        }
+      ],
+      "routes": {
+        "4": [
+          {
+            "family": 4,
+            "dst": "192.168.111.0/24",
+            "table": 254,
+            "type": 1,
+            "scope": 253,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2,
+            "source": "192.168.111.10"
+          },
+          {
+            "family": 4,
+            "dst": "127.0.0.0/8",
+            "table": 255,
+            "type": 2,
+            "scope": 254,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 1,
+            "source": "127.0.0.1"
+          },
+          {
+            "family": 4,
+            "dst": "127.0.0.1/32",
+            "table": 255,
+            "type": 2,
+            "scope": 254,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 1,
+            "source": "127.0.0.1"
+          },
+          {
+            "family": 4,
+            "dst": "127.255.255.255/32",
+            "table": 255,
+            "type": 3,
+            "scope": 253,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 1,
+            "source": "127.0.0.1"
+          },
+          {
+            "family": 4,
+            "dst": "192.168.111.10/32",
+            "table": 255,
+            "type": 2,
+            "scope": 254,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2,
+            "source": "192.168.111.10"
+          },
+          {
+            "family": 4,
+            "dst": "192.168.111.255/32",
+            "table": 255,
+            "type": 3,
+            "scope": 253,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2,
+            "source": "192.168.111.10"
+          }
+        ],
+        "6": [
+          {
+            "family": 6,
+            "dst": "fd57:2026:111::/64",
+            "table": 254,
+            "type": 1,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2
+          },
+          {
+            "family": 6,
+            "dst": "fe80::/64",
+            "table": 254,
+            "type": 1,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2
+          },
+          {
+            "family": 6,
+            "dst": "::1/128",
+            "table": 255,
+            "type": 2,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 1
+          },
+          {
+            "family": 6,
+            "dst": "fd57:2026:111::10/128",
+            "table": 255,
+            "type": 2,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2
+          },
+          {
+            "family": 6,
+            "dst": "fe80::57:20ff:fe26:a110/128",
+            "table": 255,
+            "type": 2,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2
+          },
+          {
+            "family": 6,
+            "dst": "ff00::/8",
+            "table": 255,
+            "type": 5,
+            "scope": 0,
+            "protocol": 2,
+            "flags": 0,
+            "interface": 2
+          }
+        ]
+      },
+      "rules": {
+        "4": [
+          {
+            "family": 4,
+            "table": 255,
+            "action": 1,
+            "flags": 0,
+            "dst_prefix": 0,
+            "src_prefix": 0,
+            "tos": 0,
+            "priority": 0,
+            "suppress_prefixlen": 4294967295,
+            "selector_attributes": []
+          },
+          {
+            "family": 4,
+            "table": 254,
+            "action": 1,
+            "flags": 0,
+            "dst_prefix": 0,
+            "src_prefix": 0,
+            "tos": 0,
+            "priority": 32766,
+            "suppress_prefixlen": 4294967295,
+            "selector_attributes": []
+          },
+          {
+            "family": 4,
+            "table": 253,
+            "action": 1,
+            "flags": 0,
+            "dst_prefix": 0,
+            "src_prefix": 0,
+            "tos": 0,
+            "priority": 32767,
+            "suppress_prefixlen": 4294967295,
+            "selector_attributes": []
+          }
+        ],
+        "6": [
+          {
+            "family": 6,
+            "table": 255,
+            "action": 1,
+            "flags": 0,
+            "dst_prefix": 0,
+            "src_prefix": 0,
+            "tos": 0,
+            "priority": 0,
+            "suppress_prefixlen": 4294967295,
+            "selector_attributes": []
+          },
+          {
+            "family": 6,
+            "table": 254,
+            "action": 1,
+            "flags": 0,
+            "dst_prefix": 0,
+            "src_prefix": 0,
+            "tos": 0,
+            "priority": 32766,
+            "suppress_prefixlen": 4294967295,
+            "selector_attributes": []
+          }
+        ]
+      }
+    }
+  },
+  "lab_reason_codes": [],
+  "started_at": "2026-10-19T08:31:31.317002+00:00",
+  "finished_at": "2026-10-19T08:31:40.990714+00:00"
+}

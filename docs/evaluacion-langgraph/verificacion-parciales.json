@@ -1,0 +1,154 @@
+[
+  {
+    "diagnostics": [],
+    "eligible_pair": false,
+    "exclusion_reasons": [
+      "Ambas ejecuciones deben ser reales y estar completas.",
+      "Hay tareas incompletas; conserva ese intento y compara otra pareja completa.",
+      "Los escenarios o sus imágenes/configuraciones son diferentes; compara las arquitecturas dentro del mismo laboratorio."
+    ],
+    "failed_and_blocked": [
+      {
+        "diagnostic_ref": null,
+        "observations": {},
+        "reason_code": "execution_error",
+        "status": "failed",
+        "task_id": "emp_single_fb73c485a609_receiver_a_na_neighbor"
+      },
+      {
+        "diagnostic_ref": null,
+        "observations": {},
+        "reason_code": "dependency_failed",
+        "status": "blocked",
+        "task_id": "emp_single_fb73c485a609_receiver_a_dad_na"
+      },
+      {
+        "diagnostic_ref": null,
+        "observations": {},
+        "reason_code": "dependency_failed",
+        "status": "blocked",
+        "task_id": "emp_single_fb73c485a609_receiver_a_overlap"
+      },
+      {
+        "diagnostic_ref": null,
+        "observations": {},
+        "reason_code": "dependency_failed",
+        "status": "blocked",
+        "task_id": "emp_single_fb73c485a609_receiver_a_overlap_middle"
+      },
+      {
+        "diagnostic_ref": null,
+        "observations": {},
+        "reason_code": "dependency_failed",
+        "status": "blocked",
+        "task_id": "emp_single_fb73c485a609_receiver_a_atomic"
+      },
+      {
+        "diagnostic_ref": null,
+        "observations": {},
+        "reason_code": "dependency_failed",
+        "status": "blocked",
+        "task_id": "emp_single_fb73c485a609_receiver_a_incomplete_chain"
+      }
+    ],
+    "interpretation": "Only execution_error was persisted; root cause is not established.",
+    "run_id": "panel/b0044cf8746b/emp_single_fb73c485a609_20261018T224152",
+    "sequence": 1,
+    "status": "partial"
+  },
+  {
+    "diagnostics": [
+      {
+        "data": {
+          "action_profile": "ipv6_na_neighbor_v2",
+          "admission_index": 14,
+          "catalogue_size": 37,
+          "elapsed_since_admission_seconds": 18.554712,
+          "exception_chain": [
+            {
+              "exception_type": "TaskExecutionError",
+              "reason_code": "ipv6_restore_failed",
+              "stage": "ipv6_restore"
+            },
+            {
+              "exception_type": "LabError",
+              "reason_code": "docker_restart_failed",
+              "stage": "ipv6_restore"
+            },
+            {
+              "exception_type": "TimeoutExpired",
+              "reason_code": "tool_timeout",
+              "stage": "tool_execution"
+            }
+          ],
+          "exception_type": "TaskExecutionError",
+          "kind": "execution_failure",
+          "message_policy": "exception_messages_commands_and_responses_not_recorded",
+          "reason_code": "ipv6_restore_failed",
+          "schema_version": 1,
+          "stage": "ipv6_restore",
+          "task_id": "emp_single_d08f31a946dc_receiver_a_na_neighbor",
+          "task_limit": 22
+        },
+        "path": "evidence/emp_single_d08f31a946dc_receiver_a_na_neighbor_execution_failure.json"
+      }
+    ],
+    "eligible_pair": false,
+    "exclusion_reasons": [
+      "Ambas ejecuciones deben ser reales y estar completas.",
+      "Hay tareas incompletas; conserva ese intento y compara otra pareja completa."
+    ],
+    "failed_and_blocked": [
+      {
+        "diagnostic_ref": "evidence/emp_single_d08f31a946dc_receiver_a_na_neighbor_execution_failure.json",
+        "observations": {
+          "diagnostic_persisted": true,
+          "exception_type": "TaskExecutionError",
+          "failure_stage": "ipv6_restore"
+        },
+        "reason_code": "ipv6_restore_failed",
+        "status": "failed",
+        "task_id": "emp_single_d08f31a946dc_receiver_a_na_neighbor"
+      },
+      {
+        "diagnostic_ref": null,
+        "observations": {},
+        "reason_code": "dependency_failed",
+        "status": "blocked",
+        "task_id": "emp_single_d08f31a946dc_receiver_a_dad_na"
+      },
+      {
+        "diagnostic_ref": null,
+        "observations": {},
+        "reason_code": "dependency_failed",
+        "status": "blocked",
+        "task_id": "emp_single_d08f31a946dc_receiver_a_overlap"
+      },
+      {
+        "diagnostic_ref": null,
+        "observations": {},
+        "reason_code": "dependency_failed",
+        "status": "blocked",
+        "task_id": "emp_single_d08f31a946dc_receiver_a_overlap_middle"
+      },
+      {
+        "diagnostic_ref": null,
+        "observations": {},
+        "reason_code": "dependency_failed",
+        "status": "blocked",
+        "task_id": "emp_single_d08f31a946dc_receiver_a_atomic"
+      },
+      {
+        "diagnostic_ref": null,
+        "observations": {},
+        "reason_code": "dependency_failed",
+        "status": "blocked",
+        "task_id": "emp_single_d08f31a946dc_receiver_a_incomplete_chain"
+      }
+    ],
+    "interpretation": "Structured diagnostic records a failed IPv6 restoration, Docker restart failure and TimeoutExpired.",
+    "run_id": "panel/cccef3d26dbe/emp_single_d08f31a946dc_20261019T022259",
+    "sequence": 42,
+    "status": "partial"
+  }
+]

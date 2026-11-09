@@ -1,0 +1,596 @@
+{
+  "type": "post_evaluation_kali_interface_isolation_summary",
+  "created_at": "2026-10-19T22:39:18.109783+00:00",
+  "verification_version": "novaflow-real-isolation/2-kali",
+  "checker_sha256": "af9ede0f1f3e51166860507481d407548d2b459a5c045ac4dca5024dfba6b026",
+  "requirement": "RNF-08",
+  "requirement_status": "PARCIAL",
+  "positive_controls_passed": 25,
+  "negative_intersegment_passive_not_verified": 40,
+  "external_route_passive_not_verified": 25,
+  "negative_connections_attempted": 0,
+  "external_connections_attempted": 0,
+  "payload_bytes": 0,
+  "api_calls": 0,
+  "audit_runs": 0,
+  "labs": [
+    {
+      "lab": "original",
+      "requirement_status": "PARCIAL",
+      "aggregate_result": "NO_VERIFICADO",
+      "started_at": "2026-10-19T22:36:39.659080+00:00",
+      "finished_at": "2026-10-19T22:36:57.485056+00:00",
+      "seconds": 17.826,
+      "positive_pass": 5,
+      "positive_fail": 0,
+      "negative_intersegment_passive_not_verified": 8,
+      "external_passive_not_verified": 5,
+      "effective_sources": [
+        {
+          "interface": "br-nova-corp",
+          "address": "192.168.69.1",
+          "family": 4,
+          "prefix_length": 24,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nova-corp",
+          "address": "fd57:2026:69::1",
+          "family": 6,
+          "prefix_length": 64,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nova-dc",
+          "address": "192.168.70.1",
+          "family": 4,
+          "prefix_length": 24,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nova-dc",
+          "address": "fd57:2026:70::1",
+          "family": 6,
+          "prefix_length": 64,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nova-dmz",
+          "address": "192.168.71.1",
+          "family": 4,
+          "prefix_length": 24,
+          "selection": "active_host_address_in_configured_subnet"
+        }
+      ],
+      "positive_destinations": [
+        {
+          "family": 4,
+          "address": "192.168.69.12",
+          "port": 8088,
+          "interface": "br-nova-corp",
+          "source": "192.168.69.1",
+          "status": "PASS"
+        },
+        {
+          "family": 6,
+          "address": "fd57:2026:69::12",
+          "port": 8088,
+          "interface": "br-nova-corp",
+          "source": "fd57:2026:69::1",
+          "status": "PASS"
+        },
+        {
+          "family": 4,
+          "address": "192.168.70.20",
+          "port": 8000,
+          "interface": "br-nova-dc",
+          "source": "192.168.70.1",
+          "status": "PASS"
+        },
+        {
+          "family": 6,
+          "address": "fd57:2026:70::20",
+          "port": 8000,
+          "interface": "br-nova-dc",
+          "source": "fd57:2026:70::1",
+          "status": "PASS"
+        },
+        {
+          "family": 4,
+          "address": "192.168.71.13",
+          "port": 8080,
+          "interface": "br-nova-dmz",
+          "source": "192.168.71.1",
+          "status": "PASS"
+        }
+      ],
+      "protected_unchanged": true,
+      "configuration_unchanged": true,
+      "stopped_conserving_data": true
+    },
+    {
+      "lab": "sucursal",
+      "requirement_status": "PARCIAL",
+      "aggregate_result": "NO_VERIFICADO",
+      "started_at": "2026-10-19T22:36:57.513659+00:00",
+      "finished_at": "2026-10-19T22:37:04.709207+00:00",
+      "seconds": 7.196,
+      "positive_pass": 5,
+      "positive_fail": 0,
+      "negative_intersegment_passive_not_verified": 8,
+      "external_passive_not_verified": 5,
+      "effective_sources": [
+        {
+          "interface": "br-nf1-corp",
+          "address": "192.168.110.1",
+          "family": 4,
+          "prefix_length": 24,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nf1-corp",
+          "address": "fd57:2026:110::1",
+          "family": 6,
+          "prefix_length": 64,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nf1-dc",
+          "address": "192.168.111.1",
+          "family": 4,
+          "prefix_length": 24,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nf1-dc",
+          "address": "fd57:2026:111::1",
+          "family": 6,
+          "prefix_length": 64,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nf1-dmz",
+          "address": "192.168.112.1",
+          "family": 4,
+          "prefix_length": 24,
+          "selection": "active_host_address_in_configured_subnet"
+        }
+      ],
+      "positive_destinations": [
+        {
+          "family": 4,
+          "address": "192.168.110.14",
+          "port": 8088,
+          "interface": "br-nf1-corp",
+          "source": "192.168.110.1",
+          "status": "PASS"
+        },
+        {
+          "family": 6,
+          "address": "fd57:2026:110::14",
+          "port": 8088,
+          "interface": "br-nf1-corp",
+          "source": "fd57:2026:110::1",
+          "status": "PASS"
+        },
+        {
+          "family": 4,
+          "address": "192.168.111.20",
+          "port": 8000,
+          "interface": "br-nf1-dc",
+          "source": "192.168.111.1",
+          "status": "PASS"
+        },
+        {
+          "family": 6,
+          "address": "fd57:2026:111::20",
+          "port": 8000,
+          "interface": "br-nf1-dc",
+          "source": "fd57:2026:111::1",
+          "status": "PASS"
+        },
+        {
+          "family": 4,
+          "address": "192.168.112.13",
+          "port": 8080,
+          "interface": "br-nf1-dmz",
+          "source": "192.168.112.1",
+          "status": "PASS"
+        }
+      ],
+      "protected_unchanged": true,
+      "configuration_unchanged": true,
+      "stopped_conserving_data": true
+    },
+    {
+      "lab": "comercial",
+      "requirement_status": "PARCIAL",
+      "aggregate_result": "NO_VERIFICADO",
+      "started_at": "2026-10-19T22:37:04.737357+00:00",
+      "finished_at": "2026-10-19T22:37:13.468215+00:00",
+      "seconds": 8.731,
+      "positive_pass": 5,
+      "positive_fail": 0,
+      "negative_intersegment_passive_not_verified": 8,
+      "external_passive_not_verified": 5,
+      "effective_sources": [
+        {
+          "interface": "br-nf2-corp",
+          "address": "192.168.120.1",
+          "family": 4,
+          "prefix_length": 24,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nf2-corp",
+          "address": "fd57:2026:120::1",
+          "family": 6,
+          "prefix_length": 64,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nf2-dc",
+          "address": "192.168.121.1",
+          "family": 4,
+          "prefix_length": 24,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nf2-dc",
+          "address": "fd57:2026:121::1",
+          "family": 6,
+          "prefix_length": 64,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nf2-dmz",
+          "address": "192.168.122.1",
+          "family": 4,
+          "prefix_length": 24,
+          "selection": "active_host_address_in_configured_subnet"
+        }
+      ],
+      "positive_destinations": [
+        {
+          "family": 4,
+          "address": "192.168.120.12",
+          "port": 8088,
+          "interface": "br-nf2-corp",
+          "source": "192.168.120.1",
+          "status": "PASS"
+        },
+        {
+          "family": 6,
+          "address": "fd57:2026:120::12",
+          "port": 8088,
+          "interface": "br-nf2-corp",
+          "source": "fd57:2026:120::1",
+          "status": "PASS"
+        },
+        {
+          "family": 4,
+          "address": "192.168.121.20",
+          "port": 8000,
+          "interface": "br-nf2-dc",
+          "source": "192.168.121.1",
+          "status": "PASS"
+        },
+        {
+          "family": 6,
+          "address": "fd57:2026:121::20",
+          "port": 8000,
+          "interface": "br-nf2-dc",
+          "source": "fd57:2026:121::1",
+          "status": "PASS"
+        },
+        {
+          "family": 4,
+          "address": "192.168.122.13",
+          "port": 8080,
+          "interface": "br-nf2-dmz",
+          "source": "192.168.122.1",
+          "status": "PASS"
+        }
+      ],
+      "protected_unchanged": true,
+      "configuration_unchanged": true,
+      "stopped_conserving_data": true
+    },
+    {
+      "lab": "mixto",
+      "requirement_status": "PARCIAL",
+      "aggregate_result": "NO_VERIFICADO",
+      "started_at": "2026-10-19T22:37:13.495969+00:00",
+      "finished_at": "2026-10-19T22:37:24.015111+00:00",
+      "seconds": 10.519,
+      "positive_pass": 5,
+      "positive_fail": 0,
+      "negative_intersegment_passive_not_verified": 8,
+      "external_passive_not_verified": 5,
+      "effective_sources": [
+        {
+          "interface": "br-nf3-corp",
+          "address": "192.168.130.1",
+          "family": 4,
+          "prefix_length": 24,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nf3-corp",
+          "address": "fd57:2026:130::1",
+          "family": 6,
+          "prefix_length": 64,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nf3-dc",
+          "address": "192.168.131.1",
+          "family": 4,
+          "prefix_length": 24,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nf3-dc",
+          "address": "fd57:2026:131::1",
+          "family": 6,
+          "prefix_length": 64,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nf3-dmz",
+          "address": "192.168.132.1",
+          "family": 4,
+          "prefix_length": 24,
+          "selection": "active_host_address_in_configured_subnet"
+        }
+      ],
+      "positive_destinations": [
+        {
+          "family": 4,
+          "address": "192.168.130.12",
+          "port": 8088,
+          "interface": "br-nf3-corp",
+          "source": "192.168.130.1",
+          "status": "PASS"
+        },
+        {
+          "family": 6,
+          "address": "fd57:2026:130::12",
+          "port": 8088,
+          "interface": "br-nf3-corp",
+          "source": "fd57:2026:130::1",
+          "status": "PASS"
+        },
+        {
+          "family": 4,
+          "address": "192.168.131.20",
+          "port": 8000,
+          "interface": "br-nf3-dc",
+          "source": "192.168.131.1",
+          "status": "PASS"
+        },
+        {
+          "family": 6,
+          "address": "fd57:2026:131::20",
+          "port": 8000,
+          "interface": "br-nf3-dc",
+          "source": "fd57:2026:131::1",
+          "status": "PASS"
+        },
+        {
+          "family": 4,
+          "address": "192.168.132.13",
+          "port": 8080,
+          "interface": "br-nf3-dmz",
+          "source": "192.168.132.1",
+          "status": "PASS"
+        }
+      ],
+      "protected_unchanged": true,
+      "configuration_unchanged": true,
+      "stopped_conserving_data": true
+    },
+    {
+      "lab": "reforzado",
+      "requirement_status": "PARCIAL",
+      "aggregate_result": "NO_VERIFICADO",
+      "started_at": "2026-10-19T22:37:24.052840+00:00",
+      "finished_at": "2026-10-19T22:37:34.214603+00:00",
+      "seconds": 10.162,
+      "positive_pass": 5,
+      "positive_fail": 0,
+      "negative_intersegment_passive_not_verified": 8,
+      "external_passive_not_verified": 5,
+      "effective_sources": [
+        {
+          "interface": "br-nf4-corp",
+          "address": "192.168.140.1",
+          "family": 4,
+          "prefix_length": 24,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nf4-corp",
+          "address": "fd57:2026:140::1",
+          "family": 6,
+          "prefix_length": 64,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nf4-dc",
+          "address": "192.168.141.1",
+          "family": 4,
+          "prefix_length": 24,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nf4-dc",
+          "address": "fd57:2026:141::1",
+          "family": 6,
+          "prefix_length": 64,
+          "selection": "active_host_address_in_configured_subnet"
+        },
+        {
+          "interface": "br-nf4-dmz",
+          "address": "192.168.142.1",
+          "family": 4,
+          "prefix_length": 24,
+          "selection": "active_host_address_in_configured_subnet"
+        }
+      ],
+      "positive_destinations": [
+        {
+          "family": 4,
+          "address": "192.168.140.12",
+          "port": 8088,
+          "interface": "br-nf4-corp",
+          "source": "192.168.140.1",
+          "status": "PASS"
+        },
+        {
+          "family": 6,
+          "address": "fd57:2026:140::12",
+          "port": 8088,
+          "interface": "br-nf4-corp",
+          "source": "fd57:2026:140::1",
+          "status": "PASS"
+        },
+        {
+          "family": 4,
+          "address": "192.168.141.20",
+          "port": 8000,
+          "interface": "br-nf4-dc",
+          "source": "192.168.141.1",
+          "status": "PASS"
+        },
+        {
+          "family": 6,
+          "address": "fd57:2026:141::20",
+          "port": 8000,
+          "interface": "br-nf4-dc",
+          "source": "fd57:2026:141::1",
+          "status": "PASS"
+        },
+        {
+          "family": 4,
+          "address": "192.168.142.13",
+          "port": 8080,
+          "interface": "br-nf4-dmz",
+          "source": "192.168.142.1",
+          "status": "PASS"
+        }
+      ],
+      "protected_unchanged": true,
+      "configuration_unchanged": true,
+      "stopped_conserving_data": true
+    }
+  ],
+  "receipts": [
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-original.json",
+      "sha256": "42cd0d8acc4654ceb8db679e74e5894cf81a2ddcc809ab0f095f2b4be4fa3428"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-original-corp.json",
+      "sha256": "3b0bae9b2512f2119ee9017bd8ffad20d0057891a6ad951624af948e006f3082"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-original-dc.json",
+      "sha256": "8af0f6e1ad37fea1324473c2831264003cbba4c51a3e58edbbf594e20f53e809"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-original-dmz.json",
+      "sha256": "3ef6538512f14f02a983323d93a0fd1fae22775548d84804c80b1208155cebf0"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-sucursal.json",
+      "sha256": "5db3f8d7cfa78419b1350bb12a086772506420e28fe9223bcbcf78b684a26aaf"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-sucursal-corp.json",
+      "sha256": "7707dd4e7d010681e65c500828615858df84a371def1dffb7ef5f2b770f13444"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-sucursal-dc.json",
+      "sha256": "017365970ee4b0ffe5bad4a50b23c46cf28f435fdb66dc60b608e8881a7b130b"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-sucursal-dmz.json",
+      "sha256": "eff0906291781d0e674a64f83ace0970ece65c1a18674144b17c5c64a7bded82"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-comercial.json",
+      "sha256": "512ba841e34429d719a59768ee201ab45331e27276762626042c76c2266b3b41"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-comercial-corp.json",
+      "sha256": "f37baf448d25871d886f5f3252882efc36f5d22d3c316071d50ccd2267b34532"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-comercial-dc.json",
+      "sha256": "2faec84a51e0d73e256fd7be648685bd157684e1240617f18c6ba43ca8ff91bf"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-comercial-dmz.json",
+      "sha256": "77cbf807ee74c0810e04bcfde84fed3bd0ba3e23fec8bcafb743bf7bc1fe15a1"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto.json",
+      "sha256": "3b615802b742044fc06c009bfc6c045a3889845bebe536cf2c41f51d728da4f4"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto-corp.json",
+      "sha256": "32205f008e93b03417324388a745f42ff65c71492d516994a531a32f658485c5"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto-dc.json",
+      "sha256": "6922982b4f22cd40c3ac8a2a71a56c7e82e0b0fbd8efc493c8529117ba245315"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-mixto-dmz.json",
+      "sha256": "c659ae9c84a0de21a8a09bc1088683883934e8466edad66e9dd51e27df2acf13"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-reforzado.json",
+      "sha256": "98fd9a0c0261ff106aa78c216a0039ac82068bc239c9f3806c4a42592865be41"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-reforzado-corp.json",
+      "sha256": "fde726acb7087bef7558e6d3016c2dced72aeac25472aa8ac949d92a0cfb00f5"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-reforzado-dc.json",
+      "sha256": "0207693d7dbadad230f86c098bfa1dd0cc412fd92651353c2f8cee8b7513cc9b"
+    },
+    {
+      "path": "docs/verificacion-postevaluacion/aislamiento-kali-real-20261019T223639657678Z-reforzado-dmz.json",
+      "sha256": "b6c06555e1fdcee3d141de1eb9938627d4ebd726127f64f41d20274c18ee4098"
+    }
+  ],
+  "previous_container_verification": {
+    "representatives": 15,
+    "positive_tcp_passed": 25,
+    "negative_tcp_blocked": 50,
+    "receipt_index": "docs/verificacion-postevaluacion/indice-verificaciones-reales-20261019.json",
+    "scope": "Contenedores, separado de los nuevos positivos desde Kali."
+  },
+  "policy_interpretation": {
+    "allowed": "Kali hacia el servicio catalogado por el bridge correspondiente; emisor IPv6 hacia receptores dentro del datacenter.",
+    "intersegment_denial_matrix": "No se acredita una matriz L3 explícita por origen del anfitrión; las consultas de ruta no se presentan como intentos bloqueados.",
+    "controller": "OpenAI, Nmap, Hydra y HTTP se ejecutan en el anfitrión; las sondas Scapy usan Docker. El acceso legítimo del controlador a OpenAI se distingue del alcance de auditoría.",
+    "snapshot_firewall": "docs/verificacion-postevaluacion/rnf08-cortafuegos-operador-20261019_182838.json",
+    "filter_input_hook_in_supplied_snapshot": false,
+    "filter_output_hook_in_supplied_snapshot": false,
+    "forward_policy_in_supplied_snapshot": {
+      "IPv4": "drop",
+      "IPv6": "drop"
+    }
+  },
+  "limitations": [
+    "Positivos limitados a cinco endpoints TCP por banco (tres IPv4 y dos IPv6), sin payload. No es una auditoría ni la ejecución del catálogo.",
+    "Se verificaron bind, getsockname y ruta antes de connect; no se realizó captura privilegiada de paquetes.",
+    "La salida de Kali conserva rutas por eth0; no se emitieron paquetes a las direcciones de documentación de las consultas de ruta.",
+    "La captura nft fue proporcionada por el operador y no se refrescó con privilegios durante las conexiones.",
+    "Falta demostrar bloqueo real de comunicaciones no autorizadas desde las interfaces de auditoría en IPv4 e IPv6 según una política explícita."
+  ]
+}

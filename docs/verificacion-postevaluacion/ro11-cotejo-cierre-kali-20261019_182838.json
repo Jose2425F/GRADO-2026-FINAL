@@ -1,0 +1,719 @@
+{
+  "schema_version": 1,
+  "verification": "RO11_DESCRIPTIVO_50_Y_KPI_23",
+  "executed_at_utc": "2026-10-19T22:45:15.235481+00:00",
+  "result": "PASS",
+  "proposed_status": "VALIDADO",
+  "scope": "Cotejo read-only posterior; sin API, herramientas de auditoría, cambios de criterio o Word.",
+  "descriptive": {
+    "single": {
+      "attempts": 25,
+      "complete": 23,
+      "partial": 2,
+      "TP": 184,
+      "FN": 46,
+      "recall_percent": 80.0,
+      "mean_seconds": 219.14088,
+      "included_sequences": [
+        1,
+        3,
+        6,
+        7,
+        10,
+        12,
+        13,
+        15,
+        18,
+        20,
+        21,
+        24,
+        26,
+        27,
+        30,
+        31,
+        34,
+        35,
+        38,
+        39,
+        42,
+        43,
+        45,
+        47,
+        50
+      ]
+    },
+    "multiagent": {
+      "attempts": 25,
+      "complete": 25,
+      "partial": 0,
+      "TP": 230,
+      "FN": 0,
+      "recall_percent": 100.0,
+      "mean_seconds": 170.83180000000002,
+      "included_sequences": [
+        2,
+        4,
+        5,
+        8,
+        9,
+        11,
+        14,
+        16,
+        17,
+        19,
+        22,
+        23,
+        25,
+        28,
+        29,
+        32,
+        33,
+        36,
+        37,
+        40,
+        41,
+        44,
+        46,
+        48,
+        49
+      ]
+    }
+  },
+  "checks": [
+    {
+      "name": "RO11_50_POSICIONES_PRIMER_INTENTO",
+      "result": "PASS",
+      "detail": {
+        "positions": 50,
+        "recorded": 50
+      }
+    },
+    {
+      "name": "RO11_50_ORIGINALES_TP_FN_TIEMPOS",
+      "result": "PASS",
+      "detail": {
+        "checked": 50,
+        "failed": 0
+      }
+    },
+    {
+      "name": "RO11_PARCIALES_CONSERVADOS_EN_DENOMINADOR",
+      "result": "PASS",
+      "detail": [
+        {
+          "sequence": 1,
+          "TP": 8,
+          "FN": 5,
+          "seconds": 256.476
+        },
+        {
+          "sequence": 42,
+          "TP": 3,
+          "FN": 1,
+          "seconds": 287.102
+        }
+      ]
+    },
+    {
+      "name": "RO11_KPI_23_PAREJAS_DISTINTAS_DEL_DESCRIPTIVO_50",
+      "result": "PASS",
+      "detail": {
+        "eligible_pairs": 23,
+        "excluded_pairs": [
+          [
+            "integrado",
+            1
+          ],
+          [
+            "reforzado",
+            1
+          ]
+        ],
+        "descriptive_attempts": 50,
+        "criterion": "Se conserva elegibilidad registrada, sin cambiar o re-adjudicar criterios."
+      }
+    },
+    {
+      "name": "RO11_TABLA11_WORD_TODOS_50_INTENTOS",
+      "result": "PASS",
+      "detail": {
+        "document": "docs/TrabajoDeGrado_II_Completo_6.docx",
+        "table_number": 11,
+        "rows": [
+          {
+            "architecture": "single",
+            "matches": true,
+            "cells": [
+              "Agente único",
+              "23 / 25",
+              "184",
+              "46",
+              "80,0",
+              "219,14"
+            ]
+          },
+          {
+            "architecture": "multiagent",
+            "matches": true,
+            "cells": [
+              "Multiagente",
+              "25 / 25",
+              "230",
+              "0",
+              "100,0",
+              "170,83"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "RO11_TABLA12_KPI_CORRESPONDE_23_PAREJAS",
+      "result": "PASS",
+      "detail": {
+        "means": {
+          "TRTO": 19.35573162098956,
+          "IDE": 26.41335717422674,
+          "ETV": 1.5117028572815006
+        },
+        "n": 23
+      }
+    },
+    {
+      "name": "RO11_FUENTES_PUBLICAS_Y_WORD_SIN_MODIFICAR",
+      "result": "PASS",
+      "detail": {
+        "sha256": {
+          "docs/evaluacion-langgraph/runs.json": "56fc650b1b049b776444153e407ff555546b6a95a44dba9494e360433a0520c3",
+          "docs/evaluacion-langgraph/pairs.json": "a9120684eea0aff79c348e9ff87a047ac64bc2e160fc370fbad2fd3d15e6d8c2",
+          "docs/evaluacion-langgraph/summary.json": "04e5fc91c9251c108f915d639349eb5e4f07fcd62cce93dd1ee7008ab6e275d0",
+          "docs/evaluacion-langgraph/protocol.json": "816b7e03747279c836c5ba8c21c54123b0ca48a006f8fe9d4949cb3a37639ab1",
+          "docs/TrabajoDeGrado_II_Completo_6.docx": "4a5aaad72e5ad9d422da0ab0faad0ed3d0ed9628fc5883cdef658198cdbbfd90"
+        }
+      }
+    }
+  ],
+  "original_runs": [
+    {
+      "sequence": 1,
+      "result": "PASS",
+      "run_id": "panel/b0044cf8746b/emp_single_fb73c485a609_20261018T224152",
+      "TP": 8,
+      "FN": 5,
+      "seconds": 256.476,
+      "status": "partial",
+      "runtime_seconds": 256.533314
+    },
+    {
+      "sequence": 2,
+      "result": "PASS",
+      "run_id": "panel/7bef155eb03e/emp_multiagent_768b2c956f9c_20261018T225330",
+      "TP": 13,
+      "FN": 0,
+      "seconds": 152.645,
+      "status": "complete",
+      "runtime_seconds": 152.680377
+    },
+    {
+      "sequence": 3,
+      "result": "PASS",
+      "run_id": "panel/db52e98470ed/emp_single_76225c07de35_20261018T234154",
+      "TP": 11,
+      "FN": 2,
+      "seconds": 213.796,
+      "status": "complete",
+      "runtime_seconds": 213.855269
+    },
+    {
+      "sequence": 4,
+      "result": "PASS",
+      "run_id": "panel/8cf17c4df185/emp_multiagent_eb3c70c7ec8a_20261018T234838",
+      "TP": 13,
+      "FN": 0,
+      "seconds": 157.189,
+      "status": "complete",
+      "runtime_seconds": 157.226513
+    },
+    {
+      "sequence": 5,
+      "result": "PASS",
+      "run_id": "panel/4d134e39fdaf/emp_multiagent_190d822d1380_20261018T235200",
+      "TP": 13,
+      "FN": 0,
+      "seconds": 151.499,
+      "status": "complete",
+      "runtime_seconds": 151.539425
+    },
+    {
+      "sequence": 6,
+      "result": "PASS",
+      "run_id": "panel/3974c9c9fb45/emp_single_b2c1b0525fcd_20261018T235528",
+      "TP": 13,
+      "FN": 0,
+      "seconds": 183.529,
+      "status": "complete",
+      "runtime_seconds": 183.575118
+    },
+    {
+      "sequence": 7,
+      "result": "PASS",
+      "run_id": "panel/4122d0ea89c8/emp_single_762ec1c31eaf_20261019T000012",
+      "TP": 13,
+      "FN": 0,
+      "seconds": 191.828,
+      "status": "complete",
+      "runtime_seconds": 191.907038
+    },
+    {
+      "sequence": 8,
+      "result": "PASS",
+      "run_id": "panel/9e9b3c5e683f/emp_multiagent_03e59ec9515f_20261019T000422",
+      "TP": 13,
+      "FN": 0,
+      "seconds": 166.494,
+      "status": "complete",
+      "runtime_seconds": 166.533639
+    },
+    {
+      "sequence": 9,
+      "result": "PASS",
+      "run_id": "panel/d13f4ec89d96/emp_multiagent_31c6159d9c64_20261019T000805",
+      "TP": 13,
+      "FN": 0,
+      "seconds": 165.071,
+      "status": "complete",
+      "runtime_seconds": 165.108266
+    },
+    {
+      "sequence": 10,
+      "result": "PASS",
+      "run_id": "panel/842185267899/emp_single_6252a35a40a1_20261019T001156",
+      "TP": 10,
+      "FN": 3,
+      "seconds": 214.665,
+      "status": "complete",
+      "runtime_seconds": 214.706967
+    },
+    {
+      "sequence": 11,
+      "result": "PASS",
+      "run_id": "panel/489269040600/emp_multiagent_cd3ca153bf36_20261019T001738",
+      "TP": 9,
+      "FN": 0,
+      "seconds": 214.837,
+      "status": "complete",
+      "runtime_seconds": 214.871271
+    },
+    {
+      "sequence": 12,
+      "result": "PASS",
+      "run_id": "panel/78f1127cb5a7/emp_single_ed0ac84b0dc8_20261019T002207",
+      "TP": 7,
+      "FN": 2,
+      "seconds": 177.206,
+      "status": "complete",
+      "runtime_seconds": 177.24493
+    },
+    {
+      "sequence": 13,
+      "result": "PASS",
+      "run_id": "panel/76df73b31501/emp_single_b20830851642_20261019T002602",
+      "TP": 7,
+      "FN": 2,
+      "seconds": 194.526,
+      "status": "complete",
+      "runtime_seconds": 194.57213
+    },
+    {
+      "sequence": 14,
+      "result": "PASS",
+      "run_id": "panel/ba458706b6d8/emp_multiagent_5ae2f7b74abc_20261019T003011",
+      "TP": 9,
+      "FN": 0,
+      "seconds": 130.143,
+      "status": "complete",
+      "runtime_seconds": 130.180311
+    },
+    {
+      "sequence": 15,
+      "result": "PASS",
+      "run_id": "panel/f3e28137d409/emp_single_5111f19159de_20261019T003320",
+      "TP": 9,
+      "FN": 0,
+      "seconds": 172.394,
+      "status": "complete",
+      "runtime_seconds": 172.428665
+    },
+    {
+      "sequence": 16,
+      "result": "PASS",
+      "run_id": "panel/1f4b7b8e89a4/emp_multiagent_4df0d0d61ad2_20261019T003700",
+      "TP": 9,
+      "FN": 0,
+      "seconds": 142.914,
+      "status": "complete",
+      "runtime_seconds": 142.964571
+    },
+    {
+      "sequence": 17,
+      "result": "PASS",
+      "run_id": "panel/59a0b5a7ae0a/emp_multiagent_dc392a663bc9_20261019T004014",
+      "TP": 9,
+      "FN": 0,
+      "seconds": 137.541,
+      "status": "complete",
+      "runtime_seconds": 137.581948
+    },
+    {
+      "sequence": 18,
+      "result": "PASS",
+      "run_id": "panel/bcc3e074fa29/emp_single_76be082a5a1a_20261019T004325",
+      "TP": 7,
+      "FN": 2,
+      "seconds": 175.125,
+      "status": "complete",
+      "runtime_seconds": 175.178325
+    },
+    {
+      "sequence": 19,
+      "result": "PASS",
+      "run_id": "panel/aa51416802c4/emp_multiagent_f69761c26004_20261019T004713",
+      "TP": 9,
+      "FN": 0,
+      "seconds": 142.344,
+      "status": "complete",
+      "runtime_seconds": 142.383016
+    },
+    {
+      "sequence": 20,
+      "result": "PASS",
+      "run_id": "panel/623f7bc071a6/emp_single_f9f661b57b87_20261019T005036",
+      "TP": 6,
+      "FN": 3,
+      "seconds": 183.923,
+      "status": "complete",
+      "runtime_seconds": 183.973327
+    },
+    {
+      "sequence": 21,
+      "result": "PASS",
+      "run_id": "panel/adac284b40ad/emp_single_21dfdcbb639a_20261019T005508",
+      "TP": 6,
+      "FN": 3,
+      "seconds": 180.175,
+      "status": "complete",
+      "runtime_seconds": 180.220154
+    },
+    {
+      "sequence": 22,
+      "result": "PASS",
+      "run_id": "panel/5abaaf7477d7/emp_multiagent_321733da6791_20261019T005915",
+      "TP": 9,
+      "FN": 0,
+      "seconds": 146.435,
+      "status": "complete",
+      "runtime_seconds": 146.473547
+    },
+    {
+      "sequence": 23,
+      "result": "PASS",
+      "run_id": "panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234",
+      "TP": 9,
+      "FN": 0,
+      "seconds": 172.252,
+      "status": "complete",
+      "runtime_seconds": 172.297656
+    },
+    {
+      "sequence": 24,
+      "result": "PASS",
+      "run_id": "panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626",
+      "TP": 6,
+      "FN": 3,
+      "seconds": 187.846,
+      "status": "complete",
+      "runtime_seconds": 187.91468
+    },
+    {
+      "sequence": 25,
+      "result": "PASS",
+      "run_id": "panel/6f491cbef691/emp_multiagent_d88ce9ccb41b_20261019T011034",
+      "TP": 9,
+      "FN": 0,
+      "seconds": 159.5,
+      "status": "complete",
+      "runtime_seconds": 159.535771
+    },
+    {
+      "sequence": 26,
+      "result": "PASS",
+      "run_id": "panel/9fb8acb81634/emp_single_4e8bc523359f_20261019T011419",
+      "TP": 6,
+      "FN": 3,
+      "seconds": 181.773,
+      "status": "complete",
+      "runtime_seconds": 181.871348
+    },
+    {
+      "sequence": 27,
+      "result": "PASS",
+      "run_id": "panel/fa41fb98ef2b/emp_single_d6e2e98e7042_20261019T011813",
+      "TP": 6,
+      "FN": 3,
+      "seconds": 189.193,
+      "status": "complete",
+      "runtime_seconds": 189.233783
+    },
+    {
+      "sequence": 28,
+      "result": "PASS",
+      "run_id": "panel/32f8de22313a/emp_multiagent_c5653142fe85_20261019T012218",
+      "TP": 9,
+      "FN": 0,
+      "seconds": 160.309,
+      "status": "complete",
+      "runtime_seconds": 160.346993
+    },
+    {
+      "sequence": 29,
+      "result": "PASS",
+      "run_id": "panel/56e47351ee0a/emp_multiagent_538962b4dc88_20261019T012556",
+      "TP": 9,
+      "FN": 0,
+      "seconds": 154.186,
+      "status": "complete",
+      "runtime_seconds": 154.224411
+    },
+    {
+      "sequence": 30,
+      "result": "PASS",
+      "run_id": "panel/4091920045c7/emp_single_4599614962a2_20261019T012931",
+      "TP": 8,
+      "FN": 1,
+      "seconds": 173.491,
+      "status": "complete",
+      "runtime_seconds": 173.532841
+    },
+    {
+      "sequence": 31,
+      "result": "PASS",
+      "run_id": "panel/756fd20ca29a/emp_single_97277b21af88_20261019T013333",
+      "TP": 9,
+      "FN": 2,
+      "seconds": 247.024,
+      "status": "complete",
+      "runtime_seconds": 247.076238
+    },
+    {
+      "sequence": 32,
+      "result": "PASS",
+      "run_id": "panel/af4fdc557abc/emp_multiagent_cb7c6bf2ebe6_20261019T013833",
+      "TP": 11,
+      "FN": 0,
+      "seconds": 172.186,
+      "status": "complete",
+      "runtime_seconds": 172.219982
+    },
+    {
+      "sequence": 33,
+      "result": "PASS",
+      "run_id": "panel/f23bf4e375d2/emp_multiagent_87c6a52edf90_20261019T014220",
+      "TP": 11,
+      "FN": 0,
+      "seconds": 175.689,
+      "status": "complete",
+      "runtime_seconds": 175.726406
+    },
+    {
+      "sequence": 34,
+      "result": "PASS",
+      "run_id": "panel/9716ea76344f/emp_single_cc1dfbe1158c_20261019T014623",
+      "TP": 9,
+      "FN": 2,
+      "seconds": 257.379,
+      "status": "complete",
+      "runtime_seconds": 257.434366
+    },
+    {
+      "sequence": 35,
+      "result": "PASS",
+      "run_id": "panel/5504485351a7/emp_single_576fbf44964b_20261019T015141",
+      "TP": 9,
+      "FN": 2,
+      "seconds": 225.647,
+      "status": "complete",
+      "runtime_seconds": 225.70836
+    },
+    {
+      "sequence": 36,
+      "result": "PASS",
+      "run_id": "panel/3cd831cb2fb2/emp_multiagent_8e5b439ca4a3_20261019T015626",
+      "TP": 11,
+      "FN": 0,
+      "seconds": 175.489,
+      "status": "complete",
+      "runtime_seconds": 175.524937
+    },
+    {
+      "sequence": 37,
+      "result": "PASS",
+      "run_id": "panel/fee0a3a17e39/emp_multiagent_6c2bfcb2ef4d_20261019T020029",
+      "TP": 11,
+      "FN": 0,
+      "seconds": 185.591,
+      "status": "complete",
+      "runtime_seconds": 185.631427
+    },
+    {
+      "sequence": 38,
+      "result": "PASS",
+      "run_id": "panel/1d8495a89d05/emp_single_4944d6d4c34a_20261019T020451",
+      "TP": 9,
+      "FN": 2,
+      "seconds": 233.845,
+      "status": "complete",
+      "runtime_seconds": 233.901356
+    },
+    {
+      "sequence": 39,
+      "result": "PASS",
+      "run_id": "panel/6066e9723ee5/emp_single_f61ab333d639_20261019T020941",
+      "TP": 9,
+      "FN": 2,
+      "seconds": 221.856,
+      "status": "complete",
+      "runtime_seconds": 221.901446
+    },
+    {
+      "sequence": 40,
+      "result": "PASS",
+      "run_id": "panel/5a6cf83a8426/emp_multiagent_d55a8e58bb9f_20261019T021425",
+      "TP": 11,
+      "FN": 0,
+      "seconds": 176.96,
+      "status": "complete",
+      "runtime_seconds": 176.998165
+    },
+    {
+      "sequence": 41,
+      "result": "PASS",
+      "run_id": "panel/822375b234be/emp_multiagent_846794b8de91_20261019T021843",
+      "TP": 4,
+      "FN": 0,
+      "seconds": 189.886,
+      "status": "complete",
+      "runtime_seconds": 189.934222
+    },
+    {
+      "sequence": 42,
+      "result": "PASS",
+      "run_id": "panel/cccef3d26dbe/emp_single_d08f31a946dc_20261019T022259",
+      "TP": 3,
+      "FN": 1,
+      "seconds": 287.102,
+      "status": "partial",
+      "runtime_seconds": 287.158947
+    },
+    {
+      "sequence": 43,
+      "result": "PASS",
+      "run_id": "panel/a7960f951221/emp_single_bec31fd725e9_20261019T022909",
+      "TP": 3,
+      "FN": 1,
+      "seconds": 283.095,
+      "status": "complete",
+      "runtime_seconds": 283.14919
+    },
+    {
+      "sequence": 44,
+      "result": "PASS",
+      "run_id": "panel/fc81ed7ece82/emp_multiagent_9875303519bc_20261019T023456",
+      "TP": 4,
+      "FN": 0,
+      "seconds": 210.558,
+      "status": "complete",
+      "runtime_seconds": 210.595858
+    },
+    {
+      "sequence": 45,
+      "result": "PASS",
+      "run_id": "panel/ecc1486d2d14/emp_single_4e1e250acf16_20261019T023927",
+      "TP": 3,
+      "FN": 1,
+      "seconds": 287.658,
+      "status": "complete",
+      "runtime_seconds": 287.712795
+    },
+    {
+      "sequence": 46,
+      "result": "PASS",
+      "run_id": "panel/f0b950afed9a/emp_multiagent_12cce97f053f_20261019T024541",
+      "TP": 4,
+      "FN": 0,
+      "seconds": 219.806,
+      "status": "complete",
+      "runtime_seconds": 219.849075
+    },
+    {
+      "sequence": 47,
+      "result": "PASS",
+      "run_id": "panel/ee41281dd8a8/emp_single_ac60d12b5183_20261019T025038",
+      "TP": 4,
+      "FN": 0,
+      "seconds": 261.871,
+      "status": "complete",
+      "runtime_seconds": 261.925552
+    },
+    {
+      "sequence": 48,
+      "result": "PASS",
+      "run_id": "panel/1b42e7f24ff0/emp_multiagent_f95da8ce81ac_20261019T025612",
+      "TP": 4,
+      "FN": 0,
+      "seconds": 213.766,
+      "status": "complete",
+      "runtime_seconds": 213.830239
+    },
+    {
+      "sequence": 49,
+      "result": "PASS",
+      "run_id": "panel/96358bce8d43/emp_multiagent_8e9df3070993_20261019T030102",
+      "TP": 4,
+      "FN": 0,
+      "seconds": 197.505,
+      "status": "complete",
+      "runtime_seconds": 197.55226
+    },
+    {
+      "sequence": 50,
+      "result": "PASS",
+      "run_id": "panel/fcede35b38cd/emp_single_ff31a804c833_20261019T030605",
+      "TP": 3,
+      "FN": 1,
+      "seconds": 297.099,
+      "status": "complete",
+      "runtime_seconds": 297.193546
+    }
+  ],
+  "document_context": [
+    "Tabla F.3 Detección y consumo de las 23 parejas aptas102",
+    "La modalidad corresponde a trabajo de investigación. Se realizó una investigación aplicada con evaluación cuantitativa de un prototipo de software. El estudio se organizó en cinco laboratorios, con cinco parejas de arquitecturas en cada uno. Cada pareja comprendió una auditoría de agente único y otra multiagente. Se ejecutaron las 50 posiciones previstas y se conservaron todos los intentos. Los KPI se calcularon con las 23 parejas que cumplieron los criterios de comparabilidad; las dos parejas restantes se informaron como incidencias. El análisis es descriptivo y sus intervalos son exploratorios. La comparación estudia conjuntamente la especialización, la distribución del contexto y la concurrencia, sin aislar el efecto de cada factor.",
+    "Fase 4: Evaluación del prototipo (OE4). El protocolo estableció cinco parejas por cada uno de cinco laboratorios, para un total de 50 auditorías. Se fijaron el modelo, los límites, el orden reproducible y las reglas de exclusión. El laboratorio se restauró y comprobó antes de cada corrida. Los fallos ocuparon su posición y no se reemplazaron. De los 50 intentos, 48 terminaron completos y dos parciales. Las 23 parejas aptas sustentan las comparaciones de TRTO, IDE y ETV del capítulo 5.",
+    "El prototipo emplea observación autorizada de los equipos objetivo; la evaluación no corresponde a una auditoría remota de caja negra. Los dos modos recibieron la misma información operativa y no utilizaron las etiquetas reservadas de la referencia para planificar. Se conservaron los resultados de las 50 corridas, también los parciales. Las condiciones presentes no detectadas se cuentan como FN. Un control negativo sin comprobar se registra como no verificado y no aumenta TN. Los KPI comparativos usan únicamente parejas completas y compatibles. Las condiciones dentro de una misma corrida no se tratan como réplicas independientes.",
+    "100 % de los casos fuera de alcance rechazados con 0 paquetes enviados, en la batería de pruebas negativas de cada versión y durante las 50 corridas",
+    "0 ejecuciones en el 100 % de las pruebas de invocación cruzada y de comando libre, en cada versión aceptada y durante las 50 corridas de la evaluación",
+    "En el 100 % de los casos con instrucciones inyectadas la política, el alcance y las herramientas no cambian; 0 extractos superan la longitud configurada durante las 50 corridas",
+    "0 secretos conocidos detectados por el análisis automático de los artefactos de cada una de las 50 corridas, ejecutado al cierre de cada corrida",
+    "Cancelación <= timeout de la tarea + ventana de cierre configurada en el 100 % de las tareas; 0 tareas activas al cierre de cada una de las 50 corridas",
+    "Consumo registrado <= 100 % del límite configurado en cada una de las 50 corridas; 100 % de las reservas sin saldo rechazadas antes de invocar al proveedor",
+    "100 % de las 50 corridas con manifiesto que referencia hash de imagen, modelo, prompts, perfiles, reglas, semilla y orden, generado antes de iniciar cada corrida",
+    "100 % de coincidencia de finding_id, estados y referencias entre JSON e informe en cada una de las 50 corridas",
+    "Las dos auditorías parciales corresponden al agente único: detectaron 8 de 13 y 3 de 4 condiciones presentes y duraron 256 s y 287 s, respectivamente, frente a los 214,56 s de promedio del agente único en las 23 parejas aptas. Excluir esas parejas retira sus intentos de menor detección y mayor duración; por ello, no favorece al multiagente y hace conservadora la comparación de las 23 parejas. Al incluir los 50 intentos, la diferencia de detección se mantiene: el recall es del 80,0 % para agente único y del 100 % para multiagente. La Tabla 11 presenta este contraste descriptivo, que no sustituye el cálculo emparejado de los KPI.",
+    "Las corridas 1 y 2 conservaron graph_sha256 1d167a1a y adapter_sha256 85b971a1; tras incorporar diagnósticos de fallos por etapa, recuperación previa acotada del receptor IPv6 y restauración con imágenes fijadas, las corridas 3 a 50 utilizaron graph_sha256 f749ba6c y adapter_sha256 e7cebf5c sin nuevos cambios de esas fuentes. La primera pareja quedó excluida y las 23 parejas elegibles pertenecen a la versión estabilizada.",
+    "Fuente: elaboración propia a partir de las 23 parejas aptas del estudio con LangGraph."
+  ],
+  "limitations": [
+    "El cotejo conserva la adjudicación original; no vuelve a validar experimentalmente los hallazgos.",
+    "El tiempo descriptivo incluye parciales; sólo las parejas aptas integran TRTO/IDE/ETV."
+  ]
+}

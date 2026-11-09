@@ -1,0 +1,33 @@
+{
+  "type": "post_evaluation_passive_firewall_configuration_review",
+  "created_at": "2026-10-19T22:32:43.230222+00:00",
+  "source": "docs/verificacion-postevaluacion/rnf08-cortafuegos-operador-20261019_182838.json",
+  "source_sha256": "8e389855165a6c321b14758c11e34d8ca03861c80c563af952f8df33e7790600",
+  "source_origin": "Volcado sudo nft -j list ruleset proporcionado por el operador; no es una captura de tráfico ni una consulta privilegiada automatizada del verificador.",
+  "observations": {
+    "tables": 4,
+    "chains": 21,
+    "rules": 130,
+    "forward_default_policy": {
+      "ip": "drop",
+      "ip6": "drop"
+    },
+    "filter_output_hooks": 0,
+    "docker_user_rules": 0,
+    "counters": 130,
+    "nonzero_counters": 0
+  },
+  "requirement": "RNF-08",
+  "requirement_status": "PARCIAL",
+  "result": "NO VERIFICADO",
+  "limitations": [
+    "La política FORWARD observada controla reenvío; no acredita el filtrado de conexiones originadas por Kali.",
+    "Existen DROP de Docker-INTERNAL y ACCEPT dentro del mismo bridge; no se infiere una prohibición general de toda comunicación autorizada.",
+    "No se muestra filtro OUTPUT; la autorización del controlador hacia OpenAI y el alcance de auditoría se evalúan por separado.",
+    "Todos los contadores observados son cero; no demuestran conexiones permitidas ni bloqueadas.",
+    "Seis expresiones xt no muestran todos sus argumentos. No se acredita persistencia ni otros espacios de red."
+  ],
+  "api_calls": 0,
+  "audit_runs": 0,
+  "network_probes": 0
+}

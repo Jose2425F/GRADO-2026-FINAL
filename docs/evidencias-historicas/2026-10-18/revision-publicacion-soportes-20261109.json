@@ -1,0 +1,42 @@
+{
+  "type": "revision_de_hallazgos_previos_a_publicacion",
+  "date_utc": "2026-11-09",
+  "automated_receipt": "revision-publicacion-soportes-automatica-20261109.json",
+  "automated_receipt_sha256": "735b9b978143a2c4de6b839a2aee02fc6c1df9692e314ec1e6467eb1b7c97844",
+  "support_files_scanned": 636,
+  "nonsecret_findings_reviewed": [
+    {
+      "path": "piloto_kali/prototipo/corridas/acceptance_five/20261018T231543_aa76a0e0/reforzado/slot.json",
+      "field": "options.authorization",
+      "classification": "identificador público del alcance de laboratorio, no una credencial",
+      "source": "scripts/aceptar_laboratorios.py, función acceptance_options"
+    },
+    {
+      "path": "piloto_kali/prototipo/corridas/acceptance_five/20261018T231543_aa76a0e0/integrado/slot.json",
+      "field": "options.authorization",
+      "classification": "identificador público del alcance de laboratorio, no una credencial",
+      "source": "scripts/aceptar_laboratorios.py, función acceptance_options"
+    },
+    {
+      "path": "piloto_kali/prototipo/corridas/acceptance_five/20261018T231543_aa76a0e0/mixto/slot.json",
+      "field": "options.authorization",
+      "classification": "identificador público del alcance de laboratorio, no una credencial",
+      "source": "scripts/aceptar_laboratorios.py, función acceptance_options"
+    },
+    {
+      "path": "piloto_kali/prototipo/corridas/acceptance_five/20261018T231543_aa76a0e0/comercial/slot.json",
+      "field": "options.authorization",
+      "classification": "identificador público del alcance de laboratorio, no una credencial",
+      "source": "scripts/aceptar_laboratorios.py, función acceptance_options"
+    },
+    {
+      "path": "piloto_kali/prototipo/corridas/acceptance_five/20261018T231543_aa76a0e0/sucursal/slot.json",
+      "field": "options.authorization",
+      "classification": "identificador público del alcance de laboratorio, no una credencial",
+      "source": "scripts/aceptar_laboratorios.py, función acceptance_options"
+    }
+  ],
+  "unresolved_findings": [],
+  "passed": true,
+  "scope": "No se alteran los originales. Las cinco marcas corresponden al identificador LAB-PROPIO del código de aceptación."
+}

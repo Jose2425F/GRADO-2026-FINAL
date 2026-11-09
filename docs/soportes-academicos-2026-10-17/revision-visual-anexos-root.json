@@ -1,0 +1,91 @@
+{
+  "fecha_utc": "2026-10-18T03:42:09.785600+00:00",
+  "revisor": "root",
+  "render": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/piloto_kali/prototipo/.verificacion/soportes-academicos-20261018T033005Z/anexos-1",
+  "sha256_pdf_render": "b334081e54db00fcb44bd77cf7871e04f3ea3a05cd76d2de1b8c4e6cd1b4234f",
+  "estado": "APROBADA_EN_AMBITO_CON_LIMITACION_HISTORICA_DECLARADA",
+  "alcance": [
+    5,
+    10,
+    11,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "paginas": [
+    {
+      "pagina": 5,
+      "sha256_png": "ca03ce01e078c9b0e4de70b0e95551a4d42222f956f73beb210557bc0f65d048",
+      "metodo": "Inspección individual original con view_image",
+      "aprobada": true
+    },
+    {
+      "pagina": 10,
+      "sha256_png": "fc81d568b211df7a825ddb948d18cde8b5442447f70b3b0231a2c2d8724a3a68",
+      "metodo": "Inspección individual original con view_image",
+      "aprobada": true
+    },
+    {
+      "pagina": 11,
+      "sha256_png": "b3320392fec6b3ad1be32d5104f1d1c4882f3fe1e9980be88962c1ffaf7e05ba",
+      "metodo": "Inspección individual original con view_image",
+      "aprobada": true
+    },
+    {
+      "pagina": 15,
+      "sha256_png": "2e45946a1bb572eb49ae9e1ca9439d2acec076459ec2cdfcfe2dac892f51e424",
+      "metodo": "Inspección individual original con view_image",
+      "aprobada": true
+    },
+    {
+      "pagina": 16,
+      "sha256_png": "b0f26ce90b58938a9fabb1c1dfc6cf0751b6bb7f7e1803f456eb8b3726cbfd31",
+      "metodo": "Inspección individual original con view_image",
+      "aprobada": true
+    },
+    {
+      "pagina": 17,
+      "sha256_png": "6d40a8b6ddf0579c53d6cc95be157eb60e462e74b5aae7590b150b10a6cd5122",
+      "metodo": "Inspección individual original con view_image",
+      "aprobada": true
+    },
+    {
+      "pagina": 18,
+      "sha256_png": "9e746d2aad49c4069ae197b42d02ca4e56a4ea63059127654c03bddd7a137e9e",
+      "metodo": "Inspección individual original con view_image",
+      "aprobada": true
+    },
+    {
+      "pagina": 19,
+      "sha256_png": "9b2900141272e85b5dda7a9e6110c9adbba19fcd3fb60074cba77b6f154f78a5",
+      "metodo": "Inspección individual original con view_image",
+      "aprobada": true
+    },
+    {
+      "pagina": 20,
+      "sha256_png": "3df2cb74113871d7d3d11138138f5fa1981fa41fb60c6dcf05e163a7173dca21",
+      "metodo": "Inspección individual original con view_image",
+      "aprobada": true
+    },
+    {
+      "pagina": 21,
+      "sha256_png": "68f920c7e7897fcc84db82f32cb514d85366d39848b9decdd29e75ff13d65af5",
+      "metodo": "Inspección individual original con view_image",
+      "aprobada": true
+    }
+  ],
+  "observaciones": [
+    "B.1 reconoce la matriz recuperada y sus discrepancias con la lectura corregida de antecedentes.",
+    "E.1 conserva el facsímil previo de detalle limitado; la nota distingue fechas de la hoja recuperada y estados por fecha de los resultados reales.",
+    "F reconoce original recuperado, cero fórmulas y discrepancias de subtotales.",
+    "H añade soporte ASR y localizador del registro; tablas y continuaciones legibles sin recortes."
+  ],
+  "limites": [
+    "El facsímil de cronograma sigue con detalle pequeño; no se certifica su lectura completa.",
+    "Este recibo cubre solo el bloque indicado, pendiente de consolidar con las restantes páginas nuevas e idénticas."
+  ]
+}

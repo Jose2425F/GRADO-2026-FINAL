@@ -1,0 +1,42 @@
+{
+  "analysis": {
+    "ETV_ratio": {
+      "max": 1.9177487007235843,
+      "mean": 1.5117028572815006,
+      "min": 0.9432847577786531,
+      "n": 23,
+      "stddev": 0.24376210462322856
+    },
+    "IDE_percent": {
+      "max": 50.0,
+      "mean": 26.41335717422674,
+      "min": 0.0,
+      "n": 23,
+      "stddev": 16.640547663805705
+    },
+    "TRTO_percent": {
+      "max": 33.52215928023992,
+      "mean": 19.35573162098956,
+      "min": -21.235736938929833,
+      "n": 23,
+      "stddev": 11.206309117768885
+    },
+    "token_reduction_percent": {
+      "max": 30.47403276402928,
+      "mean": 15.49753571554302,
+      "min": -6.012526096033403,
+      "n": 23,
+      "stddev": 9.214281270006575
+    }
+  },
+  "eligible_pairs": 23,
+  "extra_attempts": 0,
+  "not_started_runs": 0,
+  "note": "Resultados descriptivos por laboratorio; el agregado no demuestra causalidad. IDE o ETV son indefinidos cuando su denominador es cero.",
+  "planned_pairs": 25,
+  "planned_runs": 50,
+  "protocol_sha256": "34e4066e28895a08d43438ec97f5fe20397e6800287251da165b9debe604e4ef",
+  "recorded_runs": 50,
+  "schema_version": 1,
+  "verification_scope": "Integridad y recálculo de datos públicos; no reproduce herramientas ni vuelve a adjudicar evidencia o texto del proveedor."
+}

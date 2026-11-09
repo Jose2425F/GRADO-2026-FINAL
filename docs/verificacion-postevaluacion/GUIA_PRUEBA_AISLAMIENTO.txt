@@ -1,0 +1,72 @@
+COMPROBACIÓN NEGATIVA DE AISLAMIENTO RNF-08 — EJECUTA EL OPERADOR
+
+Estado preparado: 44 pruebas unitarias con dobles aprobadas. No se ha ejecutado
+Docker, laboratorio ni API para esta comprobación. Los cinco archivos
+*-plan-final.json indican not_executed; NO son evidencia de aislamiento aprobado.
+RNF-08 sigue PARCIAL hasta recibir los recibos reales.
+
+1. Abrir una terminal y situarse en la raíz:
+cd '/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026'
+nf_python=piloto_kali/prototipo/.venv/bin/python
+
+2. Autorizar localmente nsenter (puede pedir la contraseña de Kali):
+sudo -v
+
+El comprobador usa sudo -n para no quedar esperando una contraseña. Si esta
+credencial caduca, genera parcial por fallo del comando; repetir sudo -v y usar
+un nombre NUEVO de recibo. No necesita ninguna clave de API.
+
+3. Original, cuando no haya una auditoría ni otro banco ejecutándose:
+"$nf_python" scripts/laboratorio_empresa.py restaurar
+"$nf_python" scripts/laboratorio_empresa.py estado
+
+Solo si estado indica que el banco está listo:
+"$nf_python" scripts/tesis/verificar_aislamiento.py --lab original --ejecutar --autorizacion LAB-PROPIO --output docs/verificacion-postevaluacion/aislamiento-original-ejecucion-1.json
+
+Después de conservar el recibo:
+"$nf_python" scripts/laboratorio_empresa.py bajar
+
+4. Para las otras cuatro variantes, escoger UNA por turno. Los identificadores
+son sucursal, comercial, mixto y reforzado. Ejemplo Sucursal:
+"$nf_python" scripts/laboratorio_suite.py levantar --lab sucursal
+"$nf_python" scripts/laboratorio_suite.py estado --lab sucursal
+"$nf_python" scripts/tesis/verificar_aislamiento.py --lab sucursal --ejecutar --autorizacion LAB-PROPIO --output docs/verificacion-postevaluacion/aislamiento-sucursal-ejecucion-1.json
+"$nf_python" scripts/laboratorio_suite.py bajar --lab sucursal
+
+Repetir los cuatro comandos cambiando sucursal por comercial, después mixto y
+después reforzado (incluido el nombre del archivo JSON). Detenerse si levantar o
+estado falla; no tomar un banco apagado como prueba de aislamiento.
+
+5. Interpretación:
+- passed y código de salida 0: los tres segmentos y TODOS sus contenedores
+  pasaron. El JSON contiene inspecciones, interfaces activas, direcciones
+  esperadas, rutas conectadas, reglas de ruta y las cuatro sondas externas por
+  contenedor. Las sondas son TCP/443 a direcciones de documentación, sin DNS,
+  HTTP ni autenticación. No se realizan auditorías ni se consumen posiciones.
+- partial y código 2: no se pudo acreditar todo; conservar el recibo. Puede
+  deberse a un plazo, falta de permisos/herramientas, banco cambiado o control
+  local de interfaz/dirección/ruta incompleto. No equivale a aprobado.
+- failed y código 2: se observó una ruta/salida externa, respuesta TCP o
+  configuración/identidad no permitida. Conservar el recibo y revisar antes
+  de continuar. Un puerto rechazado demuestra alcance, no aislamiento.
+- not_executed: solo se creó un plan. Nunca equivale a pasado.
+
+Las salidas existentes no se sobrescriben; para un nuevo intento usar, por
+  ejemplo, ejecucion-2.json. Conservar intentos fallidos y parciales.
+
+Presupuesto máximo de cada comprobación: 240 s globales compartidos por TODOS
+los comandos; cada comando tiene además su límite propio. Un timeout nunca
+produce passed. Docker debe ser local en /var/run/docker.sock; no se admiten
+contextos remotos ni rootless porque nsenter trabaja en el anfitrión local.
+No se comprueba el bloqueo de Internet en el propio Kali, que necesita acceder
+al proveedor de IA. El resultado solo acredita las rutas/configuración probadas
+de ese laboratorio en ese instante.
+
+Plan de cobertura (intentos TCP previstos, no ejecutados aún):
+Original: 12 contenedores / 48 intentos.
+Sucursal: 8 / 32.
+Comercial: 10 / 40.
+Mixto: 12 / 48.
+Reforzado: 14 / 56.
+
+Al terminar, entregar los cinco JSON reales, incluidos los intentos fallidos o parciales. RNF-08 solo se revisará con esa evidencia; las pruebas unitarias no sustituyen la comprobación del laboratorio.

@@ -1,0 +1,105 @@
+{
+  "fecha_utc": "2026-10-18T03:45:45.026530+00:00",
+  "estado": "APROBADA",
+  "metodo": "Cotejo independiente de hashes, preservación, páginas y recibos; no es una nueva ejecución del prototipo.",
+  "controles": [
+    {
+      "control": "Maestro final íntegro TrabajoDeGrado_II_Completo.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Maestro final íntegro TrabajoDeGrado_II_Completo.pdf",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Maestro final íntegro TrabajoDeGrado_II_Anexos.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Maestro final íntegro TrabajoDeGrado_II_Anexos.pdf",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Original y copia privada intactos Cronograma_Gantt_TG2026.xlsx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Original y copia privada intactos Matriz_ASR_UtilityTree_UCatolica.xlsx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Original y copia privada intactos Matriz_Comparativa_TG2026.xlsx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Original y copia privada intactos Presupuesto_TG2026.xlsx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "31 respaldos previos íntegros",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Entradas editoriales y código coinciden con construcción",
+      "aprobado": true,
+      "detalle": 11
+    },
+    {
+      "control": "Evidencia experimental intacta docs/cierre-final-2026-10-17/evidencias/inventario.json",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Evidencia experimental intacta docs/cierre-final-2026-10-17/evidencias/trazabilidad.csv",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Evidencia experimental intacta docs/cierre-final-2026-10-17/resumen-academico.json",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Original académico íntegro TrabajoDeGrado_II_Base.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Original académico íntegro TrabajoDeGrado_II_.docx",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Paginación73/64 conservada",
+      "aprobado": true,
+      "detalle": {
+        "TrabajoDeGrado_II_Completo.pdf": 73,
+        "TrabajoDeGrado_II_Anexos.pdf": 64
+      }
+    },
+    {
+      "control": "178 controles documentales aprobados",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Cobertura visual137/137",
+      "aprobado": true,
+      "detalle": null
+    },
+    {
+      "control": "Enlaces locales de cinco guías válidos",
+      "aprobado": true,
+      "detalle": []
+    }
+  ]
+}

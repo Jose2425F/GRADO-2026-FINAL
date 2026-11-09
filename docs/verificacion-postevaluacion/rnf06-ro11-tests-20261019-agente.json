@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "verification": "RNF06_RO11_UNIT_NEGATIVE_TESTS",
+  "executed_at_utc": "2026-10-19T07:56:24.708192+00:00",
+  "result": "PASS",
+  "tests": 6,
+  "cases": [
+    {
+      "name": "test_ro11_partial_fn_and_time_stay_in_descriptive_denominator",
+      "result": "PASS"
+    },
+    {
+      "name": "test_ro11_rejects_table_that_silently_excludes_partial",
+      "result": "PASS"
+    },
+    {
+      "name": "test_ro11_accepts_table_with_all_initiated_attempts",
+      "result": "PASS"
+    },
+    {
+      "name": "test_rnf06_effective_capabilities_zero_is_distinct_from_inheritable",
+      "result": "PASS"
+    },
+    {
+      "name": "test_rnf06_docker_projection_excludes_secrets_and_never_executes",
+      "result": "PASS"
+    },
+    {
+      "name": "test_rnf06_missing_process_does_not_fabricate_effective_capabilities",
+      "result": "PASS"
+    }
+  ],
+  "junit": "docs/verificacion-postevaluacion/rnf06-ro11-tests-20261019-agente.xml",
+  "warning": "pytest: opción asyncio_mode desconocida en entorno observado; 6 pruebas ejecutadas y aprobadas."
+}

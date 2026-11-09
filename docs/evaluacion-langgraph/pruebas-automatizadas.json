@@ -1,0 +1,20 @@
+{
+  "type": "automated_code_verification_without_api",
+  "passed": 488,
+  "skipped": 2,
+  "subtests_passed": 59,
+  "new_paid_api_runs": 0,
+  "sha256": {
+    "scripts/tesis/orquestacion_langgraph.py": "f749ba6c91f1537a0e38b2f8672a9d1c2447ae2fdf8d9c41353d6515f7422e55",
+    "scripts/tesis/protocolo_ipv6.py": "e07f03a4394b41fcea6a0b9e8b3f32c50863fa0cb7474885f0e86e3960ff3f7b",
+    "scripts/tesis/restauracion_banco.py": "5886d8bf7065ba30416af8c200e1352f1ac3acfb5004c7c89b8478be3e386c14",
+    "scripts/tesis/presupuesto_deteccion.py": "3a82e358622973dc9e11f779d4f0534280fb11997514d7d2116e17f9d5953bb7",
+    "scripts/tesis/evaluacion_manual.py": "d14a356e798a1a71e06fbfe02946ebc3d219582edfe8615b6b00497cc5a9f99b",
+    "scripts/panel_metricas.py": "ad8e655a7d698d167624726fa4c1e83aed274cb230ee913750a85d9b0af35db0",
+    "scripts/panel_observabilidad.py": "1f33576f4933c6438091074ea435c4c26f6c08f1ad60b2f9c01b755612436897",
+    "scripts/laboratorio_empresa.py": "e7cebf5cd1564b3cef04bdad7eb12aee16fd29cbb92896daeebc54776ad42a89",
+    "scripts/aceptar_laboratorios.py": "7c51fa29ee53c4841d9933b889c0d82fcdf2057ff20d611af51e58a25824ede8",
+    "scripts/dualstack_panel.py": "028da71b6861ebedff04443cb2bb659d4216ce47797919a669c5f1c02dd46e24",
+    "scripts/dualstack_ui/workspace.js": "4b2dab6c82a9c8c050deb64bc10ae641f189ffc10159f5ad51d380a894104398"
+  }
+}

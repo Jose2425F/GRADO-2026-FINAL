@@ -1,0 +1,63 @@
+{
+  "fecha_utc": "2026-10-18T03:43:15.318666+00:00",
+  "revisor": "academico",
+  "render": "piloto_kali/prototipo/.verificacion/soportes-academicos-20261018T033005Z/anexos-2",
+  "estado": "APROBADA_EN_AMBITO",
+  "alcance": [
+    26,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57
+  ],
+  "paginas": [
+    {
+      "pagina": 26,
+      "sha256_png": "cf445ee4b22370219376077f4bfab925af66e61f70d6675934fc1f7ed974dcc7",
+      "metodo": "Inspección individual a resolución original de anexos-1, heredada a anexos-2 por identidad exacta del PNG.",
+      "aprobada": true
+    },
+    {
+      "pagina": 52,
+      "sha256_png": "c1449e8ec5ce5a93016e0b5f264e9dbd4818bc8f4f2d3fecd137565bf7d6d301",
+      "metodo": "Inspección individual a resolución original de anexos-1, heredada a anexos-2 por identidad exacta del PNG.",
+      "aprobada": true
+    },
+    {
+      "pagina": 53,
+      "sha256_png": "3cd3bb9e82212ca836996744955188ccbb5414bb38a6194c5f373445c61108b3",
+      "metodo": "Inspección individual a resolución original de anexos-1, heredada a anexos-2 por identidad exacta del PNG.",
+      "aprobada": true
+    },
+    {
+      "pagina": 54,
+      "sha256_png": "5d1d3037b09331fead76efd124dffbe3e217914137bb059a98a1f3164a75848c",
+      "metodo": "Inspección individual a resolución original de anexos-1, heredada a anexos-2 por identidad exacta del PNG.",
+      "aprobada": true
+    },
+    {
+      "pagina": 55,
+      "sha256_png": "2560e9a7ba973f87387524f69ca506792eade1a9216072a36a58f080d76070fa",
+      "metodo": "Inspección individual a resolución original de anexos-1, heredada a anexos-2 por identidad exacta del PNG.",
+      "aprobada": true
+    },
+    {
+      "pagina": 56,
+      "sha256_png": "741519ea372cd30f4d97b4c5064ab21f6cbf1216a98a980f9eb1a4fff50afc1f",
+      "metodo": "Inspección individual a resolución original de anexos-1, heredada a anexos-2 por identidad exacta del PNG.",
+      "aprobada": true
+    },
+    {
+      "pagina": 57,
+      "sha256_png": "8e71aadb219bbde15f3f62ad3b62014718e6f4b508faaa4da38d582378d0ccf0",
+      "metodo": "Inspección individual a resolución original de anexos-1, heredada a anexos-2 por identidad exacta del PNG.",
+      "aprobada": true
+    }
+  ],
+  "observaciones": [
+    "Texto y tablas legibles, encabezados repetidos y ninguna celda truncada, recorte o solapamiento observado.",
+    "La incorporación del soporte ASR conserva los estados PARCIAL y la distinción entre diseño y evidencia de ejecución."
+  ]
+}

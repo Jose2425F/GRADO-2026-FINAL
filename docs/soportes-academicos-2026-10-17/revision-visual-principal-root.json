@@ -1,0 +1,459 @@
+{
+  "fecha_utc": "2026-10-18T03:40:50.973702+00:00",
+  "revisor": "root",
+  "render": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/piloto_kali/prototipo/.verificacion/soportes-academicos-20261018T033005Z/principal-1",
+  "sha256_pdf_render": "dd2012294dd52c89b03fb1648f38eca8f621a4585b93f599ea5d7bab839d19d1",
+  "estado": "APROBADA",
+  "paginas": [
+    {
+      "pagina": 1,
+      "sha256_png": "e0782ce559f64da19fbe82a04aac5fdccdac81eb1dc529a263e48f59e00e5bd4",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 2,
+      "sha256_png": "3a6b844b903f6b7cb566ff265b4b3c589c2486781be2d972b21dec8044663ee2",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 3,
+      "sha256_png": "2ba72894856747db82f04dd0e9e4ea3bc05fba172175c79bf3cbb245944ea1e3",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 4,
+      "sha256_png": "a2e80efa4ad80dc7419be28fe305127aba6e75924bc5b606bd0ce76ad9f700e4",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 5,
+      "sha256_png": "a499bc1d7f50037c5aa8795d69d83125145df5e8ae7b1b9c63a3fa821c28da6d",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 6,
+      "sha256_png": "8bd3fbe6650fa6bd086def5d268f6da99a88d7b3525f458d983ddb54515c5094",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 7,
+      "sha256_png": "47ef0dd9c9a1baf5945bfc039af6cd2bd6f15e10cd76b8bb5711b00271c30f8e",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 8,
+      "sha256_png": "69be4dfa192cc92ba94bc5ac33cdf9d9062e38bb1fd30bf3418546decc7fb96e",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 9,
+      "sha256_png": "9ea145604da625a607d4e609f14be78b0db3c77d5bf0c05f51b96db346c572bc",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 10,
+      "sha256_png": "2997f07712725fc61ea428b2c31ccab628ebf3d3fd63835252bb2d1ca4457511",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 11,
+      "sha256_png": "402220b8607a4c1bbee9b7d43efc61f02bc79e171b95c4b60e4606e454797eb5",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 12,
+      "sha256_png": "898134c0aac72167275cbae022082871f9f97fd4a4d4c90f36ecb7fea8217d13",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 13,
+      "sha256_png": "31ca4679e0389b4d40b810f472bb2dbc4c5fb770db2149058fc68cfb3b68ca22",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 14,
+      "sha256_png": "039c787f87b0711a95cbcd8692334954cffe647da4147fed03aa4b7e9b59c4a4",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 15,
+      "sha256_png": "de4a11aded0ceff7d0329653f7238843fda964349b9ea7cddd4fb839c64d10e8",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 16,
+      "sha256_png": "02dddcfb8ba3f38d44f560c7188389c94a4490601bb5f3e01d41cb0f4475bcb5",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 17,
+      "sha256_png": "1f026d39fd74f011c1e3bd616bb38f5ea35871493ecee04f2c6241277231f4c2",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 18,
+      "sha256_png": "9b610a5398a40a36dc3cbe88e357e0c88cc1bc41c0c24055a66869f8eb16650d",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 19,
+      "sha256_png": "09b3fed8e28e98c51ee28a71201eefb8914d4ee1d220d94b0fcbdbf2adf52095",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 20,
+      "sha256_png": "c14293208f0d828a915206c9ecb667840591662752e54d5033223c645f2146b5",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 21,
+      "sha256_png": "5629544d61ee12eefb22e3884ee62c852d755cc6cf957482633ecbe007c818d3",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 22,
+      "sha256_png": "e17d4a84ad963ee919e0cdac3ba8cadf0dc8e488e9a3381d8d54506eb3bed93c",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 23,
+      "sha256_png": "5139f061ad99da13d465d64ab7b072c46e61bd485a4a653e3bfa47a8fab942ef",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 24,
+      "sha256_png": "13b868ffc0916b4c1a0aff611a1ee7badfc4bc5696081492e368602c6aa36b3a",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 25,
+      "sha256_png": "402de956f96f517098b1c0f535871321e09a0ca3672281d4e019bdef62837d04",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 26,
+      "sha256_png": "198f5a8eb2f310fadaffa928ba45f523a9c08868e1edee7d49d1abf0cd9fb9e2",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 27,
+      "sha256_png": "42daa0275066ab05b8c72b7a6d285cfe785e7dc58b6a79cd1de22d2b83145d8b",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 28,
+      "sha256_png": "016cd0afca7f19d5628fc1be401edf4e8d65459b4717cdf28a5c6640cec16872",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 29,
+      "sha256_png": "a6aeb99ae90003fe3fc6d9598a931f19d9295541d597c7751d8b2af3fe4ebbc5",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 30,
+      "sha256_png": "a4a6a4cc76f36567fe4d85ad43daed29976efb546fc134fb9f9a093cc4fe001a",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 31,
+      "sha256_png": "d368e79988600ecdaf4063496f126499caf2a47d95720e5ae5cebee0549c2f8b",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 32,
+      "sha256_png": "d31577bd95aceb713cae22ca5e95464c42d9649a4729fbdc26284585c32ed4f7",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 33,
+      "sha256_png": "54293d5a584923c49a1e24c77b8e0ddc9b6f49d01bd6d73b4062864a122c5d26",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 34,
+      "sha256_png": "6339e7567021058873ef8ed9fb1423929ea6bed30fafdeb5fc4bd6cb220a50a8",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 35,
+      "sha256_png": "cc5d4d0c186cf5446a367a8f624fc1fe86d5de17b9cdd09aa2172e06503e15eb",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 36,
+      "sha256_png": "b37e16787742e94b9c623dedac410f91015179d964410c2e948f52d8b697a289",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 37,
+      "sha256_png": "54f963ccc3cabcef7c6f9c7264f7ad2ad2a0ebb5900c836ecac0f2e234877bfd",
+      "metodo": "Inspección individual original con view_image",
+      "aprobada": true
+    },
+    {
+      "pagina": 38,
+      "sha256_png": "b3cf5fe1e2690852bedccd67d8fa8326250804ad39ee5ba5f1fc62c4b3019306",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 39,
+      "sha256_png": "7f46546722b5dcc22d4a54a2f7993ed7af48bf58533cc0278ad9151ba1d0687b",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 40,
+      "sha256_png": "568c9700c81b8efe227f041f4fa3d469ac71c1ea4a434aa460a8d443404658d9",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 41,
+      "sha256_png": "3eaa9da627ca3ae4064655e580c0ed70a919911c0332b8343abfd9449a51a81d",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 42,
+      "sha256_png": "2f18a383ae64be5fc50f104362e95abb9f28bd0c0ff16e5681fa8f3225f425ab",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 43,
+      "sha256_png": "93ff6b1817293bb65416e581b7110cf780683baf7d397352896ba7aca6b02f62",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 44,
+      "sha256_png": "179e43d7cccc386bd927ddd050d7bd39c14d34892f9249e708b7a3a6f9c0c251",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 45,
+      "sha256_png": "36cfb32e96651c010f8d3f7f706f12c729032c82fbe4ea68c4f1c2333adad7e8",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 46,
+      "sha256_png": "342cb80505798f34229237080bc0dad8aa4b91bb055c7f616b3cd903d25e440a",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 47,
+      "sha256_png": "087d678394755a4cbc545637b33b48f2e5037ad120860fffc5a695e1498f9c44",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 48,
+      "sha256_png": "7253369204e52516290a8d946d3fe27389b177a9b9d18d811787012fb79d4a1a",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 49,
+      "sha256_png": "c70c6500fee93a9761a34fdc92edb430957740265abdc3d8b8dc7bc6f1b36954",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 50,
+      "sha256_png": "3de6512e6478109a16dfa8cf6d6a474f6f701e60e3f143ba105a1f0679ae76d0",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 51,
+      "sha256_png": "20dcb710acf47e6ca576484da799ad54c13a728d6679cacd2c065a3c907efd25",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 52,
+      "sha256_png": "8a9a57803733136110f56f0dc5971633817d211ccae4a4aec58c5330d46f7417",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 53,
+      "sha256_png": "36f7947020db98d662867a0244f621d546f8c1ba64e264f403f074f7354c97c9",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 54,
+      "sha256_png": "e5e2889c4d461c17369c19aa96d53604e5a7327c6b81559149ac5895e0c32eee",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 55,
+      "sha256_png": "c14cfb92480f8c73a23c71a47d681902e28c4e9e8bce25edd7a7528513485ee1",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 56,
+      "sha256_png": "2b4d9498aafbee6bab834466319b858c49611b14c0a1fd1aa6c96dfbbc0c2a8e",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 57,
+      "sha256_png": "378b0296e48754eb809e306906434f2df2b5d9e5c0b44999cd1fc1c4e2d0883a",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 58,
+      "sha256_png": "41e48068f1de0179619082488078d893c2bd9146a8f74411028acf18c8956caf",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 59,
+      "sha256_png": "23c4e366cb2f9477853372c206d7dd1a19015d655cafcc7a4c86b907d30c6e17",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 60,
+      "sha256_png": "20f7cb993eb180dbffc8b5cce4f5d1024b6ef3e039609cde1205c71e4572c226",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 61,
+      "sha256_png": "bac1e52c7c22ddf77a5bb5ae91e05878ec2aa6eecfd09baa08922b4a4229f131",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 62,
+      "sha256_png": "fb0882cd2d700056133f45b1799c54733a6295d1e584390209d9a06e6b661859",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 63,
+      "sha256_png": "390a4dbbad80334e05bdc04947eef1e8803679e1631b3209384c2969953ae399",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 64,
+      "sha256_png": "f97a1ec6026546db4d3c5ad3325c942b7bba8c09fc3df763658f97c76f1a5195",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 65,
+      "sha256_png": "1d9bc30749f6ea9441d52c906023fe3e95eaff635d2a52ada748ce1e65c4baf8",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 66,
+      "sha256_png": "0a886d28f7f7eadd0adebadb20fd71fe648afb54d2381347e7df2b574263e27f",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 67,
+      "sha256_png": "aeae31e15bb04d46d8915740cb9ed71cca1fc63fc11500440374e71aef82186d",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 68,
+      "sha256_png": "63654039660a58863575027c2fa0d83bf3d1f3a6a83119c58ab2d2de5b334b7a",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 69,
+      "sha256_png": "4e52b3a2ec43c0b4a0357e54053252c86c26f5ed217165854ca6eb68106ef731",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 70,
+      "sha256_png": "38c937666aac28d96485d6664ab9cea56056eab77b588ce6b5ea3d354ef44659",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 71,
+      "sha256_png": "6152ecf4c990163ec1941d1ed13ca1dfcf08f8b99b83994dbb92d625b696a742",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 72,
+      "sha256_png": "6d58d14a2e7c7c8387fdddb1a82a78fab7d19c820c1d4c4e2c047f1ef6b4031f",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    },
+    {
+      "pagina": 73,
+      "sha256_png": "c3fd08eb0b8f5c06394f34ada7e45a802bee9a9d8926d3d4a3f51194e467c48e",
+      "metodo": "Identidad exacta de PNG con principal-6 ya revisado",
+      "aprobada": true
+    }
+  ],
+  "cobertura": {
+    "total": 73,
+    "inspeccion_individual_nueva": [
+      37
+    ],
+    "heredadas_por_identidad_png": 72,
+    "completa": true
+  },
+  "observaciones": [
+    "Párrafo de disponibilidad ASR legible y coherente con el cotejo de matrices; sin cambios de resultados, referencias o compromisos."
+  ],
+  "respaldo_cobertura_anterior": "docs/revision-academica-2026-10-17/revision-visual-documental.json"
+}

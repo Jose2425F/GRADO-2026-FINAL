@@ -1,0 +1,145 @@
+{
+  "fecha_utc": "2026-10-18T03:30:51.806345+00:00",
+  "metodo": "Lectura de valores, fórmulas y cachés con openpyxl del runtime bundled. Sin guardar, recalcular ni exportar los originales. Conciliación independiente en Python con Decimal.",
+  "archivos": {
+    "Presupuesto_TG2026.xlsx": {
+      "sha256": "14120e88d59a74be4370a16384b5711ac5aed77b04555300442268c94fd41efa",
+      "hojas": [
+        {
+          "nombre": "Presupuesto",
+          "rango": "A1:H27",
+          "formulas": 0,
+          "errores_cache": []
+        },
+        {
+          "nombre": "Parámetros",
+          "rango": "A1:C20",
+          "formulas": 0,
+          "errores_cache": []
+        },
+        {
+          "nombre": "Distribución por fase",
+          "rango": "A1:I24",
+          "formulas": 0,
+          "errores_cache": []
+        }
+      ]
+    },
+    "Cronograma_Gantt_TG2026.xlsx": {
+      "sha256": "d31635450a13d4db012a155088fa0053e3304a8b9d19de88f6e5d4ab7f05a88c",
+      "hojas": [
+        {
+          "nombre": "Cronograma Gantt",
+          "rango": "A1:AC50",
+          "formulas": 53,
+          "errores_cache": []
+        }
+      ]
+    }
+  },
+  "hallazgos": [
+    {
+      "id": "REC-P01",
+      "estado": "SOPORTE_LOCALIZADO",
+      "descripcion": "Presupuesto editable disponible; ya no procede afirmar que el Excel está ausente."
+    },
+    {
+      "id": "REC-P02",
+      "estado": "DISCREPANCIA_PRESERVADA",
+      "descripcion": "Promesa de recálculo sin fórmulas y cuatro subtotales de fase distintos del detalle."
+    },
+    {
+      "id": "REC-C01",
+      "estado": "SOPORTE_LOCALIZADO",
+      "descripcion": "Cronograma editable disponible; ya no procede afirmar que no existe original editable."
+    },
+    {
+      "id": "REC-C02",
+      "estado": "LIMITACION_DECLARADA",
+      "descripcion": "Estados por fecha y contenidos del diseño inicial no acreditan ejecución real ni cumplimiento de KPI."
+    }
+  ],
+  "presupuesto": {
+    "total_cop": 27476047,
+    "aportes_especie_cop": 25602450,
+    "efectivo_cop": 1873597,
+    "rango_totales": "Presupuesto!A4:E25",
+    "formulas_en_libro": 0,
+    "anuncio_no_sustentado": "Parámetros!A2 promete recálculo automático; no hay fórmulas en ninguna hoja.",
+    "fases": [
+      {
+        "fase": "F1",
+        "celda_fila17": "B17",
+        "declarado_cop": 3786045,
+        "derivado_desde_filas5_16_cop": 3786045,
+        "diferencia_cop": 0
+      },
+      {
+        "fase": "F2",
+        "celda_fila17": "C17",
+        "declarado_cop": 6043770,
+        "derivado_desde_filas5_16_cop": 6043770,
+        "diferencia_cop": 0
+      },
+      {
+        "fase": "F3",
+        "celda_fila17": "D17",
+        "declarado_cop": 2786885,
+        "derivado_desde_filas5_16_cop": 2786885,
+        "diferencia_cop": 0
+      },
+      {
+        "fase": "F4",
+        "celda_fila17": "E17",
+        "declarado_cop": 2382113,
+        "derivado_desde_filas5_16_cop": 1947113,
+        "diferencia_cop": -435000
+      },
+      {
+        "fase": "F5",
+        "celda_fila17": "F17",
+        "declarado_cop": 6855056,
+        "derivado_desde_filas5_16_cop": 7063386,
+        "diferencia_cop": 208330
+      },
+      {
+        "fase": "F6",
+        "celda_fila17": "G17",
+        "declarado_cop": 3426953,
+        "derivado_desde_filas5_16_cop": 4695273,
+        "diferencia_cop": 1268320
+      },
+      {
+        "fase": "F7",
+        "celda_fila17": "H17",
+        "declarado_cop": 2195225,
+        "derivado_desde_filas5_16_cop": 1153575,
+        "diferencia_cop": -1041650
+      }
+    ],
+    "celdas_desfase": "'Distribución por fase'!E17:H17",
+    "regla_derivacion": "Filas5–6: horas de cada fase × Parámetros!B7; fila7: horas × B9; filas8–16: importes textuales COP, con — como sin importe asignado. Se suman filas, sin incluir fila17.",
+    "resultado_conciliacion": "Los importes derivados coinciden con la conciliación textual ya incluida en Anexo F. No se modificaron datos originales.",
+    "limite": "Presupuesto histórico proyectado, no factura ni gasto ejecutado. Incluye modelos/proveedores del diseño inicial diferentes del modelo de la campaña."
+  },
+  "cronograma": {
+    "hoja": "Cronograma Gantt",
+    "actividades_y_hitos": "B8:E45",
+    "problema_estado": "E8:E45 contiene IF(TODAY()>fecha...) o IF(TODAY()>=fecha...), por lo que Completado/Logrado significa vencimiento temporal, no aceptación efectiva.",
+    "ejemplo": "E38 = IF(TODAY()>=$D38,\"★ Logrado\",\"★ Pendiente\")",
+    "hito_kpi": "B38 exige TRTO≥30%, IDE≥20%, ETV≥1.10; el estado automático no valida esas metas.",
+    "fechas_propuestas": {
+      "revision_director": "2026-10-19 a 2026-10-23",
+      "correcciones_finales": "2026-10-26 a 2026-10-30",
+      "entrega_final": "2026-10-30"
+    },
+    "rango_fechas": "'Cronograma Gantt'!B40:E45",
+    "otros_desfases_de_diseno": [
+      "B30 incluye exploits y SMB relay, excluidos del alcance final.",
+      "B32 menciona Arize Phoenix; el observador ejecutado es local.",
+      "B35 fija N=16; las corridas finales adjudican24 condiciones.",
+      "B37 menciona Wilcoxon y potencia≥0.80; no se acreditan en la evaluación exploratoria."
+    ],
+    "limite": "Las fechas son programación de la hoja aportada, no compromisos institucionales confirmados ni registros de entrega/aceptación."
+  }
+}

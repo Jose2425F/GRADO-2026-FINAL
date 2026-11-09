@@ -1,0 +1,243 @@
+{
+  "schema": "novaflow-real-isolation-segment/1",
+  "lab": "original",
+  "segment": "dmz",
+  "requirement": "RNF-08",
+  "requirement_status": "PARCIAL",
+  "execution": "REAL",
+  "mode": "kali",
+  "script_version": "novaflow-real-isolation/2-kali",
+  "status": "NO_VERIFICADO",
+  "representative": {
+    "segment": "dmz",
+    "network": "nova_dmz",
+    "source": "nova-portal",
+    "peer": "nova-legacy",
+    "port": 8080,
+    "families": [
+      4
+    ],
+    "interface": "br-nova-dmz"
+  },
+  "positive_attempts": [
+    {
+      "target_segment": "dmz",
+      "target_container": "nova-legacy",
+      "family": 4,
+      "address": "192.168.71.13",
+      "port": 8080,
+      "checked_at": "2026-10-19T22:36:51.158903+00:00",
+      "interface": "br-nova-dmz",
+      "source_address": "192.168.71.1",
+      "protocol": "TCP",
+      "expected_policy": "PERMITIR_HOST_A_SEGMENTO_SERVICIO_CATALOGADO",
+      "test": "bound_tcp_connect_no_payload",
+      "connection_attempted": true,
+      "payload_bytes": 0,
+      "status": "PASS",
+      "script_version": "novaflow-real-isolation/2-kali",
+      "route_before_bind": {
+        "dst": "192.168.71.13",
+        "from": "192.168.71.1",
+        "dev": "br-nova-dmz",
+        "flags": [],
+        "uid": 1000,
+        "cache": []
+      },
+      "bound_source": "192.168.71.1",
+      "route_immediately_before_connect": {
+        "dst": "192.168.71.13",
+        "from": "192.168.71.1",
+        "dev": "br-nova-dmz",
+        "flags": [],
+        "uid": 1000,
+        "cache": []
+      },
+      "observed": "connected",
+      "effective_source_address": "192.168.71.1",
+      "attempt": 1
+    }
+  ],
+  "negative": [
+    {
+      "target_segment": "corp",
+      "target_container": "nova-app-erp",
+      "family": 4,
+      "address": "192.168.69.12",
+      "port": 8088,
+      "checked_at": "2026-10-19T22:36:51.187154+00:00",
+      "interface": "br-nova-dmz",
+      "source_address": "192.168.71.1",
+      "protocol": "TCP_NOT_SENT",
+      "expected_policy": "MATRIZ_L3_INTERSEGMENTOS_NO_FIJADA",
+      "test": "passive_route_lookup_only",
+      "connection_attempted": false,
+      "status": "NO_VERIFICADO",
+      "reason": "no_explicit_intersegment_deny_policy_no_connection",
+      "script_version": "novaflow-real-isolation/2-kali",
+      "route": {
+        "dst": "192.168.69.12",
+        "from": "192.168.71.1",
+        "dev": "br-nova-corp",
+        "flags": [],
+        "uid": 1000,
+        "cache": []
+      },
+      "route_to_controlled_bridge_without_gateway": true,
+      "endpoint_positive_control": true
+    },
+    {
+      "target_segment": "dc",
+      "target_container": "nova-receiver-a",
+      "family": 4,
+      "address": "192.168.70.20",
+      "port": 8000,
+      "checked_at": "2026-10-19T22:36:51.189615+00:00",
+      "interface": "br-nova-dmz",
+      "source_address": "192.168.71.1",
+      "protocol": "TCP_NOT_SENT",
+      "expected_policy": "MATRIZ_L3_INTERSEGMENTOS_NO_FIJADA",
+      "test": "passive_route_lookup_only",
+      "connection_attempted": false,
+      "status": "NO_VERIFICADO",
+      "reason": "no_explicit_intersegment_deny_policy_no_connection",
+      "script_version": "novaflow-real-isolation/2-kali",
+      "route": {
+        "dst": "192.168.70.20",
+        "from": "192.168.71.1",
+        "dev": "br-nova-dc",
+        "flags": [],
+        "uid": 1000,
+        "cache": []
+      },
+      "route_to_controlled_bridge_without_gateway": true,
+      "endpoint_positive_control": true
+    }
+  ],
+  "reason_codes": [],
+  "limitations": [
+    "TCP finito sin payload desde direcciones reales del anfitrión asignadas a bridges del banco; no se prueba la aplicación.",
+    "Solo endpoints controlados, activos y obtenidos del inventario Docker del mismo banco; nunca se conecta a destinos externos.",
+    "La ruta se consulta de nuevo después de bind y antes de cada connect; se exige el bridge del destino sin gateway.",
+    "La matriz L3 entre segmentos desde el anfitrión no está fijada: los negativos intersegmento son solo consultas de ruta, NO VERIFICADO.",
+    "La salida externa se examina únicamente con route get a direcciones de documentación; no se transmiten paquetes a ellas.",
+    "El JSON del firewall es una captura de solo lectura, no una comprobación de las reglas vigentes después del arranque del banco.",
+    "Un timeout o rechazo no demuestra aislamiento. RNF-08 permanece PARCIAL; no se extrapola a todo puerto, protocolo o proceso."
+  ],
+  "configuration": {
+    "status": "PASS",
+    "reasons": [],
+    "expected": {
+      "name": "nova_dmz",
+      "bridge": "br-nova-dmz",
+      "subnets": [
+        "192.168.71.0/24"
+      ],
+      "members": [
+        "nova-bastion",
+        "nova-legacy",
+        "nova-portal",
+        "nova-records"
+      ]
+    },
+    "observed": {
+      "name": "nova_dmz",
+      "id": "e89f123bb855197ce080893808607d9e8c0d14e8f946b9cf316d4060d5c5e6cd",
+      "internal": true,
+      "driver": "bridge",
+      "enable_ipv6": false,
+      "ipam": [
+        {
+          "Gateway": "192.168.71.1",
+          "Subnet": "192.168.71.0/24"
+        }
+      ],
+      "options": {
+        "com.docker.network.bridge.name": "br-nova-dmz"
+      },
+      "members": {
+        "5443f14a6f5977a32a51e669630127d92d46b5cfd338ce8de04d5757fd479533": {
+          "EndpointID": "3c48d5466e10568848ad38b7c8b86994799c18bf4a050db3543bc540303fd1ae",
+          "IPv4Address": "192.168.71.12/24",
+          "IPv6Address": "",
+          "MacAddress": "ee:62:25:52:2c:8a",
+          "Name": "nova-bastion"
+        },
+        "c5d2344200a326d39662d77f8ffd62a9879159ce5a8fb6a2869ff9fbeee0b485": {
+          "EndpointID": "149d483e716d1501505309bad4ff1d19e567a729ed368bad0bc9b7ae353d26aa",
+          "IPv4Address": "192.168.71.14/24",
+          "IPv6Address": "",
+          "MacAddress": "ae:ea:3c:f7:1f:4a",
+          "Name": "nova-records"
+        },
+        "c9421ab93b9d030275795bd341e2348928ea88328355d2ecfc1ecb3fc2c73aa4": {
+          "EndpointID": "bfaf0d798262502f56912470bc5f529414e228d12a152acf9ea80409aa9d3243",
+          "IPv4Address": "192.168.71.11/24",
+          "IPv6Address": "",
+          "MacAddress": "7e:43:3b:d9:f0:42",
+          "Name": "nova-portal"
+        },
+        "f6b20ec9019ecf0fe3ae0390ea910c67bf72bb607da4d5dfe3ab276d58669a9a": {
+          "EndpointID": "b65e440e282f8636cb823fd24b5f8cf7022a413fac24f7f77f25e2cfb6b28bac",
+          "IPv4Address": "192.168.71.13/24",
+          "IPv6Address": "",
+          "MacAddress": "42:67:48:3c:63:0e",
+          "Name": "nova-legacy"
+        }
+      }
+    }
+  },
+  "firewall_snapshot_reference": "/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026/docs/verificacion-postevaluacion/rnf08-cortafuegos-operador-20261019_182838.json",
+  "sources": [
+    {
+      "interface": "br-nova-dmz",
+      "address": "192.168.71.1",
+      "family": 4,
+      "prefix_length": 24,
+      "selection": "active_host_address_in_configured_subnet"
+    }
+  ],
+  "selected_sources": [
+    {
+      "interface": "br-nova-dmz",
+      "address": "192.168.71.1",
+      "family": 4,
+      "prefix_length": 24,
+      "selection": "active_host_address_in_configured_subnet"
+    }
+  ],
+  "positive_status": "PASS",
+  "external_route_inspections": [
+    {
+      "checked_at": "2026-10-19T22:36:51.192657+00:00",
+      "interface": "br-nova-dmz",
+      "source_address": "192.168.71.1",
+      "family": 4,
+      "address": "192.0.2.1",
+      "port": null,
+      "protocol": "ROUTE_LOOKUP_ONLY",
+      "expected_policy": "DENEGAR_SALIDA_NO_AUTORIZADA",
+      "test": "passive_external_route_and_firewall_snapshot",
+      "connection_attempted": false,
+      "payload_bytes": 0,
+      "status": "NO_VERIFICADO",
+      "destination_is_documentation_not_probed": true,
+      "script_version": "novaflow-real-isolation/2-kali",
+      "output_filter_in_snapshot": false,
+      "reason": "external_connectivity_never_probed_and_egress_not_fully_accredited",
+      "route": {
+        "dst": "192.0.2.1",
+        "from": "192.168.71.1",
+        "gateway": "10.0.2.2",
+        "dev": "eth0",
+        "flags": [],
+        "uid": 1000,
+        "cache": []
+      },
+      "potential_egress_outside_audit_bridge": true
+    }
+  ],
+  "lab_reason_codes": [],
+  "started_at": "2026-10-19T22:36:39.659080+00:00",
+  "finished_at": "2026-10-19T22:36:57.485056+00:00"
+}

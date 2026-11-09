@@ -1,0 +1,314 @@
+{
+  "schema": "novaflow-real-isolation/1",
+  "requirement": "RNF-08",
+  "lab": "sucursal",
+  "status": "PASS",
+  "requirement_status": "PARCIAL",
+  "created_at": "2026-10-19T08:31:31.303846+00:00",
+  "config_paths": {
+    "compose": "piloto_kali/prototipo/.lab-suite/sucursal/compose.json",
+    "env": "piloto_kali/prototipo/.lab-suite/sucursal/lab.env"
+  },
+  "representatives": [
+    {
+      "segment": "corp",
+      "network": "nf1_corp",
+      "source": "nf1-app-crm",
+      "peer": "nf1-app-intranet",
+      "port": 8088,
+      "families": [
+        4,
+        6
+      ]
+    },
+    {
+      "segment": "dc",
+      "network": "nf1_dc",
+      "source": "nf1-sender",
+      "peer": "nf1-receiver-a",
+      "port": 8000,
+      "families": [
+        4,
+        6
+      ]
+    },
+    {
+      "segment": "dmz",
+      "network": "nf1_dmz",
+      "source": "nf1-portal",
+      "peer": "nf1-legacy",
+      "port": 8080,
+      "families": [
+        4
+      ]
+    }
+  ],
+  "api_calls": 0,
+  "audit_runs": 0,
+  "limits": {
+    "lab_seconds": 240,
+    "command_seconds": 15,
+    "socket_seconds": 0.65,
+    "payload_bytes": 0,
+    "positive_max_attempts": 5
+  },
+  "limitations": [
+    "Solo tres contenedores representantes por banco: portal, app-crm y sender; no todos los procesos ni miembros.",
+    "Conexiones TCP sin payload: DMZ IPv4, corporativo y datacenter IPv4/IPv6; no son auditorías de aplicación.",
+    "Negativos solo a endpoints vivos de otros segmentos de ESTE banco; ningún sistema externo real.",
+    "No se prueba salida del anfitrión, DNS, UDP, servicios externos, ataques ni configuraciones futuras.",
+    "La validación literal de RNF-08 permanece PARCIAL aunque el alcance observado resulte PASS.",
+    "Un timeout, rechazo TCP o control positivo fallido nunca basta para acreditar bloqueo.",
+    "Las capacidades del PID 1 y del proceso Python de comprobación son una instantánea, no todos los procesos."
+  ],
+  "checker_sha256": "5c965e9d78e1f7cc2b0830de42c70638f69bd26de4545bf93914a7df5f76b973",
+  "started_at": "2026-10-19T08:31:31.317002+00:00",
+  "execution": "REAL",
+  "reason_codes": [],
+  "lifecycle": [
+    {
+      "action": "compose_up_existing_no_build_no_recreate_no_pull",
+      "status": "PASS",
+      "at": "2026-10-19T08:31:35.382069+00:00"
+    },
+    {
+      "action": "compose_stop_conserve_containers_and_data",
+      "status": "PASS",
+      "at": "2026-10-19T08:31:40.860945+00:00"
+    }
+  ],
+  "segments": [
+    {
+      "segment": "corp",
+      "status": "PASS",
+      "requirement_status": "PARCIAL",
+      "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-corp.json"
+    },
+    {
+      "segment": "dc",
+      "status": "PASS",
+      "requirement_status": "PARCIAL",
+      "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-dc.json"
+    },
+    {
+      "segment": "dmz",
+      "status": "PASS",
+      "requirement_status": "PARCIAL",
+      "receipt": "docs/verificacion-postevaluacion/aislamiento-real-20261019T083100493654Z-sucursal-dmz.json"
+    }
+  ],
+  "protected_before": {
+    "files_checked": 3810,
+    "changed_or_missing": 0,
+    "unchanged": true,
+    "manifest_sha256": "083eab28274a94a81858fb47048d5e64b833604b673b0d94354753c42e887b9f"
+  },
+  "jobs_before": [],
+  "configuration": {
+    "compose": "piloto_kali/prototipo/.lab-suite/sucursal/compose.json",
+    "env": "piloto_kali/prototipo/.lab-suite/sucursal/lab.env",
+    "compose_sha256": "8d090eadc866dfddf92ad7b2f2615f945ff4dcb78b6a46991ee180ae0889db1d",
+    "env_sha256": "7d0683fe1b6dc11c866400fb28eae5699bacae280af141f1d22d11a9a1b6eab9",
+    "images": [
+      "auditoria-lab-v2-app:local",
+      "novaflow-lab-credentials:local",
+      "novaflow-lab-http:local",
+      "novaflow-lab-protocol:local"
+    ]
+  },
+  "stage": "final_identity_check",
+  "images": [
+    {
+      "id": "sha256:9c9ebabe9145b0e5ec42c3af732d2f2f44aadc035151dc7f5ea373c8599de9b5"
+    },
+    {
+      "id": "sha256:6f53a0dc93982eecc420075692fce9b0bccdf4777e9892d6eb0acff806297f53"
+    },
+    {
+      "id": "sha256:6678985a00807094f9fd71a44772d7949e953af3bec3719c4baaa096dc791399"
+    },
+    {
+      "id": "sha256:7c9add5baee0edf9d60a81c96564476e654ba6ae3bac3f79271379bcb018ab94"
+    }
+  ],
+  "network_checks": {
+    "nf1_corp": {
+      "status": "PASS",
+      "reasons": [],
+      "expected": {
+        "name": "nf1_corp",
+        "bridge": "br-nf1-corp",
+        "subnets": [
+          "192.168.110.0/24",
+          "fd57:2026:110::/64"
+        ],
+        "members": [
+          "nf1-app-crm",
+          "nf1-app-intranet"
+        ]
+      },
+      "observed": {
+        "name": "nf1_corp",
+        "id": "b4d2723f7a8fa389517a1ae47387510cb3e438431e512769df60fe91ac16a52d",
+        "internal": true,
+        "driver": "bridge",
+        "enable_ipv6": true,
+        "ipam": [
+          {
+            "Gateway": "192.168.110.1",
+            "Subnet": "192.168.110.0/24"
+          },
+          {
+            "Gateway": "fd57:2026:110::1",
+            "Subnet": "fd57:2026:110::/64"
+          }
+        ],
+        "options": {
+          "com.docker.network.bridge.name": "br-nf1-corp"
+        },
+        "members": {
+          "1cd71e1201ce3e57b47d9a6e1b90281c6c2ac4278be6eaa3bf24029406e33be9": {
+            "EndpointID": "3442268cd9a8d21c10fcdec0095e5dd341e267af4e8e514673b3e10eea35de0f",
+            "IPv4Address": "192.168.110.14/24",
+            "IPv6Address": "fd57:2026:110::14/64",
+            "MacAddress": "2e:23:ef:04:77:b5",
+            "Name": "nf1-app-intranet"
+          },
+          "8703718ffbf1f9189c4fd200b2909ce50e1f0092194ba7460da6658e96ff1656": {
+            "EndpointID": "450bf40cb4758cafbb1ea249d0d7cecfd12cb23c69f4688d79166cf335a58587",
+            "IPv4Address": "192.168.110.11/24",
+            "IPv6Address": "fd57:2026:110::11/64",
+            "MacAddress": "16:e3:36:11:32:d3",
+            "Name": "nf1-app-crm"
+          }
+        }
+      }
+    },
+    "nf1_dc": {
+      "status": "PASS",
+      "reasons": [],
+      "expected": {
+        "name": "nf1_dc",
+        "bridge": "br-nf1-dc",
+        "subnets": [
+          "192.168.111.0/24",
+          "fd57:2026:111::/64"
+        ],
+        "members": [
+          "nf1-receiver-a",
+          "nf1-receiver-b",
+          "nf1-router",
+          "nf1-sender"
+        ]
+      },
+      "observed": {
+        "name": "nf1_dc",
+        "id": "6ed9173425f8af2fa06c038ab3e1b0d2dfd457a48ab42149e6f7fa41283fcb4c",
+        "internal": true,
+        "driver": "bridge",
+        "enable_ipv6": true,
+        "ipam": [
+          {
+            "Gateway": "192.168.111.1",
+            "Subnet": "192.168.111.0/24"
+          },
+          {
+            "Gateway": "fd57:2026:111::1",
+            "Subnet": "fd57:2026:111::/64"
+          }
+        ],
+        "options": {
+          "com.docker.network.bridge.name": "br-nf1-dc"
+        },
+        "members": {
+          "0b36548aea2571b79187099a9e3b4c16c5d2772c0af3874dd2ea2dde3ea1df65": {
+            "EndpointID": "e8cb01f1b4694a3ec188904b127562053d392981a1de1a0917dbc00fe9c7e6ab",
+            "IPv4Address": "192.168.111.254/24",
+            "IPv6Address": "fd57:2026:111::fe/64",
+            "MacAddress": "02:57:20:26:a1:fe",
+            "Name": "nf1-router"
+          },
+          "327220ee797e926274a668163050a8ddaaa25cfe7418e1e2cf7138c752464212": {
+            "EndpointID": "df3b17dd83ea62309e8a2db6e2b21fd6d1a0c2fbeed750c530bc26581edff83d",
+            "IPv4Address": "192.168.111.20/24",
+            "IPv6Address": "fd57:2026:111::20/64",
+            "MacAddress": "02:57:20:26:a1:20",
+            "Name": "nf1-receiver-a"
+          },
+          "c8c08c4fae7ee0a6db2ee1ed435f3c639a90d056304909d12116e88315197f8b": {
+            "EndpointID": "a8a90623138285ae2b72f3611a9845491b95f665ae0313eaf3ec2441b04e39d6",
+            "IPv4Address": "192.168.111.10/24",
+            "IPv6Address": "fd57:2026:111::10/64",
+            "MacAddress": "02:57:20:26:a1:10",
+            "Name": "nf1-sender"
+          },
+          "db08c13d307d86d5acbf31b94f68708fa3c9ce6fdc8e45156c585dffab803a74": {
+            "EndpointID": "3577139e7bdb25423a591d6306b390fb66114ea04d61ba3a1a35328f9dfaa57a",
+            "IPv4Address": "192.168.111.21/24",
+            "IPv6Address": "fd57:2026:111::21/64",
+            "MacAddress": "02:57:20:26:a1:21",
+            "Name": "nf1-receiver-b"
+          }
+        }
+      }
+    },
+    "nf1_dmz": {
+      "status": "PASS",
+      "reasons": [],
+      "expected": {
+        "name": "nf1_dmz",
+        "bridge": "br-nf1-dmz",
+        "subnets": [
+          "192.168.112.0/24"
+        ],
+        "members": [
+          "nf1-legacy",
+          "nf1-portal"
+        ]
+      },
+      "observed": {
+        "name": "nf1_dmz",
+        "id": "20ab6c915b0f26cb06dee6aca34195ed3a14b0f8e2377bf95db79bc619964a92",
+        "internal": true,
+        "driver": "bridge",
+        "enable_ipv6": false,
+        "ipam": [
+          {
+            "Gateway": "192.168.112.1",
+            "Subnet": "192.168.112.0/24"
+          }
+        ],
+        "options": {
+          "com.docker.network.bridge.name": "br-nf1-dmz"
+        },
+        "members": {
+          "37cf41b300db650d9f0c95c6c4dbbb946493ec818e547eb3868009b5d4dd3587": {
+            "EndpointID": "ff538db5ff2777e71376eadba3fa87919a42feb2260282961237d450c27b808d",
+            "IPv4Address": "192.168.112.13/24",
+            "IPv6Address": "",
+            "MacAddress": "ea:b9:d6:66:88:27",
+            "Name": "nf1-legacy"
+          },
+          "ed90c022925a336bbffc07fb723893df091f23caf8a9c95d271aecf70355ef24": {
+            "EndpointID": "b5b4ea94ddce653898612a4d1308f6c56fd4bd0b758c0227ac32a17f12a16445",
+            "IPv4Address": "192.168.112.11/24",
+            "IPv6Address": "",
+            "MacAddress": "4a:2f:8f:b5:7d:95",
+            "Name": "nf1-portal"
+          }
+        }
+      }
+    }
+  },
+  "all_containers_stable_during_verification": true,
+  "no_running_containers_after": true,
+  "protected_after": {
+    "files_checked": 3810,
+    "changed_or_missing": 0,
+    "unchanged": true,
+    "manifest_sha256": "083eab28274a94a81858fb47048d5e64b833604b673b0d94354753c42e887b9f"
+  },
+  "configuration_unchanged": true,
+  "finished_at": "2026-10-19T08:31:40.990714+00:00",
+  "elapsed_seconds": 9.674
+}
