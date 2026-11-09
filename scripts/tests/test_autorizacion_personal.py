@@ -200,6 +200,8 @@ def test_permissions_of_file_and_immediate_parent_are_required(registry):
 def test_writable_ancestor_is_rejected_even_with_a_private_leaf(tmp_path):
     ancestor = tmp_path / 'shared'
     ancestor.mkdir(mode=0o770)
+    ancestor.chmod(0o770)
+    assert ancestor.stat().st_mode & 0o777 == 0o770
     denied('authorization_registry_unsafe', lambda: issue(ancestor / 'private' / 'grants.json'))
 
 

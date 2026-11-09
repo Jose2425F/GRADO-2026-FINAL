@@ -62,11 +62,11 @@ jobs:
           test "$(npm --version)" = '11.17.0'
           npm ci --prefix scripts/tests --ignore-scripts --no-audit --no-fund
           scripts/tests/node_modules/.bin/playwright install --with-deps chromium
-      - name: Instalar Nmap para la integración local existente
+      - name: Instalar herramientas para integración y huellas de ejecutables
         if: matrix.project_name == 'prototipo'
         run: |
           sudo apt-get update
-          sudo apt-get install --yes --no-install-recommends nmap
+          sudo apt-get install --yes --no-install-recommends nmap hydra
       - name: Preparar guardas sin sondas externas
         shell: bash
         run: |

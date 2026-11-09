@@ -1,5 +1,12 @@
 # Registro de cambios
 
+## 2026-11-09 · corrección del entorno de CI
+
+- Instala Hydra junto a Nmap en el runner para comprobar las huellas de los ejecutables. La guarda de CI continúa impidiendo ejecutar Hydra.
+- Fija con `chmod` los permisos del directorio compartido de una prueba negativa. `mkdir(mode=...)` dependía de la máscara de creación del runner y podía crear un directorio seguro en lugar del caso inseguro solicitado.
+
+No cambia el código del aplicativo, el ejecutor instalado ni las evidencias publicadas en `centinela-0.6.0`. La entrega `centinela-0.6.0-v4` conserva ese corte como antecedente.
+
 ## 0.6.0 · integración protegida del panel y revisión de reportes
 
 - Conecta el panel con una cola local del operador. Limita las solicitudes a los cinco bancos instalados y vincula cada trabajo a una cuenta activa y una credencial privada de acceso.
