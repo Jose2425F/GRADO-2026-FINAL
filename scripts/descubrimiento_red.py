@@ -1,9 +1,8 @@
-"""Descubrimiento de equipos en un segmento local, como lo haría un auditor conectado a la red.
+"""Descubrimiento dirigido de activos incluidos en una autorización del servidor.
 
-IPv4: barrido del prefijo de la interfaz con Nmap sin privilegios (sondas TCP SYN/connect).
-IPv6: un /64 no se puede barrer; se envía un eco a todos los nodos (ff02::1) con origen
-global y se registran las direcciones que responden. Ambas familias se agrupan por la MAC
-que el núcleo aprende en la tabla de vecinos; sin MAC resuelta, la respuesta se descarta. No ejecuta pruebas de vulnerabilidad.
+IPv4 recibe únicamente las direcciones de la autorización; IPv6 utiliza ecos
+unicast. La lectura de interfaces y vecinos es local y no amplía los objetivos.
+Este control de admisión no sustituye el aislamiento de red del sistema operativo.
 """
 from __future__ import annotations
 
@@ -18,6 +17,7 @@ import xml.etree.ElementTree as ET
 
 PROBES = (21, 22, 23, 25, 53, 80, 110, 139, 143, 443, 445, 3306, 3389, 5432, 8080, 8088, 8443)
 MAX_HOSTS = 256
+MAX_DISCOVERY_SECONDS = 90
 NAME = re.compile(r'[A-Za-z0-9_.:-]{1,32}')
 REPLY = re.compile(r'from ([0-9A-Fa-f:]+)(?:%[^\s:]+)?:')
 
@@ -64,69 +64,112 @@ def _neighbors(name):
     return table
 
 
-def discover(name):
+def discover(name, authorization=None):
     if not isinstance(name, str) or not NAME.fullmatch(name):
         raise ValueError('La interfaz de red no es válida.')
-    segment = next((i for i in interfaces() if i['name'] == name), None)
-    if not segment:
-        raise ValueError('Esa interfaz no tiene un segmento privado que se pueda auditar.')
+    if not isinstance(authorization, str) or not authorization.strip():
+        raise ValueError('Selecciona una autorización de activos registrada en el servidor.')
+    from autorizacion_personal import AuthorizationGuard, authorized_options
+    from laboratorio_personal import configuration, parse_discovery, resolve_targets
+
+    # El alcance se toma del registro privado, nunca del prefijo de la NIC ni de
+    # una lista adicional enviada junto con la petición de descubrimiento.
+    options = authorized_options(authorization)
+    guard = AuthorizationGuard(options)
+    config = configuration(options['personal'])
+    if config['interface'] == 'auto' or config['interface'] != name:
+        raise ValueError('La interfaz no coincide con la autorización registrada.')
+    guard.verify()
     if not shutil.which('nmap'):
         raise ValueError('Nmap no está disponible en el servidor.')
     started = time.monotonic()
+    deadline = started + MAX_DISCOVERY_SECONDS
+    targets = resolve_targets(config, deadline=deadline)
+    if not targets or len(targets) > MAX_HOSTS:
+        raise ValueError('La autorización debe contener entre uno y 256 activos.')
+    guard.check_targets(targets)
+    if any(t.interface != name for t in targets):
+        raise ValueError('La ruta no coincide con la interfaz autorizada.')
+    allowed = {4: set(), 6: set()}
+    for target in targets:
+        address = ipaddress.ip_address(target.address)
+        allowed[address.version].add(str(address))
+
+    def admit(values, maximum):
+        # Se vuelve a leer el registro antes de cada proceso que puede emitir
+        # tráfico, incluidas las sondas utilizadas para completar la MAC.
+        guard.check_targets(values)
+        for target in values:
+            version = ipaddress.ip_address(target.address).version
+            selected = {**config, 'ipv4': target.address if version == 4 else '',
+                        'ipv6': target.address if version == 6 else ''}
+            if resolve_targets(selected, deadline=deadline) != [target]:
+                raise ValueError('La ruta del activo cambió antes del descubrimiento autorizado.')
+        guard.check_targets(values)
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            raise ValueError('El descubrimiento agotó su tiempo máximo.')
+        return min(maximum, remaining)
+
     local = {str(a.ip) for a in _addresses(name)}
     found = {4: set(), 6: set()}
-    for network in segment['ipv4']:
-        command = ['nmap', '--unprivileged', '-n', '-sn', '-T4', '-PS' + ','.join(map(str, PROBES)),
-                   '--max-retries', '1', '--host-timeout', '4s', '-e', name, '-oX', '-', network]
+    ipv4 = [t for t in targets if ipaddress.ip_address(t.address).version == 4]
+    if ipv4:
+        probes = PROBES if config.get('port_mode') == 'auto' else config['ports']
+        command = ['nmap', '--unprivileged', '-n', '-sn', '-T4', '-PS' + ','.join(map(str, probes)),
+                   '--max-retries', '1', '--host-timeout', '4s', '-e', name, '-oX', '-',
+                   *[t.address for t in ipv4]]
         try:
-            result = _run(command, 60)
+            result = _run(command, admit(ipv4, 60))
         except subprocess.TimeoutExpired:
             raise ValueError('El barrido IPv4 tardó demasiado.') from None
+        guard.verify()
+        if result.returncode:
+            raise ValueError('El descubrimiento IPv4 no terminó correctamente.')
         try:
-            root = ET.fromstring(result.stdout or b'<nmaprun/>')
-        except ET.ParseError:
-            raise ValueError('No se pudo leer el resultado del barrido IPv4.') from None
-        for host in root.iter('host'):
-            status = host.find('status')
-            if status is None or status.get('state') != 'up':
-                continue
-            for address in host.iter('address'):
-                if address.get('addrtype') == 'ipv4' and address.get('addr') not in local:
-                    found[4].add(address.get('addr'))
-    for network in segment['ipv6']:
-        source = next((str(a.ip) for a in _addresses(name) if a.version == 6 and str(a.network) == network), None)
-        if not source:
+            states = parse_discovery(result.stdout, ipv4)
+        except (ET.ParseError, TypeError, ValueError):
+            raise ValueError('El resultado IPv4 no respeta el alcance autorizado o no está completo.') from None
+        found[4].update(address for address, state in states.items() if state == 'up' and address not in local)
+
+    for target in targets:
+        address = ipaddress.ip_address(target.address)
+        if address.version != 6 or str(address) in local:
             continue
         try:
-            result = _run(['ping', '-6', '-c', '2', '-W', '1', '-I', source, f'ff02::1%{name}'], 8)
+            result = _run(['ping', '-6', '-c', '1', '-W', '1', '-I', name, str(address)],
+                          admit([target], 3))
         except subprocess.TimeoutExpired:
+            continue
+        guard.verify()
+        if result.returncode:
             continue
         for match in REPLY.finditer(result.stdout.decode(errors='replace')):
             try:
-                ip = ipaddress.ip_address(match.group(1))
+                source = ipaddress.ip_address(match.group(1))
             except ValueError:
                 continue
-            if ip.version == 6 and not ip.is_link_local and str(ip) not in local and ip in ipaddress.ip_network(network):
-                found[6].add(str(ip))
+            if source != address:
+                raise ValueError('La respuesta IPv6 contiene un origen distinto del objetivo autorizado.')
+        found[6].add(str(address))
     neighbors = _neighbors(name)
-    # Una respuesta a multidifusión no siempre deja la MAC en la tabla: un eco unicast
-    # fuerza el descubrimiento de vecinos (o ARP) de cada dirección que respondió.
+    # Sólo se completa la entrada de un activo autorizado que ya respondió.
     pending = [a for version in (4, 6) for a in sorted(found[version]) if a not in neighbors][:MAX_HOSTS]
     if pending:
-        probes = [subprocess.Popen(['ping', '-6' if ':' in a else '-4', '-c', '1', '-W', '1', '-I', name, a],
-                                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) for a in pending]
-        for probe in probes:
+        by_address = {t.address: t for t in targets}
+        for address in pending:
             try:
-                probe.wait(timeout=3)
+                _run(['ping', '-6' if ':' in address else '-4', '-c', '1', '-W', '1', '-I', name, address],
+                     admit([by_address[address]], 3))
             except subprocess.TimeoutExpired:
-                probe.kill()
+                continue
+            guard.verify()
         neighbors = _neighbors(name)
+    guard.check_targets(targets)
     hosts = {}
     for version in (4, 6):
         for address in found[version]:
             mac = neighbors.get(address)
-            # En un segmento conectado directamente, un equipo real siempre resuelve su MAC
-            # (ARP o descubrimiento de vecinos). Sin MAC, la respuesta se descarta como espuria.
             if not mac:
                 continue
             entry = hosts.setdefault(mac or address, {'mac': mac, 'ipv4': [], 'ipv6': []})
@@ -137,5 +180,7 @@ def discover(name):
     for entry in ordered:
         entry['ipv4'].sort(key=lambda a: int(ipaddress.ip_address(a)))
         entry['ipv6'].sort(key=lambda a: int(ipaddress.ip_address(a)))
+    segment = {'name': name, 'ipv4': sorted(allowed[4]), 'ipv6': sorted(allowed[6])}
     return {'interface': name, 'segments': segment, 'hosts': ordered[:MAX_HOSTS],
-            'seconds': round(time.monotonic() - started, 1)}
+            'seconds': round(time.monotonic() - started, 1),
+            'authorization': guard.verify(), 'discovery_scope': 'registered_assets_only'}

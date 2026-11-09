@@ -155,8 +155,14 @@ class NoRedirects(HTTPRedirectHandler):
     def redirect_request(self,*args,**kwargs):return None
 
 
-def fetch(address,app,path,headers,channel,deadline,interface):
-    from laboratorio_personal import resolve_targets
+def fetch(address,app,path,headers,channel,deadline,interface,*,authorization=None):
+    from laboratorio_personal import resolve_targets, require_authorization, AuthorizationError
+    target=Target(asset_id='authorized_application',address=address,interface=interface,ports=[app['port']])
+    require_authorization(authorization,[target],feature='applications')
+    authorization.check_application(app)
+    if address not in {app.get('ipv4'),app.get('ipv6')} or path not in {
+            app.get(key+'_path') for key in ['own','foreign','download','admin'] if app.get(key+'_path')}:
+        raise AuthorizationError('authorization_application_denied', 'El destino y la ruta HTTP deben pertenecer a la aplicación autorizada.')
     remaining=deadline-time.monotonic()
     if remaining<=0:raise TimeoutError('web_budget_exhausted')
     version=ip_address(address).version
@@ -165,6 +171,7 @@ def fetch(address,app,path,headers,channel,deadline,interface):
     remaining=deadline-time.monotonic()
     if remaining<=0:raise TimeoutError('web_budget_exhausted')
     timeout=min(3,remaining)
+    require_authorization(authorization,[target],feature='applications')
     host='['+address+']' if version==6 else address
     url=f"{app['scheme']}://{host}:{app['port']}{path}"
     response=connection=None
@@ -250,7 +257,10 @@ def corroborated_checks(app,first,second):
 def app_digest(app):return hashlib.sha256(json.dumps(app,sort_keys=True).encode()).hexdigest()
 
 
-def execute_application(task,app,store,deadline):
+def execute_application(task,app,store,deadline,*,authorization=None):
+    from laboratorio_personal import require_authorization, AuthorizationError
+    require_authorization(authorization,[task.target],feature='applications')
+    authorization.check_application(app)
     deadline=min(deadline,time.monotonic()+task.timeout_seconds)
     headers=load_session(app['session']);channels={}
     store.event('tool','tool_started',task_id=task.task_id,payload={'tool':'HTTP','profile':PROFILE})
@@ -262,7 +272,8 @@ def execute_application(task,app,store,deadline):
             for label,prefix,auth in [('own','own',True),('anonymous','own',False),('foreign','foreign',True),('download','download',True),('admin','admin',True)]:
                 if not app[prefix+'_path']:continue
                 try:
-                    row=fetch(app[family],app,app[prefix+'_path'],headers if auth else {},channel,deadline,task.target.interface)
+                    row=fetch(app[family],app,app[prefix+'_path'],headers if auth else {},channel,deadline,task.target.interface,authorization=authorization)
+                except AuthorizationError:raise
                 except Exception:row={'error':'http_probe_incomplete'}
                 records[family][label]=row
                 store.event('tool','web_response',task_id=task.task_id,payload={'family':family,'channel':channel,'check':label,'status':row.get('status'),'error':row.get('error')})

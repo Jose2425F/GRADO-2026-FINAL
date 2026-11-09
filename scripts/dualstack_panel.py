@@ -150,9 +150,9 @@ def validate_options(value: dict) -> dict:
 def personal_options_signature(options):
     base=personal_signature(options['personal'])
     applications=options.get('applications',[])
-    if not applications:return base
     import hashlib
-    return hashlib.sha256((base+json.dumps(applications,sort_keys=True)).encode()).hexdigest()
+    return hashlib.sha256((base+json.dumps({'applications':applications,
+        'authorization':options.get('authorization'),'creds':options.get('creds',False)},sort_keys=True)).encode()).hexdigest()
 
 
 def command_for(options: dict, output: Path, pilot: Path = PILOT) -> list[str]:
@@ -350,6 +350,9 @@ class Operations:
                 options={}
             elif action not in {"check", "restore", "empresa_check", "empresa_restore", "empresa_down"}:
                 raise ValueError("Operación no admitida.")
+            if action in {'audit','personal_check'} and options.get('scope')=='personal':
+                from autorizacion_personal import AuthorizationGuard
+                AuthorizationGuard(options).verify()
             if action in {'check','restore','empresa_check','empresa_restore','empresa_down','suite_check','suite_restore','suite_down','acceptance_all'} and kernel_warning():
                 raise ValueError(kernel_warning())
             operation_name = 'Comprobación' if action in {'check', 'personal_check', 'empresa_check','suite_check'} else 'Restauración'
@@ -388,10 +391,13 @@ class Operations:
         try:
             if job['action']=='personal_check':
                 try:
+                    from autorizacion_personal import AuthorizationGuard
+                    authorization=AuthorizationGuard(job['options'])
                     targets=resolve_targets(job['options']['personal'],deadline=time.monotonic()+240)
+                    authorization.check_targets(targets)
                     from aplicaciones_personales import load_session
                     for app in job['options'].get('applications',[]):load_session(app['session'])
-                    message=f'Rutas directas y Nmap disponibles para {len(targets)} hosts candidatos (máximo 256). El descubrimiento del CIDR y los puertos se comprobarán al iniciar.'
+                    message=f'Autorización vigente, rutas directas y Nmap disponibles para {len(targets)} objetivos. El alcance se verificará de nuevo antes de cada despacho.'
                     status='ready'
                 except ValueError as exc:
                     message=str(exc);status='error'
@@ -1040,9 +1046,9 @@ def make_server(panel: Panel, port: int = 8765, identity=None):
                     job=panel.operations.start('personal_check',options)
                 elif path=='/api/lab/personal/discover':
                     from descubrimiento_red import discover
-                    if set(options)-{'interface'}:raise ValueError('Indica solo la interfaz de red.')
+                    if set(options)!={'interface','authorization'}:raise ValueError('Indica la interfaz y la referencia de autorización registrada.')
                     with panel.operations.reserve():
-                        result=discover(options.get('interface'))
+                        result=discover(options.get('interface'),authorization=options.get('authorization'))
                     self.json(result)
                     return
                 elif path in {'/api/lab/empresa/check','/api/lab/empresa/restore','/api/lab/empresa/down'}:

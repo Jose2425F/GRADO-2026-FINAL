@@ -60,12 +60,16 @@ def parse_open_ports(raw,task):
     return sorted(opened)
 
 
-def execute_open_task(task,store,deadline,runner=subprocess.run):
+def execute_open_task(task,store,deadline,runner=subprocess.run,*,authorization=None):
+    P.require_authorization(authorization, [task.target])
+    if authorization.scope['personal'].get('port_mode')!='auto':
+        raise P.AuthorizationError('authorization_ports_denied', 'El permiso no incluye el descubrimiento TCP automático.')
     command=automatic_command(task)
     config={'ipv4':task.target.address if ip_address(task.target.address).version==4 else '',
             'ipv6':task.target.address if ip_address(task.target.address).version==6 else '',
             'port_mode':'auto','interface':task.target.interface}
     if P.resolve_targets(config,deadline=deadline)!=[task.target]:raise ValueError('discovery_route_changed')
+    P.require_authorization(authorization, [task.target])
     raw=diagnostic=b'';opened=[];status=TaskStatus.COMPLETED_NO_FINDINGS;reason=None
     store.event('tool','tool_started',task_id=task.task_id,payload={'tool':'nmap','command':command})
     try:
@@ -107,6 +111,7 @@ def validated_result(directory,task,result):
 
 
 def run_automatic(options,output):
+    authorization = P.AuthorizationGuard(options)
     from aplicaciones_personales import configure_applications,load_session,ApplicationTask,execute_application,adjudicate_application,PROFILE as WEB_PROFILE
     config=P.configuration(options['personal']);applications=configure_applications(options.get('applications',[]),config)
     audit_id='personal_'+options['architecture']+'_'+uuid4().hex[:12];directory=output/(audit_id+'_'+datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S'))
@@ -117,6 +122,7 @@ def run_automatic(options,output):
     write_json(directory/'request.json',{'audit_id':audit_id,'bank':'personal','architecture':options['architecture'],'token_budget':options['tokens'],
         'llm_mode':'scheduler' if options['ia']=='openai' else 'disabled','personal':config,'applications':applications,
         'expert_mode':bool(options.get('expert_mode')),'authorization_ref':options['authorization']})
+    write_json(directory/'authorization.json',authorization.verify())
     workers=2 if options['architecture']=='multiagent' else 1
     write_json(directory/'manifest.json',{'bank':'personal','mode':'live','purpose':purpose,'port_discovery':'tcp_1_65535',
         'source_sha256':__import__('auditoria.cli',fromlist=['source_fingerprint']).source_fingerprint(),
@@ -145,10 +151,11 @@ def run_automatic(options,output):
                     choice=scheduler.select(ready,results,tasks) if scheduler else ready[0]
                     if choice not in ready:raise ValueError('invalid_selection')
                     if deadline-time.monotonic()<P.TASK_RESERVE_SECONDS:break
+                    P.require_authorization(authorization,[choice.target],feature='applications' if choice.action_profile==WEB_PROFILE else 'inventory')
                     pending.remove(choice);store.event('controller','task_admitted',task_id=choice.task_id,payload={'profile':choice.action_profile})
-                    if choice.action_profile==PROFILE:future=pool.submit(execute_open_task,choice,store,deadline)
-                    elif choice.action_profile==P.PROFILE:future=pool.submit(P.execute_task,choice,store)
-                    else:future=pool.submit(execute_application,choice,applications[choice.application_index],store,deadline)
+                    if choice.action_profile==PROFILE:future=pool.submit(execute_open_task,choice,store,deadline,authorization=authorization)
+                    elif choice.action_profile==P.PROFILE:future=pool.submit(P.execute_task,choice,store,authorization=authorization)
+                    else:future=pool.submit(execute_application,choice,applications[choice.application_index],store,deadline,authorization=authorization)
                     running[future]=choice
                 if not running:break
                 completed,_=wait(running,return_when=FIRST_COMPLETED)
@@ -161,6 +168,9 @@ def run_automatic(options,output):
                         else:
                             detected,record=adjudicate_application(directory,task,result,applications[task.application_index]);findings.extend(detected);validations.append(record)
                             if result.status==TaskStatus.COMPLETED and record['state']=='indeterminate':result=result.model_copy(update={'status':TaskStatus.FAILED,'reason_code':'web_evidence_not_validated'})
+                    except P.AuthorizationError as exc:
+                        store.event('controller','authorization_rejected',task_id=task.task_id,payload={'reason_code':exc.reason_code})
+                        raise
                     except Exception:result=TaskResult(task_id=task.task_id,status=TaskStatus.FAILED,reason_code='automatic_inventory_or_evidence_invalid')
                     if task.action_profile==PROFILE and result.status in SUCCESS:
                         ports=result.observations['open_ports'];opened_by_address[task.target.address]=ports
@@ -181,7 +191,10 @@ def run_automatic(options,output):
     try:
         if int(Path('/proc/sys/kernel/tainted').read_text()) & ((1<<7)|(1<<14)):raise ValueError('kernel_failure')
         for app in applications:load_session(app['session'])
-        targets=P.resolve_targets(config,deadline=deadline);states=P.discover_targets(targets,config,store,deadline)
+        store.event('controller','authorization_verified',payload=authorization.verify())
+        targets=P.resolve_targets(config,deadline=deadline)
+        P.require_authorization(authorization,targets)
+        states=P.discover_targets(targets,config,store,deadline,authorization=authorization)
         tasks=port_tasks([t for t in targets if states[t.address]!='down']);discovery_ids={t.target.address:t.task_id for t in tasks};save_plan()
         store.event('orchestration','plan_created',payload={'task_count':len(tasks),'port_discovery':'tcp_1_65535'})
         if options['ia']=='openai' and tasks and deadline-time.monotonic()>=P.TASK_RESERVE_SECONDS:
@@ -214,9 +227,10 @@ def run_automatic(options,output):
             live=[t for t in targets if compatible[t.address]]
             store.event('orchestration','credential_sweep_started',payload={'hosts':len(live)})
             findings.extend(P.credential_sweep(live,{a:list(s) for a,s in compatible.items()},store,deadline,
-                tasks=tasks,results=results,validations=validations,services_by_address=compatible))
-    except Exception:
-        error='preflight_or_configuration_failed';finished={r.task_id for r in results}
+                tasks=tasks,results=results,validations=validations,services_by_address=compatible,authorization=authorization))
+    except Exception as exc:
+        error=exc.reason_code if isinstance(exc,P.AuthorizationError) else 'preflight_or_configuration_failed';finished={r.task_id for r in results}
+        if isinstance(exc,P.AuthorizationError):store.event('controller','authorization_rejected',payload={'reason_code':error})
         for task in tasks:
             if task.task_id not in finished:terminal(task,TaskResult(task_id=task.task_id,status=TaskStatus.BLOCKED,reason_code=error))
     finally:

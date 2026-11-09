@@ -11,6 +11,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import laboratorio_empresa as company
 import laboratorio_personal as personal
 from dualstack_panel import validate_options
+from scripts.tests.authorization_fixture import personal_authorization
 
 
 @pytest.mark.parametrize('taint', [1 << 7, 1 << 14, (1 << 7) | (1 << 14)])
@@ -35,7 +36,7 @@ def test_kernel_failure_stops_before_routes_tools_or_provider(tmp_path, monkeypa
     else:
         options = {'personal': personal.configuration({'ipv4': '192.0.2.10', 'ports': '22', 'interface': 'eth0'}),
                    'architecture': 'single', 'tokens': 6000, 'ia': 'openai', 'authorization': 'LAB-PROPIO', 'creds': False}
-        with patch.object(personal, 'resolve_targets') as routes, \
+        with personal_authorization(options),patch.object(personal, 'resolve_targets') as routes, \
              patch.object(personal, 'execute_task') as tool, \
              patch('auditoria.openai_provider.OpenAIScheduler') as provider:
             code = personal.run(options, tmp_path)

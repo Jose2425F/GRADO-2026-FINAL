@@ -16,6 +16,7 @@ from laboratorio_personal import (configuration, resolve_targets, scope_hosts, t
 from dualstack_panel import validate_options, Panel, make_server
 from auditoria.contracts import Target, TaskResult, Service
 from auditoria.store import RunStore
+from scripts.tests.authorization_fixture import personal_authorization, scope_options
 
 
 class PersonalLabTests(unittest.TestCase):
@@ -63,7 +64,7 @@ class PersonalLabTests(unittest.TestCase):
             self.assertEqual(len(detail['brief']['coverage']),3)
             self.assertTrue(all('coverage' in i for i in detail['brief']['inventory']))
     def config(self):
-        return {'ipv4':'192.168.56.20','ipv6':'fd00:56::20','ports':'80,8080','interface':'auto'}
+        return {'ipv4':'192.168.56.20','ipv6':'fd00:56::20','ports':'80,8080','interface':'eth0'}
 
     def task(self,ipv6=False):
         return InventoryTask(task_id='personal_test_1',agent_type='ipv6_services' if ipv6 else 'ipv4_services',
@@ -146,8 +147,8 @@ class PersonalLabTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             store=RunStore(Path(temp)/'run','discovery_test')
             try:
-                with patch('laboratorio_personal.resolve_targets',side_effect=[[t] for t in targets]) as routes,patch('laboratorio_personal.subprocess.run',return_value=subprocess.CompletedProcess([],0,self.discovery_xml(['192.168.56.1']),b'')) as runner:
-                    states=discover_targets(targets,config,store,time.monotonic()+240)
+                with personal_authorization(scope_options(config)) as authorization,patch('laboratorio_personal.resolve_targets',side_effect=[[t] for t in targets]) as routes,patch('laboratorio_personal.subprocess.run',return_value=subprocess.CompletedProcess([],0,self.discovery_xml(['192.168.56.1']),b'')) as runner:
+                    states=discover_targets(targets,config,store,time.monotonic()+240,authorization=authorization)
                 self.assertEqual(routes.call_count,2)
                 command=runner.call_args.args[0]
                 self.assertIn('--unprivileged',command);self.assertIn('-sn',command);self.assertIn('-n',command)
@@ -167,11 +168,11 @@ class PersonalLabTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             store=RunStore(Path(temp)/'run','execute_test')
             try:
-                with patch('laboratorio_personal.resolve_targets',return_value=[target]) as route:
-                    result=execute_task(task,store,runner=lambda *a,**k:subprocess.CompletedProcess(a,0,self.xml(),b''))
+                with personal_authorization(scope_options(config)) as authorization,patch('laboratorio_personal.resolve_targets',return_value=[target]) as route:
+                    result=execute_task(task,store,runner=lambda *a,**k:subprocess.CompletedProcess(a,0,self.xml(),b''),authorization=authorization)
                 self.assertEqual(route.call_args.args[0]['ipv4'],target.address)
                 self.assertEqual(result.status,'completed_no_findings')
-                with patch('laboratorio_personal.resolve_targets',return_value=[]),self.assertRaises(ValueError):execute_task(task,store)
+                with personal_authorization(scope_options(config)) as authorization,patch('laboratorio_personal.resolve_targets',return_value=[]),self.assertRaises(ValueError):execute_task(task,store,authorization=authorization)
             finally:store.close()
 
     def run_mocked(self,config,up,*,architecture='multiagent',executor=None):
@@ -184,9 +185,9 @@ class PersonalLabTests(unittest.TestCase):
                     if command[0]=='ip':return subprocess.CompletedProcess(command,0,json.dumps([{'dev':'eth0'}]))
                     self.assertIn('-sn',command)
                     return subprocess.CompletedProcess(command,0,self.discovery_xml(up),b'')
-                def execute(task,store):
+                def execute(task,store,**kwargs):
                     return TaskResult(task_id=task.task_id,status='completed_no_findings')
-                with patch('laboratorio_personal.shutil.which',return_value='/usr/bin/nmap'),patch('laboratorio_personal.subprocess.run',side_effect=process),patch('laboratorio_personal.execute_task',side_effect=executor or execute) as worker:
+                with personal_authorization(options),patch('laboratorio_personal.shutil.which',return_value='/usr/bin/nmap'),patch('laboratorio_personal.subprocess.run',side_effect=process),patch('laboratorio_personal.execute_task',side_effect=executor or execute) as worker:
                     code=run(options,Path(temp))
                 directory=next(Path(temp).glob('*/report.json')).parent
                 yield code,json.loads((directory/'report.json').read_text()),json.loads((directory/'plan.json').read_text()),worker,directory
@@ -241,7 +242,7 @@ class PersonalLabTests(unittest.TestCase):
         config={**self.config(),'ipv4':'192.168.56.1,192.168.56.2,192.168.56.3,192.168.56.4','ipv6':''}
         for architecture,limit in [('single',1),('multiagent',2)]:
             counts={'active':0,'peak':0};lock=threading.Lock()
-            def execute(task,store):
+            def execute(task,store,**kwargs):
                 with lock:
                     counts['active']+=1;counts['peak']=max(counts['active'],counts['peak'])
                 time.sleep(.02)
@@ -305,7 +306,7 @@ class PersonalLabTests(unittest.TestCase):
     def test_preflight_failure_is_preserved_as_blocked_not_as_success(self):
         with tempfile.TemporaryDirectory() as temp:
             options=validate_options({'name':'Mi laboratorio','authorization':'LAB-PROPIO','scope':'personal','personal':self.config()})
-            with patch('laboratorio_personal.resolve_targets',side_effect=ValueError('Sin ruta')):
+            with personal_authorization(options),patch('laboratorio_personal.resolve_targets',side_effect=ValueError('Sin ruta')):
                 self.assertEqual(run(options,Path(temp)),3)
             report=json.loads(next(Path(temp).glob('*/report.json')).read_text())
             self.assertEqual(report['status'],'partial')

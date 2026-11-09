@@ -1,0 +1,237 @@
+{
+  "fecha": "2026-11-09",
+  "entradas": [
+    {
+      "ruta": "evidencias/LEEME-validacion-ro02.txt",
+      "bytes": 1426,
+      "sha256": "38bcd6f448d275bafb98c291172ef9687e56195d99448b6b8eab9ff8540dff2b"
+    },
+    {
+      "ruta": "evidencias/compatibilidad-autorizacion-comando.json",
+      "bytes": 1477,
+      "sha256": "4344664d80a9b87a6b9467ce8cd863e753bb02d72d143641ad60244bf16d85e1"
+    },
+    {
+      "ruta": "evidencias/compatibilidad-autorizacion.log",
+      "bytes": 794,
+      "sha256": "380f7740a9aea67dd860a69a5ca120689bc40a80f1574c6a6ce2a03bf9e19b39"
+    },
+    {
+      "ruta": "evidencias/compatibilidad-autorizacion.xml",
+      "bytes": 21523,
+      "sha256": "e7b1b0ca80de02468d80177946a0a92fe41e890de0f6fbfb5a782f296b7b4dea"
+    },
+    {
+      "ruta": "evidencias/final/LEEME-final.txt",
+      "bytes": 1806,
+      "sha256": "3e5ef62898a10e516f79b47be1a2cce32c776aa5323cbb988be307f5c2a925d5"
+    },
+    {
+      "ruta": "evidencias/final/fuentes-antes.json",
+      "bytes": 29593,
+      "sha256": "834560d9bc11939d566349200f72cfaafae584c80d671bc7a7a3580a02a60f7d"
+    },
+    {
+      "ruta": "evidencias/final/fuentes-despues.json",
+      "bytes": 29593,
+      "sha256": "834560d9bc11939d566349200f72cfaafae584c80d671bc7a7a3580a02a60f7d"
+    },
+    {
+      "ruta": "evidencias/final/guardas/bin/docker",
+      "bytes": 86,
+      "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf"
+    },
+    {
+      "ruta": "evidencias/final/guardas/bin/hydra",
+      "bytes": 86,
+      "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf"
+    },
+    {
+      "ruta": "evidencias/final/guardas/bin/nmap",
+      "bytes": 86,
+      "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf"
+    },
+    {
+      "ruta": "evidencias/final/guardas/sitecustomize.py",
+      "bytes": 1114,
+      "sha256": "d9cd66ffdaea23b010a6c87415ed5b3ea3d1e64badcf7d489631157e7b0c66ae"
+    },
+    {
+      "ruta": "evidencias/final/guardas-loopback/bin/docker",
+      "bytes": 86,
+      "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf"
+    },
+    {
+      "ruta": "evidencias/final/guardas-loopback/bin/hydra",
+      "bytes": 86,
+      "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf"
+    },
+    {
+      "ruta": "evidencias/final/guardas-loopback/bin/nmap",
+      "bytes": 1192,
+      "sha256": "5bc814d1a863cf13f107357db91f0b70f5c867ecd9eff246d3d4aa55c6c0f18d"
+    },
+    {
+      "ruta": "evidencias/final/guardas-loopback/sitecustomize.py",
+      "bytes": 1114,
+      "sha256": "d9cd66ffdaea23b010a6c87415ed5b3ea3d1e64badcf7d489631157e7b0c66ae"
+    },
+    {
+      "ruta": "evidencias/final/javascript-comando.json",
+      "bytes": 1114,
+      "sha256": "a5a00d6e9a09706f879a0d2ca8cb5837d446d2ba9a7db3d5cdc1efdfb99f5a0b"
+    },
+    {
+      "ruta": "evidencias/final/javascript.log",
+      "bytes": 512,
+      "sha256": "58bac297471e7020504ee5d3d467a56036e310869e014c5d35afbc0afaacadf3"
+    },
+    {
+      "ruta": "evidencias/final/loopback-comando.json",
+      "bytes": 1299,
+      "sha256": "939dc2d868f92d257e165b49f4b801345bc4443fa3355bc4d82d58d3b09993b7"
+    },
+    {
+      "ruta": "evidencias/final/loopback-nmap.log",
+      "bytes": 144,
+      "sha256": "7af205e7a14115fa268f325ee3ab65362904f8f0a138668b8562e22fd08341ed"
+    },
+    {
+      "ruta": "evidencias/final/loopback.log",
+      "bytes": 680,
+      "sha256": "be1bf51d032d8a16e8a68e6bfd8068f06e804d41fb8e53aab5e01237e3ce670a"
+    },
+    {
+      "ruta": "evidencias/final/loopback.xml",
+      "bytes": 416,
+      "sha256": "dba9cd9cf5e9c040ed39bc8e2fa6c3569caf1fe668c46abf48a3fa68574e052b"
+    },
+    {
+      "ruta": "evidencias/final/regresion-comando.json",
+      "bytes": 1301,
+      "sha256": "f3a847c078da381f21dfbb570d5190bfe1cc621ea9f3746f6961655723343ec7"
+    },
+    {
+      "ruta": "evidencias/final/regresion-network-guard.log",
+      "bytes": 51,
+      "sha256": "d15f5aad3bf93cdaef42b04f8899fcbde1c1584d0e08e687a2d7895ca3c85cbf"
+    },
+    {
+      "ruta": "evidencias/final/regresion.log",
+      "bytes": 1607,
+      "sha256": "1b90bc0053480f9f470d4d610bc84c95011ad499ef6b74204ac5280797ebdf49"
+    },
+    {
+      "ruta": "evidencias/final/regresion.xml",
+      "bytes": 133000,
+      "sha256": "8594b9b79cea8c28c064281a2b7a606a19fafe804bb92d0bc58a75e798bdb12f"
+    },
+    {
+      "ruta": "evidencias/final/resumen-final.json",
+      "bytes": 5602,
+      "sha256": "a86669d83d4d2a8db9ee43a698fd58caa1b591b15e9b6773c6633e826a74fae0"
+    },
+    {
+      "ruta": "evidencias/fuentes-regresion-inicio.json",
+      "bytes": 26512,
+      "sha256": "412c8d4bbacf5395d15670c61029cfea2afa3b9e401a05bc2d78d39d37783274"
+    },
+    {
+      "ruta": "evidencias/guardas/bin/docker",
+      "bytes": 86,
+      "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf"
+    },
+    {
+      "ruta": "evidencias/guardas/bin/hydra",
+      "bytes": 86,
+      "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf"
+    },
+    {
+      "ruta": "evidencias/guardas/bin/nmap",
+      "bytes": 86,
+      "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf"
+    },
+    {
+      "ruta": "evidencias/guardas/sitecustomize.py",
+      "bytes": 1114,
+      "sha256": "d9cd66ffdaea23b010a6c87415ed5b3ea3d1e64badcf7d489631157e7b0c66ae"
+    },
+    {
+      "ruta": "evidencias/guardas-loopback/bin/docker",
+      "bytes": 86,
+      "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf"
+    },
+    {
+      "ruta": "evidencias/guardas-loopback/bin/hydra",
+      "bytes": 86,
+      "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf"
+    },
+    {
+      "ruta": "evidencias/guardas-loopback/bin/nmap",
+      "bytes": 1192,
+      "sha256": "5bc814d1a863cf13f107357db91f0b70f5c867ecd9eff246d3d4aa55c6c0f18d"
+    },
+    {
+      "ruta": "evidencias/guardas-loopback/sitecustomize.py",
+      "bytes": 1114,
+      "sha256": "d9cd66ffdaea23b010a6c87415ed5b3ea3d1e64badcf7d489631157e7b0c66ae"
+    },
+    {
+      "ruta": "evidencias/integracion-ro02.log",
+      "bytes": 663,
+      "sha256": "fd22d275547e3f1923bdf185f0cd37624b55bafdaf6ffbd2e25f48fbb2dcc3dc"
+    },
+    {
+      "ruta": "evidencias/integracion-ro02.xml",
+      "bytes": 2086,
+      "sha256": "79d1cdc65bfedf5d34c563dea9a42cccbc9f8745e97ce155812174b00cd22fdd"
+    },
+    {
+      "ruta": "evidencias/loopback-ro02-comando.json",
+      "bytes": 824,
+      "sha256": "c0261c82f57afa2e7bd234fbb7e2120af443c0395aa6d544638961c240a85c95"
+    },
+    {
+      "ruta": "evidencias/loopback-ro02-nmap.log",
+      "bytes": 144,
+      "sha256": "a5a0f4e31b0b4dc67a0f5d138998fbaa46cccb56b37c0ae2c0adb385065a0276"
+    },
+    {
+      "ruta": "evidencias/loopback-ro02.log",
+      "bytes": 680,
+      "sha256": "8ce056434324412ebffc0f48c3a61750ee741f7cb007e22e12b6d0d10ba37b3f"
+    },
+    {
+      "ruta": "evidencias/loopback-ro02.xml",
+      "bytes": 416,
+      "sha256": "7c2f783066ca3d5cb896ff54d7fe6999c7bc8a2b0c3495c400d848b910bdb19f"
+    },
+    {
+      "ruta": "evidencias/regresion-ro02-comando.json",
+      "bytes": 835,
+      "sha256": "712ec4fd4fd3707408778c9a1e5eaf5950550775332e449242e5c2a96f45cd71"
+    },
+    {
+      "ruta": "evidencias/regresion-ro02-network-guard.log",
+      "bytes": 51,
+      "sha256": "d15f5aad3bf93cdaef42b04f8899fcbde1c1584d0e08e687a2d7895ca3c85cbf"
+    },
+    {
+      "ruta": "evidencias/regresion-ro02-resumen.json",
+      "bytes": 2228,
+      "sha256": "ef0ff348d81cc50dc460bdacb89697be791f708132af2b535dd34d6475e19b13"
+    },
+    {
+      "ruta": "evidencias/regresion-ro02.log",
+      "bytes": 1607,
+      "sha256": "7c6d308214886fa779e08039c11badb7be1707381209d6ba1a798e1f188b41e1"
+    },
+    {
+      "ruta": "evidencias/regresion-ro02.xml",
+      "bytes": 129912,
+      "sha256": "a25a1f7f5e35216742144293951f580c6d69a393aa50c36b536568832747075d"
+    }
+  ],
+  "conteo": 46,
+  "nota": "Se conservan las pasadas intermedias; los resultados definitivos se encuentran en evidencias/final/."
+}

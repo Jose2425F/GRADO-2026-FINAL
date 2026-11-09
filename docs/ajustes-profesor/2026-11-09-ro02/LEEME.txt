@@ -1,0 +1,14 @@
+CONTINUACIÓN DEL PUNTO 11.3: AUTORIZACIÓN DE ACTIVOS POR IP
+
+Este avance continúa centinela-2026.11.09. No modifica la cohorte ni los KPI de octubre o noviembre. El Word v2 de 162 páginas de la entrega previa se conserva como documento académico vigente; este seguimiento registra el trabajo técnico posterior.
+
+Estado_de_los_ajustes_v3.txt: estado de las once prioridades y otros límites de la rúbrica.
+Operacion_autorizaciones.txt: registro, revocación, vigencia y uso de permisos por el operador.
+resumen-validacion.json: pasada final sobre 258 fuentes congeladas, 838 pruebas Python y 59 subpruebas aprobadas, 2 omisiones y 4 pruebas JS.
+evidencias-ro02-20261109.zip: logs, XML, comandos, guardas, snapshots y resultados intermedios/finales.
+integridad-evidencias-ro02.json: SHA-256 de cada entrada del ZIP.
+verificar.py: comprueba esta continuación sin red ni sondas.
+
+La autorización de alcance se ensayó en ambos motores de la extensión por IP, el descubrimiento y los adaptadores. Quedan pendientes la separación efectiva de privilegios y la demostración de denegación por origen IPv4/IPv6. No se aplicaron reglas de cortafuegos ni se cambió el servicio de AWS. La instalación de esta corrección requiere registrar antes los alcances aprobados; no se incluyen registros privados de permisos reales en Git.
+
+Los manifiestos de versiones anteriores describen sus respectivas versiones. El verificador de integridad-version.json de la entrega anterior debe ejecutarse sobre su etiqueta centinela-2026.11.09; las fuentes de esta continuación cambian deliberadamente. Las evidencias históricas y los archivos de esa entrega permanecen sin alteraciones.

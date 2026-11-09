@@ -1,3 +1,4 @@
+from scripts.tests.authorization_fixture import personal_authorization
 import copy
 import json
 from pathlib import Path
@@ -172,8 +173,8 @@ class ExpertsTests(unittest.TestCase):
         options={'personal':{'ipv4':'192.168.56.10','ipv6':'','ports':[8080],'interface':'eth0'},
                  'architecture':'multiagent','tokens':6000,'ia':'openai','authorization':'LAB-PROPIO','expert_mode':True}
         transport=FakeTransport()
-        def inventory(task,store):return TaskResult(task_id=task.task_id,status='completed_no_findings')
-        with tempfile.TemporaryDirectory() as td,patch('auditoria.openai_provider.load_openai_config',return_value=self.config),patch('auditoria.openai_provider.OpenAIConfig.from_environment',return_value=self.config),patch('auditoria.openai_provider.OpenAITransport',return_value=transport),patch('llm_especialistas.TracedOpenAITransport',return_value=transport),patch('laboratorio_personal.resolve_targets',return_value=[self.target]),patch('laboratorio_personal.execute_task',side_effect=inventory):
+        def inventory(task,store,**kwargs):return TaskResult(task_id=task.task_id,status='completed_no_findings')
+        with tempfile.TemporaryDirectory() as td,personal_authorization(options),patch('auditoria.openai_provider.load_openai_config',return_value=self.config),patch('auditoria.openai_provider.OpenAIConfig.from_environment',return_value=self.config),patch('auditoria.openai_provider.OpenAITransport',return_value=transport),patch('llm_especialistas.TracedOpenAITransport',return_value=transport),patch('laboratorio_personal.resolve_targets',return_value=[self.target]),patch('laboratorio_personal.execute_task',side_effect=inventory):
             self.assertEqual(run(options,Path(td)),0)
             directory=next(Path(td).iterdir());report=json.loads((directory/'report.json').read_text())
             self.assertEqual(report['llm']['known_tokens'],180);self.assertEqual(report['llm']['budget'],6000)
