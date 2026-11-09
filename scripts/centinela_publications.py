@@ -81,7 +81,7 @@ class Publications:
                     marker = {'source_key': key, 'published_at': datetime.now(timezone.utc).isoformat(timespec='seconds'),
                               'published_by': admin['id']}
                     (staging / 'publicacion.json').write_text(json.dumps(marker), encoding='utf-8')
-                    job = source.json_file(directory.parent / 'panel_job.json', {})
+                    job = source.job_metadata(directory)
                     metadata = {'name': detail['run']['name'], 'created_at': job.get('created_at') if isinstance(job, dict) else None}
                     with panel.lock:
                         previous = list(self.records(panel, admin, key))

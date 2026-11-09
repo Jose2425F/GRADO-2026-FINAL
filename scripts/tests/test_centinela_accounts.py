@@ -329,3 +329,26 @@ def test_audit_output_and_identity_survive_a_server_restart(service):
     assert [r['name'] for r in restarted.for_id(alice).state()['runs']]==['Alice audit']
     assert restarted.for_id(bob).state()['runs']==[]
     assert restarted.for_id(admin).state()['runs']==[]
+
+
+def test_protected_export_keeps_job_name_and_date_when_published(service):
+    key = finished_run(service[1].root, 'panel/job/runs/audit')
+    folder = service[1].root / key
+    (folder.parent / 'panel_job.json').rename(folder.parent.parent / 'panel_job.json')
+    admin, csrf = login(service, 'admin')
+    alice, _ = login(service, 'alice')
+    bob, _ = login(service, 'bob')
+    assert published_runs(service, admin)[0]['name'] == 'Informe de empresa'
+    assert call(service, '/api/admin/publish', admin, {'key': key, 'user': service[4]}, csrf)[0] == 201
+    published = published_runs(service, alice)[0]
+    assert published['name'] == 'Informe de empresa'
+    metadata = json.loads((service[0].directory / 'workspaces' / service[4] / 'runs' / published['key']).parent.joinpath('panel_job.json').read_text())
+    assert metadata == {'name': 'Informe de empresa', 'created_at': '2026-11-08T00:00:00Z'}
+    assert published_runs(service, bob) == []
+
+
+def test_job_metadata_never_reads_above_a_workspace_named_runs(tmp_path):
+    root = tmp_path / 'runs'
+    panel = Panel(root)
+    write_json(tmp_path / 'panel_job.json', {'name': 'Outside this workspace'})
+    assert panel.job_metadata(root / 'audit') == {}

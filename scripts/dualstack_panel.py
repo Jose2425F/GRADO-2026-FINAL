@@ -559,6 +559,18 @@ class Panel:
         except (ValueError, TypeError):
             return default
 
+    def job_metadata(self, directory):
+        parents = [directory.parent]
+        if directory.parent.name == 'runs':
+            parents.append(directory.parent.parent)
+        for parent in parents:
+            if not parent.is_relative_to(self.root):
+                continue
+            value = self.json_file(parent / 'panel_job.json', {})
+            if isinstance(value, dict) and value:
+                return value
+        return {}
+
     def state(self):
         with self.lock:
             if self.cached is None or time.monotonic() - self.cached_at >= 1:
@@ -567,7 +579,7 @@ class Panel:
                 runs = [r for r in state["runs"] if r.get("tasks") or self.json_file(self.root/r['key']/'request.json',{}).get('bank') in {'personal','empresa'}]
                 for run in runs:
                     directory = self.root / run["key"]
-                    metadata = self.json_file(directory.parent / "panel_job.json", {})
+                    metadata = self.job_metadata(directory)
                     request = self.json_file(directory / "request.json", {})
                     manifest = self.json_file(directory / "manifest.json", {})
                     from tesis.evaluacion_manual import public_orchestration, public_context
