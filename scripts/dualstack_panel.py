@@ -176,6 +176,8 @@ def command_for(options: dict, output: Path, pilot: Path = PILOT) -> list[str]:
 def friendly_error(output: str) -> str:
     # Nunca servir stdout completo: puede incluir rutas privadas o datos ajenos al contrato.
     reasons = {
+        'protected_runtime_required': 'La auditoría requiere el ejecutor protegido del operador. Configura la separación de roles y red antes de iniciarla.',
+        'ejecutor protegido del operador': 'La auditoría requiere el ejecutor protegido del operador. Configura la separación de roles y red antes de iniciarla.',
         'prepare_local_images_before_restore': 'Primero completa Aceptar los cinco laboratorios sin IA para fijar las imágenes del banco.',
         'pinned_image_reference_changed': 'La configuración difiere de la referencia fijada. Revisa el banco antes de continuar; las imágenes no se reconstruyen al restaurar.',
         'restored_images_do_not_match_pinned_reference': 'La restauración no conserva las imágenes fijadas. No inicies una auditoría hasta resolver esta diferencia.',
@@ -446,6 +448,8 @@ class Operations:
                     if candidates:
                         job["run_key"] = candidates[0].parent.relative_to(self.root).as_posix()
                     job["message"] = "La auditoría superó el plazo y se detuvo. Se conserva la evidencia parcial; restaura el banco antes de repetir." if timed_out else "La auditoría se detuvo. Revisa la cobertura y restaura el banco antes de otra prueba." if cancelled else "El resultado está disponible." if code in {0, 3} and job["run_key"] else friendly_error(tail)
+                    if 'protected_runtime_required' in tail:
+                        job.update(status='failed',reason_code='protected_runtime_required',message=friendly_error(tail))
                     if cancelled or code not in {0, 3}:
                         self.lab.update(status="unknown", message="Vuelve a comprobar o restaurar el laboratorio.")
                     if job['options']['scope']=='empresa':

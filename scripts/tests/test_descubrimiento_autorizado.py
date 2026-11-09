@@ -5,6 +5,8 @@ from unittest.mock import Mock
 
 import pytest
 
+pytestmark = pytest.mark.usefixtures("simulated_protected_runtime")
+
 import autorizacion_personal as A
 import descubrimiento_red as D
 import laboratorio_personal as P

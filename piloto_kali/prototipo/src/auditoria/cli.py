@@ -72,7 +72,7 @@ def lab_operation(function):
         try:
             with operation_lock():
                 return function(*args, **kwargs)
-        except (LabError, OSError) as exc:
+        except (LabError, OSError, ValueError) as exc:
             abort(exc)
 
     return guarded
@@ -134,6 +134,9 @@ def run_request(
 
         if not lab_metadata or lab_metadata.get("bank") != VERSION or lab_metadata.get("images_frozen") is not True:
             raise PolicyError("v2_preflight_required", "v2 requiere preflight e imágenes congeladas; use demo-v2 o experimento-v2")
+    if live:
+        from .secure_runtime import require_live_runtime
+        require_live_runtime(bank=request.bank)
     started = time.monotonic()
     run_name = f"{request.audit_id}_{datetime.now(timezone.utc):%Y%m%dT%H%M%S}_{uuid4().hex[:8]}"
     store = RunStore(salida / run_name, request.audit_id)
@@ -333,6 +336,8 @@ def piloto_docker(
     """Audita en vivo el Tomcat aislado después de comprobar su topología."""
     now = datetime.now(timezone.utc)
     try:
+        from .secure_runtime import require_live_runtime
+        require_live_runtime(bank='piloto')
         request = AuditRequest(
             audit_id=f"piloto_docker_{now:%Y%m%dT%H%M%S}_{uuid4().hex[:6]}",
             operator=getpass.getuser(),
@@ -387,6 +392,8 @@ def piloto_credenciales(
     """Ejecuta Nmap y un intento SSH sintético después de comprobar el laboratorio."""
     now = datetime.now(timezone.utc)
     try:
+        from .secure_runtime import require_live_runtime
+        require_live_runtime(bank='piloto')
         request = AuditRequest(
             audit_id=f"piloto_credenciales_{now:%Y%m%dT%H%M%S}_{uuid4().hex[:6]}",
             operator=getpass.getuser(),
@@ -452,6 +459,8 @@ def piloto_ipv6(
     """Ejecuta casos IPv6 autorizados solo en el Docker interno verificado."""
     now = datetime.now(timezone.utc)
     try:
+        from .secure_runtime import require_live_runtime
+        require_live_runtime(bank='piloto')
         if completo and caso:
             raise ValueError("elige --completo o --caso, no ambos")
         case_ids = list(CASES) if completo else caso
@@ -606,6 +615,9 @@ def execute_demo(
 
     if arquitectura not in {"single", "multiagent"}:
         raise ValueError("arquitectura debe ser single o multiagent")
+    if live:
+        from .secure_runtime import require_live_runtime
+        require_live_runtime(bank='piloto')
     if openai and live:
         from .openai_provider import load_openai_config
         load_openai_config(config)
@@ -771,6 +783,8 @@ def experimento(
     tokens: int = typer.Option(40000, "--tokens", min=256, max=60000),
 ) -> None:
     """Ejecuta pares en orden aleatorio, restaura entre corridas y conserva los fallos."""
+    from .secure_runtime import require_live_runtime
+    require_live_runtime(bank="piloto")
     import random
     from .laboratorio import compose
     from .metrics import summarize_experiment
@@ -914,6 +928,9 @@ if __name__ == "__main__":
 def execute_v2(config, credentials, output, authorization, architecture, *, live=True, llm=True, tokens=60000, stop=False):
     from . import lab_v2
     from .v2_agent import request as v2_request, policy as v2_policy
+    if live:
+        from .secure_runtime import require_live_runtime
+        require_live_runtime(bank='v2')
     if llm and live:
         from .openai_provider import load_openai_config
         load_openai_config(credentials)
@@ -968,6 +985,8 @@ def experimento_v2(
     costo_maximo: float = typer.Option(20.0,'--costo-maximo-usd',min=0.01,max=100),
 ):
     """Bloques emparejados v2 con API real, restauración, límites y conservación de intentos."""
+    from .secure_runtime import require_live_runtime
+    require_live_runtime(bank="v2")
     import random
     from . import lab_v2
     from .openai_provider import load_openai_config

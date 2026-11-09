@@ -220,7 +220,8 @@ def discover_targets(targets, config, store, deadline, *, authorization=None):
         store.event('controller','discovery_started',payload={'command':command,'host_count':len(group)})
         raw=diagnostic=b''
         try:
-            result=subprocess.run(command,capture_output=True,timeout=timeout,check=False)
+            from auditoria.tool_worker import tool_runtime_enabled,run_tool
+            result=(run_tool if tool_runtime_enabled() else subprocess.run)(command,capture_output=True,timeout=timeout,check=False)
             raw,diagnostic=result.stdout,result.stderr
             if result.returncode:raise ValueError('discovery_failed')
             discovered=parse_discovery(raw,group)
@@ -312,7 +313,8 @@ def execute_task(task,store,runner=subprocess.run,*,authorization=None):
     store.event('tool','tool_started',task_id=task.task_id,payload={'tool':'nmap','command':command})
     status=TaskStatus.COMPLETED_NO_FINDINGS;reason=None;services=[];states=[];raw=b'';diagnostic=b''
     try:
-        result=runner(command,capture_output=True,timeout=65,check=False)
+        from auditoria.tool_worker import tool_runtime_enabled,run_tool
+        result=(run_tool if tool_runtime_enabled() else runner)(command,capture_output=True,timeout=65,check=False)
         raw=result.stdout;diagnostic=result.stderr
         if result.returncode:
             status=TaskStatus.FAILED;reason='nmap_failed'
@@ -452,6 +454,8 @@ def coverage_for(targets, tasks, results, findings, host_states, sweep, applicat
 
 def run(options,output):
     authorization = AuthorizationGuard(options)
+    from auditoria.secure_runtime import require_live_runtime
+    require_live_runtime(bank='personal',options=options,output=output)
     if configuration(options['personal']).get('port_mode')=='auto':
         from puertos_personales import run_automatic
         return run_automatic(options,output)

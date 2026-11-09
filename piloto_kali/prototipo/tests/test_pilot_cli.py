@@ -11,6 +11,8 @@ BASE = Path(__file__).resolve().parents[1]
 
 
 def test_pilot_writes_live_report_and_evidence(tmp_path, monkeypatch):
+    # Este caso simula todo el banco y Nmap; el arranque protegido se prueba aparte.
+    monkeypatch.setattr("auditoria.secure_runtime.require_live_runtime", lambda **kwargs: {})
     monkeypatch.setattr("auditoria.cli.verify_pilot_lab", lambda: {
         "internal": True, "image_id": "sha256:example", "address": "192.168.57.13",
     })

@@ -13,7 +13,7 @@ from unittest.mock import patch
 
 import pytest
 
-pytestmark = pytest.mark.usefixtures("simulated_bank_restoration")
+pytestmark = pytest.mark.usefixtures("simulated_protected_runtime", "simulated_bank_restoration")
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(ROOT / "scripts"), str(ROOT / "piloto_kali/prototipo/src")]

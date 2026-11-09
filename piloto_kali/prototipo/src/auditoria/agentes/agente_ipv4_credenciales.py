@@ -80,6 +80,10 @@ def classify_hydra_json(data: dict, task: Task, profile: CredentialProfile) -> s
 def run_hydra(
     task: Task, profile: CredentialProfile, store: RunStore, *, timeout_seconds: int, authorize=None
 ) -> TaskResult:
+    from ..tool_worker import tool_runtime_enabled,run_credential
+    if tool_runtime_enabled():
+        if authorize is not None:authorize()
+        return run_credential(task,profile,store,timeout_seconds=timeout_seconds,authorize=authorize)
     started = time.monotonic()
     if authorize is not None:
         authorize()

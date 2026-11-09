@@ -75,7 +75,8 @@ def execute_open_task(task,store,deadline,runner=subprocess.run,*,authorization=
     try:
         timeout=min(65,deadline-time.monotonic())
         if timeout<=0:raise ValueError('runtime_budget_exhausted')
-        result=runner(command,capture_output=True,timeout=timeout,check=False)
+        from auditoria.tool_worker import tool_runtime_enabled,run_tool
+        result=(run_tool if tool_runtime_enabled() else runner)(command,capture_output=True,timeout=timeout,check=False)
         raw=result.stdout;diagnostic=result.stderr
         if result.returncode:status=TaskStatus.FAILED;reason='tcp_discovery_failed'
         else:opened=parse_open_ports(raw,task)
@@ -112,6 +113,8 @@ def validated_result(directory,task,result):
 
 def run_automatic(options,output):
     authorization = P.AuthorizationGuard(options)
+    from auditoria.secure_runtime import require_live_runtime
+    require_live_runtime(bank='personal',options=options,output=output)
     from aplicaciones_personales import configure_applications,load_session,ApplicationTask,execute_application,adjudicate_application,PROFILE as WEB_PROFILE
     config=P.configuration(options['personal']);applications=configure_applications(options.get('applications',[]),config)
     audit_id='personal_'+options['architecture']+'_'+uuid4().hex[:12];directory=output/(audit_id+'_'+datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S'))

@@ -187,6 +187,14 @@ def run_panel(options, output, *, study_context=None, bank_context=None):
     except PolicyError as exc:
         _record_request_rejection(req, output, exc.reason_code)
         return 3
+    from auditoria.secure_runtime import require_live_runtime, ProtectedRuntimeError
+    try:
+        require_live_runtime(bank='integrado' if bank_context is None else bank_context.id,
+                             options=options, output=output)
+    except ProtectedRuntimeError:
+        _record_request_rejection(req, output, 'protected_runtime_required')
+        print('protected_runtime_required: Inicia la auditoría desde el ejecutor protegido del operador.')
+        return 3
     tasks = engine.build_plan(req)
     orchestration = engine_metadata()
     manual_context = options.get('manual_context')
@@ -446,7 +454,8 @@ def run_panel(options, output, *, study_context=None, bank_context=None):
 
     try:
         from tesis.segmentos import DEFAULT_ROOT, SegmentGuard
-        segments = SegmentGuard(DEFAULT_ROOT, store)
+        from auditoria.secure_runtime import require_protected_runtime
+        segments = SegmentGuard(require_protected_runtime().get('segment_lock_root',DEFAULT_ROOT), store)
         controller = LangGraphOrchestrator(tasks=tasks, workers=workers, deadline=deadline, started=started,
             store=store, prepare=prepare, execute=execute, terminal=terminal,
             authorize=lambda task: authorize(task,stage="admission"), close=close, repair_trace=repair_trace,

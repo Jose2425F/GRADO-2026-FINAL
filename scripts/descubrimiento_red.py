@@ -23,7 +23,9 @@ REPLY = re.compile(r'from ([0-9A-Fa-f:]+)(?:%[^\s:]+)?:')
 
 
 def _run(command, timeout):
-    return subprocess.run(command, capture_output=True, timeout=timeout, check=False)
+    from auditoria.tool_worker import tool_runtime_enabled,run_tool
+    runner=run_tool if command[0]=='nmap' and tool_runtime_enabled() else subprocess.run
+    return runner(command, capture_output=True, timeout=timeout, check=False)
 
 
 def _addresses(name):
@@ -80,6 +82,8 @@ def discover(name, authorization=None):
     if config['interface'] == 'auto' or config['interface'] != name:
         raise ValueError('La interfaz no coincide con la autorización registrada.')
     guard.verify()
+    from auditoria.secure_runtime import require_live_runtime
+    require_live_runtime(bank='personal')
     if not shutil.which('nmap'):
         raise ValueError('Nmap no está disponible en el servidor.')
     started = time.monotonic()

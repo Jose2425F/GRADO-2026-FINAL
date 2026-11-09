@@ -49,8 +49,10 @@ def parse_nmap_xml(raw: bytes) -> list[Service]:
 def run_nmap(task: Task, store: RunStore, *, timeout_seconds: int) -> TaskResult:
     command = nmap_command(task)
     check_route(task.target.address, task.target.interface)
+    from ..tool_worker import tool_runtime_enabled,run_tool
+    runner=run_tool if tool_runtime_enabled() else subprocess.run
     try:
-        completed = subprocess.run(
+        completed = runner(
             command, capture_output=True, timeout=timeout_seconds, check=False,
         )
     except subprocess.TimeoutExpired as exc:

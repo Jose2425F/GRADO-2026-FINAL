@@ -6,6 +6,8 @@ import sys
 
 import pytest
 
+pytestmark = pytest.mark.usefixtures("simulated_protected_runtime")
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import laboratorio_empresa as company

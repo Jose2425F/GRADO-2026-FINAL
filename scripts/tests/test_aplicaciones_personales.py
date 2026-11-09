@@ -11,7 +11,7 @@ import time
 import unittest
 import pytest
 
-pytestmark = pytest.mark.usefixtures("healthy_kernel")
+pytestmark = pytest.mark.usefixtures("simulated_protected_runtime", "healthy_kernel")
 from unittest.mock import patch
 from contextlib import contextmanager
 
