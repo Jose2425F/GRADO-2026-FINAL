@@ -1,0 +1,12 @@
+✔ administrator console starts, switches pages and opens either audit after repeated refreshes (1483.22597ms)
+✔ company portal never presents an empty assessment as 100 percent clean (30.789841ms)
+✔ an old failed company request cannot overwrite the newly selected report (24.535643ms)
+✔ login renews a stale challenge and restores the submit button on rejected credentials (18.65895ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4431.205778

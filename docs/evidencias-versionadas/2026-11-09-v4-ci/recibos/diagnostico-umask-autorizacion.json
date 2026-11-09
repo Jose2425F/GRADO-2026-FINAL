@@ -1,0 +1,120 @@
+{
+  "schema": "centinela-ci-umask-diagnosis/1",
+  "source_commit": "665e2bebac06f4c6e7ebb52570a3525a964e5f6c",
+  "source_sha256": "7e9b7dd05b9ae0fab8a4638ab8ba70e8fec2293d3c738bbb372cb1d5b44e4ed0",
+  "test_sha256_before": "968641ab18a0ebe95bbdedab18bef53ce627c88b6b7f565b44039263f4441964",
+  "external_network_calls": 0,
+  "service_or_host_configuration_changes": false,
+  "rows": [
+    {
+      "parent_kind": "sticky_tmp",
+      "umask": "0002",
+      "explicit_chmod": false,
+      "actual_ancestor_mode": "0770",
+      "rejected": true,
+      "reason": "authorization_registry_unsafe",
+      "registry_created": false
+    },
+    {
+      "parent_kind": "sticky_tmp",
+      "umask": "0002",
+      "explicit_chmod": true,
+      "actual_ancestor_mode": "0770",
+      "rejected": true,
+      "reason": "authorization_registry_unsafe",
+      "registry_created": false
+    },
+    {
+      "parent_kind": "sticky_tmp",
+      "umask": "0022",
+      "explicit_chmod": false,
+      "actual_ancestor_mode": "0750",
+      "rejected": false,
+      "reason": null,
+      "registry_created": true
+    },
+    {
+      "parent_kind": "sticky_tmp",
+      "umask": "0022",
+      "explicit_chmod": true,
+      "actual_ancestor_mode": "0770",
+      "rejected": true,
+      "reason": "authorization_registry_unsafe",
+      "registry_created": false
+    },
+    {
+      "parent_kind": "sticky_tmp",
+      "umask": "0077",
+      "explicit_chmod": false,
+      "actual_ancestor_mode": "0700",
+      "rejected": false,
+      "reason": null,
+      "registry_created": true
+    },
+    {
+      "parent_kind": "sticky_tmp",
+      "umask": "0077",
+      "explicit_chmod": true,
+      "actual_ancestor_mode": "0770",
+      "rejected": true,
+      "reason": "authorization_registry_unsafe",
+      "registry_created": false
+    },
+    {
+      "parent_kind": "private_home",
+      "umask": "0002",
+      "explicit_chmod": false,
+      "actual_ancestor_mode": "0770",
+      "rejected": true,
+      "reason": "authorization_registry_unsafe",
+      "registry_created": false
+    },
+    {
+      "parent_kind": "private_home",
+      "umask": "0002",
+      "explicit_chmod": true,
+      "actual_ancestor_mode": "0770",
+      "rejected": true,
+      "reason": "authorization_registry_unsafe",
+      "registry_created": false
+    },
+    {
+      "parent_kind": "private_home",
+      "umask": "0022",
+      "explicit_chmod": false,
+      "actual_ancestor_mode": "0750",
+      "rejected": false,
+      "reason": null,
+      "registry_created": true
+    },
+    {
+      "parent_kind": "private_home",
+      "umask": "0022",
+      "explicit_chmod": true,
+      "actual_ancestor_mode": "0770",
+      "rejected": true,
+      "reason": "authorization_registry_unsafe",
+      "registry_created": false
+    },
+    {
+      "parent_kind": "private_home",
+      "umask": "0077",
+      "explicit_chmod": false,
+      "actual_ancestor_mode": "0700",
+      "rejected": false,
+      "reason": null,
+      "registry_created": true
+    },
+    {
+      "parent_kind": "private_home",
+      "umask": "0077",
+      "explicit_chmod": true,
+      "actual_ancestor_mode": "0770",
+      "rejected": true,
+      "reason": "authorization_registry_unsafe",
+      "registry_created": false
+    }
+  ],
+  "conclusion": "fixture mkdir requests0770 but effective mode follows process umask; explicit chmod produces invariant refusal with both isolated parent types",
+  "exploratory_limit": "An initial workspace-parent probe also rejected safe shared modes because its own ancestors were group-writable; those cases were not used as positive controls."
+}

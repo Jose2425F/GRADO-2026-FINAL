@@ -1,0 +1,15 @@
+{
+  "schema": "centinela-ci-public-scan/1",
+  "patterns_checked": [
+    "openai_like",
+    "github",
+    "aws",
+    "private_key",
+    "google",
+    "known_private_password"
+  ],
+  "findings": [],
+  "allowlisted_receipts_only": true,
+  "unknown_secret_absence_not_proven": true,
+  "approved_fake_fixture_hash": "3193831645bd691450f50c575c8f3019bcd83b9be8448321f223ef36671e03c5"
+}

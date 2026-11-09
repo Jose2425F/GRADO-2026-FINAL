@@ -1,0 +1,176 @@
+{
+  "schema": "centinela-ci-public-export-map/1",
+  "files": [
+    {
+      "path": "recibos/correccion-ci-dirigida.log",
+      "phase": "directed_compatibility",
+      "origin_relative_locator": "publicacion-v4-20261109/revision-ci/correccion-ci-dirigida.log",
+      "origin_bytes": 99,
+      "origin_sha256": "5f9a4aae120a85e153a737f4ac591d18866f6d56c4279f64a1503144cfb2542b",
+      "public_bytes": 99,
+      "public_sha256": "5f9a4aae120a85e153a737f4ac591d18866f6d56c4279f64a1503144cfb2542b",
+      "transformations": []
+    },
+    {
+      "path": "recibos/correccion-ci-dirigida.xml",
+      "phase": "directed_compatibility",
+      "origin_relative_locator": "publicacion-v4-20261109/revision-ci/correccion-ci-dirigida.xml",
+      "origin_bytes": 5085,
+      "origin_sha256": "8a960cbab1d75c44fb595fc8c8add5a9b2b09e0fbf5d53b2e810b6d731cd6ff9",
+      "public_bytes": 5085,
+      "public_sha256": "8a960cbab1d75c44fb595fc8c8add5a9b2b09e0fbf5d53b2e810b6d731cd6ff9",
+      "transformations": []
+    },
+    {
+      "path": "recibos/diagnostico-umask-autorizacion.json",
+      "phase": "directed_compatibility",
+      "origin_relative_locator": "publicacion-v4-20261109/revision-ci/diagnostico-umask-autorizacion.json",
+      "origin_bytes": 3575,
+      "origin_sha256": "2471dfab4f2f024b56fd4521658742ae30c718d82b43502d7712694d6caa7032",
+      "public_bytes": 3575,
+      "public_sha256": "2471dfab4f2f024b56fd4521658742ae30c718d82b43502d7712694d6caa7032",
+      "transformations": []
+    },
+    {
+      "path": "recibos/clon-ci05/summary.json",
+      "phase": "clean_clone_ci_like",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-ci05/summary.json",
+      "origin_bytes": 227,
+      "origin_sha256": "0d1fc9dddd618f8d3a88671eb8ea39213428eb7f1e1e7172f56dcb1437935c15",
+      "public_bytes": 227,
+      "public_sha256": "0d1fc9dddd618f8d3a88671eb8ea39213428eb7f1e1e7172f56dcb1437935c15",
+      "transformations": []
+    },
+    {
+      "path": "recibos/clon-ci05/commands.json",
+      "phase": "clean_clone_ci_like",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-ci05/commands.json",
+      "origin_bytes": 8283,
+      "origin_sha256": "ad9386fa579de0669b85999c0c7b344a1d011a45e96c927f00626526bfce8845",
+      "public_bytes": 7807,
+      "public_sha256": "adbb60224f21e146fcda4b1c99473bfb86375054dff3ca022f6513d4bd720817",
+      "transformations": [
+        "private_locator_prefix",
+        "private_locator_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-ci05/source-commit.log",
+      "phase": "clean_clone_ci_like",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-ci05/source-commit.log",
+      "origin_bytes": 41,
+      "origin_sha256": "9f3f4ad5ba3c51a7051d5754835416bf9e3d5ef54c822995cb6a1713709390f4",
+      "public_bytes": 41,
+      "public_sha256": "9f3f4ad5ba3c51a7051d5754835416bf9e3d5ef54c822995cb6a1713709390f4",
+      "transformations": []
+    },
+    {
+      "path": "recibos/clon-ci05/prototype-junit.xml",
+      "phase": "clean_clone_ci_like",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-ci05/prototype-junit.xml",
+      "origin_bytes": 165231,
+      "origin_sha256": "4c7f2148a9cd11c4cbff9af8e337bb03535a67479477d34d63374bfc2e7c0bc2",
+      "public_bytes": 165177,
+      "public_sha256": "4d9b51e3828d2f5c37d01fed0fbe86f9e6ef96a3022a83b7721854f4778174c0",
+      "transformations": [
+        "approved_fake_fixture_literal_removed",
+        "private_locator_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-ci05/prototype-tests.log",
+      "phase": "clean_clone_ci_like",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-ci05/prototype-tests.log",
+      "origin_bytes": 2079,
+      "origin_sha256": "0faae44e8d9b85581f1240f0571e5e8eb1529c7a7ff6c3f105f2407395179ec2",
+      "public_bytes": 2052,
+      "public_sha256": "97aec97082976d55c3e5b0b578319f5a7c46a1a711f9f86a8e783e40a684d781",
+      "transformations": [
+        "private_locator_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-ci05/legacy-junit.xml",
+      "phase": "clean_clone_ci_like",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-ci05/legacy-junit.xml",
+      "origin_bytes": 838,
+      "origin_sha256": "fa661f2b629870968c45612d6d64144b3593d92390c81e8ff3a3456bc35c86c5",
+      "public_bytes": 838,
+      "public_sha256": "fa661f2b629870968c45612d6d64144b3593d92390c81e8ff3a3456bc35c86c5",
+      "transformations": []
+    },
+    {
+      "path": "recibos/clon-ci05/legacy-tests.log",
+      "phase": "clean_clone_ci_like",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-ci05/legacy-tests.log",
+      "origin_bytes": 811,
+      "origin_sha256": "9e36a248a3b7abfcd52dab9a1a0285fe8822fa645cef89f3fbc3fb8b0d53672f",
+      "public_bytes": 784,
+      "public_sha256": "0a62e236c12007a0276285fc6e02fc61483e2274eaa697e6740ce3e050260c97",
+      "transformations": [
+        "private_locator_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-ci05/dom.log",
+      "phase": "clean_clone_ci_like",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-ci05/dom.log",
+      "origin_bytes": 511,
+      "origin_sha256": "b46267bd351d4471b756865bbd22ea9ff72a0507d2635b891a3776f436242c37",
+      "public_bytes": 511,
+      "public_sha256": "b46267bd351d4471b756865bbd22ea9ff72a0507d2635b891a3776f436242c37",
+      "transformations": []
+    },
+    {
+      "path": "recibos/clon-ci05/browser.log",
+      "phase": "clean_clone_ci_like",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-ci05/browser.log",
+      "origin_bytes": 628,
+      "origin_sha256": "e659417f8f1d4e2c50e11a089f0498afe5df847fd209a0ffb43fe69434ab9ffa",
+      "public_bytes": 628,
+      "public_sha256": "e659417f8f1d4e2c50e11a089f0498afe5df847fd209a0ffb43fe69434ab9ffa",
+      "transformations": []
+    },
+    {
+      "path": "recibos/clon-ci05/browser/summary.json",
+      "phase": "clean_clone_ci_like",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-ci05/browser/summary.json",
+      "origin_bytes": 717,
+      "origin_sha256": "c5e26f5766dee1ac8af59f352b8431bedb17c89f01962ac19fac37b3cb1f67e3",
+      "public_bytes": 717,
+      "public_sha256": "c5e26f5766dee1ac8af59f352b8431bedb17c89f01962ac19fac37b3cb1f67e3",
+      "transformations": []
+    },
+    {
+      "path": "recibos/clon-ci05/coverage-report.log",
+      "phase": "clean_clone_ci_like",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-ci05/coverage-report.log",
+      "origin_bytes": 3800,
+      "origin_sha256": "939d0d9b322d067e1d1ce8d4eb3ab7999515b10281ba8de9bcf1d4b1a63baed5",
+      "public_bytes": 3800,
+      "public_sha256": "939d0d9b322d067e1d1ce8d4eb3ab7999515b10281ba8de9bcf1d4b1a63baed5",
+      "transformations": []
+    },
+    {
+      "path": "recibos/clon-ci05/coverage.json",
+      "phase": "clean_clone_ci_like",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-ci05/coverage.json",
+      "origin_bytes": 251239,
+      "origin_sha256": "ea44944b7e596ce740ccf0c1f9bfd1422f5036db3265d4f9cb256ed9ae2bd316",
+      "public_bytes": 251239,
+      "public_sha256": "ea44944b7e596ce740ccf0c1f9bfd1422f5036db3265d4f9cb256ed9ae2bd316",
+      "transformations": []
+    },
+    {
+      "path": "recibos/clon-ci05/coverage-json.log",
+      "phase": "clean_clone_ci_like",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-ci05/coverage-json.log",
+      "origin_bytes": 0,
+      "origin_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_bytes": 0,
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformations": []
+    }
+  ],
+  "private_originals_unchanged": true
+}

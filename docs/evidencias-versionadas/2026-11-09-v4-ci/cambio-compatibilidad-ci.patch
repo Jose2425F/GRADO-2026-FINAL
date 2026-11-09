@@ -1,0 +1,31 @@
+diff --git a/.github/workflows/pruebas.yml b/.github/workflows/pruebas.yml
+index 218c486..c42a715 100644
+--- a/.github/workflows/pruebas.yml
++++ b/.github/workflows/pruebas.yml
+@@ -62,11 +62,11 @@ jobs:
+           test "$(npm --version)" = '11.17.0'
+           npm ci --prefix scripts/tests --ignore-scripts --no-audit --no-fund
+           scripts/tests/node_modules/.bin/playwright install --with-deps chromium
+-      - name: Instalar Nmap para la integración local existente
++      - name: Instalar herramientas para integración y huellas de ejecutables
+         if: matrix.project_name == 'prototipo'
+         run: |
+           sudo apt-get update
+-          sudo apt-get install --yes --no-install-recommends nmap
++          sudo apt-get install --yes --no-install-recommends nmap hydra
+       - name: Preparar guardas sin sondas externas
+         shell: bash
+         run: |
+diff --git a/scripts/tests/test_autorizacion_personal.py b/scripts/tests/test_autorizacion_personal.py
+index d5266bf..61efcb6 100644
+--- a/scripts/tests/test_autorizacion_personal.py
++++ b/scripts/tests/test_autorizacion_personal.py
+@@ -200,6 +200,8 @@ def test_permissions_of_file_and_immediate_parent_are_required(registry):
+ def test_writable_ancestor_is_rejected_even_with_a_private_leaf(tmp_path):
+     ancestor = tmp_path / 'shared'
+     ancestor.mkdir(mode=0o770)
++    ancestor.chmod(0o770)
++    assert ancestor.stat().st_mode & 0o777 == 0o770
+     denied('authorization_registry_unsafe', lambda: issue(ancestor / 'private' / 'grants.json'))
+ 
+ 

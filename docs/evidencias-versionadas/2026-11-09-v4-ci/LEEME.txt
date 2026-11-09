@@ -1,0 +1,37 @@
+SUPLEMENTO DE COMPATIBILIDAD DE CI
+
+Los dos primeros workflows de main y del tag sobre el commit 665e2beb fallaron. El log de main conservado
+registra siete casos: seis necesitaban la huella de /usr/bin/hydra, ausente en
+Ubuntu; el restante solicitaba mkdir 0770, pero umask 0022 producía 0750, una
+configuración segura que el control aceptaba correctamente. El diagnóstico
+conserva doce combinaciones de umask, chmod y tipo de directorio padre.
+
+La corrección instala Nmap e Hydra en CI para comprobar sus huellas. La guarda
+continúa bloqueando la ejecución de Hydra. El fixture fija explícitamente 0770
+y comprueba ese modo antes del rechazo. No cambia la lógica de la aplicación.
+Las 43 pruebas dirigidas pasaron bajo umask 0022. Este suplemento separa una
+verificación local del resultado posterior que publique GitHub Actions.
+Los conteos de baterías superpuestas no deben sumarse como casos únicos.
+
+El clon limpio local posterior de f197f329 completó 19 comandos y la batería
+con cobertura bajo umask 0022: 1166 pruebas y 112 subpruebas aprobadas, con dos
+omisiones de fixtures privados no distribuidos. También pasaron legado 6, DOM 4
+y Chromium con siete recursos locales. Es una ejecución local, no una
+aprobación remota de GitHub ni una nueva aceptación del banco. La lectura
+posterior de sus datos de cobertura registró 3392 sentencias cubiertas de
+5382, con 1990 pendientes: 63,0249 % (63 % redondeado). El ámbito abarca
+únicamente piloto_kali/prototipo/src/auditoria, 36 archivos; excluye scripts
+y no mide cobertura de ramas. No acredita un umbral del 80 % ni cobertura
+global de toda la aplicación.
+
+El paquete v4 anterior y sus KPI se conservan intactos. El log completo del
+fallo y su entorno permanecen privados; aquí se incluyen los siete nodos de
+prueba, causas y hash del original. No se incluyen políticas, claves, sesiones,
+SQLite, tesis, norma, nuevas auditorías ni llamadas al proveedor.
+
+Verificación offline con biblioteca estándar:
+    python3 verificar.py
+Dentro del repositorio también comprueba el hash del manifiesto v4 anterior.
+Para una copia aislada:
+    python3 verificar.py --solo-paquete
+El resultado local no afirma que un workflow posterior de GitHub esté verde.

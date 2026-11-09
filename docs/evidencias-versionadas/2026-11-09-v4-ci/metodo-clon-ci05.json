@@ -1,0 +1,20 @@
+{
+  "schema": "centinela-ci05-method/1",
+  "harness_relative_locator": "publicacion-v4-20261109/validar_clon_ci05.py",
+  "harness_sha256": "c90714ff548285667099b068a5b2a0443d2064f308785506938930355ba589d5",
+  "harness_copied": false,
+  "harness_umask022_verified_by_reading_source": true,
+  "recorded_commands_exit0": 19,
+  "coverage_run_recorded_in_commands": true,
+  "coverage_percentage_claimed": true,
+  "coverage_source_scope": "piloto_kali/prototipo/src/auditoria",
+  "scripts_in_coverage_scope": false,
+  "branch_coverage": false,
+  "covered_statements": 3392,
+  "statements": 5382,
+  "missing_statements": 1990,
+  "percent_statements_covered": 63.024897807506505,
+  "percent_display": "63",
+  "local_testguard_scope": "Nmap limited to owned loopback HTTP test; no live Docker/Hydra/provider/production audit acceptance.",
+  "private_credentials_or_configuration_used": false
+}

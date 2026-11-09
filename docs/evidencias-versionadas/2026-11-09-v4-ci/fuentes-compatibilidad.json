@@ -1,0 +1,39 @@
+{
+  "schema": "centinela-ci-source-delta/1",
+  "baseline_commit": "665e2bebac06f4c6e7ebb52570a3525a964e5f6c",
+  "fix_commit": "f197f329f67c521509478b0263f4313ea259cde5",
+  "changed_paths": [
+    ".github/workflows/pruebas.yml",
+    "CHANGELOG.md",
+    "scripts/tests/test_autorizacion_personal.py"
+  ],
+  "files": [
+    {
+      "path": ".github/workflows/pruebas.yml",
+      "before_sha256": "f2696ada2eaa58b313e6aa972bf4037d802a413c2909c3c418a526283536637f",
+      "after_sha256": "1e89e223703db9f4754930f787f9dc1614448c4ec7d7599aa7deafe48979fb1f",
+      "same_bytes": false
+    },
+    {
+      "path": "CHANGELOG.md",
+      "before_sha256": "e56e12e79fda9bbd56d5b8fe7e87bb5c0a0ab0963f919222a5d39f2432cebbf7",
+      "after_sha256": "5797506023541f36fc30559462f5f39d12e778f9f0018ec6e83ac159332b8c14",
+      "same_bytes": false
+    },
+    {
+      "path": "scripts/tests/test_autorizacion_personal.py",
+      "before_sha256": "968641ab18a0ebe95bbdedab18bef53ce627c88b6b7f565b44039263f4441964",
+      "after_sha256": "ab370ef1974351e4ff8894d0052882ebda0f813e02df22098b093658ebfc2053",
+      "same_bytes": false
+    },
+    {
+      "path": "scripts/autorizacion_personal.py",
+      "before_sha256": "7e9b7dd05b9ae0fab8a4638ab8ba70e8fec2293d3c738bbb372cb1d5b44e4ed0",
+      "after_sha256": "7e9b7dd05b9ae0fab8a4638ab8ba70e8fec2293d3c738bbb372cb1d5b44e4ed0",
+      "same_bytes": true
+    }
+  ],
+  "runtime_application_changes": false,
+  "hydra_execution_still_blocked": true,
+  "intended_change": "Install the binary needed for executable fingerprints in Ubuntu CI; set the adversarial writable fixture mode explicitly under every umask."
+}

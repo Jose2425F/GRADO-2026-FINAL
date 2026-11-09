@@ -1,0 +1,44 @@
+{
+  "schema": "centinela-ci-prior-failure-projection/1",
+  "source_commit": "665e2bebac06f4c6e7ebb52570a3525a964e5f6c",
+  "prior_run_urls": [
+    "https://github.com/Jose2425F/GRADO-2026-FINAL/actions/runs/42601478780",
+    "https://github.com/Jose2425F/GRADO-2026-FINAL/actions/runs/42601478823"
+  ],
+  "run_urls_reported_by_operator": true,
+  "private_log_relative_locator": "publicacion-v4-20261109/ci-main-fallo-01.log",
+  "private_log_bytes": 38387,
+  "private_log_sha256": "2c8882905d12efcc2137af28d6487715ae6fde651789aed34c5535f28a2f8021",
+  "private_log_copied": false,
+  "failed_cases": [
+    {
+      "test_node_as_reported_by_pytest": "piloto_kali/prototipo/test_autorizacion_personal.py::test_writable_ancestor_is_rejected_even_with_a_private_leaf",
+      "cause": "fixture_umask_mode"
+    },
+    {
+      "test_node_as_reported_by_pytest": "piloto_kali/prototipo/test_ejecutor_protegido.py::test_catalogue_policies_do_not_export_passwords_or_task_ids",
+      "cause": "hydra_binary_missing"
+    },
+    {
+      "test_node_as_reported_by_pytest": "piloto_kali/prototipo/test_ejecutor_protegido.py::test_every_bank_policy_preserves_exact_catalogue_and_password_hashes[integrado]",
+      "cause": "hydra_binary_missing"
+    },
+    {
+      "test_node_as_reported_by_pytest": "piloto_kali/prototipo/test_ejecutor_protegido.py::test_every_bank_policy_preserves_exact_catalogue_and_password_hashes[sucursal]",
+      "cause": "hydra_binary_missing"
+    },
+    {
+      "test_node_as_reported_by_pytest": "piloto_kali/prototipo/test_ejecutor_protegido.py::test_every_bank_policy_preserves_exact_catalogue_and_password_hashes[comercial]",
+      "cause": "hydra_binary_missing"
+    },
+    {
+      "test_node_as_reported_by_pytest": "piloto_kali/prototipo/test_ejecutor_protegido.py::test_every_bank_policy_preserves_exact_catalogue_and_password_hashes[mixto]",
+      "cause": "hydra_binary_missing"
+    },
+    {
+      "test_node_as_reported_by_pytest": "piloto_kali/prototipo/test_ejecutor_protegido.py::test_every_bank_policy_preserves_exact_catalogue_and_password_hashes[reforzado]",
+      "cause": "hydra_binary_missing"
+    }
+  ],
+  "scope": "Seven failed cases read from the retained main-run log; no claim that the second tag run has an independently parsed raw log. The full environment/log is private and unchanged."
+}

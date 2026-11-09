@@ -1,0 +1,79 @@
+{
+  "schema": "centinela-ci-supplement-offline-qa/1",
+  "full_repository": {
+    "integrity_verified": true,
+    "directed_tests": {
+      "passed": 43,
+      "subtests": 0,
+      "skipped": 0
+    },
+    "umask_diagnostic_cases": 12,
+    "application_logic_changed": false,
+    "frozen_v4_manifest_preserved": true,
+    "local_ci_like_regression": {
+      "passed": 1166,
+      "subtests": 112,
+      "skipped": 2
+    },
+    "subsequent_remote_ci_pass_claimed": false,
+    "coverage": {
+      "scope": "piloto_kali/prototipo/src/auditoria",
+      "covered": 3392,
+      "statements": 5382,
+      "missing": 1990,
+      "percent": 63.024897807506505,
+      "scripts_included": false,
+      "branches_measured": false
+    },
+    "phase_counts_are_not_additive": true,
+    "verification_actions": {
+      "network": false,
+      "new_audits": false,
+      "external_tools": false,
+      "archive_extraction": false
+    }
+  },
+  "standalone": {
+    "integrity_verified": true,
+    "directed_tests": {
+      "passed": 43,
+      "subtests": 0,
+      "skipped": 0
+    },
+    "umask_diagnostic_cases": 12,
+    "application_logic_changed": false,
+    "frozen_v4_manifest_preserved": false,
+    "local_ci_like_regression": {
+      "passed": 1166,
+      "subtests": 112,
+      "skipped": 2
+    },
+    "subsequent_remote_ci_pass_claimed": false,
+    "coverage": {
+      "scope": "piloto_kali/prototipo/src/auditoria",
+      "covered": 3392,
+      "statements": 5382,
+      "missing": 1990,
+      "percent": 63.024897807506505,
+      "scripts_included": false,
+      "branches_measured": false
+    },
+    "phase_counts_are_not_additive": true,
+    "verification_actions": {
+      "network": false,
+      "new_audits": false,
+      "external_tools": false,
+      "archive_extraction": false
+    }
+  },
+  "negative_checks": [
+    "unlisted_file_rejected",
+    "changed_bytes_rejected",
+    "symlink_rejected",
+    "traversal_rejected"
+  ],
+  "forbidden_verifier_attempts": [],
+  "guard_scope": "Verifier only; network, subprocess and write attempts are denied. Packaging fixtures written with guard disabled.",
+  "no_audits_or_api_executed_by_verification": true,
+  "manifest_sha256": "8ade9eec67e7e7f02226845d7804951be41d21586e5ac3ab376b61dfaee22de6"
+}
