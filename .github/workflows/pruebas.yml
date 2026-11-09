@@ -1,16 +1,193 @@
-name: Pruebas del prototipo
+name: Pruebas reproducibles
 on: [push, pull_request]
+permissions:
+  contents: read
+concurrency:
+  group: pruebas-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  contratos-y-evidencias:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: piloto_kali/prototipo
+  contratos-y-panel:
+    name: ${{ matrix.project_name }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - project_name: legado
+            project: .
+            extras: --extra dev
+            python: .venv/bin/python
+          - project_name: prototipo
+            project: piloto_kali/prototipo
+            extras: --extra test --extra ipv6
+            python: piloto_kali/prototipo/.venv/bin/python
+    env:
+      UV_CACHE_DIR: ${{ runner.temp }}/centinela-uv-cache
+      UV_PYTHON_DOWNLOADS: never
+      PYTHONNOUSERSITE: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+      OPENAI_API_KEY: ''
+      ANTHROPIC_API_KEY: ''
+      LANGSMITH_TRACING: 'false'
+      LANGCHAIN_TRACING_V2: 'false'
+      DOCKER_HOST: unix:///tmp/centinela-ci-sin-docker.sock
+      PLAYWRIGHT_BROWSERS_PATH: ${{ runner.temp }}/centinela-playwright
+      npm_config_cache: ${{ runner.temp }}/centinela-npm-cache
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
-      - run: python -m pip install -e '.[test,ipv6]' 'coverage>=7,<8'
-      - run: python -m coverage run --source=src/auditoria -m pytest -q
-      - run: python -m coverage report
+          python-version: '3.13.15'
+      - name: Instalar uv fijado en el directorio temporal
+        shell: bash
+        run: |
+          python -m venv "$RUNNER_TEMP/centinela-uv"
+          "$RUNNER_TEMP/centinela-uv/bin/python" -m pip install --disable-pip-version-check --no-cache-dir uv==0.13.7
+          echo "$RUNNER_TEMP/centinela-uv/bin" >> "$GITHUB_PATH"
+      - name: Comprobar e instalar el lock del proyecto
+        run: |
+          uv lock --project "${{ matrix.project }}" --check
+          uv sync --project "${{ matrix.project }}" --frozen ${{ matrix.extras }} --python 3.13.15
+      - uses: actions/setup-node@v4
+        if: matrix.project_name == 'prototipo'
+        with:
+          node-version: '24.19.0'
+      - name: Instalar dependencias Node y Chromium gestionado
+        if: matrix.project_name == 'prototipo'
+        run: |
+          test "$(npm --version)" = '11.17.0'
+          npm ci --prefix scripts/tests --ignore-scripts --no-audit --no-fund
+          scripts/tests/node_modules/.bin/playwright install --with-deps chromium
+      - name: Instalar Nmap para la integración local existente
+        if: matrix.project_name == 'prototipo'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends nmap
+      - name: Preparar guardas sin sondas externas
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/centinela-guards"
+          cat > "$RUNNER_TEMP/centinela-guards/sitecustomize.py" <<'PY'
+          import ipaddress
+          import os
+          import socket
+          import subprocess
+
+          def local(host):
+              if host in (None, '', 'localhost'):
+                  return True
+              try:
+                  return ipaddress.ip_address(str(host).split('%', 1)[0]).is_loopback
+              except ValueError:
+                  return False
+
+          def denied():
+              raise OSError('CI: conexión o herramienta de auditoría no autorizada')
+
+          original_connect = socket.socket.connect
+          original_connect_ex = socket.socket.connect_ex
+          original_bind = socket.socket.bind
+          original_sendto = socket.socket.sendto
+          original_getaddrinfo = socket.getaddrinfo
+          original_popen = subprocess.Popen
+
+          def check(sock, address):
+              if sock.family in (socket.AF_INET, socket.AF_INET6) and not local(address[0]):
+                  denied()
+              if sock.family == getattr(socket, 'AF_PACKET', -1):
+                  denied()
+              if sock.family == socket.AF_UNIX and 'docker' in str(address).lower():
+                  denied()
+
+          def connect(sock, address):
+              check(sock, address)
+              return original_connect(sock, address)
+
+          def connect_ex(sock, address):
+              check(sock, address)
+              return original_connect_ex(sock, address)
+
+          def bind(sock, address):
+              check(sock, address)
+              return original_bind(sock, address)
+
+          def sendto(sock, data, *args):
+              check(sock, args[-1])
+              return original_sendto(sock, data, *args)
+
+          def getaddrinfo(host, *args, **kwargs):
+              # Scapy consulta direcciones numéricas al importar sus parsers.
+              # Resolver un literal no es una consulta DNS ni una sonda.
+              if not local(host):
+                  try:
+                      ipaddress.ip_address(str(host).split('%', 1)[0])
+                  except ValueError:
+                      denied()
+              return original_getaddrinfo(host, *args, **kwargs)
+
+          def local_nmap(args):
+              # La integración HTTP existente usa un único puerto efímero de
+              # sus servidores 127.0.0.1/::1; no se admiten otros perfiles.
+              values = list(args[1:])
+              ipv6 = bool(values and values[0] == '-6')
+              if ipv6:
+                  values.pop(0)
+              prefix = ['--unprivileged', '-n', '-Pn', '-sT', '-sV', '--version-light',
+                        '--max-retries', '1', '--host-timeout', '60s', '-e', 'lo', '-p']
+              if len(values) != len(prefix) + 4 or values[:len(prefix)] != prefix:
+                  return False
+              port, xml, stdout, target = values[len(prefix):]
+              return (isinstance(port, str) and port.isascii() and port.isdecimal()
+                      and 1024 <= int(port) <= 65535 and [xml, stdout] == ['-oX', '-']
+                      and target == ('::1' if ipv6 else '127.0.0.1'))
+
+          def popen(args, *positional, **kwargs):
+              if kwargs.get('shell') or not isinstance(args, (list, tuple)) or not args:
+                  denied()
+              command = os.path.basename(os.fsdecode(args[0]))
+              blocked = {'docker', 'docker-compose', 'dockerd', 'containerd', 'nmap',
+                         'hydra', 'sudo', 'su', 'pkexec', 'setpriv', 'unshare', 'nsenter',
+                         'mount', 'umount', 'nft', 'iptables', 'ip6tables', 'tcpdump',
+                         'ping', 'ping6', 'curl', 'wget', 'nc', 'ncat', 'ssh', 'ftp', 'psql'}
+              if command in blocked and not (command == 'nmap' and local_nmap(args)):
+                  denied()
+              if command == 'ip' and set(map(str, args[1:])) & {
+                  'add', 'del', 'delete', 'replace', 'set', 'exec', 'flush', 'netns', 'tunnel'
+              }:
+                  denied()
+              return original_popen(args, *positional, **kwargs)
+
+          socket.socket.connect = connect
+          socket.socket.connect_ex = connect_ex
+          socket.socket.bind = bind
+          socket.socket.sendto = sendto
+          socket.getaddrinfo = getaddrinfo
+          subprocess.Popen = popen
+          PY
+          echo "CENTINELA_CI_GUARD_PATH=$RUNNER_TEMP/centinela-guards" >> "$GITHUB_ENV"
+      - name: Comprobar el paquete legado en su entorno
+        if: matrix.project_name == 'legado'
+        env:
+          PYTHONPATH: ${{ runner.temp }}/centinela-guards
+        run: .venv/bin/python -m pytest -q tests --junitxml=legacy-junit.xml
+      - name: Contratos del prototipo y del panel
+        if: matrix.project_name == 'prototipo'
+        env:
+          PYTHONPATH: ${{ runner.temp }}/centinela-guards:${{ github.workspace }}/scripts
+        run: |
+          piloto_kali/prototipo/.venv/bin/python -m coverage run --source=piloto_kali/prototipo/src/auditoria -m pytest -c piloto_kali/prototipo/pyproject.toml -q scripts/tests piloto_kali/prototipo/tests --junitxml=prototype-junit.xml
+          piloto_kali/prototipo/.venv/bin/python -m coverage report
+      - name: DOM y arranque limpio con navegador
+        if: matrix.project_name == 'prototipo'
+        env:
+          PYTHONPATH: ${{ runner.temp }}/centinela-guards:${{ github.workspace }}/scripts
+        run: |
+          npm test --prefix scripts/tests
+          npm run test:browser --prefix scripts/tests
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: resultados-${{ matrix.project_name }}
+          path: '*-junit.xml'
+          if-no-files-found: ignore

@@ -13,7 +13,8 @@ La configuración y Compose de los cinco laboratorios están preparados. Su acep
 Guarda tu trabajo y reinicia Kali. Después, en una terminal:
 
 ```bash
-cd '/home/kali/Desktop/Trabajo de Grado/Trabajo-de-grado-2026'
+# Desde la carpeta que contiene el clon:
+cd GRADO-2026-FINAL
 ./scripts/iniciar_panel.sh
 ```
 

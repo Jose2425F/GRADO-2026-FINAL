@@ -1,0 +1,37 @@
+Migración del historial público · 9 de noviembre de 2026
+
+Se retiraron del historial de las ramas y etiquetas enumeradas abajo las dos revisiones completas del documento de grado:
+
+- docs/entregas/2026-11-09/TrabajoDeGrado_II_Revision_v1.docx
+- docs/entregas/2026-11-09/TrabajoDeGrado_II_Revision_v2.docx
+
+La retirada cambia los identificadores Git de los commits afectados y de sus descendientes. No representa una nueva ejecución experimental. Las copias originales se conservan de forma privada; no se adjuntan a esta publicación.
+
+Los paquetes de evidencias, sus capturas, resultados y manifiestos originales conservan sus bytes y sus huellas SHA-256. También permanecen los registros de revisión y los extractos académicos ya incluidos en JSON y ZIP; el alcance aprobado retira los dos DOCX completos, no todo texto académico del repositorio. Los campos históricos que mencionan commits o documentos retirados siguen siendo registros de su corte original. La correspondencia de identificadores se documenta en un registro nuevo.
+
+Mapa de referencias antes y después del filtro, previo al commit de mantenimiento posterior de main:
+
+| Referencia | OID anterior | OID tras el filtro |
+| --- | --- | --- |
+| refs/heads/ajustes/11-3-20261109 | b579f49bc1cf73727ccb39eeaee3e1a6842da027 | 7dd8c81ac66b4a2bb3029a2fb2408ec367890be4 |
+| refs/heads/ajustes/11-3-cierre-20261109 | f55eab5f2e5dcb555d8b599c75d3f76dbcc6ef50 | d934f2a6a69cad2fb9a2cf2bfb8076a799e12f63 |
+| refs/heads/main | bc7f7d58a1728e3d56ffbd4b3c18534283ad1755 | 3896bdef475f3aa8b6902224a5c6b7cfec755064 |
+| refs/tags/centinela-2026.11.09 | 067711fa33fe601a8d64d4198c76f5339356815c | 5574911b43ab05e4941febfff68e1da371437de2 |
+| refs/tags/centinela-2026.11.09-11.3 | d3b8589c49f2c8b85b082ec6759206820dafccf7 | 915c97f05de18985f5e8974898827fe6316ca59b |
+| refs/tags/centinela-2026.11.09-11.3-evidencias | 845b014edcbc3d4d21c751039906834b37da9fd0 | 9e1d88b855ab73242cbd6fb53143365ecc0a0981 |
+| refs/tags/centinela-2026.11.09-11.3-recuperacion | 1caa5eca81e1a4751402d154c7a18c637d67583e | 608dbaf71f7b131cc9798e9eea33a9672f073ae7 |
+
+En las etiquetas anotadas se distinguen el objeto tag y el commit al que apunta. El tag centinela-2026.11.09 conserva el corte histórico de la aplicación y sus evidencias con los dos DOCX retirados. El mantenimiento de instalación, dependencias y CI se publica en un commit posterior de main; no se atribuye al tag histórico. La procedencia completa y las comprobaciones de conservación están en https://github.com/Jose2425F/GRADO-2026-FINAL/blob/main/docs/mantenimiento/2026-11-09/mapa-git.json.
+
+Quien tenga un clon anterior debe dejar de publicar desde él. La opción más sencilla es obtener un clon nuevo en otra carpeta:
+
+    git clone https://github.com/Jose2425F/GRADO-2026-FINAL.git centinela-limpio
+    cd centinela-limpio
+
+Los cambios propios pendientes deben trasladarse como diferencias de texto revisadas sobre el main nuevo. No se debe fusionar una rama antigua ni publicar sus etiquetas o bundles, porque sus ancestros pueden volver a introducir los Word. Los respaldos antiguos destinados a conservación privada deben permanecer fuera de las referencias públicas.
+
+El verificador docs/evidencias-versionadas/2026-11-09/verificar.py permite comprobar el paquete de evidencias y recalcular sus indicadores sin API ni auditorías de red. El verificador verificar_version.py corresponde al inventario completo original, que incluye los Word; por eso no puede aprobar ese inventario desde un tag público al que se le retiraron intencionalmente esos archivos. No se modificaron los hashes históricos para forzar un resultado favorable. La comprobación del inventario original completo requiere su copia privada conservada.
+
+La operación actualiza las referencias públicas indicadas. No garantiza retirar copias previamente descargadas, forks, referencias internas de solicitudes de cambio ni vistas en caché. Esta limitación está documentada por GitHub: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository.
+
+La etiqueta estudio-2026-10 permanece reservada. No se encontró un commit disponible que reproduzca la huella de fuentes histórica de octubre; no se sustituye por la huella de la campaña posterior de noviembre.

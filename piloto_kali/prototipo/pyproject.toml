@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=75", "wheel"]
+requires = ["setuptools==84.2.1", "wheel==0.48.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -20,7 +20,7 @@ dependencies = [
 
 [project.optional-dependencies]
 ipv6 = ["scapy>=2.7,<3"]
-test = ["pytest>=8,<10"]
+test = ["pytest>=8,<10", "coverage==7.17.2"]
 
 [project.scripts]
 auditoria = "auditoria.cli:app"

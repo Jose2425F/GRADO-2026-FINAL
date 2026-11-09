@@ -1,9 +1,11 @@
 {
   "private": true,
   "scripts": {
-    "test": "node --test test_centinela_ui.cjs"
+    "test": "node --test test_centinela_ui.cjs",
+    "test:browser": "node centinela.smoke.browser.mjs"
   },
   "devDependencies": {
-    "jsdom": "^26.1.0"
+    "jsdom": "26.1.0",
+    "playwright": "1.65.0"
   }
 }

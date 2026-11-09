@@ -1,0 +1,69 @@
+{
+  "fecha": "2026-11-09",
+  "alcance": "Retirada autorizada de dos DOCX de todas las ramas y etiquetas públicas; los demás archivos de los commits históricos se conservan byte por byte.",
+  "rutas_retiradas": [
+    "docs/entregas/2026-11-09/TrabajoDeGrado_II_Revision_v1.docx",
+    "docs/entregas/2026-11-09/TrabajoDeGrado_II_Revision_v2.docx"
+  ],
+  "herramienta": "git-filter-repo 2.47.0",
+  "commits_originales_y_filtrados": {
+    "24660d77f44804588556c31875054b5cd6cb4fe2": "24660d77f44804588556c31875054b5cd6cb4fe2",
+    "458675b56d699bc121f0ac4ad829606f6d552ebb": "458675b56d699bc121f0ac4ad829606f6d552ebb",
+    "489e778cf639ce2d9b3afa46aa17ec85397a836b": "2139d2c40e5a9f6d0f5dd632c957e57703d59dab",
+    "647c33cc3c5013428e63a0b3515d789c69fc5034": "75396243641b1c289c6e8a5057424bc3d8a8d859",
+    "85e67815bad9619e5a3ef3f1e2312784dbe0f28b": "85e67815bad9619e5a3ef3f1e2312784dbe0f28b",
+    "9dcd9598b23fecf35112c86486e92d8c61a93a78": "80e20b5986474a24101ab5dbc29cf06ff7d5d47b",
+    "b579f49bc1cf73727ccb39eeaee3e1a6842da027": "7dd8c81ac66b4a2bb3029a2fb2408ec367890be4",
+    "bc7f7d58a1728e3d56ffbd4b3c18534283ad1755": "3896bdef475f3aa8b6902224a5c6b7cfec755064",
+    "e87fc3c9645a24eb25f3ed957b6dbcff2700134b": "e87fc3c9645a24eb25f3ed957b6dbcff2700134b",
+    "f55eab5f2e5dcb555d8b599c75d3f76dbcc6ef50": "d934f2a6a69cad2fb9a2cf2bfb8076a799e12f63"
+  },
+  "referencias_antes_y_despues_del_filtro": [
+    {
+      "ref": "refs/heads/ajustes/11-3-20261109",
+      "before": "b579f49bc1cf73727ccb39eeaee3e1a6842da027",
+      "after_filter": "7dd8c81ac66b4a2bb3029a2fb2408ec367890be4"
+    },
+    {
+      "ref": "refs/heads/ajustes/11-3-cierre-20261109",
+      "before": "f55eab5f2e5dcb555d8b599c75d3f76dbcc6ef50",
+      "after_filter": "d934f2a6a69cad2fb9a2cf2bfb8076a799e12f63"
+    },
+    {
+      "ref": "refs/heads/main",
+      "before": "bc7f7d58a1728e3d56ffbd4b3c18534283ad1755",
+      "after_filter": "3896bdef475f3aa8b6902224a5c6b7cfec755064"
+    },
+    {
+      "ref": "refs/tags/centinela-2026.11.09",
+      "before": "067711fa33fe601a8d64d4198c76f5339356815c",
+      "after_filter": "5574911b43ab05e4941febfff68e1da371437de2",
+      "target_before": "bc7f7d58a1728e3d56ffbd4b3c18534283ad1755",
+      "target_after_filter": "3896bdef475f3aa8b6902224a5c6b7cfec755064"
+    },
+    {
+      "ref": "refs/tags/centinela-2026.11.09-11.3",
+      "before": "d3b8589c49f2c8b85b082ec6759206820dafccf7",
+      "after_filter": "915c97f05de18985f5e8974898827fe6316ca59b",
+      "target_before": "647c33cc3c5013428e63a0b3515d789c69fc5034",
+      "target_after_filter": "75396243641b1c289c6e8a5057424bc3d8a8d859"
+    },
+    {
+      "ref": "refs/tags/centinela-2026.11.09-11.3-evidencias",
+      "before": "845b014edcbc3d4d21c751039906834b37da9fd0",
+      "after_filter": "9e1d88b855ab73242cbd6fb53143365ecc0a0981",
+      "target_before": "489e778cf639ce2d9b3afa46aa17ec85397a836b",
+      "target_after_filter": "2139d2c40e5a9f6d0f5dd632c957e57703d59dab"
+    },
+    {
+      "ref": "refs/tags/centinela-2026.11.09-11.3-recuperacion",
+      "before": "1caa5eca81e1a4751402d154c7a18c637d67583e",
+      "after_filter": "608dbaf71f7b131cc9798e9eea33a9672f073ae7",
+      "target_before": "f55eab5f2e5dcb555d8b599c75d3f76dbcc6ef50",
+      "target_after_filter": "d934f2a6a69cad2fb9a2cf2bfb8076a799e12f63"
+    }
+  ],
+  "nota_main": "after_filter identifica el corte histórico sin Word. main incorpora después un commit nuevo con el mantenimiento revisado; no debe confundirse con el destino de la etiqueta histórica.",
+  "candidato_mantenimiento_revisado_antes_de_reconstruir": "162601621c27e9fde82a7e4d99b43ef08abc7962",
+  "integridad": "No se modificaron manifiestos ni paquetes originales de evidencias. Sus IDs Git originales se interpretan con este mapa; su inventario documental completo requiere la copia privada original."
+}

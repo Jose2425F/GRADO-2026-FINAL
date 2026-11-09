@@ -1,69 +1,154 @@
-# NovaFlow · auditoría dual-stack con LangGraph
+# Centinela · auditoría dual-stack de Novaflow
 
-Trabajo de grado de Ingeniería de Sistemas y Computación, Universidad Católica de Colombia (2026). NovaFlow es el nombre del prototipo académico; los laboratorios representan empresas ficticias.
+Prototipo del trabajo de grado de Ingeniería de Sistemas y Computación de la Universidad Católica de Colombia. El panel usa LangGraph para coordinar un catálogo de comprobaciones IPv4 e IPv6 en laboratorios sintéticos. Los hallazgos se corroboran con validadores; un puerto abierto o una coincidencia de versión no equivalen por sí solos a una vulnerabilidad.
 
-El panel coordina herramientas autorizadas mediante **LangGraph**. El LLM de OpenAI selecciona tareas del catálogo e interpreta observaciones; los validadores deterministas corroboran los hallazgos. Un agente generalista ejecuta una tarea a la vez; la arquitectura multiagente usa roles especializados y hasta dos tareas independientes, con exclusión por activo y serialización de las pruebas IPv6.
+El aplicativo vigente está en `piloto_kali/prototipo/` y expone el paquete `auditoria`. La raíz conserva el paquete anterior `auditor_dualstack`, con su propio entorno y sus pruebas. Ambos proyectos declaran la versión de la entrega; no se deben mezclar sus entornos Python.
 
-## Abrir el prototipo
+## 1. Requisitos en una instalación nueva de Kali
 
-En Kali Linux, desde la raíz del repositorio y con el entorno ya instalado:
+Ejecuta estos pasos como usuario normal con acceso a `sudo`, en un equipo dedicado al laboratorio. No los apliques a un servidor que ya está atendiendo usuarios.
+
+```bash
+sudo apt update
+sudo apt install -y git curl ca-certificates python3 python3-venv python3-pip \
+  docker.io docker-compose nmap hydra iproute2 nodejs npm
+sudo systemctl enable --now docker
+sudo usermod -aG docker "$USER"
+```
+
+Cierra la sesión y vuelve a entrar para activar el grupo. Comprueba:
+
+```bash
+docker info
+docker compose version
+nmap --version
+hydra -h
+ip -Version
+node --version
+npm --version
+```
+
+Se necesita Compose v2, accesible como `docker compose`, y Node.js 22 o posterior. Si `docker compose version` falla, completa la instalación de Compose antes de continuar. La [guía oficial de Kali](https://www.kali.org/docs/containers/installing-docker-on-kali/) describe la instalación de Docker y la renovación de la sesión después de añadir el grupo. Pertenecer al grupo Docker permite administrar su daemon; reserva ese acceso al operador del laboratorio.
+
+## 2. Obtener el código e instalar las dependencias fijadas
+
+```bash
+git clone https://github.com/Jose2425F/GRADO-2026-FINAL.git
+cd GRADO-2026-FINAL
+python3 -m venv .venv-uv
+.venv-uv/bin/python -m pip install 'uv==0.13.7'
+.venv-uv/bin/uv python install 3.13.15
+.venv-uv/bin/uv sync --project piloto_kali/prototipo --python 3.13.15 \
+  --frozen --extra ipv6 --extra test
+```
+
+El panel requiere Python 3.13; no lo ejecutes con el Python de otro entorno. Esta receta y CI fijan la revisión 3.13.15. El comando crea `piloto_kali/prototipo/.venv` y utiliza `piloto_kali/prototipo/uv.lock`. `--frozen` evita resolver versiones nuevas; comprueba también la vigencia del lock con `.venv-uv/bin/uv lock --project piloto_kali/prototipo --check`. El [comportamiento de sincronización](https://docs.astral.sh/uv/concepts/projects/sync/) está documentado por uv.
+
+No utilices `pip install -e ...` sin restricciones como sustituto de esta instalación reproducible. Las dependencias del aplicativo se conservan en el lock; una nueva resolución constituye otra configuración del entorno.
+
+## 3. Crear el directorio de datos y la primera cuenta
+
+El panel no crea una cuenta administrativa por sí solo. Su directorio de datos predeterminado es `/var/lib/centinela`.
+
+```bash
+sudo install -d -m 0700 -o "$(id -u)" -g "$(id -g)" /var/lib/centinela
+export CENTINELA_DATA_DIR=/var/lib/centinela
+piloto_kali/prototipo/.venv/bin/python scripts/administrar_centinela.py \
+  --data-dir "$CENTINELA_DATA_DIR" crear-admin admin --nombre 'Administrador'
+```
+
+Introduce y confirma una contraseña propia de al menos ocho caracteres cuando la consola la solicite. No la escribas en el comando, en un archivo versionado ni en el README. No uses `--adoptar-historial` para una instalación vacía.
+
+Inicia el panel desde la misma terminal:
 
 ```bash
 ./scripts/iniciar_panel.sh
 ```
 
-Abre [el panel local](http://127.0.0.1:8765/). La nueva guía está en [PRUEBAS_LANGGRAPH.md](docs/PRUEBAS_LANGGRAPH.md). La preparación no ejecuta auditorías con API.
+Abre [el panel local](http://127.0.0.1:8765/) e inicia sesión con la cuenta creada. El servidor escucha en loopback. Si el puerto está ocupado, usa otro, por ejemplo `./scripts/iniciar_panel.sh --port 18765`; no detengas el proceso que ya lo ocupa.
 
-Para instalar un entorno nuevo con Python 3.13:
+La apertura del panel y las pruebas de software no requieren una clave de OpenAI. La configuración privada del proveedor se gestiona aparte y las auditorías con API pueden generar cargos.
 
-```bash
-python3.13 -m venv piloto_kali/prototipo/.venv
-piloto_kali/prototipo/.venv/bin/python -m pip install -e './piloto_kali/prototipo[ipv6,test]'
-```
+## 4. Construir las imágenes la primera vez
 
-Se requieren Docker con Compose, Nmap, Hydra e iproute2. El panel escucha únicamente en la interfaz local. La configuración de OpenAI se guarda fuera del control de versiones, mediante:
+El panel puede abrirse sin construir los laboratorios. Para usar los cinco bancos se necesitan las imágenes locales y la descarga inicial de PostgreSQL. Ejecuta esta sección únicamente en el Docker del equipo de laboratorio preparado para estas pruebas.
 
 ```bash
-piloto_kali/prototipo/.venv/bin/python piloto_kali/prototipo/scripts/configure_openai.py
+piloto_kali/prototipo/.venv/bin/python scripts/laboratorio_empresa.py preparar
+docker build -t auditoria-lab-v2-app:local \
+  -f piloto_kali/despliegue/v2/Dockerfile.app piloto_kali/despliegue
+docker pull postgres:16-alpine
+piloto_kali/prototipo/.venv/bin/python scripts/laboratorio_empresa.py levantar --construir
+piloto_kali/prototipo/.venv/bin/python scripts/laboratorio_empresa.py estado
 ```
 
-## Evaluación que ejecuta el usuario
+La construcción inicial genera las imágenes de aplicaciones, servicios de credenciales, consola HTTP y protocolos IPv6. Después se fijan sus ID. La restauración posterior utiliza esas referencias y no vuelve a construir ni descargar imágenes. `--construir` se admite antes de que exista esa referencia; no borres una fijación para cambiar las imágenes de una evaluación ya iniciada.
 
-Hay cinco laboratorios: integrado (32 tareas), sucursal (25), comercial (28), mixto (32) y reforzado (37). Las tareas son comprobaciones; su cantidad no equivale al número de vulnerabilidades.
+El estado generado, incluidas las credenciales sintéticas, se guarda en carpetas `.lab*` excluidas de Git. Los cuatro escenarios adicionales reutilizan las imágenes locales. Sigue la [guía de preparación](docs/COMO_PREPARAR_TUS_LABORATORIOS.md) y el [protocolo de los cinco laboratorios](docs/PRUEBAS_LANGGRAPH.md) para preparar, cerrar y comprobar cada banco. No actives más de un escenario de la suite a la vez.
 
-El plan manual es **cinco parejas por laboratorio**: cinco corridas de agente único y cinco multiagente. Son 50 corridas previstas en total. Cada pareja usa el mismo laboratorio, alcance, código, imágenes, modelo y presupuesto. Se restaura y comprueba el banco antes de cada corrida. Los primeros intentos, incluidos los fallos, permanecen registrados; una práctica posterior no los sustituye.
+## 5. Pruebas de software y navegador
 
-El panel muestra tiempo, tokens, consola, informes técnico/ejecutivo y progreso por laboratorio. Los KPI de comparación requieren dos corridas compatibles, LangGraph acreditado, API medida y una referencia íntegra común. Sin esos datos quedan pendientes. Los resultados agregados son exploratorios; cinco laboratorios no constituyen cinco muestras independientes de empresas reales.
-
-El valor inicial es 60.000 tokens totales por auditoría con revisión especializada, repartidos 60 % para planificación y 40 % para revisión. Es un límite, no consumo obligatorio ni garantía de costo. El saldo real se consulta con el proveedor. No se deben cambiar modelo, código o presupuesto en medio de una pareja.
-
-## Componentes principales
-
-- `scripts/dualstack_panel.py`: panel local, validación, operaciones e informes.
-- `scripts/tesis/orquestacion_langgraph.py`: StateGraph de comprobación, admisión, ejecución, validación, aborto, revisión y cierre.
-- `scripts/laboratorio_empresa.py`: integración del banco original con el grafo.
-- `scripts/laboratorio_suite.py` y `scripts/tesis/laboratorios.py`: cuatro escenarios adicionales.
-- `scripts/tesis/evaluacion_manual.py`: posiciones manuales y comparación por laboratorio.
-- `piloto_kali/prototipo/src/auditoria/`: contratos, autorización, perfiles y proveedor OpenAI.
-- `piloto_kali/despliegue/empresa/`: definiciones de los laboratorios.
-
-El inventario por IP permanece como extensión. Los perfiles IPv6 instrumentados de los bancos cerrados no se transfieren automáticamente a cualquier red. Un puerto abierto o un candidato CVE no equivale a una vulnerabilidad confirmada.
-
-## Verificación y documentación
+Desde la raíz del repositorio:
 
 ```bash
-piloto_kali/prototipo/.venv/bin/python -m pytest -q scripts/tests piloto_kali/prototipo/tests
-node scripts/tests/manual_langgraph.browser.mjs
+piloto_kali/prototipo/.venv/bin/python -m pytest -c piloto_kali/prototipo/pyproject.toml \
+  -q scripts/tests piloto_kali/prototipo/tests
+npm ci --prefix scripts/tests
+./scripts/tests/node_modules/.bin/playwright install --with-deps chromium
+npm test --prefix scripts/tests
+npm run test:browser --prefix scripts/tests
 ```
 
-Las pruebas automatizadas usan dobles de herramientas y proveedor; no sustituyen las auditorías reales del usuario. Un fallo previo del kernel bloquea las pruebas de red y requiere recuperar/reiniciar Kali. No se elimina ni se ignora ese control.
+La instalación de Chromium y sus bibliotecas puede solicitar permisos administrativos en una Kali nueva. Se usa la versión de Playwright declarada en `scripts/tests/package-lock.json`, sin instalar una versión global. La [documentación de Playwright](https://playwright.dev/docs/browsers) explica cómo instalar el navegador correspondiente a cada versión.
 
-Esta distribución publica el código fuente, la interfaz, los adaptadores, los laboratorios y las pruebas automatizadas. El [respaldo histórico de la evaluación del 18–19 de octubre de 2026](docs/evidencias-historicas/2026-10-18/README.md) incorpora las 50 auditorías originales, la aceptación de los cinco laboratorios, los recibos de pruebas y un verificador local de integridad y KPI. Las credenciales, la configuración privada y el documento académico se conservan por separado.
+Las pruebas de DOM no ejecutan un navegador. La prueba de navegador crea su propia cuenta, carpeta de datos y panel temporal en otro puerto; no utiliza `/var/lib/centinela`, el puerto 8765, el Docker del operador ni llamadas al proveedor. Se comprueban el acceso, los recursos de interfaz y las respuestas del panel. Consulta [scripts/tests/README.md](scripts/tests/README.md) para distinguir estas pruebas de los guiones históricos y de una auditoría real.
 
-El paquete que ejecuta el panel está en `piloto_kali/prototipo/`; utiliza el comando de instalación indicado arriba. Sus dependencias y versión de LangGraph se declaran en su propio `pyproject.toml` y `uv.lock`.
+El paquete legado se comprueba en un entorno separado:
 
-## Versión del 9 de noviembre de 2026
+```bash
+.venv-uv/bin/uv sync --project . --python 3.13.15 --frozen --extra dev
+.venv/bin/python -m pytest -q tests
+```
 
-La revisión del aplicativo incorpora acceso por cuentas, separación de empresas, publicación de resultados y correcciones de ejecución y trazabilidad. Las [evidencias adicionales](docs/evidencias-versionadas/2026-11-09/LEEME.txt) conservan las corridas del 8 de noviembre y las comprobaciones posteriores, con un verificador de integridad y de KPI. Los [documentos v1 y v2](docs/entregas/2026-11-09/LEEME.txt) se conservan por separado. Las mediciones posteriores son descriptivas y mantienen su clasificación fuera de la cohorte formal.
+Las pruebas usan proveedores y controladores simulados, además de servicios locales y una integración de Nmap restringida a loopback. No sustituyen la aceptación de los bancos. Una alerta real del kernel en los bits de taint 7 o 14 bloquea las pruebas de red; recupera el equipo y no elimines esa salvaguarda para obtener un resultado favorable.
 
-La evidencia histórica continúa en `docs/evidencias-historicas/2026-10-18/` y `docs/evaluacion-langgraph/`. La nueva carpeta no sustituye esos archivos.
+## 6. Comprobar una copia sin usar los datos de otra instalación
+
+Para una revisión manual del arranque, crea una carpeta temporal y una cuenta independiente:
+
+```bash
+centinela_prueba_dir=$(mktemp -d)
+export CENTINELA_DATA_DIR="$centinela_prueba_dir/datos"
+piloto_kali/prototipo/.venv/bin/python scripts/administrar_centinela.py \
+  --data-dir "$CENTINELA_DATA_DIR" crear-admin revision --nombre 'Revisión local'
+./scripts/iniciar_panel.sh --port 18765 --runs "$centinela_prueba_dir/corridas"
+```
+
+Abre `http://127.0.0.1:18765/`. Si ese puerto también está ocupado, elige otro disponible. Al terminar, detén únicamente este proceso desde su propia terminal. No emplees órdenes globales para matar procesos Python ni reinicies un panel ajeno. Los directorios temporales contienen cuentas y sesiones privadas; no se incorporan a Git.
+
+## Datos, evidencias y documentos académicos
+
+Los evaluadores de los laboratorios utilizan archivos `ground_truth.json` generados al preparar cada banco. La referencia se usa para evaluar resultados; no se envía al planificador LLM. El YAML histórico de la raíz se retiró por carecer de lectores en el código actual. No debe confundirse con las referencias JSON necesarias para los bancos.
+
+Las [evidencias históricas de octubre](docs/evidencias-historicas/2026-10-18/README.md) y las [verificaciones de noviembre](docs/evidencias-versionadas/2026-11-09/LEEME.txt) conservan campañas y procedencias separadas. No se mezclan sus KPI ni se convierten verificaciones posteriores en nuevas parejas de la cohorte original.
+
+La tesis en Word se distribuye de forma privada. `docs/entregas/2026-11-09/` conserva sólo su descripción y registros de revisión. La limpieza autorizada del 9 de noviembre retira los dos DOCX de las ramas y etiquetas publicadas, también en sus ancestros. Los manifiestos originales conservan sus huellas; su inventario completo requiere la copia privada original. Los fragmentos de revisión en JSON y ZIP se conservan como evidencia editorial.
+
+La reescritura cambia identificadores Git, no los archivos originales de evidencia. Consulta el [registro de migración](docs/mantenimiento/2026-11-09/REESCRITURA_HISTORIAL.txt) y su [mapa de identificadores](docs/mantenimiento/2026-11-09/mapa-git.json). Si tenías un clon anterior, crea uno nuevo antes de publicar cambios; un merge o push desde la historia antigua puede volver a introducir los Word. Las copias descargadas y las cachés externas quedan fuera del control de esta limpieza.
+
+## Versiones y licencia
+
+Los cambios de publicación e instalación se registran en [CHANGELOG.md](CHANGELOG.md). Los commits, huellas de código y campañas experimentales deben identificarse por separado: el nombre de una etiqueta no demuestra qué ejecutable produjo una medición.
+
+Consulta [LICENSE](LICENSE) para las condiciones indicadas por los titulares: publicación para consulta y evaluación académica y derechos reservados. El acceso público al repositorio no concede permisos adicionales a los expresados allí.
+
+## Proteger `main` en GitHub
+
+El propietario o una cuenta con administración del repositorio debe abrir **Settings → Branches → Add classic branch protection rule** y aplicar el patrón `main`:
+
+1. Exigir pull request y al menos una aprobación antes de integrar.
+2. Invalidar aprobaciones antiguas si cambian los commits y exigir resolver conversaciones.
+3. Exigir que pasen los trabajos `legado` y `prototipo` del workflow **Pruebas reproducibles**, y que la rama esté actualizada con `main`.
+4. Mantener deshabilitados los force push y la eliminación de la rama; aplicar las restricciones también a administradores cuando corresponda.
+
+Los nombres exactos de los checks deben elegirse después de la primera ejecución del nuevo workflow. La cuenta conectada actualmente tiene escritura, pero no administración; esta revisión deja las instrucciones, no afirma que la protección esté activada. Consulta la [guía oficial de GitHub](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).

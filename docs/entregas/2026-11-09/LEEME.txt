@@ -1,9 +1,25 @@
-VERSIONES DEL DOCUMENTO DEL 9 DE NOVIEMBRE DE 2026
+REGISTRO DE LAS REVISIONES ACADÉMICAS DEL 9 DE NOVIEMBRE DE 2026
 
-v1 conserva el título original solicitado por los autores y la revisión NTC anterior.
-v2 añade la sección 5.8, el Anexo I y la Tabla 44; identifica los resultados históricos de octubre y la verificación descriptiva del 8 de noviembre. Se conserva el título original.
+Los archivos Word de la tesis se distribuyen de forma privada y se retiraron
+de la versión pública actual por indicación de los titulares. Esta carpeta
+conserva los registros de cambios y comprobación, sin los dos documentos.
 
-Las mediciones de noviembre están clasificadas fuera de la cohorte formal. No se sustituyen los KPI históricos ni se mezclan las campañas. Los índices se actualizaron con 194 referencias de página. Se conservan los ajustes de presentación de la NTC 1486:2022; el título original y la citación numérica se mantienen con los límites documentados en el cotejo. Esta revisión no declara cerrados todos los puntos del informe del profesor.
+La revisión v1 mantuvo el título original solicitado por los autores.
+La revisión v2 incorporó la sección 5.8, el Anexo I y la Tabla 44, separando
+la cohorte histórica de octubre de la verificación descriptiva de noviembre.
+La conservación de estos registros no implica cerrar todos los puntos del
+informe del profesor ni modificar retrospectivamente los KPI históricos.
 
-Evidencia: ../../evidencias-versionadas/2026-11-09/LEEME.txt
-Los archivos de versiones anteriores permanecen conservados en sus rutas y en el historial Git.
+Evidencia de las campañas:
+../../evidencias-versionadas/2026-11-09/LEEME.txt
+
+Las huellas que identifican los DOCX en los inventarios históricos describen
+los archivos de aquella publicación; no se sustituyen por huellas nuevas.
+Su verificación completa requiere la copia privada íntegra de la publicación
+original, incluidos los dos documentos.
+
+La limpieza del historial fue autorizada el 9 de noviembre: las ramas y
+etiquetas públicas se reconstruyen sin esos dos Word. Los otros archivos
+históricos conservan sus bytes. Se mantiene un mapa de identificadores Git
+anteriores y nuevos, sin sustituir los manifiestos originales:
+../../mantenimiento/2026-11-09/REESCRITURA_HISTORIAL.txt
