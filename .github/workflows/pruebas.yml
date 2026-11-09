@@ -23,7 +23,6 @@ jobs:
             extras: --extra test --extra ipv6
             python: piloto_kali/prototipo/.venv/bin/python
     env:
-      UV_CACHE_DIR: ${{ runner.temp }}/centinela-uv-cache
       UV_PYTHON_DOWNLOADS: never
       PYTHONNOUSERSITE: '1'
       PYTHONDONTWRITEBYTECODE: '1'
@@ -32,13 +31,17 @@ jobs:
       LANGSMITH_TRACING: 'false'
       LANGCHAIN_TRACING_V2: 'false'
       DOCKER_HOST: unix:///tmp/centinela-ci-sin-docker.sock
-      PLAYWRIGHT_BROWSERS_PATH: ${{ runner.temp }}/centinela-playwright
-      npm_config_cache: ${{ runner.temp }}/centinela-npm-cache
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13.15'
+      - name: Preparar rutas temporales del runner
+        shell: bash
+        run: |
+          echo "UV_CACHE_DIR=$RUNNER_TEMP/centinela-uv-cache" >> "$GITHUB_ENV"
+          echo "PLAYWRIGHT_BROWSERS_PATH=$RUNNER_TEMP/centinela-playwright" >> "$GITHUB_ENV"
+          echo "npm_config_cache=$RUNNER_TEMP/centinela-npm-cache" >> "$GITHUB_ENV"
       - name: Instalar uv fijado en el directorio temporal
         shell: bash
         run: |
