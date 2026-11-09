@@ -52,15 +52,8 @@ respaldos/
 docs/evaluacion-*/
 docs/verificacion-postevaluacion/
 
-# Configuraciones locales de editores y asistentes
-.codex/
-.claude/
-.agents/
+# Configuración local de desarrollo
 .archify/
-AGENTS.md
-CLAUDE.md
-CONTEXTO.md
-SKILL.md
 .idea/
 .vscode/
 .DS_Store

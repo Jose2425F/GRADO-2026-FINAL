@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Visor opcional de Archify; solo consulta el panel local existente."""
+"""Visor opcional de arquitectura; solo consulta el panel local existente."""
 
 from __future__ import annotations
 
@@ -91,7 +91,7 @@ def main():
         server = make_server(args.diagram, args.port, args.panel_port)
     except OSError as exc:
         parser.error(str(exc))
-    print(f"Archify: http://127.0.0.1:{server.server_port} · Ctrl+C para cerrar", flush=True)
+    print(f"Visor de arquitectura: http://127.0.0.1:{server.server_port} · Ctrl+C para cerrar", flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

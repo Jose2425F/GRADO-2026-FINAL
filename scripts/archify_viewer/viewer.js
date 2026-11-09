@@ -95,5 +95,5 @@ async function poll() {
 }
 runSelect.addEventListener('change', render);
 frame.addEventListener('load', drawHalos);
-setInterval(drawHalos, 250); // Sigue el zoom y desplazamiento del visor Archify.
+setInterval(drawHalos, 250); // Sigue el zoom y desplazamiento del diagrama.
 poll();
