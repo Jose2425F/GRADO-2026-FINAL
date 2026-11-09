@@ -26,6 +26,23 @@ def main():
     from auditoria.tool_worker import identity
     output=Path(data['output']);output.mkdir(parents=True,exist_ok=True)
     (output/'controller-identity.json').write_text(json.dumps(identity(),indent=2)+'\n')
+    action=data.get('action','audit')
+    if action not in {'audit','preflight'}:raise ValueError('Acción protegida no admitida.')
+    if action=='preflight':
+        from tesis.restauracion_banco import kernel_ok
+        kernel_ok()
+        if data['bank']=='integrado':
+            from auditoria import lab_empresa as bank
+        else:
+            from tesis.laboratorios import Context
+            bank=Context(data['bank'],state_root=Path(data['state']).parent).lab
+        bank.load_auditor_environment(Path(data['state']))
+        proof=bank.preflight(Path(data['state']))
+        (output/'preflight-proof.json').write_text(json.dumps({
+            'version':1,'bank':data['bank'],'principal':data['principal'],
+            'identity':identity(),'full_preflight_verified':True,'preflight':proof,
+            'catalogue_tasks':0,'api_calls':0},ensure_ascii=False,indent=2)+'\n')
+        return 0
     if data.get('acceptance_checks') is True:
         from tesis.pruebas_roles import controller_selftest
         checks=controller_selftest(data)

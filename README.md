@@ -10,6 +10,8 @@ Las auditorías reales de esta versión requieren la instalación del [ejecutor 
 
 La [evidencia de esta versión](docs/evidencias-versionadas/2026-11-09-11-3/LEEME.txt) se conserva aparte de las campañas anteriores. La aceptación protegida comprende los cinco bancos cerrados sin API. Su integración con el panel desplegado, la API y las extensiones por IP o VM requiere una aceptación propia; el arranque del panel descrito abajo no instala esos permisos.
 
+Las acciones `preflight` y `recover` del operador y sus pruebas de cuarentena se documentan en la [continuación de recuperación](docs/ajustes-profesor/2026-11-09-recuperacion/Recuperacion_y_propiedad_de_leases.txt). Sus evidencias mantienen separado el código y el alcance de la aceptación anterior.
+
 ## Abrir el prototipo
 
 En Kali Linux, desde la raíz del repositorio y con el entorno ya instalado:

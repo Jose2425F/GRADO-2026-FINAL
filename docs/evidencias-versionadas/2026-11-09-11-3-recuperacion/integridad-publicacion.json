@@ -1,0 +1,50 @@
+{
+  "files": [
+    {
+      "bytes": 2550,
+      "path": "LEEME.txt",
+      "sha256": "98b54f0c1fad0f9fe40a25f4585758c60d97f89f3f24687ca82f7d419f6fa60c"
+    },
+    {
+      "bytes": 83813,
+      "path": "conservacion-versiones.json",
+      "sha256": "45006e3054230213b8733443e9eaa45121fccc3071ce2583f26dcf8aa34a356c"
+    },
+    {
+      "bytes": 242493,
+      "path": "evidencias-recuperacion-20261109.zip",
+      "sha256": "adae040eb3d4f1199aebc192c08b4b568ce578531a0e94ade971b815e806707d"
+    },
+    {
+      "bytes": 52759,
+      "path": "fuentes-aprobadas.json",
+      "sha256": "e3c970b77f9ffcf05b54d17dd374a39595b297bba33cbe64cbc4fbf6811045af"
+    },
+    {
+      "bytes": 73239,
+      "path": "integridad-evidencias.json",
+      "sha256": "7101752c8b868f8fbdf1fa6cf657ee1712c664d19e9a5e19c10bcffcc640ecc4"
+    },
+    {
+      "bytes": 3207,
+      "path": "resumen-validacion.json",
+      "sha256": "dd3316f62da3b7dfaab1def7c642abe5ec0d27757ee360e8ab5cfc4e342f6ed0"
+    },
+    {
+      "bytes": 3761,
+      "path": "verificar.py",
+      "sha256": "89e0d6f67bdabc4f26077257c51a6dd3b27518eafac74411598a47c04d090b6e"
+    },
+    {
+      "bytes": 1491,
+      "path": "../../ajustes-profesor/2026-11-09-recuperacion/LEEME.txt",
+      "sha256": "c10b7558973b8463220398c3826c8bf2a980325ea12da910c161af52354e6336"
+    },
+    {
+      "bytes": 4084,
+      "path": "../../ajustes-profesor/2026-11-09-recuperacion/Recuperacion_y_propiedad_de_leases.txt",
+      "sha256": "3e49095621a160a40ba0cfde0b10c058d6c0876090d1aeb009e3729fa60971c3"
+    }
+  ],
+  "schema": "centinela-recovery-publication-integrity/1"
+}

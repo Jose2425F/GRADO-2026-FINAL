@@ -1,0 +1,70 @@
+{
+  "schema": "centinela-recovery-validation/1",
+  "status": "accepted_recovery_scope_integrated_and_branch_with_source_epochs",
+  "accepted": true,
+  "scope": "operator_preflight_and_protocol_recovery_only",
+  "baseline_evidence_commit": "489e778",
+  "baseline_evidence_tag": "centinela-2026.11.09-11.3-evidencias",
+  "baseline_zip_sha256": "5e6230ce2e059182663be8af8912617c8d003739f74a340111f6b604a00210a5",
+  "baseline_runtime_code_commit": "9dcd959",
+  "baseline_canonical_tasks_not_repeated": 154,
+  "baseline_supplementary_tasks_not_repeated": 32,
+  "qa_lock_owner_issue_reproduced": true,
+  "qa_scope": "Temporary filesystem fixture outside protected ROOT, no Docker or firewall operations",
+  "candidate_unit_results": {
+    "root_filesystem_fixtures_passed": 7,
+    "nonprivileged_contract_tests_passed": 7,
+    "candidate_launcher_sha256": "35f568ddbd76d2b638fc827cb17c108bc27c697c2cbd691c68b6dcc3c45a2cbb",
+    "controller_sha256": "a9bb48e5a584a9a64d64d864c39479b4ad2e5675d98840bb7c221339a78414c3",
+    "runtime_acceptance_implied": false,
+    "review_receipt": "evidencias/qa-candidato/qa-review-recuperacion-final.json"
+  },
+  "live_recovery_results": {
+    "preflights_total": 6,
+    "positive_preflights": 5,
+    "intentional_failed_preflight": 1,
+    "banks": [
+      "integrado",
+      "sucursal"
+    ],
+    "recoveries_in_sucursal": 3,
+    "fresh_actor_owned_leases": 3,
+    "actor_quarantined_after_fault": 3,
+    "actor_acquires_after_verified_recovery": 3,
+    "audit_tasks": 0,
+    "nmap_hydra_executions": 0,
+    "openai_api_calls": 0,
+    "source_epochs": {
+      "before_kernel_guard_preflights": 5,
+      "after_kernel_guard_healthy_control": 1
+    },
+    "receipt": "evidencias/runtime-public/summary.json"
+  },
+  "aws_deployed": false,
+  "historical_kpis_recomputed": false,
+  "final_targeted_tests_passed": 21,
+  "kernel_guard_added_after_initial_live_cycles": true,
+  "final_guarded_live_control_pending_export": false,
+  "final_regression": {
+    "passed": 1007,
+    "subtests_passed": 110,
+    "skipped": 2,
+    "deselected": 1,
+    "seconds": 92.58,
+    "source_hashes_unchanged_during_tests": true,
+    "receipt": "evidencias/regresion-final/fuentes-final-recuperacion-verificadas.json"
+  },
+  "final_source_hashes": {
+    "scripts/ejecutar_protegido.py": "c9587fb4b8089431025f5374f604cfe2b4c47272f10b0f42a16e0d4b98687e5f",
+    "scripts/ejecucion_protegida_controlador.py": "d0062cdbdc9ce4942953166add9719df06f59f11935f7374a884962b06b3cbff",
+    "scripts/tests/test_ejecutor_protegido.py": "0b8101cbe469231d1b96b98fb8681518ca5a9a395a46704965ca66c3e0fae0d6",
+    "scripts/tests/test_recuperacion_protegida.py": "a1591755b79b9e55fd2c8f80319913d6165a6ada6bfc9139a33390dde9b9d8d6"
+  },
+  "scope_limit": "Ciclo real fresh/fallo/éxito en sucursal bajo fuente previa; control sano integrado posterior a guarda kernel. No se atribuye a la fuente final una repetición del ciclo completo ni aceptación de cinco bancos.",
+  "public_input_verified": {
+    "files": 83,
+    "manifest_sha256": "daee3519c59bb12bb7dd67f62815086f0ceba8397be6b6943913a62a645387bb",
+    "descriptor_sha_matches_all_six": true,
+    "tool_audit_logs_have_no_tool_started_or_credential_started": true
+  }
+}

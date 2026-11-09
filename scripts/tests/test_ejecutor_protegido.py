@@ -91,7 +91,7 @@ def test_operator_termination_signal_restores_handlers_and_cannot_interrupt_clea
     def install(signal,handler):
         previous=handlers[signal];handlers[signal]=handler;return previous
     monkeypatch.setattr(executor.signal,'signal',install)
-    def execute(*args):
+    def execute(*args,**kwargs):
         handler=handlers[executor.signal.SIGTERM]
         try:handler(executor.signal.SIGTERM,None)
         except KeyboardInterrupt:

@@ -94,6 +94,34 @@ def persistent_locks(base,bank):
     return path
 
 
+def prepare_segment_lock_files(base,bank,segments):
+    """Crea sólo leases nuevos como actor; nunca cambia archivos existentes."""
+    directory=persistent_locks(base,bank)
+    result=[]
+    for segment in sorted(set(segments)):
+        if not isinstance(segment,str) or not re.fullmatch(r'[A-Za-z0-9_.:-]{1,64}',segment):
+            raise OperatorError('Segmento no admitido para la recuperación.')
+        path=directory/(hashlib.sha256(segment.encode()).hexdigest()+'.lock')
+        created=False
+        try:
+            descriptor=os.open(path,os.O_RDWR|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW,0o600);created=True
+        except FileExistsError:
+            descriptor=os.open(path,os.O_RDWR|os.O_NONBLOCK|os.O_NOFOLLOW)
+        try:
+            info=os.fstat(descriptor)
+            if not stat.S_ISREG(info.st_mode) or info.st_nlink!=1:
+                raise OperatorError('El lease de segmento no es un archivo regular independiente.')
+            if created:
+                os.fchown(descriptor,UIDS['controller'],UIDS['controller']);os.fchmod(descriptor,0o600)
+            elif (info.st_uid!=UIDS['controller'] or info.st_gid!=UIDS['controller']
+                    or stat.S_IMODE(info.st_mode)!=0o600):
+                raise OperatorError('El lease existente tiene propietario o permisos ajenos; no se modifica.')
+            result.append({'segment':segment,'file':str(path),'created':created,
+                           'uid':UIDS['controller'],'gid':UIDS['controller'],'mode':'0600'})
+        finally:os.close(descriptor)
+    return result
+
+
 def run(argv,*,timeout=30):
     value=subprocess.run([str(x) for x in argv],capture_output=True,text=True,timeout=timeout,
         env={'PATH':'/usr/sbin:/usr/bin:/sbin:/bin','LANG':'C.UTF-8'})
@@ -471,9 +499,43 @@ def evaluate_snapshot(output,private,runroot,bank,original):
     return result
 
 
-def execute(base,bank,architecture):
+def preflight_evaluation(output,private,runroot,bank,state,principal,netns):
+    from auditoria.tool_worker import unprivileged
+    path=output/'preflight-proof.json'
+    descriptor=os.open(path,os.O_RDONLY|os.O_NOFOLLOW)
+    try:
+        info=os.fstat(descriptor)
+        if not stat.S_ISREG(info.st_mode) or info.st_nlink!=1 or info.st_uid!=UIDS['controller'] or info.st_size>1_000_000:
+            raise OperatorError('El archivo de comprobación no pertenece al controlador protegido.')
+        with os.fdopen(descriptor,'rb',closefd=False) as stream:raw=stream.read(1_000_001)
+    finally:os.close(descriptor)
+    if len(raw)!=info.st_size:raise OperatorError('Cambió la comprobación antes de fijarla.')
+    proof=json.loads(raw);lab,_=bank_modules(bank,state)
+    expected={name:sorted(members) for name,(_,_,members) in lab.NETWORKS.items()}
+    identity=proof.get('identity',{})
+    if (proof.get('version')!=1 or proof.get('bank')!=bank or proof.get('full_preflight_verified') is not True
+            or type(proof.get('catalogue_tasks')) is not int or proof['catalogue_tasks']!=0
+            or type(proof.get('api_calls')) is not int or proof['api_calls']!=0
+            or proof.get('principal')!={k:principal[k] for k in ['pid','start_time','boot_id']}
+            or not unprivileged(identity,UIDS['controller'],UIDS['controller'])
+            or identity.get('pid')!=principal['pid'] or identity.get('start_time')!=principal['start_time']
+            or identity.get('netns')!=netns
+            or proof.get('preflight',{}).get('segments')!=expected
+            or proof.get('preflight',{}).get('bank')!=lab.VERSION
+            or proof.get('preflight',{}).get('source_sha256')!=lab.source_hash()):
+        raise OperatorError('La comprobación no acredita la identidad, el catálogo y el estado completo del banco.')
+    result={'schema':'centinela-protected-preflight-proof/1','bank':bank,
+            'full_preflight_verified':True,'proof_sha256':hashlib.sha256(raw).hexdigest(),
+            'proof':proof,'catalogue_tasks':0,'api_calls':0}
+    write_json(private/'preflight-operador.json',result)
+    write_json(runroot/'preflight-operador.json',result,mode=0o444)
+    return result
+
+
+def execute(base,bank,architecture,*,action='audit'):
     from auditoria.tool_worker import identity
     from auditoria.privilege_broker import build_policy
+    if action not in {'audit','preflight'}:raise OperatorError('Acción protegida no admitida.')
     trusted(base,directory=True);trusted(base/'private',directory=True,private=True)
     manifest=json.loads(trusted(base/'private/bootstrap.json',private=True).read_text())
     if manifest['protected_repo']!=str(ROOT) or ROOT!=base/'repo':raise OperatorError('El ejecutor no pertenece al stage instalado.')
@@ -488,7 +550,7 @@ def execute(base,bank,architecture):
     run_id=datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')+'-'+bank+'-'+secrets.token_hex(4)
     runroot=root_directory(base/'runtime'/run_id)
     private=root_directory(base/'private'/run_id,0o700)
-    receipt={'version':1,'run_id':run_id,'bank':bank,'created_at_utc':datetime.now(timezone.utc).isoformat(),
+    receipt={'version':1,'run_id':run_id,'bank':bank,'action':action,'created_at_utc':datetime.now(timezone.utc).isoformat(),
         'status':'preparing','roles':UIDS,'api_calls':0,'original_daemon_mutations':False,'attempts':[],
         'operator_identity':identity(),'root':str(runroot)}
     write_json(private/'operator.json',receipt)
@@ -497,12 +559,13 @@ def execute(base,bank,architecture):
         executables,receipt['tool_installation']=prepare_tools(base)
         network_path,network=select_network(base,bank)
         receipt['network_receipt']=str(network_path);receipt['audit_netns']=network['namespace_inode']
-        version=run(['/usr/sbin/ip','netns','exec',network['namespace'],'/usr/bin/setpriv',
-            '--reuid=65532','--regid=65532','--clear-groups','--inh-caps=-all',
-            '--ambient-caps=-all','--bounding-set=-all','--no-new-privs',executables['nmap'],'--version'])
-        receipt['tool_installation']['nmap_unprivileged_version_probe']={
-            'uid':65532,'gid':65532,'all_capabilities_removed':True,'no_new_privileges':True,
-            'output':version,'scope':'version only, no targets or audit adapter'}
+        if action=='audit':
+            version=run(['/usr/sbin/ip','netns','exec',network['namespace'],'/usr/bin/setpriv',
+                '--reuid=65532','--regid=65532','--clear-groups','--inh-caps=-all',
+                '--ambient-caps=-all','--bounding-set=-all','--no-new-privs',executables['nmap'],'--version'])
+            receipt['tool_installation']['nmap_unprivileged_version_probe']={
+                'uid':65532,'gid':65532,'all_capabilities_removed':True,'no_new_privileges':True,
+                'output':version,'scope':'version only, no targets or audit adapter'}
         state,environment,state_receipt=state_snapshot(base,bank,runroot);receipt['state']=state_receipt
         output=actor_directory(runroot/'output',UIDS['controller'])
         locks=persistent_locks(base,bank)
@@ -535,16 +598,19 @@ def execute(base,bank,architecture):
         pinned=source_hashes()
         broker_policy=build_policy(UIDS['controller'],UIDS['controller'],[lab],docker_endpoint=manifest['docker_host'],
             pinned_files=list(pinned),expires_at=expires,controller_pid=controller.pid)
+        if action=='preflight':
+            task_count=0;broker_policy['senders']=[]
+            for policy in tool_policies.values():policy['commands']=[];policy['credential_profiles']=[]
         write_json(private/'broker-policy.json',broker_policy)
         options={'name':'Aceptación protegida '+bank,'authorization':'LAB-PROPIO','architecture':architecture,
             'ia':'none','tokens':0,'mode':'live','scope':'empresa','creds':False}
         if bank!='integrado':options['scenario']=bank
-        descriptor={'version':1,'bank':bank,'controller_uid':UIDS['controller'],'controller_gid':UIDS['controller'],
+        descriptor={'version':1,'bank':bank,'action':action,'controller_uid':UIDS['controller'],'controller_gid':UIDS['controller'],
             'principal':{'pid':controller.pid,'start_time':controller_identity['start_time'],
                          'boot_id':Path('/proc/sys/kernel/random/boot_id').read_text().strip()},
             'audit_netns':network['namespace_inode'],'expires_at':expires,'source_hashes':pinned,
             'broker_socket':broker_socket,'worker_sockets':sockets,'state':str(state),'output':str(output),
-            'segment_lock_root':str(locks),'options':options,'acceptance_checks':True}
+            'segment_lock_root':str(locks),'options':options,'acceptance_checks':action=='audit'}
         write_json(descriptor_path,descriptor,mode=0o444)
         receipt['descriptor_sha256']=digest(descriptor_path);receipt['catalogue_tasks']=task_count
         receipt['broker_policy_sha256']=digest(private/'broker-policy.json')
@@ -576,15 +642,16 @@ def execute(base,bank,architecture):
             raise OperatorError('El broker conserva privilegios de proceso no autorizados.')
         for worker in processes[1:]:
             if worker.poll() is not None:raise OperatorError('Un servicio protegido terminó antes de liberar al controlador.')
-        from tesis.pruebas_roles import operator_selftest
-        receipt['role_negative_checks']=operator_selftest(descriptor_path,private,network_path)
-        if receipt['role_negative_checks'].get('passed') is not True:
-            raise OperatorError('La comprobación previa de separación de roles no pasó.')
+        if action=='audit':
+            from tesis.pruebas_roles import operator_selftest
+            receipt['role_negative_checks']=operator_selftest(descriptor_path,private,network_path)
+            if receipt['role_negative_checks'].get('passed') is not True:
+                raise OperatorError('La comprobación previa de separación de roles no pasó.')
         receipt['status']='running';receipt['attempts'].append({'event':'controller_gate_released','time':time.time()})
         write_json(private/'operator.json',receipt)
         os.write(gate_write,b'go');os.close(gate_write);gates.remove(gate_write)
         print(json.dumps({'status':'running','run_id':run_id,'bank':bank,'controller_pid':controller.pid,
-                          'private_receipt':str(private/'operator.json'),'output':str(output)}),flush=True)
+                          'action':action,'private_receipt':str(private/'operator.json'),'output':str(output)}),flush=True)
         try:code=controller.wait(timeout=2700)
         except subprocess.TimeoutExpired:raise OperatorError('El controlador excedió su ventana de ejecución.')
         receipt['controller_exit_code']=code;receipt['status']='finished' if code==0 else 'controller_failed'
@@ -592,10 +659,13 @@ def execute(base,bank,architecture):
         for role_process in reversed(processes):stop_process(role_process)
         receipt['roles_stopped_before_evaluation']=True
         try:
-            evaluation=evaluate_snapshot(output,private,runroot,bank,Path(state_receipt['private_original']))
-            receipt['operator_evaluation']=evaluation['evaluation']
-            if evaluation['evaluation'].get('acceptance_passed') is not True:
-                receipt['status']='acceptance_failed';code=code or 4
+            if action=='preflight':
+                receipt['protected_preflight']=preflight_evaluation(output,private,runroot,bank,state,descriptor['principal'],descriptor['audit_netns'])
+            else:
+                evaluation=evaluate_snapshot(output,private,runroot,bank,Path(state_receipt['private_original']))
+                receipt['operator_evaluation']=evaluation['evaluation']
+                if evaluation['evaluation'].get('acceptance_passed') is not True:
+                    receipt['status']='acceptance_failed';code=code or 4
         except Exception as exc:
             receipt['operator_evaluation_error']=type(exc).__name__+': '+str(exc)
             receipt['status']='acceptance_failed';code=code or 4
@@ -623,10 +693,67 @@ def execute(base,bank,architecture):
         for listener in listeners:listener.close()
         receipt['ended_at_utc']=datetime.now(timezone.utc).isoformat()
         write_json(private/'operator.json',receipt)
-        write_json(runroot/'operator-summary.json',{key:receipt[key] for key in ['version','run_id','bank','status','roles','api_calls','original_daemon_mutations','created_at_utc','ended_at_utc']}
+        write_json(runroot/'operator-summary.json',{key:receipt[key] for key in ['version','run_id','bank','action','status','roles','api_calls','original_daemon_mutations','created_at_utc','ended_at_utc']}
             |{'private_receipt':str(private/'operator.json'),'controller_exit_code':receipt.get('controller_exit_code'),
               'catalogue_tasks':receipt.get('catalogue_tasks')},mode=0o444)
         if cleanup_errors:raise OperatorError('No se confirmó la terminación de todos los roles instalados.')
+
+
+def recover_protocols(base,bank):
+    """Recupera sólo los receptores fijados y conserva la cuarentena si falla."""
+    from tesis.red_auditoria import refresh_bank_live
+    from tesis.segmentos import SegmentGuard
+    if os.geteuid()!=0 or bank not in SCENARIOS:raise OperatorError('Recuperación reservada al operador.')
+    from tesis.restauracion_banco import kernel_ok
+    kernel_ok()
+    trusted(base,directory=True);trusted(base/'private',directory=True,private=True)
+    manifest=json.loads(trusted(base/'private/bootstrap.json',private=True).read_text())
+    if manifest['protected_repo']!=str(ROOT) or ROOT!=base/'repo':
+        raise OperatorError('El ejecutor no pertenece al stage instalado.')
+    if manifest['docker_host']!='unix://'+str(base/'private/docker.sock'):
+        raise OperatorError('La recuperación sólo acepta el daemon aislado de esta instalación.')
+    lab,_=bank_modules(bank);network_path,network=select_network(base,bank)
+    if network['lab_namespace']!=manifest['namespace']:raise OperatorError('La red pertenece a otra instalación.')
+    segments=[bridge for bridge,_,_ in lab.NETWORKS.values()]
+    leases=prepare_segment_lock_files(base,bank,segments)
+    stamp=datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+    target=base/'private'/('recovery-'+stamp+'-'+bank+'-'+secrets.token_hex(4)+'.json')
+    receipt={'schema':'centinela-protocol-recovery/1','bank':bank,'status':'running',
+             'persistent_segment_lock_root':str(persistent_locks(base,bank)),
+             'restart_only_pinned_receivers':True,'containers_recreated':False,'api_calls':0,
+             'network_receipt':str(network_path),'receiver_restarts':[],'started_at':time.time()}
+    receipt['segment_lock_leases']=leases
+    write_json(target,receipt)
+    def checked():
+        for receiver in lab.RECEIVERS.values():
+            name=receiver['container'];pin=network['expected_endpoints'].get(name)
+            if not pin:raise OperatorError('El receptor no está fijado en el recibo del operador.')
+            raw=run(['/usr/bin/docker','--host',manifest['docker_host'],'container','inspect',
+                     '--format','{{.Id}} {{.Image}}',name]).strip().split()
+            if raw!=[pin['container_id'],pin['container_image']]:raise OperatorError('Cambió el receptor autorizado.')
+            run(['/usr/bin/docker','--host',manifest['docker_host'],'restart','-t','1',name],timeout=60)
+            refresh=refresh_bank_live(network_path,container=name)
+            receipt['receiver_restarts'].append({'container':name,'container_id':pin['container_id'],
+                                                'image':pin['container_image'],'refresh':refresh})
+            write_json(target,receipt)
+        code,proof_path=execute(base,bank,'single',action='preflight')
+        state=json.loads(trusted(proof_path,private=True).read_text())
+        proof=state.get('protected_preflight',{})
+        if (code!=0 or state.get('status')!='finished' or not state.get('roles_stopped_before_evaluation')
+                or proof.get('full_preflight_verified') is not True):
+            raise OperatorError('La comprobación protegida del banco no terminó correctamente.')
+        return {'receivers':list(receipt['receiver_restarts']),
+                'protected_preflight':proof,'preflight_receipt':str(proof_path)}
+    try:
+        proof=SegmentGuard(persistent_locks(base,bank)).recover(
+            segments,checked)
+        receipt.update(status='verified',proof=proof)
+        return target
+    except BaseException as exc:
+        receipt.update(status='failed_quarantine_retained',error=type(exc).__name__)
+        raise
+    finally:
+        receipt['ended_at']=time.time();write_json(target,receipt)
 
 
 def main():
@@ -634,6 +761,7 @@ def main():
     parser.add_argument('--base',type=Path,required=True)
     parser.add_argument('--bank',choices=SCENARIOS,required=True)
     parser.add_argument('--architecture',choices=['single','multiagent'],default='single')
+    parser.add_argument('--action',choices=['audit','preflight','recover'],default='audit')
     args=parser.parse_args()
     if os.geteuid()!=0:parser.error('Esta entrada corresponde exclusivamente al operador root.')
     if args.base.parent!=Path('/var/tmp') or not re.fullmatch(r'c113-[0-9a-f]{12}',args.base.name):
@@ -654,7 +782,10 @@ def main():
         for sig in [signal.SIGTERM,signal.SIGHUP,signal.SIGINT]:
             prior_signals[sig]=signal.signal(sig,terminate)
         fcntl.flock(descriptor,fcntl.LOCK_EX|fcntl.LOCK_NB)
-        code,receipt=execute(args.base,args.bank,args.architecture)
+        if args.action=='recover':
+            receipt=recover_protocols(args.base,args.bank)
+            print(json.dumps({'status':'recovered','receipt':str(receipt)}));return 0
+        code,receipt=execute(args.base,args.bank,args.architecture,action=args.action)
         print(json.dumps({'status':'finished' if code==0 else 'failed','exit_code':code,'receipt':str(receipt)}))
         return code
     finally:
