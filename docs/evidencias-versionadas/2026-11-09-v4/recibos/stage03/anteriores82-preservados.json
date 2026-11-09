@@ -1,0 +1,11 @@
+{
+  "checked_at_utc": "2026-11-09T10:09:28.806032+00:00",
+  "original_global_containers": 26,
+  "original_isolated_containers": 56,
+  "ids_images_names_states_equal": true,
+  "existing_panel_pid": 34290,
+  "existing_panel_starttime_unchanged": true,
+  "before_original_sha256": "534995613f25eb1c0fc3739371d19436ca22ad4015dfd87abf7eea8037f1bf26",
+  "after_original_sha256": "534995613f25eb1c0fc3739371d19436ca22ad4015dfd87abf7eea8037f1bf26",
+  "scope": "Read-only comparison; no lifecycle command against either earlier daemon."
+}

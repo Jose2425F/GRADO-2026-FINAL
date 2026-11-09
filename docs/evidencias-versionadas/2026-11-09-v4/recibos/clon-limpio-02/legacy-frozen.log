@@ -1,0 +1,75 @@
+Using CPython 3.13.15
+Creating virtual environment at: .venv
+   Building auditor-dualstack @ file://RECIBOS_V4/clon-limpio-02
+Downloading tiktoken (1.1MiB)
+Downloading pydantic-core (2.2MiB)
+Downloading anthropic (2.0MiB)
+Downloading openai (2.3MiB)
+Downloading ruff (10.1MiB)
+Downloading scapy (2.6MiB)
+ Downloaded tiktoken
+ Downloaded pydantic-core
+ Downloaded scapy
+ Downloaded anthropic
+ Downloaded openai
+ Downloaded ruff
+      Built auditor-dualstack @ file://RECIBOS_V4/clon-limpio-02
+Prepared 41 packages in 2.30s
+Installed 57 packages in 65ms
+ + annotated-types==0.8.0
+ + anthropic==1.17.0
+ + anyio==4.16.0
+ + auditor-dualstack==0.6.0 (from file://RECIBOS_V4/clon-limpio-02)
+ + certifi==2026.10.23
+ + charset-normalizer==3.5.2
+ + distro==1.9.0
+ + docstring-parser==0.18.0
+ + h11==0.16.0
+ + httpcore==1.0.9
+ + httpcore2==2.16.0
+ + httpx==0.28.1
+ + httpx2==2.16.0
+ + idna==3.20
+ + iniconfig==2.3.1
+ + jiter==0.19.0
+ + jsonpatch==1.44
+ + jsonpointer==3.10
+ + langchain==1.4.9
+ + langchain-anthropic==1.7.10
+ + langchain-core==1.7.6
+ + langchain-openai==1.7.4
+ + langchain-protocol==0.0.21
+ + langgraph==1.2.20
+ + langgraph-checkpoint==4.3.1
+ + langgraph-prebuilt==1.1.1
+ + langgraph-sdk==0.4.14
+ + langsmith==0.14.17
+ + openai==3.46.0
+ + opentelemetry-api==1.45.2
+ + orjson==3.13.0
+ + ormsgpack==1.13.1
+ + packaging==26.3
+ + pluggy==1.7.0
+ + pydantic==2.14.3
+ + pydantic-core==2.50.4
+ + pygments==2.21.0
+ + pytest==9.2.0
+ + pytest-asyncio==1.4.1.post1
+ + python-dotenv==1.2.4
+ + pyyaml==6.0.3
+ + regex==2026.11.9
+ + requests==2.34.2
+ + requests-toolbelt==1.0.0
+ + ruff==0.17.4
+ + scapy==2.8.0
+ + sniffio==1.3.1
+ + tenacity==9.1.4
+ + tiktoken==0.14.0
+ + truststore==0.10.5
+ + typing-extensions==4.16.0
+ + typing-inspection==0.4.5
+ + urllib3==2.8.0
+ + uuid-utils==0.19.0
+ + websockets==17.4
+ + xxhash==4.0.2
+ + zstandard==0.25.0

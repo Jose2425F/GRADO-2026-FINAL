@@ -1,0 +1,30 @@
+{
+  "schema": "centinela-provider-test-command-provenance/1",
+  "tests": 101,
+  "result_receipt": "proveedor-protegido-pruebas-parser-final.json",
+  "raw_log_or_junit_preserved": false,
+  "command_origin": "Reported by the test author from the original tool-call transcript; this note does not reconstruct missing stdout or a JUnit file.",
+  "environment": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "scripts:piloto_kali/prototipo/src"
+  },
+  "argv": [
+    "piloto_kali/prototipo/.venv/bin/python",
+    "-m",
+    "pytest",
+    "-c",
+    "piloto_kali/prototipo/pyproject.toml",
+    "-q",
+    "piloto_kali/prototipo/tests/test_provider_proxy.py",
+    "scripts/tests/test_proveedor_operador.py",
+    "piloto_kali/prototipo/tests/test_openai_provider.py",
+    "scripts/tests/test_ejecutor_protegido.py",
+    "scripts/tests/test_recuperacion_protegida.py",
+    "scripts/tests/test_transporte_api.py",
+    "scripts/tests/test_panel_expertos.py"
+  ],
+  "tool_chunk_id": "1d3901",
+  "tests_reexecuted_for_this_note": false,
+  "paid_api_calls": 0,
+  "scope": "Summary receipt phase only; distinguish later complete regression."
+}

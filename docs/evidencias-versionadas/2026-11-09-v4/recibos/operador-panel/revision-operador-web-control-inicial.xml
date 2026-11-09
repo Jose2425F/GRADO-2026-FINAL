@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="4" time="0.110" timestamp="2026-11-09T09:21:05.353110+00:00" hostname="kali"><testcase classname="scripts.tests.test_operador_web_security" name="test_control_exit_zero_requires_matching_success_receipt[None]" time="0.004"><failure message="AssertionError: assert 'complete' == 'failed'&#10;  &#10;  - failed&#10;  + complete">scripts/tests/test_operador_web_security.py:129: in test_control_exit_zero_requires_matching_success_receipt
+    assert value['status']=='failed'
+E   AssertionError: assert 'complete' == 'failed'
+E     
+E     - failed
+E     + complete</failure></testcase><testcase classname="scripts.tests.test_operador_web_security" name="test_control_exit_zero_requires_matching_success_receipt[result1]" time="0.002"><failure message="AssertionError: assert 'complete' == 'failed'&#10;  &#10;  - failed&#10;  + complete">scripts/tests/test_operador_web_security.py:129: in test_control_exit_zero_requires_matching_success_receipt
+    assert value['status']=='failed'
+E   AssertionError: assert 'complete' == 'failed'
+E     
+E     - failed
+E     + complete</failure></testcase><testcase classname="scripts.tests.test_operador_web_security" name="test_control_exit_zero_requires_matching_success_receipt[result2]" time="0.002"><failure message="AssertionError: assert 'complete' == 'failed'&#10;  &#10;  - failed&#10;  + complete">scripts/tests/test_operador_web_security.py:129: in test_control_exit_zero_requires_matching_success_receipt
+    assert value['status']=='failed'
+E   AssertionError: assert 'complete' == 'failed'
+E     
+E     - failed
+E     + complete</failure></testcase><testcase classname="scripts.tests.test_operador_web_security" name="test_control_exit_zero_requires_matching_success_receipt[result3]" time="0.002"><failure message="AssertionError: assert 'complete' == 'failed'&#10;  &#10;  - failed&#10;  + complete">scripts/tests/test_operador_web_security.py:129: in test_control_exit_zero_requires_matching_success_receipt
+    assert value['status']=='failed'
+E   AssertionError: assert 'complete' == 'failed'
+E     
+E     - failed
+E     + complete</failure></testcase></testsuite></testsuites>

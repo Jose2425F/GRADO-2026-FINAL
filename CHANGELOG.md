@@ -6,6 +6,7 @@
 - Instala una copia fijada por huellas de código, intérprete, dependencias e imágenes en un daemon separado. Las operaciones de preparación, comprobación, recuperación y cierre conservan los bloqueos y las cuarentenas.
 - Separa las consultas al proveedor del controlador y de los trabajadores. La clave permanece en la configuración privada del operador; el intermediario aplica límites de tiempo, peticiones y presupuesto.
 - Conserva los cierres parciales y verifica los recibos antes de publicar un resultado. Corrige las proyecciones JSON, HTML y PDF y la relación entre solicitud, plan, intento, evidencia y hallazgo.
+- Conserva el nombre y la fecha de la auditoría al publicar exportaciones con un nivel `runs` adicional, mediante búsquedas de metadatos limitadas al espacio autorizado.
 - Unifica en `0.6.0` los dos proyectos y sus metadatos de ejecución, sin cambiar las versiones externas fijadas. Añade pruebas de contrato y verificadores de los nuevos paquetes públicos a CI.
 - Conserva íntegramente las campañas y evidencias anteriores. Los paquetes `2026-11-09-v3` y `2026-11-09-v4` identifican sus propios cortes de código, pruebas y alcance; la tesis se distribuye por vía privada.
 

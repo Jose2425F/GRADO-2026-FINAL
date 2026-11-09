@@ -1,0 +1,68 @@
+EVIDENCIAS V4 — NUEVA ETAPA DE EJECUCIÓN E INTEGRACIÓN
+
+Este paquete conserva por separado la revisión del operador/panel (56 pruebas),
+el resumen del proveedor protegido (101) y los contratos del instalador (43).
+Los recuentos se solapan con otras baterías y no se suman como pruebas únicas.
+Cada fase conserva sus propios hashes y límites. No pertenecen al corte previo
+de 1014 pruebas ni cambian los KPI de las campañas de octubre y noviembre.
+
+El clon limpio a6b2188 completó después 1164 pruebas y 112 subpruebas, con dos
+omisiones por fixtures históricos privados no distribuidos. Conserva además
+la instalación congelada real, seis pruebas del legado, cuatro DOM y Chromium
+con siete recursos cargados, sin auditorías ni llamadas al proveedor. Es otra
+fase, sin sustituir la aceptación del stage, la API o el servicio publicado.
+
+La instalación protegida posterior conserva 51 pruebas de sus contratos,
+56 contenedores preparados y cinco preflight sin tareas de auditoría. Su nueva
+aceptación funcional cubre 32 tareas Single del banco integrado, con evidencia
+válida en las 32 y sin API. Los otros cuatro catálogos no se repitieron; las
+154 tareas históricas permanecen en su corte propio. Una prueba web separada
+completó las 32 tareas Multiagent del mismo banco, publicación para A, rechazo
+para B y retiro de acceso. No corresponde al servicio HTTPS productivo.
+
+El ensayo acotado de API sobre ese ejecutor y la web361 registró 14 generaciones,
+14 decisiones aceptadas y 11381 tokens conocidos de un presupuesto de 12000,
+con uso completo registrado. No es una campaña KPI nueva. Los mismos dos
+resultados se reabrieron bajo web730: sus 179 archivos conservaron los hashes,
+y se comprobaron nombres, fechas y publicación sin otra auditoría o generación.
+El clon limpio final web730 completó después 1166 pruebas y 112 subpruebas,
+con las mismas dos omisiones documentadas; legado 6, DOM 4 y Chromium 7 recursos.
+La comparación de 615 archivos confirma las cuatro diferencias exclusivas
+de web respecto de a6: interfaz, panel, publicaciones y prueba de cuentas.
+El ejecutor protegido conserva su mapa congelado; no se traslada el resultado
+de un corte a otro.
+
+El despliegue02 quedó activo con UID 65529, sin capacidades efectivas ni
+ambientales y con NoNewPrivileges. HTTPS verificó certificado, login, estado,
+logout, seis recursos y dos reportes históricos; los 55 resultados visibles y
+los 4239 archivos originales conservaron sus hashes. No se enviaron auditorías
+ni solicitudes al proveedor durante esa validación. Se preserva el primer
+fallo con rollback: faltaba AF_NETLINK para consultar interfaces dentro del
+sandbox. La comprobación temporal de esa familia mantuvo denegados RAW y Docker.
+La comprobación HTTPS del servicio anterior está marcada como PREVIA. Los
+estados desconocidos de bancos en reposo no equivalen a cuarentena despejada.
+El control posterior por HTTPS completó restauración y preflight del integrado,
+con banco ready, cola libre y sesión revocada; las 55 auditorías siguieron siendo
+55. No ejecutó tareas del catálogo ni llamadas a la API. El recibo distingue
+la observación del cgroup del servicio padre de la de los hijos ya terminados.
+El estado final se consulta en estado-publicacion.json.
+
+El índice de KPI enlaza las solicitudes, planes, resultados y manifiestos
+originales. Su lectura no reproduce el entorno histórico ni identifica la
+causa de la variación entre campañas. El índice de controles distingue los
+antecedentes históricos y las comprobaciones sobre las nuevas fuentes.
+
+El estado vigente y los pendientes aparecen en estado-publicacion.json.
+Mientras publication_complete sea false, el paquete NO acredita cierre global.
+Stage, API, regresión y publicación sólo se incorporan mediante recibos
+revisados expresamente, con el alcance y las limitaciones de cada ejecución.
+
+Verificar con Python estándar, sin conexión ni herramientas de auditoría:
+    python3 verificar.py --permitir-pendientes
+Para una copia aislada, añadir --solo-paquete. Una publicación completa se
+verifica sin --permitir-pendientes; los pendientes provocan salida no cero.
+
+Los archivos privados originales y las versiones anteriores no se sustituyen.
+No se incluyen la tesis, la norma, archivos de entorno, políticas privadas,
+sesiones, cuentas, claves configuradas, imágenes o ejecutables de herramientas.
+Las copias que depuran localizadores conservan hash de origen y hash público.

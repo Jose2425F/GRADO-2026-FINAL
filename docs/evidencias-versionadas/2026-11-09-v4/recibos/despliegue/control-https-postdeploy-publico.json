@@ -1,0 +1,108 @@
+{
+  "schema": "centinela-public-https-control/1",
+  "origin": "https://centinela.novaflow.com.co",
+  "started_at_utc": "2026-11-09T10:25:45.323886+00:00",
+  "ended_at_utc": "2026-11-09T10:26:13.271301+00:00",
+  "tls_certificate_verification": true,
+  "audit_requests_sent": 0,
+  "provider_requests_sent": 0,
+  "bank": "integrado",
+  "allowed_mutations": [
+    "empresa_restore",
+    "empresa_check"
+  ],
+  "checks": [
+    {
+      "check": "authenticated_admin_over_https",
+      "passed": true
+    },
+    {
+      "check": "restore",
+      "passed": true,
+      "job_id": "de6ad3196ef4",
+      "status": "complete",
+      "global_busy_after": false,
+      "lab_status": "unknown"
+    },
+    {
+      "check": "check",
+      "passed": true,
+      "job_id": "bd62f0696cb2",
+      "status": "complete",
+      "global_busy_after": false,
+      "lab_status": "ready"
+    },
+    {
+      "check": "protected_bank_ready",
+      "passed": true,
+      "status": "ready",
+      "audit_run_count_unchanged": true,
+      "run_count": 55
+    },
+    {
+      "check": "session_revoked",
+      "passed": true
+    }
+  ],
+  "status": "passed",
+  "harness_sha256": "3936570754b0b5b71e73fcfbbec65b306c9faa3e51e821ca35ebf311b3d28806",
+  "initial_run_count": 55,
+  "source_receipt_sha256": "a61dc6f882b9600f9406ced78ac6dad4d1f165a755354435939e8986b5288359",
+  "operator_preflight": {
+    "run_id": "20261109T102556Z-integrado-1b6a0260",
+    "source_operator_receipt_sha256": "e60dc94eaeba617aa731ca82c35f4604a25d53bfe01d8b78714295ca612a4d7e",
+    "descriptor_sha256": "160401d6b9b65c7f54e58d91e3c846335d6561276095b94ed8d571f7a9cac9da",
+    "exit_code": 0,
+    "api_calls": 0,
+    "catalogue_tasks": 0,
+    "roles_stopped_before_evaluation": true,
+    "identities": {
+      "controller": {
+        "Uid": "65531\t65531\t65531\t65531",
+        "Gid": "65531\t65531\t65531\t65531",
+        "Groups": "",
+        "CapInh": "0000000000000000",
+        "CapPrm": "0000000000000000",
+        "CapEff": "0000000000000000",
+        "CapBnd": "0000000000000000",
+        "CapAmb": "0000000000000000",
+        "NoNewPrivs": "1"
+      },
+      "nmap": {
+        "Uid": "65532\t65532\t65532\t65532",
+        "Gid": "65532\t65532\t65532\t65532",
+        "Groups": "",
+        "CapInh": "0000000000000000",
+        "CapPrm": "0000000000000000",
+        "CapEff": "0000000000000000",
+        "CapBnd": "0000000000000000",
+        "CapAmb": "0000000000000000",
+        "NoNewPrivs": "1"
+      },
+      "hydra": {
+        "Uid": "65533\t65533\t65533\t65533",
+        "Gid": "65533\t65533\t65533\t65533",
+        "Groups": "",
+        "CapInh": "0000000000000000",
+        "CapPrm": "0000000000000000",
+        "CapEff": "0000000000000000",
+        "CapBnd": "0000000000000000",
+        "CapAmb": "0000000000000000",
+        "NoNewPrivs": "1"
+      },
+      "broker": {
+        "Uid": "0\t0\t0\t0",
+        "Gid": "65531\t65531\t65531\t65531",
+        "Groups": "",
+        "CapInh": "0000000000000000",
+        "CapPrm": "0000000000000000",
+        "CapEff": "0000000000000000",
+        "CapBnd": "0000000000000000",
+        "CapAmb": "0000000000000000",
+        "NoNewPrivs": "1"
+      }
+    },
+    "operator_service_cgroup": "0::/system.slice/centinela-operador.service",
+    "cgroup_scope": "Live parent operator service observed; completed children inherit its cgroup by launcher behavior, not observed after exit."
+  }
+}

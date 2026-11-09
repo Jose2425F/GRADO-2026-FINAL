@@ -1,0 +1,21 @@
+{
+  "schema": "centinela-approved-public-check-copies/1",
+  "files": [
+    {
+      "original_relative_path": "publicacion-v4-20261109/clon-validacion-02/dom-web361.log",
+      "public_projection_file": "web361-dom.log",
+      "origin_sha256": "418dce32826cca804c3b64cdb4b77c4d36f6183c516fd1f6e9881960a8161c04",
+      "public_sha256": "418dce32826cca804c3b64cdb4b77c4d36f6183c516fd1f6e9881960a8161c04",
+      "same_bytes": true,
+      "account_screenshot_not_copied": true
+    },
+    {
+      "original_relative_path": "publicacion-v4-20261109/clon-validacion-02/browser-web361/summary.json",
+      "public_projection_file": "web361-browser-summary.json",
+      "origin_sha256": "c5e26f5766dee1ac8af59f352b8431bedb17c89f01962ac19fac37b3cb1f67e3",
+      "public_sha256": "c5e26f5766dee1ac8af59f352b8431bedb17c89f01962ac19fac37b3cb1f67e3",
+      "same_bytes": true,
+      "account_screenshot_not_copied": true
+    }
+  ]
+}

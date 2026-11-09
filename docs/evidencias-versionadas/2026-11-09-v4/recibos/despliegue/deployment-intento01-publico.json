@@ -1,0 +1,29 @@
+{
+  "schema": "centinela-approved-public-projection/1",
+  "origin_relative_locator": "publicacion-v4-20261109/despliegue/deployment.json",
+  "origin_bytes": 627,
+  "origin_sha256": "2c41096ca9c19abb3f98483811f3dfb7df280860ee7d7fa2947a1d2aa4713745",
+  "phase": "failed-production-deployment",
+  "omitted_fields": [],
+  "results": {
+    "schema": "centinela-deployment/1",
+    "started_at": "2026-11-09T10:11:21Z",
+    "executor_commit": "a6b2188330772368bb78ba57d1aea3f7f73793f7",
+    "web_commit": "73022090c5d989012f32cccfbfad554eb92f9501",
+    "status": "failed",
+    "original_data_retained": true,
+    "original_runs_retained": true,
+    "nginx_changed": false,
+    "global_docker_changed": false,
+    "host_rebooted": false,
+    "original_run_files": 4239,
+    "units_verified": true,
+    "old_pid": 34290,
+    "users_at_copy": 2,
+    "failure_type": "CalledProcessError",
+    "rollback_required": true,
+    "rollback_old_panel_active": true,
+    "finished_at": "2026-11-09T10:11:34Z"
+  },
+  "not_accepted": true
+}

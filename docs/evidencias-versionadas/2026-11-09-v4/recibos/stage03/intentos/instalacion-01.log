@@ -1,0 +1,1 @@
+{"schema": "centinela-stage-control/1", "ok": false, "action": "install", "bank": null, "state": "failed", "active_count": 0, "quarantine_count": 0, "quarantined": false, "error_code": "operator_validation_failed", "quarantine_state_known": false}

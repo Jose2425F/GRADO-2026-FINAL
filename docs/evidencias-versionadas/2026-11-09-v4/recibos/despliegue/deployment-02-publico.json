@@ -1,0 +1,45 @@
+{
+  "schema": "centinela-approved-public-projection/1",
+  "origin_relative_locator": "publicacion-v4-20261109/despliegue/deployment-02.json",
+  "origin_bytes": 1056,
+  "origin_sha256": "e4f8a393b75e4d5f06efa921bd89f73acc875c79a9d2e9fac493b6dceaeca07e",
+  "phase": "production-deployment",
+  "results": {
+    "schema": "centinela-deployment/1",
+    "started_at": "2026-11-09T10:18:56Z",
+    "executor_commit": "a6b2188330772368bb78ba57d1aea3f7f73793f7",
+    "web_commit": "73022090c5d989012f32cccfbfad554eb92f9501",
+    "status": "passed",
+    "original_data_retained": true,
+    "original_runs_retained": true,
+    "nginx_changed": false,
+    "global_docker_changed": false,
+    "host_rebooted": false,
+    "original_run_files": 4239,
+    "units_verified": true,
+    "old_pid": 1403748,
+    "users_at_copy": 2,
+    "https_result": {
+      "status": "passed",
+      "receipt": "https-101912.json",
+      "assets": 6,
+      "runs": 55,
+      "reports": 2
+    },
+    "new_pid": 1408505,
+    "web_identity": {
+      "Uid": "65529\t65529\t65529\t65529",
+      "Gid": "65529\t65529\t65529\t65529",
+      "Groups": "65529",
+      "CapEff": "0000000000000000",
+      "CapAmb": "0000000000000000",
+      "NoNewPrivs": "1"
+    },
+    "original_run_hashes_still_equal": true,
+    "rollback_required": false,
+    "finished_at": "2026-11-09T10:19:13Z"
+  },
+  "transformations": [
+    "Private HTTPS receipt locator replaced with basename; all measured results unchanged."
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "stage": "@STAGE@",
+  "banks": [
+    {
+      "bank": "integrado",
+      "control": {
+        "schema": "centinela-stage-control/1",
+        "ok": true,
+        "action": "status",
+        "bank": "integrado",
+        "state": "prepared",
+        "active_count": 0,
+        "quarantine_count": 0,
+        "quarantined": false,
+        "running_containers": 12
+      },
+      "preflight": {
+        "argv": [
+          "@STAGE@/venv/bin/python",
+          "-I",
+          "-B",
+          "@STAGE@/repo/scripts/ejecutar_protegido.py",
+          "--base",
+          "@STAGE@",
+          "--bank",
+          "integrado",
+          "--action",
+          "preflight"
+        ],
+        "exit_code": 0,
+        "seconds": 9.046,
+        "log": "@WORK@/publicacion-v3-20261109/instalacion-privada/preflight-integrado.log",
+        "sha256": "a0c0e887f7618bb5c449a7bfd2dea878e63a933dc1f0ca8804f889736c125dd5"
+      }
+    },
+    {
+      "bank": "sucursal",
+      "control": {
+        "schema": "centinela-stage-control/1",
+        "ok": true,
+        "action": "status",
+        "bank": "sucursal",
+        "state": "prepared",
+        "active_count": 0,
+        "quarantine_count": 0,
+        "quarantined": false,
+        "running_containers": 8
+      },
+      "preflight": {
+        "argv": [
+          "@STAGE@/venv/bin/python",
+          "-I",
+          "-B",
+          "@STAGE@/repo/scripts/ejecutar_protegido.py",
+          "--base",
+          "@STAGE@",
+          "--bank",
+          "sucursal",
+          "--action",
+          "preflight"
+        ],
+        "exit_code": 0,
+        "seconds": 8.935,
+        "log": "@WORK@/publicacion-v3-20261109/instalacion-privada/preflight-sucursal.log",
+        "sha256": "f2b02873626eeccd513df45a259e3e04c6b4a5d4e2b136ebf8d3237b6092afd0"
+      }
+    },
+    {
+      "bank": "comercial",
+      "control": {
+        "schema": "centinela-stage-control/1",
+        "ok": true,
+        "action": "status",
+        "bank": "comercial",
+        "state": "prepared",
+        "active_count": 0,
+        "quarantine_count": 0,
+        "quarantined": false,
+        "running_containers": 10
+      },
+      "preflight": {
+        "argv": [
+          "@STAGE@/venv/bin/python",
+          "-I",
+          "-B",
+          "@STAGE@/repo/scripts/ejecutar_protegido.py",
+          "--base",
+          "@STAGE@",
+          "--bank",
+          "comercial",
+          "--action",
+          "preflight"
+        ],
+        "exit_code": 0,
+        "seconds": 9.619,
+        "log": "@WORK@/publicacion-v3-20261109/instalacion-privada/preflight-comercial.log",
+        "sha256": "09a91c05447ddf88477433cf52bdb5e3e3decac5d5451025cbfa4e128933d775"
+      }
+    },
+    {
+      "bank": "mixto",
+      "control": {
+        "schema": "centinela-stage-control/1",
+        "ok": true,
+        "action": "status",
+        "bank": "mixto",
+        "state": "prepared",
+        "active_count": 0,
+        "quarantine_count": 0,
+        "quarantined": false,
+        "running_containers": 12
+      },
+      "preflight": {
+        "argv": [
+          "@STAGE@/venv/bin/python",
+          "-I",
+          "-B",
+          "@STAGE@/repo/scripts/ejecutar_protegido.py",
+          "--base",
+          "@STAGE@",
+          "--bank",
+          "mixto",
+          "--action",
+          "preflight"
+        ],
+        "exit_code": 0,
+        "seconds": 8.237,
+        "log": "@WORK@/publicacion-v3-20261109/instalacion-privada/preflight-mixto.log",
+        "sha256": "eea829c8d08fd27c3104be55d4f4fd9856fa65455339df97cbfbc202f0f7a3a6"
+      }
+    },
+    {
+      "bank": "reforzado",
+      "control": {
+        "schema": "centinela-stage-control/1",
+        "ok": true,
+        "action": "status",
+        "bank": "reforzado",
+        "state": "prepared",
+        "active_count": 0,
+        "quarantine_count": 0,
+        "quarantined": false,
+        "running_containers": 14
+      },
+      "preflight": {
+        "argv": [
+          "@STAGE@/venv/bin/python",
+          "-I",
+          "-B",
+          "@STAGE@/repo/scripts/ejecutar_protegido.py",
+          "--base",
+          "@STAGE@",
+          "--bank",
+          "reforzado",
+          "--action",
+          "preflight"
+        ],
+        "exit_code": 0,
+        "seconds": 8.794,
+        "log": "@WORK@/publicacion-v3-20261109/instalacion-privada/preflight-reforzado.log",
+        "sha256": "6a53106ee3295c19f44dbab9c3e864756eba86c19c6332da8d1e2e7ec5fb7944"
+      }
+    }
+  ],
+  "all_five_passed": true,
+  "provider_requests": 0
+}

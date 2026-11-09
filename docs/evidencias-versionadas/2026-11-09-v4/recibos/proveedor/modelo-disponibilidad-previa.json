@@ -1,0 +1,14 @@
+{
+  "schema": "centinela-model-availability-public-projection/1",
+  "origin_relative_path": "publicacion-v3-20261109/revision/modelo-disponibilidad-previa.json",
+  "origin_sha256": "8aec0343cf000e801c85f4827d715fd35140b9b330be73706a4beaf8c4b0b7fc",
+  "scope": "GET availability precheck only; no model list, headers, configuration or key copied. Does not accept the runtime generation flow.",
+  "checks": {
+    "schema": "centinela-model-availability/1",
+    "model": "gpt-6.1-sol",
+    "generation_calls": 0,
+    "endpoint": "GET /v1/models",
+    "available": true,
+    "http_status": 200
+  }
+}

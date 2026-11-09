@@ -1,0 +1,29 @@
+{
+  "schema": "centinela-web730-executor-source-comparison/1",
+  "source_commit": "73022090c5d989012f32cccfbfad554eb92f9501",
+  "executor_source_commit": "a6b2188330772368bb78ba57d1aea3f7f73793f7",
+  "web_manifest_files": 615,
+  "web_files_sha256_matched_git_blobs": 615,
+  "runtime_map_files": 341,
+  "stage_map_files_identical_to_executor_git": 337,
+  "changed_tracked_paths": [
+    "scripts/centinela_publications.py",
+    "scripts/dualstack_panel.py",
+    "scripts/dualstack_ui/app.js",
+    "scripts/tests/test_centinela_accounts.py"
+  ],
+  "stage_map_paths_changed_in_web_only": [
+    "scripts/centinela_publications.py",
+    "scripts/dualstack_panel.py",
+    "scripts/dualstack_ui/app.js",
+    "scripts/tests/test_centinela_accounts.py"
+  ],
+  "frozen_executor_map_not_modified": true,
+  "protected_controller_worker_proxy_filter_installer_changes": [],
+  "uses_saved_source_and_git_objects_only": true,
+  "runtime_tools_executed": false,
+  "new_audits": 0,
+  "generation_calls": 0,
+  "projection_sha256": "c6a782ed3d77c61dcc6f2b3cc68a94b42857a93b82b74fe624e6223a8c437c93",
+  "scope": "Comparación local de blobs y mapas guardados; no aceptación funcional ni despliegue."
+}

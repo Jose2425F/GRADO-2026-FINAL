@@ -1,0 +1,275 @@
+{
+  "schema": "centinela-public-v4-status/1",
+  "publication_complete": true,
+  "phases": {
+    "operator-panel-unit": {
+      "status": "passed",
+      "tests": 56,
+      "new_tests": 29,
+      "prior_tests": 27,
+      "evidence": "recibos/operador-panel/revision-operador-web-final.xml",
+      "scope": "Synthetic IPC and launcher fixtures; no services or live adapters."
+    },
+    "provider-unit": {
+      "status": "passed_summary_receipt",
+      "tests": 101,
+      "evidence": "recibos/proveedor/proveedor-protegido-pruebas-parser-final.json",
+      "raw_junit_included": false,
+      "scope": "Per-phase summary with seven source hashes; not a real paid provider call or stage acceptance."
+    },
+    "installer-unit": {
+      "status": "passed",
+      "tests": 43,
+      "evidence": "recibos/instalador/junit.xml",
+      "scope": "Earlier installer source ea5da47c; contracts in fixtures only, before later boundary/metadata changes. No daemon or namespace mutation."
+    },
+    "installer-final-delta": {
+      "status": "passed",
+      "tests": 51,
+      "source_sha256": "90f57e4af46f1f417001e40310913db99ffc9cdd5aed1f2a02ec8a3f4f7c77c9",
+      "junit": {
+        "path": "recibos/stage03/pruebas-instalador/junit.xml",
+        "passed": 51
+      },
+      "evidence": "recibos/stage03/pruebas-instalador/recibo.json",
+      "scope": "Final installer unit-contract epoch. Earlier43 and intermediate failed installation attempts are preserved separately."
+    },
+    "full-regression": {
+      "status": "passed",
+      "tests": 1164,
+      "subtests": 112,
+      "skipped": 2,
+      "evidence": "recibos/clon-limpio-02/prototype-junit.xml",
+      "junit": {
+        "path": "recibos/clon-limpio-02/prototype-junit.xml",
+        "passed": 1164,
+        "subtests": 112,
+        "skipped": 2
+      },
+      "source_commit": "a6b2188330772368bb78ba57d1aea3f7f73793f7",
+      "scope": "Single successful clean-clone complete regression over this source epoch with frozen dependencies. The two skips require undistributed historical private fixtures. Not a paid audit or protected-stage acceptance.",
+      "initial_attempt_retained": {
+        "evidence": "recibos/regresion-inicial/prototype-junit.xml",
+        "main_tests_passed_reported": 1156,
+        "subtests_passed_reported": 110,
+        "subtests_failed_reported": 2,
+        "skipped": 2,
+        "cause_reported": "Nmap loopback environment variables absent; earlier source epoch. Kept separately and not counted as a successful acceptance."
+      }
+    },
+    "stage": {
+      "status": "accepted_with_explicit_limits",
+      "source_commit": "a6b2188330772368bb78ba57d1aea3f7f73793f7",
+      "runtime_files": 341,
+      "prepared_containers": 56,
+      "protected_preflights": 5,
+      "current_catalogue_bank": "integrado",
+      "architecture": "single",
+      "current_catalogue_tasks": 32,
+      "api_calls": 0,
+      "duration_seconds": 276.416,
+      "TP": 13,
+      "FP": 0,
+      "FN": 0,
+      "TN": 11,
+      "valid_evidence_tasks": 32,
+      "evidence": "recibos/stage03/resumen-instalacion-actual.json",
+      "scope": "Five protected preflights and integratedSingle32 acceptance only. The other four current catalogues were not rerun by final decision; historic154 acceptance remains its own source epoch. Provider did not start in this cut.56 means prepared containers, not tests."
+    },
+    "api": {
+      "status": "accepted_with_explicit_limits",
+      "architecture": "single",
+      "token_budget": 12000,
+      "known_tokens": 11381,
+      "generation_calls": 14,
+      "accepted_decisions": 14,
+      "usage_complete": true,
+      "provider_uid": 65530,
+      "web_source_commit": "361d0f99b05066d2dadb7fbd864e32e2a94d9246",
+      "executor_source_commit": "a6b2188330772368bb78ba57d1aea3f7f73793f7",
+      "evidence": "recibos/webshadow/webshadow-02-publico.json",
+      "scope": "Bounded real API integration on the integrated bank via temporary web361 and frozen executor a6. No new paired KPI campaign. Do not derive audited task count from model decision/generation count; no other bank or arbitrary-IP acceptance implied."
+    },
+    "deployment": {
+      "status": "accepted_with_explicit_limits",
+      "web_source_commit": "73022090c5d989012f32cccfbfad554eb92f9501",
+      "executor_source_commit": "a6b2188330772368bb78ba57d1aea3f7f73793f7",
+      "evidence": "recibos/despliegue/deployment-02-publico.json",
+      "https_evidence": "recibos/despliegue/https-101912-publico.json",
+      "original_run_files": 4239,
+      "original_run_file_hashes_unchanged": true,
+      "existing_runs_visible": 55,
+      "users_at_copy": 2,
+      "assets": 6,
+      "historical_report_checks": 2,
+      "web_uid": 65529,
+      "audit_requests_sent": 0,
+      "provider_requests_sent": 0,
+      "scope": "Actual deployed service login/admin/state/logout and historical report/assets over certificate-verified HTTPS. Original data retained and4239 hashes equal; Nginx, global Docker and host reboot unchanged. First failure and rollback retained. Idle bank state unknown is not proof of cleared quarantine or a new catalogue run. Runtime acceptance remains separately scoped."
+    },
+    "fresh-installation-recipe": {
+      "status": "passed",
+      "evidence": "recibos/clon-limpio-02/summary.json",
+      "source_commit": "a6b2188330772368bb78ba57d1aea3f7f73793f7",
+      "scope": "19 commands from README: actual uv/pip, Python, lock checks, frozen sync, npm ci and managed Playwright installation in fresh clone. Does not install or accept protected stage."
+    },
+    "legacy-dom-browser": {
+      "status": "passed",
+      "legacy_tests": 6,
+      "dom_tests": 4,
+      "browser_scenarios": 1,
+      "local_assets_loaded": 7,
+      "page_errors": 0,
+      "external_requests_attempted": 0,
+      "audit_requests_sent": 0,
+      "provider_requests_sent": 0,
+      "junit": {
+        "path": "recibos/clon-limpio-02/legacy-junit.xml",
+        "passed": 6
+      },
+      "evidence": "recibos/clon-limpio-02/browser/summary.json",
+      "scope": "Owned temporary backend/data/account on separate port; login/admin/state/logout. Screenshot excluded. Not the production service."
+    },
+    "web361-code-preparation": {
+      "status": "passed",
+      "source_commit": "361d0f99b05066d2dadb7fbd864e32e2a94d9246",
+      "executor_source_commit": "a6b2188330772368bb78ba57d1aea3f7f73793f7",
+      "evidence": "recibos/web361/cotejo-con-ejecutor.json",
+      "tracked_web_files_verified": 615,
+      "python_toml_lock_files_identical": 271,
+      "only_changed_tracked_path": "scripts/dualstack_ui/app.js",
+      "scope": "Immutable code/source-byte preparation only. No activated production unit or new HTTPS acceptance."
+    },
+    "web361-local-ui": {
+      "status": "passed",
+      "dom_tests": 4,
+      "browser_scenarios": 1,
+      "assets": 7,
+      "page_errors": 0,
+      "external_requests_attempted": 0,
+      "audit_requests_sent": 0,
+      "provider_requests_sent": 0,
+      "evidence": "recibos/web361/browser-summary.json",
+      "scope": "Temporary owned backend/account on another port, web361. Not public deployment or protected-stage audit."
+    },
+    "previous-https-baseline": {
+      "status": "passed",
+      "phase_label": "PREVIOUS_SERVICE",
+      "evidence": "recibos/servicio-previo/https-100033-publico.json",
+      "prior_runs_visible": 55,
+      "prior_html_report_checks": 2,
+      "assets": 6,
+      "audit_requests_sent": 0,
+      "provider_requests_sent": 0,
+      "accepts_new_deployment": false,
+      "scope": "Login/logout and historical data on the old service before the new delivery."
+    },
+    "provider-model-availability": {
+      "status": "passed",
+      "evidence": "recibos/proveedor/modelo-disponibilidad-previa.json",
+      "http_status": 200,
+      "model_available": true,
+      "generation_calls": 0,
+      "accepts_generation_runtime": false,
+      "scope": "GET availability precheck only; no model list, headers or key published."
+    },
+    "shadow02-without-api": {
+      "status": "accepted_with_explicit_limits",
+      "architecture": "multiagent",
+      "bank": "integrado",
+      "tasks": 32,
+      "api_calls": 0,
+      "web_source_commit": "361d0f99b05066d2dadb7fbd864e32e2a94d9246",
+      "executor_source_commit": "a6b2188330772368bb78ba57d1aea3f7f73793f7",
+      "evidence": "recibos/webshadow/webshadow-02-publico.json",
+      "checks_total": 14,
+      "scope": "Separate temporary-web integration: real queue/roles, protected restore/check, integratedMulti32, publishA/read-denyB/PDF/unpublish and logout. Not production deployment. Initial shadow01 is retained as failed harness-busy-wait attempt, not a new acceptance."
+    },
+    "web730-metadata-replay": {
+      "status": "passed",
+      "source_commit": "73022090c5d989012f32cccfbfad554eb92f9501",
+      "original_results": 2,
+      "original_report_files": 179,
+      "original_report_files_unchanged": true,
+      "new_audits": 0,
+      "generation_calls": 0,
+      "evidence": "recibos/webshadow/webshadow-metadatos03-publico.json",
+      "scope": "Same two webshadow02 results reopened under web730; names/dates/publication and cross-company denial checked without executing another audit or generation."
+    },
+    "web730-clean-clone": {
+      "status": "passed",
+      "source_commit": "73022090c5d989012f32cccfbfad554eb92f9501",
+      "tests": 1166,
+      "subtests": 112,
+      "skipped": 2,
+      "junit": {
+        "path": "recibos/clon-limpio-03/prototype-junit.xml",
+        "passed": 1166,
+        "subtests": 112,
+        "skipped": 2
+      },
+      "evidence": "recibos/clon-limpio-03/summary.json",
+      "commands": 19,
+      "legacy_tests": 6,
+      "dom_tests": 4,
+      "browser_scenarios": 1,
+      "assets": 7,
+      "scope": "Fresh clone730 with actual installation and frozen dependencies, complete regression plus legacy/DOM/managed browser on owned temporary backend. Not production deployment; prior clone a6 remains a separate cut."
+    },
+    "web730-source-comparison": {
+      "status": "passed",
+      "source_commit": "73022090c5d989012f32cccfbfad554eb92f9501",
+      "executor_source_commit": "a6b2188330772368bb78ba57d1aea3f7f73793f7",
+      "tracked_web_files_verified": 615,
+      "stage_map_files": 341,
+      "stage_map_files_identical_in_web": 337,
+      "web_only_delta_paths": 4,
+      "evidence": "recibos/web730/cotejo-con-ejecutor.json",
+      "scope": "Source-map comparison only. The four web-only presentation/metadata/test paths differ from the saved341-file stage map; frozen executor remains a6. No controller, worker, proxy, filter or installer delta."
+    },
+    "web730-metadata-targeted": {
+      "status": "passed",
+      "tests": 79,
+      "junit": {
+        "path": "recibos/web730/nombres-publicacion-junit.xml",
+        "passed": 79
+      },
+      "evidence": "recibos/web730/nombres-publicacion-junit.xml",
+      "scope": "23 account tests plus56 queue/panel contracts; overlaps broader suites, not79 unique additional tests."
+    },
+    "temporary-netlink-sandbox": {
+      "status": "passed",
+      "evidence": "recibos/despliegue/diagnostico-netlink-permisos-publico.json",
+      "uid": 65529,
+      "raw_socket_denied_errno": 1,
+      "private_docker_socket_denied_errno": 13,
+      "audit_requests_sent": 0,
+      "generation_calls": 0,
+      "scope": "Owned systemd sandbox at18766 only: AF_NETLINK allowed interface query while zero capability bounding/effective/ambient sets and NNP1 remained. Initial HTTP failure retained, temporary units cleaned. Not the production deployment."
+    },
+    "production-restore-check": {
+      "status": "passed",
+      "evidence": "recibos/despliegue/control-https-postdeploy-publico.json",
+      "bank": "integrado",
+      "protected_control_actions": [
+        "empresa_restore",
+        "empresa_check"
+      ],
+      "bank_ready": true,
+      "catalogue_tasks": 0,
+      "audit_requests_sent": 0,
+      "provider_requests_sent": 0,
+      "runs_before": 55,
+      "runs_after": 55,
+      "scope": "Actual certificate-verified production HTTPS admin control after deployment02: restore and check complete, no busy job remains, bank ready, session revoked, original run count unchanged. Four roles observed zero capabilities/NNP1 and stopped before evaluation. Cgroup live parent observed only; completed children not directly observed after exit. No new audit/API acceptance."
+    }
+  },
+  "historical_kpis_recomputed": false,
+  "same_execution_as_1014": false,
+  "not_included": [
+    "Thesis Word/PDF, NTC document",
+    "Private provider configuration, authorization policies, sessions, accounts, keys",
+    "Images, executable binaries or raw private stage manifests"
+  ],
+  "scope": "New post-1014 source epoch; independent phases must retain their identities and limitations."
+}

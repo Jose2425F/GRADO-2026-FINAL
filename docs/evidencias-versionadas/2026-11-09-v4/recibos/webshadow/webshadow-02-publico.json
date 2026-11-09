@@ -1,0 +1,148 @@
+{
+  "schema": "centinela-webshadow-approved-public-projection/1",
+  "source_relative_path": "publicacion-v4-20261109/webshadow-02/summary.json",
+  "origin_sha256": "513bb98dc54a9ee6159a6698926f09c8dc6f088106d147afe794cb3a3d83f56a",
+  "projection_number": "02",
+  "private_path_fields_omitted": [
+    "private_material_not_publicable",
+    "stage",
+    "temporary_root",
+    "web_root"
+  ],
+  "sqlite_cookies_logs_spool_or_credentials_copied": false,
+  "results": {
+    "schema": "centinela-webshadow-acceptance/1",
+    "harness_sha256": "43a7151f645c11ea66a5b31b61b89fa6058cf165c25afc364c073e33d019ff43",
+    "public_service_contacted": false,
+    "systemd_or_nginx_modified": false,
+    "transport_scope": "HTTP requests on private loopback, manually held Secure cookies; not a browser/TLS test",
+    "none_architecture": "multiagent",
+    "api_architecture": "single",
+    "provider_secret_published": false,
+    "api_calls_before_none": 0,
+    "status": "passed",
+    "checks": [
+      {
+        "check": "root_socket_mode",
+        "passed": true,
+        "uid": 0,
+        "gid": 65529,
+        "mode": "0660"
+      },
+      {
+        "check": "web_privilege_separation",
+        "passed": true,
+        "identity": {
+          "Uid": "65529\t65529\t65529\t65529",
+          "Gid": "65529\t65529\t65529\t65529",
+          "Groups": "",
+          "CapInh": "0000000000000000",
+          "CapPrm": "0000000000000000",
+          "CapEff": "0000000000000000",
+          "CapBnd": "0000000000000000",
+          "CapAmb": "0000000000000000",
+          "NoNewPrivs": "1"
+        }
+      },
+      {
+        "check": "real_unix_and_raw_negatives",
+        "passed": true,
+        "wrong_uid_queue": {
+          "connected": false,
+          "errno": 13
+        },
+        "web_daemon_and_raw": {
+          "daemon_errno": 13,
+          "raw_errno": 1
+        }
+      },
+      {
+        "check": "three_real_logins_and_unauthenticated_denial",
+        "passed": true
+      },
+      {
+        "check": "seven_runtime_assets",
+        "passed": true
+      },
+      {
+        "check": "company_roles_cannot_administer_execute_or_publish",
+        "passed": true
+      },
+      {
+        "check": "unsupported_http_v2_dryrun_rejected_before_job",
+        "passed": true,
+        "http_status": 400,
+        "new_jobs": 0,
+        "generation_calls": 0
+      },
+      {
+        "check": "protected_restore",
+        "passed": true,
+        "job_id": "0ebcb1202a50",
+        "status": "complete"
+      },
+      {
+        "check": "protected_check",
+        "passed": true,
+        "job_id": "696cbadfcde7",
+        "status": "complete"
+      },
+      {
+        "check": "protected_none_audit_closed",
+        "passed": true,
+        "job_id": "8ca7e713805b",
+        "run_key": "panel/8ca7e713805b/runs/emp_multiagent_1a5c3db5b31c_20261109T100010",
+        "tasks_total": 32,
+        "api_calls": 0,
+        "protected_run_id": "20261109T100005Z-integrado-e2e1f759",
+        "descriptor_sha256": "c25752e0daea709108e9d7d12ab8d4ed9b76c88b23dd0a323bfceb4d324d490d"
+      },
+      {
+        "check": "published_only_to_company_a_cross_company_reads_denied",
+        "passed": true,
+        "pdf_sha256": "46a1cda2b6ec86bcb5410d9438086be8887628bb6c21ed0b379da1bf1caa3e07",
+        "company_a_runs": 1,
+        "company_b_runs": 0
+      },
+      {
+        "check": "unpublication_revokes_read_access",
+        "passed": true
+      },
+      {
+        "check": "bounded_api_audit_closed",
+        "passed": true,
+        "job_id": "841404c215ba",
+        "status": "complete",
+        "run_key": "panel/841404c215ba/runs/emp_single_bec5146bad42_20261109T100413",
+        "generation_calls": 14,
+        "known_tokens": 11381,
+        "usage_complete": true,
+        "accepted_decisions": 14,
+        "provider_uid": 65530,
+        "protected_run_id": "20261109T100408Z-integrado-1e7a89bf",
+        "descriptor_sha256": "c4e7be99f62a1eb6d3aa78320b3ac3cfb7073c97e7f500950a7d6811a2b9579d"
+      },
+      {
+        "check": "three_sessions_revoked",
+        "passed": true
+      }
+    ],
+    "source_sha256": {
+      "scripts/operador_web.py": "47e78306b9983048806567bc4b12487e3057ba8fd09f37952fc4bc9041bc4de1",
+      "scripts/panel_ejecutor.py": "9d3234e23008bceaa6be63bc335c0682a922505023e2ac94aee82a1437104aaf",
+      "scripts/dualstack_panel.py": "e3ed8630bfaa5867bfda05fb510aef06da5629c971d57244f715627e1c217d4c",
+      "scripts/ejecutar_protegido.py": "5d7fa9be2554c02bab207c5aa184a419e843fe72b9f4549aab64a55abe060e7f",
+      "piloto_kali/prototipo/src/auditoria/provider_proxy.py": "6a662a0c40dcf18f87c59f72dc714a6df109c1d48c45631176435debd4e29d6c"
+    },
+    "web_source_sha256": {
+      "scripts/dualstack_panel.py": "e3ed8630bfaa5867bfda05fb510aef06da5629c971d57244f715627e1c217d4c",
+      "scripts/panel_ejecutor.py": "9d3234e23008bceaa6be63bc335c0682a922505023e2ac94aee82a1437104aaf",
+      "scripts/dualstack_ui/app.js": "821a9c2f50da8d78597b40dc8bcbf0e6ea107be81b0bee1ea37ab86148f36d0e",
+      "scripts/dualstack_ui/workspace.js": "4734f410a559dc485d42db649dcbc1ea280fce53ee2981e587f503c6359250dc"
+    },
+    "none_phase_passed": true,
+    "api_phase_run": true,
+    "own_jobs_terminal_before_queue_stop": true,
+    "own_processes_stopped": true
+  }
+}

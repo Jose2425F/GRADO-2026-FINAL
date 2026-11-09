@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "commands": 19,
+  "fresh_clone": true,
+  "frozen_dependencies": true,
+  "temporary_browser_data": true,
+  "production_contacted": false,
+  "source_commit": "a6b2188330772368bb78ba57d1aea3f7f73793f7"
+}

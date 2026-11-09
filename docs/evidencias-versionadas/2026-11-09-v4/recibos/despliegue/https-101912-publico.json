@@ -1,0 +1,101 @@
+{
+  "schema": "centinela-approved-public-projection/1",
+  "origin_relative_locator": "publicacion-v4-20261109/despliegue/https-101912.json",
+  "origin_bytes": 2427,
+  "origin_sha256": "27567dfc84ab0f55bd9a17c6c682d96143934f96b77b9ad214e1f57ee48a454a",
+  "phase": "production-https",
+  "omitted_fields": [],
+  "results": {
+    "schema": "centinela-https-validation/1",
+    "at": "2026-11-09T10:18:59Z",
+    "origin": "https://centinela.novaflow.com.co",
+    "tls_certificate_verification": true,
+    "audit_requests_sent": 0,
+    "provider_requests_sent": 0,
+    "anonymous_state_denied": true,
+    "login": true,
+    "admin_role": true,
+    "assets": [
+      {
+        "url": "/app.js?v=821a9c2f50da8d78",
+        "bytes": 100690,
+        "sha256": "821a9c2f50da8d78597b40dc8bcbf0e6ea107be81b0bee1ea37ab86148f36d0e"
+      },
+      {
+        "url": "/login.css?v=f79657069e1b1025",
+        "bytes": 21888,
+        "sha256": "f79657069e1b1025c38701d1d7353791aff43f27f4507b7b6eb2f7b71182f43c"
+      },
+      {
+        "url": "/login.js?v=76e1c488c39f0983",
+        "bytes": 4178,
+        "sha256": "76e1c488c39f09837f3f96398b5b96ae77f14726a30f358905a7172748686065"
+      },
+      {
+        "url": "/portal.js?v=4e42d41493b18db4",
+        "bytes": 1339,
+        "sha256": "4e42d41493b18db46b9702eb7c9a61b5e07ddf09499648218a7e0960e2140cf2"
+      },
+      {
+        "url": "/styles.css?v=8f854c6f3931a2b3",
+        "bytes": 76259,
+        "sha256": "8f854c6f3931a2b3c8994621dc919a2a9c7a9907b53262e1b1a6dc2001b22d77"
+      },
+      {
+        "url": "/workspace.js?v=4734f410a559dc48",
+        "bytes": 33244,
+        "sha256": "4734f410a559dc485d42db649dcbc1ea280fce53ee2981e587f503c6359250dc"
+      }
+    ],
+    "authenticated_state": true,
+    "idle_at_validation": true,
+    "protected_execution": {
+      "ok": true,
+      "available": true,
+      "busy": false,
+      "supported_scopes": [
+        "empresa"
+      ],
+      "banks": {
+        "integrado": {
+          "state": "unknown",
+          "active_count": 0
+        },
+        "sucursal": {
+          "state": "unknown",
+          "active_count": 0
+        },
+        "comercial": {
+          "state": "unknown",
+          "active_count": 0
+        },
+        "mixto": {
+          "state": "unknown",
+          "active_count": 0
+        },
+        "reforzado": {
+          "state": "unknown",
+          "active_count": 0
+        }
+      },
+      "api_configured": true
+    },
+    "existing_runs_visible": 55,
+    "historical_report_checks": [
+      {
+        "audience": "technical",
+        "status": 200,
+        "bytes": 42967,
+        "sha256": "6e19f7887bf962a5110ab767cb693567d013e1f9acfa410e9c0c398b0e6d0d63"
+      },
+      {
+        "audience": "executive",
+        "status": 200,
+        "bytes": 21919,
+        "sha256": "3f9ff0b5423775b3a8a8c4c3a23576bcd223c072e67c1f7db4404f1a36521b3f"
+      }
+    ],
+    "logout_revokes_session": true,
+    "status": "passed"
+  }
+}

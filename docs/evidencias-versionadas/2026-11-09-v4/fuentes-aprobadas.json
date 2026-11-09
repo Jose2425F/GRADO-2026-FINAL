@@ -1,0 +1,1452 @@
+{
+  "schema": "centinela-public-export-map/1",
+  "files": [
+    {
+      "path": "recibos/operador-panel/revision-operador-web-control-inicial.xml",
+      "phase": "operator-panel-unit",
+      "origin_relative_locator": "publicacion-v3-20261109/revision-operador-web-control-inicial.xml",
+      "origin_bytes": 2269,
+      "origin_sha256": "c3c9660eb42f46aa657da8bdd1cec8a7d40968b173ed3995c7c421910da03674",
+      "public_bytes": 2269,
+      "public_sha256": "c3c9660eb42f46aa657da8bdd1cec8a7d40968b173ed3995c7c421910da03674",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-corte2.xml",
+      "phase": "operator-panel-unit",
+      "origin_relative_locator": "publicacion-v3-20261109/revision-operador-web-corte2.xml",
+      "origin_bytes": 3813,
+      "origin_sha256": "64e8a5e7045800e968528d63d7df74ecd0acfc64d63be0c4b7cb3bbbaeac5fc4",
+      "public_bytes": 3813,
+      "public_sha256": "64e8a5e7045800e968528d63d7df74ecd0acfc64d63be0c4b7cb3bbbaeac5fc4",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-corte3.xml",
+      "phase": "operator-panel-unit",
+      "origin_relative_locator": "publicacion-v3-20261109/revision-operador-web-corte3.xml",
+      "origin_bytes": 5675,
+      "origin_sha256": "5914463bb979532f6d0585471155cc6ad0e7575525ded8641c54c89027642457",
+      "public_bytes": 5675,
+      "public_sha256": "5914463bb979532f6d0585471155cc6ad0e7575525ded8641c54c89027642457",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-deadline-inicial.xml",
+      "phase": "operator-panel-unit",
+      "origin_relative_locator": "publicacion-v3-20261109/revision-operador-web-deadline-inicial.xml",
+      "origin_bytes": 804,
+      "origin_sha256": "a08945a61bc515ebb7e745c03b72ae3ff6a597b13671cfccc523d3955df0a19b",
+      "public_bytes": 804,
+      "public_sha256": "a08945a61bc515ebb7e745c03b72ae3ff6a597b13671cfccc523d3955df0a19b",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-final.xml",
+      "phase": "operator-panel-unit",
+      "origin_relative_locator": "publicacion-v3-20261109/revision-operador-web-final.xml",
+      "origin_bytes": 8507,
+      "origin_sha256": "54a24e31f8e1e0f4d8d176c4e70333519d3f9e5b51122d7daadfcd3da0228d9f",
+      "public_bytes": 8507,
+      "public_sha256": "54a24e31f8e1e0f4d8d176c4e70333519d3f9e5b51122d7daadfcd3da0228d9f",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-inicial.xml",
+      "phase": "operator-panel-unit",
+      "origin_relative_locator": "publicacion-v3-20261109/revision-operador-web-inicial.xml",
+      "origin_bytes": 38817,
+      "origin_sha256": "6b35e4512c2303522f4e0415e49ee690344e3ea02f6a51952016ff03b1741798",
+      "public_bytes": 38817,
+      "public_sha256": "6b35e4512c2303522f4e0415e49ee690344e3ea02f6a51952016ff03b1741798",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-manifiesto-inicial.xml",
+      "phase": "operator-panel-unit",
+      "origin_relative_locator": "publicacion-v3-20261109/revision-operador-web-manifiesto-inicial.xml",
+      "origin_bytes": 2115,
+      "origin_sha256": "605129f9287a63746d89be1506f054fa0f883de9b517f7403b941a72b5cad992",
+      "public_bytes": 2115,
+      "public_sha256": "605129f9287a63746d89be1506f054fa0f883de9b517f7403b941a72b5cad992",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-poll-inicial.xml",
+      "phase": "operator-panel-unit",
+      "origin_relative_locator": "publicacion-v3-20261109/revision-operador-web-poll-inicial.xml",
+      "origin_bytes": 700,
+      "origin_sha256": "9d6d08d0c9ec679b10408acc3a35c182fb58c3b5910c61cac7d531902eb47a87",
+      "public_bytes": 700,
+      "public_sha256": "9d6d08d0c9ec679b10408acc3a35c182fb58c3b5910c61cac7d531902eb47a87",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-runs-inicial.xml",
+      "phase": "operator-panel-unit",
+      "origin_relative_locator": "publicacion-v3-20261109/revision-operador-web-runs-inicial.xml",
+      "origin_bytes": 1253,
+      "origin_sha256": "dd0abe8db939291bebcad3518995f591890dcc1ba33ee83c92d820fb98470da4",
+      "public_bytes": 1253,
+      "public_sha256": "dd0abe8db939291bebcad3518995f591890dcc1ba33ee83c92d820fb98470da4",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-final.json",
+      "phase": "operator-panel-unit",
+      "origin_relative_locator": "publicacion-v3-20261109/revision-operador-web-final.json",
+      "origin_bytes": 4140,
+      "origin_sha256": "72932fa7d851aabbbd9fb8ae71e6b05d9f9b2e7aac6e6c90207c1567d71d4e16",
+      "public_bytes": 4140,
+      "public_sha256": "72932fa7d851aabbbd9fb8ae71e6b05d9f9b2e7aac6e6c90207c1567d71d4e16",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/proveedor/proveedor-protegido-pruebas-parser-final.json",
+      "phase": "provider-unit",
+      "origin_relative_locator": "publicacion-v3-20261109/revision/proveedor-protegido-pruebas-parser-final.json",
+      "origin_bytes": 2402,
+      "origin_sha256": "1d8cf235040fc2ce92b472d022dbbe6abebc60cea8584f9fdf36e55ebe9c6888",
+      "public_bytes": 2402,
+      "public_sha256": "1d8cf235040fc2ce92b472d022dbbe6abebc60cea8584f9fdf36e55ebe9c6888",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/proveedor/metodo-101.json",
+      "phase": "provider-unit",
+      "origin_relative_locator": "publicacion-v4-20261109/proveedor101-metodo.json",
+      "origin_bytes": 1134,
+      "origin_sha256": "29088b0f4dbeaa92afaf54fdaa24f4545ab1effbc9fc6ba76313e20a45168b65",
+      "public_bytes": 1134,
+      "public_sha256": "29088b0f4dbeaa92afaf54fdaa24f4545ab1effbc9fc6ba76313e20a45168b65",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/infraestructura/verificacion-inicial.json",
+      "phase": "infrastructure-initial",
+      "origin_relative_locator": "publicacion-v4-20261109/infraestructura-inicial/verificacion-inicial.json",
+      "origin_bytes": 1423,
+      "origin_sha256": "a2d616043d0ae5ec6d9c3a3c09be8689e0d7c319517406259f3351d6a0f42c77",
+      "public_bytes": 1423,
+      "public_sha256": "a2d616043d0ae5ec6d9c3a3c09be8689e0d7c319517406259f3351d6a0f42c77",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/instalador/receipt.json",
+      "phase": "installer-unit",
+      "origin_relative_locator": "publicacion-v3-20261109/instalador-pruebas-05/receipt.json",
+      "origin_bytes": 952,
+      "origin_sha256": "058e2d5f997c43923f78bb6d6a42855432fa0bb3fe084314ccd7d93e6ebc0f66",
+      "public_bytes": 729,
+      "public_sha256": "c24826bf5ac3cc67c1eed6cf8a74dec739c6592bbb55891de926eea6839f9858",
+      "same_bytes": false,
+      "redactions": [
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/instalador/junit.xml",
+      "phase": "installer-unit",
+      "origin_relative_locator": "publicacion-v3-20261109/instalador-pruebas-05/junit.xml",
+      "origin_bytes": 5083,
+      "origin_sha256": "f63beedb96d629a8522a5c68c8e4218a851e5e011e6e52e81d9c49d27911b792",
+      "public_bytes": 5083,
+      "public_sha256": "f63beedb96d629a8522a5c68c8e4218a851e5e011e6e52e81d9c49d27911b792",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/instalador/pytest.log",
+      "phase": "installer-unit",
+      "origin_relative_locator": "publicacion-v3-20261109/instalador-pruebas-05/pytest.log",
+      "origin_bytes": 99,
+      "origin_sha256": "b7a0df49402aac8c7c18549d91a864a19fcc359f26f0f8e8cdb264b47b518730",
+      "public_bytes": 99,
+      "public_sha256": "b7a0df49402aac8c7c18549d91a864a19fcc359f26f0f8e8cdb264b47b518730",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "fuentes-por-fase.json",
+      "phase": "per-phase-source-cotejo",
+      "origin_relative_locator": "publicacion-v4-20261109/cotejo-fuentes-fases.json",
+      "origin_bytes": 3411,
+      "origin_sha256": "65555b0436f163f0b0e751c29e729e9dff6789226f2ecb945bc8fb53c89dd9a6",
+      "public_bytes": 3625,
+      "public_sha256": "cea6fa55f5553e3c605a907a983ec5e060dc9b65b8b3bcbdaf04bfcfc78d28a2",
+      "same_bytes": false,
+      "redactions": [
+        "publication_index_wrapper_metadata"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-02/browser.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/browser.log",
+      "origin_bytes": 628,
+      "origin_sha256": "e659417f8f1d4e2c50e11a089f0498afe5df847fd209a0ffb43fe69434ab9ffa",
+      "public_bytes": 628,
+      "public_sha256": "e659417f8f1d4e2c50e11a089f0498afe5df847fd209a0ffb43fe69434ab9ffa",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-02/clone.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/clone.log",
+      "origin_bytes": 105,
+      "origin_sha256": "e25f1e81e68ff3ddb9c668ac672991e5884a48ed6483dfc3ad0f85ebef87da44",
+      "public_bytes": 44,
+      "public_sha256": "5ed7d494b8ded1abfa5328c6c9b3fa8bc9c7b7e2623c451a9aa452586e25e684",
+      "same_bytes": false,
+      "redactions": [
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-02/commands.json",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/commands.json",
+      "origin_bytes": 8154,
+      "origin_sha256": "13465e28ab2f02648856ea8242eb94ee14cb9aff1a725a03f032159839571595",
+      "public_bytes": 7122,
+      "public_sha256": "94f3c27ade9be8a9239f3c23e20a4a28f2e578c2333d83aedacfcd7101b7a92f",
+      "same_bytes": false,
+      "redactions": [
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-02/dom.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/dom.log",
+      "origin_bytes": 513,
+      "origin_sha256": "0fc6e9206f7241f03247ea9f65276849e2e0d6b319864816f9151f1e2bde7a7f",
+      "public_bytes": 513,
+      "public_sha256": "0fc6e9206f7241f03247ea9f65276849e2e0d6b319864816f9151f1e2bde7a7f",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-02/legacy-frozen.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/legacy-frozen.log",
+      "origin_bytes": 2016,
+      "origin_sha256": "37c87f3fb3052be8eb6a171de09d764182aff41eb0d537d35acb1e69a1f00c4f",
+      "public_bytes": 1833,
+      "public_sha256": "2d6cc31c762fb4b39382fa3bf53ab700a985c37ad7a2f4aa45cec33451621203",
+      "same_bytes": false,
+      "redactions": [
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-02/legacy-junit.xml",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/legacy-junit.xml",
+      "origin_bytes": 838,
+      "origin_sha256": "62e40d0bd678b5d3a9cd85ab79f5d69b21ad8cf0231ac64bec42df2d074a8144",
+      "public_bytes": 838,
+      "public_sha256": "62e40d0bd678b5d3a9cd85ab79f5d69b21ad8cf0231ac64bec42df2d074a8144",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-02/legacy-lock.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/legacy-lock.log",
+      "origin_bytes": 51,
+      "origin_sha256": "15a2a77efa332fc0115d66cfd8e9f0dcbca9b720a4673dc055a5806501b45752",
+      "public_bytes": 51,
+      "public_sha256": "15a2a77efa332fc0115d66cfd8e9f0dcbca9b720a4673dc055a5806501b45752",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-02/legacy-tests.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/legacy-tests.log",
+      "origin_bytes": 809,
+      "origin_sha256": "39e4eb15779da1e9c0f8c5ed649679f6fc301732456d81921e41f81517a50cb3",
+      "public_bytes": 748,
+      "public_sha256": "38252e9944d3de14cd1f9b3cd440d8abaad080faa7f8eb342317f57828728235",
+      "same_bytes": false,
+      "redactions": [
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-02/nmap-authorizations.jsonl",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/nmap-authorizations.jsonl",
+      "origin_bytes": 1622,
+      "origin_sha256": "9ab1223f1e8277be8202858141c46e44b29f3a7686ba1f84996bdc64acc69775",
+      "public_bytes": 1422,
+      "public_sha256": "db96cacbadad9381c9927e5d7a315617113e73c7698de890c77a4f51d8425028",
+      "same_bytes": false,
+      "redactions": [
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-02/npm-ci.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/npm-ci.log",
+      "origin_bytes": 147,
+      "origin_sha256": "029268616efd129e5da5c1ddc08edfe8c036cb3fe316fdb3601d5cdeb5f39eab",
+      "public_bytes": 147,
+      "public_sha256": "029268616efd129e5da5c1ddc08edfe8c036cb3fe316fdb3601d5cdeb5f39eab",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-02/npm-version.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/npm-version.log",
+      "origin_bytes": 8,
+      "origin_sha256": "a38e383f1e9080b0dd9001481f6e56b341000de90a05061b66734350ad3adc41",
+      "public_bytes": 8,
+      "public_sha256": "a38e383f1e9080b0dd9001481f6e56b341000de90a05061b66734350ad3adc41",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-02/playwright-install.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/playwright-install.log",
+      "origin_bytes": 321,
+      "origin_sha256": "ec8abbba1f012c038a67e54b54adff9815a24664410cf89fe990507d853b9339",
+      "public_bytes": 321,
+      "public_sha256": "ec8abbba1f012c038a67e54b54adff9815a24664410cf89fe990507d853b9339",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-02/prototype-frozen.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/prototype-frozen.log",
+      "origin_bytes": 1892,
+      "origin_sha256": "17ac66745ab2f659af991f1ac7eac3a00c72e139d5c414504a62820213e39d4c",
+      "public_bytes": 1709,
+      "public_sha256": "938d1338a6a209989c5977303f85546dd1517b454935ef2e63bf31b0f7e2b212",
+      "same_bytes": false,
+      "redactions": [
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-02/prototype-junit.xml",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/prototype-junit.xml",
+      "origin_bytes": 164971,
+      "origin_sha256": "57704718b45120a359f7f4b665b9525c7ac30836b4a80b6845207ebdac611139",
+      "public_bytes": 164849,
+      "public_sha256": "99acb96abfa2effd8a5ab6314d1f2d310252a3ead9fd2a688b62365eefd9ebe3",
+      "same_bytes": false,
+      "redactions": [
+        "approved_fictitious_fixture_literal",
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-02/prototype-lock.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/prototype-lock.log",
+      "origin_bytes": 50,
+      "origin_sha256": "c7be95e1b8d32c08edfb9cb259f20eb7276beb8eecfd67f78bfb25936060039e",
+      "public_bytes": 50,
+      "public_sha256": "c7be95e1b8d32c08edfb9cb259f20eb7276beb8eecfd67f78bfb25936060039e",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-02/prototype-tests.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/prototype-tests.log",
+      "origin_bytes": 2085,
+      "origin_sha256": "ce9cad5266479c7f6b8f899eb7167b2140b13c03315deaabfc77df9fec2f151f",
+      "public_bytes": 2024,
+      "public_sha256": "d4922ea17cddee2ad14c5cf6a5f4af39fa6724cefd735869ce184c7cf27c2141",
+      "same_bytes": false,
+      "redactions": [
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-02/python-install.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/python-install.log",
+      "origin_bytes": 373,
+      "origin_sha256": "0443641d5841a0fb2b0e307e89fd3614ddce76225d16bfb966de0226a027d44d",
+      "public_bytes": 377,
+      "public_sha256": "de75a0ec5c2b671d6d1301afa574df7de0a99677daaad35682d21b2a8538e354",
+      "same_bytes": false,
+      "redactions": [
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-02/source-commit.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/source-commit.log",
+      "origin_bytes": 41,
+      "origin_sha256": "bae8893c1820d3a240cc86e6f96751b027f0807c020f585f0e357e4d570ed13d",
+      "public_bytes": 41,
+      "public_sha256": "bae8893c1820d3a240cc86e6f96751b027f0807c020f585f0e357e4d570ed13d",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-02/summary.json",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/summary.json",
+      "origin_bytes": 227,
+      "origin_sha256": "7834197bed844955e97799a41efb321bfa37b5e3fd333daa01707b38ebf431da",
+      "public_bytes": 227,
+      "public_sha256": "7834197bed844955e97799a41efb321bfa37b5e3fd333daa01707b38ebf431da",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-02/uv-install.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/uv-install.log",
+      "origin_bytes": 276,
+      "origin_sha256": "4465114763430a7034f911dd8b370ec2af5fb125f269abb858651e1bc8e7c127",
+      "public_bytes": 276,
+      "public_sha256": "4465114763430a7034f911dd8b370ec2af5fb125f269abb858651e1bc8e7c127",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-02/uv-venv.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/uv-venv.log",
+      "origin_bytes": 0,
+      "origin_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_bytes": 0,
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-02/verify-2026-11-09-11-3-recuperacion.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/verify-2026-11-09-11-3-recuperacion.log",
+      "origin_bytes": 258,
+      "origin_sha256": "404a9695742cbbe846eb3fb1dd7eac0aff4bda3635985e7e7504c06304870f46",
+      "public_bytes": 258,
+      "public_sha256": "404a9695742cbbe846eb3fb1dd7eac0aff4bda3635985e7e7504c06304870f46",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-02/verify-2026-11-09-11-3.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/verify-2026-11-09-11-3.log",
+      "origin_bytes": 254,
+      "origin_sha256": "56e01eacafbc3a3a54dc24de98e2febd07063474548bebbef486d56622a90c49",
+      "public_bytes": 254,
+      "public_sha256": "56e01eacafbc3a3a54dc24de98e2febd07063474548bebbef486d56622a90c49",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-02/verify-2026-11-09-v3.log",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/verify-2026-11-09-v3.log",
+      "origin_bytes": 583,
+      "origin_sha256": "e58e9320d6d074ae99ddfc4753aaa0897409b864738a7c0515252cb70e747c60",
+      "public_bytes": 583,
+      "public_sha256": "e58e9320d6d074ae99ddfc4753aaa0897409b864738a7c0515252cb70e747c60",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-02/browser/summary.json",
+      "phase": "clean-clone-02",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-02/browser/summary.json",
+      "origin_bytes": 717,
+      "origin_sha256": "c5e26f5766dee1ac8af59f352b8431bedb17c89f01962ac19fac37b3cb1f67e3",
+      "public_bytes": 717,
+      "public_sha256": "c5e26f5766dee1ac8af59f352b8431bedb17c89f01962ac19fac37b3cb1f67e3",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/regresion-inicial/prototype-junit.xml",
+      "phase": "initial-regression-retained-not-acceptance",
+      "origin_relative_locator": "publicacion-v4-20261109/validacion/prototype-junit.xml",
+      "origin_bytes": 166063,
+      "origin_sha256": "917de56dc474fdf0be058d63b2fb928dd653db385a7505d0af43665299a56146",
+      "public_bytes": 165917,
+      "public_sha256": "ec4b5fa1c1689db981af13a90c8b7afad18825446f5e8e023b89d3ead9f14b34",
+      "same_bytes": false,
+      "redactions": [
+        "approved_fictitious_fixture_literal",
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/regresion-inicial/prototype.log",
+      "phase": "initial-regression-retained-not-acceptance",
+      "origin_relative_locator": "publicacion-v4-20261109/validacion/prototype.log",
+      "origin_bytes": 4974,
+      "origin_sha256": "39984ec8fcdabcbcd2217a7832bbd5c19d9e55f11067dd75e9a2e793cae8e78d",
+      "public_bytes": 4901,
+      "public_sha256": "04320573c290c5240e18af5012486c4337120e1bba864fbbe592324da506cb78",
+      "same_bytes": false,
+      "redactions": [
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/web361/manifest-release-publico.json",
+      "phase": "web361-preparation",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/web-release-361-publico.json",
+      "origin_bytes": 82047,
+      "origin_sha256": "0b8a024e4ad91d47b62afcf04c0e1bd3fef7738f1e9342c80de89652f4417452",
+      "public_bytes": 82047,
+      "public_sha256": "0b8a024e4ad91d47b62afcf04c0e1bd3fef7738f1e9342c80de89652f4417452",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/web361/dom.log",
+      "phase": "web361-preparation",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/web361-dom.log",
+      "origin_bytes": 513,
+      "origin_sha256": "418dce32826cca804c3b64cdb4b77c4d36f6183c516fd1f6e9881960a8161c04",
+      "public_bytes": 513,
+      "public_sha256": "418dce32826cca804c3b64cdb4b77c4d36f6183c516fd1f6e9881960a8161c04",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/web361/browser-summary.json",
+      "phase": "web361-preparation",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/web361-browser-summary.json",
+      "origin_bytes": 717,
+      "origin_sha256": "c5e26f5766dee1ac8af59f352b8431bedb17c89f01962ac19fac37b3cb1f67e3",
+      "public_bytes": 717,
+      "public_sha256": "c5e26f5766dee1ac8af59f352b8431bedb17c89f01962ac19fac37b3cb1f67e3",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/web361/proveniencia-comprobaciones.json",
+      "phase": "web361-preparation",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/web361-proveniencia-comprobaciones.json",
+      "origin_bytes": 918,
+      "origin_sha256": "f3eb6e1f00faa5a3143f9d0712b9e513410951b05bba157d52434a93507ec719",
+      "public_bytes": 918,
+      "public_sha256": "f3eb6e1f00faa5a3143f9d0712b9e513410951b05bba157d52434a93507ec719",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/servicio-previo/https-100033-publico.json",
+      "phase": "previous-service-baseline",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/https-servicio-previo-100033-publico.json",
+      "origin_bytes": 2400,
+      "origin_sha256": "dad7230662f82c1b97c79398561e91fc9f6af35bfa6a49a1ff8e21de40ca45b7",
+      "public_bytes": 2400,
+      "public_sha256": "dad7230662f82c1b97c79398561e91fc9f6af35bfa6a49a1ff8e21de40ca45b7",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/proveedor/modelo-disponibilidad-previa.json",
+      "phase": "model-availability-precheck",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/modelo-disponibilidad-previa-publico.json",
+      "origin_bytes": 596,
+      "origin_sha256": "0d3af847941bfe0bb4e9c3142c443fe3c5df22354bac8ec6e9a4c78a50a475bc",
+      "public_bytes": 596,
+      "public_sha256": "0d3af847941bfe0bb4e9c3142c443fe3c5df22354bac8ec6e9a4c78a50a475bc",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/web361/cotejo-con-ejecutor.json",
+      "phase": "web361-preparation",
+      "origin_relative_locator": "publicacion-v4-20261109/web-vs-ejecutor-cotejo-completo.json",
+      "origin_bytes": 819,
+      "origin_sha256": "1bec3e3d9099fabadafb6f0b7d8329d7698e9797ffc936273bdb46d8e582bf3e",
+      "public_bytes": 819,
+      "public_sha256": "1bec3e3d9099fabadafb6f0b7d8329d7698e9797ffc936273bdb46d8e582bf3e",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/bootstrap-preparado.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/bootstrap-preparado.json",
+      "origin_bytes": 2853,
+      "origin_sha256": "174568e5103aa8effb9b074e007333d23a22fb5c38056ba4a7baef56188bc58e",
+      "public_bytes": 2853,
+      "public_sha256": "174568e5103aa8effb9b074e007333d23a22fb5c38056ba4a7baef56188bc58e",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/fuente-commit-stage.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/fuente-commit-stage.json",
+      "origin_bytes": 302,
+      "origin_sha256": "d7d2edad8223e5a36f60d4efeb5953cd12336a3c1e73b9184aa344871b156cfa",
+      "public_bytes": 302,
+      "public_sha256": "d7d2edad8223e5a36f60d4efeb5953cd12336a3c1e73b9184aa344871b156cfa",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/intentos/diagnostico-intento02.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/intentos/diagnostico-intento02.json",
+      "origin_bytes": 637,
+      "origin_sha256": "1f540a93aa5c0e76ff6dfd4f5feb323649607e4c4605f080cd642580591d5628",
+      "public_bytes": 637,
+      "public_sha256": "1f540a93aa5c0e76ff6dfd4f5feb323649607e4c4605f080cd642580591d5628",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/intentos/instalacion-01.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/intentos/instalacion-01.json",
+      "origin_bytes": 1510,
+      "origin_sha256": "e8259b0644c9a3778be78f826c6898a3980a964eb1eba99bb95516d24c5405a6",
+      "public_bytes": 1510,
+      "public_sha256": "e8259b0644c9a3778be78f826c6898a3980a964eb1eba99bb95516d24c5405a6",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/intentos/instalacion-01.log",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/intentos/instalacion-01.log",
+      "origin_bytes": 248,
+      "origin_sha256": "8e651b20d6d57db99f1cff9e6cacf4d6c4450c5e18a0c4d5f6b214bf01b89b78",
+      "public_bytes": 248,
+      "public_sha256": "8e651b20d6d57db99f1cff9e6cacf4d6c4450c5e18a0c4d5f6b214bf01b89b78",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/intentos/instalacion-02.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/intentos/instalacion-02.json",
+      "origin_bytes": 1508,
+      "origin_sha256": "8864eaa74a2a400a3fba23c84d69a7e3a5f97c42041f67902a973c3c4e7f073b",
+      "public_bytes": 1508,
+      "public_sha256": "8864eaa74a2a400a3fba23c84d69a7e3a5f97c42041f67902a973c3c4e7f073b",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/intentos/instalacion-02.log",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/intentos/instalacion-02.log",
+      "origin_bytes": 245,
+      "origin_sha256": "ef98f997107cd73da3e3928bba2e3f67c33b2edc5fc9b8725a81faa83e1f5b75",
+      "public_bytes": 245,
+      "public_sha256": "ef98f997107cd73da3e3928bba2e3f67c33b2edc5fc9b8725a81faa83e1f5b75",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/intentos/instalacion-03.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/intentos/instalacion-03.json",
+      "origin_bytes": 1470,
+      "origin_sha256": "4eb339cb74d6d6183cd3a5df9ed0e55eeff49a2e787933682e3728c456357b0a",
+      "public_bytes": 1470,
+      "public_sha256": "4eb339cb74d6d6183cd3a5df9ed0e55eeff49a2e787933682e3728c456357b0a",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/intentos/instalacion-03.log",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/intentos/instalacion-03.log",
+      "origin_bytes": 295,
+      "origin_sha256": "5af03ed42a729ff5bdcca5f0bcc4dff538f7ee4566cb518ae76642ecab89151a",
+      "public_bytes": 295,
+      "public_sha256": "5af03ed42a729ff5bdcca5f0bcc4dff538f7ee4566cb518ae76642ecab89151a",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/intentos/limpieza-intento02.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/intentos/limpieza-intento02.json",
+      "origin_bytes": 247,
+      "origin_sha256": "728f04953b72444947374e43114376194513db3c719d715ed06190cfb565eb09",
+      "public_bytes": 247,
+      "public_sha256": "728f04953b72444947374e43114376194513db3c719d715ed06190cfb565eb09",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/preflight-cinco-resumen.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/preflight-cinco-resumen.json",
+      "origin_bytes": 4479,
+      "origin_sha256": "ebab42df992a4bbbb02a06b518655a06ba3922deed60bcd9448c69fc3f32a922",
+      "public_bytes": 4479,
+      "public_sha256": "ebab42df992a4bbbb02a06b518655a06ba3922deed60bcd9448c69fc3f32a922",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/python-copy.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/python-copy.json",
+      "origin_bytes": 549,
+      "origin_sha256": "43a48cf35e7b8b9c361f4d9447dc55b0a6326a933a5e01c7da67cb4dd350dc67",
+      "public_bytes": 549,
+      "public_sha256": "43a48cf35e7b8b9c361f4d9447dc55b0a6326a933a5e01c7da67cb4dd350dc67",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/python-runtime.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/python-runtime.json",
+      "origin_bytes": 338,
+      "origin_sha256": "d56d3ce9ddfebd9559efe3446fff47506e55e5467b7e3dba008b94f7079e28ed",
+      "public_bytes": 338,
+      "public_sha256": "d56d3ce9ddfebd9559efe3446fff47506e55e5467b7e3dba008b94f7079e28ed",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/runtime-source-map.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/runtime-source-map.json",
+      "origin_bytes": 39466,
+      "origin_sha256": "cf2f6d979f0831cca5c4b6c3ee3b9c2b9f94175bdb4f49b65d17fe07df7cd97c",
+      "public_bytes": 39466,
+      "public_sha256": "cf2f6d979f0831cca5c4b6c3ee3b9c2b9f94175bdb4f49b65d17fe07df7cd97c",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/tar-imagenes-verificado.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/tar-imagenes-verificado.json",
+      "origin_bytes": 757,
+      "origin_sha256": "6fdcbab97a878442c5a1e7855aaca9076dd6f691fcac63ea426d9636ed1efc3a",
+      "public_bytes": 757,
+      "public_sha256": "6fdcbab97a878442c5a1e7855aaca9076dd6f691fcac63ea426d9636ed1efc3a",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/preflight/integrado.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/preflight/integrado.json",
+      "origin_bytes": 807,
+      "origin_sha256": "74cb0269fe1cf2693cbf8cedbd4525cf17f5b4c9a222debe8d0b2888a8e05738",
+      "public_bytes": 807,
+      "public_sha256": "74cb0269fe1cf2693cbf8cedbd4525cf17f5b4c9a222debe8d0b2888a8e05738",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/preflight/sucursal.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/preflight/sucursal.json",
+      "origin_bytes": 805,
+      "origin_sha256": "290bbdc36c5c81b8ada157cd5781f42b6b98ce3afbf72d30e412b85b0477c560",
+      "public_bytes": 805,
+      "public_sha256": "290bbdc36c5c81b8ada157cd5781f42b6b98ce3afbf72d30e412b85b0477c560",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/preflight/comercial.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/preflight/comercial.json",
+      "origin_bytes": 807,
+      "origin_sha256": "d5b49a82d2dae103fae085a9aa10a6b308ec2f91e2da05e9d9244139319ceb00",
+      "public_bytes": 807,
+      "public_sha256": "d5b49a82d2dae103fae085a9aa10a6b308ec2f91e2da05e9d9244139319ceb00",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/preflight/mixto.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/preflight/mixto.json",
+      "origin_bytes": 799,
+      "origin_sha256": "ac3d5e81d3732300cb56ceb37506643589f8d9a5bbb8f78b93a7bb9a80b022dc",
+      "public_bytes": 799,
+      "public_sha256": "ac3d5e81d3732300cb56ceb37506643589f8d9a5bbb8f78b93a7bb9a80b022dc",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/preflight/reforzado.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/preflight/reforzado.json",
+      "origin_bytes": 807,
+      "origin_sha256": "2c6a654813aa507c2d3b96d20bbbe18ca32fa2fcb81fdc2c4dd87547ca228e8d",
+      "public_bytes": 807,
+      "public_sha256": "2c6a654813aa507c2d3b96d20bbbe18ca32fa2fcb81fdc2c4dd87547ca228e8d",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/integrado-single32/operador.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/integrado-single32/operador.json",
+      "origin_bytes": 2111,
+      "origin_sha256": "47f5731aaf8bd763af8dfc47f8a4819800d4489dc3bb8046fdd00546721ee58d",
+      "public_bytes": 2111,
+      "public_sha256": "47f5731aaf8bd763af8dfc47f8a4819800d4489dc3bb8046fdd00546721ee58d",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/integrado-single32/evaluacion-operador.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/integrado-single32/evaluacion-operador.json",
+      "origin_bytes": 1100,
+      "origin_sha256": "888a58078d35fd882d582c59631ad92216b7359bb3715c8ff93c7bb12757a1b4",
+      "public_bytes": 1100,
+      "public_sha256": "888a58078d35fd882d582c59631ad92216b7359bb3715c8ff93c7bb12757a1b4",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/integrado-single32/ejecucion-cli.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/integrado-single32/ejecucion-cli.json",
+      "origin_bytes": 600,
+      "origin_sha256": "a87a17e7c7e659f42c0b4e7d8b0d307d64eff9aa4ef5eb6cde191e5e579f05e8",
+      "public_bytes": 600,
+      "public_sha256": "a87a17e7c7e659f42c0b4e7d8b0d307d64eff9aa4ef5eb6cde191e5e579f05e8",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/resumen-instalacion-actual.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/resumen-instalacion-actual.json",
+      "origin_bytes": 2623,
+      "origin_sha256": "7d1e535acba689565a8a6bb9ec0d93e6bff911aaea1df9a619c72f24e5e4f62f",
+      "public_bytes": 2623,
+      "public_sha256": "7d1e535acba689565a8a6bb9ec0d93e6bff911aaea1df9a619c72f24e5e4f62f",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/pruebas-instalador/recibo.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/pruebas-instalador/recibo.json",
+      "origin_bytes": 788,
+      "origin_sha256": "9f972fa4819ff5466840c66448a3b3eb0d8216e87429974721cd403d6f787c74",
+      "public_bytes": 788,
+      "public_sha256": "9f972fa4819ff5466840c66448a3b3eb0d8216e87429974721cd403d6f787c74",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/pruebas-instalador/pytest.log",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/pruebas-instalador/pytest.log",
+      "origin_bytes": 99,
+      "origin_sha256": "d9e3046d258eee5043ed6250af1979921d3f6c30a09de4b60d0052ec8efefe86",
+      "public_bytes": 99,
+      "public_sha256": "d9e3046d258eee5043ed6250af1979921d3f6c30a09de4b60d0052ec8efefe86",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/pruebas-instalador/junit.xml",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/pruebas-instalador/junit.xml",
+      "origin_bytes": 5993,
+      "origin_sha256": "a7a1916ec0cec4cc18c68fd4568cb32f6b490934c9b5e4f77a7083677ad7bd79",
+      "public_bytes": 5993,
+      "public_sha256": "a7a1916ec0cec4cc18c68fd4568cb32f6b490934c9b5e4f77a7083677ad7bd79",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/anteriores82-preservados.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/anteriores82-preservados.json",
+      "origin_bytes": 530,
+      "origin_sha256": "c067bae6aca80083a5b46d6b39ec69dc1694c49d42062907d6ecdb22424879f1",
+      "public_bytes": 530,
+      "public_sha256": "c067bae6aca80083a5b46d6b39ec69dc1694c49d42062907d6ecdb22424879f1",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/stage03/manifest.json",
+      "phase": "stage03-approved-projections",
+      "origin_relative_locator": "publicacion-v3-20261109/instalacion-publica-v4/manifest.json",
+      "origin_bytes": 9234,
+      "origin_sha256": "c73bff74f8e2f9d54c5890ce221ba664bb88feca463569ec71aa37c78bb46c9f",
+      "public_bytes": 9234,
+      "public_sha256": "c73bff74f8e2f9d54c5890ce221ba664bb88feca463569ec71aa37c78bb46c9f",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/webshadow/webshadow-01-publico.json",
+      "phase": "webshadow-approved-projections",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/webshadow-01-publico.json",
+      "origin_bytes": 3622,
+      "origin_sha256": "81f8f90369318feebbbd75c3282055a1af8868659aee85d3063674aab1c31c44",
+      "public_bytes": 3622,
+      "public_sha256": "81f8f90369318feebbbd75c3282055a1af8868659aee85d3063674aab1c31c44",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/webshadow/webshadow-02-publico.json",
+      "phase": "webshadow-approved-projections",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/webshadow-02-publico.json",
+      "origin_bytes": 5244,
+      "origin_sha256": "20a504303a1361eeff746714def2f71d0b555387e78606ebd81a103a8c59cd16",
+      "public_bytes": 5244,
+      "public_sha256": "20a504303a1361eeff746714def2f71d0b555387e78606ebd81a103a8c59cd16",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/webshadow/webshadow-metadatos03-publico.json",
+      "phase": "webshadow-approved-projections",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/webshadow-metadatos03-publico.json",
+      "origin_bytes": 1507,
+      "origin_sha256": "4a29f0970ee11b6bc730f0f593a00d5067faa060cdb7c6ca73c4fe7c6e0212a4",
+      "public_bytes": 1507,
+      "public_sha256": "4a29f0970ee11b6bc730f0f593a00d5067faa060cdb7c6ca73c4fe7c6e0212a4",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/webshadow/probar_cola_webshadow-intento01.py",
+      "phase": "webshadow-approved-projections",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/probar_cola_webshadow-intento01.py",
+      "origin_bytes": 21478,
+      "origin_sha256": "3270479c8c22d629f3ae24d633716816208cb0fbfd896798936db0409c453316",
+      "public_bytes": 21478,
+      "public_sha256": "3270479c8c22d629f3ae24d633716816208cb0fbfd896798936db0409c453316",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/webshadow/probar_cola_webshadow.py",
+      "phase": "webshadow-approved-projections",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/probar_cola_webshadow.py",
+      "origin_bytes": 21689,
+      "origin_sha256": "43a7151f645c11ea66a5b31b61b89fa6058cf165c25afc364c073e33d019ff43",
+      "public_bytes": 21689,
+      "public_sha256": "43a7151f645c11ea66a5b31b61b89fa6058cf165c25afc364c073e33d019ff43",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/webshadow/revisar_metadatos_webshadow.py",
+      "phase": "webshadow-approved-projections",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/revisar_metadatos_webshadow.py",
+      "origin_bytes": 8800,
+      "origin_sha256": "9e9e8653a23d37432431326bd621c7a1efe754990c119a313d4458721c2f84d8",
+      "public_bytes": 8800,
+      "public_sha256": "9e9e8653a23d37432431326bd621c7a1efe754990c119a313d4458721c2f84d8",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/webshadow/webshadow-herramientas-proveniencia.json",
+      "phase": "webshadow-approved-projections",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/webshadow-herramientas-proveniencia.json",
+      "origin_bytes": 1291,
+      "origin_sha256": "11a4f37aae84d7bccbc480c9bcf7ecf40921ed04038aef2b5d89dfac1e903ef3",
+      "public_bytes": 1291,
+      "public_sha256": "11a4f37aae84d7bccbc480c9bcf7ecf40921ed04038aef2b5d89dfac1e903ef3",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-03/legacy-frozen.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/legacy-frozen.log",
+      "origin_bytes": 1713,
+      "origin_sha256": "4ebe16ab7460e1892e1ba5d0c14eae11d3014b527381eeebf344061d14dabeda",
+      "public_bytes": 1530,
+      "public_sha256": "5b68a281e490fc0f9ae4c02dd39a5de3317793dc16b62cdd2c3b146a57f0123e",
+      "same_bytes": false,
+      "redactions": [
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-03/prototype-junit.xml",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/prototype-junit.xml",
+      "origin_bytes": 165227,
+      "origin_sha256": "9b4dab41749ae6a1dba76704acdad70c61c04375ddaa43b38274ac3ab396670a",
+      "public_bytes": 165105,
+      "public_sha256": "0c5d85751c4b0bae08712d0f43c50fbf6e0de28deea2a10156b8d0750c097811",
+      "same_bytes": false,
+      "redactions": [
+        "approved_fictitious_fixture_literal",
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-03/playwright-install.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/playwright-install.log",
+      "origin_bytes": 321,
+      "origin_sha256": "ec8abbba1f012c038a67e54b54adff9815a24664410cf89fe990507d853b9339",
+      "public_bytes": 321,
+      "public_sha256": "ec8abbba1f012c038a67e54b54adff9815a24664410cf89fe990507d853b9339",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-03/verify-2026-11-09-v3.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/verify-2026-11-09-v3.log",
+      "origin_bytes": 583,
+      "origin_sha256": "e58e9320d6d074ae99ddfc4753aaa0897409b864738a7c0515252cb70e747c60",
+      "public_bytes": 583,
+      "public_sha256": "e58e9320d6d074ae99ddfc4753aaa0897409b864738a7c0515252cb70e747c60",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-03/verify-2026-11-09-11-3-recuperacion.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/verify-2026-11-09-11-3-recuperacion.log",
+      "origin_bytes": 258,
+      "origin_sha256": "404a9695742cbbe846eb3fb1dd7eac0aff4bda3635985e7e7504c06304870f46",
+      "public_bytes": 258,
+      "public_sha256": "404a9695742cbbe846eb3fb1dd7eac0aff4bda3635985e7e7504c06304870f46",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-03/legacy-junit.xml",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/legacy-junit.xml",
+      "origin_bytes": 838,
+      "origin_sha256": "2405ee0d76d811b7a93114f7a05ddf4c9ff8d4dff9767c5ffef6a728a173c567",
+      "public_bytes": 838,
+      "public_sha256": "2405ee0d76d811b7a93114f7a05ddf4c9ff8d4dff9767c5ffef6a728a173c567",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-03/prototype-frozen.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/prototype-frozen.log",
+      "origin_bytes": 1891,
+      "origin_sha256": "362700588078c2ea94d68ca32865399307bc82226ab55a0b8960b79437208bfe",
+      "public_bytes": 1708,
+      "public_sha256": "d9039fbdda0204f0eab1b05739fa8d4c0730f0d6a7f5dd51186c0ec69faac0d2",
+      "same_bytes": false,
+      "redactions": [
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-03/commands.json",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/commands.json",
+      "origin_bytes": 8154,
+      "origin_sha256": "c895b8502ddc52712ddefd7dacfdceca15e37cb1ad99dda7d9efad7a7be91144",
+      "public_bytes": 7122,
+      "public_sha256": "6e8a2b02cd49d61008a1e06936cbb60b98148d6638274ad3fce77d37d0de7175",
+      "same_bytes": false,
+      "redactions": [
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-03/prototype-tests.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/prototype-tests.log",
+      "origin_bytes": 2077,
+      "origin_sha256": "fc013a2a22fe2783bdea4b198e97299eee2a44fd07950e09d6219aa35a5f92c7",
+      "public_bytes": 2016,
+      "public_sha256": "2fe63d257297ce01c9defb4a82c3ed24d9bb82c640c9ed4dd6994b03ea9d1298",
+      "same_bytes": false,
+      "redactions": [
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-03/prototype-lock.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/prototype-lock.log",
+      "origin_bytes": 50,
+      "origin_sha256": "c7be95e1b8d32c08edfb9cb259f20eb7276beb8eecfd67f78bfb25936060039e",
+      "public_bytes": 50,
+      "public_sha256": "c7be95e1b8d32c08edfb9cb259f20eb7276beb8eecfd67f78bfb25936060039e",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-03/legacy-tests.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/legacy-tests.log",
+      "origin_bytes": 809,
+      "origin_sha256": "56c219313235b9b540c37ea18678737ba5462564629aaf410c0695dbae7a442b",
+      "public_bytes": 748,
+      "public_sha256": "eb41d4a24526166d4df32efca75dfbe03bfaf85401d67f54e3bacabe6a0ab0d8",
+      "same_bytes": false,
+      "redactions": [
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-03/dom.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/dom.log",
+      "origin_bytes": 513,
+      "origin_sha256": "281270d70e4dfa115be8abd34ee944f7ac3801fd7f3660e054cdf5f5af443c5f",
+      "public_bytes": 513,
+      "public_sha256": "281270d70e4dfa115be8abd34ee944f7ac3801fd7f3660e054cdf5f5af443c5f",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-03/npm-ci.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/npm-ci.log",
+      "origin_bytes": 147,
+      "origin_sha256": "029268616efd129e5da5c1ddc08edfe8c036cb3fe316fdb3601d5cdeb5f39eab",
+      "public_bytes": 147,
+      "public_sha256": "029268616efd129e5da5c1ddc08edfe8c036cb3fe316fdb3601d5cdeb5f39eab",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-03/legacy-lock.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/legacy-lock.log",
+      "origin_bytes": 51,
+      "origin_sha256": "15a2a77efa332fc0115d66cfd8e9f0dcbca9b720a4673dc055a5806501b45752",
+      "public_bytes": 51,
+      "public_sha256": "15a2a77efa332fc0115d66cfd8e9f0dcbca9b720a4673dc055a5806501b45752",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-03/python-install.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/python-install.log",
+      "origin_bytes": 36,
+      "origin_sha256": "b4777c6e5ae20ee2a16ef936c6082bcab1b98420bbab694d53d5221256767777",
+      "public_bytes": 36,
+      "public_sha256": "b4777c6e5ae20ee2a16ef936c6082bcab1b98420bbab694d53d5221256767777",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-03/source-commit.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/source-commit.log",
+      "origin_bytes": 41,
+      "origin_sha256": "144e39e07f03ef1ba71d17316a22f7958f667b32afc955bf14f82dd9b1b1b8b8",
+      "public_bytes": 41,
+      "public_sha256": "144e39e07f03ef1ba71d17316a22f7958f667b32afc955bf14f82dd9b1b1b8b8",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-03/summary.json",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/summary.json",
+      "origin_bytes": 227,
+      "origin_sha256": "a1d3c2973da7545c598ac5d4037dc1c1f37b9937e3201ae24986d6c4df858fa7",
+      "public_bytes": 227,
+      "public_sha256": "a1d3c2973da7545c598ac5d4037dc1c1f37b9937e3201ae24986d6c4df858fa7",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-03/npm-version.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/npm-version.log",
+      "origin_bytes": 8,
+      "origin_sha256": "a38e383f1e9080b0dd9001481f6e56b341000de90a05061b66734350ad3adc41",
+      "public_bytes": 8,
+      "public_sha256": "a38e383f1e9080b0dd9001481f6e56b341000de90a05061b66734350ad3adc41",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-03/uv-venv.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/uv-venv.log",
+      "origin_bytes": 0,
+      "origin_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_bytes": 0,
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-03/verify-2026-11-09-11-3.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/verify-2026-11-09-11-3.log",
+      "origin_bytes": 254,
+      "origin_sha256": "56e01eacafbc3a3a54dc24de98e2febd07063474548bebbef486d56622a90c49",
+      "public_bytes": 254,
+      "public_sha256": "56e01eacafbc3a3a54dc24de98e2febd07063474548bebbef486d56622a90c49",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-03/uv-install.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/uv-install.log",
+      "origin_bytes": 276,
+      "origin_sha256": "4465114763430a7034f911dd8b370ec2af5fb125f269abb858651e1bc8e7c127",
+      "public_bytes": 276,
+      "public_sha256": "4465114763430a7034f911dd8b370ec2af5fb125f269abb858651e1bc8e7c127",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-03/browser.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/browser.log",
+      "origin_bytes": 628,
+      "origin_sha256": "e659417f8f1d4e2c50e11a089f0498afe5df847fd209a0ffb43fe69434ab9ffa",
+      "public_bytes": 628,
+      "public_sha256": "e659417f8f1d4e2c50e11a089f0498afe5df847fd209a0ffb43fe69434ab9ffa",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/clon-limpio-03/nmap-authorizations.jsonl",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/nmap-authorizations.jsonl",
+      "origin_bytes": 1622,
+      "origin_sha256": "6ede505b2cec7eb9d60b88ce4f083ac18183c5a5c6d07cd57161b41313decea1",
+      "public_bytes": 1422,
+      "public_sha256": "1849e216462376cd346d3c559d241717c18eef7085a4eef62a3c64fe21c8280d",
+      "same_bytes": false,
+      "redactions": [
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-03/clone.log",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/clone.log",
+      "origin_bytes": 105,
+      "origin_sha256": "c7192a70b31b5d38f53359cef29016d3ca7f72816ffec63d66b48f1b82e919cc",
+      "public_bytes": 44,
+      "public_sha256": "d8c442f81efb2dbfef8d1b4f9dc56a11571591c2c29a44256feb645147f4aa70",
+      "same_bytes": false,
+      "redactions": [
+        "private_localizer_prefix"
+      ]
+    },
+    {
+      "path": "recibos/clon-limpio-03/browser/summary.json",
+      "phase": "clean-clone-03-web730",
+      "origin_relative_locator": "publicacion-v4-20261109/clon-validacion-03/browser/summary.json",
+      "origin_bytes": 717,
+      "origin_sha256": "c5e26f5766dee1ac8af59f352b8431bedb17c89f01962ac19fac37b3cb1f67e3",
+      "public_bytes": 717,
+      "public_sha256": "c5e26f5766dee1ac8af59f352b8431bedb17c89f01962ac19fac37b3cb1f67e3",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/despliegue/deployment-intento01-publico.json",
+      "phase": "production-deployment",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/deployment-intento01-publico.json",
+      "origin_bytes": 1020,
+      "origin_sha256": "6aa5a71f2cd81d2907598e7ee131ce21f45edfc4634ff51fa9d859499b988729",
+      "public_bytes": 1020,
+      "public_sha256": "6aa5a71f2cd81d2907598e7ee131ce21f45edfc4634ff51fa9d859499b988729",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/despliegue/deployment-02-publico.json",
+      "phase": "production-deployment",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/deployment-02-publico.json",
+      "origin_bytes": 1465,
+      "origin_sha256": "8e0076cbccc702409f23e169564489478cd93198369533cc5f7bded4cad7c556",
+      "public_bytes": 1465,
+      "public_sha256": "8e0076cbccc702409f23e169564489478cd93198369533cc5f7bded4cad7c556",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/despliegue/https-101912-publico.json",
+      "phase": "production-deployment",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/https-101912-publico.json",
+      "origin_bytes": 2933,
+      "origin_sha256": "a00925caed63db1d48c556e9ec195879b36d830048b90f3c943a08a25ff38e57",
+      "public_bytes": 2933,
+      "public_sha256": "a00925caed63db1d48c556e9ec195879b36d830048b90f3c943a08a25ff38e57",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/despliegue/diagnostico-systemd-18766-antes-netlink-publico.json",
+      "phase": "sandbox-diagnostic",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/diagnostico-systemd-18766-antes-netlink-publico.json",
+      "origin_bytes": 1916,
+      "origin_sha256": "31e039af77249388b7f5a0ede58f181364f3efbaa4c9e1bcb0863b8f4b11583d",
+      "public_bytes": 1916,
+      "public_sha256": "31e039af77249388b7f5a0ede58f181364f3efbaa4c9e1bcb0863b8f4b11583d",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/despliegue/diagnostico-systemd-18766-despues-netlink-publico.json",
+      "phase": "sandbox-diagnostic",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/diagnostico-systemd-18766-despues-netlink-publico.json",
+      "origin_bytes": 3732,
+      "origin_sha256": "91097cbd85a0b0954159eee976d7c8abb711afe797406a1c53b0b3bac62e0f6c",
+      "public_bytes": 3732,
+      "public_sha256": "91097cbd85a0b0954159eee976d7c8abb711afe797406a1c53b0b3bac62e0f6c",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/despliegue/diagnostico-netlink-permisos-publico.json",
+      "phase": "sandbox-diagnostic",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/diagnostico-netlink-permisos-publico.json",
+      "origin_bytes": 1022,
+      "origin_sha256": "7dbe2f0e32d8a6afaed2897593cec38ae4ca2baa2acc59b708432fbff63e569b",
+      "public_bytes": 1022,
+      "public_sha256": "7dbe2f0e32d8a6afaed2897593cec38ae4ca2baa2acc59b708432fbff63e569b",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/despliegue/diagnostico-netlink-limpieza-publico.json",
+      "phase": "sandbox-diagnostic",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/diagnostico-netlink-limpieza-publico.json",
+      "origin_bytes": 846,
+      "origin_sha256": "66f30ad78a09521438ad9f38483493e9d3b0d2ea07dd8c1eb442619a8d20c608",
+      "public_bytes": 846,
+      "public_sha256": "66f30ad78a09521438ad9f38483493e9d3b0d2ea07dd8c1eb442619a8d20c608",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/despliegue/unidad-temporal-18766-netlink.service",
+      "phase": "sandbox-diagnostic",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/unidad-temporal-18766-netlink.service",
+      "origin_bytes": 1405,
+      "origin_sha256": "f51fbee53f1bb8fcdc8734ce1321f93eb50477ed3e8581bc80ede4fb227277b8",
+      "public_bytes": 1405,
+      "public_sha256": "f51fbee53f1bb8fcdc8734ce1321f93eb50477ed3e8581bc80ede4fb227277b8",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/despliegue/unidad-temporal-proveniencia.json",
+      "phase": "sandbox-diagnostic",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/unidad-temporal-proveniencia.json",
+      "origin_bytes": 448,
+      "origin_sha256": "10931dbab9466dce3624dbacebb5e932b57d1c0e821ea0723ae20cc5d5e95a26",
+      "public_bytes": 448,
+      "public_sha256": "10931dbab9466dce3624dbacebb5e932b57d1c0e821ea0723ae20cc5d5e95a26",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/despliegue/web-release-730-publico.json",
+      "phase": "web730-source",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/web-release-730-publico.json",
+      "origin_bytes": 83404,
+      "origin_sha256": "c6a782ed3d77c61dcc6f2b3cc68a94b42857a93b82b74fe624e6223a8c437c93",
+      "public_bytes": 83404,
+      "public_sha256": "c6a782ed3d77c61dcc6f2b3cc68a94b42857a93b82b74fe624e6223a8c437c93",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/web730/cotejo-con-ejecutor.json",
+      "phase": "web730-source",
+      "origin_relative_locator": "publicacion-v4-20261109/web730-vs-ejecutor-cotejo-final.json",
+      "origin_bytes": 1182,
+      "origin_sha256": "448764ed0c98edca3fa0dc71d627ff1e7865a5ec2a7d6ffc53726a97c5b93395",
+      "public_bytes": 1182,
+      "public_sha256": "448764ed0c98edca3fa0dc71d627ff1e7865a5ec2a7d6ffc53726a97c5b93395",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/web730/nombres-publicacion-junit.xml",
+      "phase": "web730-metadata-targeted",
+      "origin_relative_locator": "publicacion-v4-20261109/validacion/nombres-publicacion-junit.xml",
+      "origin_bytes": 8938,
+      "origin_sha256": "6a66d609746e634a32d1bf0e9e248b5e65c4e77a20dccfb5720037810a8c2839",
+      "public_bytes": 8938,
+      "public_sha256": "6a66d609746e634a32d1bf0e9e248b5e65c4e77a20dccfb5720037810a8c2839",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "recibos/despliegue/control-https-postdeploy-publico.json",
+      "phase": "production-restore-check",
+      "origin_relative_locator": "publicacion-v4-20261109/proyecciones-publicas/control-https-postdeploy-publico.json",
+      "origin_bytes": 3383,
+      "origin_sha256": "75185b266b62984c2b9b4a3070b0033eb8b8c2a862979826f5ccc6bed38bc58d",
+      "public_bytes": 3383,
+      "public_sha256": "75185b266b62984c2b9b4a3070b0033eb8b8c2a862979826f5ccc6bed38bc58d",
+      "same_bytes": true,
+      "redactions": []
+    },
+    {
+      "path": "indice-kpi-historicos.json",
+      "phase": "historical-reference-index",
+      "origin_relative_locator": "publicacion-v4-20261109/indice-kpi-borrador.json",
+      "origin_bytes": 474546,
+      "origin_sha256": "501a05295ff1a823ff5bf9167b8932cbbda8d646d00bcb531b034d10f8f8fa2f",
+      "public_bytes": 474573,
+      "public_sha256": "29ca66cbd9e3e55e1f6c5cf6b271304ac7b26172b013ff1b5a73f7438caa01d7",
+      "same_bytes": false,
+      "redactions": [
+        "publication_index_wrapper_metadata"
+      ]
+    },
+    {
+      "path": "indice-kpi-historicos.txt",
+      "phase": "historical-reference-index",
+      "origin_relative_locator": "publicacion-v4-20261109/indice-kpi-borrador.txt",
+      "origin_bytes": 29819,
+      "origin_sha256": "6630bf103908f67ce4bbc1db15cd0cdb2c380318a7fe9166d6fc6de89fd29dc3",
+      "public_bytes": 29831,
+      "public_sha256": "cc132d1e1ff8017f6412fbe152b075daa15259b7969bd66ec049a01616465697",
+      "same_bytes": false,
+      "redactions": [
+        "publication_index_wrapper_metadata"
+      ]
+    }
+  ],
+  "private_originals_unchanged": true
+}

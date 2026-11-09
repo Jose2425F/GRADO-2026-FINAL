@@ -1,0 +1,26 @@
+{
+  "schema": "centinela-operator-evaluation/1",
+  "bank": "integrado",
+  "separate_from_historical_campaign": true,
+  "report_status": "complete",
+  "controller_report_sha256": "6472dfe96d06eb9d8ce64f71710802d010a4abd260cd68e45f97339eb83daccd",
+  "reference_sha256": "b11401be50971d14c81a4ea69a86e648cb0a6d48c96e4c719b8c8c37fd2b2a63",
+  "reference_visible_to_controller": false,
+  "evaluation": {
+    "ground_truth_sha256": "b11401be50971d14c81a4ea69a86e648cb0a6d48c96e4c719b8c8c37fd2b2a63",
+    "bank": "docker-empresa-1.0",
+    "TP": 13,
+    "FP": 0,
+    "FN": 0,
+    "TN": 11,
+    "unknown_negative_controls": 0,
+    "negative_conditions_total": 11,
+    "intentional_budget_omissions": 0,
+    "unscored_findings": 0,
+    "evidence_valid": true,
+    "tasks_checked": 32,
+    "tasks_valid": 32,
+    "acceptance_passed": true,
+    "note": "Evaluación del banco reservado; no se envía al modelo. FN incluye positivos no detectados, incluso si su tarea no fue seleccionada. TN sólo incluye negativos comprobados; los no examinados se registran aparte. Los candidatos CVE no cuentan como TP."
+  }
+}

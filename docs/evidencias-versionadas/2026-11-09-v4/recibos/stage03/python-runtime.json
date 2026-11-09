@@ -1,0 +1,11 @@
+{
+  "prefix": "@STAGE@/venv",
+  "base_prefix": "@STAGE@/python",
+  "paths": [
+    "@STAGE@/python/lib/python313.zip",
+    "@STAGE@/python/lib/python3.13",
+    "@STAGE@/python/lib/python3.13/lib-dynload",
+    "@STAGE@/venv/lib/python3.13/site-packages"
+  ],
+  "package": "@STAGE@/venv/lib/python3.13/site-packages/auditoria/__init__.py"
+}

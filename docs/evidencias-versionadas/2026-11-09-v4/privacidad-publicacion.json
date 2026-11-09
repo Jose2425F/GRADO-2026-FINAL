@@ -1,0 +1,21 @@
+{
+  "schema": "centinela-public-privacy-scan/1",
+  "allowlist_only": true,
+  "patterns_checked": [
+    "openai_like",
+    "github_token",
+    "aws_access_key",
+    "google_key",
+    "private_key",
+    "known_private_password"
+  ],
+  "findings": [],
+  "fictitious_fixture_literal_removed_in_public_xml_copies": {
+    "token_sha256": "3193831645bd691450f50c575c8f3019bcd83b9be8448321f223ef36671e03c5",
+    "fixture_source": "piloto_kali/prototipo/tests/test_persistence_sanitization.py",
+    "fixture_source_sha256": "d603393286d6c577759ef059b96dc80a4e4c642cc3834016fd35e87d91e1d4a8",
+    "configured_key": false,
+    "prior_public_approval": "docs/evidencias-versionadas/2026-11-09-11-3/fuentes-aprobadas.json"
+  },
+  "limits": "Pattern/field scan does not prove absence of every unknown secret. All original private receipts are preserved; locator-redacted copies have both hashes."
+}

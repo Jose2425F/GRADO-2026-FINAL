@@ -1,0 +1,48 @@
+{
+  "schema": "centinela-v4-infrastructure-verification/1",
+  "integrity_verified": true,
+  "publication_complete": true,
+  "full_clone": {
+    "integrity_verified": true,
+    "publication_complete": true,
+    "pending": [],
+    "publication_files": 134,
+    "previous_archives_checked": 12,
+    "historical_members_checked": 1338,
+    "phase_counts_are_not_additive": true,
+    "historical_kpis_recomputed": false,
+    "verification_actions": {
+      "new_audits": false,
+      "network": false,
+      "tools_executed": false,
+      "archives_extracted": false
+    }
+  },
+  "standalone": {
+    "integrity_verified": true,
+    "publication_complete": true,
+    "pending": [],
+    "publication_files": 134,
+    "previous_archives_checked": 0,
+    "historical_members_checked": 0,
+    "phase_counts_are_not_additive": true,
+    "historical_kpis_recomputed": false,
+    "verification_actions": {
+      "new_audits": false,
+      "network": false,
+      "tools_executed": false,
+      "archives_extracted": false
+    }
+  },
+  "strict_complete_exit_code": 0,
+  "negative_checks": [
+    "unlisted_file_rejected",
+    "changed_receipt_rejected",
+    "symlink_rejected"
+  ],
+  "forbidden_verifier_attempts": [],
+  "guard_scope": "Verifier execution only; socket/process/write calls denied.",
+  "new_audits_executed_by_verifier": false,
+  "historical_kpis_recomputed": false,
+  "private_configuration_read": false
+}

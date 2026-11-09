@@ -1,0 +1,53 @@
+{
+  "tested_at_utc": "2026-11-09",
+  "status": "targeted_tests_passed",
+  "result": "101 passed in 2.62s",
+  "tool_chunk_id": "1d3901",
+  "paid_api_calls": 0,
+  "network_or_daemon_mutations": false,
+  "files": {
+    "scripts/ejecutar_protegido.py": "5d7fa9be2554c02bab207c5aa184a419e843fe72b9f4549aab64a55abe060e7f",
+    "scripts/ejecucion_protegida_controlador.py": "13f2eec3752bb12886a7215e708e2ecb2e4827c010dadf624cf278a2a3bf1502",
+    "scripts/llm_especialistas.py": "8dd38fcd7dc7e519e04394cbb35ddb81851ed9a8018f7a910cea74bcc628b898",
+    "piloto_kali/prototipo/src/auditoria/openai_provider.py": "522e942269feb348520125dd6baefed9d1d1a0b9d02f5cb4bd66bb95975ce493",
+    "piloto_kali/prototipo/src/auditoria/provider_proxy.py": "6a662a0c40dcf18f87c59f72dc714a6df109c1d48c45631176435debd4e29d6c",
+    "scripts/tests/test_proveedor_operador.py": "26d4f0c7ed00e3eb7b28df9423693e8ecadb5fa7c10cdaae9be7bf62e38e8b1e",
+    "piloto_kali/prototipo/tests/test_provider_proxy.py": "1ad8a6cbaa299333f693ca6ba2e444414d4868064e8fec340d96e9a1c71e0b23"
+  },
+  "limits": {
+    "tokens_max": 60000,
+    "output_tokens_max": 2048,
+    "requests_max": 128,
+    "request_wall_timeout_seconds_max": 60,
+    "run_seconds_max": 2700,
+    "cost_guard_usd": 2
+  },
+  "integration_status": "awaiting protected-stage runtime acceptance; not yet deployed",
+  "roles": {
+    "provider_uid_gid": 65530,
+    "controller_uid_gid": 65531,
+    "nmap_uid_gid": 65532,
+    "hydra_uid_gid": 65533
+  },
+  "secret_path_contract": "<base>/private/openai.json root0600, delivered to provider only by anonymous pipe",
+  "cli_contract": "--base <stage> --bank <closed-bank> --architecture single|multiagent --action audit-live --job <base>/private/job-<16..64 lower-hex>.json",
+  "mandatory_preconditions": [
+    "operator_selftest",
+    "controller_selftest",
+    "protected_runtime identity/source pin",
+    "existing kernel and origin guards"
+  ],
+  "official_sources": [
+    "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+    "https://developers.openai.com/api/reference/resources/responses/subresources/input_tokens/methods/count"
+  ],
+  "supersedes": {
+    "file": "proveedor-protegido-pruebas-final.json",
+    "sha256": "585440573ba2a8fb37f254701f81617a0c9ec13e2b48ba79091e11e6ce097d63"
+  },
+  "parser": {
+    "maximum_depth_before_decode": 64,
+    "nonfinite_constants": "rejected",
+    "duplicate_keys": "rejected"
+  }
+}

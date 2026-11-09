@@ -1,0 +1,81 @@
+{
+  "schema": "centinela-stage03-public-validation/1",
+  "version": "0.6.0",
+  "source_commit": "a6b2188330772368bb78ba57d1aea3f7f73793f7",
+  "runtime_source_map_sha256": "cf2f6d979f0831cca5c4b6c3ee3b9c2b9f94175bdb4f49b65d17fe07df7cd97c",
+  "runtime_files": 341,
+  "stage": "@STAGE@",
+  "bootstrap": {
+    "prepared_banks": [
+      "integrado",
+      "sucursal",
+      "comercial",
+      "mixto",
+      "reforzado"
+    ],
+    "containers": 56,
+    "host_network_configuration_unchanged": true,
+    "no_external_default_route": true
+  },
+  "protected_preflights": {
+    "banks": [
+      "integrado",
+      "sucursal",
+      "comercial",
+      "mixto",
+      "reforzado"
+    ],
+    "all_passed": true,
+    "catalogue_tasks": 0,
+    "api_calls": 0
+  },
+  "current_canonical_acceptance": {
+    "banks": [
+      "integrado"
+    ],
+    "architecture": "single",
+    "tasks": 32,
+    "task_status_counts": {
+      "completed_no_findings": 6,
+      "completed": 26
+    },
+    "controller_exit_code": 0,
+    "duration_seconds": 276.416,
+    "api_calls": 0,
+    "assessment": {
+      "ground_truth_sha256": "b11401be50971d14c81a4ea69a86e648cb0a6d48c96e4c719b8c8c37fd2b2a63",
+      "bank": "docker-empresa-1.0",
+      "TP": 13,
+      "FP": 0,
+      "FN": 0,
+      "TN": 11,
+      "unknown_negative_controls": 0,
+      "negative_conditions_total": 11,
+      "intentional_budget_omissions": 0,
+      "unscored_findings": 0,
+      "evidence_valid": true,
+      "tasks_checked": 32,
+      "tasks_valid": 32,
+      "acceptance_passed": true,
+      "note": "Evaluación del banco reservado; no se envía al modelo. FN incluye positivos no detectados, incluso si su tarea no fue seleccionada. TN sólo incluye negativos comprobados; los no examinados se registran aparte. Los candidatos CVE no cuentan como TP."
+    }
+  },
+  "roles": {
+    "controller_uid": 65531,
+    "nmap_uid": 65532,
+    "hydra_uid": 65533,
+    "broker_uid": 0,
+    "broker_primary_gid": 65531,
+    "all_audit_role_capability_sets_zero": true,
+    "all_audit_role_supplementary_groups_empty": true,
+    "all_audit_roles_no_new_privs": 1
+  },
+  "installer_contract_tests": 51,
+  "limits": [
+    "Only the integrated single32 catalog was accepted here; the other four0.6catalogs were not rerun.",
+    "The earlier154-task five-bank acceptance remains a separate version.",
+    "Multiagent,shadowweb and APItrial are separate later receipts,not included here.",
+    "The later two-line frontend asset is a separate web component; stage map341 remains immutable.",
+    "No paid provider calls or changes to deployed panel/Nginx in this installation/acceptance phase."
+  ]
+}

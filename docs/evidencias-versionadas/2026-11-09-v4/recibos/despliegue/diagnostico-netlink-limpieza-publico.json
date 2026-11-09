@@ -1,0 +1,31 @@
+{
+  "schema": "centinela-approved-public-projection/1",
+  "origin_relative_locator": "publicacion-v4-20261109/despliegue/diagnostico-netlink-limpieza.json",
+  "origin_bytes": 456,
+  "origin_sha256": "a5fa0d86ccbb1ff99a06cc9f96daaabc80cbb2eec1ae874f27e2e63e1d04a9a6",
+  "phase": "temporary-sandbox-cleanup",
+  "omitted_fields": [],
+  "results": {
+    "schema": "centinela-diagnostic-cleanup/1",
+    "services": {
+      "centinela-web-diagnostico.service": [
+        "inactive",
+        "dead",
+        "0"
+      ],
+      "centinela-operador.service": [
+        "inactive",
+        "dead",
+        "0"
+      ],
+      "novaflow-panel.service": [
+        "active",
+        "running",
+        "1403748"
+      ]
+    },
+    "original_main_pid_expected": 1403748,
+    "original_service_restart_requested": false,
+    "temporary_unit_removed": true
+  }
+}

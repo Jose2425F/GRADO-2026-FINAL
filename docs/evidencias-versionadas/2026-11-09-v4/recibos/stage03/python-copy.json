@@ -1,0 +1,13 @@
+{
+  "python": "@STAGE@/private/staging/python",
+  "venv": "@STAGE@/private/staging/venv",
+  "removed_editable_or_pth": [
+    "lib/python3.13/site-packages/__editable__.auditoria_dualstack-0.6.0.pth",
+    "lib/python3.13/site-packages/a1_coverage.pth",
+    "lib/python3.13/site-packages/auditoria_dualstack-0.6.0.dist-info/direct_url.json"
+  ],
+  "interpreter_source": "/usr/bin/python3.13",
+  "interpreter_sha256": "aa7caff7dcabb09abdb8610f820186e71064351711eeb4882328705c33878f8f",
+  "validated_venv_files": 3565,
+  "venv_manifest_matched": true
+}

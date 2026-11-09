@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="6" time="0.227" timestamp="2026-11-09T09:27:18.085898+00:00" hostname="kali"><testcase classname="scripts.tests.test_panel_ejecutor" name="test_invalid_remote_metadata_becomes_terminal_failure[submitted0-None]" time="0.005" /><testcase classname="scripts.tests.test_panel_ejecutor" name="test_invalid_remote_metadata_becomes_terminal_failure[submitted1-None]" time="0.003" /><testcase classname="scripts.tests.test_panel_ejecutor" name="test_invalid_remote_metadata_becomes_terminal_failure[None-polled2]" time="0.004" /><testcase classname="scripts.tests.test_panel_ejecutor" name="test_invalid_remote_metadata_becomes_terminal_failure[None-polled3]" time="0.004" /><testcase classname="scripts.tests.test_panel_ejecutor" name="test_invalid_remote_metadata_becomes_terminal_failure[None-polled4]" time="0.003" /><testcase classname="scripts.tests.test_panel_ejecutor" name="test_invalid_remote_metadata_becomes_terminal_failure[None-polled5]" time="0.003"><failure message="TypeError: expected string or bytes-like object, got 'list'">scripts/tests/test_panel_ejecutor.py:90: in test_invalid_remote_metadata_becomes_terminal_failure
+    operations._run(value)
+scripts/dualstack_panel.py:411: in _run
+    return run_job(self, job, output)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts/panel_ejecutor.py:84: in run_job
+    client.download(identifier, owner, token, output / bank if action == 'acceptance_all' else output)
+scripts/operador_web.py:131: in download
+    if type(size) is not int or not 0 &lt; size &lt;= 128 * 1024 * 1024 or not re.fullmatch(r'[0-9a-f]{64}', expected or ''):
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.13/re/__init__.py:172: in fullmatch
+    return _compile(pattern, flags).fullmatch(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   TypeError: expected string or bytes-like object, got 'list'</failure></testcase></testsuite></testsuites>

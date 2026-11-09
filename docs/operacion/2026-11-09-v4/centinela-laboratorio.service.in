@@ -1,0 +1,25 @@
+# Plantilla de revisión. No instalar/iniciar sobre el supervisor Popen activo.
+# Sustituir @BASE@ y @NAMESPACE@ por la misma base c113 ya provisionada.
+# Sólo sirve en el arranque actual; no reconstruye namespaces después de reboot.
+[Unit]
+Description=Laboratorios privados de Centinela (base previamente provisionada)
+ConditionPathExists=@BASE@/private/daemon-config.json
+ConditionPathExists=/run/netns/@NAMESPACE@
+
+[Service]
+Type=simple
+User=root
+Group=root
+UMask=0077
+PrivateTmp=no
+Environment=PATH=/usr/sbin:/usr/bin:/sbin:/bin
+Environment=LANG=C.UTF-8
+ExecStartPre=/usr/bin/python3 -I -B -c "import json,pathlib,sys; b=pathlib.Path(sys.argv[1]); d=json.loads((b/'private/bootstrap.json').read_text()); assert d['status']=='prepared'; assert d['namespace']==b.name; assert d['root']==str(b); assert pathlib.Path('/run/netns',d['namespace']).stat().st_ino==d['network_namespace_inode']" @BASE@
+ExecStart=/usr/sbin/ip netns exec @NAMESPACE@ /usr/bin/unshare --mount --propagation private /usr/bin/python3 -I -B @BASE@/repo/scripts/instalar_ejecutor_protegido.py --stage @BASE@ --internal-supervisor
+Restart=no
+TimeoutStartSec=90
+TimeoutStopSec=90
+KillMode=control-group
+
+[Install]
+WantedBy=multi-user.target

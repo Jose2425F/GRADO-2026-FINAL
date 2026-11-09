@@ -1,0 +1,677 @@
+{
+  "schema": "centinela-publication-integrity/1",
+  "files": [
+    {
+      "path": "LEEME.txt",
+      "bytes": 4483,
+      "sha256": "7a83c5ce9f247aa2557220a6f385f990d3a91aa88be710f188ca6ff2c64d29d0"
+    },
+    {
+      "path": "conservacion-anteriores.json",
+      "bytes": 4277,
+      "sha256": "4248f5ece552d2e639b5872d0bb2a817a48df891977f30d0f7013da4f7bd9859"
+    },
+    {
+      "path": "estado-publicacion.json",
+      "bytes": 12806,
+      "sha256": "8874a801f90030ba8ead899472dd78e08068d53289e5431b117eec97fc6826ef"
+    },
+    {
+      "path": "fuentes-aprobadas.json",
+      "bytes": 65386,
+      "sha256": "58e4256d7eefff2efb4987a338d954592f1b60cd71c47842fe396633d91610df"
+    },
+    {
+      "path": "fuentes-por-fase.json",
+      "bytes": 3625,
+      "sha256": "cea6fa55f5553e3c605a907a983ec5e060dc9b65b8b3bcbdaf04bfcfc78d28a2"
+    },
+    {
+      "path": "indice-controles.json",
+      "bytes": 17420,
+      "sha256": "12a86b7b689b8934dc76c783e1935a515363ac60f5ae59dff505603c845783ce"
+    },
+    {
+      "path": "indice-kpi-historicos.json",
+      "bytes": 474573,
+      "sha256": "29ca66cbd9e3e55e1f6c5cf6b271304ac7b26172b013ff1b5a73f7438caa01d7"
+    },
+    {
+      "path": "indice-kpi-historicos.txt",
+      "bytes": 29831,
+      "sha256": "cc132d1e1ff8017f6412fbe152b075daa15259b7969bd66ec049a01616465697"
+    },
+    {
+      "path": "privacidad-publicacion.json",
+      "bytes": 885,
+      "sha256": "947853e508ac54310b3b252736bf8ba82da477f1d53b7d42ad6c7eafa6db59d3"
+    },
+    {
+      "path": "recibos/clon-limpio-02/browser/summary.json",
+      "bytes": 717,
+      "sha256": "c5e26f5766dee1ac8af59f352b8431bedb17c89f01962ac19fac37b3cb1f67e3"
+    },
+    {
+      "path": "recibos/clon-limpio-02/browser.log",
+      "bytes": 628,
+      "sha256": "e659417f8f1d4e2c50e11a089f0498afe5df847fd209a0ffb43fe69434ab9ffa"
+    },
+    {
+      "path": "recibos/clon-limpio-02/clone.log",
+      "bytes": 44,
+      "sha256": "5ed7d494b8ded1abfa5328c6c9b3fa8bc9c7b7e2623c451a9aa452586e25e684"
+    },
+    {
+      "path": "recibos/clon-limpio-02/commands.json",
+      "bytes": 7122,
+      "sha256": "94f3c27ade9be8a9239f3c23e20a4a28f2e578c2333d83aedacfcd7101b7a92f"
+    },
+    {
+      "path": "recibos/clon-limpio-02/dom.log",
+      "bytes": 513,
+      "sha256": "0fc6e9206f7241f03247ea9f65276849e2e0d6b319864816f9151f1e2bde7a7f"
+    },
+    {
+      "path": "recibos/clon-limpio-02/legacy-frozen.log",
+      "bytes": 1833,
+      "sha256": "2d6cc31c762fb4b39382fa3bf53ab700a985c37ad7a2f4aa45cec33451621203"
+    },
+    {
+      "path": "recibos/clon-limpio-02/legacy-junit.xml",
+      "bytes": 838,
+      "sha256": "62e40d0bd678b5d3a9cd85ab79f5d69b21ad8cf0231ac64bec42df2d074a8144"
+    },
+    {
+      "path": "recibos/clon-limpio-02/legacy-lock.log",
+      "bytes": 51,
+      "sha256": "15a2a77efa332fc0115d66cfd8e9f0dcbca9b720a4673dc055a5806501b45752"
+    },
+    {
+      "path": "recibos/clon-limpio-02/legacy-tests.log",
+      "bytes": 748,
+      "sha256": "38252e9944d3de14cd1f9b3cd440d8abaad080faa7f8eb342317f57828728235"
+    },
+    {
+      "path": "recibos/clon-limpio-02/nmap-authorizations.jsonl",
+      "bytes": 1422,
+      "sha256": "db96cacbadad9381c9927e5d7a315617113e73c7698de890c77a4f51d8425028"
+    },
+    {
+      "path": "recibos/clon-limpio-02/npm-ci.log",
+      "bytes": 147,
+      "sha256": "029268616efd129e5da5c1ddc08edfe8c036cb3fe316fdb3601d5cdeb5f39eab"
+    },
+    {
+      "path": "recibos/clon-limpio-02/npm-version.log",
+      "bytes": 8,
+      "sha256": "a38e383f1e9080b0dd9001481f6e56b341000de90a05061b66734350ad3adc41"
+    },
+    {
+      "path": "recibos/clon-limpio-02/playwright-install.log",
+      "bytes": 321,
+      "sha256": "ec8abbba1f012c038a67e54b54adff9815a24664410cf89fe990507d853b9339"
+    },
+    {
+      "path": "recibos/clon-limpio-02/prototype-frozen.log",
+      "bytes": 1709,
+      "sha256": "938d1338a6a209989c5977303f85546dd1517b454935ef2e63bf31b0f7e2b212"
+    },
+    {
+      "path": "recibos/clon-limpio-02/prototype-junit.xml",
+      "bytes": 164849,
+      "sha256": "99acb96abfa2effd8a5ab6314d1f2d310252a3ead9fd2a688b62365eefd9ebe3"
+    },
+    {
+      "path": "recibos/clon-limpio-02/prototype-lock.log",
+      "bytes": 50,
+      "sha256": "c7be95e1b8d32c08edfb9cb259f20eb7276beb8eecfd67f78bfb25936060039e"
+    },
+    {
+      "path": "recibos/clon-limpio-02/prototype-tests.log",
+      "bytes": 2024,
+      "sha256": "d4922ea17cddee2ad14c5cf6a5f4af39fa6724cefd735869ce184c7cf27c2141"
+    },
+    {
+      "path": "recibos/clon-limpio-02/python-install.log",
+      "bytes": 377,
+      "sha256": "de75a0ec5c2b671d6d1301afa574df7de0a99677daaad35682d21b2a8538e354"
+    },
+    {
+      "path": "recibos/clon-limpio-02/source-commit.log",
+      "bytes": 41,
+      "sha256": "bae8893c1820d3a240cc86e6f96751b027f0807c020f585f0e357e4d570ed13d"
+    },
+    {
+      "path": "recibos/clon-limpio-02/summary.json",
+      "bytes": 227,
+      "sha256": "7834197bed844955e97799a41efb321bfa37b5e3fd333daa01707b38ebf431da"
+    },
+    {
+      "path": "recibos/clon-limpio-02/uv-install.log",
+      "bytes": 276,
+      "sha256": "4465114763430a7034f911dd8b370ec2af5fb125f269abb858651e1bc8e7c127"
+    },
+    {
+      "path": "recibos/clon-limpio-02/uv-venv.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "recibos/clon-limpio-02/verify-2026-11-09-11-3-recuperacion.log",
+      "bytes": 258,
+      "sha256": "404a9695742cbbe846eb3fb1dd7eac0aff4bda3635985e7e7504c06304870f46"
+    },
+    {
+      "path": "recibos/clon-limpio-02/verify-2026-11-09-11-3.log",
+      "bytes": 254,
+      "sha256": "56e01eacafbc3a3a54dc24de98e2febd07063474548bebbef486d56622a90c49"
+    },
+    {
+      "path": "recibos/clon-limpio-02/verify-2026-11-09-v3.log",
+      "bytes": 583,
+      "sha256": "e58e9320d6d074ae99ddfc4753aaa0897409b864738a7c0515252cb70e747c60"
+    },
+    {
+      "path": "recibos/clon-limpio-03/browser/summary.json",
+      "bytes": 717,
+      "sha256": "c5e26f5766dee1ac8af59f352b8431bedb17c89f01962ac19fac37b3cb1f67e3"
+    },
+    {
+      "path": "recibos/clon-limpio-03/browser.log",
+      "bytes": 628,
+      "sha256": "e659417f8f1d4e2c50e11a089f0498afe5df847fd209a0ffb43fe69434ab9ffa"
+    },
+    {
+      "path": "recibos/clon-limpio-03/clone.log",
+      "bytes": 44,
+      "sha256": "d8c442f81efb2dbfef8d1b4f9dc56a11571591c2c29a44256feb645147f4aa70"
+    },
+    {
+      "path": "recibos/clon-limpio-03/commands.json",
+      "bytes": 7122,
+      "sha256": "6e8a2b02cd49d61008a1e06936cbb60b98148d6638274ad3fce77d37d0de7175"
+    },
+    {
+      "path": "recibos/clon-limpio-03/dom.log",
+      "bytes": 513,
+      "sha256": "281270d70e4dfa115be8abd34ee944f7ac3801fd7f3660e054cdf5f5af443c5f"
+    },
+    {
+      "path": "recibos/clon-limpio-03/legacy-frozen.log",
+      "bytes": 1530,
+      "sha256": "5b68a281e490fc0f9ae4c02dd39a5de3317793dc16b62cdd2c3b146a57f0123e"
+    },
+    {
+      "path": "recibos/clon-limpio-03/legacy-junit.xml",
+      "bytes": 838,
+      "sha256": "2405ee0d76d811b7a93114f7a05ddf4c9ff8d4dff9767c5ffef6a728a173c567"
+    },
+    {
+      "path": "recibos/clon-limpio-03/legacy-lock.log",
+      "bytes": 51,
+      "sha256": "15a2a77efa332fc0115d66cfd8e9f0dcbca9b720a4673dc055a5806501b45752"
+    },
+    {
+      "path": "recibos/clon-limpio-03/legacy-tests.log",
+      "bytes": 748,
+      "sha256": "eb41d4a24526166d4df32efca75dfbe03bfaf85401d67f54e3bacabe6a0ab0d8"
+    },
+    {
+      "path": "recibos/clon-limpio-03/nmap-authorizations.jsonl",
+      "bytes": 1422,
+      "sha256": "1849e216462376cd346d3c559d241717c18eef7085a4eef62a3c64fe21c8280d"
+    },
+    {
+      "path": "recibos/clon-limpio-03/npm-ci.log",
+      "bytes": 147,
+      "sha256": "029268616efd129e5da5c1ddc08edfe8c036cb3fe316fdb3601d5cdeb5f39eab"
+    },
+    {
+      "path": "recibos/clon-limpio-03/npm-version.log",
+      "bytes": 8,
+      "sha256": "a38e383f1e9080b0dd9001481f6e56b341000de90a05061b66734350ad3adc41"
+    },
+    {
+      "path": "recibos/clon-limpio-03/playwright-install.log",
+      "bytes": 321,
+      "sha256": "ec8abbba1f012c038a67e54b54adff9815a24664410cf89fe990507d853b9339"
+    },
+    {
+      "path": "recibos/clon-limpio-03/prototype-frozen.log",
+      "bytes": 1708,
+      "sha256": "d9039fbdda0204f0eab1b05739fa8d4c0730f0d6a7f5dd51186c0ec69faac0d2"
+    },
+    {
+      "path": "recibos/clon-limpio-03/prototype-junit.xml",
+      "bytes": 165105,
+      "sha256": "0c5d85751c4b0bae08712d0f43c50fbf6e0de28deea2a10156b8d0750c097811"
+    },
+    {
+      "path": "recibos/clon-limpio-03/prototype-lock.log",
+      "bytes": 50,
+      "sha256": "c7be95e1b8d32c08edfb9cb259f20eb7276beb8eecfd67f78bfb25936060039e"
+    },
+    {
+      "path": "recibos/clon-limpio-03/prototype-tests.log",
+      "bytes": 2016,
+      "sha256": "2fe63d257297ce01c9defb4a82c3ed24d9bb82c640c9ed4dd6994b03ea9d1298"
+    },
+    {
+      "path": "recibos/clon-limpio-03/python-install.log",
+      "bytes": 36,
+      "sha256": "b4777c6e5ae20ee2a16ef936c6082bcab1b98420bbab694d53d5221256767777"
+    },
+    {
+      "path": "recibos/clon-limpio-03/source-commit.log",
+      "bytes": 41,
+      "sha256": "144e39e07f03ef1ba71d17316a22f7958f667b32afc955bf14f82dd9b1b1b8b8"
+    },
+    {
+      "path": "recibos/clon-limpio-03/summary.json",
+      "bytes": 227,
+      "sha256": "a1d3c2973da7545c598ac5d4037dc1c1f37b9937e3201ae24986d6c4df858fa7"
+    },
+    {
+      "path": "recibos/clon-limpio-03/uv-install.log",
+      "bytes": 276,
+      "sha256": "4465114763430a7034f911dd8b370ec2af5fb125f269abb858651e1bc8e7c127"
+    },
+    {
+      "path": "recibos/clon-limpio-03/uv-venv.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "recibos/clon-limpio-03/verify-2026-11-09-11-3-recuperacion.log",
+      "bytes": 258,
+      "sha256": "404a9695742cbbe846eb3fb1dd7eac0aff4bda3635985e7e7504c06304870f46"
+    },
+    {
+      "path": "recibos/clon-limpio-03/verify-2026-11-09-11-3.log",
+      "bytes": 254,
+      "sha256": "56e01eacafbc3a3a54dc24de98e2febd07063474548bebbef486d56622a90c49"
+    },
+    {
+      "path": "recibos/clon-limpio-03/verify-2026-11-09-v3.log",
+      "bytes": 583,
+      "sha256": "e58e9320d6d074ae99ddfc4753aaa0897409b864738a7c0515252cb70e747c60"
+    },
+    {
+      "path": "recibos/despliegue/control-https-postdeploy-publico.json",
+      "bytes": 3383,
+      "sha256": "75185b266b62984c2b9b4a3070b0033eb8b8c2a862979826f5ccc6bed38bc58d"
+    },
+    {
+      "path": "recibos/despliegue/deployment-02-publico.json",
+      "bytes": 1465,
+      "sha256": "8e0076cbccc702409f23e169564489478cd93198369533cc5f7bded4cad7c556"
+    },
+    {
+      "path": "recibos/despliegue/deployment-intento01-publico.json",
+      "bytes": 1020,
+      "sha256": "6aa5a71f2cd81d2907598e7ee131ce21f45edfc4634ff51fa9d859499b988729"
+    },
+    {
+      "path": "recibos/despliegue/diagnostico-netlink-limpieza-publico.json",
+      "bytes": 846,
+      "sha256": "66f30ad78a09521438ad9f38483493e9d3b0d2ea07dd8c1eb442619a8d20c608"
+    },
+    {
+      "path": "recibos/despliegue/diagnostico-netlink-permisos-publico.json",
+      "bytes": 1022,
+      "sha256": "7dbe2f0e32d8a6afaed2897593cec38ae4ca2baa2acc59b708432fbff63e569b"
+    },
+    {
+      "path": "recibos/despliegue/diagnostico-systemd-18766-antes-netlink-publico.json",
+      "bytes": 1916,
+      "sha256": "31e039af77249388b7f5a0ede58f181364f3efbaa4c9e1bcb0863b8f4b11583d"
+    },
+    {
+      "path": "recibos/despliegue/diagnostico-systemd-18766-despues-netlink-publico.json",
+      "bytes": 3732,
+      "sha256": "91097cbd85a0b0954159eee976d7c8abb711afe797406a1c53b0b3bac62e0f6c"
+    },
+    {
+      "path": "recibos/despliegue/https-101912-publico.json",
+      "bytes": 2933,
+      "sha256": "a00925caed63db1d48c556e9ec195879b36d830048b90f3c943a08a25ff38e57"
+    },
+    {
+      "path": "recibos/despliegue/unidad-temporal-18766-netlink.service",
+      "bytes": 1405,
+      "sha256": "f51fbee53f1bb8fcdc8734ce1321f93eb50477ed3e8581bc80ede4fb227277b8"
+    },
+    {
+      "path": "recibos/despliegue/unidad-temporal-proveniencia.json",
+      "bytes": 448,
+      "sha256": "10931dbab9466dce3624dbacebb5e932b57d1c0e821ea0723ae20cc5d5e95a26"
+    },
+    {
+      "path": "recibos/despliegue/web-release-730-publico.json",
+      "bytes": 83404,
+      "sha256": "c6a782ed3d77c61dcc6f2b3cc68a94b42857a93b82b74fe624e6223a8c437c93"
+    },
+    {
+      "path": "recibos/infraestructura/verificacion-inicial.json",
+      "bytes": 1423,
+      "sha256": "a2d616043d0ae5ec6d9c3a3c09be8689e0d7c319517406259f3351d6a0f42c77"
+    },
+    {
+      "path": "recibos/instalador/junit.xml",
+      "bytes": 5083,
+      "sha256": "f63beedb96d629a8522a5c68c8e4218a851e5e011e6e52e81d9c49d27911b792"
+    },
+    {
+      "path": "recibos/instalador/pytest.log",
+      "bytes": 99,
+      "sha256": "b7a0df49402aac8c7c18549d91a864a19fcc359f26f0f8e8cdb264b47b518730"
+    },
+    {
+      "path": "recibos/instalador/receipt.json",
+      "bytes": 729,
+      "sha256": "c24826bf5ac3cc67c1eed6cf8a74dec739c6592bbb55891de926eea6839f9858"
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-control-inicial.xml",
+      "bytes": 2269,
+      "sha256": "c3c9660eb42f46aa657da8bdd1cec8a7d40968b173ed3995c7c421910da03674"
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-corte2.xml",
+      "bytes": 3813,
+      "sha256": "64e8a5e7045800e968528d63d7df74ecd0acfc64d63be0c4b7cb3bbbaeac5fc4"
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-corte3.xml",
+      "bytes": 5675,
+      "sha256": "5914463bb979532f6d0585471155cc6ad0e7575525ded8641c54c89027642457"
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-deadline-inicial.xml",
+      "bytes": 804,
+      "sha256": "a08945a61bc515ebb7e745c03b72ae3ff6a597b13671cfccc523d3955df0a19b"
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-final.json",
+      "bytes": 4140,
+      "sha256": "72932fa7d851aabbbd9fb8ae71e6b05d9f9b2e7aac6e6c90207c1567d71d4e16"
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-final.xml",
+      "bytes": 8507,
+      "sha256": "54a24e31f8e1e0f4d8d176c4e70333519d3f9e5b51122d7daadfcd3da0228d9f"
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-inicial.xml",
+      "bytes": 38817,
+      "sha256": "6b35e4512c2303522f4e0415e49ee690344e3ea02f6a51952016ff03b1741798"
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-manifiesto-inicial.xml",
+      "bytes": 2115,
+      "sha256": "605129f9287a63746d89be1506f054fa0f883de9b517f7403b941a72b5cad992"
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-poll-inicial.xml",
+      "bytes": 700,
+      "sha256": "9d6d08d0c9ec679b10408acc3a35c182fb58c3b5910c61cac7d531902eb47a87"
+    },
+    {
+      "path": "recibos/operador-panel/revision-operador-web-runs-inicial.xml",
+      "bytes": 1253,
+      "sha256": "dd0abe8db939291bebcad3518995f591890dcc1ba33ee83c92d820fb98470da4"
+    },
+    {
+      "path": "recibos/proveedor/metodo-101.json",
+      "bytes": 1134,
+      "sha256": "29088b0f4dbeaa92afaf54fdaa24f4545ab1effbc9fc6ba76313e20a45168b65"
+    },
+    {
+      "path": "recibos/proveedor/modelo-disponibilidad-previa.json",
+      "bytes": 596,
+      "sha256": "0d3af847941bfe0bb4e9c3142c443fe3c5df22354bac8ec6e9a4c78a50a475bc"
+    },
+    {
+      "path": "recibos/proveedor/proveedor-protegido-pruebas-parser-final.json",
+      "bytes": 2402,
+      "sha256": "1d8cf235040fc2ce92b472d022dbbe6abebc60cea8584f9fdf36e55ebe9c6888"
+    },
+    {
+      "path": "recibos/regresion-inicial/prototype-junit.xml",
+      "bytes": 165917,
+      "sha256": "ec4b5fa1c1689db981af13a90c8b7afad18825446f5e8e023b89d3ead9f14b34"
+    },
+    {
+      "path": "recibos/regresion-inicial/prototype.log",
+      "bytes": 4901,
+      "sha256": "04320573c290c5240e18af5012486c4337120e1bba864fbbe592324da506cb78"
+    },
+    {
+      "path": "recibos/servicio-previo/https-100033-publico.json",
+      "bytes": 2400,
+      "sha256": "dad7230662f82c1b97c79398561e91fc9f6af35bfa6a49a1ff8e21de40ca45b7"
+    },
+    {
+      "path": "recibos/stage03/anteriores82-preservados.json",
+      "bytes": 530,
+      "sha256": "c067bae6aca80083a5b46d6b39ec69dc1694c49d42062907d6ecdb22424879f1"
+    },
+    {
+      "path": "recibos/stage03/bootstrap-preparado.json",
+      "bytes": 2853,
+      "sha256": "174568e5103aa8effb9b074e007333d23a22fb5c38056ba4a7baef56188bc58e"
+    },
+    {
+      "path": "recibos/stage03/fuente-commit-stage.json",
+      "bytes": 302,
+      "sha256": "d7d2edad8223e5a36f60d4efeb5953cd12336a3c1e73b9184aa344871b156cfa"
+    },
+    {
+      "path": "recibos/stage03/integrado-single32/ejecucion-cli.json",
+      "bytes": 600,
+      "sha256": "a87a17e7c7e659f42c0b4e7d8b0d307d64eff9aa4ef5eb6cde191e5e579f05e8"
+    },
+    {
+      "path": "recibos/stage03/integrado-single32/evaluacion-operador.json",
+      "bytes": 1100,
+      "sha256": "888a58078d35fd882d582c59631ad92216b7359bb3715c8ff93c7bb12757a1b4"
+    },
+    {
+      "path": "recibos/stage03/integrado-single32/operador.json",
+      "bytes": 2111,
+      "sha256": "47f5731aaf8bd763af8dfc47f8a4819800d4489dc3bb8046fdd00546721ee58d"
+    },
+    {
+      "path": "recibos/stage03/intentos/diagnostico-intento02.json",
+      "bytes": 637,
+      "sha256": "1f540a93aa5c0e76ff6dfd4f5feb323649607e4c4605f080cd642580591d5628"
+    },
+    {
+      "path": "recibos/stage03/intentos/instalacion-01.json",
+      "bytes": 1510,
+      "sha256": "e8259b0644c9a3778be78f826c6898a3980a964eb1eba99bb95516d24c5405a6"
+    },
+    {
+      "path": "recibos/stage03/intentos/instalacion-01.log",
+      "bytes": 248,
+      "sha256": "8e651b20d6d57db99f1cff9e6cacf4d6c4450c5e18a0c4d5f6b214bf01b89b78"
+    },
+    {
+      "path": "recibos/stage03/intentos/instalacion-02.json",
+      "bytes": 1508,
+      "sha256": "8864eaa74a2a400a3fba23c84d69a7e3a5f97c42041f67902a973c3c4e7f073b"
+    },
+    {
+      "path": "recibos/stage03/intentos/instalacion-02.log",
+      "bytes": 245,
+      "sha256": "ef98f997107cd73da3e3928bba2e3f67c33b2edc5fc9b8725a81faa83e1f5b75"
+    },
+    {
+      "path": "recibos/stage03/intentos/instalacion-03.json",
+      "bytes": 1470,
+      "sha256": "4eb339cb74d6d6183cd3a5df9ed0e55eeff49a2e787933682e3728c456357b0a"
+    },
+    {
+      "path": "recibos/stage03/intentos/instalacion-03.log",
+      "bytes": 295,
+      "sha256": "5af03ed42a729ff5bdcca5f0bcc4dff538f7ee4566cb518ae76642ecab89151a"
+    },
+    {
+      "path": "recibos/stage03/intentos/limpieza-intento02.json",
+      "bytes": 247,
+      "sha256": "728f04953b72444947374e43114376194513db3c719d715ed06190cfb565eb09"
+    },
+    {
+      "path": "recibos/stage03/manifest.json",
+      "bytes": 9234,
+      "sha256": "c73bff74f8e2f9d54c5890ce221ba664bb88feca463569ec71aa37c78bb46c9f"
+    },
+    {
+      "path": "recibos/stage03/preflight/comercial.json",
+      "bytes": 807,
+      "sha256": "d5b49a82d2dae103fae085a9aa10a6b308ec2f91e2da05e9d9244139319ceb00"
+    },
+    {
+      "path": "recibos/stage03/preflight/integrado.json",
+      "bytes": 807,
+      "sha256": "74cb0269fe1cf2693cbf8cedbd4525cf17f5b4c9a222debe8d0b2888a8e05738"
+    },
+    {
+      "path": "recibos/stage03/preflight/mixto.json",
+      "bytes": 799,
+      "sha256": "ac3d5e81d3732300cb56ceb37506643589f8d9a5bbb8f78b93a7bb9a80b022dc"
+    },
+    {
+      "path": "recibos/stage03/preflight/reforzado.json",
+      "bytes": 807,
+      "sha256": "2c6a654813aa507c2d3b96d20bbbe18ca32fa2fcb81fdc2c4dd87547ca228e8d"
+    },
+    {
+      "path": "recibos/stage03/preflight/sucursal.json",
+      "bytes": 805,
+      "sha256": "290bbdc36c5c81b8ada157cd5781f42b6b98ce3afbf72d30e412b85b0477c560"
+    },
+    {
+      "path": "recibos/stage03/preflight-cinco-resumen.json",
+      "bytes": 4479,
+      "sha256": "ebab42df992a4bbbb02a06b518655a06ba3922deed60bcd9448c69fc3f32a922"
+    },
+    {
+      "path": "recibos/stage03/pruebas-instalador/junit.xml",
+      "bytes": 5993,
+      "sha256": "a7a1916ec0cec4cc18c68fd4568cb32f6b490934c9b5e4f77a7083677ad7bd79"
+    },
+    {
+      "path": "recibos/stage03/pruebas-instalador/pytest.log",
+      "bytes": 99,
+      "sha256": "d9e3046d258eee5043ed6250af1979921d3f6c30a09de4b60d0052ec8efefe86"
+    },
+    {
+      "path": "recibos/stage03/pruebas-instalador/recibo.json",
+      "bytes": 788,
+      "sha256": "9f972fa4819ff5466840c66448a3b3eb0d8216e87429974721cd403d6f787c74"
+    },
+    {
+      "path": "recibos/stage03/python-copy.json",
+      "bytes": 549,
+      "sha256": "43a48cf35e7b8b9c361f4d9447dc55b0a6326a933a5e01c7da67cb4dd350dc67"
+    },
+    {
+      "path": "recibos/stage03/python-runtime.json",
+      "bytes": 338,
+      "sha256": "d56d3ce9ddfebd9559efe3446fff47506e55e5467b7e3dba008b94f7079e28ed"
+    },
+    {
+      "path": "recibos/stage03/resumen-instalacion-actual.json",
+      "bytes": 2623,
+      "sha256": "7d1e535acba689565a8a6bb9ec0d93e6bff911aaea1df9a619c72f24e5e4f62f"
+    },
+    {
+      "path": "recibos/stage03/runtime-source-map.json",
+      "bytes": 39466,
+      "sha256": "cf2f6d979f0831cca5c4b6c3ee3b9c2b9f94175bdb4f49b65d17fe07df7cd97c"
+    },
+    {
+      "path": "recibos/stage03/tar-imagenes-verificado.json",
+      "bytes": 757,
+      "sha256": "6fdcbab97a878442c5a1e7855aaca9076dd6f691fcac63ea426d9636ed1efc3a"
+    },
+    {
+      "path": "recibos/web361/browser-summary.json",
+      "bytes": 717,
+      "sha256": "c5e26f5766dee1ac8af59f352b8431bedb17c89f01962ac19fac37b3cb1f67e3"
+    },
+    {
+      "path": "recibos/web361/cotejo-con-ejecutor.json",
+      "bytes": 819,
+      "sha256": "1bec3e3d9099fabadafb6f0b7d8329d7698e9797ffc936273bdb46d8e582bf3e"
+    },
+    {
+      "path": "recibos/web361/dom.log",
+      "bytes": 513,
+      "sha256": "418dce32826cca804c3b64cdb4b77c4d36f6183c516fd1f6e9881960a8161c04"
+    },
+    {
+      "path": "recibos/web361/manifest-release-publico.json",
+      "bytes": 82047,
+      "sha256": "0b8a024e4ad91d47b62afcf04c0e1bd3fef7738f1e9342c80de89652f4417452"
+    },
+    {
+      "path": "recibos/web361/proveniencia-comprobaciones.json",
+      "bytes": 918,
+      "sha256": "f3eb6e1f00faa5a3143f9d0712b9e513410951b05bba157d52434a93507ec719"
+    },
+    {
+      "path": "recibos/web730/cotejo-con-ejecutor.json",
+      "bytes": 1182,
+      "sha256": "448764ed0c98edca3fa0dc71d627ff1e7865a5ec2a7d6ffc53726a97c5b93395"
+    },
+    {
+      "path": "recibos/web730/nombres-publicacion-junit.xml",
+      "bytes": 8938,
+      "sha256": "6a66d609746e634a32d1bf0e9e248b5e65c4e77a20dccfb5720037810a8c2839"
+    },
+    {
+      "path": "recibos/webshadow/probar_cola_webshadow-intento01.py",
+      "bytes": 21478,
+      "sha256": "3270479c8c22d629f3ae24d633716816208cb0fbfd896798936db0409c453316"
+    },
+    {
+      "path": "recibos/webshadow/probar_cola_webshadow.py",
+      "bytes": 21689,
+      "sha256": "43a7151f645c11ea66a5b31b61b89fa6058cf165c25afc364c073e33d019ff43"
+    },
+    {
+      "path": "recibos/webshadow/revisar_metadatos_webshadow.py",
+      "bytes": 8800,
+      "sha256": "9e9e8653a23d37432431326bd621c7a1efe754990c119a313d4458721c2f84d8"
+    },
+    {
+      "path": "recibos/webshadow/webshadow-01-publico.json",
+      "bytes": 3622,
+      "sha256": "81f8f90369318feebbbd75c3282055a1af8868659aee85d3063674aab1c31c44"
+    },
+    {
+      "path": "recibos/webshadow/webshadow-02-publico.json",
+      "bytes": 5244,
+      "sha256": "20a504303a1361eeff746714def2f71d0b555387e78606ebd81a103a8c59cd16"
+    },
+    {
+      "path": "recibos/webshadow/webshadow-herramientas-proveniencia.json",
+      "bytes": 1291,
+      "sha256": "11a4f37aae84d7bccbc480c9bcf7ecf40921ed04038aef2b5d89dfac1e903ef3"
+    },
+    {
+      "path": "recibos/webshadow/webshadow-metadatos03-publico.json",
+      "bytes": 1507,
+      "sha256": "4a29f0970ee11b6bc730f0f593a00d5067faa060cdb7c6ca73c4fe7c6e0212a4"
+    },
+    {
+      "path": "verificar.py",
+      "bytes": 15551,
+      "sha256": "54861f3c33b91a21a0dff8faf7e75f90d0557a69447808aaf31582e8e13a69b9"
+    }
+  ],
+  "publication_complete": true,
+  "scope": "V4 only; no earlier evidence is rewritten."
+}

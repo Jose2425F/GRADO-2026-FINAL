@@ -1,0 +1,9 @@
+{
+  "schema": "centinela-unit-public-copy/1",
+  "phase": "temporary-sandbox-only",
+  "origin_relative_locator": "publicacion-v4-20261109/despliegue/unidad-temporal-18766-netlink.service",
+  "origin_sha256": "3aca6f74a35ab4faa57e586adf0859d4b2c7710ae59ccb20ccdec7945d56808d",
+  "public_sha256": "f51fbee53f1bb8fcdc8734ce1321f93eb50477ed3e8581bc80ede4fb227277b8",
+  "private_stage_locator_redacted": true,
+  "accepted_production_deployment": false
+}

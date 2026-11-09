@@ -1,0 +1,62 @@
+{
+  "schema": "centinela-approved-public-projection/1",
+  "origin_relative_locator": "publicacion-v4-20261109/despliegue/diagnostico-systemd-18766-antes-netlink.json",
+  "origin_bytes": 1453,
+  "origin_sha256": "a7cc3abf0289f0afba3b14c0d6cceac38afb8e2e0190a0d4ae0c8db171ecd6ab",
+  "phase": "temporary-sandbox-failed",
+  "omitted_fields": [],
+  "results": {
+    "schema": "centinela-systemd-sandbox-diagnostic/1",
+    "port": 18766,
+    "production_port_untouched": true,
+    "audit_requests_sent": 0,
+    "generation_calls": 0,
+    "checks": [
+      {
+        "check": "real_admin_login",
+        "passed": true
+      }
+    ],
+    "assets": [
+      {
+        "url": "/app.js?v=821a9c2f50da8d78",
+        "status": 200,
+        "bytes": 100690,
+        "sha256": "821a9c2f50da8d78597b40dc8bcbf0e6ea107be81b0bee1ea37ab86148f36d0e"
+      },
+      {
+        "url": "/login.css?v=f79657069e1b1025",
+        "status": 200,
+        "bytes": 21888,
+        "sha256": "f79657069e1b1025c38701d1d7353791aff43f27f4507b7b6eb2f7b71182f43c"
+      },
+      {
+        "url": "/login.js?v=76e1c488c39f0983",
+        "status": 200,
+        "bytes": 4178,
+        "sha256": "76e1c488c39f09837f3f96398b5b96ae77f14726a30f358905a7172748686065"
+      },
+      {
+        "url": "/portal.js?v=4e42d41493b18db4",
+        "status": 200,
+        "bytes": 1339,
+        "sha256": "4e42d41493b18db46b9702eb7c9a61b5e07ddf09499648218a7e0960e2140cf2"
+      },
+      {
+        "url": "/styles.css?v=8f854c6f3931a2b3",
+        "status": 200,
+        "bytes": 76259,
+        "sha256": "8f854c6f3931a2b3c8994621dc919a2a9c7a9907b53262e1b1a6dc2001b22d77"
+      },
+      {
+        "url": "/workspace.js?v=4734f410a559dc48",
+        "status": 200,
+        "bytes": 33244,
+        "sha256": "4734f410a559dc485d42db649dcbc1ea280fce53ee2981e587f503c6359250dc"
+      }
+    ],
+    "status": "failed",
+    "failure_type": "AssertionError",
+    "failure": ""
+  }
+}

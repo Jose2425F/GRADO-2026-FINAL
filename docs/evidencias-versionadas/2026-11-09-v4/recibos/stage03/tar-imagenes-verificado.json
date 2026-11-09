@@ -1,0 +1,14 @@
+{
+  "sha256": "e22ad4e78616d5362a6405b634b586abbec54e45d275df45f4fb9c2ec37a5bc0",
+  "bytes": 612698624,
+  "images": {
+    "novaflow-lab-credentials:local": "sha256:3b0ed68d7c28224f8acc853d84ca557b649b095edbc96202ecc1c678d3a07a03",
+    "novaflow-lab-protocol:local": "sha256:06443899161ccf9cd99020fc376a6d98dc401950160f0689c1135ce5667d1d41",
+    "novaflow-lab-http:local": "sha256:5f0dc9b2df710de2245328d72bffbdd211b575c46cda6416aee35394f6a9f7b5",
+    "auditoria-lab-v2-app:local": "sha256:8234ebac43d98699371aa09c394db3b61866966be27d9074ac6341d4ffe53c21",
+    "postgres:16-alpine": "sha256:4278d7b1e3deb3193ddc803158f6532963f059fc25a2eefaee4b5a9e71741873"
+  },
+  "metadata_read_only": true,
+  "loaded": false,
+  "config_ids_match_accepted_registry": true
+}

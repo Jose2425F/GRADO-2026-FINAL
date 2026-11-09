@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "@WORK@/documento-v3-20261109/codigo-cotejo/piloto_kali/prototipo/.venv/bin/python",
+    "-m",
+    "pytest",
+    "-c",
+    "piloto_kali/prototipo/pyproject.toml",
+    "-q",
+    "scripts/tests/test_instalar_ejecutor_protegido.py",
+    "-o",
+    "cache_dir=@WORK@/publicacion-v3-20261109/instalador-pruebas-07/cache",
+    "--junitxml=@WORK@/publicacion-v3-20261109/instalador-pruebas-07/junit.xml"
+  ],
+  "exit_code": 0,
+  "seconds": 1.067,
+  "guard": "@WORK@/publicacion-v3-20261109/validacion/browser-guard",
+  "source_sha256": "90f57e4af46f1f417001e40310913db99ffc9cdd5aed1f2a02ec8a3f4f7c77c9",
+  "tests_sha256": "d42c904eedbd1164ee8bda708c31009790b2b85a009ecfb63fb0b18ba8ffb0ae",
+  "scope": "Installer contracts only; no Docker/network namespaces/service mutation."
+}

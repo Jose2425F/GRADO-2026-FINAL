@@ -1,0 +1,227 @@
+{
+  "schema": "centinela-public-projection-manifest/1",
+  "created_at_utc": "2026-11-09T10:08:08.920174+00:00",
+  "files": [
+    {
+      "path": "bootstrap-preparado.json",
+      "original_sha256": "118686779ae8c58965c49afbd67c1fc9e940bb67185c0441eff130efac61c206",
+      "public_sha256": "174568e5103aa8effb9b074e007333d23a22fb5c38056ba4a7baef56188bc58e",
+      "projection": true
+    },
+    {
+      "path": "fuente-commit-stage.json",
+      "original_sha256": "d7d2edad8223e5a36f60d4efeb5953cd12336a3c1e73b9184aa344871b156cfa",
+      "public_sha256": "d7d2edad8223e5a36f60d4efeb5953cd12336a3c1e73b9184aa344871b156cfa",
+      "projection": true
+    },
+    {
+      "path": "intentos/diagnostico-intento02.json",
+      "original_sha256": null,
+      "public_sha256": "1f540a93aa5c0e76ff6dfd4f5feb323649607e4c4605f080cd642580591d5628",
+      "projection": true
+    },
+    {
+      "path": "intentos/instalacion-01.json",
+      "original_sha256": "e4fa2c56b9ba33c053cf067464235feda76891ebd1e9f9b367c85668ea446f94",
+      "public_sha256": "e8259b0644c9a3778be78f826c6898a3980a964eb1eba99bb95516d24c5405a6",
+      "projection": true
+    },
+    {
+      "path": "intentos/instalacion-01.log",
+      "original_sha256": "8e651b20d6d57db99f1cff9e6cacf4d6c4450c5e18a0c4d5f6b214bf01b89b78",
+      "public_sha256": "8e651b20d6d57db99f1cff9e6cacf4d6c4450c5e18a0c4d5f6b214bf01b89b78",
+      "projection": false
+    },
+    {
+      "path": "intentos/instalacion-02.json",
+      "original_sha256": "22a9b2561a67a7938a794739700ddca4dfbb78fabf8e5acbd9ddc98eb17841f5",
+      "public_sha256": "8864eaa74a2a400a3fba23c84d69a7e3a5f97c42041f67902a973c3c4e7f073b",
+      "projection": true
+    },
+    {
+      "path": "intentos/instalacion-02.log",
+      "original_sha256": "ef98f997107cd73da3e3928bba2e3f67c33b2edc5fc9b8725a81faa83e1f5b75",
+      "public_sha256": "ef98f997107cd73da3e3928bba2e3f67c33b2edc5fc9b8725a81faa83e1f5b75",
+      "projection": false
+    },
+    {
+      "path": "intentos/instalacion-03.json",
+      "original_sha256": "ac3ba7ff6e1cdf579405c5a5a042fd0b87ec737d76a0340734b2d07783e820bc",
+      "public_sha256": "4eb339cb74d6d6183cd3a5df9ed0e55eeff49a2e787933682e3728c456357b0a",
+      "projection": true
+    },
+    {
+      "path": "intentos/instalacion-03.log",
+      "original_sha256": "5af03ed42a729ff5bdcca5f0bcc4dff538f7ee4566cb518ae76642ecab89151a",
+      "public_sha256": "5af03ed42a729ff5bdcca5f0bcc4dff538f7ee4566cb518ae76642ecab89151a",
+      "projection": false
+    },
+    {
+      "path": "intentos/limpieza-intento02.json",
+      "original_sha256": "c5afd4fea9a227e9a1d2c714f79af8b992c5148723120d84d16e86243ff3538e",
+      "public_sha256": "728f04953b72444947374e43114376194513db3c719d715ed06190cfb565eb09",
+      "projection": true
+    },
+    {
+      "path": "preflight-cinco-resumen.json",
+      "original_sha256": "a63181e1613ebe5e26c2ab9f61bbb6392c18b4c0d5fa2e98c63b19924d92a1af",
+      "public_sha256": "ebab42df992a4bbbb02a06b518655a06ba3922deed60bcd9448c69fc3f32a922",
+      "projection": true
+    },
+    {
+      "path": "python-copy.json",
+      "original_sha256": "df43601db23e7681106d177e530fd2413132b00267c350d4b8b177dd0035c8bc",
+      "public_sha256": "43a48cf35e7b8b9c361f4d9447dc55b0a6326a933a5e01c7da67cb4dd350dc67",
+      "projection": true
+    },
+    {
+      "path": "python-runtime.json",
+      "original_sha256": "009e729f1822e0e5f1e81bea3b0e673a035c11a87a1b06fb66a1a3d9ac710fa7",
+      "public_sha256": "d56d3ce9ddfebd9559efe3446fff47506e55e5467b7e3dba008b94f7079e28ed",
+      "projection": true
+    },
+    {
+      "path": "runtime-source-map.json",
+      "original_sha256": "cf2f6d979f0831cca5c4b6c3ee3b9c2b9f94175bdb4f49b65d17fe07df7cd97c",
+      "public_sha256": "cf2f6d979f0831cca5c4b6c3ee3b9c2b9f94175bdb4f49b65d17fe07df7cd97c",
+      "projection": false
+    },
+    {
+      "path": "tar-imagenes-verificado.json",
+      "original_sha256": "8dbd0c438dfadbddfc0f4585f3d80d099802448f79f92b5836ce1b50c7b4b59d",
+      "public_sha256": "6fdcbab97a878442c5a1e7855aaca9076dd6f691fcac63ea426d9636ed1efc3a",
+      "projection": true
+    },
+    {
+      "path": "preflight/integrado.json",
+      "original_sha256": "ef3405f05d6f50ac15ed1b6a27f739a053c2efa261b0a922b4763cf66692df62",
+      "public_sha256": "74cb0269fe1cf2693cbf8cedbd4525cf17f5b4c9a222debe8d0b2888a8e05738",
+      "projection": true
+    },
+    {
+      "path": "preflight/sucursal.json",
+      "original_sha256": "563770c38c71a73355e9f4bb7d2922ae82b0a1f7a64c6d070a37ce125f9f252a",
+      "public_sha256": "290bbdc36c5c81b8ada157cd5781f42b6b98ce3afbf72d30e412b85b0477c560",
+      "projection": true
+    },
+    {
+      "path": "preflight/comercial.json",
+      "original_sha256": "d0f87a6983a994f7ba3354e84ba628bff6ac3a5568356450687c793376ac994d",
+      "public_sha256": "d5b49a82d2dae103fae085a9aa10a6b308ec2f91e2da05e9d9244139319ceb00",
+      "projection": true
+    },
+    {
+      "path": "preflight/mixto.json",
+      "original_sha256": "3c081a3962f4d69275d898a218d129926495926cbbf04d999e6a3b2cd0ace9e7",
+      "public_sha256": "ac3d5e81d3732300cb56ceb37506643589f8d9a5bbb8f78b93a7bb9a80b022dc",
+      "projection": true
+    },
+    {
+      "path": "preflight/reforzado.json",
+      "original_sha256": "aad2aefd46a5b6d3be5312004bc80f1a841f9f92013bf841716a0fb657cbddc2",
+      "public_sha256": "2c6a654813aa507c2d3b96d20bbbe18ca32fa2fcb81fdc2c4dd87547ca228e8d",
+      "projection": true
+    },
+    {
+      "path": "integrado-single32/operador.json",
+      "original_sha256": "f8f1faacec381b2ff762687073257ce772697d8be0da6af51e98f25be624520a",
+      "public_sha256": "47f5731aaf8bd763af8dfc47f8a4819800d4489dc3bb8046fdd00546721ee58d",
+      "projection": true
+    },
+    {
+      "path": "integrado-single32/evaluacion-operador.json",
+      "original_sha256": "888a58078d35fd882d582c59631ad92216b7359bb3715c8ff93c7bb12757a1b4",
+      "public_sha256": "888a58078d35fd882d582c59631ad92216b7359bb3715c8ff93c7bb12757a1b4",
+      "projection": true
+    },
+    {
+      "path": "integrado-single32/ejecucion-cli.json",
+      "original_sha256": "d3c7970a79e48d2add6d107926963f6b4c2992c90fbb67556e7db8432dc89f2e",
+      "public_sha256": "a87a17e7c7e659f42c0b4e7d8b0d307d64eff9aa4ef5eb6cde191e5e579f05e8",
+      "projection": true
+    },
+    {
+      "path": "resumen-instalacion-actual.json",
+      "original_sha256": null,
+      "public_sha256": "7d1e535acba689565a8a6bb9ec0d93e6bff911aaea1df9a619c72f24e5e4f62f",
+      "projection": true
+    },
+    {
+      "path": "pruebas-instalador/recibo.json",
+      "original_sha256": "7ae157d4f42b6b9136d15a8350a7049a953b3696b6e2a3da0db8a441dcf88070",
+      "public_sha256": "9f972fa4819ff5466840c66448a3b3eb0d8216e87429974721cd403d6f787c74",
+      "projection": true
+    },
+    {
+      "path": "pruebas-instalador/pytest.log",
+      "original_sha256": "d9e3046d258eee5043ed6250af1979921d3f6c30a09de4b60d0052ec8efefe86",
+      "public_sha256": "d9e3046d258eee5043ed6250af1979921d3f6c30a09de4b60d0052ec8efefe86",
+      "projection": false
+    },
+    {
+      "path": "pruebas-instalador/junit.xml",
+      "original_sha256": "a7a1916ec0cec4cc18c68fd4568cb32f6b490934c9b5e4f77a7083677ad7bd79",
+      "public_sha256": "a7a1916ec0cec4cc18c68fd4568cb32f6b490934c9b5e4f77a7083677ad7bd79",
+      "projection": false
+    },
+    {
+      "path": "anteriores82-preservados.json",
+      "original_sha256": "534995613f25eb1c0fc3739371d19436ca22ad4015dfd87abf7eea8037f1bf26",
+      "public_sha256": "c067bae6aca80083a5b46d6b39ec69dc1694c49d42062907d6ecdb22424879f1",
+      "projection": true
+    }
+  ],
+  "exact_allowlist": [
+    "bootstrap-preparado.json",
+    "fuente-commit-stage.json",
+    "intentos/diagnostico-intento02.json",
+    "intentos/instalacion-01.json",
+    "intentos/instalacion-01.log",
+    "intentos/instalacion-02.json",
+    "intentos/instalacion-02.log",
+    "intentos/instalacion-03.json",
+    "intentos/instalacion-03.log",
+    "intentos/limpieza-intento02.json",
+    "preflight-cinco-resumen.json",
+    "python-copy.json",
+    "python-runtime.json",
+    "runtime-source-map.json",
+    "tar-imagenes-verificado.json",
+    "preflight/integrado.json",
+    "preflight/sucursal.json",
+    "preflight/comercial.json",
+    "preflight/mixto.json",
+    "preflight/reforzado.json",
+    "integrado-single32/operador.json",
+    "integrado-single32/evaluacion-operador.json",
+    "integrado-single32/ejecucion-cli.json",
+    "resumen-instalacion-actual.json",
+    "pruebas-instalador/recibo.json",
+    "pruebas-instalador/pytest.log",
+    "pruebas-instalador/junit.xml",
+    "anteriores82-preservados.json"
+  ],
+  "secret_pattern_scan": {
+    "patterns": 6,
+    "findings": []
+  },
+  "excluded": [
+    "API configuration",
+    "private jobs",
+    "full IPC policies",
+    "lab.env",
+    "ground_truth.json",
+    "SQLite",
+    "full reports,provider request bodies or usage logs",
+    "packet captures"
+  ],
+  "projection_note": "Selected projections are new copies with original/public SHA. Originals and failed attempts remain private.",
+  "measured_roles_in_single32": [
+    "controller",
+    "nmap",
+    "hydra",
+    "broker"
+  ],
+  "provider_role_measured_in_this_single32_cut": false,
+  "scope_note": "Provider proxy and web queue acceptance are separate later receipts; the without-API cut does not start the provider."
+}

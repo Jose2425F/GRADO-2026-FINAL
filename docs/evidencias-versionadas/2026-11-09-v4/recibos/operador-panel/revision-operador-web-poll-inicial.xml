@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.138" timestamp="2026-11-09T09:22:22.355449+00:00" hostname="kali"><testcase classname="scripts.tests.test_panel_ejecutor" name="test_poll_failure_releases_process_and_preserves_other_company_evidence" time="0.006"><failure message="assert 0 == 1&#10; +  where 0 = len([])">scripts/tests/test_panel_ejecutor.py:108: in test_poll_failure_releases_process_and_preserves_other_company_evidence
+    assert len([call for call in client.calls if call[0]=='cancel'])==1
+E   assert 0 == 1
+E    +  where 0 = len([])</failure></testcase></testsuite></testsuites>

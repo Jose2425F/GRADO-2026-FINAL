@@ -1,0 +1,58 @@
+......................................................... [  4%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+.................................................................... [ 35%]
+................................................ [ 39%]
+........................................................................ [ 46%]
+........................................................................ [ 52%]
+........................................................ [ 57%]
+........................................................................ [ 63%]
+........................................................................ [ 69%]
+........................................................................ [ 75%]
+........................................................................ [ 81%]
+........................................................................ [ 88%]
+........................................................................ [ 94%]
+..........................................................ss.....                           [100%]
+=================================== FAILURES ===================================
+_ ApplicationTests.test_whole_runner_real_nmap_and_web_without_api_in_both_architectures (architecture='single') _
+
+self = <test_aplicaciones_personales.ApplicationTests testMethod=test_whole_runner_real_nmap_and_web_without_api_in_both_architectures>
+
+    def test_whole_runner_real_nmap_and_web_without_api_in_both_architectures(self):
+        for architecture in ['single','multiagent']:
+            with self.subTest(architecture=architecture),server_pair() as (port,_),tempfile.TemporaryDirectory() as td:
+                options={'personal':net_config(port),'architecture':architecture,'tokens':0,'ia':'none','authorization':'LAB-PROPIO',
+                         'applications':[app_config(port)],'creds':False}
+                with personal_authorization(options),patch('aplicaciones_personales.load_session',return_value={'Authorization':'Bearer '+SESSION}),patch('auditoria.openai_provider.OpenAIScheduler') as api:
+>                   self.assertEqual(run(options,Path(td)),0);api.assert_not_called()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E                   AssertionError: 3 != 0
+
+scripts/tests/test_aplicaciones_personales.py:226: AssertionError
+_ ApplicationTests.test_whole_runner_real_nmap_and_web_without_api_in_both_architectures (architecture='multiagent') _
+
+self = <test_aplicaciones_personales.ApplicationTests testMethod=test_whole_runner_real_nmap_and_web_without_api_in_both_architectures>
+
+    def test_whole_runner_real_nmap_and_web_without_api_in_both_architectures(self):
+        for architecture in ['single','multiagent']:
+            with self.subTest(architecture=architecture),server_pair() as (port,_),tempfile.TemporaryDirectory() as td:
+                options={'personal':net_config(port),'architecture':architecture,'tokens':0,'ia':'none','authorization':'LAB-PROPIO',
+                         'applications':[app_config(port)],'creds':False}
+                with personal_authorization(options),patch('aplicaciones_personales.load_session',return_value={'Authorization':'Bearer '+SESSION}),patch('auditoria.openai_provider.OpenAIScheduler') as api:
+>                   self.assertEqual(run(options,Path(td)),0);api.assert_not_called()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E                   AssertionError: 3 != 0
+
+scripts/tests/test_aplicaciones_personales.py:226: AssertionError
+=============================== warnings summary ===============================
+tests/test_agentes_ipv6.py::test_fragment_profiles_build_bounded_control_and_overlap
+  FUENTES_V4/piloto_kali/prototipo/.venv/lib/python3.13/site-packages/scapy/layers/tls/crypto/groups.py:25: CryptographyDeprecationWarning: Diffie-Hellman over finite fields (FFDH) is deprecated and support will be removed in a future release. Use a more modern key exchange algorithm.
+    from cryptography.hazmat.primitives.asymmetric.dh import DHParameterNumbers
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+SUBFAILED(architecture='single') piloto_kali/prototipo/test_aplicaciones_personales.py::ApplicationTests::test_whole_runner_real_nmap_and_web_without_api_in_both_architectures
+SUBFAILED(architecture='multiagent') piloto_kali/prototipo/test_aplicaciones_personales.py::ApplicationTests::test_whole_runner_real_nmap_and_web_without_api_in_both_architectures
+2 failed, 1156 passed, 2 skipped, 1 warning, 110 subtests passed in 105.98s (0:01:45)

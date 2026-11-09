@@ -1,0 +1,78 @@
+{
+  "schema": "centinela-isolated-bootstrap/2",
+  "status": "prepared",
+  "root": "@STAGE@",
+  "namespace": "c113-35ec6c7e764a",
+  "protected_repo": "@STAGE@/repo",
+  "protected_venv": "@STAGE@/venv",
+  "docker_host": "unix://@STAGE@/private/docker.sock",
+  "images": {
+    "novaflow-lab-credentials:local": "sha256:3b0ed68d7c28224f8acc853d84ca557b649b095edbc96202ecc1c678d3a07a03",
+    "novaflow-lab-protocol:local": "sha256:06443899161ccf9cd99020fc376a6d98dc401950160f0689c1135ce5667d1d41",
+    "novaflow-lab-http:local": "sha256:5f0dc9b2df710de2245328d72bffbdd211b575c46cda6416aee35394f6a9f7b5",
+    "auditoria-lab-v2-app:local": "sha256:8234ebac43d98699371aa09c394db3b61866966be27d9074ac6341d4ffe53c21",
+    "postgres:16-alpine": "sha256:4278d7b1e3deb3193ddc803158f6532963f059fc25a2eefaee4b5a9e71741873"
+  },
+  "image_archive": {
+    "sha256": "e22ad4e78616d5362a6405b634b586abbec54e45d275df45f4fb9c2ec37a5bc0",
+    "bytes": 612698624,
+    "images": {
+      "novaflow-lab-credentials:local": "sha256:3b0ed68d7c28224f8acc853d84ca557b649b095edbc96202ecc1c678d3a07a03",
+      "novaflow-lab-protocol:local": "sha256:06443899161ccf9cd99020fc376a6d98dc401950160f0689c1135ce5667d1d41",
+      "novaflow-lab-http:local": "sha256:5f0dc9b2df710de2245328d72bffbdd211b575c46cda6416aee35394f6a9f7b5",
+      "auditoria-lab-v2-app:local": "sha256:8234ebac43d98699371aa09c394db3b61866966be27d9074ac6341d4ffe53c21",
+      "postgres:16-alpine": "sha256:4278d7b1e3deb3193ddc803158f6532963f059fc25a2eefaee4b5a9e71741873"
+    }
+  },
+  "created_at": "2026-11-09T09:45:42.855226+00:00",
+  "source_manifest_sha256": "cf2f6d979f0831cca5c4b6c3ee3b9c2b9f94175bdb4f49b65d17fe07df7cd97c",
+  "operator_uid": 0,
+  "role_uids": {
+    "provider": 65530,
+    "controller": 65531,
+    "nmap": 65532,
+    "hydra": 65533
+  },
+  "supervisor_pid": 1328552,
+  "supervisor_start_time": "6041936",
+  "daemon_command": [
+    "/usr/sbin/dockerd",
+    "--data-root",
+    "@STAGE@/private/docker-data",
+    "--exec-root",
+    "@STAGE@/private/exec",
+    "--pidfile",
+    "@STAGE@/private/dockerd.pid",
+    "--host",
+    "unix://@STAGE@/private/docker.sock",
+    "--bridge",
+    "none",
+    "--iptables=false",
+    "--ip6tables=false",
+    "--ip-forward=false",
+    "--ip-masq=false",
+    "--userland-proxy=false",
+    "--containerd",
+    "@STAGE@/private/containerd.sock",
+    "--containerd-namespace",
+    "c113-35ec6c7e764a",
+    "--containerd-plugins-namespace",
+    "c113-35ec6c7e764ap",
+    "--exec-opt",
+    "native.cgroupdriver=cgroupfs",
+    "--cgroup-parent",
+    "/c113-35ec6c7e764a"
+  ],
+  "network_namespace_inode": 4026538094,
+  "banks": [
+    "integrado",
+    "sucursal",
+    "comercial",
+    "mixto",
+    "reforzado"
+  ],
+  "containers": 56,
+  "no_external_default_route": true,
+  "host_network_configuration_unchanged": true,
+  "finished_at": "2026-11-09T09:46:41.840486+00:00"
+}

@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="12" skipped="0" tests="17" time="0.433" timestamp="2026-11-09T09:19:27.124243+00:00" hostname="kali"><testcase classname="scripts.tests.test_panel_ejecutor" name="test_partial_acceptance_is_not_erased_by_later_completed_banks" time="0.004" /><testcase classname="scripts.tests.test_panel_ejecutor" name="test_invalid_remote_metadata_becomes_terminal_failure[submitted0-None]" time="0.002"><failure message="KeyError: 'id'">operations = &lt;dualstack_panel.Operations object at 0x7f9238491310&gt;
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f92388dc050&gt;
+submitted = {'ok': True}, polled = None
+
+    @pytest.mark.parametrize('submitted,polled',[
+        ({'ok':True},None),
+        ({'ok':True,'id':'0'*32},None),
+        (None,{'ok':True}),
+        (None,{'ok':True,'status':[]}),
+        (None,{'ok':True,'status':'complete','artifact_bytes':'not-an-integer'}),
+    ])
+    def test_invalid_remote_metadata_becomes_terminal_failure(operations,monkeypatch,submitted,polled):
+        client=SyntheticClient(submitted=submitted,polled=polled)
+        monkeypatch.setattr(panel_ejecutor,'ExecutorClient',lambda *a,**k:client)
+        value=job();operations.jobs.append(value)
+&gt;       operations._run(value)
+
+scripts/tests/test_panel_ejecutor.py:67: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/dualstack_panel.py:411: in _run
+    return run_job(self, job, output)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+operations = &lt;dualstack_panel.Operations object at 0x7f9238491310&gt;
+job = {'id': 'cccccccccccc', 'action': 'audit', 'name': 'fixture local', 'created_at': 'fixture', ...}
+output = PosixPath('/tmp/pytest-of-kali/pytest-109/test_invalid_remote_metadata_b0/runs/panel/cccccccccccc')
+
+    def run_job(operations, job, output):
+        from dualstack_panel import now
+        from auditoria.dashboard import process_identity
+        from auditoria.store import write_json
+        owner = getattr(operations, 'workspace_id', None)
+        if not owner: raise ExecutorError('El trabajo necesita un espacio de usuario identificado.')
+        client = ExecutorClient(os.environ['CENTINELA_EXECUTOR_SOCKET'])
+        action = job['action']; options = job.get('options') or {}
+        bank = options.get('scenario', 'integrado')
+        kind = 'audit' if action == 'audit' else 'acceptance' if action == 'acceptance_all' else {
+            'check': 'check', 'restore': 'prepare', 'down': 'down'}[action.rsplit('_', 1)[-1]]
+        banks = ('integrado', 'sucursal', 'comercial', 'mixto', 'reforzado') if action == 'acceptance_all' else (bank,)
+        output.mkdir(parents=True, exist_ok=False)
+        if action == 'audit':
+            write_json(output / 'panel_job.json', {'name': job['name'], 'created_at': job['created_at'], 'options': options})
+            write_json(output / 'panel_status.json', {'status': 'queued', 'pid': os.getpid(), 'identity': process_identity(os.getpid())})
+        result = None
+        try:
+            for bank in banks:
+                submitted = client.call('submit', kind=kind, bank=bank, owner=owner, options=options if action == 'audit' else {})
+&gt;               identifier, token = submitted['id'], submitted['token']
+                                    ^^^^^^^^^^^^^^^
+E               KeyError: 'id'
+
+scripts/panel_ejecutor.py:65: KeyError</failure></testcase><testcase classname="scripts.tests.test_panel_ejecutor" name="test_invalid_remote_metadata_becomes_terminal_failure[submitted1-None]" time="0.003"><failure message="KeyError: 'token'">operations = &lt;dualstack_panel.Operations object at 0x7f9238492850&gt;
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f923869b410&gt;
+submitted = {'ok': True, 'id': '00000000000000000000000000000000'}
+polled = None
+
+    @pytest.mark.parametrize('submitted,polled',[
+        ({'ok':True},None),
+        ({'ok':True,'id':'0'*32},None),
+        (None,{'ok':True}),
+        (None,{'ok':True,'status':[]}),
+        (None,{'ok':True,'status':'complete','artifact_bytes':'not-an-integer'}),
+    ])
+    def test_invalid_remote_metadata_becomes_terminal_failure(operations,monkeypatch,submitted,polled):
+        client=SyntheticClient(submitted=submitted,polled=polled)
+        monkeypatch.setattr(panel_ejecutor,'ExecutorClient',lambda *a,**k:client)
+        value=job();operations.jobs.append(value)
+&gt;       operations._run(value)
+
+scripts/tests/test_panel_ejecutor.py:67: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/dualstack_panel.py:411: in _run
+    return run_job(self, job, output)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+operations = &lt;dualstack_panel.Operations object at 0x7f9238492850&gt;
+job = {'id': 'cccccccccccc', 'action': 'audit', 'name': 'fixture local', 'created_at': 'fixture', ...}
+output = PosixPath('/tmp/pytest-of-kali/pytest-109/test_invalid_remote_metadata_b1/runs/panel/cccccccccccc')
+
+    def run_job(operations, job, output):
+        from dualstack_panel import now
+        from auditoria.dashboard import process_identity
+        from auditoria.store import write_json
+        owner = getattr(operations, 'workspace_id', None)
+        if not owner: raise ExecutorError('El trabajo necesita un espacio de usuario identificado.')
+        client = ExecutorClient(os.environ['CENTINELA_EXECUTOR_SOCKET'])
+        action = job['action']; options = job.get('options') or {}
+        bank = options.get('scenario', 'integrado')
+        kind = 'audit' if action == 'audit' else 'acceptance' if action == 'acceptance_all' else {
+            'check': 'check', 'restore': 'prepare', 'down': 'down'}[action.rsplit('_', 1)[-1]]
+        banks = ('integrado', 'sucursal', 'comercial', 'mixto', 'reforzado') if action == 'acceptance_all' else (bank,)
+        output.mkdir(parents=True, exist_ok=False)
+        if action == 'audit':
+            write_json(output / 'panel_job.json', {'name': job['name'], 'created_at': job['created_at'], 'options': options})
+            write_json(output / 'panel_status.json', {'status': 'queued', 'pid': os.getpid(), 'identity': process_identity(os.getpid())})
+        result = None
+        try:
+            for bank in banks:
+                submitted = client.call('submit', kind=kind, bank=bank, owner=owner, options=options if action == 'audit' else {})
+&gt;               identifier, token = submitted['id'], submitted['token']
+                                                     ^^^^^^^^^^^^^^^^^^
+E               KeyError: 'token'
+
+scripts/panel_ejecutor.py:65: KeyError</failure></testcase><testcase classname="scripts.tests.test_panel_ejecutor" name="test_invalid_remote_metadata_becomes_terminal_failure[None-polled2]" time="0.003"><failure message="KeyError: 'status'">operations = &lt;dualstack_panel.Operations object at 0x7f92382c9ba0&gt;
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f92383138a0&gt;
+submitted = None, polled = {'ok': True}
+
+    @pytest.mark.parametrize('submitted,polled',[
+        ({'ok':True},None),
+        ({'ok':True,'id':'0'*32},None),
+        (None,{'ok':True}),
+        (None,{'ok':True,'status':[]}),
+        (None,{'ok':True,'status':'complete','artifact_bytes':'not-an-integer'}),
+    ])
+    def test_invalid_remote_metadata_becomes_terminal_failure(operations,monkeypatch,submitted,polled):
+        client=SyntheticClient(submitted=submitted,polled=polled)
+        monkeypatch.setattr(panel_ejecutor,'ExecutorClient',lambda *a,**k:client)
+        value=job();operations.jobs.append(value)
+&gt;       operations._run(value)
+
+scripts/tests/test_panel_ejecutor.py:67: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/dualstack_panel.py:411: in _run
+    return run_job(self, job, output)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+operations = &lt;dualstack_panel.Operations object at 0x7f92382c9ba0&gt;
+job = {'id': 'cccccccccccc', 'action': 'audit', 'name': 'fixture local', 'created_at': 'fixture', ...}
+output = PosixPath('/tmp/pytest-of-kali/pytest-109/test_invalid_remote_metadata_b2/runs/panel/cccccccccccc')
+
+    def run_job(operations, job, output):
+        from dualstack_panel import now
+        from auditoria.dashboard import process_identity
+        from auditoria.store import write_json
+        owner = getattr(operations, 'workspace_id', None)
+        if not owner: raise ExecutorError('El trabajo necesita un espacio de usuario identificado.')
+        client = ExecutorClient(os.environ['CENTINELA_EXECUTOR_SOCKET'])
+        action = job['action']; options = job.get('options') or {}
+        bank = options.get('scenario', 'integrado')
+        kind = 'audit' if action == 'audit' else 'acceptance' if action == 'acceptance_all' else {
+            'check': 'check', 'restore': 'prepare', 'down': 'down'}[action.rsplit('_', 1)[-1]]
+        banks = ('integrado', 'sucursal', 'comercial', 'mixto', 'reforzado') if action == 'acceptance_all' else (bank,)
+        output.mkdir(parents=True, exist_ok=False)
+        if action == 'audit':
+            write_json(output / 'panel_job.json', {'name': job['name'], 'created_at': job['created_at'], 'options': options})
+            write_json(output / 'panel_status.json', {'status': 'queued', 'pid': os.getpid(), 'identity': process_identity(os.getpid())})
+        result = None
+        try:
+            for bank in banks:
+                submitted = client.call('submit', kind=kind, bank=bank, owner=owner, options=options if action == 'audit' else {})
+                identifier, token = submitted['id'], submitted['token']
+                capability = output / '.protected_capability.json'
+                write_json(capability, {'job': identifier, 'owner': owner, 'token': token})
+                capability.chmod(0o600)
+                with operations.lock:
+                    operations.process = RemoteProcess(client, identifier, owner, token)
+                    job.update(status='running', message='Auditoría iniciada.' if action == 'audit' else 'Operación del laboratorio en curso.')
+                    if action == 'audit': write_json(output / 'panel_status.json', {'status': 'running', 'pid': os.getpid(), 'identity': process_identity(os.getpid())})
+                deadline = time.monotonic() + (3000 if kind in {'audit', 'acceptance'} else 960)
+                while True:
+                    result = client.call('status', job=identifier, owner=owner, token=token)
+&gt;                   if result['status'] in TERMINAL: break
+                       ^^^^^^^^^^^^^^^^
+E                   KeyError: 'status'
+
+scripts/panel_ejecutor.py:76: KeyError</failure></testcase><testcase classname="scripts.tests.test_panel_ejecutor" name="test_invalid_remote_metadata_becomes_terminal_failure[None-polled3]" time="0.003"><failure message="TypeError: unhashable type: 'list'">operations = &lt;dualstack_panel.Operations object at 0x7f92382ca2c0&gt;
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f923828c160&gt;
+submitted = None, polled = {'ok': True, 'status': []}
+
+    @pytest.mark.parametrize('submitted,polled',[
+        ({'ok':True},None),
+        ({'ok':True,'id':'0'*32},None),
+        (None,{'ok':True}),
+        (None,{'ok':True,'status':[]}),
+        (None,{'ok':True,'status':'complete','artifact_bytes':'not-an-integer'}),
+    ])
+    def test_invalid_remote_metadata_becomes_terminal_failure(operations,monkeypatch,submitted,polled):
+        client=SyntheticClient(submitted=submitted,polled=polled)
+        monkeypatch.setattr(panel_ejecutor,'ExecutorClient',lambda *a,**k:client)
+        value=job();operations.jobs.append(value)
+&gt;       operations._run(value)
+
+scripts/tests/test_panel_ejecutor.py:67: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/dualstack_panel.py:411: in _run
+    return run_job(self, job, output)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+operations = &lt;dualstack_panel.Operations object at 0x7f92382ca2c0&gt;
+job = {'id': 'cccccccccccc', 'action': 'audit', 'name': 'fixture local', 'created_at': 'fixture', ...}
+output = PosixPath('/tmp/pytest-of-kali/pytest-109/test_invalid_remote_metadata_b3/runs/panel/cccccccccccc')
+
+    def run_job(operations, job, output):
+        from dualstack_panel import now
+        from auditoria.dashboard import process_identity
+        from auditoria.store import write_json
+        owner = getattr(operations, 'workspace_id', None)
+        if not owner: raise ExecutorError('El trabajo necesita un espacio de usuario identificado.')
+        client = ExecutorClient(os.environ['CENTINELA_EXECUTOR_SOCKET'])
+        action = job['action']; options = job.get('options') or {}
+        bank = options.get('scenario', 'integrado')
+        kind = 'audit' if action == 'audit' else 'acceptance' if action == 'acceptance_all' else {
+            'check': 'check', 'restore': 'prepare', 'down': 'down'}[action.rsplit('_', 1)[-1]]
+        banks = ('integrado', 'sucursal', 'comercial', 'mixto', 'reforzado') if action == 'acceptance_all' else (bank,)
+        output.mkdir(parents=True, exist_ok=False)
+        if action == 'audit':
+            write_json(output / 'panel_job.json', {'name': job['name'], 'created_at': job['created_at'], 'options': options})
+            write_json(output / 'panel_status.json', {'status': 'queued', 'pid': os.getpid(), 'identity': process_identity(os.getpid())})
+        result = None
+        try:
+            for bank in banks:
+                submitted = client.call('submit', kind=kind, bank=bank, owner=owner, options=options if action == 'audit' else {})
+                identifier, token = submitted['id'], submitted['token']
+                capability = output / '.protected_capability.json'
+                write_json(capability, {'job': identifier, 'owner': owner, 'token': token})
+                capability.chmod(0o600)
+                with operations.lock:
+                    operations.process = RemoteProcess(client, identifier, owner, token)
+                    job.update(status='running', message='Auditoría iniciada.' if action == 'audit' else 'Operación del laboratorio en curso.')
+                    if action == 'audit': write_json(output / 'panel_status.json', {'status': 'running', 'pid': os.getpid(), 'identity': process_identity(os.getpid())})
+                deadline = time.monotonic() + (3000 if kind in {'audit', 'acceptance'} else 960)
+                while True:
+                    result = client.call('status', job=identifier, owner=owner, token=token)
+&gt;                   if result['status'] in TERMINAL: break
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E                   TypeError: unhashable type: 'list'
+
+scripts/panel_ejecutor.py:76: TypeError</failure></testcase><testcase classname="scripts.tests.test_panel_ejecutor" name="test_invalid_remote_metadata_becomes_terminal_failure[None-polled4]" time="0.003"><failure message="AssertionError: No download requested by this fixture">operations = &lt;dualstack_panel.Operations object at 0x7f92386b0050&gt;
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f9238204c50&gt;
+submitted = None
+polled = {'ok': True, 'status': 'complete', 'artifact_bytes': 'not-an-integer'}
+
+    @pytest.mark.parametrize('submitted,polled',[
+        ({'ok':True},None),
+        ({'ok':True,'id':'0'*32},None),
+        (None,{'ok':True}),
+        (None,{'ok':True,'status':[]}),
+        (None,{'ok':True,'status':'complete','artifact_bytes':'not-an-integer'}),
+    ])
+    def test_invalid_remote_metadata_becomes_terminal_failure(operations,monkeypatch,submitted,polled):
+        client=SyntheticClient(submitted=submitted,polled=polled)
+        monkeypatch.setattr(panel_ejecutor,'ExecutorClient',lambda *a,**k:client)
+        value=job();operations.jobs.append(value)
+&gt;       operations._run(value)
+
+scripts/tests/test_panel_ejecutor.py:67: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/dualstack_panel.py:411: in _run
+    return run_job(self, job, output)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts/panel_ejecutor.py:82: in run_job
+    client.download(identifier, owner, token, output / bank if action == 'acceptance_all' else output)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;test_panel_ejecutor.SyntheticClient object at 0x7f92386b0710&gt;
+args = ('00000000000000000000000000000000', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb...bbbbbbbbbbbbbbbb', PosixPath('/tmp/pytest-of-kali/pytest-109/test_invalid_remote_metadata_b4/runs/panel/cccccccccccc'))
+
+&gt;   def download(self,*args):raise AssertionError('No download requested by this fixture')
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: No download requested by this fixture
+
+scripts/tests/test_panel_ejecutor.py:43: AssertionError</failure></testcase><testcase classname="scripts.tests.test_panel_ejecutor" name="test_poll_failure_releases_process_and_preserves_other_company_evidence" time="0.003" /><testcase classname="scripts.tests.test_panel_ejecutor" name="test_every_status_and_cancel_keeps_workspace_owner_and_token" time="0.003" /><testcase classname="scripts.tests.test_operador_web_security" name="test_exit_zero_without_valid_matching_result_is_not_completed[missing]" time="0.002"><failure message="operador_web.ExecutorError: El ejecutor no confirmó un cierre verificable de los roles y sus resultados.">queue = &lt;operador_web.OperatorQueue object at 0x7f92384b5d30&gt;
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f92383b2030&gt;
+receipt_kind = 'missing'
+
+    @pytest.mark.parametrize('receipt_kind',['missing','roles_active','wrong_bank'])
+    def test_exit_zero_without_valid_matching_result_is_not_completed(queue,monkeypatch,receipt_kind):
+        created=submit(queue);value=queue.jobs[created['id']]
+        log=queue.spool/value['id']/'operator.log'
+        if receipt_kind=='missing':log.write_text('launcher exited without receipt\n')
+        else:
+            root=queue.base/'runtime/run-fixture';(root/'output').mkdir(parents=True)
+            (root/'output/report.json').write_text('{"status":"complete"}')
+            private=queue.base/'private/run-fixture';private.mkdir()
+            receipt=private/'operator.json'
+            receipt.write_text(json.dumps({'root':str(root),'bank':'sucursal' if receipt_kind=='wrong_bank' else 'integrado',
+                                          'roles_stopped_before_evaluation':receipt_kind!='roles_active'}))
+            log.write_text(json.dumps({'receipt':str(receipt)})+'\n')
+        monkeypatch.setattr(queue,'_invoke',lambda *a,**k:(0,log))
+&gt;       queue._run(value)
+
+scripts/tests/test_operador_web_security.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;operador_web.OperatorQueue object at 0x7f92384b5d30&gt;
+job = {'id': '994494365ed44b92e0f1b56beb4a038c', 'owner': 'dddddddddddddddddddddddddddddddd', 'kind': 'audit', 'bank': 'integrado', ...}
+
+    def _run(self, job):
+        python = str(self.base / 'venv/bin/python')
+        launcher = str(self.base / 'repo/scripts/ejecutar_protegido.py')
+        if job['kind'] in {'audit', 'acceptance', 'check'}:
+            action = 'audit-live' if job['kind'] == 'audit' else 'audit' if job['kind'] == 'acceptance' else 'preflight'
+            argv = [python, launcher, '--base', str(self.base), '--bank', job['bank'], '--action', action]
+            if job['kind'] == 'audit':
+                argv += ['--architecture', job['options']['architecture']]
+                target = self.base / 'private' / ('job-' + job['id'] + '.json')
+                with target.open('x') as stream: json.dump({'options': job['options']}, stream, ensure_ascii=False)
+                target.chmod(0o600); argv += ['--job', str(target)]
+            code, log = self._invoke(job, argv, 'operator.log', 2850 if action != 'preflight' else 900)
+            if action == 'preflight':
+                self.bank_status[job['bank']].update(state='ready' if code == 0 else 'error', checked_at=time.time())
+            records = []
+            for line in log.read_text(errors='replace').splitlines():
+                try: records.append(json.loads(line))
+                except ValueError: pass
+            record = next((v for v in reversed(records) if isinstance(v, dict) and 'receipt' in v), {})
+            receipt_path = Path(record.get('receipt', '/nonexistent'))
+            valid_receipt = False
+            if receipt_path.parent.parent == self.base / 'private' and receipt_path.name == 'operator.json' and not receipt_path.is_symlink():
+                receipt = json.loads(receipt_path.read_text())
+                run_id = receipt.get('run_id')
+                valid_receipt = (isinstance(run_id, str) and receipt_path.parent.name == run_id
+                    and receipt.get('bank') == job['bank'] and receipt.get('action') == action
+                    and receipt.get('operator_exit_code') == code and receipt.get('roles_stopped_before_evaluation') is True
+                    and Path(receipt.get('root', '/nonexistent')) == self.base / 'runtime' / run_id)
+                if valid_receipt and job['kind'] != 'check':
+                    self._export(job, receipt)
+            if not valid_receipt or job['kind'] != 'check' and not job.get('artifact_bytes'):
+&gt;               raise ExecutorError('El ejecutor no confirmó un cierre verificable de los roles y sus resultados.')
+E               operador_web.ExecutorError: El ejecutor no confirmó un cierre verificable de los roles y sus resultados.
+
+scripts/operador_web.py:311: ExecutorError</failure></testcase><testcase classname="scripts.tests.test_operador_web_security" name="test_exit_zero_without_valid_matching_result_is_not_completed[roles_active]" time="0.002"><failure message="operador_web.ExecutorError: El ejecutor no confirmó un cierre verificable de los roles y sus resultados.">queue = &lt;operador_web.OperatorQueue object at 0x7f9238493750&gt;
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f92383af930&gt;
+receipt_kind = 'roles_active'
+
+    @pytest.mark.parametrize('receipt_kind',['missing','roles_active','wrong_bank'])
+    def test_exit_zero_without_valid_matching_result_is_not_completed(queue,monkeypatch,receipt_kind):
+        created=submit(queue);value=queue.jobs[created['id']]
+        log=queue.spool/value['id']/'operator.log'
+        if receipt_kind=='missing':log.write_text('launcher exited without receipt\n')
+        else:
+            root=queue.base/'runtime/run-fixture';(root/'output').mkdir(parents=True)
+            (root/'output/report.json').write_text('{"status":"complete"}')
+            private=queue.base/'private/run-fixture';private.mkdir()
+            receipt=private/'operator.json'
+            receipt.write_text(json.dumps({'root':str(root),'bank':'sucursal' if receipt_kind=='wrong_bank' else 'integrado',
+                                          'roles_stopped_before_evaluation':receipt_kind!='roles_active'}))
+            log.write_text(json.dumps({'receipt':str(receipt)})+'\n')
+        monkeypatch.setattr(queue,'_invoke',lambda *a,**k:(0,log))
+&gt;       queue._run(value)
+
+scripts/tests/test_operador_web_security.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;operador_web.OperatorQueue object at 0x7f9238493750&gt;
+job = {'id': '4a48a907d57f1aca1d46d554fb07a9fe', 'owner': 'dddddddddddddddddddddddddddddddd', 'kind': 'audit', 'bank': 'integrado', ...}
+
+    def _run(self, job):
+        python = str(self.base / 'venv/bin/python')
+        launcher = str(self.base / 'repo/scripts/ejecutar_protegido.py')
+        if job['kind'] in {'audit', 'acceptance', 'check'}:
+            action = 'audit-live' if job['kind'] == 'audit' else 'audit' if job['kind'] == 'acceptance' else 'preflight'
+            argv = [python, launcher, '--base', str(self.base), '--bank', job['bank'], '--action', action]
+            if job['kind'] == 'audit':
+                argv += ['--architecture', job['options']['architecture']]
+                target = self.base / 'private' / ('job-' + job['id'] + '.json')
+                with target.open('x') as stream: json.dump({'options': job['options']}, stream, ensure_ascii=False)
+                target.chmod(0o600); argv += ['--job', str(target)]
+            code, log = self._invoke(job, argv, 'operator.log', 2850 if action != 'preflight' else 900)
+            if action == 'preflight':
+                self.bank_status[job['bank']].update(state='ready' if code == 0 else 'error', checked_at=time.time())
+            records = []
+            for line in log.read_text(errors='replace').splitlines():
+                try: records.append(json.loads(line))
+                except ValueError: pass
+            record = next((v for v in reversed(records) if isinstance(v, dict) and 'receipt' in v), {})
+            receipt_path = Path(record.get('receipt', '/nonexistent'))
+            valid_receipt = False
+            if receipt_path.parent.parent == self.base / 'private' and receipt_path.name == 'operator.json' and not receipt_path.is_symlink():
+                receipt = json.loads(receipt_path.read_text())
+                run_id = receipt.get('run_id')
+                valid_receipt = (isinstance(run_id, str) and receipt_path.parent.name == run_id
+                    and receipt.get('bank') == job['bank'] and receipt.get('action') == action
+                    and receipt.get('operator_exit_code') == code and receipt.get('roles_stopped_before_evaluation') is True
+                    and Path(receipt.get('root', '/nonexistent')) == self.base / 'runtime' / run_id)
+                if valid_receipt and job['kind'] != 'check':
+                    self._export(job, receipt)
+            if not valid_receipt or job['kind'] != 'check' and not job.get('artifact_bytes'):
+&gt;               raise ExecutorError('El ejecutor no confirmó un cierre verificable de los roles y sus resultados.')
+E               operador_web.ExecutorError: El ejecutor no confirmó un cierre verificable de los roles y sus resultados.
+
+scripts/operador_web.py:311: ExecutorError</failure></testcase><testcase classname="scripts.tests.test_operador_web_security" name="test_exit_zero_without_valid_matching_result_is_not_completed[wrong_bank]" time="0.002"><failure message="operador_web.ExecutorError: El ejecutor no confirmó un cierre verificable de los roles y sus resultados.">queue = &lt;operador_web.OperatorQueue object at 0x7f9238493890&gt;
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f9238224ad0&gt;
+receipt_kind = 'wrong_bank'
+
+    @pytest.mark.parametrize('receipt_kind',['missing','roles_active','wrong_bank'])
+    def test_exit_zero_without_valid_matching_result_is_not_completed(queue,monkeypatch,receipt_kind):
+        created=submit(queue);value=queue.jobs[created['id']]
+        log=queue.spool/value['id']/'operator.log'
+        if receipt_kind=='missing':log.write_text('launcher exited without receipt\n')
+        else:
+            root=queue.base/'runtime/run-fixture';(root/'output').mkdir(parents=True)
+            (root/'output/report.json').write_text('{"status":"complete"}')
+            private=queue.base/'private/run-fixture';private.mkdir()
+            receipt=private/'operator.json'
+            receipt.write_text(json.dumps({'root':str(root),'bank':'sucursal' if receipt_kind=='wrong_bank' else 'integrado',
+                                          'roles_stopped_before_evaluation':receipt_kind!='roles_active'}))
+            log.write_text(json.dumps({'receipt':str(receipt)})+'\n')
+        monkeypatch.setattr(queue,'_invoke',lambda *a,**k:(0,log))
+&gt;       queue._run(value)
+
+scripts/tests/test_operador_web_security.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;operador_web.OperatorQueue object at 0x7f9238493890&gt;
+job = {'id': '783e3b626c458cfed40eccb1fb459dc2', 'owner': 'dddddddddddddddddddddddddddddddd', 'kind': 'audit', 'bank': 'integrado', ...}
+
+    def _run(self, job):
+        python = str(self.base / 'venv/bin/python')
+        launcher = str(self.base / 'repo/scripts/ejecutar_protegido.py')
+        if job['kind'] in {'audit', 'acceptance', 'check'}:
+            action = 'audit-live' if job['kind'] == 'audit' else 'audit' if job['kind'] == 'acceptance' else 'preflight'
+            argv = [python, launcher, '--base', str(self.base), '--bank', job['bank'], '--action', action]
+            if job['kind'] == 'audit':
+                argv += ['--architecture', job['options']['architecture']]
+                target = self.base / 'private' / ('job-' + job['id'] + '.json')
+                with target.open('x') as stream: json.dump({'options': job['options']}, stream, ensure_ascii=False)
+                target.chmod(0o600); argv += ['--job', str(target)]
+            code, log = self._invoke(job, argv, 'operator.log', 2850 if action != 'preflight' else 900)
+            if action == 'preflight':
+                self.bank_status[job['bank']].update(state='ready' if code == 0 else 'error', checked_at=time.time())
+            records = []
+            for line in log.read_text(errors='replace').splitlines():
+                try: records.append(json.loads(line))
+                except ValueError: pass
+            record = next((v for v in reversed(records) if isinstance(v, dict) and 'receipt' in v), {})
+            receipt_path = Path(record.get('receipt', '/nonexistent'))
+            valid_receipt = False
+            if receipt_path.parent.parent == self.base / 'private' and receipt_path.name == 'operator.json' and not receipt_path.is_symlink():
+                receipt = json.loads(receipt_path.read_text())
+                run_id = receipt.get('run_id')
+                valid_receipt = (isinstance(run_id, str) and receipt_path.parent.name == run_id
+                    and receipt.get('bank') == job['bank'] and receipt.get('action') == action
+                    and receipt.get('operator_exit_code') == code and receipt.get('roles_stopped_before_evaluation') is True
+                    and Path(receipt.get('root', '/nonexistent')) == self.base / 'runtime' / run_id)
+                if valid_receipt and job['kind'] != 'check':
+                    self._export(job, receipt)
+            if not valid_receipt or job['kind'] != 'check' and not job.get('artifact_bytes'):
+&gt;               raise ExecutorError('El ejecutor no confirmó un cierre verificable de los roles y sus resultados.')
+E               operador_web.ExecutorError: El ejecutor no confirmó un cierre verificable de los roles y sus resultados.
+
+scripts/operador_web.py:311: ExecutorError</failure></testcase><testcase classname="scripts.tests.test_operador_web_security" name="test_malformed_frames_are_closed_errors_not_unhandled_or_ambiguous[{&quot;x&quot;:[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[0]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]}]" time="0.002"><failure message="Failed: DID NOT RAISE ExecutorError">bad = b'{"x":[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[...]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]}'
+
+    @pytest.mark.parametrize('bad',[
+        b'{"x":'+b'['*1800+b'0'+b']'*1800+b'}',
+        b'{"x":NaN}',
+        b'{"action":"status","action":"cancel"}',
+    ])
+    def test_malformed_frames_are_closed_errors_not_unhandled_or_ambiguous(bad):
+        class Stream:
+            def __init__(self):self.data=io.BytesIO(struct.pack('!I',len(bad))+bad)
+            def recv(self,count):return self.data.read(count)
+&gt;       with pytest.raises(ExecutorError):receive_frame(Stream())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ExecutorError
+
+scripts/tests/test_operador_web_security.py:64: Failed</failure></testcase><testcase classname="scripts.tests.test_operador_web_security" name="test_malformed_frames_are_closed_errors_not_unhandled_or_ambiguous[{&quot;x&quot;:NaN}]" time="0.001"><failure message="Failed: DID NOT RAISE ExecutorError">bad = b'{"x":NaN}'
+
+    @pytest.mark.parametrize('bad',[
+        b'{"x":'+b'['*1800+b'0'+b']'*1800+b'}',
+        b'{"x":NaN}',
+        b'{"action":"status","action":"cancel"}',
+    ])
+    def test_malformed_frames_are_closed_errors_not_unhandled_or_ambiguous(bad):
+        class Stream:
+            def __init__(self):self.data=io.BytesIO(struct.pack('!I',len(bad))+bad)
+            def recv(self,count):return self.data.read(count)
+&gt;       with pytest.raises(ExecutorError):receive_frame(Stream())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ExecutorError
+
+scripts/tests/test_operador_web_security.py:64: Failed</failure></testcase><testcase classname="scripts.tests.test_operador_web_security" name="test_malformed_frames_are_closed_errors_not_unhandled_or_ambiguous[{&quot;action&quot;:&quot;status&quot;,&quot;action&quot;:&quot;cancel&quot;}]" time="0.001"><failure message="Failed: DID NOT RAISE ExecutorError">bad = b'{"action":"status","action":"cancel"}'
+
+    @pytest.mark.parametrize('bad',[
+        b'{"x":'+b'['*1800+b'0'+b']'*1800+b'}',
+        b'{"x":NaN}',
+        b'{"action":"status","action":"cancel"}',
+    ])
+    def test_malformed_frames_are_closed_errors_not_unhandled_or_ambiguous(bad):
+        class Stream:
+            def __init__(self):self.data=io.BytesIO(struct.pack('!I',len(bad))+bad)
+            def recv(self,count):return self.data.read(count)
+&gt;       with pytest.raises(ExecutorError):receive_frame(Stream())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ExecutorError
+
+scripts/tests/test_operador_web_security.py:64: Failed</failure></testcase><testcase classname="scripts.tests.test_operador_web_security" name="test_restart_does_not_reexecute_and_retains_historical_capability" time="0.002" /><testcase classname="scripts.tests.test_operador_web_security" name="test_download_refuses_symlinked_destination_root" time="0.002"><failure message="Failed: DID NOT RAISE ExecutorError">tmp_path = PosixPath('/tmp/pytest-of-kali/pytest-109/test_download_refuses_symlinke0')
+
+    def test_download_refuses_symlinked_destination_root(tmp_path):
+        outside=tmp_path/'outside';outside.mkdir()
+        destination=tmp_path/'workspace';destination.symlink_to(outside,target_is_directory=True)
+&gt;       with pytest.raises(ExecutorError):archive_client().download('job',OWNER,'unused',destination)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ExecutorError
+
+scripts/tests/test_operador_web_security.py:93: Failed</failure></testcase><testcase classname="scripts.tests.test_operador_web_security" name="test_export_rejects_hardlinked_files" time="0.002" /></testsuite></testsuites>

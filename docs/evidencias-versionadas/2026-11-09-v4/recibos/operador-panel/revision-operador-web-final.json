@@ -1,0 +1,91 @@
+{
+  "schema": "centinela-operator-web-independent-review/1",
+  "passed": true,
+  "tests": 56,
+  "new_security_panel_tests": 29,
+  "prior_operator_tests": 27,
+  "test_warnings": 1,
+  "warning": "Unknown pytest option asyncio_mode; pytest-asyncio is not installed in this directed-test environment.",
+  "new_scope": "Post-1014 operator/panel integration, not historical campaign or protected-bank acceptance.",
+  "source_sha256_at_review": {
+    "scripts/operador_web.py": "47e78306b9983048806567bc4b12487e3057ba8fd09f37952fc4bc9041bc4de1",
+    "scripts/panel_ejecutor.py": "9d3234e23008bceaa6be63bc335c0682a922505023e2ac94aee82a1437104aaf",
+    "scripts/dualstack_panel.py": "e3ed8630bfaa5867bfda05fb510aef06da5629c971d57244f715627e1c217d4c",
+    "scripts/centinela_tenancy.py": "9a63a8b76f069bf29d74d7c0f2ede077c289101a566bcaccb779436300c2fa99",
+    "scripts/tests/test_operador_web.py": "d2286a5357611ad21cece55cc6a64b2611ac4e05b218c06df0bcb8b2d5adbfae",
+    "scripts/tests/test_operador_web_security.py": "e120895b43c06ecac262af0bdb1c1bbbbe952a06539ef7628f18ed8dade932fe",
+    "scripts/tests/test_panel_ejecutor.py": "e2ea9b2c63b1b2d4af911da2303d50c30daa8e8f230d324a7703c88239ee3af2"
+  },
+  "source_freeze_before_after_claimed": false,
+  "final_junit": {
+    "path": "revision-operador-web-final.xml",
+    "bytes": 8507,
+    "sha256": "54a24e31f8e1e0f4d8d176c4e70333519d3f9e5b51122d7daadfcd3da0228d9f"
+  },
+  "fixed_findings": [
+    "partial acceptance no longer becomes complete after later banks",
+    "missing or mismatched closure receipt fails closed",
+    "malformed metadata becomes terminal UI failure",
+    "nested/nonfinite/duplicate JSON and whole-frame read deadline",
+    "ZIP output root symlinks and artifact manifest type checks",
+    "control JSON bank/action/success/quarantine correlation",
+    "single best-effort cancellation on poll failure",
+    "protected runs/<audit> layout associated with panel run_key"
+  ],
+  "rechecked_properties": [
+    "owner UUID+token remain attached to status/cancel",
+    "restart marks work interrupted without resubmitting",
+    "cross-workspace result access denied",
+    "hardlinked/symlinked archive files denied",
+    "other-company historical files preserved",
+    "complete/partial downloaded report status matches panel status"
+  ],
+  "fixture_model": "In-memory framed socket bytes keep production ExecutorClient validation; launcher subprocess and control JSON are simulated. No network/API/Docker/Nmap/Hydra or global services invoked.",
+  "limits": [
+    "Unit/static review; not deployment acceptance.",
+    "Does not reassign results to the frozen 592-source reporting epoch.",
+    "Initial failed JUnit iterations are retained outside the Git tree."
+  ],
+  "initial_junit_receipts": [
+    {
+      "path": "revision-operador-web-control-inicial.xml",
+      "bytes": 2269,
+      "sha256": "c3c9660eb42f46aa657da8bdd1cec8a7d40968b173ed3995c7c421910da03674"
+    },
+    {
+      "path": "revision-operador-web-corte2.xml",
+      "bytes": 3813,
+      "sha256": "64e8a5e7045800e968528d63d7df74ecd0acfc64d63be0c4b7cb3bbbaeac5fc4"
+    },
+    {
+      "path": "revision-operador-web-corte3.xml",
+      "bytes": 5675,
+      "sha256": "5914463bb979532f6d0585471155cc6ad0e7575525ded8641c54c89027642457"
+    },
+    {
+      "path": "revision-operador-web-deadline-inicial.xml",
+      "bytes": 804,
+      "sha256": "a08945a61bc515ebb7e745c03b72ae3ff6a597b13671cfccc523d3955df0a19b"
+    },
+    {
+      "path": "revision-operador-web-inicial.xml",
+      "bytes": 38817,
+      "sha256": "6b35e4512c2303522f4e0415e49ee690344e3ea02f6a51952016ff03b1741798"
+    },
+    {
+      "path": "revision-operador-web-manifiesto-inicial.xml",
+      "bytes": 2115,
+      "sha256": "605129f9287a63746d89be1506f054fa0f883de9b517f7403b941a72b5cad992"
+    },
+    {
+      "path": "revision-operador-web-poll-inicial.xml",
+      "bytes": 700,
+      "sha256": "9d6d08d0c9ec679b10408acc3a35c182fb58c3b5910c61cac7d531902eb47a87"
+    },
+    {
+      "path": "revision-operador-web-runs-inicial.xml",
+      "bytes": 1253,
+      "sha256": "dd0abe8db939291bebcad3518995f591890dcc1ba33ee83c92d820fb98470da4"
+    }
+  ]
+}

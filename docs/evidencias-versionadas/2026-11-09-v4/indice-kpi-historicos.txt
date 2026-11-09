@@ -1,0 +1,330 @@
+ÍNDICE PÚBLICO: KPI Y ORIGINALES CONSERVADOS
+Fecha: 2026-11-09. Referencias a los originales publicados.
+El estado de v4 se consulta en estado-publicacion.json; este índice no acredita su cierre.
+
+MÉTODO Y ALCANCE
+Se consultaron JSON existentes y los directorios centrales de ZIP en modo lectura.
+No se extrajeron ni abrieron contenidos ZIP; no se ejecutaron módulos, API ni auditorías.
+Las cifras y SHA-256 se copian de sus registros aprobados, sin recalcular KPI ni huellas.
+Las rutas son relativas a la raíz del repositorio. El JSON contiene el detalle completo por 100 corridas.
+
+CIFRAS REUTILIZADAS (precisión completa de la comparación)
+historica_octubre_20261018_19: 23 parejas; TRTO=19.35573162098956 %; IDE=26.41335717422674 %; ETV=1.5117028572815006.
+noviembre_20261108_25_parejas: 25 parejas; TRTO=30.642519596683197 %; IDE=27.236507936507934 %; ETV=1.530060143232677.
+noviembre_20261108_23_posiciones_comunes: 23 parejas; TRTO=30.038482500264273 %; IDE=27.672532781228433 %; ETV=1.523506679302374.
+Fuente: docs/evidencias-versionadas/2026-11-09/comparacion-campanas-20261109.json
+Media de razones por pareja; el tiempo es report.metrics.elapsed_seconds.
+El panel y la comparación conservan variantes de redondeo; no se mezclan precisiones.
+
+ARCHIVOS Y REGISTROS DE INTEGRIDAD
+historica: docs/evidencias-historicas/2026-10-18/auditorias-originales.zip
+  SHA-256 registrado: 4bd763f64a8ce3a5958ee7fadde5dcbfbf8d14e0fde304cded92b7d0c1ac0e7e
+  Registro de SHA: docs/evidencias-historicas/2026-10-18/procedencia.json
+  Índice de hashes por miembro: docs/evidencias-historicas/2026-10-18/hashes-corridas-50.json
+  Miembros observados: 3649; por familia: {"request": 50, "plan": 50, "report": 50, "manifest": 50, "evaluation": 50, "events": 50, "pcap": 363}
+noviembre: docs/evidencias-versionadas/2026-11-09/campana-api-20261108.zip
+  SHA-256 registrado: 60edc45719fbce61e7b97c64422f36b94186d983df6e7242dfee60f6aac2a740
+  Registro de SHA: docs/evidencias-versionadas/2026-11-09/procedencia.json
+  Índice de hashes por miembro: docs/evidencias-versionadas/2026-11-09/campana-api-20261108-integridad.json
+  Miembros observados: 3652; por familia: {"request": 50, "plan": 50, "report": 50, "manifest": 50, "evaluation": 50, "events": 50, "pcap": 375}
+
+COPIAS HISTÓRICAS DE SELECCIÓN Y CONTEXTO
+docs/evidencias-versionadas/2026-11-09/comparacion-campanas-20261109.json
+  SHA-256 registrado: 43ff0c736dd78128758ff66e17ff2cb0cb4969583c37e84cdfa77b27a204b17b
+  Registro: docs/evidencias-versionadas/2026-11-09/integridad-publicacion.json
+docs/evidencias-versionadas/2026-11-09/referencia-historica-20261018/runs.json
+  SHA-256 registrado: 56fc650b1b049b776444153e407ff555546b6a95a44dba9494e360433a0520c3
+  Registro: docs/evidencias-versionadas/2026-11-09/integridad-publicacion.json
+docs/evidencias-versionadas/2026-11-09/referencia-historica-20261018/pairs.json
+  SHA-256 registrado: a9120684eea0aff79c348e9ff87a047ac64bc2e160fc370fbad2fd3d15e6d8c2
+  Registro: docs/evidencias-versionadas/2026-11-09/integridad-publicacion.json
+docs/evidencias-versionadas/2026-11-09/referencia-historica-20261018/protocol.json
+  SHA-256 registrado: 816b7e03747279c836c5ba8c21c54123b0ca48a006f8fe9d4949cb3a37639ab1
+  Registro: docs/evidencias-versionadas/2026-11-09/integridad-publicacion.json
+
+CÓMO LEER LAS FAMILIAS
+request: Configuración solicitada y límites; no acredita por sí sola una ejecución completa.
+plan: Plan registrado; no prueba por sí solo que se ejecutaron todas las tareas.
+report: Mediciones registradas utilizadas por la comparación; TRTO toma elapsed_seconds.
+manifest: Identidad y contexto de ejecución registrados; permite distinguir fuentes y fechas.
+evaluation: Evaluación registrada y referencia de TP; su existencia no convierte una pareja excluida en elegible.
+events: Trazabilidad de eventos conservada; no añade parejas ni sustituye el criterio de elegibilidad.
+pcap: Capturas originales localizadas por corrida; sirven como soporte de tráfico, no como cálculo independiente ni prueba suficiente de todos los KPI.
+
+POSICIONES Y RUN_ID COMPLETOS
+Se conserva la exclusión histórica de integrado/1 y reforzado/1.
+Las 23 posiciones comunes excluyen esas dos posiciones de noviembre.
+La igualdad de posición no implica identidad de código, imágenes o entorno.
+integrado/1: histórica elegible=False; noviembre elegible=True; posición común=False
+  octubre single: panel/b0044cf8746b/emp_single_fb73c485a609_20261018T224152
+  octubre multiagent: panel/7bef155eb03e/emp_multiagent_768b2c956f9c_20261018T225330
+  noviembre single: panel/e133a8f102e5/emp_single_218442c8fa6c_20261108T175517
+  noviembre multiagent: panel/1081821af346/emp_multiagent_ff19d3527818_20261108T180512
+integrado/2: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/db52e98470ed/emp_single_76225c07de35_20261018T234154
+  octubre multiagent: panel/8cf17c4df185/emp_multiagent_eb3c70c7ec8a_20261018T234838
+  noviembre single: panel/671d7a2b6664/emp_single_b0839765543f_20261108T181026
+  noviembre multiagent: panel/b7635fa79688/emp_multiagent_c526709fb59f_20261108T181519
+integrado/3: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/3974c9c9fb45/emp_single_b2c1b0525fcd_20261018T235528
+  octubre multiagent: panel/4d134e39fdaf/emp_multiagent_190d822d1380_20261018T235200
+  noviembre single: panel/c4e8ea40894e/emp_single_6684422feb2b_20261108T194347
+  noviembre multiagent: panel/c596fed6ea58/emp_multiagent_ebec966aaa87_20261108T194052
+integrado/4: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/4122d0ea89c8/emp_single_762ec1c31eaf_20261019T000012
+  octubre multiagent: panel/9e9b3c5e683f/emp_multiagent_03e59ec9515f_20261019T000422
+  noviembre single: panel/8136d1f387ae/emp_single_231523dfe11f_20261108T194818
+  noviembre multiagent: panel/c07bad76f866/emp_multiagent_fcf592f277ec_20261108T195245
+integrado/5: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/842185267899/emp_single_6252a35a40a1_20261019T001156
+  octubre multiagent: panel/d13f4ec89d96/emp_multiagent_31c6159d9c64_20261019T000805
+  noviembre single: panel/2aa829fd56f6/emp_single_c4f83ef51967_20261108T195845
+  noviembre multiagent: panel/af77515d1cd3/emp_multiagent_b82025b8a9fb_20261108T195545
+sucursal/1: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/78f1127cb5a7/emp_single_ed0ac84b0dc8_20261019T002207
+  octubre multiagent: panel/489269040600/emp_multiagent_cd3ca153bf36_20261019T001738
+  noviembre single: panel/d08913135cb7/emp_single_c4b45a42dd47_20261108T200610
+  noviembre multiagent: panel/1a150b82baab/emp_multiagent_54057d626d1f_20261108T200302
+sucursal/2: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/76df73b31501/emp_single_b20830851642_20261019T002602
+  octubre multiagent: panel/ba458706b6d8/emp_multiagent_5ae2f7b74abc_20261019T003011
+  noviembre single: panel/dae04437f360/emp_single_e8aeeefb484b_20261108T201005
+  noviembre multiagent: panel/d4792d40ffb8/emp_multiagent_509e6808695f_20261108T201339
+sucursal/3: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/f3e28137d409/emp_single_5111f19159de_20261019T003320
+  octubre multiagent: panel/1f4b7b8e89a4/emp_multiagent_4df0d0d61ad2_20261019T003700
+  noviembre single: panel/37e7db2683f1/emp_single_57c4b17fa0e7_20261108T201649
+  noviembre multiagent: panel/934a178f3573/emp_multiagent_754dba003ec4_20261108T202101
+sucursal/4: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/bcc3e074fa29/emp_single_76be082a5a1a_20261019T004325
+  octubre multiagent: panel/59a0b5a7ae0a/emp_multiagent_dc392a663bc9_20261019T004014
+  noviembre single: panel/9cdf14a1909d/emp_single_426fea06c466_20261108T202741
+  noviembre multiagent: panel/6b973cc761cb/emp_multiagent_90430a417702_20261108T202413
+sucursal/5: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/623f7bc071a6/emp_single_f9f661b57b87_20261019T005036
+  octubre multiagent: panel/aa51416802c4/emp_multiagent_f69761c26004_20261019T004713
+  noviembre single: panel/8b82edfc8759/emp_single_0b1fdad10398_20261108T203418
+  noviembre multiagent: panel/790d124613fc/emp_multiagent_ef351986c8ff_20261108T203124
+comercial/1: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/adac284b40ad/emp_single_21dfdcbb639a_20261019T005508
+  octubre multiagent: panel/5abaaf7477d7/emp_multiagent_321733da6791_20261019T005915
+  noviembre single: panel/7d8724d2a2b8/emp_single_6fc884c3b5e3_20261108T203816
+  noviembre multiagent: panel/ab187d3cfdfd/emp_multiagent_5847747f7e2b_20261108T204128
+comercial/2: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626
+  octubre multiagent: panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234
+  noviembre single: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742
+  noviembre multiagent: panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443
+comercial/3: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/9fb8acb81634/emp_single_4e8bc523359f_20261019T011419
+  octubre multiagent: panel/6f491cbef691/emp_multiagent_d88ce9ccb41b_20261019T011034
+  noviembre single: panel/9f14a71daba7/emp_single_2e6ab55a7f27_20261108T205438
+  noviembre multiagent: panel/fc4f7b7b5a07/emp_multiagent_c0d11c7b97af_20261108T205134
+comercial/4: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/fa41fb98ef2b/emp_single_d6e2e98e7042_20261019T011813
+  octubre multiagent: panel/32f8de22313a/emp_multiagent_c5653142fe85_20261019T012218
+  noviembre single: panel/4014e39e6df3/emp_single_0a05791af64b_20261108T205845
+  noviembre multiagent: panel/8a0623d4cfdc/emp_multiagent_bedeb36ab096_20261108T210249
+comercial/5: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/4091920045c7/emp_single_4599614962a2_20261019T012931
+  octubre multiagent: panel/56e47351ee0a/emp_multiagent_538962b4dc88_20261019T012556
+  noviembre single: panel/dd29ae26b87a/emp_single_21294c21f8ea_20261108T210936
+  noviembre multiagent: panel/13742bde7142/emp_multiagent_01dcd917a4ef_20261108T210611
+mixto/1: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/756fd20ca29a/emp_single_97277b21af88_20261019T013333
+  octubre multiagent: panel/af4fdc557abc/emp_multiagent_cb7c6bf2ebe6_20261019T013833
+  noviembre single: panel/bd2cb73bcdc6/emp_single_40fe99b9dd34_20261108T211323
+  noviembre multiagent: panel/e29b66d9e70c/emp_multiagent_ae4cb1fd036a_20261108T211743
+mixto/2: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/9716ea76344f/emp_single_cc1dfbe1158c_20261019T014623
+  octubre multiagent: panel/f23bf4e375d2/emp_multiagent_87c6a52edf90_20261019T014220
+  noviembre single: panel/5b094c065c2a/emp_single_c5357997a601_20261108T212427
+  noviembre multiagent: panel/3b54ef636f13/emp_multiagent_9caf2b0fed31_20261108T212107
+mixto/3: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/5504485351a7/emp_single_576fbf44964b_20261019T015141
+  octubre multiagent: panel/3cd831cb2fb2/emp_multiagent_8e5b439ca4a3_20261019T015626
+  noviembre single: panel/2fcd4539bb05/emp_single_3b52f90cc240_20261108T212917
+  noviembre multiagent: panel/a7de49669449/emp_multiagent_643b876d0879_20261108T213350
+mixto/4: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/1d8495a89d05/emp_single_4944d6d4c34a_20261019T020451
+  octubre multiagent: panel/fee0a3a17e39/emp_multiagent_6c2bfcb2ef4d_20261019T020029
+  noviembre single: panel/73cc61c65073/emp_single_fd2eba84ba80_20261108T214032
+  noviembre multiagent: panel/2938e9eda8fa/emp_multiagent_6a2f4cb9db89_20261108T213711
+mixto/5: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/6066e9723ee5/emp_single_f61ab333d639_20261019T020941
+  octubre multiagent: panel/5a6cf83a8426/emp_multiagent_d55a8e58bb9f_20261019T021425
+  noviembre single: panel/d940e3d67f66/emp_single_b40cfbc726f9_20261108T214516
+  noviembre multiagent: panel/a30f1cf3c45b/emp_multiagent_f07173a7d8f0_20261108T215002
+reforzado/1: histórica elegible=False; noviembre elegible=True; posición común=False
+  octubre single: panel/cccef3d26dbe/emp_single_d08f31a946dc_20261019T022259
+  octubre multiagent: panel/822375b234be/emp_multiagent_846794b8de91_20261019T021843
+  noviembre single: panel/a338f8eaa39d/emp_single_988c2edbfb3c_20261108T215727
+  noviembre multiagent: panel/23d9c208d26d/emp_multiagent_5991649b4e5e_20261108T215342
+reforzado/2: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/a7960f951221/emp_single_bec31fd725e9_20261019T022909
+  octubre multiagent: panel/fc81ed7ece82/emp_multiagent_9875303519bc_20261019T023456
+  noviembre single: panel/37fa2623b753/emp_single_d2cf177440d0_20261108T220242
+  noviembre multiagent: panel/e38f055db00e/emp_multiagent_bc1cf64737a8_20261108T220740
+reforzado/3: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/ecc1486d2d14/emp_single_4e1e250acf16_20261019T023927
+  octubre multiagent: panel/f0b950afed9a/emp_multiagent_12cce97f053f_20261019T024541
+  noviembre single: panel/19f16acb6516/emp_single_473bf82b0791_20261108T221139
+  noviembre multiagent: panel/23af0cfb04f9/emp_multiagent_a157a1b4ad54_20261108T221658
+reforzado/4: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/ee41281dd8a8/emp_single_ac60d12b5183_20261019T025038
+  octubre multiagent: panel/1b42e7f24ff0/emp_multiagent_f95da8ce81ac_20261019T025612
+  noviembre single: panel/74d7fc0d5f21/emp_single_33687ca5db08_20261108T222048
+  noviembre multiagent: panel/164f6f6138cd/emp_multiagent_d7658d2e63c6_20261108T222557
+reforzado/5: histórica elegible=True; noviembre elegible=True; posición común=True
+  octubre single: panel/fcede35b38cd/emp_single_ff31a804c833_20261019T030605
+  octubre multiagent: panel/96358bce8d43/emp_multiagent_8e9df3070993_20261019T030102
+  noviembre single: panel/11765f52366b/emp_single_41f3bf435c3b_20261108T223357
+  noviembre multiagent: panel/2227ff62eb1a/emp_multiagent_8940c02eb4da_20261108T222958
+
+EJEMPLO EXACTO DE ENTRADAS ZIP POR FAMILIA: COMERCIAL/2
+Todos los demás miembros y sus hashes constan en corridas[].familias del JSON.
+historica multiagent: docs/evidencias-historicas/2026-10-18/auditorias-originales.zip
+  request: piloto_kali/prototipo/corridas/panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234/request.json
+    SHA-256 registrado: e2faa810d77e38a6996c70d39565dce36563d445f2c68352573cf0f0c6bc0c4c
+  plan: piloto_kali/prototipo/corridas/panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234/plan.json
+    SHA-256 registrado: e3c58296f341e02d85f0eae193eaf3c32501b73b4e9e82503f509fd613c93da4
+  report: piloto_kali/prototipo/corridas/panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234/report.json
+    SHA-256 registrado: 7aed635492c0662e202f16ffdc723a29d314545c1e32c30771e4bbcf3a970c22
+  manifest: piloto_kali/prototipo/corridas/panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234/manifest.json
+    SHA-256 registrado: 36a4a2ec472258569da80c7c608f11fc5798cb2ecba93d01541c72888410b767
+  evaluation: piloto_kali/prototipo/corridas/panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234/evaluation.json
+    SHA-256 registrado: e570a8ba545f6b060ea63e995b09e2094d56aa17ff372b3685ff33aac2fbc4f4
+  events: piloto_kali/prototipo/corridas/panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234/events.sqlite3
+    SHA-256 registrado: ac899bf48eaae6e35e84d707c22ae43055876840b7f4c57051754cb1084bc416
+  pcap: piloto_kali/prototipo/corridas/panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234/evidence/emp_multiagent_84eb0f9eb2b0_receiver_a_dad_na.pcap
+    SHA-256 registrado: 069b16a9c07de6179f0a1d251bb3dd24f14ede49d622926c7e20f01c826115f1
+  pcap: piloto_kali/prototipo/corridas/panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234/evidence/emp_multiagent_84eb0f9eb2b0_receiver_a_na_neighbor.pcap
+    SHA-256 registrado: 66823a0522684d8ac00632c330965446825193aed8d8cb6dbfe626638a4d6b8a
+  pcap: piloto_kali/prototipo/corridas/panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234/evidence/emp_multiagent_84eb0f9eb2b0_receiver_a_overlap_control.pcap
+    SHA-256 registrado: bb7dd7aa76eb7af332f32db27f69e99dcd34f5440c0e1134fbc0aa634765e9bf
+  pcap: piloto_kali/prototipo/corridas/panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234/evidence/emp_multiagent_84eb0f9eb2b0_receiver_a_overlap_variant.pcap
+    SHA-256 registrado: f6e4c6bdb3c8229002e6b98ca8aa23b1385fc8a16a23e558a241ddb06bd72841
+  pcap: piloto_kali/prototipo/corridas/panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234/evidence/emp_multiagent_84eb0f9eb2b0_receiver_a_ra_mtu.pcap
+    SHA-256 registrado: 7d4559ae73e9ac04d6933b357e61384b423929f686846de254d85baf73008f99
+  pcap: piloto_kali/prototipo/corridas/panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234/evidence/emp_multiagent_84eb0f9eb2b0_receiver_a_ra_route.pcap
+    SHA-256 registrado: 818b007c85479770ce38d0e2577825a4c41366171848c31b00fc2f00aca7be37
+historica single: docs/evidencias-historicas/2026-10-18/auditorias-originales.zip
+  request: piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626/request.json
+    SHA-256 registrado: 6341a7d8ce6f76c14da0dc4e78eedc279999b15a3d5c564e0fcd3acdc226d99e
+  plan: piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626/plan.json
+    SHA-256 registrado: 6e4589aa59e0a117f425aff37122c0bf3167cb317ea29470a988fa2ff1d6d549
+  report: piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626/report.json
+    SHA-256 registrado: 64eef759f87e480ff663eebf5b9e3045c29e2e87f0b3a3167c4c120a9867b235
+  manifest: piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626/manifest.json
+    SHA-256 registrado: 2b5992479643f92d975e226bce8bb2095d5ad2c40bcf2e80b4a5d3568a71cd41
+  evaluation: piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626/evaluation.json
+    SHA-256 registrado: 0e842327cb5c46942501a2daeb17907f78d865a9a9e3b56620e84be2371557e7
+  events: piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626/events.sqlite3
+    SHA-256 registrado: 8a347795e69f12ef74b8285c8efafbbb62f5b14aa2456756e7e6bec0c4b0c971
+  pcap: piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626/evidence/emp_single_fe5da3cf965c_receiver_a_atomic_control.pcap
+    SHA-256 registrado: bfb63126708674e9c125ac4b136a3bd0dc3e74722d3ed861fc005613f4f99658
+  pcap: piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626/evidence/emp_single_fe5da3cf965c_receiver_a_atomic_variant.pcap
+    SHA-256 registrado: f409e63d5c64106285bda96be01f22e4d9e1b2d16a6cbb5ec96ecff8fedb5676
+  pcap: piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626/evidence/emp_single_fe5da3cf965c_receiver_a_dad_na.pcap
+    SHA-256 registrado: e303b3a65c8511df651227c7e4259c4947943a7b23b929e23fbd90f1bbc49f42
+  pcap: piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626/evidence/emp_single_fe5da3cf965c_receiver_a_na_neighbor.pcap
+    SHA-256 registrado: b1186077c9e70f209c1ab72a2eab1f96a94f4dfea05ed1f0299a95ce4fcaeabe
+  pcap: piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626/evidence/emp_single_fe5da3cf965c_receiver_a_overlap_control.pcap
+    SHA-256 registrado: 431a1e2d2c443e9fab77c7bdfea40c55acf9bc4da141bc264eaa90acf46cb3c7
+  pcap: piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626/evidence/emp_single_fe5da3cf965c_receiver_a_overlap_middle_control.pcap
+    SHA-256 registrado: e068b8cdd687991b72fb5fa63d419e2c1f999df519cff337a737250cae2c5542
+  pcap: piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626/evidence/emp_single_fe5da3cf965c_receiver_a_overlap_middle_variant.pcap
+    SHA-256 registrado: 1e9120466ab6213b0832f360ef858f2ca086705758a28c8119b571b36b0929a7
+  pcap: piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626/evidence/emp_single_fe5da3cf965c_receiver_a_overlap_variant.pcap
+    SHA-256 registrado: b5f6ae508a9cad64acb64e60e3f9c701be33551b8e5d9a60d75ca81bf924d06f
+  pcap: piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626/evidence/emp_single_fe5da3cf965c_receiver_a_ra_mtu.pcap
+    SHA-256 registrado: 37343a12f0bdd91cd78bc77fae9b33d6a0e6587e41ae447bad086037e97c3ca4
+  pcap: piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626/evidence/emp_single_fe5da3cf965c_receiver_a_ra_route.pcap
+    SHA-256 registrado: b97cb80361245e64d4ca4186981c9fc66f5c0ad806037bbc6c609ccc9b33bd59
+  pcap: piloto_kali/prototipo/corridas/panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626/evidence/emp_single_fe5da3cf965c_receiver_b_ra_route.pcap
+    SHA-256 registrado: ab73406e3999bd641406d98b4ef15cdb690c1a4dcd536a1a0c2a457ba28201c8
+noviembre single: docs/evidencias-versionadas/2026-11-09/campana-api-20261108.zip
+  request: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/request.json
+    SHA-256 registrado: 78a2c9a194b2045d25a2a4541f22e1e8ef93f8acfbeb3789f280e5a3c2cf22f2
+  plan: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/plan.json
+    SHA-256 registrado: 12bf5dc808b8fbf1994f8ee3e7f9837427f49296f96e5120c999c7b3fc8c8f59
+  report: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/report.json
+    SHA-256 registrado: 207d16008b624574ec37a413e1f3ad7d6f153ed6707708872ac90a56285aca70
+  manifest: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/manifest.json
+    SHA-256 registrado: 384293dd9ffaa61a09c78e28f0c0b4473d0f2ba8205a71614a5265f98b172729
+  evaluation: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/evaluation.json
+    SHA-256 registrado: b6819ccfdd727d0fcc4cdf6b281aea560de618377b785f449ce4061f6a9aba23
+  events: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/events.sqlite3
+    SHA-256 registrado: b09fc156a8557f428180f5decf0d75ada182b41f316e3f65d950466bb48e948f
+  pcap: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/evidence/emp_single_2ebff5ca44bd_receiver_a_atomic_control.pcap
+    SHA-256 registrado: 0b8e496ebed8ead7059d745cb13b262cd1663948f5ef8bf370965211af390ea6
+  pcap: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/evidence/emp_single_2ebff5ca44bd_receiver_a_atomic_variant.pcap
+    SHA-256 registrado: 7c67f15674ed1c4cbe0baf3aa884f4594f04e2fe170191ee2581b6bf4d54ad21
+  pcap: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/evidence/emp_single_2ebff5ca44bd_receiver_a_dad_na.pcap
+    SHA-256 registrado: 73cc08ddb3ecd0d2166c4e1292f7df339032abec4231d900fd902157f48ce42e
+  pcap: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/evidence/emp_single_2ebff5ca44bd_receiver_a_incomplete_chain_control.pcap
+    SHA-256 registrado: b99fabdc4153711c2f33334db4ef5004f2ecb96a5464b4111f01bad44de04aed
+  pcap: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/evidence/emp_single_2ebff5ca44bd_receiver_a_incomplete_chain_variant.pcap
+    SHA-256 registrado: 74fa8b13146bf87b489719a5ff82b5592ca2a3a90b70171e72d3cb41c0aed8ff
+  pcap: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/evidence/emp_single_2ebff5ca44bd_receiver_a_na_neighbor.pcap
+    SHA-256 registrado: 5fd4bae86ad02d6e95d657fb0987b7924fcd00a9d9bac789cb31155175ea07f6
+  pcap: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/evidence/emp_single_2ebff5ca44bd_receiver_a_overlap_control.pcap
+    SHA-256 registrado: c6d299ee18a423252b8c08e647ab46a901e90e17e13a055c1d5b06ee735b7cf1
+  pcap: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/evidence/emp_single_2ebff5ca44bd_receiver_a_overlap_middle_control.pcap
+    SHA-256 registrado: 3b1bd5545a928bcd018836a0602dabb38c2034bb4fb5b884587a622351ca119f
+  pcap: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/evidence/emp_single_2ebff5ca44bd_receiver_a_overlap_middle_variant.pcap
+    SHA-256 registrado: 59fa3c269b4f3d08f7e2a6da10e8954be8138e07caa97ca61b8cd48c0d7da089
+  pcap: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/evidence/emp_single_2ebff5ca44bd_receiver_a_overlap_variant.pcap
+    SHA-256 registrado: ccd00e17a3e2a461affaf450d193dacd9d9c979e353e6c92a519cd1b93978748
+  pcap: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/evidence/emp_single_2ebff5ca44bd_receiver_a_ra_mtu.pcap
+    SHA-256 registrado: 6995caeb72edbc1492c50625e94c553b075b130f733ce553d831151112f7a55d
+  pcap: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/evidence/emp_single_2ebff5ca44bd_receiver_a_ra_route.pcap
+    SHA-256 registrado: 17425a639112a806505becfee0730691d459063a828d299f7a591292abd111d3
+noviembre multiagent: docs/evidencias-versionadas/2026-11-09/campana-api-20261108.zip
+  request: panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443/request.json
+    SHA-256 registrado: c1c02e1d7d1c40d14c34fffe2f666867dc5654f65523cfa0034932026752257a
+  plan: panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443/plan.json
+    SHA-256 registrado: 2c2dad38049cddab15283ecf9b0483715f778b93a2ae320010421c89d81c0c9b
+  report: panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443/report.json
+    SHA-256 registrado: 9e8cab1c3a84307bae220db6d0f21d38befd04e16e985935056ce6acfcedc168
+  manifest: panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443/manifest.json
+    SHA-256 registrado: 653a63fb50e434a6e021a56fa5f67073f1f8bb487ec6600aad56ee79567f41ed
+  evaluation: panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443/evaluation.json
+    SHA-256 registrado: e570a8ba545f6b060ea63e995b09e2094d56aa17ff372b3685ff33aac2fbc4f4
+  events: panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443/events.sqlite3
+    SHA-256 registrado: 11bda168c903f088ed2e4eec4512605547a0a2baf128667b84b2d37af05f921c
+  pcap: panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443/evidence/emp_multiagent_92cfd81f21f1_receiver_a_dad_na.pcap
+    SHA-256 registrado: 4bdba822c193dd1fb2a8e463eb83453395e29e5efe5bc39e3c5013ce91c28b88
+  pcap: panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443/evidence/emp_multiagent_92cfd81f21f1_receiver_a_na_neighbor.pcap
+    SHA-256 registrado: c877a3b468c6940218e911f981b0f301bbc92d9ff9a85ce41c8be499ce6bc615
+  pcap: panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443/evidence/emp_multiagent_92cfd81f21f1_receiver_a_overlap_control.pcap
+    SHA-256 registrado: a0e2a2a107b97c0f0584012d988e65f654b647aafff6fcc95ad0d43bfa23c48e
+  pcap: panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443/evidence/emp_multiagent_92cfd81f21f1_receiver_a_overlap_variant.pcap
+    SHA-256 registrado: a5ef9d0f84544bed4bdde7bf7b252ec3d7057f43f605012b16fc23bcd16bcf85
+  pcap: panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443/evidence/emp_multiagent_92cfd81f21f1_receiver_a_ra_mtu.pcap
+    SHA-256 registrado: 8acda424d5b80f2c43ed4f6cf81adbcc1d7a6c7218eab8624ec025feb2e809ef
+  pcap: panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443/evidence/emp_multiagent_92cfd81f21f1_receiver_a_ra_route.pcap
+    SHA-256 registrado: 300ca6b336bd6a7a056d942ea1f8550d6370f2c8e046c0ffef51e31015f0bb73
+
+QUÉ SOPORTA
+- Trazabilidad documental entre las medias ya publicadas, las posiciones elegibles, los run_id completos y los originales conservados.
+- Localización exacta de request/plan/report/manifest/evaluation/events y de cada pcap, junto a su SHA-256 ya registrado.
+- Comparación descriptiva separada: 23 parejas históricas, 25 de noviembre y las mismas 23 posiciones elegibles históricas en noviembre.
+
+QUÉ NO SOPORTA
+- Una reproducción exacta del mismo ejecutable o entorno: las fuentes históricas f9989505… y las de noviembre b71168c1… son diferentes; también difieren imágenes y otras identidades registradas.
+- Un efecto causal de una corrección, una actualización o la variabilidad del modelo sobre la variación de KPI.
+- Mezclar ambas campañas en una media, sustituir los históricos, completar intentos parciales o reingresar parejas excluidas.
+- Atribuir los KPI archivados a la aceptación 11.3, a 1014 pruebas posteriores o a sus cambios de software. Son mediciones distintas y este índice no verifica su cierre.
+- Confirmar stage, nuevas llamadas API o deploy del paquete v4.
+- Certificar que los contenidos de los ZIP son seguros o repetir el análisis de su carga útil; aquí sólo se localizaron miembros y hashes previamente registrados.
+
+VERIFICACIONES POSTERIORES, FUERA DE LAS MEDIAS KPI
+docs/evidencias-versionadas/2026-11-09/verificaciones-20261109.zip
+  Integridad: docs/evidencias-versionadas/2026-11-09/verificaciones-20261109-integridad.json
+  SHA-256 registrado: 8a8cbc95eb00a6169bb6ad6fba7a765555b6db274a29ab60ad2789123d846c25
+  Miembros observados: 295
+docs/evidencias-versionadas/2026-11-09/verificaciones-editoriales-20261109.zip
+  Integridad: docs/evidencias-versionadas/2026-11-09/verificaciones-editoriales-20261109-integridad.json
+  SHA-256 registrado: cb096dc4c75845c7ee76f6cdbf83dbe5c40042ac9e021e8fae13292f0ebec5bd
+  Miembros observados: 13

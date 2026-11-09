@@ -1,0 +1,266 @@
+[
+  {
+    "name": "clone",
+    "argv": [
+      "git",
+      "clone",
+      "--no-local",
+      "FUENTES_V4",
+      "RECIBOS_V4/clon-limpio-03"
+    ],
+    "exit_code": 0,
+    "seconds": 0.859,
+    "log": "clone.log",
+    "sha256": "c7192a70b31b5d38f53359cef29016d3ca7f72816ffec63d66b48f1b82e919cc"
+  },
+  {
+    "name": "source-commit",
+    "argv": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "seconds": 0.003,
+    "log": "source-commit.log",
+    "sha256": "144e39e07f03ef1ba71d17316a22f7958f667b32afc955bf14f82dd9b1b1b8b8"
+  },
+  {
+    "name": "uv-venv",
+    "argv": [
+      "python3",
+      "-m",
+      "venv",
+      ".venv-uv"
+    ],
+    "exit_code": 0,
+    "seconds": 2.785,
+    "log": "uv-venv.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "uv-install",
+    "argv": [
+      "RECIBOS_V4/clon-limpio-03/.venv-uv/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "--disable-pip-version-check",
+      "uv==0.13.7"
+    ],
+    "exit_code": 0,
+    "seconds": 1.02,
+    "log": "uv-install.log",
+    "sha256": "4465114763430a7034f911dd8b370ec2af5fb125f269abb858651e1bc8e7c127"
+  },
+  {
+    "name": "python-install",
+    "argv": [
+      "RECIBOS_V4/clon-limpio-03/.venv-uv/bin/uv",
+      "python",
+      "install",
+      "3.13.15"
+    ],
+    "exit_code": 0,
+    "seconds": 0.06,
+    "log": "python-install.log",
+    "sha256": "b4777c6e5ae20ee2a16ef936c6082bcab1b98420bbab694d53d5221256767777"
+  },
+  {
+    "name": "prototype-lock",
+    "argv": [
+      "RECIBOS_V4/clon-limpio-03/.venv-uv/bin/uv",
+      "lock",
+      "--project",
+      "piloto_kali/prototipo",
+      "--check"
+    ],
+    "exit_code": 0,
+    "seconds": 0.013,
+    "log": "prototype-lock.log",
+    "sha256": "c7be95e1b8d32c08edfb9cb259f20eb7276beb8eecfd67f78bfb25936060039e"
+  },
+  {
+    "name": "prototype-frozen",
+    "argv": [
+      "RECIBOS_V4/clon-limpio-03/.venv-uv/bin/uv",
+      "sync",
+      "--project",
+      "piloto_kali/prototipo",
+      "--python",
+      "3.13.15",
+      "--frozen",
+      "--extra",
+      "ipv6",
+      "--extra",
+      "test"
+    ],
+    "exit_code": 0,
+    "seconds": 1.314,
+    "log": "prototype-frozen.log",
+    "sha256": "362700588078c2ea94d68ca32865399307bc82226ab55a0b8960b79437208bfe"
+  },
+  {
+    "name": "legacy-lock",
+    "argv": [
+      "RECIBOS_V4/clon-limpio-03/.venv-uv/bin/uv",
+      "lock",
+      "--project",
+      ".",
+      "--check"
+    ],
+    "exit_code": 0,
+    "seconds": 0.018,
+    "log": "legacy-lock.log",
+    "sha256": "15a2a77efa332fc0115d66cfd8e9f0dcbca9b720a4673dc055a5806501b45752"
+  },
+  {
+    "name": "legacy-frozen",
+    "argv": [
+      "RECIBOS_V4/clon-limpio-03/.venv-uv/bin/uv",
+      "sync",
+      "--project",
+      ".",
+      "--python",
+      "3.13.15",
+      "--frozen",
+      "--extra",
+      "dev"
+    ],
+    "exit_code": 0,
+    "seconds": 1.223,
+    "log": "legacy-frozen.log",
+    "sha256": "4ebe16ab7460e1892e1ba5d0c14eae11d3014b527381eeebf344061d14dabeda"
+  },
+  {
+    "name": "npm-version",
+    "argv": [
+      "HOME_PRIVADO/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "AREA_PRIVADA_TRABAJO/orden-repo-publico-20261109/herramientas-node/npm11/package/bin/npm-cli.js",
+      "--version"
+    ],
+    "exit_code": 0,
+    "seconds": 0.18,
+    "log": "npm-version.log",
+    "sha256": "a38e383f1e9080b0dd9001481f6e56b341000de90a05061b66734350ad3adc41"
+  },
+  {
+    "name": "npm-ci",
+    "argv": [
+      "HOME_PRIVADO/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "AREA_PRIVADA_TRABAJO/orden-repo-publico-20261109/herramientas-node/npm11/package/bin/npm-cli.js",
+      "ci",
+      "--prefix",
+      "scripts/tests",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund"
+    ],
+    "exit_code": 0,
+    "seconds": 1.198,
+    "log": "npm-ci.log",
+    "sha256": "029268616efd129e5da5c1ddc08edfe8c036cb3fe316fdb3601d5cdeb5f39eab"
+  },
+  {
+    "name": "playwright-install",
+    "argv": [
+      "HOME_PRIVADO/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "RECIBOS_V4/clon-limpio-03/scripts/tests/node_modules/playwright/cli.js",
+      "install",
+      "chromium"
+    ],
+    "exit_code": 0,
+    "seconds": 0.787,
+    "log": "playwright-install.log",
+    "sha256": "ec8abbba1f012c038a67e54b54adff9815a24664410cf89fe990507d853b9339"
+  },
+  {
+    "name": "legacy-tests",
+    "argv": [
+      "RECIBOS_V4/clon-limpio-03/.venv/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "tests",
+      "--junitxml=RECIBOS_V4/clon-validacion-03/legacy-junit.xml"
+    ],
+    "exit_code": 0,
+    "seconds": 3.224,
+    "log": "legacy-tests.log",
+    "sha256": "56c219313235b9b540c37ea18678737ba5462564629aaf410c0695dbae7a442b"
+  },
+  {
+    "name": "prototype-tests",
+    "argv": [
+      "RECIBOS_V4/clon-limpio-03/piloto_kali/prototipo/.venv/bin/python",
+      "-m",
+      "pytest",
+      "-c",
+      "piloto_kali/prototipo/pyproject.toml",
+      "-q",
+      "scripts/tests",
+      "piloto_kali/prototipo/tests",
+      "--junitxml=RECIBOS_V4/clon-validacion-03/prototype-junit.xml"
+    ],
+    "exit_code": 0,
+    "seconds": 127.286,
+    "log": "prototype-tests.log",
+    "sha256": "fc013a2a22fe2783bdea4b198e97299eee2a44fd07950e09d6219aa35a5f92c7"
+  },
+  {
+    "name": "dom",
+    "argv": [
+      "HOME_PRIVADO/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "--test",
+      "scripts/tests/test_centinela_ui.cjs"
+    ],
+    "exit_code": 0,
+    "seconds": 4.567,
+    "log": "dom.log",
+    "sha256": "281270d70e4dfa115be8abd34ee944f7ac3801fd7f3660e054cdf5f5af443c5f"
+  },
+  {
+    "name": "browser",
+    "argv": [
+      "HOME_PRIVADO/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "scripts/tests/centinela.smoke.browser.mjs"
+    ],
+    "exit_code": 0,
+    "seconds": 4.562,
+    "log": "browser.log",
+    "sha256": "e659417f8f1d4e2c50e11a089f0498afe5df847fd209a0ffb43fe69434ab9ffa"
+  },
+  {
+    "name": "verify-2026-11-09-11-3",
+    "argv": [
+      "RECIBOS_V4/clon-limpio-03/piloto_kali/prototipo/.venv/bin/python",
+      "docs/evidencias-versionadas/2026-11-09-11-3/verificar.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.467,
+    "log": "verify-2026-11-09-11-3.log",
+    "sha256": "56e01eacafbc3a3a54dc24de98e2febd07063474548bebbef486d56622a90c49"
+  },
+  {
+    "name": "verify-2026-11-09-11-3-recuperacion",
+    "argv": [
+      "RECIBOS_V4/clon-limpio-03/piloto_kali/prototipo/.venv/bin/python",
+      "docs/evidencias-versionadas/2026-11-09-11-3-recuperacion/verificar.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.073,
+    "log": "verify-2026-11-09-11-3-recuperacion.log",
+    "sha256": "404a9695742cbbe846eb3fb1dd7eac0aff4bda3635985e7e7504c06304870f46"
+  },
+  {
+    "name": "verify-2026-11-09-v3",
+    "argv": [
+      "RECIBOS_V4/clon-limpio-03/piloto_kali/prototipo/.venv/bin/python",
+      "docs/evidencias-versionadas/2026-11-09-v3/verificar.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.184,
+    "log": "verify-2026-11-09-v3.log",
+    "sha256": "e58e9320d6d074ae99ddfc4753aaa0897409b864738a7c0515252cb70e747c60"
+  }
+]

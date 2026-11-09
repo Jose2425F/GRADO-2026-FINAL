@@ -1,0 +1,263 @@
+OPERACIÓN DEL EJECUTOR PROTEGIDO · VERSIÓN 0.6.0
+
+Esta receta corresponde al operador de infraestructura. La instalación crea un
+daemon Docker y un containerd privados, un namespace de laboratorio sin salida
+por defecto y cinco namespaces de auditoría con filtros IPv4 e IPv6. Conserva
+los estados, las evidencias y las cuarentenas de las instalaciones anteriores.
+
+El panel y su cola Unix se describen en los archivos de servicio de esta entrega.
+El panel utiliza una identidad sin acceso al grupo Docker. El controlador usa
+UID/GID 65531; Nmap 65532; Hydra 65533; el proxy del proveedor 65530. Los procesos
+de auditoría no reciben capacidades ni grupos suplementarios. El daemon y su
+supervisor pertenecen a la infraestructura privilegiada del operador.
+
+1. ENTRADAS FIJADAS ANTES DE INSTALAR
+
+Use un checkout revisado de esta entrega y el mismo Python 3.13.15. Instale el
+prototipo con uv 0.13.7 y su uv.lock, incluyendo los extras ipv6 y test. La versión
+de la distribución instalada debe coincidir con pyproject.toml: 0.6.0. Las
+dependencias del paquete legado mantienen su entorno independiente.
+
+Prepare, fuera del repositorio, estos archivos JSON y el archivo TAR autorizado
+de las imágenes del laboratorio. No incluya claves del proveedor, lab.env,
+ground_truth ni archivos de una carpeta .lab en los mapas de fuentes.
+
+source-map.json es un objeto ruta-relativa:sha256. Ejemplo de formato:
+  {"scripts/instalar_ejecutor_protegido.py":"<64 caracteres hexadecimales>"}
+Debe enumerar la fuente congelada que va a ejecutar el stage: scripts, interfaz,
+paquete auditoria, despliegue, configuración pública y TOML/locks. Las rutas no
+pueden ser absolutas ni contener segmentos .., enlaces o datos privados. La
+documentación y la evidencia que no se ejecutan se conservan por separado.
+
+venv-map.json tiene el mismo formato y enumera TODOS los archivos del entorno
+validado antes de copiarlo. Omita __pycache__, archivos .pyc y el alias lib64.
+La función venv_inventory de scripts/instalar_ejecutor_protegido.py produce ese
+mapa sin importar paquetes del aplicativo ni ejecutar herramientas de auditoría.
+Realice esta preparación como usuario normal, antes de la instalación root.
+
+images.json sólo admite estas cinco referencias, cada una asociada a su ID
+completo sha256:<64 caracteres> comprobado contra la copia privada autorizada:
+  novaflow-lab-credentials:local
+  novaflow-lab-protocol:local
+  novaflow-lab-http:local
+  auditoria-lab-v2-app:local
+  postgres:16-alpine
+
+El instalador verifica el SHA del TAR y vuelve a calcular los cinco ID a partir
+de sus JSON de configuración. Lee esos metadatos sin extraer el TAR al host.
+Después copia el TAR a private, vuelve a comprobarlo y lo carga sólo en el daemon
+nuevo. No descarga ni construye imágenes durante la instalación.
+
+Anote SHA-256 de los tres mapas y del TAR en el recibo de la instalación. Cualquier
+cambio de fuentes o dependencias requiere otros mapas y otra base; no sustituya
+los archivos utilizados en una ejecución anterior.
+
+2. INSTALACIÓN DESDE LA CONSOLA DEL OPERADOR
+
+Las variables siguientes son localizadores del operador. BASE debe ser una ruta
+nueva /var/tmp/c113- seguida de 12 caracteres hexadecimales minúsculos. No reutilice
+una base fallida ni modifique su bootstrap para forzar otra identidad.
+
+  REPO=/ruta/al/checkout-revisado
+  ENTRADAS=/ruta/privada/a/entradas-versionadas
+  BASE=/var/tmp/c113-<12hex>
+
+Ejecute con los hashes completos ya comprobados:
+
+  sudo /usr/bin/python3 -I -B "$REPO/scripts/instalar_ejecutor_protegido.py" \
+    --stage "$BASE" --action install --source "$REPO" \
+    --source-map "$ENTRADAS/source-map.json" \
+    --source-map-sha256 <SHA_FUENTES> \
+    --venv "$REPO/piloto_kali/prototipo/.venv" \
+    --venv-map "$ENTRADAS/venv-map.json" \
+    --venv-map-sha256 <SHA_VENV> \
+    --images-json "$ENTRADAS/images.json" \
+    --images-json-sha256 <SHA_REGISTRO_IMAGENES> \
+    --archive "$ENTRADAS/imagenes.tar" --archive-sha256 <SHA_TAR> \
+    --python /usr/bin/python3.13 --stdlib /usr/lib/python3.13
+
+Conserve stdout, stderr y el código de salida en la carpeta privada de esa
+versión. La salida correcta usa schema centinela-stage-install/1, ok:true,
+state:prepared, los cinco bancos y 56 contenedores. Esto acredita preparación;
+todavía hay que ejecutar los preflights protegidos y la aceptación del catálogo.
+
+El código, el intérprete y la biblioteca estándar se copian a archivos root de
+sólo lectura. El venv copiado se compara con su mapa antes de ejecutarse. Se
+eliminan .pth, localizadores editables y direct_url; los enlaces de ejecución
+restantes apuntan dentro de BASE. No se propagan xattrs ni bits setuid de las
+entradas. private es root 0700, bootstrap.json y el socket Docker son root 0600.
+
+La creación de Compose utiliza --no-build --pull never e IDs fijados. Las
+fixtures públicas montadas como código son root 0444/0555; las contraseñas y las
+etiquetas reservadas del banco mantienen sus permisos privados. La captura del
+firewall del host utiliza libnftables.so.1 en modo de consulta, sin requerir el
+programa nft. La comparación anterior/posterior omite los contadores dinámicos.
+
+No se modifican Nginx, el panel activo, el Docker principal ni sus contenedores.
+Una falla conserva el recibo y los datos del intento. El rollback sólo detiene
+IDs del daemon nuevo que coincidan con sus catálogos y sus imágenes fijadas;
+Docker debe terminar antes que containerd. Si no se confirma la limpieza, el
+operador debe resolver el intento privado antes de habilitar la cola.
+
+3. CONTROL CERRADO Y PREFLIGHT
+
+Los bancos admitidos son integrado, sucursal, comercial, mixto y reforzado.
+Utilice siempre el Python y el código instalados en la misma BASE:
+
+  sudo "$BASE/venv/bin/python" -I -B \
+    "$BASE/repo/scripts/instalar_ejecutor_protegido.py" \
+    --stage "$BASE" --bank integrado --action status
+
+Cambie la acción únicamente por prepare, recover o down cuando corresponda.
+El proceso devuelve una línea JSON con schema centinela-stage-control/1, ok,
+action, bank, state, active_count, quarantine_count y quarantined. Puede añadir
+running_containers, error_code y quarantine_state_known. Sale 0 en éxito y 3 en
+un rechazo operativo. Un error o un estado de cuarentena desconocido no autoriza
+el despacho. Un active_count 1 representa una reserva global u otros procesos
+de auditoría pendientes de cierre; no es un conteo de usuarios.
+
+prepare arranca únicamente contenedores ya registrados por ID y actualiza sus
+veth/filtros. No vuelve a preparar credenciales, recrear el banco ni borrar
+marcadores. down detiene sólo los IDs comprobados de ese banco y conserva sus
+datos. El lock private/operator-run.lock es el mismo de ejecutar_protegido.py;
+una corrida impide cambios simultáneos del operador sobre los bancos.
+
+Antes de habilitar auditorías, ejecute para CADA banco:
+
+  sudo "$BASE/venv/bin/python" -I -B \
+    "$BASE/repo/scripts/ejecutar_protegido.py" \
+    --base "$BASE" --bank integrado --action preflight
+
+El preflight utiliza las identidades y el broker protegidos, no consume API ni
+recorre el catálogo. Conserve cada recibo y compruebe su código 0. Una preparación
+o un status no sustituyen este control ni la aceptación real de las tareas.
+
+4. CUARENTENA Y RECUPERACIÓN
+
+Los marcadores en runtime/segment-locks/<banco> sobreviven a nuevas corridas.
+No los elimine, cambie de dueño ni use otra carpeta para eludirlos. Una lectura
+fallida del kernel o sus bits de taint 7/14 bloquea la operación de red antes de
+reiniciar objetivos. Primero debe recuperarse el equipo.
+
+Para un banco en cuarentena, con ninguna corrida activa:
+
+  sudo "$BASE/venv/bin/python" -I -B \
+    "$BASE/repo/scripts/instalar_ejecutor_protegido.py" \
+    --stage "$BASE" --bank integrado --action recover
+
+recover toma el mismo lock, reinicia sólo los receptores fijados, espera la
+actualización de red y obtiene la prueba del preflight protegido. Sólo esa
+prueba permite retirar los marcadores de los segmentos. Una falla los conserva.
+Las reservas .lock mantienen UID/GID 65531 y0600; no se cambia silenciosamente la
+propiedad de un archivo ajeno. Conserve el recibo de recuperación como otra
+versión y verifique status antes del siguiente despacho.
+
+5. PROVEEDOR Y SEPARACIÓN DEL PANEL
+
+La configuración del proveedor, si se habilita, se guarda fuera del repositorio
+en BASE/private/openai.json, root:root 0600. El objeto admite api_key, model y los
+opcionales reasoning_effort/max_output_tokens. El modelo instalado es
+gpt-6.1-sol y la salida admitida queda entre 256 y 2048 tokens. Introduzca la clave
+por el procedimiento privado del operador; no la escriba en argv, registros,
+documentos, variables del panel ni archivos versionados.
+
+El launcher transmite la clave por un descriptor al proxyUID 65530. El controlador
+UID 65531 sólo dispone de un socket Unix y una política pública por corrida. Su
+namespace sigue sin ruta externa. La apertura del panel, status, preflight y las
+pruebas sin API no requieren una consulta al proveedor. Una prueba sin API no
+demuestra que una llamada pagada haya sido ejecutada.
+
+La cola recibe operaciones y opciones cerradas, comprueba al peer del socket y
+crea los jobs privados. El panel no suministra comandos Docker, hosts, imágenes,
+rutas de política ni descriptores privilegiados. La cuenta web de esta entrega
+usa UID 65529 y mantiene sus propios datos; no recibe permisos Docker.
+
+6. SUPERVISOR, UNIDADES Y REINICIO DEL EQUIPO
+
+La instalación inicial arranca el supervisor como proceso propio, todavía fuera
+de una unidad systemd. La plantilla centinela-laboratorio.service.in describe
+únicamente el daemon de una base ya provisionada en el arranque actual. No la
+inicie mientras el supervisor inicial siga usando su socket y sus datos.
+
+Antes de una adopción manual por unidad, detenga la cola y espere el cierre de
+sus jobs; confirme active_count 0 en los cinco bancos, use down en cada uno y
+compruebe los IDs/estados detenidos. El operador debe verificar PID, starttime
+y namespace del supervisor contra el bootstrap antes de detener precisamente
+ese proceso. No utilice pkill, nombres globales de proceso ni el Docker normal.
+Archive sus metadatos de PID antes de adoptar la unidad. Tras iniciarla, registre
+el MainPID y su identidad como recibo nuevo; conserve el bootstrap original.
+
+Después de una adopción en el MISMO arranque, espere la disponibilidad del
+daemon privado, use prepare para cada banco y vuelva a ejecutar sus cinco
+preflights. Sólo después puede habilitar la cola. Las unidades de cola y web
+tienen sus recetas propias; esta plantilla no las instala ni las inicia.
+
+El arranque en frío NO queda automatizado por esta plantilla. Los namespaces
+de /run/netns y sus inodos desaparecen al reiniciar el equipo; los recibos viejos
+ya no representan esa red. Las condiciones de la unidad y las comprobaciones
+del stage deben impedir nuevos despachos. No cree namespaces con el mismo
+nombre ni edite los inodos de los recibos para aparentar una restauración.
+Conserve la base anterior y aprovisione otra, con nuevos mapas y recibos,
+ejecute la aceptación requerida y actualice la configuración root de la cola.
+
+/var/tmp también está sujeto a la política de limpieza del sistema. El operador
+debe conservar por separado las evidencias, las entradas fijadas y las copias
+privadas autorizadas. La recuperación después de un reinicio exige intervención
+del operador; no se declara una auditoría automática al arrancar el servidor.
+
+7. RELEASE WEB Y DATOS PRIVADOS
+
+El componente web se instala en una copia root de un commit revisado, separada
+del ejecutor y de los datos. WEBROOT identifica esa copia; BASE sigue siendo
+la base exacta aceptada por el operador. La plantilla novaflow-panel.service.in
+usa el Python BASE/venv, pero importa scripts y auditoria desde WEBROOT mediante
+PYTHONPATH. Compruebe las huellas de los archivos Python/TOML/locks compartidos;
+registre por separado cualquier cambio de presentación. No sustituya fuentes
+dentro de una base del ejecutor ya aceptada.
+
+WEBROOT debe ser root:root, con directorios0555 y archivos0444 (0555 cuando ya
+necesitan ejecución), sin enlaces a directorios modificables por el usuario.
+El enlace WEBROOT/piloto_kali/prototipo/.venv apunta al entorno privado fijado
+de BASE. Un checkout de desarrollo o un enlace a /home no es una release web.
+Nunca copie .lab, bases de cuentas, .env, sesiones ni claves al checkout público.
+
+La cuenta de servicio centinela-web usa UID/GID65529, shell nologin y únicamente
+su grupo propio. No la añada a docker. La primera instalación necesita DATA0700
+con ese propietario y una cuenta administrativa creada mediante
+administrar_centinela.py crear-admin, ejecutado como ese usuario y con el
+PYTHONPATH de la release. La contraseña se introduce de forma oculta.
+
+En una migración, conserve el directorio de datos original y las corridas.
+Compruebe que no haya auditorías activas, detenga el panel y obtenga una copia
+coherente de SQLite con su API de backup. Copie los espacios de trabajo y las
+corridas a un DATA nuevo de la versión; cambie sólo el propietario de las copias.
+No copie una base SQLite en uso mediante una lectura ordinaria de sus bytes.
+Registre el inventario y los hashes de las copias privadas, fuera del repositorio.
+
+La lista de familias de socket de la unidad web incluye AF_NETLINK para consultar
+los nombres de las interfaces de Linux. Esto no añade capabilities: el proceso
+mantiene capacidades efectivas, ambientales y de límite nulas, y no administra
+la red ni accede al socket privado de Docker.
+
+Sustituya @BASE@, @WEBROOT@ y @DATA@ en las plantillas por las rutas revisadas.
+La unidad de cola usa BASE/repo y DATA/accounts.sqlite3; el proceso root sólo
+recibe el contrato cerrado del socket. La unidad web usa WEBROOT y DATA, sin
+capabilities y con NoNewPrivileges. TMPDIR queda en su RuntimeDirectory privado,
+para permitir archivos temporales sin escribir en la release de sólo lectura.
+
+Antes de activar las unidades, ejecute systemd-analyze verify sobre las copias
+concretas y preserve la unidad del panel anterior. Después de daemon-reload,
+active centinela-operador.service y novaflow-panel.service. No inicie la plantilla
+del laboratorio sobre el supervisor inicial que ya esté activo. La activación
+web no cambia por sí sola el proxy Nginx, el dominio ni el certificado TLS.
+
+Valide por HTTPS el login, los recursos de la interfaz, el estado autenticado,
+los reportes y la revocación de sesión. La aceptación aislada debe comprobar
+además ejecución, cierre de roles y publicación/retirada por empresa, con casos
+negativos entre usuarios. Una respuesta HTTP200 del login no acredita una
+auditoría ni el aislamiento de sus resultados.
+
+Si falla el cambio, detenga primero los trabajos propios de la cola y espere su
+cierre. Restaure la unidad respaldada y arranque el panel anterior sobre sus datos
+originales conservados. Guarde DATA nuevo y los recibos del intento; no elimine
+la evidencia del fallo para presentar únicamente el arranque exitoso.

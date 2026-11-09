@@ -1,0 +1,62 @@
+{
+  "schema": "centinela-phase-source-cotejo/1",
+  "source_scope": "Each match describes its capture time and recorded phase. Later installer/frontend changes require independent receipts; this is not a comparison against the final publication tree.",
+  "phases": {
+    "proveedor_101": {
+      "source_hashes": {
+        "scripts/ejecutar_protegido.py": "5d7fa9be2554c02bab207c5aa184a419e843fe72b9f4549aab64a55abe060e7f",
+        "scripts/ejecucion_protegida_controlador.py": "13f2eec3752bb12886a7215e708e2ecb2e4827c010dadf624cf278a2a3bf1502",
+        "scripts/llm_especialistas.py": "8dd38fcd7dc7e519e04394cbb35ddb81851ed9a8018f7a910cea74bcc628b898",
+        "piloto_kali/prototipo/src/auditoria/openai_provider.py": "522e942269feb348520125dd6baefed9d1d1a0b9d02f5cb4bd66bb95975ce493",
+        "piloto_kali/prototipo/src/auditoria/provider_proxy.py": "6a662a0c40dcf18f87c59f72dc714a6df109c1d48c45631176435debd4e29d6c",
+        "scripts/tests/test_proveedor_operador.py": "26d4f0c7ed00e3eb7b28df9423693e8ecadb5fa7c10cdaae9be7bf62e38e8b1e",
+        "piloto_kali/prototipo/tests/test_provider_proxy.py": "1ad8a6cbaa299333f693ca6ba2e444414d4868064e8fec340d96e9a1c71e0b23"
+      },
+      "matches": {
+        "scripts/ejecutar_protegido.py": true,
+        "scripts/ejecucion_protegida_controlador.py": true,
+        "scripts/llm_especialistas.py": true,
+        "piloto_kali/prototipo/src/auditoria/openai_provider.py": true,
+        "piloto_kali/prototipo/src/auditoria/provider_proxy.py": true,
+        "scripts/tests/test_proveedor_operador.py": true,
+        "piloto_kali/prototipo/tests/test_provider_proxy.py": true
+      },
+      "all_new_runtime_sources_claimed_tested": false
+    },
+    "operador_panel_56": {
+      "source_hashes": {
+        "scripts/operador_web.py": "47e78306b9983048806567bc4b12487e3057ba8fd09f37952fc4bc9041bc4de1",
+        "scripts/panel_ejecutor.py": "9d3234e23008bceaa6be63bc335c0682a922505023e2ac94aee82a1437104aaf",
+        "scripts/dualstack_panel.py": "e3ed8630bfaa5867bfda05fb510aef06da5629c971d57244f715627e1c217d4c",
+        "scripts/centinela_tenancy.py": "9a63a8b76f069bf29d74d7c0f2ede077c289101a566bcaccb779436300c2fa99",
+        "scripts/tests/test_operador_web.py": "d2286a5357611ad21cece55cc6a64b2611ac4e05b218c06df0bcb8b2d5adbfae",
+        "scripts/tests/test_operador_web_security.py": "e120895b43c06ecac262af0bdb1c1bbbbe952a06539ef7628f18ed8dade932fe",
+        "scripts/tests/test_panel_ejecutor.py": "e2ea9b2c63b1b2d4af911da2303d50c30daa8e8f230d324a7703c88239ee3af2"
+      },
+      "matches": {
+        "scripts/operador_web.py": true,
+        "scripts/panel_ejecutor.py": true,
+        "scripts/dualstack_panel.py": true,
+        "scripts/centinela_tenancy.py": true,
+        "scripts/tests/test_operador_web.py": true,
+        "scripts/tests/test_operador_web_security.py": true,
+        "scripts/tests/test_panel_ejecutor.py": true
+      },
+      "all_new_runtime_sources_claimed_tested": false
+    },
+    "instalador_43": {
+      "source_hashes": {
+        "scripts/instalar_ejecutor_protegido.py": "ea5da47cafb7bf6e44eb4a2cdf84a0a89f75b35cea8d96f6aaca229b70e7838d",
+        "scripts/tests/test_instalar_ejecutor_protegido.py": "a50c39a59435e0ef4c9a17dd3475e80a2d2a9faedab37d7d2224d7620e43b17f"
+      },
+      "matches": {
+        "scripts/instalar_ejecutor_protegido.py": true,
+        "scripts/tests/test_instalar_ejecutor_protegido.py": true
+      },
+      "all_new_runtime_sources_claimed_tested": false
+    }
+  },
+  "all_recorded_hashes_matched_at_capture": true,
+  "captured_at_utc": "2026-11-09T09:34:16.518292+00:00",
+  "later_source_deltas_are_not_covered": true
+}

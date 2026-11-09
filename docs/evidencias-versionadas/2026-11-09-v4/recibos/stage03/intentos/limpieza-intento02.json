@@ -1,0 +1,9 @@
+{
+  "stage": "/var/tmp/c113-78753b50ce63",
+  "repair_supervisor_pid": 1326637,
+  "expected_containers": 20,
+  "old_global_daemon_modified": false,
+  "status": "stopped_owned_new_containers",
+  "all20_stopped": true,
+  "supervisor_stopped": true
+}

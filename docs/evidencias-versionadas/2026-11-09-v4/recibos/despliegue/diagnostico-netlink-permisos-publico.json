@@ -1,0 +1,33 @@
+{
+  "schema": "centinela-approved-public-projection/1",
+  "origin_relative_locator": "publicacion-v4-20261109/despliegue/diagnostico-netlink-permisos.json",
+  "origin_bytes": 624,
+  "origin_sha256": "77768f50a3a2a741f48a04c389b340cf1215767b02b04381559cccdc8cafe48b",
+  "phase": "temporary-sandbox-permissions",
+  "omitted_fields": [],
+  "results": {
+    "schema": "centinela-netlink-permission-probe/1",
+    "before": {
+      "interface_query_errno": 97,
+      "state_source": "scripts/dualstack_panel.py:624"
+    },
+    "after": {
+      "interface_query_succeeded": true,
+      "uid": 65529,
+      "gid": 65529,
+      "supplementary_groups": [
+        65529
+      ],
+      "CapEff": "0000000000000000",
+      "CapBnd": "0000000000000000",
+      "CapAmb": "0000000000000000",
+      "NoNewPrivs": "1",
+      "ipv6_raw_denied_errno": 1,
+      "docker_private_denied_errno": 13
+    },
+    "raw_probe_tool_chunk": "c76390",
+    "original_service_untouched": true,
+    "audit_requests_sent": 0,
+    "generation_calls": 0
+  }
+}

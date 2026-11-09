@@ -1,0 +1,136 @@
+{
+  "schema": "centinela-approved-public-projection/1",
+  "origin_relative_locator": "publicacion-v4-20261109/despliegue/diagnostico-systemd-18766-despues-netlink.json",
+  "origin_bytes": 3119,
+  "origin_sha256": "aab1db50d565914a00b926094d36fc4b6e78a8c98150fdb051457d63a0d21cd5",
+  "phase": "temporary-sandbox-passed",
+  "omitted_fields": [],
+  "results": {
+    "schema": "centinela-systemd-sandbox-diagnostic/2",
+    "port": 18766,
+    "production_port_untouched": true,
+    "audit_requests_sent": 0,
+    "generation_calls": 0,
+    "af_netlink_added_to_temporary_unit": true,
+    "checks": [
+      {
+        "check": "real_admin_login",
+        "passed": true
+      },
+      {
+        "check": "protected_health_and_idle_state",
+        "passed": true
+      },
+      {
+        "check": "uid_caps_and_nnp",
+        "passed": true
+      },
+      {
+        "check": "session_revoked",
+        "passed": true
+      }
+    ],
+    "assets": [
+      {
+        "url": "/app.js?v=821a9c2f50da8d78",
+        "status": 200,
+        "bytes": 100690,
+        "sha256": "821a9c2f50da8d78597b40dc8bcbf0e6ea107be81b0bee1ea37ab86148f36d0e"
+      },
+      {
+        "url": "/login.css?v=f79657069e1b1025",
+        "status": 200,
+        "bytes": 21888,
+        "sha256": "f79657069e1b1025c38701d1d7353791aff43f27f4507b7b6eb2f7b71182f43c"
+      },
+      {
+        "url": "/login.js?v=76e1c488c39f0983",
+        "status": 200,
+        "bytes": 4178,
+        "sha256": "76e1c488c39f09837f3f96398b5b96ae77f14726a30f358905a7172748686065"
+      },
+      {
+        "url": "/portal.js?v=4e42d41493b18db4",
+        "status": 200,
+        "bytes": 1339,
+        "sha256": "4e42d41493b18db46b9702eb7c9a61b5e07ddf09499648218a7e0960e2140cf2"
+      },
+      {
+        "url": "/styles.css?v=8f854c6f3931a2b3",
+        "status": 200,
+        "bytes": 76259,
+        "sha256": "8f854c6f3931a2b3c8994621dc919a2a9c7a9907b53262e1b1a6dc2001b22d77"
+      },
+      {
+        "url": "/workspace.js?v=4734f410a559dc48",
+        "status": 200,
+        "bytes": 33244,
+        "sha256": "4734f410a559dc485d42db649dcbc1ea280fce53ee2981e587f503c6359250dc"
+      }
+    ],
+    "state": {
+      "busy": false,
+      "protected_execution": {
+        "ok": true,
+        "available": true,
+        "busy": false,
+        "supported_scopes": [
+          "empresa"
+        ],
+        "banks": {
+          "integrado": {
+            "state": "unknown",
+            "active_count": 0
+          },
+          "sucursal": {
+            "state": "unknown",
+            "active_count": 0
+          },
+          "comercial": {
+            "state": "unknown",
+            "active_count": 0
+          },
+          "mixto": {
+            "state": "unknown",
+            "active_count": 0
+          },
+          "reforzado": {
+            "state": "unknown",
+            "active_count": 0
+          }
+        },
+        "api_configured": true
+      },
+      "run_count": 55,
+      "run_statuses": {
+        "complete": 55
+      }
+    },
+    "reports": [
+      {
+        "audience": "technical",
+        "status": 200,
+        "bytes": 42967,
+        "sha256": "6e19f7887bf962a5110ab767cb693567d013e1f9acfa410e9c0c398b0e6d0d63"
+      },
+      {
+        "audience": "executive",
+        "status": 200,
+        "bytes": 21919,
+        "sha256": "3f9ff0b5423775b3a8a8c4c3a23576bcd223c072e67c1f7db4404f1a36521b3f"
+      }
+    ],
+    "web_identity": {
+      "Uid": "65529\t65529\t65529\t65529",
+      "Gid": "65529\t65529\t65529\t65529",
+      "Groups": "65529",
+      "CapInh": "0000000000000000",
+      "CapPrm": "0000000000000000",
+      "CapEff": "0000000000000000",
+      "CapBnd": "0000000000000000",
+      "CapAmb": "0000000000000000",
+      "NoNewPrivs": "1"
+    },
+    "status": "passed"
+  }
+}

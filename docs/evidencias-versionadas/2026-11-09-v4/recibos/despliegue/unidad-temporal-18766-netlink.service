@@ -1,0 +1,40 @@
+[Unit]
+Description=Centinela diagnostico temporal aislado
+After=network.target centinela-operador.service
+Wants=centinela-operador.service
+
+[Service]
+Type=simple
+User=centinela-web
+Group=centinela-web
+RuntimeDirectory=centinela-web
+RuntimeDirectoryMode=0700
+WorkingDirectory=/opt/centinela/releases/73022090c5d9
+Environment=HOME=/var/lib/centinela-v060
+Environment=TMPDIR=/run/centinela-web
+Environment=CENTINELA_DATA_DIR=/var/lib/centinela-v060
+Environment=CENTINELA_EXECUTOR_SOCKET=/run/centinela-operator/control.sock
+Environment=PYTHONPATH=/opt/centinela/releases/73022090c5d9/piloto_kali/prototipo/src:/opt/centinela/releases/73022090c5d9/scripts
+Environment=PYTHONNOUSERSITE=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=LANGSMITH_TRACING=false
+Environment=LANGCHAIN_TRACING_V2=false
+Environment=DOCKER_HOST=unix:///run/centinela-no-docker.sock
+ExecStart=STAGE_PROTEGIDO/venv/bin/python /opt/centinela/releases/73022090c5d9/scripts/dualstack_panel.py --runs /var/lib/centinela-v060/legacy-runs --port 18766
+UMask=0077
+NoNewPrivileges=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/centinela-v060 /run/centinela-web
+RestrictNamespaces=true
+RestrictSUIDSGID=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 AF_NETLINK
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=45
+
+[Install]
+WantedBy=multi-user.target

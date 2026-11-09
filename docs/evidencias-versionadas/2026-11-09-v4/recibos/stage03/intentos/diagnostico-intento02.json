@@ -1,0 +1,20 @@
+{
+  "failure": "Mounted public code had0600 while legacy UID65534 needed read access.",
+  "fixture_mode_before": "0600",
+  "fixture_mode_after_fix": "0444",
+  "source_logs": [
+    {
+      "sha256": "c1e015837c80bb38ed73a6fc96a69e03951280504c8bcdf5f35b4239885d7eb9",
+      "bytes": 146
+    }
+  ],
+  "selected_permission_errors": [
+    {
+      "log": "python: can't open file '/app/http_target.py': [Errno 13] Permission denied\n",
+      "stream": "stderr",
+      "time": "2026-11-09T09:36:07.792119569Z"
+    }
+  ],
+  "raw_logs_excluded": true,
+  "cleanup": "Only20new containers were stopped; neither pre-existing daemon was modified."
+}

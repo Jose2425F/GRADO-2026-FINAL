@@ -1,0 +1,1 @@
+{"schema": "centinela-stage-install/1", "ok": true, "stage": "/var/tmp/c113-35ec6c7e764a", "state": "prepared", "banks": ["integrado", "sucursal", "comercial", "mixto", "reforzado"], "containers": 56, "source_manifest_sha256": "cf2f6d979f0831cca5c4b6c3ee3b9c2b9f94175bdb4f49b65d17fe07df7cd97c"}

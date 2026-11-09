@@ -1,0 +1,70 @@
+{
+  "schema": "centinela-prior-service-baseline/1",
+  "origin_relative_path": "publicacion-v4-20261109/despliegue/https-100033.json",
+  "origin_sha256": "2779a6735136766f1abcac095688bc0cfb3792a91f38bf31a9118a3af549b31f",
+  "phase": "PREVIOUS_SERVICE_BEFORE_NEW_DEPLOYMENT",
+  "accepts_new_deployment": false,
+  "scope": "Pre-existing HTTPS service baseline only; preserves55 visible prior runs and2 report-view checks. No audit or provider request.",
+  "checks": {
+    "at": "2026-11-09T10:00:23Z",
+    "origin": "https://centinela.novaflow.com.co",
+    "tls_certificate_verification": true,
+    "audit_requests_sent": 0,
+    "provider_requests_sent": 0,
+    "anonymous_state_denied": true,
+    "login": true,
+    "admin_role": true,
+    "assets": [
+      {
+        "url": "/app.js?v=32ac42d9460cd3c4",
+        "bytes": 100610,
+        "sha256": "32ac42d9460cd3c4fb1a5da81e67071646c6964d56bd29b1216e9ca77cb3c44a"
+      },
+      {
+        "url": "/login.css?v=f79657069e1b1025",
+        "bytes": 21888,
+        "sha256": "f79657069e1b1025c38701d1d7353791aff43f27f4507b7b6eb2f7b71182f43c"
+      },
+      {
+        "url": "/login.js?v=76e1c488c39f0983",
+        "bytes": 4178,
+        "sha256": "76e1c488c39f09837f3f96398b5b96ae77f14726a30f358905a7172748686065"
+      },
+      {
+        "url": "/portal.js?v=4e42d41493b18db4",
+        "bytes": 1339,
+        "sha256": "4e42d41493b18db46b9702eb7c9a61b5e07ddf09499648218a7e0960e2140cf2"
+      },
+      {
+        "url": "/styles.css?v=8f854c6f3931a2b3",
+        "bytes": 76259,
+        "sha256": "8f854c6f3931a2b3c8994621dc919a2a9c7a9907b53262e1b1a6dc2001b22d77"
+      },
+      {
+        "url": "/workspace.js?v=6f65c50894c03b87",
+        "bytes": 33198,
+        "sha256": "6f65c50894c03b8769360f6f641072e9d5b4695b811839e2fa1964be66ff79fd"
+      }
+    ],
+    "authenticated_state": true,
+    "idle_at_validation": true,
+    "protected_execution": false,
+    "existing_runs_visible": 55,
+    "historical_report_checks": [
+      {
+        "audience": "technical",
+        "status": 200,
+        "bytes": 42840,
+        "sha256": "6b17d29a0c9aaddc2860c44668b0099d608dfb08d7e75c6725a0285a9ae0d3ca"
+      },
+      {
+        "audience": "executive",
+        "status": 200,
+        "bytes": 21726,
+        "sha256": "22c0b118769189525bbbab1186714c204db2c28aa855b27dcfafd8535c899c68"
+      }
+    ],
+    "logout_revokes_session": true,
+    "status": "passed"
+  }
+}

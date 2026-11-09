@@ -1,0 +1,16 @@
+{
+  "schema": "centinela-web-executor-source-comparison/1",
+  "executor_source_commit": "a6b2188330772368bb78ba57d1aea3f7f73793f7",
+  "web_source_commit": "361d0f99b05066d2dadb7fbd864e32e2a94d9246",
+  "only_changed_tracked_paths": [
+    "scripts/dualstack_ui/app.js"
+  ],
+  "python_toml_lock_files_compared": 271,
+  "all_selected_files_equal_executor_commit": true,
+  "release_manifest_origin_sha256": "d8ddd9cb6725dc78491e0af9f590f6f6f82b07a72a9f72be6068f8b8e61e603f",
+  "configured_keys_read": false,
+  "method": "Read Git blobs and recorded SHA map only. No imports, builds, execution, remote access or KPI recalculation.",
+  "scope": "Source-byte equivalence, not runtime acceptance or activated deployment.",
+  "web_tracked_files_compared_with_web_commit": 615,
+  "all_recorded_web_files_match_web_commit": true
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "centinela-approved-harness-copies/1",
+  "files": [
+    {
+      "source_relative_path": "publicacion-v3-20261109/revision/probar_cola_webshadow-intento01.py",
+      "copy_file": "probar_cola_webshadow-intento01.py",
+      "source_sha256": "3270479c8c22d629f3ae24d633716816208cb0fbfd896798936db0409c453316",
+      "copy_sha256": "3270479c8c22d629f3ae24d633716816208cb0fbfd896798936db0409c453316",
+      "same_bytes_before_locator_redaction": true
+    },
+    {
+      "source_relative_path": "publicacion-v3-20261109/revision/probar_cola_webshadow.py",
+      "copy_file": "probar_cola_webshadow.py",
+      "source_sha256": "43a7151f645c11ea66a5b31b61b89fa6058cf165c25afc364c073e33d019ff43",
+      "copy_sha256": "43a7151f645c11ea66a5b31b61b89fa6058cf165c25afc364c073e33d019ff43",
+      "same_bytes_before_locator_redaction": true
+    },
+    {
+      "source_relative_path": "publicacion-v3-20261109/revision/revisar_metadatos_webshadow.py",
+      "copy_file": "revisar_metadatos_webshadow.py",
+      "source_sha256": "9e9e8653a23d37432431326bd621c7a1efe754990c119a313d4458721c2f84d8",
+      "copy_sha256": "9e9e8653a23d37432431326bd621c7a1efe754990c119a313d4458721c2f84d8",
+      "same_bytes_before_locator_redaction": true
+    }
+  ],
+  "harnesses_executed_for_packaging": false
+}

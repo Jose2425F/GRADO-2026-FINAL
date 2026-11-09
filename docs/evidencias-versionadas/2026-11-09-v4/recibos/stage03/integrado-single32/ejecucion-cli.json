@@ -1,0 +1,25 @@
+{
+  "stage": "@STAGE@",
+  "bank": "integrado",
+  "architecture": "single",
+  "mode": "legacy_catalogue_without_api",
+  "argv": [
+    "@STAGE@/venv/bin/python",
+    "-I",
+    "-B",
+    "@STAGE@/repo/scripts/ejecutar_protegido.py",
+    "--base",
+    "@STAGE@",
+    "--bank",
+    "integrado",
+    "--architecture",
+    "single",
+    "--action",
+    "audit"
+  ],
+  "exit_code": 0,
+  "seconds": 276.416,
+  "log": "@WORK@/publicacion-v3-20261109/instalacion-privada/audit-integrado-single.log",
+  "log_sha256": "6bb5f9f40fd519aa82e1eabc4e33095e02b941d158037a7ff783e299c9357806",
+  "provider_requests": 0
+}

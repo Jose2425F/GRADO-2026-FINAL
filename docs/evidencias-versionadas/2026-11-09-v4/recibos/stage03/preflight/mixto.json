@@ -1,0 +1,25 @@
+{
+  "schema": "centinela-protected-preflight-proof/1",
+  "bank": "mixto",
+  "full_preflight_verified": true,
+  "proof_sha256": "7f5a71eb0933478d33d8fb1665c86351ec0704449f812f2cf1b184275f471a59",
+  "catalogue_tasks": 0,
+  "api_calls": 0,
+  "controller_identity": {
+    "Uid": "65531\t65531\t65531\t65531",
+    "Gid": "65531\t65531\t65531\t65531",
+    "Groups": "",
+    "CapInh": "0000000000000000",
+    "CapPrm": "0000000000000000",
+    "CapEff": "0000000000000000",
+    "CapBnd": "0000000000000000",
+    "CapAmb": "0000000000000000",
+    "NoNewPrivs": "1",
+    "pid": 1340268,
+    "start_time": "6064142",
+    "netns": 4026542696
+  },
+  "source_sha256": "22a2c933a097725b9e4f6eb470b3f16050251fd5d8245eea0f90fbd18b609dfe",
+  "run_id": "20261109T094927Z-mixto-39d0a775",
+  "controller_exit_code": 0
+}

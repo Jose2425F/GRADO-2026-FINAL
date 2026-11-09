@@ -1,0 +1,36 @@
+{
+  "schema": "centinela-webshadow-approved-public-projection/1",
+  "source_relative_path": "publicacion-v4-20261109/webshadow-metadatos-03/summary.json",
+  "origin_sha256": "442480182bfa1ed66a787ea183d685fef50792092950a2e92cb5cb4d271283a1",
+  "projection_number": "metadatos03",
+  "private_path_fields_omitted": [
+    "stage",
+    "web_root"
+  ],
+  "sqlite_cookies_logs_spool_or_credentials_copied": false,
+  "results": {
+    "schema": "centinela-shadow-metadata-recheck/1",
+    "status": "passed",
+    "new_audits": 0,
+    "generation_calls": 0,
+    "source_summary_sha256": "513bb98dc54a9ee6159a6698926f09c8dc6f088106d147afe794cb3a3d83f56a",
+    "harness_sha256": "9e9e8653a23d37432431326bd621c7a1efe754990c119a313d4458721c2f84d8",
+    "same_temporary_data": true,
+    "original_report_file_count": 179,
+    "checks": [
+      {
+        "check": "both_original_names_and_dates_preserved_in_publications",
+        "passed": true,
+        "results": 2
+      }
+    ],
+    "web_source_sha256": {
+      "scripts/dualstack_panel.py": "7ac609ba0554eff3234676eab1abdcafa5341fb9fff9ad1787949d1553827dd1",
+      "scripts/centinela_publications.py": "fdc67e47da85ba4cfbc8de45a64810cfef64a1c1c5aa023fe4e7e9d017ed5138",
+      "scripts/dualstack_ui/app.js": "821a9c2f50da8d78597b40dc8bcbf0e6ea107be81b0bee1ea37ab86148f36d0e"
+    },
+    "original_reports_unchanged": true,
+    "original_report_manifest_sha256": "98525c87d20856a89d02f17566c4bb3364dd79fc17f79d2ac14ae4ed6872d2b1",
+    "own_processes_stopped": true
+  }
+}
