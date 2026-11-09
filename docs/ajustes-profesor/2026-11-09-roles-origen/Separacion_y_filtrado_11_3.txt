@@ -1,0 +1,83 @@
+SEPARACIÓN DE PRIVILEGIOS Y CONTROL DEL ORIGEN DE LAS COMUNICACIONES
+Continuación del punto 11.3, 9 de noviembre de 2026
+
+SITUACIÓN QUE MOTIVÓ EL AJUSTE
+
+La revisión anterior observó que el controlador y sus herramientas se
+iniciaban con UID 0 y capacidades amplias. La autorización registrada por
+activo de RO-02 añadió comprobación de alcance y revocación, pero no cambió
+por sí misma la identidad del proceso ni acreditó filtrado del tráfico.
+Aquellos registros se conservan como evidencia de la versión observada.
+
+CAMBIO IMPLEMENTADO
+
+El ejecutor del operador instala una copia protegida del código, fija los
+perfiles y crea procesos con identidades separadas. El controlador no abre
+el socket Docker ni ejecuta Nmap o Hydra con su propio UID. Despacha perfiles
+cerrados a trabajadores distintos mediante sockets locales. Cada servicio
+comprueba el PID, el inicio del proceso y la identidad del controlador; las
+variables del entorno no sustituyen ese permiso instalado por el operador.
+
+El broker ejecuta sólo las formas Docker admitidas por el catálogo y verifica
+la identidad de contenedores, imágenes, redes y fuentes. Las inspecciones
+se proyectan antes de regresar al controlador: se excluyen contraseñas del
+entorno, rutas de montajes y metadatos ajenos al preflight. Sólo se conservan
+LAB_FIXTURE_SEED, LAB_SCENARIO y LAB_GUARDED para comprobar los fixtures.
+El broker sigue siendo un componente privilegiado: tiene UID 0 y acceso al
+daemon Docker privado. La reducción de capacidades no elimina ese acceso.
+
+El filtro limita el tráfico por origen e interfaz, familia IP, destino,
+protocolo, puerto y rol. Se mantienen sólo rutas exactas a los activos del
+banco. Una dirección suplantada no debe bastar si llega por una interfaz
+ajena. El refresco posterior a un reinicio se realiza bajo la autoridad del
+operador, con confirmación síncrona y rechazo si no puede comprobarse.
+
+La terminación del operador pasa por la limpieza de sus roles. Se fijan PID
+e inicio del proceso y se usan descriptores pidfd para no señalizar otro
+proceso que reutilice un número. La evaluación lee una copia regular de la
+evidencia después de detener los roles. La cuarentena de cada banco persiste
+entre corridas y no se descarta al crear una carpeta nueva de resultados.
+
+ENSAYOS Y ESTADO DE VERIFICACIÓN
+
+Se aprobaron ensayos de componente del filtro con tráfico real y capturas.
+El arnés kernel-final-v3 contiene 26 comprobaciones; banco-integrado-final-v2,
+29. Se conservaron las iteraciones anteriores, incluidos fallos del arnés y
+la ausencia inicial de una prueba de llegada del SYN suplantado. Los pases
+anteriores a esa corrección no se presentan como prueba final de ese control.
+
+La suite de filtrado de los cinco bancos reúne 145 comprobaciones aprobadas:
+60 positivas y 85 negativas. Veinte inyecciones se realizaron con autoridad
+del operador y no se atribuyen al controlador. Se comprobaron además 130
+negativas de roles y cinco negativas de archivos y sockets raw.
+
+La generación de reglas para cinco bancos comprueba gramática y topología;
+no reemplaza ejecutar las auditorías completas con sus identidades finales.
+Las pruebas de software comprueban contratos, negativas y errores de entrada;
+no equivalen por sí solas a verificar el cortafuegos en el kernel.
+
+Las cinco corridas Single canónicas acreditan 154 tareas válidas: 32 del
+integrado, 25 de sucursal, 28 de comercial, 32 de mixto y 37 de reforzado.
+La evaluación posterior obtuvo TP 46, FP 0, FN 0 y TN 63. El integrado Multiagent
+aprobó un suplemento de 32 tareas, con concurrencia 2 observada y TP 13, FP 0,
+FN 0 y TN 11. Se conserva aparte y no reemplaza al integrado Single.
+
+La copia pública de capturas permitió repetir el cotejo de 80 fases canónicas
+de control y prueba de fragmentación, más 16 suplementarias. No se incluyeron
+paquetes de la corrida parcial anterior en esos conteos. Las referencias
+se publicaron después de finalizar las 186 ejecuciones y de detener sus roles,
+con el mismo SHA utilizado por el evaluador. El recálculo opcional coteja
+estados, integridad y resultados contra esa evaluación sin ejecutar sondas.
+
+En este alcance se acredita la corrección técnica de separación de roles y
+filtrado por origen del punto 11.3. El operador y el broker continúan siendo
+componentes privilegiados de la base de confianza. La aceptación de bancos
+sintéticos no permite declarar seguridad universal ni despliegue del servicio.
+
+ALCANCE QUE NO SE EXTIENDE
+
+Esta continuación no acredita aún operación protegida con API, auditorías
+personales o de máquinas virtuales, ni despliegue del servicio en AWS. No
+altera los KPI históricos, el tamaño de su cohorte o el documento académico.
+Los demás pendientes del informe conservan el estado publicado en la versión
+anterior mientras no tengan una corrección y una aceptación propias.

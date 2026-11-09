@@ -4,6 +4,14 @@ Prototipo del trabajo de grado de Ingeniería de Sistemas y Computación de la U
 
 El aplicativo vigente está en `piloto_kali/prototipo/` y expone el paquete `auditoria`. La raíz conserva el paquete anterior `auditor_dualstack`, con su propio entorno y sus pruebas. Ambos proyectos declaran la versión de la entrega; no se deben mezclar sus entornos Python.
 
+## Ejecución protegida del punto 11.3
+
+Las auditorías reales de esta integración requieren la instalación del [ejecutor protegido del operador](docs/ajustes-profesor/2026-11-09-roles-origen/Operacion_ejecutor_protegido.txt). El controlador, Nmap e Hydra usan identidades separadas; el acceso a Docker queda limitado a perfiles del banco y la red filtra origen, destino y rol en IPv4 e IPv6. Sin el descriptor instalado y la identidad autorizada, las entradas de auditoría rechazan el despacho.
+
+La [evidencia de 11.3](docs/evidencias-versionadas/2026-11-09-11-3/LEEME.txt) se conserva aparte de las campañas anteriores. La aceptación protegida comprende los cinco bancos cerrados sin API. Su integración con el panel desplegado, la API y las extensiones por IP o VM requiere una aceptación propia; abrir el panel con las instrucciones siguientes no instala esos permisos. El grupo Docker de los requisitos corresponde al operador, no a las identidades del controlador o de sus trabajadores.
+
+Las acciones `preflight` y `recover` del operador y sus pruebas de cuarentena se documentan en la [continuación de recuperación](docs/ajustes-profesor/2026-11-09-recuperacion/Recuperacion_y_propiedad_de_leases.txt). Sus evidencias mantienen separado el código y el alcance de la aceptación anterior.
+
 ## 1. Requisitos en una instalación nueva de Kali
 
 Ejecuta estos pasos como usuario normal con acceso a `sudo`, en un equipo dedicado al laboratorio. No los apliques a un servidor que ya está atendiendo usuarios.
@@ -111,6 +119,15 @@ El paquete legado se comprueba en un entorno separado:
 ```
 
 Las pruebas usan proveedores y controladores simulados, además de servicios locales y una integración de Nmap restringida a loopback. No sustituyen la aceptación de los bancos. Una alerta real del kernel en los bits de taint 7 o 14 bloquea las pruebas de red; recupera el equipo y no elimines esa salvaguarda para obtener un resultado favorable.
+
+La integridad de los paquetes públicos de 11.3 y recuperación se comprueba sin herramientas de auditoría:
+
+```bash
+piloto_kali/prototipo/.venv/bin/python docs/evidencias-versionadas/2026-11-09-11-3/verificar.py
+piloto_kali/prototipo/.venv/bin/python docs/evidencias-versionadas/2026-11-09-11-3-recuperacion/verificar.py
+```
+
+Estos verificadores se incluyen en CI. Su opción `--historicos` describe el inventario original completo, con los Word retirados y el LEEME anterior; requiere la copia privada correspondiente y no se ejecuta sobre el árbol público actual. Los manifiestos conservan sus hashes originales. El alcance de esta fusión se registra en [INTEGRACION_11_3.txt](docs/mantenimiento/2026-11-09/INTEGRACION_11_3.txt).
 
 ## 6. Comprobar una copia sin usar los datos de otra instalación
 

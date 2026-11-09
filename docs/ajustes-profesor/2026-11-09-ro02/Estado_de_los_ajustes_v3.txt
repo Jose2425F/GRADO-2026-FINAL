@@ -1,0 +1,122 @@
+ESTADO DE LOS AJUSTES DEL INFORME DEL PROFESOR
+Revisión del 9 de noviembre de 2026 después de la entrega centinela-2026.11.09
+
+La entrega publicada tiene como base el commit bc7f7d5. Conserva el título
+original, el documento v2 de 162 páginas, 194 campos de índice y la evidencia
+de octubre. La sección 5.8 y el Anexo I separan la comparación descriptiva de
+noviembre de la cohorte histórica. Este seguimiento continúa esa entrega y
+no modifica retrospectivamente sus archivos ni sus resultados.
+
+Las cinco prioridades con cierre técnico o editorial acreditado en el alcance
+ensayado son 11.1, 11.4, 11.6, 11.9 y 11.11. El cotejo normativo de 11.10 y la
+revisión bibliográfica nueva de 11.8 también se realizaron, con los límites
+indicados en sus apartados. El cierre de la evaluación corresponde al profesor.
+
+11.1 BLOQUEO Y RESTAURACIÓN: CORREGIDO EN EL BANCO INTEGRADO
+Se comprobaron exclusión por segmento, cuarentena persistente ante fallo de
+restauración y recuperación con recibo. Se conservan el primer arnés inválido,
+el ensayo válido y los resultados de recuperación. La aceptación corresponde
+al banco ensayado, sin extenderla a cualquier red.
+
+11.2 OBSERVADOR: CORREGIDO EN EL INTEGRADO; EXTENSIÓN DE VM PENDIENTE
+El esquema cerrado, las validaciones anidadas, los casos negativos y las
+2.382 instantáneas históricas están comprobados. Si la extensión de máquinas
+virtuales se conserva como capacidad entregada, necesita aceptación real en
+ese entorno. La evidencia integrada no sustituye esa aceptación.
+
+11.3 PRIVILEGIOS, AISLAMIENTO Y AUTORIZACIÓN: PARCIAL Y CRÍTICO
+La observación anterior identificó UID 0 y capacidades amplias en controlador,
+Nmap e Hydra; el emisor IPv6 del contenedor conservó NET_RAW. Esos registros
+siguen vigentes como descripción de la versión observada.
+
+Primera corrección de esta continuación: autorización explícita de objetivos
+de la extensión por IP (RO-02). Se implementó un registro privado del operador,
+con alcance exacto, responsable, soporte, vigencia y revocación. Se comprueba
+antes de iniciar y al despachar sondas de inventario, credenciales y HTTP. El
+descubrimiento utiliza direcciones aprobadas y sustituye el eco IPv6 a todos
+los nodos por consultas unicast a los objetivos registrados. La referencia
+libre LAB-PROPIO y la pertenencia a una red privada ya no bastan por sí solas.
+
+Las pruebas y su alcance se registran en el ZIP de evidencias, bajo
+evidencias/final/resumen-final.json de esta continuación. Una autorización exige que el operador compruebe y
+conserve su soporte; el identificador registrado no acredita por sí mismo
+consentimiento legal. La revocación impide despachos nuevos; no se declara
+cancelación instantánea de un proceso de red que ya se hubiera iniciado.
+
+Falta separar privilegios de los roles efectivos y demostrar denegación de
+comunicaciones por origen y dirección en IPv4/IPv6. Deben medirse UID,
+capacidades, flujos permitidos y rechazados y persistencia de las reglas en
+una instalación aislada. Un registro de destinos o pruebas unitarias no
+acreditan un cortafuegos ni privilegio mínimo. 11.3 no se da por cerrado.
+
+11.4 SANEAMIENTO: CORREGIDO EN LOS CASOS ENSAYADOS
+Se verificó saneamiento antes de persistir, registro de omisiones y rechazo
+de capturas binarias con secretos conocidos. No se declara detección de
+cualquier secreto desconocido.
+
+11.5 INVENTARIO Y TRAZABILIDAD: IMPLEMENTADO; COTEJO COMPLETO PENDIENTE
+Existen inventario por activo/dirección, dependencia del descubrimiento para
+las credenciales y enlaces de intentos con evidencia. El cotejo conserva
+13 hallazgos y 13 proyecciones concordantes. Faltan identificadores estables
+en todos los hallazgos y cotejo íntegro entre JSON y todos los formatos
+legibles de informes.
+
+11.6 TERMINACIÓN Y DEPENDENCIAS: CORREGIDO EN LA ENTRADA SUPERVISADA
+Se comprobaron terminación acotada, TERM/KILL, caída abrupta y conservación de
+SQLite/cuarentena. Se reinstaló un entorno con paquetes identificados. Hay
+34 diferencias respecto del uv.lock histórico; el entorno nuevo no se
+presenta como el de octubre. Las entradas alternativas requieren supervisión
+equivalente.
+
+11.7 REPRODUCCIÓN DE OCTUBRE: EVIDENCIA RECUPERADA; EJECUTABLES PENDIENTES
+Los resultados, planes, manifiestos, eventos y exportaciones históricos están
+recuperados, verificados y publicados. El paquete privado conserva código,
+dependencias e imágenes de la revisión nueva. Falta acreditar que se dispone
+de todo el código ejecutable y de las imágenes exactas requeridas por octubre.
+Sus huellas identifican esos artefactos, pero no sustituyen conservarlos.
+
+11.8 BÚSQUEDA BIBLIOGRÁFICA: REVISIÓN NUEVA REALIZADA; COTEJO TOTAL PENDIENTE
+Se conserva una revisión dirigida nueva del 9 de noviembre con 22 identidades
+únicas: 10 artículos de revista y 12 trabajos de congreso, con decisiones,
+clasificación y localizadores de discusión. Esta alternativa está prevista
+en la observación del profesor. Faltan cotejar las otras 43 referencias del
+total de 65. No se recuperó la bitácora original de selección de los 425
+registros; la revisión nueva no se presenta como aquella bitácora ni como
+prueba de lectura íntegra de las 22 obras.
+
+11.9 ANÁLISIS Y SENSIBILIDAD: CORREGIDO CON ALCANCE DESCRIPTIVO
+El recálculo conserva parciales y denominadores, añade sensibilidad por
+laboratorio y versión y retira la certeza sobre un supuesto sesgo conservador.
+La comparación de noviembre se mantiene separada y explícitamente fuera de
+la cohorte formal. No permite atribuir causalidad a una corrección concreta.
+
+11.10 NTC 1486:2022: COTEJO Y AJUSTES REALIZADOS; EXCEPCIONES DECLARADAS
+Se consultó la copia de la edición 2022 aportada por los autores y se
+documentaron cláusulas y presentación aplicada. Se conservaron el título
+original por instrucción de los autores y la citación numérica admitida por
+el encargo. No se declara conformidad literal integral con todas las cláusulas.
+El título no se vuelve a cambiar por iniciativa de esta revisión.
+
+11.11 REDACCIÓN E ÍNDICES: CORREGIDO EN LA ENTREGA V2
+La copia publicada de 162 páginas mantiene el tono impersonal, distingue los
+alcances y conserva 65 referencias, los tramos originales de tablas y medios.
+Los 194 campos coinciden con sus destinos. Cualquier edición posterior de
+la tesis exige repetir la comprobación de páginas, remisiones y legibilidad.
+
+OTROS ASUNTOS DE LA RÚBRICA
+La línea de base añadida es un diagnóstico simulado y fechado; no constituye
+una medición real anterior a octubre. El costo total tiene fórmula y horizonte,
+pero faltan facturas, horas y amortización para calcularlo como costo observado.
+La adopción y el aprendizaje se describen como aplicaciones potenciales, sin
+atribuir efectos sobre una población que no se midió. Las limitaciones ya
+declaradas se conservan en lugar de inventar observaciones faltantes.
+
+SECUENCIA DE TRABAJO
+1. Completar 11.3 por componentes: autorización de activos, separación de
+   privilegios y filtrado por origen; después aceptación efectiva conjunta.
+2. Terminar el cotejo de informes de 11.5.
+3. Aceptar la extensión VM de 11.2 si integra la entrega.
+4. Completar las 43 referencias y localizar los ejecutables históricos
+   restantes, sin reconstruir registros inexistentes como si fueran antiguos.
+5. Incorporar cierres acreditados a la siguiente versión de la tesis y volver
+   a comprobar presentación, índices y trazabilidad.

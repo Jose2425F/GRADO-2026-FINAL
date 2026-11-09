@@ -61,6 +61,8 @@ OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}), NoRedirect
 
 
 def docker(*args, timeout=15):
+    from .privilege_broker import broker_enabled,docker_command
+    if broker_enabled():return docker_command(args,timeout=timeout)
     try:
         return subprocess.run(["docker", *args], capture_output=True, text=True,
                               check=True, timeout=timeout).stdout
@@ -392,7 +394,9 @@ def probe(receiver, profile, store, case):
     started = time.monotonic()
     command = ["docker", "exec", "v2-sender", "python", "/app/v2/sender.py", profile, receiver["address"], nonce]
     if profile == "dad_na":
-        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        from .privilege_broker import broker_enabled,BrokerProcess
+        process = (BrokerProcess(command[1:],timeout=18) if broker_enabled() else
+            subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True))
         try:
             if not select.select([process.stdout], [], [], 8)[0] or process.stdout.readline().strip() != "READY":
                 raise LabError("captura DAD v2 no preparada")

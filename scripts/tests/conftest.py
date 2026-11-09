@@ -55,3 +55,11 @@ def healthy_kernel(monkeypatch):
         return original(path, *args, **kwargs)
 
     monkeypatch.setattr(Path, 'read_text', read_text)
+
+
+@pytest.fixture
+def simulated_protected_runtime(monkeypatch):
+    """Sólo tests de controladores simulados; no prueba UID, red ni herramientas."""
+    from auditoria import secure_runtime
+    monkeypatch.setattr(secure_runtime,'require_live_runtime',lambda **kwargs:{})
+    monkeypatch.setattr(secure_runtime,'require_protected_runtime',lambda **kwargs:{})

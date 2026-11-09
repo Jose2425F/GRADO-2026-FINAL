@@ -1,0 +1,44 @@
+EVIDENCIAS DE LA CONTINUACIÓN DE PREFLIGHT Y RECUPERACIÓN
+
+ESTADO: ACEPTACIÓN DEL ALCANCE ENSAYADO, CON FUENTES SEPARADAS
+
+Esta carpeta corresponde a un delta posterior a la aceptación de roles y
+origen. El baseline centinela-2026.11.09-11.3-evidencias del commit 489e778
+permanece intacto, incluido su ZIP SHA 5e6230ce2e059182663be8af8912617c8d003739f74a340111f6b604a00210a5.
+Las fuentes aceptadas para sus 154 tareas Single y 32 suplementarias son 9dcd959.
+Sus datos y conteos no se trasladan como si fueran pruebas del delta nuevo.
+
+El paquete conserva el hallazgo QA del lease root, su corrección y los
+recibos de seis preflights reales: cinco saludables y un fallo HTTP inducido.
+El ciclo fresh/fallo/éxito de sucursal conserva cuarentena al fallar y sólo
+la limpia después de una comprobación protegida completa. El actor 65531
+comprueba acquire/release en los tres segmentos; no ejecuta auditorías.
+
+Las primeras cinco comprobaciones y ese ciclo usan la fuente anterior a la
+guarda kernel. Las copias se conservan en sources-before-kernel-guard. La
+fuente final añade la guarda, aprueba 21 contratos y un sexto control sano
+integrado. La regresión final registra 1007 aprobadas y 110 subpruebas, 2
+omisiones y 1 deseleccionada. No se atribuye el ciclo completo a esa fuente
+posterior ni se confunden seis preflights con seis bancos.
+
+La exportación pública contiene 83 archivos y su manifiesto, con escaneo de
+secretos de los fixtures sin coincidencias. Se incluyen sus descriptores,
+logs y fuentes congeladas; se excluyen las políticas privadas y lab.env.
+El YAML de CI es código del flujo; por sí solo no acredita una ejecución de
+GitHub Actions. El baseline descargado se incluye sólo como contexto.
+
+El verificador de esta carpeta utiliza sólo la biblioteca estándar para
+comprobar tamaño, SHA-256 e inventario del ZIP, sin extraerlo ni ejecutar
+herramientas o conexiones. La conservación se coteja también contra 489e778,
+además de las versiones anteriores de evidencia.
+
+    python3 verificar.py
+    python3 verificar.py --historicos /ruta/al/repositorio
+
+La verificación de bytes debe leerse junto con resumen-validacion.json y
+los recibos del ensayo. Esta publicación no modifica ningún archivo de la
+carpeta 2026-11-09-11-3; esta continuación tendrá su propio commit y etiqueta.
+
+Los XML de regresión conservan la misma cadena ficticia con forma de clave
+API del test de saneamiento publicado en el baseline. Su excepción está
+aprobada por SHA-256 en la lista de fuentes; no es una clave configurada.

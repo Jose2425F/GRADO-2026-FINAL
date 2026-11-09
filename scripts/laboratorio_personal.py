@@ -25,6 +25,7 @@ from pydantic import BaseModel, ConfigDict
 from auditoria.contracts import Target, TaskResult, TaskStatus, Service
 from auditoria.dashboard import process_identity
 from auditoria.store import RunStore, write_json
+from autorizacion_personal import AuthorizationGuard, AuthorizationError
 
 ROOT = Path(__file__).resolve().parents[1]
 PROFILE = 'nmap_tcp_services_personal_v1'
@@ -138,6 +139,16 @@ def signature(config):
     return hashlib.sha256(json.dumps(configuration(config),sort_keys=True).encode()).hexdigest()
 
 
+def require_authorization(authorization, targets=(), *, feature='inventory'):
+    """Revalidar el registro del operador antes de cada despacho de red."""
+    if not isinstance(authorization, AuthorizationGuard):
+        raise AuthorizationError('authorization_required', 'Registra la autorización del alcance antes de ejecutar sondas.')
+    receipt = authorization.require_feature(feature)
+    if targets:
+        receipt = authorization.check_targets(targets)
+    return receipt
+
+
 def resolve_targets(config, *, deadline=None):
     config=configuration(config)
     if not shutil.which('nmap'):
@@ -184,8 +195,11 @@ def parse_discovery(raw, targets):
     return {t.address:states.get(t.address,'down') for t in targets}
 
 
-def discover_targets(targets, config, store, deadline):
+def discover_targets(targets, config, store, deadline, *, authorization=None):
     """Los CIDR y rangos pasan por -sn; las listas explícitas conservan -Pn."""
+    require_authorization(authorization, targets)
+    if configuration(config) != authorization.scope['personal']:
+        raise AuthorizationError('authorization_scope_mismatch', 'El descubrimiento debe usar el alcance registrado por el operador.')
     states={t.address:'not_probed' for t in targets}
     if not any(mark in config['ipv4'] for mark in ['/', '-']):return states
     groups={}
@@ -202,10 +216,12 @@ def discover_targets(targets, config, store, deadline):
         probes=DISCOVERY_PROBES if config.get('port_mode')=='auto' else config['ports']
         command=['nmap','--unprivileged','-n','-sn','-PS'+','.join(map(str,probes)),
                  '--max-retries','1','--host-timeout','15s','-e',interface,'-oX','-',*[t.address for t in group]]
+        require_authorization(authorization, group)
         store.event('controller','discovery_started',payload={'command':command,'host_count':len(group)})
         raw=diagnostic=b''
         try:
-            result=subprocess.run(command,capture_output=True,timeout=timeout,check=False)
+            from auditoria.tool_worker import tool_runtime_enabled,run_tool
+            result=(run_tool if tool_runtime_enabled() else subprocess.run)(command,capture_output=True,timeout=timeout,check=False)
             raw,diagnostic=result.stdout,result.stderr
             if result.returncode:raise ValueError('discovery_failed')
             discovered=parse_discovery(raw,group)
@@ -284,18 +300,21 @@ def parse_inventory(raw,task):
     return services,[{'port':p,'state':states.get(p,'not_reported')} for p in task.target.ports]
 
 
-def execute_task(task,store,runner=subprocess.run):
+def execute_task(task,store,runner=subprocess.run,*,authorization=None):
     # Comprobar la ruta de nuevo inmediatamente antes del despacho.
+    require_authorization(authorization, [task.target])
     config={'ipv4':task.target.address if ip_address(task.target.address).version==4 else '',
             'ipv6':task.target.address if ip_address(task.target.address).version==6 else '',
             'ports':task.target.ports,'interface':task.target.interface}
     if resolve_targets(config)!=[task.target]:
         raise ValueError('El objetivo o la interfaz cambiaron después de comprobarlos.')
+    require_authorization(authorization, [task.target])
     command=command_for(task)
     store.event('tool','tool_started',task_id=task.task_id,payload={'tool':'nmap','command':command})
     status=TaskStatus.COMPLETED_NO_FINDINGS;reason=None;services=[];states=[];raw=b'';diagnostic=b''
     try:
-        result=runner(command,capture_output=True,timeout=65,check=False)
+        from auditoria.tool_worker import tool_runtime_enabled,run_tool
+        result=(run_tool if tool_runtime_enabled() else runner)(command,capture_output=True,timeout=65,check=False)
         raw=result.stdout;diagnostic=result.stderr
         if result.returncode:
             status=TaskStatus.FAILED;reason='nmap_failed'
@@ -341,8 +360,9 @@ CREDENTIAL_RULE = {
 }
 
 
-def credential_sweep(targets, open_by_address, store, deadline, *, tasks=None, results=None, validations=None, services_by_address=None):
+def credential_sweep(targets, open_by_address, store, deadline, *, tasks=None, results=None, validations=None, services_by_address=None, authorization=None):
     """Registra cada intento y conserva como incompleta la cobertura que no se ejecutó."""
+    require_authorization(authorization, targets, feature='credentials')
     from auditoria.contracts import Task, CredentialProfile, LabPolicy, LabSegment, Category
     from auditoria.agentes.agente_ipv4_credenciales import run_hydra
     from auditoria.validation import validate_results
@@ -373,7 +393,10 @@ def credential_sweep(targets, open_by_address, store, deadline, *, tasks=None, r
                     else:
                         attempts+=1;os.environ[SWEEP_ENV]=password
                         store.event('controller','task_admitted',task_id=task.task_id,payload={'profile':task.action_profile})
-                        try: result=run_hydra(task,profile,store,timeout_seconds=12)
+                        try:
+                            result=run_hydra(task,profile,store,timeout_seconds=12,
+                                authorize=lambda: require_authorization(authorization, [task.target], feature='credentials'))
+                        except AuthorizationError: raise
                         except Exception: result=TaskResult(task_id=task.task_id,status=TaskStatus.FAILED,reason_code='credential_execution_error')
                     record=validate_results(store.root,[task],[result])[0]
                     policy=LabPolicy(policy_id='personal-credentials',segments=[LabSegment(name='host',network=target.address+'/32',
@@ -430,6 +453,9 @@ def coverage_for(targets, tasks, results, findings, host_states, sweep, applicat
 
 
 def run(options,output):
+    authorization = AuthorizationGuard(options)
+    from auditoria.secure_runtime import require_live_runtime
+    require_live_runtime(bank='personal',options=options,output=output)
     if configuration(options['personal']).get('port_mode')=='auto':
         from puertos_personales import run_automatic
         return run_automatic(options,output)
@@ -442,6 +468,7 @@ def run(options,output):
     request={'audit_id':audit_id,'bank':'personal','architecture':options['architecture'], 'token_budget':options['tokens'],
              'llm_mode':'scheduler' if options['ia']=='openai' else 'disabled','personal':config,'applications':applications,'expert_mode':bool(options.get('expert_mode')),'authorization_ref':options['authorization']}
     write_json(directory/'request.json',request)
+    write_json(directory/'authorization.json',authorization.verify())
     write_json(directory/'manifest.json',{'bank':'personal','mode':'live','purpose':'network_vulnerability_evaluation' if applications else 'service_inventory_with_default_credentials' if options.get('creds') else 'service_inventory_not_vulnerability_evaluation',
         'source_sha256':__import__('auditoria.cli',fromlist=['source_fingerprint']).source_fingerprint(),
         'adapter_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'extensions_sha256':{name:hashlib.sha256((Path(__file__).parent/name).read_bytes()).hexdigest() for name in ['llm_especialistas.py','aplicaciones_personales.py','tesis/llm_contexto.py','tesis/candidatos.py']},'execution_concurrency':2 if options['architecture']=='multiagent' else 1})
@@ -460,8 +487,10 @@ def run(options,output):
             raise ValueError('kernel_failure')
         from aplicaciones_personales import load_session
         for app in applications:load_session(app['session'])
+        store.event('controller','authorization_verified',payload=authorization.verify())
         targets=resolve_targets(config,deadline=deadline)
-        host_states=discover_targets(targets,config,store,deadline)
+        require_authorization(authorization, targets)
+        host_states=discover_targets(targets,config,store,deadline,authorization=authorization)
         tasks=plan_for([t for t in targets if host_states[t.address]!='down'])
         inventory_ids={t.target.address:t.task_id for t in tasks}
         for index,app in enumerate(applications):
@@ -508,15 +537,19 @@ def run(options,output):
                     choice=scheduler.select(eligible,results,tasks) if scheduler else eligible[0]
                     if deadline-time.monotonic()<TASK_RESERVE_SECONDS:break
                     if choice not in eligible:raise ValueError('invalid_selection')
+                    require_authorization(authorization,[choice.target],feature='applications' if choice.action_profile==WEB_PROFILE else 'inventory')
                     pending.remove(choice)
                     store.event('controller','task_admitted',task_id=choice.task_id,payload={'profile':choice.action_profile})
-                    running[pool.submit(execute_application,choice,applications[choice.application_index],store,deadline)
-                            if choice.action_profile==WEB_PROFILE else pool.submit(execute_task,choice,store)]=choice
+                    running[pool.submit(execute_application,choice,applications[choice.application_index],store,deadline,authorization=authorization)
+                            if choice.action_profile==WEB_PROFILE else pool.submit(execute_task,choice,store,authorization=authorization)]=choice
                 if not running:break
                 completed,_=wait(running,return_when=FIRST_COMPLETED)
                 for future in completed:
                     task=running.pop(future)
                     try:result=future.result()
+                    except AuthorizationError as exc:
+                        store.event('controller','authorization_rejected',task_id=task.task_id,payload={'reason_code':exc.reason_code})
+                        raise
                     except Exception:result=TaskResult(task_id=task.task_id,status=TaskStatus.FAILED,reason_code='adapter_error')
                     if task.action_profile==WEB_PROFILE:
                         detected,record=adjudicate_application(directory,task,result,applications[task.application_index])
@@ -542,9 +575,10 @@ def run(options,output):
                 if services:
                     open_by_address[t.address]=ports;services_by_address[t.address]=services;live.append(t)
             store.event('orchestration','credential_sweep_started',payload={'hosts':len(live)})
-            findings.extend(credential_sweep(live,open_by_address,store,deadline,tasks=tasks,results=results,validations=validations,services_by_address=services_by_address))
-    except Exception:
-        error='preflight_or_configuration_failed'
+            findings.extend(credential_sweep(live,open_by_address,store,deadline,tasks=tasks,results=results,validations=validations,services_by_address=services_by_address,authorization=authorization))
+    except Exception as exc:
+        error=exc.reason_code if isinstance(exc,AuthorizationError) else 'preflight_or_configuration_failed'
+        if isinstance(exc,AuthorizationError):store.event('controller','authorization_rejected',payload={'reason_code':error})
         recorded={r.task_id for r in results}
         for task in tasks:
             if task.task_id not in recorded:

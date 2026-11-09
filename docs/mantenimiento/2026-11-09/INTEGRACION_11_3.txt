@@ -1,0 +1,39 @@
+INTEGRACIÓN DEL PUNTO 11.3 EN LA RAMA PRINCIPAL · 9 DE NOVIEMBRE DE 2026
+
+Base de main: dca0c7b44f376a83e22bc6a3838df9fe6aa245ef.
+Rama integrada: ajustes/11-3-cierre-20261109.
+Extremo de la rama: d934f2a6a69cad2fb9a2cf2bfb8076a799e12f63.
+Ambas referencias pertenecen al historial público sin los dos Word.
+
+La fusión incorpora las fuentes, contratos y evidencias de la separación de
+privilegios, el filtrado por origen y la recuperación protegida del operador.
+Conserva los locks y la instalación reproducible de main. Los conflictos se
+resolvieron en README.md y .github/workflows/pruebas.yml: se mantienen las
+instrucciones de instalación y las pruebas actuales, y se incorporan los
+requisitos de 11.3 y los verificadores de sus paquetes públicos.
+
+Los manifiestos y ZIP de las campañas de octubre, noviembre, 11.3 y recuperación
+se conservan sin cambiar sus huellas. La opción --historicos de los dos últimos
+verificadores enumera el LEEME original de entregas y los dos Word retirados.
+Su comprobación integral necesita la copia privada original. En CI se comprueban
+los paquetes públicos sin esa opción; no se presenta esa comprobación como si
+validara de nuevo todo el inventario documental original.
+
+La aceptación de 154 tareas y 32 suplementarias fija una fuente anterior a la
+recuperación: 9dcd9598b23fecf35112c86486e92d8c61a93a78, que el mapa de purga
+relaciona con 80e20b5986474a24101ab5dbc29cf06ff7d5d47b. No corresponde usar
+el HEAD de esta fusión como si fuera esa fuente aceptada. Los registros RO02
+corresponden a su propio corte 7dd8c81 y también se mantienen separados.
+
+El arranque del panel y el login no instalan la frontera privilegiada. Las
+entradas de auditoría viva requieren descriptor del operador, identidad y
+transporte protegidos; sin ellos rechazan el despacho. El ejecutor ensayado
+atiende cinco bancos cerrados sin proveedor. La conexión con el panel desplegado,
+la API y las extensiones personales o de VM necesita una aceptación específica.
+Las fixtures que simulan el runtime se conservan exclusivamente en pruebas.
+
+Esta integración y sus pruebas locales no instalan servicios, permisos, reglas
+de red o brokers en AWS, ni reinician el panel que atiende usuarios. No se
+repiten las auditorías reales ni se recalculan los KPI históricos como muestra
+nueva. Las pruebas e inspecciones de esta fusión se guardan aparte de los
+recibos originales.

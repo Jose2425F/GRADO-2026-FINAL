@@ -78,9 +78,15 @@ def classify_hydra_json(data: dict, task: Task, profile: CredentialProfile) -> s
 
 
 def run_hydra(
-    task: Task, profile: CredentialProfile, store: RunStore, *, timeout_seconds: int
+    task: Task, profile: CredentialProfile, store: RunStore, *, timeout_seconds: int, authorize=None
 ) -> TaskResult:
+    from ..tool_worker import tool_runtime_enabled,run_credential
+    if tool_runtime_enabled():
+        if authorize is not None:authorize()
+        return run_credential(task,profile,store,timeout_seconds=timeout_seconds,authorize=authorize)
     started = time.monotonic()
+    if authorize is not None:
+        authorize()
     check_route(task.target.address, task.target.interface)
     password = os.environ.get(profile.password_env)
     if not password or "\n" in password or "\r" in password:
@@ -88,7 +94,8 @@ def run_hydra(
 
     if profile.service == "http-get":
         from ..authentication import http_basic_challenge
-
+        if authorize is not None:
+            authorize()
         if not http_basic_challenge(task, profile, timeout=min(5, timeout_seconds)):
             return TaskResult(
                 task_id=task.task_id,
@@ -104,6 +111,8 @@ def run_hydra(
         password_path.chmod(0o600)
         output_path = Path(directory) / "result.json"
         command = hydra_command(task, profile, str(password_path), str(output_path))
+        if authorize is not None:
+            authorize()
         try:
             completed = subprocess.run(
                 command,
@@ -158,7 +167,8 @@ def run_hydra(
     diagnostic_ref, diagnostic_sha256 = None, None
     if outcome == "accepted" and profile.condition is not None:
         from ..authentication import corroborate
-
+        if authorize is not None:
+            authorize()
         remaining = int(timeout_seconds - (time.monotonic() - started))
         confirmation = (
             corroborate(task, profile, password, timeout=min(8, remaining))

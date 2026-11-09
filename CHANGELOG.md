@@ -1,5 +1,16 @@
 # Registro de cambios
 
+## Pendiente de publicación · integración del punto 11.3
+
+Integra `ajustes/11-3-cierre-20261109` sobre el mantenimiento de `main`, conservando la historia pública depurada y sus etiquetas.
+
+- Incorpora la autorización registrada del alcance, la separación de controlador y trabajadores, el broker limitado a perfiles instalados y el filtrado por origen IPv4 e IPv6.
+- Conserva el rechazo de auditorías reales sin descriptor e identidad protegidos, la cuarentena persistente y la comprobación de recuperación del operador.
+- Añade los paquetes originales de evidencias de 11.3 y recuperación sin alterar sus bytes ni los de las campañas anteriores.
+- Mantiene los locks, versiones, pruebas de navegador y CI de `main`; añade la verificación de los paquetes públicos desde la raíz del repositorio.
+
+Los controles simulados y los verificadores de integridad no representan una nueva aceptación de bancos reales ni un despliegue en AWS. La integración del ejecutor con panel, API y extensiones por IP o VM mantiene los límites documentados en los cortes de 11.3.
+
 ## 2026-11-09 · mantenimiento del repositorio
 
 Preparado inicialmente sobre `bc7f7d5`, corte de `main` correspondiente a `centinela-2026.11.09`, y reconstruido sobre `3896bde` después de retirar los Word del historial. No incorpora las ramas posteriores de separación de privilegios ni modifica la lógica del aplicativo.

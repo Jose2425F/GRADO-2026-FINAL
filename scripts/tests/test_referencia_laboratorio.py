@@ -16,6 +16,7 @@ from dualstack_panel import Panel,make_server,validate_options
 from aplicaciones_personales import ApplicationTask,execute_application,adjudicate_application
 from auditoria.contracts import Target
 from auditoria.store import RunStore
+from scripts.tests.authorization_fixture import personal_authorization, scope_options
 from scripts.tests.test_aplicaciones_personales import server_pair,app_config,net_config,SESSION
 
 
@@ -59,7 +60,7 @@ class ReferenceTests(unittest.TestCase):
             task=ApplicationTask(task_id='web',target=Target(asset_id='app',address='127.0.0.1',interface='lo',ports=[port]),application_index=0)
             store=RunStore(root/'run','reference-test')
             try:
-                with patch('aplicaciones_personales.load_session',return_value={'Authorization':'Bearer '+SESSION}):result=execute_application(task,app,store,time.monotonic()+60)
+                with personal_authorization(scope_options(config,applications=[app])) as authorization,patch('aplicaciones_personales.load_session',return_value={'Authorization':'Bearer '+SESSION}):result=execute_application(task,app,store,time.monotonic()+60,authorization=authorization)
             finally:store.close()
             plan=[task.model_dump(mode='json')];request={'bank':'personal','personal':config,'applications':[app]};report={'tasks':[result.model_dump(mode='json')],'findings':[{'state':'verified','condition':'ssh_default_credential','address':'127.0.0.1'}]}
             original=copy.deepcopy(request);cases=[]

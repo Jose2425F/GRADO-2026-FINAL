@@ -1,0 +1,25 @@
+CONTINUACIÓN SEPARADA: PREFLIGHT Y RECUPERACIÓN DEL OPERADOR
+9 de noviembre de 2026
+
+Esta carpeta prepara el registro de un ajuste posterior al baseline de roles
+y origen publicado en centinela-2026.11.09-11.3-evidencias, commit 489e778.
+No modifica sus archivos, su ZIP ni sus resultados. Las 154 tareas Single y
+las 32 suplementarias pertenecen a aquella fase, con fuentes de ejecución
+9dcd959; no se vuelven a atribuir al código de esta continuación.
+
+El ajuste añade acciones del operador para comprobar el banco y recuperar
+sus receptores sin ejecutar el catálogo de auditorías. Los resultados de
+esta fase deben distinguir preflight, recuperación y pruebas de contratos.
+No aumentan los KPI históricos ni el número de tareas del baseline.
+
+Estado: se verificaron seis preflights reales, cinco positivos y un fallo
+HTTP intencional, en integrado y sucursal. El ciclo fresh/fallo/éxito de
+recuperación corresponde a sucursal y a la fuente anterior a la guarda del
+kernel. Se conservó aquella fuente; la versión final añadió la guarda,
+aprobó 21 contratos focalizados y un control sano integrado posterior.
+La regresión final aprobó 1007 pruebas y 110 subpruebas, con 2 omisiones y 1
+deseleccionada. No se ejecutó el catálogo Nmap/Hydra ni se usó API del modelo.
+
+Las evidencias e integridad de esta continuación se publican únicamente en
+docs/evidencias-versionadas/2026-11-09-11-3-recuperacion. La decisión académica
+sobre el ajuste corresponde al evaluador.

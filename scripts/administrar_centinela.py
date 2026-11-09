@@ -1,6 +1,7 @@
 """Provisionar o recuperar cuentas desde la consola privada del servidor."""
 import argparse
 import getpass
+import json
 import os
 from pathlib import Path
 
@@ -19,7 +20,29 @@ def main():
                         help='Asignar el historial original a esta cuenta, solo una vez')
     reset = commands.add_parser('restablecer', help='Restablecer contraseña y revocar sesiones')
     reset.add_argument('username')
+    grant=commands.add_parser('autorizar-alcance',help='Registrar desde la consola un alcance aprobado de laboratorio por IP')
+    grant.add_argument('referencia')
+    grant.add_argument('--solicitud',type=Path,required=True,help='JSON con personal, creds y applications aprobados')
+    grant.add_argument('--responsable',required=True)
+    grant.add_argument('--soporte',required=True,help='Identificador del soporte de autorización conservado por el operador')
+    grant.add_argument('--vence',required=True,help='Fecha ISO 8601 con zona horaria')
+    revoke=commands.add_parser('revocar-alcance',help='Revocar una autorización registrada')
+    revoke.add_argument('referencia')
     args = parser.parse_args()
+    if args.command in {'autorizar-alcance','revocar-alcance'}:
+        from autorizacion_personal import issue_authorization,revoke_authorization
+        registry=Path(os.environ.get('CENTINELA_AUTHORIZATIONS_FILE',str(args.data_dir/'authorizations.json')))
+        try:
+            if args.command=='autorizar-alcance':
+                if args.solicitud.stat().st_size>32768:raise ValueError('La solicitud supera el tamaño permitido.')
+                options=json.loads(args.solicitud.read_text())
+                receipt=issue_authorization(registry,args.referencia,options,args.responsable,args.soporte,args.vence)
+            else:
+                receipt=revoke_authorization(registry,args.referencia)
+        except (OSError,ValueError) as exc:
+            parser.error(str(exc))
+        print(json.dumps({'authorization':receipt},ensure_ascii=False,indent=2))
+        return
     store = IdentityStore(args.data_dir)
     owner_file = store.directory / 'legacy-owner'
     if args.command == 'crear-admin' and args.adoptar_historial and owner_file.exists():

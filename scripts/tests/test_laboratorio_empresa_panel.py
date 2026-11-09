@@ -1,3 +1,4 @@
+from scripts.tests.authorization_fixture import personal_authorization, scope_options
 """Regresiones sin tráfico ni API: controlador NovaFlow, credenciales y reportes."""
 import json
 import os
@@ -10,7 +11,7 @@ import time
 import unittest
 import pytest
 
-pytestmark = pytest.mark.usefixtures("healthy_kernel", "simulated_bank_restoration")
+pytestmark = pytest.mark.usefixtures("simulated_protected_runtime", "healthy_kernel", "simulated_bank_restoration")
 from unittest.mock import patch
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
@@ -157,8 +158,8 @@ class CredentialsPresentationTests(unittest.TestCase):
             return TaskResult(task_id=task.task_id,status='completed' if accepted else 'completed_no_findings',
                 authentication=Authentication(credential_ref=profile.ref,service='ssh',port=22,outcome=outcome),
                 evidence_ref=refs[0][0],evidence_sha256=refs[0][1],diagnostic_ref=refs[1][0],diagnostic_sha256=refs[1][1])
-        with patch.dict(os.environ,{personal.SWEEP_ENV:'previous-value'}),patch.object(personal,'MAX_SWEEP_ATTEMPTS',cap),patch('auditoria.agentes.agente_ipv4_credenciales.run_hydra',side_effect=hydra):
-            findings=personal.credential_sweep([target],{target.address:[22]},store,time.monotonic()+240,tasks=tasks,results=results,validations=validations)
+        with personal_authorization(scope_options(config,credentials=True)) as authorization,patch.dict(os.environ,{personal.SWEEP_ENV:'previous-value'}),patch.object(personal,'MAX_SWEEP_ATTEMPTS',cap),patch('auditoria.agentes.agente_ipv4_credenciales.run_hydra',side_effect=hydra):
+            findings=personal.credential_sweep([target],{target.address:[22]},store,time.monotonic()+240,tasks=tasks,results=results,validations=validations,authorization=authorization)
             self.assertEqual(os.environ[personal.SWEEP_ENV],'previous-value')
         return store,tasks,results,validations,findings
 

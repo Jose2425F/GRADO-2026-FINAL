@@ -9,7 +9,7 @@ import time
 import unittest
 import pytest
 
-pytestmark = pytest.mark.usefixtures("healthy_kernel")
+pytestmark = pytest.mark.usefixtures("simulated_protected_runtime", "healthy_kernel")
 from unittest.mock import patch
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
@@ -19,6 +19,7 @@ from auditoria.contracts import TaskResult
 from auditoria.store import RunStore
 from dualstack_panel import validate_options,Panel
 from aplicaciones_personales import configure_applications
+from scripts.tests.authorization_fixture import personal_authorization, scope_options
 
 
 def xml_ports(task,ports):
@@ -58,8 +59,8 @@ class AutomaticPortsTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as root:
             store=RunStore(Path(root)/'run','host-discovery')
             try:
-                with patch.object(P,'resolve_targets',side_effect=[[t] for t in targets]) as routes,patch.object(P.subprocess,'run',return_value=subprocess.CompletedProcess([],0,xml,b'')) as runner:
-                    states=P.discover_targets(targets,config,store,time.monotonic()+240)
+                with personal_authorization(scope_options(config)) as authorization,patch.object(P,'resolve_targets',side_effect=[[t] for t in targets]) as routes,patch.object(P.subprocess,'run',return_value=subprocess.CompletedProcess([],0,xml,b'')) as runner:
+                    states=P.discover_targets(targets,config,store,time.monotonic()+240,authorization=authorization)
                 self.assertTrue(all(call.args[0]['port_mode']=='auto' for call in routes.call_args_list))
                 self.assertIn('-PS21,22,80,443,5432,8080',runner.call_args.args[0])
                 self.assertEqual(states,{'192.0.2.1':'up','192.0.2.2':'down'})
@@ -97,12 +98,12 @@ class AutomaticPortsTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as root:
             store=RunStore(Path(root)/'run','route-test')
             try:
-                with patch.object(P,'resolve_targets',return_value=[]) as routes:
-                    with self.assertRaises(ValueError):A.execute_open_task(task,store,time.monotonic()+100,runner=lambda *a,**k:self.fail('No tool before route'))
+                with personal_authorization(scope_options(self.config())) as authorization,patch.object(P,'resolve_targets',return_value=[]) as routes:
+                    with self.assertRaises(ValueError):A.execute_open_task(task,store,time.monotonic()+100,runner=lambda *a,**k:self.fail('No tool before route'),authorization=authorization)
                 def timeout(command,**kwargs):
                     self.assertFalse(kwargs.get('shell',False));self.assertLessEqual(kwargs['timeout'],65)
                     raise subprocess.TimeoutExpired(command,kwargs['timeout'],output=xml_ports(task,[]))
-                with patch.object(P,'resolve_targets',return_value=[task.target]):result=A.execute_open_task(task,store,time.monotonic()+100,runner=timeout)
+                with personal_authorization(scope_options(self.config())) as authorization,patch.object(P,'resolve_targets',return_value=[task.target]):result=A.execute_open_task(task,store,time.monotonic()+100,runner=timeout,authorization=authorization)
                 self.assertEqual(result.status,'failed');self.assertFalse(result.observations['scan_complete']);self.assertEqual(result.services,[])
             finally:store.close()
     def execute_run(self,root,*,ports=(2222,15432,31337),architecture='multiagent',hosts=1,sweep=False,applications=None,closed=(),tamper=False,ia='none'):
@@ -119,21 +120,21 @@ class AutomaticPortsTests(unittest.TestCase):
         def leave():
             nonlocal active
             with lock:active-=1
-        def discover(task,store,deadline):
+        def discover(task,store,deadline,**kwargs):
             enter()
             try:
-                result=original_open(task,store,deadline,runner=lambda command,**kwargs:subprocess.CompletedProcess(command,0,xml_ports(task,ports),b''))
+                result=original_open(task,store,deadline,runner=lambda command,**kwargs:subprocess.CompletedProcess(command,0,xml_ports(task,ports),b''),authorization=kwargs.get('authorization'))
                 commands.append(result.command)
                 if tamper:(store.root/result.evidence_ref).write_bytes(b'<altered/>')
                 return result
             finally:leave()
-        def service(task,store):
+        def service(task,store,**kwargs):
             enter()
             try:
-                result=original(task,store,runner=lambda command,**kwargs:subprocess.CompletedProcess(command,0,xml_services(task,closed),b''))
+                result=original(task,store,runner=lambda command,**kwargs:subprocess.CompletedProcess(command,0,xml_services(task,closed),b''),authorization=kwargs.get('authorization'))
                 commands.append(result.command);return result
             finally:leave()
-        with patch.object(P,'resolve_targets',side_effect=route),patch.object(P,'discover_targets',side_effect=lambda targets,*args:{t.address:'up' for t in targets}),\
+        with personal_authorization(options),patch.object(P,'resolve_targets',side_effect=route),patch.object(P,'discover_targets',side_effect=lambda targets,*args,**kwargs:{t.address:'up' for t in targets}),\
              patch.object(A,'execute_open_task',side_effect=discover),patch.object(P,'execute_task',side_effect=service),\
              patch.object(P,'credential_sweep',return_value=[]) as credentials,patch('aplicaciones_personales.load_session',return_value={}),\
              patch('aplicaciones_personales.execute_application') as web:

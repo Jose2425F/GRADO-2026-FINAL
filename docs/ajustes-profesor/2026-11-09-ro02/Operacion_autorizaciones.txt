@@ -1,0 +1,79 @@
+AUTORIZACIÓN EXPLÍCITA DEL ALCANCE POR IP
+Continuación de RO-02 en el punto 11.3 del informe
+
+El registro controla las sondas de la extensión por IP. El banco integrado y
+las variantes congeladas conservan sus políticas y la evidencia histórica.
+La cuenta administrativa del portal no crea un permiso mediante texto libre:
+el operador debe comprobar el soporte y registrar el alcance desde su consola.
+
+El archivo se busca en este orden:
+1. CENTINELA_AUTHORIZATIONS_FILE, configurado por el servicio.
+2. CENTINELA_DATA_DIR/authorizations.json.
+3. /var/lib/centinela/authorizations.json.
+
+El directorio inmediato es privado (0700) y el archivo 0600. Se rechazan
+enlaces, propietarios ajenos y directorios modificables por terceros. El
+servidor y la consola deben utilizar el mismo directorio y usuario de servicio.
+No se incluye un registro real de permisos en Git ni en las respuestas públicas.
+
+ANTES DE REGISTRAR
+El operador conserva el soporte de autorización y comprueba responsable,
+vigencia, activos, interfaz, puertos, pruebas de credenciales y aplicaciones.
+Un identificador de acta escrito en el archivo no equivale a verificar su
+validez. Los valores siguientes son ejemplos de configuración y no autorizan
+activos reales.
+
+Ejemplo de alcance.json (sustituir por el alcance realmente aprobado):
+{
+  "personal": {
+    "ipv4": "192.0.2.20",
+    "ipv6": "2001:db8::20",
+    "ports": [80, 443],
+    "interface": "lab0"
+  },
+  "creds": false,
+  "applications": []
+}
+
+Desde el entorno del aplicativo:
+python scripts/administrar_centinela.py autorizar-alcance LAB-APROBADO-01 \
+  --solicitud alcance.json --responsable "Responsable del laboratorio" \
+  --soporte "Identificador del soporte conservado" \
+  --vence "2026-11-10T23:59:00Z"
+
+La fecha es ilustrativa; debe corresponder a una vigencia futura aprobada al
+registrar. La operación no escanea objetivos ni llama a la API del modelo.
+Para un directorio de servicio distinto, --data-dir se coloca antes del
+subcomando o se configura el entorno del servicio de forma equivalente.
+
+REVOCACIÓN
+python scripts/administrar_centinela.py revocar-alcance LAB-APROBADO-01
+
+La revocación conserva la entrada y bloquea despachos nuevos. No se declara
+cancelación instantánea de un proceso que ya estuviera ejecutándose.
+
+USO EN EL PANEL
+Escribir la referencia registrada en Datos de la auditoría y elegir la
+interfaz explícita aprobada. Las direcciones, puertos y pruebas deben coincidir
+con el registro. Si se usa descubrimiento TCP automático, el operador debe
+aprobar expresamente port_mode=auto y ports=[]; ese modo abarca TCP 1–65535.
+Un permiso manual de puertos no autoriza ese rango completo.
+
+El descubrimiento consulta solamente las direcciones registradas. No barre
+el segmento completo por el hecho de ser privado ni envía ecos ff02::1 a todos
+los nodos IPv6. Una interfaz de ruta automática no identifica de forma estable
+el alcance y se rechaza al registrar.
+
+Si se selecciona un subconjunto diferente del alcance registrado, o cambia
+una ruta de aplicación, una interfaz, los puertos o la prueba de credenciales,
+se requiere una referencia nueva para ese alcance. Un permiso no se amplía
+por seleccionar equipos adicionales en el formulario.
+
+El recibo de la corrida guarda referencia, responsable, soporte, vigencia y
+huellas del permiso y su alcance; no copia sesiones privadas al informe.
+
+LÍMITES DE ESTA CORRECCIÓN
+Las pruebas del registro y del despacho no acreditan filtrado del kernel ni
+privilegio mínimo. Quedan pendientes los otros componentes de 11.3 y la
+aceptación efectiva de la instalación correspondiente. No se aplicaron reglas
+de cortafuegos ni se cambió el servicio de AWS como parte de esta continuación.

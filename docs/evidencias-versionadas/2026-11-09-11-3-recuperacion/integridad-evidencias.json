@@ -1,0 +1,1098 @@
+{
+  "archive": "evidencias-recuperacion-20261109.zip",
+  "archive_bytes": 242493,
+  "archive_sha256": "adae040eb3d4f1199aebc192c08b4b568ce578531a0e94ade971b815e806707d",
+  "baseline_archive_sha256": "5e6230ce2e059182663be8af8912617c8d003739f74a340111f6b604a00210a5",
+  "baseline_evidence_commit": "489e778",
+  "created_at_utc": "2026-11-09T06:48:49.959614+00:00",
+  "entries": [
+    {
+      "byte_identical_copy": true,
+      "bytes": 430,
+      "classification": "qa_reproduced_failure",
+      "entry": "evidencias/delta-candidato/qa-lock-root-owner-reproducer.json",
+      "note": "Hallazgo real de propiedad del lease en fixture temporal, o fuente candidata del delta aún pendiente de ensayo real; no altera el ROOT ni las186 tareas del baseline.",
+      "sha256": "624aff714e3333ddc2811ecd8db046499142394f768e18fbf5bb2a6442257043",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/aislado/delta-recuperacion/qa-lock-root-owner-reproducer.json",
+      "source_mtime_ns": 1794205422593648828
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 46188,
+      "classification": "candidate_source",
+      "entry": "evidencias/delta-candidato/ejecutar_protegido.py",
+      "note": "Hallazgo real de propiedad del lease en fixture temporal, o fuente candidata del delta aún pendiente de ensayo real; no altera el ROOT ni las186 tareas del baseline.",
+      "sha256": "35f568ddbd76d2b638fc827cb17c108bc27c697c2cbd691c68b6dcc3c45a2cbb",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/aislado/delta-recuperacion/ejecutar_protegido.py",
+      "source_mtime_ns": 1794205416807561911
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 2839,
+      "classification": "candidate_source",
+      "entry": "evidencias/delta-candidato/ejecucion_protegida_controlador.py",
+      "note": "Hallazgo real de propiedad del lease en fixture temporal, o fuente candidata del delta aún pendiente de ensayo real; no altera el ROOT ni las186 tareas del baseline.",
+      "sha256": "a9bb48e5a584a9a64d64d864c39479b4ad2e5675d98840bb7c221339a78414c3",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/aislado/delta-recuperacion/ejecucion_protegida_controlador.py",
+      "source_mtime_ns": 1794204334581350744
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 3850,
+      "classification": "candidate_source",
+      "entry": "evidencias/delta-candidato/test_delta_recuperacion.py",
+      "note": "Hallazgo real de propiedad del lease en fixture temporal, o fuente candidata del delta aún pendiente de ensayo real; no altera el ROOT ni las186 tareas del baseline.",
+      "sha256": "bfc88030e10c3bbadcb4e1635d9d3c5398d49cffa42e4c3e9bf895528c163967",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/aislado/delta-recuperacion/test_delta_recuperacion.py",
+      "source_mtime_ns": 1794204488364735253
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 4630,
+      "classification": "candidate_source",
+      "entry": "evidencias/delta-candidato/test_delta_lock_ownership.py",
+      "note": "Hallazgo real de propiedad del lease en fixture temporal, o fuente candidata del delta aún pendiente de ensayo real; no altera el ROOT ni las186 tareas del baseline.",
+      "sha256": "0644fb56e48bb1240da552c2f59839869f48bcc8226e0a744331b83791b84565",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/aislado/delta-recuperacion/test_delta_lock_ownership.py",
+      "source_mtime_ns": 1794205576836468343
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 256,
+      "classification": "baseline_context_only",
+      "entry": "evidencias/contexto-baseline-publicado/verificacion-descarga-github.json",
+      "note": "Comprobación del baseline descargado de GitHub; no se atribuye al delta de recuperación.",
+      "sha256": "2c0a470cc8d8687c6c6df0a73a78cbd50b22f7ebbb6d5224f72a193944753380",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/regresion/verificacion-descarga-github.json",
+      "source_mtime_ns": 1794205535172232466
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 4044,
+      "classification": "baseline_context_only",
+      "entry": "evidencias/contexto-baseline-publicado/recalculo-descarga-github.json",
+      "note": "Comprobación del baseline descargado de GitHub; no se atribuye al delta de recuperación.",
+      "sha256": "4859797ca97f8a6b2350dfb366a6c4549d415aa175730bc512a5ec8a01db8b8e",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/regresion/recalculo-descarga-github.json",
+      "source_mtime_ns": 1794205536438845125
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 5730,
+      "classification": "publication_tool",
+      "entry": "evidencias/herramientas/empaquetar_recuperacion_113.py",
+      "note": "Empaquetador separado con destino exclusivo de recuperación y comprobación del ZIP del baseline.",
+      "sha256": "82a6b926da9e9440b8cd9a86704573c71a0d4804667748736f09406fc77592ff",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/empaquetar_recuperacion_113.py",
+      "source_mtime_ns": 1794206928766342069
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 2140,
+      "classification": "qa_unit_scope_only",
+      "entry": "evidencias/qa-candidato/QA_RECUPERACION_REVISION.txt",
+      "note": "QA independiente del candidato35f568dd:7 fixtures root y7 contratos no privilegiados aprobados. No opera Docker, receptores ni cortafuegos; integración real aún pendiente.",
+      "sha256": "9120a68e5452ffdb79dfb52fdaa769aafd11aa63019cae4ebed37db1b4cf5a20",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/aislado/delta-recuperacion/QA_RECUPERACION_REVISION.txt",
+      "source_mtime_ns": 1794205785081374211
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 3047,
+      "classification": "qa_unit_scope_only",
+      "entry": "evidencias/qa-candidato/qa-review-recuperacion-final.json",
+      "note": "QA independiente del candidato35f568dd:7 fixtures root y7 contratos no privilegiados aprobados. No opera Docker, receptores ni cortafuegos; integración real aún pendiente.",
+      "sha256": "da1e7e3632ea254a3e6f5364f0325293cb24544832b24945137bda88234871d4",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/aislado/delta-recuperacion/qa-review-recuperacion-final.json",
+      "source_mtime_ns": 1794205852176802791
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 1263,
+      "classification": "qa_unit_scope_only",
+      "entry": "evidencias/qa-candidato/qa-lock-ownership-junit.xml",
+      "note": "QA independiente del candidato35f568dd:7 fixtures root y7 contratos no privilegiados aprobados. No opera Docker, receptores ni cortafuegos; integración real aún pendiente.",
+      "sha256": "3ee189090b3563be9f02704f4a790bc1e3ca0caba314bc90162057e48e535324",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/aislado/delta-recuperacion/qa-lock-ownership-junit.xml",
+      "source_mtime_ns": 1794205752322083087
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 312,
+      "classification": "qa_unit_scope_only",
+      "entry": "evidencias/qa-candidato/qa-root-frozen-manifest.json",
+      "note": "QA independiente del candidato35f568dd:7 fixtures root y7 contratos no privilegiados aprobados. No opera Docker, receptores ni cortafuegos; integración real aún pendiente.",
+      "sha256": "ec9ed55898f932a2d4a2b9a58d4d54e3dd33c57fad935fe73e24da976ced7a99",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/aislado/delta-recuperacion/qa-root-frozen-manifest.json",
+      "source_mtime_ns": 1794205752322203921
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 9353,
+      "classification": "publication_readonly_helper",
+      "entry": "evidencias/herramientas/empaquetar_evidencia_113.py",
+      "note": "Funciones de lectura, revisión e integridad importadas por el empaquetador nuevo. El empaquetador de recuperación nunca llama pack del baseline ni escribe aquella carpeta.",
+      "sha256": "51e534e601becd699816948cf1f527ba1d105999b52504bf2ef17a63db8e195c",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/empaquetar_evidencia_113.py",
+      "source_mtime_ns": 1794203737514515243
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 810,
+      "classification": "final_unit_tests",
+      "entry": "evidencias/contratos-finales/recovery-tests-final.log",
+      "note": "21 contratos focalizados de la fuente final con guarda kernel. Los ciclos reales anteriores a la guarda se atribuyen a su propia fuente preservada.",
+      "sha256": "e026cecd0b1fa8873f968dbef52af6d84b6d59d2750fba9cfa366dd2b6fd740c",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/aislado/recovery-tests-final.log",
+      "source_mtime_ns": 1794206450017498918
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 3447,
+      "classification": "final_unit_tests",
+      "entry": "evidencias/contratos-finales/recovery-tests-final.xml",
+      "note": "21 contratos focalizados de la fuente final con guarda kernel. Los ciclos reales anteriores a la guarda se atribuyen a su propia fuente preservada.",
+      "sha256": "c140450b2e3f8b424609bb5c04b545b1693607fc13c9992e454b9716b3090bf4",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/aislado/recovery-tests-final.xml",
+      "source_mtime_ns": 1794206449945498497
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 1243,
+      "classification": "final_regression",
+      "entry": "evidencias/regresion-final/python-final-recuperacion.log",
+      "note": "Fuente final verificada sin cambios durante la suite:1007 pruebas aprobadas,110 subpruebas,2 omisiones y1 deseleccionada. No añade auditorías al baseline.",
+      "sha256": "1ad9506c07382f24aecc075dab2a21e95135f250c30cee20ff1e069041023149",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/regresion/python-final-recuperacion.log",
+      "source_mtime_ns": 1794206583650276669
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 159635,
+      "classification": "final_regression",
+      "entry": "evidencias/regresion-final/python-final-recuperacion.xml",
+      "note": "Fuente final verificada sin cambios durante la suite:1007 pruebas aprobadas,110 subpruebas,2 omisiones y1 deseleccionada. No añade auditorías al baseline.",
+      "sha256": "37059b1204700dfaf3808e532bb733c2ba1149b5a05f4fbfcc7b847ca72ca223",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/regresion/python-final-recuperacion.xml",
+      "source_mtime_ns": 1794206583322274766
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 21891,
+      "classification": "final_regression",
+      "entry": "evidencias/regresion-final/fuentes-final-recuperacion-verificadas.json",
+      "note": "Fuente final verificada sin cambios durante la suite:1007 pruebas aprobadas,110 subpruebas,2 omisiones y1 deseleccionada. No añade auditorías al baseline.",
+      "sha256": "14702bd740e94a0aece5fd83a7035d82daca51912c0bcbf32b968f04f9c429ed",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/regresion/fuentes-final-recuperacion-verificadas.json",
+      "source_mtime_ns": 1794206607118649199
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 840,
+      "classification": "ci_source_only",
+      "entry": "evidencias/ci/pruebas.yml",
+      "note": "Fuente del flujo CI con comprobación pura del baseline. El YAML no acredita por sí solo una ejecución futura de GitHub Actions.",
+      "sha256": "50f13304e65413c37e0b12cd56782971da2d14dbeddbcfb63cb6199759a2540b",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/repo/.github/workflows/pruebas.yml",
+      "source_mtime_ns": 1794206904317416443
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 828,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/final-source-freeze.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "df0390b2bf48028d7f21ccfb7792d62ab7968a5f7cb449c90ca92e8e329d9320",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/final-source-freeze.json",
+      "source_mtime_ns": 1794206685592089135
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 1161,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/kernel-guard-delta.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "7b6161fbfc855cd68d65c109413acbd196070f6da934b3a1bbb255a5b7472fb0",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/kernel-guard-delta.json",
+      "source_mtime_ns": 1794206447604536300
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 891,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/live-cycle/failed-actor-quarantined.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "c8da3aae580ce9b1ea6f9c86eaa7c1eff8ef859ccdfafc0edbf55ff748278c5f",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/live-cycle/failed-actor-quarantined.json",
+      "source_mtime_ns": 1794206615695759640
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 822,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/live-cycle/final-actor-acquire.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "8831ece68a4831d2021ca1681bf33d75f8f12d5ba1bfebcdbe052ff7a83b3a0c",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/live-cycle/final-actor-acquire.json",
+      "source_mtime_ns": 1794206615695895980
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 822,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/live-cycle/fresh-actor-acquire.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "fca1133da24a1eb6d8d77629da365097b769f89feefdbef9e9e9b93fb52c338a",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/live-cycle/fresh-actor-acquire.json",
+      "source_mtime_ns": 1794206615695616644
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 3414,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/live-cycle/summary.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "5c18185dad498b11fcfe253d6383219dfa76cfcce865f3806a29a0248adc196d",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/live-cycle/summary.json",
+      "source_mtime_ns": 1794206615695432007
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 14743,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/manifest-public.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "daee3519c59bb12bb7dd67f62815086f0ceba8397be6b6943913a62a645387bb",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/manifest-public.json",
+      "source_mtime_ns": 1794206685598718685
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 7773,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/operator-helper/probar_recuperacion_real.py",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "dfe7704bb516ba8aba76c74fb82410adebee6ad1d8e6a2b29c3e994c20baea14",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/operator-helper/probar_recuperacion_real.py",
+      "source_mtime_ns": 1794206615696197431
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 193,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/operator-helper/probar_recuperacion_real.source.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "32acb347b8c1e36e37b73456eabcd37c00241ee646f4834b444375d87d02783b",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/operator-helper/probar_recuperacion_real.source.json",
+      "source_mtime_ns": 1794206615696374192
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 6793,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/originales-conservados-post-recuperacion.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e78a67bc530addf1dfe74baf357f40e93f89b9a92b7f06416cce43e514cfac69",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/originales-conservados-post-recuperacion.json",
+      "source_mtime_ns": 1794206685591357892
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 213497,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/recoveries/recovery-20261109T063646Z-sucursal-146df850.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "92e0ac39410d622cf30c88962352878011d60e79eeec3302d17e8164512a1c91",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/recoveries/recovery-20261109T063646Z-sucursal-146df850.json",
+      "source_mtime_ns": 1794206615688637547
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 106295,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/recoveries/recovery-20261109T063655Z-sucursal-23d858f5.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "f258d1a81387596a2d9cce89fd4ca8c0c09440ab17bdce50726df83a86065562",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/recoveries/recovery-20261109T063655Z-sucursal-23d858f5.json",
+      "source_mtime_ns": 1794206615691029255
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 213500,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/recoveries/recovery-20261109T063707Z-sucursal-b85433ba.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "19071cb41a0345c17095c0d29b1c64dbbf7e8330614de3b73b968d32bfffdd52",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/recoveries/recovery-20261109T063707Z-sucursal-b85433ba.json",
+      "source_mtime_ns": 1794206615694606496
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 21716,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063156Z-integrado-4282851e/broker-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "01b7c1a9e9946cc60916dace4a5e9bc9d547966c842158d7edb8a45b55ba76de",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063156Z-integrado-4282851e/broker-audit.jsonl",
+      "source_mtime_ns": 1794206615667962131
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063156Z-integrado-4282851e/broker-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063156Z-integrado-4282851e/broker-stdout.log",
+      "source_mtime_ns": 1794206615667067308
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063156Z-integrado-4282851e/controller-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063156Z-integrado-4282851e/controller-stdout.log",
+      "source_mtime_ns": 1794206615666756697
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 24269,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063156Z-integrado-4282851e/descriptor.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "6b39c617d0f821ea4bd07131669259253996a59ec5a88174809f9013b42d83b2",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063156Z-integrado-4282851e/descriptor.json",
+      "source_mtime_ns": 1794206615666756697
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 405,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063156Z-integrado-4282851e/hydra-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "027384c573b8bf778e2524030f886d19da99e1d9a7c97b9ae6fefc3016594e13",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063156Z-integrado-4282851e/hydra-audit.jsonl",
+      "source_mtime_ns": 1794206615668695072
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063156Z-integrado-4282851e/hydra-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063156Z-integrado-4282851e/hydra-stdout.log",
+      "source_mtime_ns": 1794206615667334050
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 403,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063156Z-integrado-4282851e/nmap-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "14faeabf8a95db36726dfe130736dcf87d7eda5b9e02b438a7763bb789c4ce38",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063156Z-integrado-4282851e/nmap-audit.jsonl",
+      "source_mtime_ns": 1794206615668536034
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063156Z-integrado-4282851e/nmap-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063156Z-integrado-4282851e/nmap-stdout.log",
+      "source_mtime_ns": 1794206615667217524
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 7592,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063156Z-integrado-4282851e/operator.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "02deb5257b6fc9f8b0682c311b49041bdf9528005cdb5186ae1b2dbb7b1ab9ac",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063156Z-integrado-4282851e/operator.json",
+      "source_mtime_ns": 1794206615665851996
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 1927,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063156Z-integrado-4282851e/preflight-operador.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "7f29fa753191d9c935e5c8c81d4a0c184d0529c3abe75ea97163667c97c9cf8d",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063156Z-integrado-4282851e/preflight-operador.json",
+      "source_mtime_ns": 1794206615668360344
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063156Z-integrado-4282851e/refresh.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063156Z-integrado-4282851e/refresh.jsonl",
+      "source_mtime_ns": 1794206615667962131
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 18172,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063316Z-sucursal-000a38cc/broker-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "7a4ef35ddc592c2b34a644b568a2facd14b6ddc89901d7a95948a8e657f238b6",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063316Z-sucursal-000a38cc/broker-audit.jsonl",
+      "source_mtime_ns": 1794206615671246707
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063316Z-sucursal-000a38cc/broker-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063316Z-sucursal-000a38cc/broker-stdout.log",
+      "source_mtime_ns": 1794206615670448202
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063316Z-sucursal-000a38cc/controller-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063316Z-sucursal-000a38cc/controller-stdout.log",
+      "source_mtime_ns": 1794206615670198279
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 24287,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063316Z-sucursal-000a38cc/descriptor.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "9178ae7013b6f8f1949568d1ccc30afe0a07d0a9539718ca4bec083beae86ef0",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063316Z-sucursal-000a38cc/descriptor.json",
+      "source_mtime_ns": 1794206615670198279
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 406,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063316Z-sucursal-000a38cc/hydra-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "099d9f90f7326133226ca5ba70f7092ce87027e5c422c87e4f96ea34b3b436a1",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063316Z-sucursal-000a38cc/hydra-audit.jsonl",
+      "source_mtime_ns": 1794206615672017423
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063316Z-sucursal-000a38cc/hydra-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063316Z-sucursal-000a38cc/hydra-stdout.log",
+      "source_mtime_ns": 1794206615670679125
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 404,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063316Z-sucursal-000a38cc/nmap-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "53fd9f0a77f09376e0047227f0cd2bb4b82bce8ce58d6e9d981fd913b572617d",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063316Z-sucursal-000a38cc/nmap-audit.jsonl",
+      "source_mtime_ns": 1794206615671860317
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063316Z-sucursal-000a38cc/nmap-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063316Z-sucursal-000a38cc/nmap-stdout.log",
+      "source_mtime_ns": 1794206615670569778
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 7083,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063316Z-sucursal-000a38cc/operator.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "bc19c071e93ab6f9c54599a43ff6abff42f1e15cd719c318b01e31e5697ba106",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063316Z-sucursal-000a38cc/operator.json",
+      "source_mtime_ns": 1794206615669434063
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 1822,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063316Z-sucursal-000a38cc/preflight-operador.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "05090d88a8d086f61a67012745d90b6d0549e7a8e1a6bc07665ae45357f1fad4",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063316Z-sucursal-000a38cc/preflight-operador.json",
+      "source_mtime_ns": 1794206615671676021
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063316Z-sucursal-000a38cc/refresh.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063316Z-sucursal-000a38cc/refresh.jsonl",
+      "source_mtime_ns": 1794206615671246707
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 18169,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063650Z-sucursal-3d73f835/broker-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "ddbf526b44e589668c0ad6259ffdd71c7b71e4455c0aeb2a87141cac96acc384",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063650Z-sucursal-3d73f835/broker-audit.jsonl",
+      "source_mtime_ns": 1794206615674537387
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063650Z-sucursal-3d73f835/broker-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063650Z-sucursal-3d73f835/broker-stdout.log",
+      "source_mtime_ns": 1794206615673759855
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063650Z-sucursal-3d73f835/controller-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063650Z-sucursal-3d73f835/controller-stdout.log",
+      "source_mtime_ns": 1794206615673503425
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 24288,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063650Z-sucursal-3d73f835/descriptor.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "c7049460becd52dbeffe03e504b50a3aac5694ac249b52b395da0c4ca11fbd78",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063650Z-sucursal-3d73f835/descriptor.json",
+      "source_mtime_ns": 1794206615673503425
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 406,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063650Z-sucursal-3d73f835/hydra-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "8a0a44f76ea48fa176bcc0c6d209363c0e2ff39825cb50e3afaec687790a3753",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063650Z-sucursal-3d73f835/hydra-audit.jsonl",
+      "source_mtime_ns": 1794206615675250361
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063650Z-sucursal-3d73f835/hydra-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063650Z-sucursal-3d73f835/hydra-stdout.log",
+      "source_mtime_ns": 1794206615673987389
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 405,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063650Z-sucursal-3d73f835/nmap-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "2860de2be52cf89406404d99f0d2ff0542667201aeaaac65d7056dfb6bb0e22f",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063650Z-sucursal-3d73f835/nmap-audit.jsonl",
+      "source_mtime_ns": 1794206615675087566
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063650Z-sucursal-3d73f835/nmap-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063650Z-sucursal-3d73f835/nmap-stdout.log",
+      "source_mtime_ns": 1794206615673876662
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 7083,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063650Z-sucursal-3d73f835/operator.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "2a6baa87f279d6c27efbd0fa048927342b1068ac19ff0d7b433057d2cc49fbc8",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063650Z-sucursal-3d73f835/operator.json",
+      "source_mtime_ns": 1794206615672690174
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 1822,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063650Z-sucursal-3d73f835/preflight-operador.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "cc8781cdbd9cc7f73e3aadf47df2b09033743dcd6386c6f0616a6c959c10d1da",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063650Z-sucursal-3d73f835/preflight-operador.json",
+      "source_mtime_ns": 1794206615674916503
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063650Z-sucursal-3d73f835/refresh.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063650Z-sucursal-3d73f835/refresh.jsonl",
+      "source_mtime_ns": 1794206615674537387
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 9950,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063659Z-sucursal-d43d1803/broker-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "66f4cb83d232bc8c715639ebbd703168efd6e5a7dfc8437220155abf1be5545a",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063659Z-sucursal-d43d1803/broker-audit.jsonl",
+      "source_mtime_ns": 1794206615677701707
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063659Z-sucursal-d43d1803/broker-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063659Z-sucursal-d43d1803/broker-stdout.log",
+      "source_mtime_ns": 1794206615676957903
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 2103,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063659Z-sucursal-d43d1803/controller-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "51544f9d6633c2fd83631146c4dd35ba92178ed749bd3a0f87c7e6f138fca297",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063659Z-sucursal-d43d1803/controller-stdout.log",
+      "source_mtime_ns": 1794206615676957903
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 24287,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063659Z-sucursal-d43d1803/descriptor.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "6fb622e8781c329dbfb22e59ee3df8144a1a8b97a99232c09a641e309b4eb2ae",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063659Z-sucursal-d43d1803/descriptor.json",
+      "source_mtime_ns": 1794206615676624162
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 406,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063659Z-sucursal-d43d1803/hydra-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "7fa428ce2661d7b472b0f899fca2638ec04058ef29040e171a8f1ce3127bbf58",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063659Z-sucursal-d43d1803/hydra-audit.jsonl",
+      "source_mtime_ns": 1794206615678487372
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063659Z-sucursal-d43d1803/hydra-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063659Z-sucursal-d43d1803/hydra-stdout.log",
+      "source_mtime_ns": 1794206615677246891
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 404,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063659Z-sucursal-d43d1803/nmap-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "67d6c930f6f1d6fd190581de28abc47888375d60dce0067181ae86b1b9330efb",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063659Z-sucursal-d43d1803/nmap-audit.jsonl",
+      "source_mtime_ns": 1794206615678220488
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063659Z-sucursal-d43d1803/nmap-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063659Z-sucursal-d43d1803/nmap-stdout.log",
+      "source_mtime_ns": 1794206615677100201
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 5304,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063659Z-sucursal-d43d1803/operator.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "71577b4420ce54243431448312d1e05cf4d8193d1f8f39cd31dab4367e2910f1",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063659Z-sucursal-d43d1803/operator.json",
+      "source_mtime_ns": 1794206615675851213
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063659Z-sucursal-d43d1803/refresh.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063659Z-sucursal-d43d1803/refresh.jsonl",
+      "source_mtime_ns": 1794206615677701707
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 18168,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063710Z-sucursal-1d0bd293/broker-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "6e08a1b07a86070cb3bafe8d0752e7c18e5339154fb8b8110528aa9fc775a928",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063710Z-sucursal-1d0bd293/broker-audit.jsonl",
+      "source_mtime_ns": 1794206615681078414
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063710Z-sucursal-1d0bd293/broker-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063710Z-sucursal-1d0bd293/broker-stdout.log",
+      "source_mtime_ns": 1794206615680303763
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063710Z-sucursal-1d0bd293/controller-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063710Z-sucursal-1d0bd293/controller-stdout.log",
+      "source_mtime_ns": 1794206615680057240
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 24288,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063710Z-sucursal-1d0bd293/descriptor.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "fe82d9ce9124219370b3640a8ccb985e79781917de375b2ea9581ab06b99b5f8",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063710Z-sucursal-1d0bd293/descriptor.json",
+      "source_mtime_ns": 1794206615680057240
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 406,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063710Z-sucursal-1d0bd293/hydra-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "5c86fd402c61494d61449512bf1a449dd96908121b4fed9910ca8b87450ea8df",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063710Z-sucursal-1d0bd293/hydra-audit.jsonl",
+      "source_mtime_ns": 1794206615681848367
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063710Z-sucursal-1d0bd293/hydra-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063710Z-sucursal-1d0bd293/hydra-stdout.log",
+      "source_mtime_ns": 1794206615680531948
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 405,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063710Z-sucursal-1d0bd293/nmap-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "87f42c864faaa95d3b32e64eb4db302d5181a529f592027d573adb2afd2cccff",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063710Z-sucursal-1d0bd293/nmap-audit.jsonl",
+      "source_mtime_ns": 1794206615681688973
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063710Z-sucursal-1d0bd293/nmap-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063710Z-sucursal-1d0bd293/nmap-stdout.log",
+      "source_mtime_ns": 1794206615680422696
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 7083,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063710Z-sucursal-1d0bd293/operator.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "c13438324d78d33e248528c48790b6b8611fce7b2c506b179e58796ba0cd7506",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063710Z-sucursal-1d0bd293/operator.json",
+      "source_mtime_ns": 1794206615679300741
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 1822,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063710Z-sucursal-1d0bd293/preflight-operador.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "7dc809fe1f7da4447dfc095a6ef873531aa9899ea658cb1109beca2eebb038cd",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063710Z-sucursal-1d0bd293/preflight-operador.json",
+      "source_mtime_ns": 1794206615681516744
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T063710Z-sucursal-1d0bd293/refresh.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T063710Z-sucursal-1d0bd293/refresh.jsonl",
+      "source_mtime_ns": 1794206615681078414
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 21715,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T064047Z-integrado-67b29813/broker-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "1d5909bb995caee79691d8b46a1cf270ee0c22f20e2ec8d625fb526d4ea2d237",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T064047Z-integrado-67b29813/broker-audit.jsonl",
+      "source_mtime_ns": 1794206615684526547
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T064047Z-integrado-67b29813/broker-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T064047Z-integrado-67b29813/broker-stdout.log",
+      "source_mtime_ns": 1794206615683601269
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T064047Z-integrado-67b29813/controller-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T064047Z-integrado-67b29813/controller-stdout.log",
+      "source_mtime_ns": 1794206615683371042
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 24269,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T064047Z-integrado-67b29813/descriptor.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "4058014ed00ed891e17b8ae6e68a2d04d98a748fbdfb0327489621716384d83a",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T064047Z-integrado-67b29813/descriptor.json",
+      "source_mtime_ns": 1794206615683371042
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 406,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T064047Z-integrado-67b29813/hydra-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "cd8c1fd9de25e614bca9de5f26ef34fd7fe5ca359af6ea403a8a754d14ab7230",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T064047Z-integrado-67b29813/hydra-audit.jsonl",
+      "source_mtime_ns": 1794206615685267680
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T064047Z-integrado-67b29813/hydra-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T064047Z-integrado-67b29813/hydra-stdout.log",
+      "source_mtime_ns": 1794206615683829315
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 404,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T064047Z-integrado-67b29813/nmap-audit.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "3866cb062db9e82c060011562a3ec329329c3d5a3a1d2a6784a974e64908e611",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T064047Z-integrado-67b29813/nmap-audit.jsonl",
+      "source_mtime_ns": 1794206615685058672
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T064047Z-integrado-67b29813/nmap-stdout.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T064047Z-integrado-67b29813/nmap-stdout.log",
+      "source_mtime_ns": 1794206615683715608
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 7592,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T064047Z-integrado-67b29813/operator.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "0baed18a6dcedb94380155f45026fef1cdd1381d15f40a4b3aa7df0db9d836cb",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T064047Z-integrado-67b29813/operator.json",
+      "source_mtime_ns": 1794206615682585078
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 1927,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T064047Z-integrado-67b29813/preflight-operador.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "9f2ccb370854db4fc7498e4f984031c1efa83b6ab017d4dcb5b3c481e532a01e",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T064047Z-integrado-67b29813/preflight-operador.json",
+      "source_mtime_ns": 1794206615684892931
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 0,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/runs/20261109T064047Z-integrado-67b29813/refresh.jsonl",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/runs/20261109T064047Z-integrado-67b29813/refresh.jsonl",
+      "source_mtime_ns": 1794206615684526547
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 1352,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/source-delta.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "fcfeab1c9c954bc437a2b6c4adb1356034facdb786ddf0816f155ea3087f990b",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/source-delta.json",
+      "source_mtime_ns": 1794205916699986693
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 2839,
+      "classification": "previous_source_epoch",
+      "entry": "evidencias/runtime-public/sources-before-kernel-guard/ejecucion_protegida_controlador.py",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "a9bb48e5a584a9a64d64d864c39479b4ad2e5675d98840bb7c221339a78414c3",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/sources-before-kernel-guard/ejecucion_protegida_controlador.py",
+      "source_mtime_ns": 1794206447604425777
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 46188,
+      "classification": "previous_source_epoch",
+      "entry": "evidencias/runtime-public/sources-before-kernel-guard/ejecutar_protegido.py",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "35f568ddbd76d2b638fc827cb17c108bc27c697c2cbd691c68b6dcc3c45a2cbb",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/sources-before-kernel-guard/ejecutar_protegido.py",
+      "source_mtime_ns": 1794206447604342242
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 17605,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/summary.json",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "27202963d8eb43de08da7bdb2cf57c1bb1f79e2ebf0aa2ff2f7a3b1bdb5d8d8e",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/summary.json",
+      "source_mtime_ns": 1794206615719883521
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 810,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/tests/recovery-tests-final.log",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "e026cecd0b1fa8873f968dbef52af6d84b6d59d2750fba9cfa366dd2b6fd740c",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/tests/recovery-tests-final.log",
+      "source_mtime_ns": 1794206615696519694
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 3447,
+      "classification": "live_recovery_evidence",
+      "entry": "evidencias/runtime-public/tests/recovery-tests-final.xml",
+      "note": "Exportación pública final:6 preflights y3 recibos de recuperación, sin catálogo de auditoría. Las primeras5 comprobaciones usan la fuente anterior a la guarda; la sexta es el control sano de la fuente final.",
+      "sha256": "c140450b2e3f8b424609bb5c04b545b1693607fc13c9992e454b9716b3090bf4",
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/tests/recovery-tests-final.xml",
+      "source_mtime_ns": 1794206615696694634
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 46255,
+      "classification": "final_guarded_source",
+      "entry": "evidencias/fuentes-finales/scripts/ejecutar_protegido.py",
+      "note": "Fuente final con guarda kernel; SHA coincide con el workspace y stage del control saludable final y de los21 contratos.",
+      "sha256": "c9587fb4b8089431025f5374f604cfe2b4c47272f10b0f42a16e0d4b98687e5f",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/repo/scripts/ejecutar_protegido.py",
+      "source_mtime_ns": 1794206392865164652
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 2914,
+      "classification": "final_guarded_source",
+      "entry": "evidencias/fuentes-finales/scripts/ejecucion_protegida_controlador.py",
+      "note": "Fuente final con guarda kernel; SHA coincide con el workspace y stage del control saludable final y de los21 contratos.",
+      "sha256": "d0062cdbdc9ce4942953166add9719df06f59f11935f7374a884962b06b3cbff",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/repo/scripts/ejecucion_protegida_controlador.py",
+      "source_mtime_ns": 1794206392865164652
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 7355,
+      "classification": "final_guarded_source",
+      "entry": "evidencias/fuentes-finales/scripts/tests/test_ejecutor_protegido.py",
+      "note": "Fuente final con guarda kernel; SHA coincide con el workspace y stage del control saludable final y de los21 contratos.",
+      "sha256": "0b8101cbe469231d1b96b98fb8681518ca5a9a395a46704965ca66c3e0fae0d6",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/repo/scripts/tests/test_ejecutor_protegido.py",
+      "source_mtime_ns": 1794205860746074019
+    },
+    {
+      "byte_identical_copy": true,
+      "bytes": 6010,
+      "classification": "final_guarded_source",
+      "entry": "evidencias/fuentes-finales/scripts/tests/test_recuperacion_protegida.py",
+      "note": "Fuente final con guarda kernel; SHA coincide con el workspace y stage del control saludable final y de los21 contratos.",
+      "sha256": "a1591755b79b9e55fd2c8f80319913d6165a6ada6bfc9139a33390dde9b9d8d6",
+      "source": "/home/kali/Documents/Codex/2026-11-07/cone/work/cierre-11-3-20261109/repo/scripts/tests/test_recuperacion_protegida.py",
+      "source_mtime_ns": 1794206392901164862
+    }
+  ],
+  "entry_count": 107,
+  "privacy_review": {
+    "configured_keys_not_read": true,
+    "explicit_sources_only": true,
+    "known_pattern_scan_passed": true,
+    "note": "Revisión por patrones y campos conocidos; no garantiza detectar cualquier secreto desconocido.",
+    "private_sources_excluded": true
+  },
+  "public_exports_verified": [
+    {
+      "files": 83,
+      "source": "/var/tmp/c113-9d49e066fefb/recovery-public/manifest-public.json",
+      "verified": true
+    }
+  ],
+  "schema": "centinela-recovery-evidence/1",
+  "scope": "operator_preflight_and_protocol_recovery_only",
+  "status": "accepted_recovery_scope_integrated_and_branch_with_source_epochs"
+}

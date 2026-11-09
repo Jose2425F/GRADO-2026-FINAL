@@ -11,7 +11,7 @@ import time
 import unittest
 import pytest
 
-pytestmark = pytest.mark.usefixtures("healthy_kernel")
+pytestmark = pytest.mark.usefixtures("simulated_protected_runtime", "healthy_kernel")
 from unittest.mock import patch
 from contextlib import contextmanager
 
@@ -19,6 +19,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from aplicaciones_personales import (configure_applications, save_session, load_session, read_sessions, ApplicationTask,
     execute_application, adjudicate_application, classify, corroborated_checks, PROFILE)
 from laboratorio_personal import configuration, run
+from scripts.tests.authorization_fixture import personal_authorization, scope_options
 from dualstack_panel import validate_options, Panel, make_server
 from auditoria.contracts import Target
 from auditoria.store import RunStore
@@ -125,11 +126,11 @@ class ApplicationTests(unittest.TestCase):
 
     def test_web_task_is_blocked_when_inventory_does_not_recognize_http(self):
         from auditoria.contracts import TaskResult,Service
-        def inventory(task,store):
+        def inventory(task,store,**kwargs):
             return TaskResult(task_id=task.task_id,status='completed_no_findings',services=[Service(port=8080,protocol='tcp',state='open',name='ssh')])
         with tempfile.TemporaryDirectory() as td:
             options={'personal':net_config(),'architecture':'multiagent','tokens':0,'ia':'none','authorization':'LAB-PROPIO','applications':[app_config()],'creds':False}
-            with patch('aplicaciones_personales.load_session',return_value={}),patch('laboratorio_personal.execute_task',side_effect=inventory),patch('aplicaciones_personales.execute_application') as web:
+            with personal_authorization(options),patch('aplicaciones_personales.load_session',return_value={}),patch('laboratorio_personal.execute_task',side_effect=inventory),patch('aplicaciones_personales.execute_application') as web:
                 self.assertEqual(run(options,Path(td)),3);web.assert_not_called()
             directory=next(Path(td).iterdir());report=json.loads((directory/'report.json').read_text())
             self.assertEqual(report['findings'],[])
@@ -141,8 +142,8 @@ class ApplicationTests(unittest.TestCase):
         task=ApplicationTask(task_id='application_test',target=target,application_index=0)
         store=RunStore(directory,'application_test')
         try:
-            with patch('aplicaciones_personales.load_session',return_value={'Authorization':'Bearer '+SESSION}):
-                result=execute_application(task,app,store,time.monotonic()+60)
+            with personal_authorization(scope_options(net_config(app['port']),applications=[app])) as authorization,patch('aplicaciones_personales.load_session',return_value={'Authorization':'Bearer '+SESSION}):
+                result=execute_application(task,app,store,time.monotonic()+60,authorization=authorization)
             findings,validation=adjudicate_application(directory,task,result,app)
         finally:store.close()
         return task,result,findings,validation
@@ -183,7 +184,7 @@ class ApplicationTests(unittest.TestCase):
             task=ApplicationTask(task_id='deadline',target=Target(asset_id='app',address='127.0.0.1',interface='lo',ports=[port]),application_index=0)
             store=RunStore(Path(td)/'deadline','deadline')
             try:
-                with patch('aplicaciones_personales.load_session',return_value={}):result=execute_application(task,app,store,time.monotonic()-1)
+                with personal_authorization(scope_options(net_config(port),applications=[app])) as authorization,patch('aplicaciones_personales.load_session',return_value={}):result=execute_application(task,app,store,time.monotonic()-1,authorization=authorization)
             finally:store.close()
             self.assertEqual(len(handler.seen),before);self.assertEqual(result.status.value,'failed')
 
@@ -221,7 +222,7 @@ class ApplicationTests(unittest.TestCase):
             with self.subTest(architecture=architecture),server_pair() as (port,_),tempfile.TemporaryDirectory() as td:
                 options={'personal':net_config(port),'architecture':architecture,'tokens':0,'ia':'none','authorization':'LAB-PROPIO',
                          'applications':[app_config(port)],'creds':False}
-                with patch('aplicaciones_personales.load_session',return_value={'Authorization':'Bearer '+SESSION}),patch('auditoria.openai_provider.OpenAIScheduler') as api:
+                with personal_authorization(options),patch('aplicaciones_personales.load_session',return_value={'Authorization':'Bearer '+SESSION}),patch('auditoria.openai_provider.OpenAIScheduler') as api:
                     self.assertEqual(run(options,Path(td)),0);api.assert_not_called()
                 directory=next(Path(td).iterdir());report=json.loads((directory/'report.json').read_text())
                 self.assertEqual(len(report['inventory']),2);self.assertEqual(len(report['tasks']),3)

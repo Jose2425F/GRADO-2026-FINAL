@@ -63,7 +63,14 @@ def _command(state, compose, source):
 
 def _run(command, *, timeout=20, allow_missing=False):
     kernel_ok()
-    result = subprocess.run(command, capture_output=True, text=True, timeout=timeout)
+    from auditoria.privilege_broker import broker_enabled,docker_command,BrokerError
+    if broker_enabled() and command and command[0]=='docker':
+        try:result=subprocess.CompletedProcess(command,0,docker_command(command[1:],timeout=timeout),'')
+        except BrokerError:
+            if not allow_missing:raise
+            result=subprocess.CompletedProcess(command,1,'','broker_operation_denied')
+    else:
+        result = subprocess.run(command, capture_output=True, text=True, timeout=timeout)
     kernel_ok()
     if result.returncode and not allow_missing:
         raise LabError('local_image_or_docker_operation_failed')

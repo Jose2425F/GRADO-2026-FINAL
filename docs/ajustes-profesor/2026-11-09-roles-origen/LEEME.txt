@@ -1,0 +1,19 @@
+SEGUIMIENTO DEL PUNTO 11.3 DESPUÉS DE RO-02
+
+Esta carpeta documenta una continuación técnica nueva. No modifica el
+Estado_de_los_ajustes_v3.txt ni el Word de la entrega anterior.
+
+Separacion_y_filtrado_11_3.txt describe el problema, la frontera de confianza,
+los ensayos y el alcance pendiente de aceptación. Operacion_ejecutor_protegido.txt
+identifica la entrada del operador y los límites de instalación.
+
+Las pruebas se publican en docs/evidencias-versionadas/2026-11-09-11-3.
+La integridad y la conservación de versiones anteriores se comprueban allí.
+
+Las 154 tareas Single canónicas y el suplemento Multiagent de 32 tareas tienen
+resultado aprobado, con sus negativas de roles y red. La copia pública de
+capturas y las referencias posteriores permiten repetir el cotejo técnico.
+La corrección corresponde a los cinco bancos cerrados ensayados, sin API;
+AWS, la integración productiva del panel y la extensión personal o VM no
+quedan aceptados por estos resultados. La decisión académica corresponde
+al evaluador.

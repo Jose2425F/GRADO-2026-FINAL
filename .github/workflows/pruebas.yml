@@ -188,6 +188,12 @@ jobs:
         run: |
           npm test --prefix scripts/tests
           npm run test:browser --prefix scripts/tests
+      - name: Verificar el paquete público de evidencias de 11.3
+        if: matrix.project_name == 'prototipo'
+        run: piloto_kali/prototipo/.venv/bin/python docs/evidencias-versionadas/2026-11-09-11-3/verificar.py
+      - name: Verificar el paquete público de recuperación
+        if: matrix.project_name == 'prototipo'
+        run: piloto_kali/prototipo/.venv/bin/python docs/evidencias-versionadas/2026-11-09-11-3-recuperacion/verificar.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:

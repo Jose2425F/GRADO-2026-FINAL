@@ -138,7 +138,7 @@ async function runDiscovery(){
  const button=$('discover-run');button.disabled=true;$('discover-results').hidden=true;
  $('discover-note').replaceChildren(el('span',undefined,'discover-busy'),document.createTextNode(`Buscando equipos en ${name}… el barrido IPv4 puede tardar hasta un minuto.`));
  try{
-  const response=await fetch('/api/lab/personal/discover',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:JSON.stringify({interface:name})}),data=await response.json();
+  const response=await fetch('/api/lab/personal/discover',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:JSON.stringify({interface:name,authorization:$('authorization').value.trim()})}),data=await response.json();
   if(!response.ok)throw new Error(data.error||'No se pudo descubrir la red.');
   discovered=data.hosts||[];const body=$('discover-hosts');body.replaceChildren();
   discovered.forEach((host,index)=>{const box=el('input');box.type='checkbox';box.value=String(index);box.checked=true;box.setAttribute('aria-label','Auditar '+(host.ipv4[0]||host.ipv6[0]));box.addEventListener('change',updateDiscoverCount);const row=el('tr');const c=el('td');c.append(box);row.append(c,el('td',host.ipv4.join(', ')||'—'),el('td',host.ipv6.join(', ')||'—'),el('td',host.mac||'—','mac'));body.append(row);});

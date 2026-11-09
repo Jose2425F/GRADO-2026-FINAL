@@ -1,0 +1,153 @@
+{
+  "fecha": "2026-11-09",
+  "version": "ro02-continuacion-1",
+  "base": "bc7f7d58a1728e3d56ffbd4b3c18534283ad1755",
+  "archivos": [
+    {
+      "ruta": "docs/ajustes-profesor/2026-11-09-ro02/Estado_de_los_ajustes_v3.txt",
+      "bytes": 7495,
+      "sha256": "376bbe04c35d7f908aa12277dcdfb1d1f8e999182c14d830c597c410f83dc93c"
+    },
+    {
+      "ruta": "docs/ajustes-profesor/2026-11-09-ro02/LEEME.txt",
+      "bytes": 1677,
+      "sha256": "457441f482cb7eee4b0d9431ff15a40ea1fc811a6b655374487849df7b1d1858"
+    },
+    {
+      "ruta": "docs/ajustes-profesor/2026-11-09-ro02/Operacion_autorizaciones.txt",
+      "bytes": 3719,
+      "sha256": "ec5dcaae9176e173b09f40cbb17268fdeadfe627d783087134c22128d7f846c9"
+    },
+    {
+      "ruta": "docs/ajustes-profesor/2026-11-09-ro02/evidencias-ro02-20261109.zip",
+      "bytes": 96585,
+      "sha256": "2fdcdefc7661e98309b8fb2380699927abb20655b0da2c50882b2536b25086b8"
+    },
+    {
+      "ruta": "docs/ajustes-profesor/2026-11-09-ro02/integridad-evidencias-ro02.json",
+      "bytes": 8016,
+      "sha256": "fdb7cb06f7a7d7797e6b5ba5e0f8a6890b8454f18c9b2c5e71fc7491bbfe874f"
+    },
+    {
+      "ruta": "docs/ajustes-profesor/2026-11-09-ro02/resumen-validacion.json",
+      "bytes": 5602,
+      "sha256": "a86669d83d4d2a8db9ee43a698fd58caa1b591b15e9b6773c6633e826a74fae0"
+    },
+    {
+      "ruta": "docs/ajustes-profesor/2026-11-09-ro02/verificar.py",
+      "bytes": 1267,
+      "sha256": "3e37029e874c1a222c9bc9eff9033c7b110173c995dc35222933786c0bf41eac"
+    },
+    {
+      "ruta": "piloto_kali/prototipo/src/auditoria/agentes/agente_ipv4_credenciales.py",
+      "bytes": 6657,
+      "sha256": "7ee7884343d526ab33203241874ac659ce9407de6ca5ae85236a44609c13fb4d"
+    },
+    {
+      "ruta": "scripts/administrar_centinela.py",
+      "bytes": 3832,
+      "sha256": "626f221cf7e8a52ed4ef2d40e93a13be0a7c2c632ee090625881e9dd6f621169"
+    },
+    {
+      "ruta": "scripts/aplicaciones_personales.py",
+      "bytes": 19488,
+      "sha256": "d307a8602594422f021a90cbbd4d728b787928a91f0df8fe23c45171048e1fa7"
+    },
+    {
+      "ruta": "scripts/autorizacion_personal.py",
+      "bytes": 20650,
+      "sha256": "7e9b7dd05b9ae0fab8a4638ab8ba70e8fec2293d3c738bbb372cb1d5b44e4ed0"
+    },
+    {
+      "ruta": "scripts/descubrimiento_red.py",
+      "bytes": 8544,
+      "sha256": "d94829018c4fe6052959325cd4d23001faddc07678fe4711716247489bee53c9"
+    },
+    {
+      "ruta": "scripts/dualstack_panel.py",
+      "bytes": 75472,
+      "sha256": "ae1fd0f0676a74e91e869ed7b9f1a6d4d54774f8f2a073b7f54180e6a9c218cf"
+    },
+    {
+      "ruta": "scripts/dualstack_ui/index.html",
+      "bytes": 63681,
+      "sha256": "719bf68865c61dd83b47d9db4c3ac01f965e1f4074c8ad6eb3c1d646bed86cd4"
+    },
+    {
+      "ruta": "scripts/dualstack_ui/workspace.js",
+      "bytes": 33244,
+      "sha256": "4734f410a559dc485d42db649dcbc1ea280fce53ee2981e587f503c6359250dc"
+    },
+    {
+      "ruta": "scripts/laboratorio_personal.py",
+      "bytes": 43266,
+      "sha256": "7d5a2436f56825481f295bef31cac520610bdff60bcf7ab43fe283be48bf0c9e"
+    },
+    {
+      "ruta": "scripts/puertos_personales.py",
+      "bytes": 22444,
+      "sha256": "69b98476c94c1fde611e4089e55b052597e55a2d1ff7bcd3580d0f7ff38f29b7"
+    },
+    {
+      "ruta": "scripts/tests/authorization_fixture.py",
+      "bytes": 1507,
+      "sha256": "c760f57d3f9c1df7aca840fff14399d9598d98aab9d40806b73352ba0f52a6dd"
+    },
+    {
+      "ruta": "scripts/tests/test_aplicaciones_personales.py",
+      "bytes": 16166,
+      "sha256": "fa03f30945272cce04110261e2dfb7c2fb3f9c8e43e442a200e7b14b2e89e83c"
+    },
+    {
+      "ruta": "scripts/tests/test_autorizacion_bindings.py",
+      "bytes": 4511,
+      "sha256": "d1970ccc447846c7e2ac9e0b463bf95262e915b8fdf56c74cbc501e0dea1121b"
+    },
+    {
+      "ruta": "scripts/tests/test_autorizacion_personal.py",
+      "bytes": 12803,
+      "sha256": "968641ab18a0ebe95bbdedab18bef53ce627c88b6b7f565b44039263f4441964"
+    },
+    {
+      "ruta": "scripts/tests/test_descubrimiento_autorizado.py",
+      "bytes": 9014,
+      "sha256": "ecae9d52e26b1237d55d6b7870fd0d716f9a86ffe996774317d0086017dc07a6"
+    },
+    {
+      "ruta": "scripts/tests/test_kernel_controladores.py",
+      "bytes": 2370,
+      "sha256": "4da413648d7c751839261478da88204448dc5111902852fb76f8a415f3e9141e"
+    },
+    {
+      "ruta": "scripts/tests/test_laboratorio_empresa_panel.py",
+      "bytes": 12846,
+      "sha256": "d6f8df2675d5d1913de9e4c7643e38f209e128a16d811b7e4b4dc07c28b9fe21"
+    },
+    {
+      "ruta": "scripts/tests/test_laboratorio_personal.py",
+      "bytes": 22380,
+      "sha256": "9399e6efaab710500537bf67b3bcf4b5703bce0e2be1e6e61ca47e9056c82492"
+    },
+    {
+      "ruta": "scripts/tests/test_panel_expertos.py",
+      "bytes": 21055,
+      "sha256": "d9f9b7aa50ac118c8c89637216fd4ba3c38374d2c1adb53c6a0dd15ff3747c5f"
+    },
+    {
+      "ruta": "scripts/tests/test_personal_authorization_integration.py",
+      "bytes": 8679,
+      "sha256": "6f24e469e06f513f3b617b60cc84a95d84d1aa3d56036ea3bc9d13cede8b2b34"
+    },
+    {
+      "ruta": "scripts/tests/test_puertos_personales.py",
+      "bytes": 18533,
+      "sha256": "a75609395e896740d01a88d5304f6c4daf754dfa03f84b639610d937f96e338f"
+    },
+    {
+      "ruta": "scripts/tests/test_referencia_laboratorio.py",
+      "bytes": 6612,
+      "sha256": "cf860b1e8c7b7047ad526a9eb99b3661b4fdd58d9cde3c31d79b65cd2e2f44a7"
+    }
+  ],
+  "limite": "Autorización de activos por IP. 11.3 sigue parcial: privilegios y filtrado por origen requieren aceptación efectiva. No se modificaron las versiones históricas ni el Word publicado."
+}

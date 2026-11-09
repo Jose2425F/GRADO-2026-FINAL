@@ -1,0 +1,103 @@
+{
+  "results": [
+    {
+      "name": "regresion",
+      "command": [
+        "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/entorno-reproducido/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "scripts/tests",
+        "piloto_kali/prototipo/tests",
+        "tests",
+        "-k",
+        "not test_whole_runner_real_nmap_and_web_without_api_in_both_architectures",
+        "--junitxml=/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/evidencias/final/regresion.xml"
+      ],
+      "cwd": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/repo",
+      "guard_directory": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/evidencias/final/guardas",
+      "exit_code": 0,
+      "seconds": 92.38891196250916,
+      "log": "regresion.log",
+      "log_sha256": "1b90bc0053480f9f470d4d610bc84c95011ad499ef6b74204ac5280797ebdf49",
+      "NODE_PATH": null,
+      "PYTHONPATH": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/evidencias/final/guardas:/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/repo/piloto_kali/prototipo/src:/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/repo/scripts:/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/repo/src:/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/repo"
+    },
+    {
+      "name": "loopback",
+      "command": [
+        "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/entorno-reproducido/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "scripts/tests/test_aplicaciones_personales.py::ApplicationTests::test_whole_runner_real_nmap_and_web_without_api_in_both_architectures",
+        "--junitxml=/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/evidencias/final/loopback.xml"
+      ],
+      "cwd": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/repo",
+      "guard_directory": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/evidencias/final/guardas-loopback",
+      "exit_code": 0,
+      "seconds": 22.209917306900024,
+      "log": "loopback.log",
+      "log_sha256": "be1bf51d032d8a16e8a68e6bfd8068f06e804d41fb8e53aab5e01237e3ce670a",
+      "NODE_PATH": null,
+      "PYTHONPATH": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/evidencias/final/guardas-loopback:/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/repo/piloto_kali/prototipo/src:/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/repo/scripts:/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/repo/src:/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/repo"
+    },
+    {
+      "name": "javascript",
+      "command": [
+        "/home/kali/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--test",
+        "scripts/tests/test_centinela_ui.cjs"
+      ],
+      "cwd": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/repo",
+      "guard_directory": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/evidencias/final/guardas",
+      "exit_code": 0,
+      "seconds": 4.051201343536377,
+      "log": "javascript.log",
+      "log_sha256": "58bac297471e7020504ee5d3d467a56036e310869e014c5d35afbc0afaacadf3",
+      "NODE_PATH": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/scripts/tests/node_modules",
+      "PYTHONPATH": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/evidencias/final/guardas:/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/repo/piloto_kali/prototipo/src:/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/repo/scripts:/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/repo/src:/home/kali/Documents/Codex/2026-11-07/cone/work/ajuste-11-3-20261109/repo"
+    }
+  ],
+  "source_files": 258,
+  "source_changes_during_validation": [],
+  "all_commands_successful": true,
+  "api_calls_permitted": false,
+  "network_scope": "loopback only; broad tools blocked, one integration case uses restricted Nmap wrapper",
+  "bootstrap": "Reused installed Python environment and jsdom; temporary .venv symlink removed afterwards; no installation or downloads.",
+  "python_passed": 838,
+  "python_subtests_passed": 59,
+  "python_skipped": 2,
+  "javascript_passed": 4,
+  "counts_by_command": {
+    "regresion": {
+      "passed": 837,
+      "subtests_passed": 57,
+      "skipped": 2
+    },
+    "loopback": {
+      "passed": 1,
+      "subtests_passed": 2,
+      "skipped": 0
+    }
+  },
+  "skip_reasons": [
+    {
+      "name": "test_archived_independent_evidence_revalidates_all_profiles_and_deduplicates",
+      "reason": "Fixture histórico privado no distribuido; regresión no ejecutada en el paquete público"
+    },
+    {
+      "name": "test_v2_access_demo_cancels_every_pending_task_after_verified_access",
+      "reason": "Fixture histórico privado no distribuido; regresión no ejecutada en el paquete público"
+    }
+  ],
+  "connections_outside_loopback_blocked": 1,
+  "nmap_fixture_invocations": 4,
+  "nmap_fixture_log": [
+    "authorized fixture TCP 127.0.0.1:34225",
+    "authorized fixture TCP ::1:34225",
+    "authorized fixture TCP ::1:43657",
+    "authorized fixture TCP 127.0.0.1:43657"
+  ],
+  "validation_scope": "Compatibilidad del control RO-02 y regresión del aplicativo. No acredita privilegio mínimo, aislamiento de paquetes por origen ni aceptación formal de todos los requisitos de11.3."
+}
