@@ -1,0 +1,30 @@
+OPERACIÓN DEL EJECUTOR PROTEGIDO
+
+La entrada del operador es scripts/ejecutar_protegido.py. Requiere una
+instalación root de sólo lectura bajo un stage admitido, daemon independiente,
+redes preparadas, filtros cargados y políticas con vigencia. No concede
+privilegios mediante setuid ni acepta del usuario comandos Docker generales,
+imágenes, rutas arbitrarias o secretos del proveedor.
+
+El operador selecciona uno de los bancos instalados y la arquitectura. El
+catálogo, el directorio de resultados y los sockets se fijan en un descriptor
+root. El controlador espera a que terminen la comprobación de roles y las
+negativas previas antes de recibir la señal de inicio. La falta del descriptor,
+una identidad incorrecta o una fuente modificada impiden el despacho vivo.
+
+Las cuentas de uso son numéricas y distintas: controlador 65531, Nmap 65532,
+Hydra 65533. No se entrega pertenencia al grupo Docker, sudo, capacidades
+ambientales ni socket del daemon a esos tres roles. El operador y el broker
+permanecen en la base de confianza; un administrador del host puede cambiar
+la instalación y queda fuera del modelo de un controlador comprometido.
+
+Los marcadores de cuarentena se conservan bajo runtime/segment-locks/<banco>
+del stage. Volver a intentar una auditoría no elimina un bloqueo. Su eventual
+recuperación requiere actuación del operador y comprobación completa del
+banco; no se debe borrar el marcador para presentar una corrida como válida.
+
+La instalación ensayada es local y aislada. Este texto no declara habilitado
+el ejecutor como servicio del panel en AWS. Hasta aceptar esa integración,
+las entradas públicas deben rechazar la ejecución viva que no cumpla sus
+comprobaciones. Los recibos privados del operador no se publican en Git;
+se publican únicamente las exportaciones aprobadas y sus huellas.

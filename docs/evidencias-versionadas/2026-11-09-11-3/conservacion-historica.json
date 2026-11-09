@@ -1,0 +1,1160 @@
+{
+  "all_previous_files_preserved": true,
+  "checked_at_utc": "2026-11-09T06:22:37.220089+00:00",
+  "revisions": [
+    {
+      "commit": "bc7f7d58a1728e3d56ffbd4b3c18534283ad1755",
+      "count": 77,
+      "files": [
+        {
+          "bytes": 931,
+          "git_blob": "0b38b79fd1abb62b9048ee580770c57d748cb982",
+          "path": "docs/entregas/2026-11-09/LEEME.txt",
+          "sha256": "b64f08624c71afef0d11ce519b9c8117b3c88edd20f5f6dccb40e50ee6db120d",
+          "unchanged": true
+        },
+        {
+          "bytes": 1769747,
+          "git_blob": "2a2f0d8622156215bc7acbe5b076b3decac01a51",
+          "path": "docs/entregas/2026-11-09/TrabajoDeGrado_II_Revision_v1.docx",
+          "sha256": "3223464a3586010e6b183c86a78ec0b6cb10487b56c3cddae5f45597f1ce41a9",
+          "unchanged": true
+        },
+        {
+          "bytes": 1772661,
+          "git_blob": "b7f00c9ff048d437551ee53a9628a747499fcabf",
+          "path": "docs/entregas/2026-11-09/TrabajoDeGrado_II_Revision_v2.docx",
+          "sha256": "3112bb323442b3771961625aacdb5547de03325d897aba2cab4367a3a340dbde",
+          "unchanged": true
+        },
+        {
+          "bytes": 11888,
+          "git_blob": "fa1c986873f57bb3929e504d047962c1433223e5",
+          "path": "docs/entregas/2026-11-09/cambios-documento-v2.json",
+          "sha256": "07836ad21e83229b285316351312dfc70e2fb0f9280b4503ab34f9196f8909f9",
+          "unchanged": true
+        },
+        {
+          "bytes": 1733,
+          "git_blob": "167329197402f17a64db2601e00cfeb4cca188d7",
+          "path": "docs/entregas/2026-11-09/verificacion-documento-v2.json",
+          "sha256": "e14721d94aa3957f312d1134b2cffb1b1549ec8d3421868c84b3568b5d5a4bea",
+          "unchanged": true
+        },
+        {
+          "bytes": 8919,
+          "git_blob": "fdbeff256e524c2aca8a33d1bc3826336c5e6981",
+          "path": "docs/evaluacion-langgraph/aceptacion-sin-ia.json",
+          "sha256": "437868ead1d9bb6a5569b0cf9a733c60d2b11b861770e4fa5ac7075a7416d976",
+          "unchanged": true
+        },
+        {
+          "bytes": 111087,
+          "git_blob": "dc4b99eeb637441de52a86ca43a0c195cb617a0f",
+          "path": "docs/evaluacion-langgraph/evaluacion-langgraph-corridas.csv",
+          "sha256": "c8c67bfb9b0cfb2e3483541c4f9c593c3855585d78783fa20bb6b2d114048fe9",
+          "unchanged": true
+        },
+        {
+          "bytes": 28894,
+          "git_blob": "6b6b24aff3bee8a1c17cdf63faffe5d35444bad0",
+          "path": "docs/evaluacion-langgraph/evaluacion-langgraph.zip",
+          "sha256": "5f3abe9d74fba3b4a4ebbb0fe1c6e33b2fe806657a0192d48266c89608bf96f4",
+          "unchanged": true
+        },
+        {
+          "bytes": 23886,
+          "git_blob": "e9be09e0088712e49e1ce6f8047f8a0f8bc9a2ef",
+          "path": "docs/evaluacion-langgraph/pairs.json",
+          "sha256": "a9120684eea0aff79c348e9ff87a047ac64bc2e160fc370fbad2fd3d15e6d8c2",
+          "unchanged": true
+        },
+        {
+          "bytes": 20992,
+          "git_blob": "b3053bba53c249c177e83439bfd4ea29a4e9a27b",
+          "path": "docs/evaluacion-langgraph/protocol.json",
+          "sha256": "816b7e03747279c836c5ba8c21c54123b0ca48a006f8fe9d4949cb3a37639ab1",
+          "unchanged": true
+        },
+        {
+          "bytes": 1347,
+          "git_blob": "64d800902e376a7dd4d4d6c4dfa1592a4b57581e",
+          "path": "docs/evaluacion-langgraph/pruebas-automatizadas.json",
+          "sha256": "36cbdfe969c9a19eca9e1f629b99100f567c56494bb1781cce16bd0b32187af1",
+          "unchanged": true
+        },
+        {
+          "bytes": 182311,
+          "git_blob": "9670cb53d837f35a7392d179a234b9cfa5c97ce3",
+          "path": "docs/evaluacion-langgraph/runs.json",
+          "sha256": "56fc650b1b049b776444153e407ff555546b6a95a44dba9494e360433a0520c3",
+          "unchanged": true
+        },
+        {
+          "bytes": 1265,
+          "git_blob": "152e57de4fbcb901f49b27856d7914a92ba0676e",
+          "path": "docs/evaluacion-langgraph/summary.json",
+          "sha256": "04e5fc91c9251c108f915d639349eb5e4f07fcd62cce93dd1ee7008ab6e275d0",
+          "unchanged": true
+        },
+        {
+          "bytes": 26472,
+          "git_blob": "851c2b632c98fbd37a8ccc6ea64818cf0ac05967",
+          "path": "docs/evaluacion-langgraph/verificacion-exportacion.json",
+          "sha256": "42ad60c14ee977417e6046620997f12db5754cbfca261c8a9469dab633541428",
+          "unchanged": true
+        },
+        {
+          "bytes": 5209,
+          "git_blob": "99812cd7f73247328a45a42f1f7554265a945b5d",
+          "path": "docs/evaluacion-langgraph/verificacion-parciales.json",
+          "sha256": "1ae44b515cec3d7606c3ee14087283423ca3a5e9acaee166b5e93df334c50082",
+          "unchanged": true
+        },
+        {
+          "bytes": 4771,
+          "git_blob": "98afa6f3fdc1e41e29e95c4a7842fdb58f22e7ca",
+          "path": "docs/evidencias-historicas/2026-10-18/README.md",
+          "sha256": "31ad525c8a49bf2cc279b68a73854fb2324763ff0f4b0052429c93935d21bbe3",
+          "unchanged": true
+        },
+        {
+          "bytes": 628571,
+          "git_blob": "55b4fb560b17acf52ac9a933e30df9dbd15566a7",
+          "path": "docs/evidencias-historicas/2026-10-18/aceptacion-original.zip",
+          "sha256": "8f7fbe9043b636f1d510a5e3abb33e991eecf8a3b0a8220fc3c04a77f9e22fe4",
+          "unchanged": true
+        },
+        {
+          "bytes": 6281340,
+          "git_blob": "b1c975ce7f97142179e8dfb1ed9813478bf8503f",
+          "path": "docs/evidencias-historicas/2026-10-18/auditorias-originales.zip",
+          "sha256": "4bd763f64a8ce3a5958ee7fadde5dcbfbf8d14e0fde304cded92b7d0c1ac0e7e",
+          "unchanged": true
+        },
+        {
+          "bytes": 465053,
+          "git_blob": "64f84b915199e770bde306027621c16bedf924b6",
+          "path": "docs/evidencias-historicas/2026-10-18/hashes-corridas-50.json",
+          "sha256": "da73ffd86e8353446a72751e0ce36879718e7eb094767e1ee3805cd33073d1f6",
+          "unchanged": true
+        },
+        {
+          "bytes": 24652,
+          "git_blob": "22140c6109e383f49fb9045a4dae1b1238975b0b",
+          "path": "docs/evidencias-historicas/2026-10-18/integridad-publicacion.json",
+          "sha256": "2b1997de72389aecb91b5ef9d5a3cfbee8ecc2d4dbc016fed3491e992307b46e",
+          "unchanged": true
+        },
+        {
+          "bytes": 1855,
+          "git_blob": "513117e6a22074d738bc7c7cac8fa9ebdf06da05",
+          "path": "docs/evidencias-historicas/2026-10-18/procedencia.json",
+          "sha256": "21d3f50fbdfb1659e2fe2e1b5351aa8ec34e71baf6f89609fdbddb9869087ccf",
+          "unchanged": true
+        },
+        {
+          "bytes": 32867,
+          "git_blob": "4af0bf476ae4cf5f86cd79cbd4ad93b26be973d7",
+          "path": "docs/evidencias-historicas/2026-10-18/revision-publicacion-corpus-20261109.json",
+          "sha256": "3463c9d2f15e7cfadfcce0f76ee37f55012ef35e1929a89acd4afa5b017e1604",
+          "unchanged": true
+        },
+        {
+          "bytes": 2195,
+          "git_blob": "fe995eaaf3a46d089194baca84c27ed5c973cf62",
+          "path": "docs/evidencias-historicas/2026-10-18/revision-publicacion-soportes-20261109.json",
+          "sha256": "a92f56c9313f4119617e8686b3510db9171bfaf9a2fff1e5cb828ddd050966c8",
+          "unchanged": true
+        },
+        {
+          "bytes": 7766,
+          "git_blob": "78d94705ec9c3851eee26b864c22f0f169f12cd6",
+          "path": "docs/evidencias-historicas/2026-10-18/revision-publicacion-soportes-automatica-20261109.json",
+          "sha256": "735b9b978143a2c4de6b839a2aee02fc6c1df9692e314ec1e6467eb1b7c97844",
+          "unchanged": true
+        },
+        {
+          "bytes": 1830099,
+          "git_blob": "5fe3b806eb88ca3d2c6fdbc78c716ea6672008f5",
+          "path": "docs/evidencias-historicas/2026-10-18/soportes-academicos.zip",
+          "sha256": "1c4feb2cfcf2064126ea90110e808d4028f95182c9ca143ca6108ab05a945096",
+          "unchanged": true
+        },
+        {
+          "bytes": 308063,
+          "git_blob": "eb76a94bc375fe9b723bc5caae58667af3ffffad",
+          "path": "docs/evidencias-historicas/2026-10-18/verificaciones-originales.zip",
+          "sha256": "f0f2fba9228492e8450be7fd7115a5a54700bd0cd338a71e15e6655aede671b0",
+          "unchanged": true
+        },
+        {
+          "bytes": 6565,
+          "git_blob": "fa47e643212b5be79a3b01f103767c2fff26663a",
+          "path": "docs/evidencias-historicas/2026-10-18/verificar.py",
+          "sha256": "6e8371697f1c6bfd0ec16e9c20b6ab2a91dccadde6889db07ba6f26d24917a8d",
+          "unchanged": true
+        },
+        {
+          "bytes": 5543,
+          "git_blob": "cc144b903a0d18ac63396cbc2d90179b09242da0",
+          "path": "docs/evidencias-versionadas/2026-11-09/LEEME.txt",
+          "sha256": "608360f29a8a3ee1d43682a5c90f93531a4d8a9ed68d219218ba2ad4f4dfc396",
+          "unchanged": true
+        },
+        {
+          "bytes": 2338606,
+          "git_blob": "4f7a6feea9d94f3cc18f6dc5968d753874a8152c",
+          "path": "docs/evidencias-versionadas/2026-11-09/campana-api-20261108-integridad.json",
+          "sha256": "65311d6d43389a9f79f58e1906c18baad5e7dd201112ebd382dda78de4110002",
+          "unchanged": true
+        },
+        {
+          "bytes": 6013563,
+          "git_blob": "69e73b5dfad1fa5215658d65d7429b5e079e3cd6",
+          "path": "docs/evidencias-versionadas/2026-11-09/campana-api-20261108.zip",
+          "sha256": "60edc45719fbce61e7b97c64422f36b94186d983df6e7242dfee60f6aac2a740",
+          "unchanged": true
+        },
+        {
+          "bytes": 22953,
+          "git_blob": "cd054446730a9d339fa8027831cf8981300813c1",
+          "path": "docs/evidencias-versionadas/2026-11-09/codigo-calculo/evaluacion_manual.py",
+          "sha256": "d14a356e798a1a71e06fbfe02946ebc3d219582edfe8615b6b00497cc5a9f99b",
+          "unchanged": true
+        },
+        {
+          "bytes": 13928,
+          "git_blob": "18b4ddf942cbf32f10e4aef256c15f4c41ef44d8",
+          "path": "docs/evidencias-versionadas/2026-11-09/codigo-calculo/panel_metricas.py",
+          "sha256": "ad8e655a7d698d167624726fa4c1e83aed274cb230ee913750a85d9b0af35db0",
+          "unchanged": true
+        },
+        {
+          "bytes": 13677,
+          "git_blob": "e4978dbb536f861b1093d501f89899bb2fb9fd20",
+          "path": "docs/evidencias-versionadas/2026-11-09/codigo-calculo/protocolo_manual.py",
+          "sha256": "f1e2411972c47be0aa2e9083650c202d5549cc9b19c7b8e8cce84771973cf8ce",
+          "unchanged": true
+        },
+        {
+          "bytes": 104476,
+          "git_blob": "a04380806ef58208d50302f695fd6731ef98c471",
+          "path": "docs/evidencias-versionadas/2026-11-09/comparacion-campanas-20261109.json",
+          "sha256": "43ff0c736dd78128758ff66e17ff2cb0cb4969583c37e84cdfa77b27a204b17b",
+          "unchanged": true
+        },
+        {
+          "bytes": 6394,
+          "git_blob": "5416c432c9909bd3372b18f86385901d33289dba",
+          "path": "docs/evidencias-versionadas/2026-11-09/comparacion-campanas-20261109.txt",
+          "sha256": "562586534e4f67172e274bfc73f1cdd59b3484481591d16cba50dbdef9cf7a1d",
+          "unchanged": true
+        },
+        {
+          "bytes": 4960,
+          "git_blob": "03d741b4825ec36943b873bc3c8235f61702ac11",
+          "path": "docs/evidencias-versionadas/2026-11-09/integridad-pruebas-publicacion.json",
+          "sha256": "aa5a1a9ea9deb7bb5313fe66037c5e973ecffc8837f5733b922c0c4db1ed76b0",
+          "unchanged": true
+        },
+        {
+          "bytes": 3242,
+          "git_blob": "3a73f0c6e5636218e25192bbf751cd4ac42f3ac1",
+          "path": "docs/evidencias-versionadas/2026-11-09/integridad-publicacion.json",
+          "sha256": "0bdaa3f832b596c30ec933076aed2124a67f284d5120f623d382d6c06664ae05",
+          "unchanged": true
+        },
+        {
+          "bytes": 23389,
+          "git_blob": "dd94ea832b403d3dbc9bc091d4df43920d15c921",
+          "path": "docs/evidencias-versionadas/2026-11-09/integridad-version.json",
+          "sha256": "f96663933fe740398c4dc51af44970faead623e2751e917e24e040e400ca2910",
+          "unchanged": true
+        },
+        {
+          "bytes": 4535,
+          "git_blob": "9b4d3c0a610f638e38c7b3abe6d31c015ae5ac9f",
+          "path": "docs/evidencias-versionadas/2026-11-09/procedencia.json",
+          "sha256": "5e1ea7a5be7143dd7bfc3d67c672950c69448ca642f45d6dd9a07a19a74b96e3",
+          "unchanged": true
+        },
+        {
+          "bytes": 2089,
+          "git_blob": "fd557bdbc9adfa2b4e7f34c8ae3b852721fca7e7",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/LEEME-pruebas.txt",
+          "sha256": "f93c14c92f5e34d3eae7fe66165581dbdab343c206ba265d91da11e6d7a1ae87",
+          "unchanged": true
+        },
+        {
+          "bytes": 4432,
+          "git_blob": "d66870e6a4955296eeb36ac934a022058f81a534",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/consolidar_resultados.py",
+          "sha256": "56f069bfadebbb331e64a0b889bb13f9f52c7340322bd954ef28512b0218947e",
+          "unchanged": true
+        },
+        {
+          "bytes": 31489,
+          "git_blob": "c885a3020d8fcb3b5952cc45c24f7544040aad82",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/fuentes-validadas-sha256.json",
+          "sha256": "0b1885616b5c41422e938419d94dc336759587b607a8df895b67e226f9aeef42",
+          "unchanged": true
+        },
+        {
+          "bytes": 86,
+          "git_blob": "9d360f2357731c54ee53bb61e3e21caa31d8aee4",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/guardas-loopback/bin/docker",
+          "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf",
+          "unchanged": true
+        },
+        {
+          "bytes": 86,
+          "git_blob": "9d360f2357731c54ee53bb61e3e21caa31d8aee4",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/guardas-loopback/bin/hydra",
+          "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf",
+          "unchanged": true
+        },
+        {
+          "bytes": 1192,
+          "git_blob": "6b285e3858409ff9f825814a2b79e2d063795828",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/guardas-loopback/bin/nmap",
+          "sha256": "5bc814d1a863cf13f107357db91f0b70f5c867ecd9eff246d3d4aa55c6c0f18d",
+          "unchanged": true
+        },
+        {
+          "bytes": 1114,
+          "git_blob": "87c46972a22f13e0f6d39be7fa5e4fa2cecae7e3",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/guardas-loopback/sitecustomize.py",
+          "sha256": "d9cd66ffdaea23b010a6c87415ed5b3ea3d1e64badcf7d489631157e7b0c66ae",
+          "unchanged": true
+        },
+        {
+          "bytes": 86,
+          "git_blob": "9d360f2357731c54ee53bb61e3e21caa31d8aee4",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/guardas/bin/docker",
+          "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf",
+          "unchanged": true
+        },
+        {
+          "bytes": 86,
+          "git_blob": "9d360f2357731c54ee53bb61e3e21caa31d8aee4",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/guardas/bin/hydra",
+          "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf",
+          "unchanged": true
+        },
+        {
+          "bytes": 86,
+          "git_blob": "9d360f2357731c54ee53bb61e3e21caa31d8aee4",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/guardas/bin/nmap",
+          "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf",
+          "unchanged": true
+        },
+        {
+          "bytes": 1114,
+          "git_blob": "87c46972a22f13e0f6d39be7fa5e4fa2cecae7e3",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/guardas/sitecustomize.py",
+          "sha256": "d9cd66ffdaea23b010a6c87415ed5b3ea3d1e64badcf7d489631157e7b0c66ae",
+          "unchanged": true
+        },
+        {
+          "bytes": 513,
+          "git_blob": "dd622a29c49129cfc5792baf89378add109acf7e",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/javascript-ui-validated.log",
+          "sha256": "564473f114c4c783f45b871c4ae41386cbb856c543b68bf26ab06b1f11cec1ed",
+          "unchanged": true
+        },
+        {
+          "bytes": 1465,
+          "git_blob": "201d82992a3dcd06263296116ab247d84f2b35b0",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/javascript-ui.log",
+          "sha256": "d3229bc6f5b028d6a87a07966e47ce09e2ac4efe306398281747c65b415e8131",
+          "unchanged": true
+        },
+        {
+          "bytes": 51,
+          "git_blob": "3880828a3be7eb761376c36c4856cd3d9179bc90",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/network-guard.log",
+          "sha256": "d15f5aad3bf93cdaef42b04f8899fcbde1c1584d0e08e687a2d7895ca3c85cbf",
+          "unchanged": true
+        },
+        {
+          "bytes": 144,
+          "git_blob": "a77f3b1bd774dbfbb97a9888cba3367c101c2be7",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/nmap-loopback.log",
+          "sha256": "8bc5ff52e20ee9f3fb2c27ce698818ac672ebd19ab72adfecfd2201a8e59d657",
+          "unchanged": true
+        },
+        {
+          "bytes": 662,
+          "git_blob": "6b7034f8a469dacc2b9079675255b2750961307d",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/python-legacy.log",
+          "sha256": "65eba102da6302b671ae2eaaf8c7a66d879426b9c72560463c15f4a80c3bc26c",
+          "unchanged": true
+        },
+        {
+          "bytes": 838,
+          "git_blob": "8fc555e9e2627a698ea6315c07ac16e3d28882c4",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/python-legacy.xml",
+          "sha256": "9fb45ea547fd6be71cec1cead2ae9e68c16782e487988b29a59720825402f806",
+          "unchanged": true
+        },
+        {
+          "bytes": 680,
+          "git_blob": "721de94360b551a44d3bb0c95efcef60e6d9ba78",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/python-loopback.log",
+          "sha256": "d1f5bac70b7047498dfa057b4ba2127601289446b7b54e0b3f1c712d54cfd4eb",
+          "unchanged": true
+        },
+        {
+          "bytes": 416,
+          "git_blob": "57316633ef01a5b529e4481d372c310f06fff9c8",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/python-loopback.xml",
+          "sha256": "aa36b84a8e6ef7bb8346b866b2996972223221972ea60ac4f32c1661cc9948f3",
+          "unchanged": true
+        },
+        {
+          "bytes": 1544,
+          "git_blob": "54f955e7f020ca6e6399a1eb73237e2a9d46d8f0",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/python-regresion.log",
+          "sha256": "e34348c80e5525035aa005159e97363da094609b02723bf39dd2dba7198f8d35",
+          "unchanged": true
+        },
+        {
+          "bytes": 122623,
+          "git_blob": "255c0910de73ab90e4a94b4f7eb9ee4791829812",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/python-regresion.xml",
+          "sha256": "f29aeb4e49d25da21ff93e35cf19125d90bc5737c4818c9ca60db2fdc699b7c8",
+          "unchanged": true
+        },
+        {
+          "bytes": 952,
+          "git_blob": "88b0c6df951c14d4f035a8307cb3e9524980aff5",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/resultado-loopback.json",
+          "sha256": "67282a58c44c7e4b4c581509ca3702d12069c046196228ef4a44a657002fd525",
+          "unchanged": true
+        },
+        {
+          "bytes": 2257,
+          "git_blob": "fe59a5e4c14c50172c94664ece392eae28a7361d",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/resultados-complementarios.json",
+          "sha256": "69959c14c1d617b4edfdd035b63413df7974c9b3b5a50c024d779a1f007fa9bc",
+          "unchanged": true
+        },
+        {
+          "bytes": 1822,
+          "git_blob": "76b7ccd1fe9b32e38a130163d497382cd4f4134e",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/resultados.json",
+          "sha256": "044b89499c14a7c61fccd39d5164db449d32134b1e7a5cefd1f7444753e823e5",
+          "unchanged": true
+        },
+        {
+          "bytes": 1484,
+          "git_blob": "24e04da2fd0660011d5c3ea5f7e9eabdfd5e4425",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/resumen-validacion.json",
+          "sha256": "8d6599fa741823c01c0da4993e99750d62f4df2674e0dfaa617894046146a798",
+          "unchanged": true
+        },
+        {
+          "bytes": 3234,
+          "git_blob": "e01e6f00fb16c0e50bf918941b3195f537cd345a",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/run_loopback.py",
+          "sha256": "81d3484881c10e40c819996732f218e77ee15d4a90000ae6253a725e98d886a9",
+          "unchanged": true
+        },
+        {
+          "bytes": 2446,
+          "git_blob": "1a83d06ff437219fa8bcb1fc83893aa3f5c46d28",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/run_supplements.py",
+          "sha256": "d492033fc91cda4cc4f316bd2b755076ca4c6c516efddb10481cb0f34d48b3d0",
+          "unchanged": true
+        },
+        {
+          "bytes": 3467,
+          "git_blob": "196e01fbf9c11e555ad70f6677f705ac80b07410",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/run_validation.py",
+          "sha256": "c8fd0f0e3952bc9603eaeace37167f26384d0b633443e6f7641d08d03cb6db76",
+          "unchanged": true
+        },
+        {
+          "bytes": 23886,
+          "git_blob": "e9be09e0088712e49e1ce6f8047f8a0f8bc9a2ef",
+          "path": "docs/evidencias-versionadas/2026-11-09/referencia-historica-20261018/pairs.json",
+          "sha256": "a9120684eea0aff79c348e9ff87a047ac64bc2e160fc370fbad2fd3d15e6d8c2",
+          "unchanged": true
+        },
+        {
+          "bytes": 20992,
+          "git_blob": "b3053bba53c249c177e83439bfd4ea29a4e9a27b",
+          "path": "docs/evidencias-versionadas/2026-11-09/referencia-historica-20261018/protocol.json",
+          "sha256": "816b7e03747279c836c5ba8c21c54123b0ca48a006f8fe9d4949cb3a37639ab1",
+          "unchanged": true
+        },
+        {
+          "bytes": 182311,
+          "git_blob": "9670cb53d837f35a7392d179a234b9cfa5c97ce3",
+          "path": "docs/evidencias-versionadas/2026-11-09/referencia-historica-20261018/runs.json",
+          "sha256": "56fc650b1b049b776444153e407ff555546b6a95a44dba9494e360433a0520c3",
+          "unchanged": true
+        },
+        {
+          "bytes": 4470,
+          "git_blob": "9e59eaaeeab5f7ccc1fb430608d5775284db15ea",
+          "path": "docs/evidencias-versionadas/2026-11-09/revision-publicacion.json",
+          "sha256": "65df5daf03ce5366c439d4c380166e6a87f136fa96ee80cccf66ca2a89b34bc5",
+          "unchanged": true
+        },
+        {
+          "bytes": 182849,
+          "git_blob": "0d039420dc506f2655ce33e6ad703931cad7c8e4",
+          "path": "docs/evidencias-versionadas/2026-11-09/verificaciones-20261109-integridad.json",
+          "sha256": "1552f4bb74a96f6fb5d440eb408ebc52a06c7d22796059e260fda83e59c357e6",
+          "unchanged": true
+        },
+        {
+          "bytes": 644033,
+          "git_blob": "c10badf951a5c8df37e5f6b831f1aab7f554a376",
+          "path": "docs/evidencias-versionadas/2026-11-09/verificaciones-20261109.zip",
+          "sha256": "8a8cbc95eb00a6169bb6ad6fba7a765555b6db274a29ab60ad2789123d846c25",
+          "unchanged": true
+        },
+        {
+          "bytes": 6482,
+          "git_blob": "60a8e8306db77982851b49dd40be5d152861e32b",
+          "path": "docs/evidencias-versionadas/2026-11-09/verificaciones-editoriales-20261109-integridad.json",
+          "sha256": "ec2aeaaf4ff7294c15a971c1914461eef57d135d1de2e78700d8309c659fda02",
+          "unchanged": true
+        },
+        {
+          "bytes": 31648,
+          "git_blob": "5b385c7c2ac3825f8daa9e436a4eebb435980bc9",
+          "path": "docs/evidencias-versionadas/2026-11-09/verificaciones-editoriales-20261109.zip",
+          "sha256": "cb096dc4c75845c7ee76f6cdbf83dbe5c40042ac9e021e8fae13292f0ebec5bd",
+          "unchanged": true
+        },
+        {
+          "bytes": 4303,
+          "git_blob": "320127cd302edcc31f9db5f873260e3c75dcad65",
+          "path": "docs/evidencias-versionadas/2026-11-09/verificar.py",
+          "sha256": "08c353c879fc7e3ccc39a173eeb59589200d90e3f0f8327ebf9b2aaf84f6e418",
+          "unchanged": true
+        },
+        {
+          "bytes": 1055,
+          "git_blob": "1cfb605a9ce43fd18af816895c6e87bc6aebccf8",
+          "path": "docs/evidencias-versionadas/2026-11-09/verificar_version.py",
+          "sha256": "ae40f211f9eda74f02134b146644cd32cd64daaac1116c80b99b0a4cc0da5da8",
+          "unchanged": true
+        }
+      ]
+    },
+    {
+      "commit": "b579f49bc1cf73727ccb39eeaee3e1a6842da027",
+      "count": 85,
+      "files": [
+        {
+          "bytes": 7495,
+          "git_blob": "176496330e336744c2c458eacbf8ffaa196ea49a",
+          "path": "docs/ajustes-profesor/2026-11-09-ro02/Estado_de_los_ajustes_v3.txt",
+          "sha256": "376bbe04c35d7f908aa12277dcdfb1d1f8e999182c14d830c597c410f83dc93c",
+          "unchanged": true
+        },
+        {
+          "bytes": 1677,
+          "git_blob": "d73fc3c075b48e04ff8e2b0883458ffabaae54f3",
+          "path": "docs/ajustes-profesor/2026-11-09-ro02/LEEME.txt",
+          "sha256": "457441f482cb7eee4b0d9431ff15a40ea1fc811a6b655374487849df7b1d1858",
+          "unchanged": true
+        },
+        {
+          "bytes": 3719,
+          "git_blob": "3b2f7ec83f72ba86ab0fd5df9fa2870df7d64e9f",
+          "path": "docs/ajustes-profesor/2026-11-09-ro02/Operacion_autorizaciones.txt",
+          "sha256": "ec5dcaae9176e173b09f40cbb17268fdeadfe627d783087134c22128d7f846c9",
+          "unchanged": true
+        },
+        {
+          "bytes": 96585,
+          "git_blob": "61aec4c931176ed2beb194896f6d75098c5d132b",
+          "path": "docs/ajustes-profesor/2026-11-09-ro02/evidencias-ro02-20261109.zip",
+          "sha256": "2fdcdefc7661e98309b8fb2380699927abb20655b0da2c50882b2536b25086b8",
+          "unchanged": true
+        },
+        {
+          "bytes": 5563,
+          "git_blob": "6e39791bd5b957b1be3e52e4ec268c96d39329b6",
+          "path": "docs/ajustes-profesor/2026-11-09-ro02/integridad-continuacion.json",
+          "sha256": "c8f697bacdb47e2ef8394a687415ceb4e62e970a39a0aac733e089170745c31b",
+          "unchanged": true
+        },
+        {
+          "bytes": 8016,
+          "git_blob": "ad2a5b630f6c1ddbeb3419def2b8b24057e7b554",
+          "path": "docs/ajustes-profesor/2026-11-09-ro02/integridad-evidencias-ro02.json",
+          "sha256": "fdb7cb06f7a7d7797e6b5ba5e0f8a6890b8454f18c9b2c5e71fc7491bbfe874f",
+          "unchanged": true
+        },
+        {
+          "bytes": 5602,
+          "git_blob": "df9335ab207aee587f944835f7e26380343b7aa2",
+          "path": "docs/ajustes-profesor/2026-11-09-ro02/resumen-validacion.json",
+          "sha256": "a86669d83d4d2a8db9ee43a698fd58caa1b591b15e9b6773c6633e826a74fae0",
+          "unchanged": true
+        },
+        {
+          "bytes": 1267,
+          "git_blob": "e053f413c8d953ff26e129c50dc965454a6138f4",
+          "path": "docs/ajustes-profesor/2026-11-09-ro02/verificar.py",
+          "sha256": "3e37029e874c1a222c9bc9eff9033c7b110173c995dc35222933786c0bf41eac",
+          "unchanged": true
+        },
+        {
+          "bytes": 931,
+          "git_blob": "0b38b79fd1abb62b9048ee580770c57d748cb982",
+          "path": "docs/entregas/2026-11-09/LEEME.txt",
+          "sha256": "b64f08624c71afef0d11ce519b9c8117b3c88edd20f5f6dccb40e50ee6db120d",
+          "unchanged": true
+        },
+        {
+          "bytes": 1769747,
+          "git_blob": "2a2f0d8622156215bc7acbe5b076b3decac01a51",
+          "path": "docs/entregas/2026-11-09/TrabajoDeGrado_II_Revision_v1.docx",
+          "sha256": "3223464a3586010e6b183c86a78ec0b6cb10487b56c3cddae5f45597f1ce41a9",
+          "unchanged": true
+        },
+        {
+          "bytes": 1772661,
+          "git_blob": "b7f00c9ff048d437551ee53a9628a747499fcabf",
+          "path": "docs/entregas/2026-11-09/TrabajoDeGrado_II_Revision_v2.docx",
+          "sha256": "3112bb323442b3771961625aacdb5547de03325d897aba2cab4367a3a340dbde",
+          "unchanged": true
+        },
+        {
+          "bytes": 11888,
+          "git_blob": "fa1c986873f57bb3929e504d047962c1433223e5",
+          "path": "docs/entregas/2026-11-09/cambios-documento-v2.json",
+          "sha256": "07836ad21e83229b285316351312dfc70e2fb0f9280b4503ab34f9196f8909f9",
+          "unchanged": true
+        },
+        {
+          "bytes": 1733,
+          "git_blob": "167329197402f17a64db2601e00cfeb4cca188d7",
+          "path": "docs/entregas/2026-11-09/verificacion-documento-v2.json",
+          "sha256": "e14721d94aa3957f312d1134b2cffb1b1549ec8d3421868c84b3568b5d5a4bea",
+          "unchanged": true
+        },
+        {
+          "bytes": 8919,
+          "git_blob": "fdbeff256e524c2aca8a33d1bc3826336c5e6981",
+          "path": "docs/evaluacion-langgraph/aceptacion-sin-ia.json",
+          "sha256": "437868ead1d9bb6a5569b0cf9a733c60d2b11b861770e4fa5ac7075a7416d976",
+          "unchanged": true
+        },
+        {
+          "bytes": 111087,
+          "git_blob": "dc4b99eeb637441de52a86ca43a0c195cb617a0f",
+          "path": "docs/evaluacion-langgraph/evaluacion-langgraph-corridas.csv",
+          "sha256": "c8c67bfb9b0cfb2e3483541c4f9c593c3855585d78783fa20bb6b2d114048fe9",
+          "unchanged": true
+        },
+        {
+          "bytes": 28894,
+          "git_blob": "6b6b24aff3bee8a1c17cdf63faffe5d35444bad0",
+          "path": "docs/evaluacion-langgraph/evaluacion-langgraph.zip",
+          "sha256": "5f3abe9d74fba3b4a4ebbb0fe1c6e33b2fe806657a0192d48266c89608bf96f4",
+          "unchanged": true
+        },
+        {
+          "bytes": 23886,
+          "git_blob": "e9be09e0088712e49e1ce6f8047f8a0f8bc9a2ef",
+          "path": "docs/evaluacion-langgraph/pairs.json",
+          "sha256": "a9120684eea0aff79c348e9ff87a047ac64bc2e160fc370fbad2fd3d15e6d8c2",
+          "unchanged": true
+        },
+        {
+          "bytes": 20992,
+          "git_blob": "b3053bba53c249c177e83439bfd4ea29a4e9a27b",
+          "path": "docs/evaluacion-langgraph/protocol.json",
+          "sha256": "816b7e03747279c836c5ba8c21c54123b0ca48a006f8fe9d4949cb3a37639ab1",
+          "unchanged": true
+        },
+        {
+          "bytes": 1347,
+          "git_blob": "64d800902e376a7dd4d4d6c4dfa1592a4b57581e",
+          "path": "docs/evaluacion-langgraph/pruebas-automatizadas.json",
+          "sha256": "36cbdfe969c9a19eca9e1f629b99100f567c56494bb1781cce16bd0b32187af1",
+          "unchanged": true
+        },
+        {
+          "bytes": 182311,
+          "git_blob": "9670cb53d837f35a7392d179a234b9cfa5c97ce3",
+          "path": "docs/evaluacion-langgraph/runs.json",
+          "sha256": "56fc650b1b049b776444153e407ff555546b6a95a44dba9494e360433a0520c3",
+          "unchanged": true
+        },
+        {
+          "bytes": 1265,
+          "git_blob": "152e57de4fbcb901f49b27856d7914a92ba0676e",
+          "path": "docs/evaluacion-langgraph/summary.json",
+          "sha256": "04e5fc91c9251c108f915d639349eb5e4f07fcd62cce93dd1ee7008ab6e275d0",
+          "unchanged": true
+        },
+        {
+          "bytes": 26472,
+          "git_blob": "851c2b632c98fbd37a8ccc6ea64818cf0ac05967",
+          "path": "docs/evaluacion-langgraph/verificacion-exportacion.json",
+          "sha256": "42ad60c14ee977417e6046620997f12db5754cbfca261c8a9469dab633541428",
+          "unchanged": true
+        },
+        {
+          "bytes": 5209,
+          "git_blob": "99812cd7f73247328a45a42f1f7554265a945b5d",
+          "path": "docs/evaluacion-langgraph/verificacion-parciales.json",
+          "sha256": "1ae44b515cec3d7606c3ee14087283423ca3a5e9acaee166b5e93df334c50082",
+          "unchanged": true
+        },
+        {
+          "bytes": 4771,
+          "git_blob": "98afa6f3fdc1e41e29e95c4a7842fdb58f22e7ca",
+          "path": "docs/evidencias-historicas/2026-10-18/README.md",
+          "sha256": "31ad525c8a49bf2cc279b68a73854fb2324763ff0f4b0052429c93935d21bbe3",
+          "unchanged": true
+        },
+        {
+          "bytes": 628571,
+          "git_blob": "55b4fb560b17acf52ac9a933e30df9dbd15566a7",
+          "path": "docs/evidencias-historicas/2026-10-18/aceptacion-original.zip",
+          "sha256": "8f7fbe9043b636f1d510a5e3abb33e991eecf8a3b0a8220fc3c04a77f9e22fe4",
+          "unchanged": true
+        },
+        {
+          "bytes": 6281340,
+          "git_blob": "b1c975ce7f97142179e8dfb1ed9813478bf8503f",
+          "path": "docs/evidencias-historicas/2026-10-18/auditorias-originales.zip",
+          "sha256": "4bd763f64a8ce3a5958ee7fadde5dcbfbf8d14e0fde304cded92b7d0c1ac0e7e",
+          "unchanged": true
+        },
+        {
+          "bytes": 465053,
+          "git_blob": "64f84b915199e770bde306027621c16bedf924b6",
+          "path": "docs/evidencias-historicas/2026-10-18/hashes-corridas-50.json",
+          "sha256": "da73ffd86e8353446a72751e0ce36879718e7eb094767e1ee3805cd33073d1f6",
+          "unchanged": true
+        },
+        {
+          "bytes": 24652,
+          "git_blob": "22140c6109e383f49fb9045a4dae1b1238975b0b",
+          "path": "docs/evidencias-historicas/2026-10-18/integridad-publicacion.json",
+          "sha256": "2b1997de72389aecb91b5ef9d5a3cfbee8ecc2d4dbc016fed3491e992307b46e",
+          "unchanged": true
+        },
+        {
+          "bytes": 1855,
+          "git_blob": "513117e6a22074d738bc7c7cac8fa9ebdf06da05",
+          "path": "docs/evidencias-historicas/2026-10-18/procedencia.json",
+          "sha256": "21d3f50fbdfb1659e2fe2e1b5351aa8ec34e71baf6f89609fdbddb9869087ccf",
+          "unchanged": true
+        },
+        {
+          "bytes": 32867,
+          "git_blob": "4af0bf476ae4cf5f86cd79cbd4ad93b26be973d7",
+          "path": "docs/evidencias-historicas/2026-10-18/revision-publicacion-corpus-20261109.json",
+          "sha256": "3463c9d2f15e7cfadfcce0f76ee37f55012ef35e1929a89acd4afa5b017e1604",
+          "unchanged": true
+        },
+        {
+          "bytes": 2195,
+          "git_blob": "fe995eaaf3a46d089194baca84c27ed5c973cf62",
+          "path": "docs/evidencias-historicas/2026-10-18/revision-publicacion-soportes-20261109.json",
+          "sha256": "a92f56c9313f4119617e8686b3510db9171bfaf9a2fff1e5cb828ddd050966c8",
+          "unchanged": true
+        },
+        {
+          "bytes": 7766,
+          "git_blob": "78d94705ec9c3851eee26b864c22f0f169f12cd6",
+          "path": "docs/evidencias-historicas/2026-10-18/revision-publicacion-soportes-automatica-20261109.json",
+          "sha256": "735b9b978143a2c4de6b839a2aee02fc6c1df9692e314ec1e6467eb1b7c97844",
+          "unchanged": true
+        },
+        {
+          "bytes": 1830099,
+          "git_blob": "5fe3b806eb88ca3d2c6fdbc78c716ea6672008f5",
+          "path": "docs/evidencias-historicas/2026-10-18/soportes-academicos.zip",
+          "sha256": "1c4feb2cfcf2064126ea90110e808d4028f95182c9ca143ca6108ab05a945096",
+          "unchanged": true
+        },
+        {
+          "bytes": 308063,
+          "git_blob": "eb76a94bc375fe9b723bc5caae58667af3ffffad",
+          "path": "docs/evidencias-historicas/2026-10-18/verificaciones-originales.zip",
+          "sha256": "f0f2fba9228492e8450be7fd7115a5a54700bd0cd338a71e15e6655aede671b0",
+          "unchanged": true
+        },
+        {
+          "bytes": 6565,
+          "git_blob": "fa47e643212b5be79a3b01f103767c2fff26663a",
+          "path": "docs/evidencias-historicas/2026-10-18/verificar.py",
+          "sha256": "6e8371697f1c6bfd0ec16e9c20b6ab2a91dccadde6889db07ba6f26d24917a8d",
+          "unchanged": true
+        },
+        {
+          "bytes": 5543,
+          "git_blob": "cc144b903a0d18ac63396cbc2d90179b09242da0",
+          "path": "docs/evidencias-versionadas/2026-11-09/LEEME.txt",
+          "sha256": "608360f29a8a3ee1d43682a5c90f93531a4d8a9ed68d219218ba2ad4f4dfc396",
+          "unchanged": true
+        },
+        {
+          "bytes": 2338606,
+          "git_blob": "4f7a6feea9d94f3cc18f6dc5968d753874a8152c",
+          "path": "docs/evidencias-versionadas/2026-11-09/campana-api-20261108-integridad.json",
+          "sha256": "65311d6d43389a9f79f58e1906c18baad5e7dd201112ebd382dda78de4110002",
+          "unchanged": true
+        },
+        {
+          "bytes": 6013563,
+          "git_blob": "69e73b5dfad1fa5215658d65d7429b5e079e3cd6",
+          "path": "docs/evidencias-versionadas/2026-11-09/campana-api-20261108.zip",
+          "sha256": "60edc45719fbce61e7b97c64422f36b94186d983df6e7242dfee60f6aac2a740",
+          "unchanged": true
+        },
+        {
+          "bytes": 22953,
+          "git_blob": "cd054446730a9d339fa8027831cf8981300813c1",
+          "path": "docs/evidencias-versionadas/2026-11-09/codigo-calculo/evaluacion_manual.py",
+          "sha256": "d14a356e798a1a71e06fbfe02946ebc3d219582edfe8615b6b00497cc5a9f99b",
+          "unchanged": true
+        },
+        {
+          "bytes": 13928,
+          "git_blob": "18b4ddf942cbf32f10e4aef256c15f4c41ef44d8",
+          "path": "docs/evidencias-versionadas/2026-11-09/codigo-calculo/panel_metricas.py",
+          "sha256": "ad8e655a7d698d167624726fa4c1e83aed274cb230ee913750a85d9b0af35db0",
+          "unchanged": true
+        },
+        {
+          "bytes": 13677,
+          "git_blob": "e4978dbb536f861b1093d501f89899bb2fb9fd20",
+          "path": "docs/evidencias-versionadas/2026-11-09/codigo-calculo/protocolo_manual.py",
+          "sha256": "f1e2411972c47be0aa2e9083650c202d5549cc9b19c7b8e8cce84771973cf8ce",
+          "unchanged": true
+        },
+        {
+          "bytes": 104476,
+          "git_blob": "a04380806ef58208d50302f695fd6731ef98c471",
+          "path": "docs/evidencias-versionadas/2026-11-09/comparacion-campanas-20261109.json",
+          "sha256": "43ff0c736dd78128758ff66e17ff2cb0cb4969583c37e84cdfa77b27a204b17b",
+          "unchanged": true
+        },
+        {
+          "bytes": 6394,
+          "git_blob": "5416c432c9909bd3372b18f86385901d33289dba",
+          "path": "docs/evidencias-versionadas/2026-11-09/comparacion-campanas-20261109.txt",
+          "sha256": "562586534e4f67172e274bfc73f1cdd59b3484481591d16cba50dbdef9cf7a1d",
+          "unchanged": true
+        },
+        {
+          "bytes": 4960,
+          "git_blob": "03d741b4825ec36943b873bc3c8235f61702ac11",
+          "path": "docs/evidencias-versionadas/2026-11-09/integridad-pruebas-publicacion.json",
+          "sha256": "aa5a1a9ea9deb7bb5313fe66037c5e973ecffc8837f5733b922c0c4db1ed76b0",
+          "unchanged": true
+        },
+        {
+          "bytes": 3242,
+          "git_blob": "3a73f0c6e5636218e25192bbf751cd4ac42f3ac1",
+          "path": "docs/evidencias-versionadas/2026-11-09/integridad-publicacion.json",
+          "sha256": "0bdaa3f832b596c30ec933076aed2124a67f284d5120f623d382d6c06664ae05",
+          "unchanged": true
+        },
+        {
+          "bytes": 23389,
+          "git_blob": "dd94ea832b403d3dbc9bc091d4df43920d15c921",
+          "path": "docs/evidencias-versionadas/2026-11-09/integridad-version.json",
+          "sha256": "f96663933fe740398c4dc51af44970faead623e2751e917e24e040e400ca2910",
+          "unchanged": true
+        },
+        {
+          "bytes": 4535,
+          "git_blob": "9b4d3c0a610f638e38c7b3abe6d31c015ae5ac9f",
+          "path": "docs/evidencias-versionadas/2026-11-09/procedencia.json",
+          "sha256": "5e1ea7a5be7143dd7bfc3d67c672950c69448ca642f45d6dd9a07a19a74b96e3",
+          "unchanged": true
+        },
+        {
+          "bytes": 2089,
+          "git_blob": "fd557bdbc9adfa2b4e7f34c8ae3b852721fca7e7",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/LEEME-pruebas.txt",
+          "sha256": "f93c14c92f5e34d3eae7fe66165581dbdab343c206ba265d91da11e6d7a1ae87",
+          "unchanged": true
+        },
+        {
+          "bytes": 4432,
+          "git_blob": "d66870e6a4955296eeb36ac934a022058f81a534",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/consolidar_resultados.py",
+          "sha256": "56f069bfadebbb331e64a0b889bb13f9f52c7340322bd954ef28512b0218947e",
+          "unchanged": true
+        },
+        {
+          "bytes": 31489,
+          "git_blob": "c885a3020d8fcb3b5952cc45c24f7544040aad82",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/fuentes-validadas-sha256.json",
+          "sha256": "0b1885616b5c41422e938419d94dc336759587b607a8df895b67e226f9aeef42",
+          "unchanged": true
+        },
+        {
+          "bytes": 86,
+          "git_blob": "9d360f2357731c54ee53bb61e3e21caa31d8aee4",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/guardas-loopback/bin/docker",
+          "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf",
+          "unchanged": true
+        },
+        {
+          "bytes": 86,
+          "git_blob": "9d360f2357731c54ee53bb61e3e21caa31d8aee4",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/guardas-loopback/bin/hydra",
+          "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf",
+          "unchanged": true
+        },
+        {
+          "bytes": 1192,
+          "git_blob": "6b285e3858409ff9f825814a2b79e2d063795828",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/guardas-loopback/bin/nmap",
+          "sha256": "5bc814d1a863cf13f107357db91f0b70f5c867ecd9eff246d3d4aa55c6c0f18d",
+          "unchanged": true
+        },
+        {
+          "bytes": 1114,
+          "git_blob": "87c46972a22f13e0f6d39be7fa5e4fa2cecae7e3",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/guardas-loopback/sitecustomize.py",
+          "sha256": "d9cd66ffdaea23b010a6c87415ed5b3ea3d1e64badcf7d489631157e7b0c66ae",
+          "unchanged": true
+        },
+        {
+          "bytes": 86,
+          "git_blob": "9d360f2357731c54ee53bb61e3e21caa31d8aee4",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/guardas/bin/docker",
+          "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf",
+          "unchanged": true
+        },
+        {
+          "bytes": 86,
+          "git_blob": "9d360f2357731c54ee53bb61e3e21caa31d8aee4",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/guardas/bin/hydra",
+          "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf",
+          "unchanged": true
+        },
+        {
+          "bytes": 86,
+          "git_blob": "9d360f2357731c54ee53bb61e3e21caa31d8aee4",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/guardas/bin/nmap",
+          "sha256": "c2afa72c6389648377775e6aa72e46f7d9d7aa31424252d8d6613694e9ccd8cf",
+          "unchanged": true
+        },
+        {
+          "bytes": 1114,
+          "git_blob": "87c46972a22f13e0f6d39be7fa5e4fa2cecae7e3",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/guardas/sitecustomize.py",
+          "sha256": "d9cd66ffdaea23b010a6c87415ed5b3ea3d1e64badcf7d489631157e7b0c66ae",
+          "unchanged": true
+        },
+        {
+          "bytes": 513,
+          "git_blob": "dd622a29c49129cfc5792baf89378add109acf7e",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/javascript-ui-validated.log",
+          "sha256": "564473f114c4c783f45b871c4ae41386cbb856c543b68bf26ab06b1f11cec1ed",
+          "unchanged": true
+        },
+        {
+          "bytes": 1465,
+          "git_blob": "201d82992a3dcd06263296116ab247d84f2b35b0",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/javascript-ui.log",
+          "sha256": "d3229bc6f5b028d6a87a07966e47ce09e2ac4efe306398281747c65b415e8131",
+          "unchanged": true
+        },
+        {
+          "bytes": 51,
+          "git_blob": "3880828a3be7eb761376c36c4856cd3d9179bc90",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/network-guard.log",
+          "sha256": "d15f5aad3bf93cdaef42b04f8899fcbde1c1584d0e08e687a2d7895ca3c85cbf",
+          "unchanged": true
+        },
+        {
+          "bytes": 144,
+          "git_blob": "a77f3b1bd774dbfbb97a9888cba3367c101c2be7",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/nmap-loopback.log",
+          "sha256": "8bc5ff52e20ee9f3fb2c27ce698818ac672ebd19ab72adfecfd2201a8e59d657",
+          "unchanged": true
+        },
+        {
+          "bytes": 662,
+          "git_blob": "6b7034f8a469dacc2b9079675255b2750961307d",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/python-legacy.log",
+          "sha256": "65eba102da6302b671ae2eaaf8c7a66d879426b9c72560463c15f4a80c3bc26c",
+          "unchanged": true
+        },
+        {
+          "bytes": 838,
+          "git_blob": "8fc555e9e2627a698ea6315c07ac16e3d28882c4",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/python-legacy.xml",
+          "sha256": "9fb45ea547fd6be71cec1cead2ae9e68c16782e487988b29a59720825402f806",
+          "unchanged": true
+        },
+        {
+          "bytes": 680,
+          "git_blob": "721de94360b551a44d3bb0c95efcef60e6d9ba78",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/python-loopback.log",
+          "sha256": "d1f5bac70b7047498dfa057b4ba2127601289446b7b54e0b3f1c712d54cfd4eb",
+          "unchanged": true
+        },
+        {
+          "bytes": 416,
+          "git_blob": "57316633ef01a5b529e4481d372c310f06fff9c8",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/python-loopback.xml",
+          "sha256": "aa36b84a8e6ef7bb8346b866b2996972223221972ea60ac4f32c1661cc9948f3",
+          "unchanged": true
+        },
+        {
+          "bytes": 1544,
+          "git_blob": "54f955e7f020ca6e6399a1eb73237e2a9d46d8f0",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/python-regresion.log",
+          "sha256": "e34348c80e5525035aa005159e97363da094609b02723bf39dd2dba7198f8d35",
+          "unchanged": true
+        },
+        {
+          "bytes": 122623,
+          "git_blob": "255c0910de73ab90e4a94b4f7eb9ee4791829812",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/python-regresion.xml",
+          "sha256": "f29aeb4e49d25da21ff93e35cf19125d90bc5737c4818c9ca60db2fdc699b7c8",
+          "unchanged": true
+        },
+        {
+          "bytes": 952,
+          "git_blob": "88b0c6df951c14d4f035a8307cb3e9524980aff5",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/resultado-loopback.json",
+          "sha256": "67282a58c44c7e4b4c581509ca3702d12069c046196228ef4a44a657002fd525",
+          "unchanged": true
+        },
+        {
+          "bytes": 2257,
+          "git_blob": "fe59a5e4c14c50172c94664ece392eae28a7361d",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/resultados-complementarios.json",
+          "sha256": "69959c14c1d617b4edfdd035b63413df7974c9b3b5a50c024d779a1f007fa9bc",
+          "unchanged": true
+        },
+        {
+          "bytes": 1822,
+          "git_blob": "76b7ccd1fe9b32e38a130163d497382cd4f4134e",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/resultados.json",
+          "sha256": "044b89499c14a7c61fccd39d5164db449d32134b1e7a5cefd1f7444753e823e5",
+          "unchanged": true
+        },
+        {
+          "bytes": 1484,
+          "git_blob": "24e04da2fd0660011d5c3ea5f7e9eabdfd5e4425",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/resumen-validacion.json",
+          "sha256": "8d6599fa741823c01c0da4993e99750d62f4df2674e0dfaa617894046146a798",
+          "unchanged": true
+        },
+        {
+          "bytes": 3234,
+          "git_blob": "e01e6f00fb16c0e50bf918941b3195f537cd345a",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/run_loopback.py",
+          "sha256": "81d3484881c10e40c819996732f218e77ee15d4a90000ae6253a725e98d886a9",
+          "unchanged": true
+        },
+        {
+          "bytes": 2446,
+          "git_blob": "1a83d06ff437219fa8bcb1fc83893aa3f5c46d28",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/run_supplements.py",
+          "sha256": "d492033fc91cda4cc4f316bd2b755076ca4c6c516efddb10481cb0f34d48b3d0",
+          "unchanged": true
+        },
+        {
+          "bytes": 3467,
+          "git_blob": "196e01fbf9c11e555ad70f6677f705ac80b07410",
+          "path": "docs/evidencias-versionadas/2026-11-09/pruebas-publicacion/run_validation.py",
+          "sha256": "c8fd0f0e3952bc9603eaeace37167f26384d0b633443e6f7641d08d03cb6db76",
+          "unchanged": true
+        },
+        {
+          "bytes": 23886,
+          "git_blob": "e9be09e0088712e49e1ce6f8047f8a0f8bc9a2ef",
+          "path": "docs/evidencias-versionadas/2026-11-09/referencia-historica-20261018/pairs.json",
+          "sha256": "a9120684eea0aff79c348e9ff87a047ac64bc2e160fc370fbad2fd3d15e6d8c2",
+          "unchanged": true
+        },
+        {
+          "bytes": 20992,
+          "git_blob": "b3053bba53c249c177e83439bfd4ea29a4e9a27b",
+          "path": "docs/evidencias-versionadas/2026-11-09/referencia-historica-20261018/protocol.json",
+          "sha256": "816b7e03747279c836c5ba8c21c54123b0ca48a006f8fe9d4949cb3a37639ab1",
+          "unchanged": true
+        },
+        {
+          "bytes": 182311,
+          "git_blob": "9670cb53d837f35a7392d179a234b9cfa5c97ce3",
+          "path": "docs/evidencias-versionadas/2026-11-09/referencia-historica-20261018/runs.json",
+          "sha256": "56fc650b1b049b776444153e407ff555546b6a95a44dba9494e360433a0520c3",
+          "unchanged": true
+        },
+        {
+          "bytes": 4470,
+          "git_blob": "9e59eaaeeab5f7ccc1fb430608d5775284db15ea",
+          "path": "docs/evidencias-versionadas/2026-11-09/revision-publicacion.json",
+          "sha256": "65df5daf03ce5366c439d4c380166e6a87f136fa96ee80cccf66ca2a89b34bc5",
+          "unchanged": true
+        },
+        {
+          "bytes": 182849,
+          "git_blob": "0d039420dc506f2655ce33e6ad703931cad7c8e4",
+          "path": "docs/evidencias-versionadas/2026-11-09/verificaciones-20261109-integridad.json",
+          "sha256": "1552f4bb74a96f6fb5d440eb408ebc52a06c7d22796059e260fda83e59c357e6",
+          "unchanged": true
+        },
+        {
+          "bytes": 644033,
+          "git_blob": "c10badf951a5c8df37e5f6b831f1aab7f554a376",
+          "path": "docs/evidencias-versionadas/2026-11-09/verificaciones-20261109.zip",
+          "sha256": "8a8cbc95eb00a6169bb6ad6fba7a765555b6db274a29ab60ad2789123d846c25",
+          "unchanged": true
+        },
+        {
+          "bytes": 6482,
+          "git_blob": "60a8e8306db77982851b49dd40be5d152861e32b",
+          "path": "docs/evidencias-versionadas/2026-11-09/verificaciones-editoriales-20261109-integridad.json",
+          "sha256": "ec2aeaaf4ff7294c15a971c1914461eef57d135d1de2e78700d8309c659fda02",
+          "unchanged": true
+        },
+        {
+          "bytes": 31648,
+          "git_blob": "5b385c7c2ac3825f8daa9e436a4eebb435980bc9",
+          "path": "docs/evidencias-versionadas/2026-11-09/verificaciones-editoriales-20261109.zip",
+          "sha256": "cb096dc4c75845c7ee76f6cdbf83dbe5c40042ac9e021e8fae13292f0ebec5bd",
+          "unchanged": true
+        },
+        {
+          "bytes": 4303,
+          "git_blob": "320127cd302edcc31f9db5f873260e3c75dcad65",
+          "path": "docs/evidencias-versionadas/2026-11-09/verificar.py",
+          "sha256": "08c353c879fc7e3ccc39a173eeb59589200d90e3f0f8327ebf9b2aaf84f6e418",
+          "unchanged": true
+        },
+        {
+          "bytes": 1055,
+          "git_blob": "1cfb605a9ce43fd18af816895c6e87bc6aebccf8",
+          "path": "docs/evidencias-versionadas/2026-11-09/verificar_version.py",
+          "sha256": "ae40f211f9eda74f02134b146644cd32cd64daaac1116c80b99b0a4cc0da5da8",
+          "unchanged": true
+        }
+      ]
+    }
+  ],
+  "schema": "centinela-historical-conservation/1",
+  "scope": [
+    "docs/evidencias-versionadas/",
+    "docs/ajustes-profesor/",
+    "docs/evidencias-historicas/",
+    "docs/evaluacion-langgraph/",
+    "docs/entregas/"
+  ]
+}

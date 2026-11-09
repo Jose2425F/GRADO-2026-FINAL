@@ -1,0 +1,144 @@
+CONTINUACIÓN VERSIONADA DEL PUNTO 11.3: ROLES Y FILTRADO POR ORIGEN
+Revisión técnica del 9 de noviembre de 2026
+
+ESTADO DE ESTA VERSIÓN
+
+La separación de roles y el filtrado por origen quedaron aceptados en los
+cinco bancos cerrados ensayados, sin API. Las corridas Single canónicas
+acreditan 154 tareas válidas: integrado 32, sucursal 25, comercial 28, mixto 32
+y reforzado 37. El integrado Multiagent añade un suplemento independiente de
+32 tareas válidas, con concurrencia 2 observada. No sustituye al Single ni
+se agrega a las parejas de la campaña histórica.
+
+Se conservan los fallos iniciales, la corrida parcial por Nmap y las pasadas
+posteriores. El catálogo canónico obtuvo TP 46, FP 0, FN 0 y TN 63. El suplemento
+obtuvo TP 13, FP 0, FN 0 y TN 11. Estos conteos son una aceptación funcional de
+bancos sintéticos; no son una estimación de eficacia sobre otras empresas.
+
+El filtro aprobó 145 comprobaciones: 60 positivas y 85 negativas, incluidas 20
+inyecciones explícitas del operador. Hubo 130 negativas de roles en los cinco
+bancos y 26 adicionales en el suplemento. Cinco negativas complementarias
+comprobaron denegación de archivos privados y sockets raw sin leer secretos.
+La copia pública cerrada permitió cotejar 80 fases canónicas de control/prueba
+de fragmentación y 16 suplementarias, separadas de los intentos previos.
+
+Los recibos de preparación registran identidades anteriores al ajuste final.
+La identidad efectiva se coteja con el run_id y los registros de aceptación,
+no con la sola fecha de creación del stage. La decisión de cierre de la
+observación académica corresponde al evaluador.
+
+RELACIÓN CON LAS ENTREGAS ANTERIORES
+
+Esta continuación parte de b579f49 y conserva las evidencias publicadas en
+bc7f7d5. Los archivos de octubre, la comparación descriptiva de noviembre y
+la continuación RO-02 no se sustituyen. La comprobación de conservación se
+registra en conservacion-historica.json, con huellas de los archivos presentes
+en ambas referencias. No se agregan estos ensayos a las parejas históricas ni
+se recalculan TRTO, IDE o ETV con ellos. El Word y su título no cambian aquí.
+
+ALCANCE TÉCNICO
+
+El controlador utiliza UID/GID 65531; Nmap, 65532; Hydra, 65533. Los procesos
+aceptados deben tener los cuatro identificadores de usuario y grupo de su rol,
+sin grupos suplementarios, sin capacidades heredadas, permitidas, efectivas,
+ambientales ni de acotación, y con NoNewPrivs=1. El trabajador Hydra realiza
+también el challenge y la corroboración del perfil, con su propia identidad.
+
+La infraestructura conserva componentes privilegiados. El operador prepara
+las redes y el filtrado. El broker conserva UID 0 y autoridad explícita sobre
+un daemon Docker independiente, mediante un socket privado. Retirar todas
+las capacidades del proceso no elimina esa autoridad Docker. El catálogo
+limita sus operaciones; no convierte al broker ni al daemon en componentes
+sin privilegios. Los receptores IPv6 conservan las capacidades del banco y
+el emisor permite NET_RAW para los perfiles cerrados. Esta frontera forma
+parte de la base de confianza de la instalación.
+
+El filtrado considera rol, origen, destino, puerto, interfaz y familia IP.
+La aceptación se prepara en namespaces nuevos, sin rutas predeterminadas,
+y con un daemon y contenedores separados de los originales. Los reinicios
+de receptores requieren refrescar las interfaces del filtro y recibir la
+confirmación del operador antes de continuar. La cuarentena de segmentos
+permanece en una ruta por banco que no se elimina entre corridas.
+
+CONTENIDO Y COMPROBACIÓN
+
+El ZIP y su inventario conservan bytes originales de los archivos aprobados
+para publicación. Las copias depuradas se identifican como exportaciones públicas y conservan
+la referencia a sus originales privados.
+El manifiesto consigna fuente, ruta publicada, tamaño, SHA-256 y condición de
+cada ensayo. El verificador usa únicamente la biblioteca estándar, no extrae
+archivos y no ejecuta red, Docker, Nmap, Hydra ni consultas a proveedores.
+
+    python3 verificar.py
+
+Para cotejar además los archivos anteriores de un repositorio completo:
+
+    python3 verificar.py --historicos /ruta/al/repositorio
+
+Los XML de regresión conservan una cadena ficticia con forma de clave API.
+Su huella se cotejó con el literal del caso de saneamiento de persistencia;
+la excepción aprobada consta en el inventario. No es una clave configurada.
+
+Las cinco referencias de etiquetas se publicaron después de detener los roles
+de las 186 ejecuciones; sus SHA coinciden con los del evaluador original.
+La captura global original permanece privada porque contiene tráfico de
+aplicación. La copia pública conserva sólo los protocolos necesarios para
+el cotejo, con su huella y la del original; no lo reemplaza.
+
+No se publican lab.env, registros privados de autorización, claves de API,
+cuentas, sesiones, imágenes Docker ni el contenido reservado del operador.
+Las rutas privadas presentes en un recibo son localizadores de procedencia;
+no indican que su contenido esté incluido en el ZIP. Una huella por sí sola
+no sustituye disponer del artefacto original que identifica.
+
+LÍMITES DE LA ACEPTACIÓN
+
+Los cinco bancos previstos son integrado, sucursal, comercial, mixto y
+reforzado. Los catálogos suman 154 tareas: 32, 25, 28, 32 y 37, respectivamente.
+El inventario final acredita las 154 tareas canónicas y 32 suplementarias;
+ambos conjuntos permanecen separados.
+La aceptación de esta continuación utiliza ia=none. La ejecución protegida
+con API y la extensión hacia activos personales o máquinas virtuales deben
+aceptarse por separado antes de declararlas operativas en este modelo.
+
+Esta revisión no ha desplegado cambios en AWS ni ha sustituido el servicio
+o el panel actualmente publicado. Sus entradas de auditoría deben rechazar
+una ejecución viva que no tenga la instalación protegida del operador.
+
+RECÁLCULO OPCIONAL DE LA ACEPTACIÓN
+
+recalcular_aceptacion.py utiliza las referencias que se publicaron después de
+terminar las ejecuciones y de detener sus roles. Compara su SHA con la
+evaluación original, valida los archivos del ZIP y vuelve a ejecutar score
+sobre una extracción temporal segura. No utiliza claves ni emite sondas.
+
+Requiere Python 3.13 y las dependencias del aplicativo, incluidos Pydantic,
+PyYAML y Scapy. El verificador de integridad continúa usando sólo la
+biblioteca estándar. Deben emplearse las fuentes inmutables de 9dcd959;
+una modificación posterior del ejecutor no se atribuye a estas corridas.
+
+    python3.13 recalcular_aceptacion.py --repo /ruta/a/fuentes-9dcd959
+    python3.13 recalcular_aceptacion.py --repo /ruta/a/fuentes-9dcd959 --supplementary-multiagent
+
+La primera orden coteja las 154 tareas canónicas. La segunda añade las 32
+del suplemento y presenta ambos resultados por separado; no aumenta el
+tamaño de la cohorte histórica. --output permite guardar un recibo nuevo
+sin cambiar los archivos de evidencia.
+
+PROCEDENCIA DEL CÓDIGO
+
+Los 106 archivos de ejecución cotejados coinciden con la revisión 9dcd959.
+El descriptor fijó además pruebas auxiliares; un test tiene una huella
+diferente de la copia actual, sin intervenir en la ejecución de las auditorías.
+El postprocesador de geometría se ejecutó fuera del ROOT protegido y no
+figura en sus descriptores. Su versión, delta y SHA se publican aparte; no
+se atribuye ese cambio a las fuentes ejecutadas por el controlador.
+
+RESULTADO DEL RECÁLCULO PUBLICADO
+
+recalculo-aceptacion-publica.json acredita el cotejo de las 154 tareas canónicas
+y las 32 suplementarias, con los mismos conteos e integridad del evaluador.
+Se ejecutó con UID 1000, Python 3.13.15, Pydantic 2.14.3, Scapy 2.8.0 y PyYAML 6.0.3,
+sin procesos externos, conexiones externas ni consultas de API. El recibo
+identifica el SHA del ZIP leído y se conserva fuera de él para evitar
+autorreferencia. Estos resultados no recalculan los KPI históricos.

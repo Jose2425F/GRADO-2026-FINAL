@@ -1,0 +1,264 @@
+{
+  "schema": "centinela-roles-origin-validation/1",
+  "status": "accepted_tested_scope_154_single_plus_32_multiagent_no_api",
+  "complete_11_3": true,
+  "date": "2026-11-09",
+  "historical_kpis_recomputed": false,
+  "aws_deployed": false,
+  "current_public_panel_replaced": false,
+  "actual_api_calls_in_this_acceptance": 0,
+  "accepted_api_or_personal_vm_operation": false,
+  "catalogue_expected": {
+    "integrado": 32,
+    "sucursal": 25,
+    "comercial": 28,
+    "mixto": 32,
+    "reforzado": 37,
+    "total": 154
+  },
+  "catalogue_final_accepted": {
+    "integrado": {
+      "run_id": "20261109T054151Z-integrado-09849221",
+      "tasks": 32,
+      "statuses": {
+        "completed_no_findings": 6,
+        "completed": 26
+      },
+      "report_status": "complete",
+      "accepted": true,
+      "TP": 13,
+      "FP": 0,
+      "FN": 0,
+      "TN": 11,
+      "source": "evidencias/aceptacion-publica/20261109T054151Z-integrado-09849221"
+    },
+    "accepted_task_count": 154,
+    "pending_banks": [],
+    "sucursal": {
+      "run_id": "20261109T054750Z-sucursal-bda5b3f4",
+      "tasks": 25,
+      "statuses": {
+        "completed_no_findings": 2,
+        "completed": 23
+      },
+      "report_status": "complete",
+      "architecture": "single",
+      "accepted": true,
+      "TP": 9,
+      "FP": 0,
+      "FN": 0,
+      "TN": 6,
+      "source": "evidencias/aceptacion-publica/20261109T054750Z-sucursal-bda5b3f4"
+    },
+    "comercial": {
+      "run_id": "20261109T055412Z-comercial-2a8012e3",
+      "tasks": 28,
+      "statuses": {
+        "completed_no_findings": 4,
+        "completed": 24
+      },
+      "report_status": "complete",
+      "architecture": "single",
+      "accepted": true,
+      "TP": 9,
+      "FP": 0,
+      "FN": 0,
+      "TN": 10,
+      "source": "evidencias/aceptacion-publica/20261109T055412Z-comercial-2a8012e3"
+    },
+    "mixto": {
+      "run_id": "20261109T055815Z-mixto-c0620579",
+      "tasks": 32,
+      "statuses": {
+        "completed_no_findings": 8,
+        "completed": 24
+      },
+      "report_status": "complete",
+      "architecture": "single",
+      "accepted": true,
+      "TP": 11,
+      "FP": 0,
+      "FN": 0,
+      "TN": 13,
+      "source": "evidencias/aceptacion-publica/20261109T055815Z-mixto-c0620579"
+    },
+    "reforzado": {
+      "run_id": "20261109T060253Z-reforzado-2b04fcad",
+      "tasks": 37,
+      "statuses": {
+        "completed_no_findings": 14,
+        "completed": 23
+      },
+      "report_status": "complete",
+      "architecture": "single",
+      "accepted": true,
+      "TP": 4,
+      "FP": 0,
+      "FN": 0,
+      "TN": 23,
+      "source": "evidencias/aceptacion-publica/20261109T060253Z-reforzado-2b04fcad"
+    }
+  },
+  "regression": {
+    "passed": 997,
+    "skipped": 2,
+    "deselected": 1,
+    "subtests_passed": 110,
+    "seconds": 103.61,
+    "source_manifest": "evidencias/regresion/fuentes-previas.json",
+    "later_delta": "scripts/ejecutar_protegido.py: copia del ELF Nmap sin atributos de capacidades; requiere validación específica posterior",
+    "all_997_claimed_on_final_changed_launcher": false,
+    "launcher_targeted_after_delta": {
+      "passed": 11,
+      "source_sha256": "bc2f5c566e5a13752ab94a2c36c2d9a30201f0bab5ee5121fb00173f15e0d691",
+      "artifacts": "evidencias/regresion/launcher-final.*"
+    }
+  },
+  "supplemental": {
+    "loopback_tests_passed": 1,
+    "loopback_subtests_passed": 2,
+    "javascript_ui_tests_passed": 4
+  },
+  "component_acceptance": {
+    "kernel_final_v3": {
+      "checks": 26,
+      "passed": true
+    },
+    "bank_integrated_final_v2": {
+      "checks": 29,
+      "passed": true
+    },
+    "five_bank_rule_grammar": {
+      "nodes": 71,
+      "flows": 131,
+      "scope": "grammar_and_topology_only"
+    },
+    "role_negatives_integrated": {
+      "operator": 15,
+      "controller_principal": 11,
+      "passed": true
+    },
+    "five_bank_origin_filter": {
+      "passed": 145,
+      "total": 145,
+      "positive": 60,
+      "negative": 85,
+      "operator_injections": 20,
+      "source": "evidencias/firewall-pruebas/filtrado-cinco-bancos-final.json"
+    },
+    "integrated_final_ipv6_geometry": {
+      "phases": 16,
+      "passed": true,
+      "source": "evidencias/firewall-pruebas/geometria-integrado-final.json"
+    },
+    "role_negatives_all_banks": {
+      "passed": 130,
+      "operator": 75,
+      "controller_principal": 55,
+      "admitted_exec_in_negative_windows": 0,
+      "source": "evidencias/firewall-pruebas/roles-cinco-bancos-final.json"
+    },
+    "controller_files_raw_sockets": {
+      "passed": 5,
+      "total": 5,
+      "secrets_content_read": false,
+      "source": "evidencias/firewall-pruebas/aislamiento-controlador-fs-raw-final.json"
+    },
+    "fragment_geometry": {
+      "canonical_control_probe_phases": 80,
+      "supplementary_control_probe_phases": 16,
+      "all_passed": true,
+      "source": "evidencias/firewall-pruebas/geometria-cinco-bancos-final.json",
+      "public_pcap_sha256": "60e423d17c5831cfd22cacab7dfaa2a5ffeffb4103f4d991b88955eccc5be339",
+      "original_capture_private_unchanged": true
+    },
+    "supplementary_role_negatives": {
+      "passed": 26,
+      "operator": 15,
+      "controller_principal": 11,
+      "source": "evidencias/firewall-pruebas/roles-integrado-multi-suplemento.json"
+    }
+  },
+  "scope_note": "Las comprobaciones de componente y la regresión no sustituyen el catálogo real completo con identidades finales; se conservan primeros intentos y correcciones.",
+  "code_commit": "9dcd9598b23fecf35112c86486e92d8c61a93a78",
+  "integrated_runtime_production_sources_matched": true,
+  "integrated_runtime_auxiliary_test_delta": [
+    "scripts/tests/test_ejecutor_protegido.py"
+  ],
+  "github_ci": {
+    "commit": "9dcd959",
+    "branch": "ajustes/11-3-cierre-20261109",
+    "run_id": 42569434973,
+    "conclusion": "success",
+    "main_changed_at_this_stage": false,
+    "tag_changed_at_this_stage": false,
+    "source": "evidencias/regresion/github-ci-codigo.json"
+  },
+  "supplementary_multiagent": {
+    "run_id": "20261109T060934Z-integrado-3bc28d97",
+    "tasks": 32,
+    "statuses": {
+      "completed_no_findings": 6,
+      "completed": 26
+    },
+    "report_status": "complete",
+    "architecture": "multiagent",
+    "accepted": true,
+    "TP": 13,
+    "FP": 0,
+    "FN": 0,
+    "TN": 11,
+    "source": "evidencias/aceptacion-publica/20261109T060934Z-integrado-3bc28d97",
+    "scope": "integrado_multiagent_no_api_supplement",
+    "replaces_canonical_integrated_single": false,
+    "observed_concurrency": 2,
+    "concurrency_evidence": {
+      "sqlite_max_tasks_in_flight": 2,
+      "nmap_hydra_operation_window_overlaps": 4,
+      "scope": "application_trace",
+      "source": "evidencias/aceptacion-publica/suplemento-multi-concurrencia.json"
+    }
+  },
+  "supplementary_capture_geometry_expected_phases": 16,
+  "canonical_154_accepted": true,
+  "canonical_evaluation_totals": {
+    "TP": 46,
+    "FP": 0,
+    "FN": 0,
+    "TN": 63,
+    "tasks_valid": 154,
+    "api_calls": 0,
+    "historical_campaign_kpis_recalculated": false
+  },
+  "immutable_recalculation_code_revision": "9dcd959",
+  "canonical_task_types": {
+    "nmap": 19,
+    "credentials": 28,
+    "applications": 17,
+    "ndp": 50,
+    "fragmentation": 40
+  },
+  "canonical_architecture": "single",
+  "canonical_concurrency": 1,
+  "canonical_summary_source": "evidencias/aceptacion-publica/aceptacion-canonica-154.json",
+  "total_valid_task_executions": 186,
+  "closure_scope": "Cinco bancos cerrados instalados, sin API:154 tareas Single y32 Multiagent suplementarias; no incluye despliegue AWS ni aceptación de API, activos personales o VM.",
+  "public_references_published_only_after_all_186_roles_stopped": true,
+  "original_26_containers_preserved_after_186": true,
+  "public_recalculation_verified": true,
+  "public_recalculation": {
+    "receipt": "recalculo-aceptacion-publica.json",
+    "source_archive_sha256": "5e6230ce2e059182663be8af8912617c8d003739f74a340111f6b604a00210a5",
+    "canonical_tasks": 154,
+    "supplementary_tasks": 32,
+    "uid": 1000,
+    "python": "3.13.15",
+    "dependencies": {
+      "pydantic": "2.14.3",
+      "scapy": "2.8.0",
+      "PyYAML": "6.0.3"
+    },
+    "api_calls": 0,
+    "tools_executed": false
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "files": [
+    {
+      "bytes": 7965,
+      "path": "LEEME.txt",
+      "sha256": "b3098812cca18cbaa69d3a3e19df3d232e7521d73724c341b9855ef14c3d5738"
+    },
+    {
+      "bytes": 52183,
+      "path": "conservacion-historica.json",
+      "sha256": "83087688a24d0d95daf25faf0871cca5337f57b6dabe950171600ef8d80b86bc"
+    },
+    {
+      "bytes": 2801628,
+      "path": "evidencias-roles-origen-20261109.zip",
+      "sha256": "5e6230ce2e059182663be8af8912617c8d003739f74a340111f6b604a00210a5"
+    },
+    {
+      "bytes": 608339,
+      "path": "fuentes-aprobadas.json",
+      "sha256": "cc252b7a3c434b179ce4d5108e93699ceb9fb11e18d380191f76ea8ceaa195f2"
+    },
+    {
+      "bytes": 815853,
+      "path": "integridad-evidencias.json",
+      "sha256": "ce755ce1762170c7dae74210d144df3d50fe955038b3e1600df0232910e9de48"
+    },
+    {
+      "bytes": 232287,
+      "path": "procedencia-codigo.json",
+      "sha256": "0cd7c82b01214891b913fc530b91702e0ecc6e5d9035e261dc5b1167f2afce2a"
+    },
+    {
+      "bytes": 9244,
+      "path": "recalcular_aceptacion.py",
+      "sha256": "b70549eb729909412920b891d585676a3ae5df99ee05423d6b955ebd5215b31e"
+    },
+    {
+      "bytes": 4044,
+      "path": "recalculo-aceptacion-publica.json",
+      "sha256": "4859797ca97f8a6b2350dfb366a6c4549d415aa175730bc512a5ec8a01db8b8e"
+    },
+    {
+      "bytes": 8239,
+      "path": "resumen-validacion.json",
+      "sha256": "547a1f79485d6033d8cc741c465a4c28c2b479ed044703a95c0a199948420096"
+    },
+    {
+      "bytes": 3711,
+      "path": "verificar.py",
+      "sha256": "82a320e7f47f26d5d75f83c220fc4886aa84e0e8f02a0f89154c6eb7429d6537"
+    },
+    {
+      "bytes": 1035,
+      "path": "../../ajustes-profesor/2026-11-09-roles-origen/LEEME.txt",
+      "sha256": "4856581f222a8a177cf65cd7ee40930f99c182ed8d39ddfec3944a4f1baba10a"
+    },
+    {
+      "bytes": 1836,
+      "path": "../../ajustes-profesor/2026-11-09-roles-origen/Operacion_ejecutor_protegido.txt",
+      "sha256": "e6e8e47ac1413c80d0e34f40ca052edff7051a17434a27453ee60fe2dba06c84"
+    },
+    {
+      "bytes": 4891,
+      "path": "../../ajustes-profesor/2026-11-09-roles-origen/Separacion_y_filtrado_11_3.txt",
+      "sha256": "700af2f3de5fed60cb90efa8934f6be2c76ed053cd96ddff003e7235eef40114"
+    }
+  ],
+  "schema": "centinela-publication-integrity/1"
+}

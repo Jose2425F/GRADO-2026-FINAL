@@ -4,6 +4,12 @@ Trabajo de grado de Ingeniería de Sistemas y Computación, Universidad Católic
 
 El panel coordina herramientas autorizadas mediante **LangGraph**. El LLM de OpenAI selecciona tareas del catálogo e interpreta observaciones; los validadores deterministas corroboran los hallazgos. Un agente generalista ejecuta una tarea a la vez; la arquitectura multiagente usa roles especializados y hasta dos tareas independientes, con exclusión por activo y serialización de las pruebas IPv6.
 
+## Ejecución protegida del punto 11.3
+
+Las auditorías reales de esta versión requieren la instalación del [ejecutor protegido del operador](docs/ajustes-profesor/2026-11-09-roles-origen/Operacion_ejecutor_protegido.txt). El controlador, Nmap e Hydra usan identidades separadas; el acceso a Docker queda limitado a perfiles del banco y la red filtra origen, destino y rol en IPv4 e IPv6. Sin el descriptor instalado y la identidad autorizada, las entradas de auditoría rechazan el despacho.
+
+La [evidencia de esta versión](docs/evidencias-versionadas/2026-11-09-11-3/LEEME.txt) se conserva aparte de las campañas anteriores. La aceptación protegida comprende los cinco bancos cerrados sin API. Su integración con el panel desplegado, la API y las extensiones por IP o VM requiere una aceptación propia; el arranque del panel descrito abajo no instala esos permisos.
+
 ## Abrir el prototipo
 
 En Kali Linux, desde la raíz del repositorio y con el entorno ya instalado:

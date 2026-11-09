@@ -57,7 +57,10 @@ def check(run_directory,capture_directory,output):
                 index_roles[links[role['interface']]][(role['bank'],role['name'])]=role
     ambiguous={str(index):list(roles) for index,roles in index_roles.items() if len(roles)>1}
     captured=defaultdict(list);first_fragment=None
-    with PcapReader(str(capture/'lab-ipv6-any.pcap')) as packets:
+    pcap=capture/'lab-ipv6-any.pcap'
+    if not pcap.exists():pcap=capture/'protocolos-ipv6-copia-publica.pcap'
+    frozen=(capture/'summary.json').exists() or (capture/'public-copy-manifest.json').exists()
+    with PcapReader(str(pcap)) as packets:
         for packet in packets:
             if IPv6 not in packet:continue
             if IPv6ExtHdrFragment in packet and first_fragment is None:first_fragment=float(packet.time)
@@ -110,7 +113,8 @@ def check(run_directory,capture_directory,output):
     report={'schema':'centinela-fragment-geometry-verification/1','scope':'PCAP emisor cotejado byte a byte con captura SLL2 PACKET_OUTGOING del veth receptor; se comprueba además id/offset/more del observador.',
         'run_directory_name':run.name,'capture_directory_name':capture.name,'capture_first_fragment_time':first_fragment,
         'ambiguous_interface_indices':ambiguous,'cases':cases,'case_count':len(cases),
-        'source_capture_still_running':not (capture/'summary.json').exists(),
+        'source_capture_still_running':not frozen,
+        'capture_filename':pcap.name,'capture_sha256':hashlib.sha256(pcap.read_bytes()).hexdigest() if frozen else None,
         'passed':len(cases)==16 and not ambiguous and all(case['passed'] for case in cases),
         'limit':'Los PCAP del emisor por sí solos no acreditan lo recibido; los bytes de salida al veth receptor y el observador son evidencias separadas.'}
     Path(output).write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
