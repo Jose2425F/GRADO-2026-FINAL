@@ -1,0 +1,66 @@
+CENTINELA — CUENTAS Y DESPLIEGUE
+
+El servidor iniciado por scripts/dualstack_panel.py exige una cuenta válida.
+Las cuentas no se crean al visitar la web. El administrador las aprovisiona.
+La función make_server admite identity=None exclusivamente para las pruebas
+existentes del panel; el comando de producción siempre configura IdentityStore.
+
+Primera instalación (desde la raíz del repositorio):
+1. Crear /var/lib/centinela con permisos 700 y propietario igual al usuario
+   del servicio. CENTINELA_DATA_DIR permite usar otra ubicación privada.
+2. Ejecutar con ese mismo usuario:
+   piloto_kali/prototipo/.venv/bin/python scripts/administrar_centinela.py crear-admin admin --nombre Administrador --adoptar-historial
+   La consola solicita y confirma una contraseña de al menos 12 caracteres.
+   No se recibe la contraseña en argumentos ni se imprime.
+3. Iniciar el servicio. Publicarlo exclusivamente mediante HTTPS y Nginx.
+
+--adoptar-historial asigna el historial anterior a la primera cuenta y solo se
+permite una vez. Sin esa opción, cada administrador también comienza vacío.
+Las cuentas creadas desde Administración reciben su directorio independiente.
+Para recuperar una contraseña desde la consola del servidor:
+   piloto_kali/prototipo/.venv/bin/python scripts/administrar_centinela.py restablecer admin
+Esta operación conserva rol y estado, y revoca todas las sesiones de la cuenta.
+
+Roles:
+- Auditor: crea y consulta sus auditorías, descarga sus propios informes y
+  cambia su contraseña. Puede preparar los laboratorios autorizados.
+- Administrador: tiene su propio espacio; además crea cuentas, cambia roles,
+  suspende accesos, restablece contraseñas y consulta el espacio de un usuario
+  en modo de supervisión de solo lectura. Ejecuta la aceptación global.
+No se permite eliminar o desactivar al último administrador activo.
+
+Persistencia y sesiones:
+- /var/lib/centinela/accounts.sqlite3: identidades y sesiones revocables.
+- /var/lib/centinela/legacy-owner: propietario del historial original.
+- /var/lib/centinela/workspaces/<id>/runs: auditorías de cada cuenta nueva.
+- El historial original conserva su ubicación bajo piloto_kali/prototipo.
+- Las contraseñas usan scrypt con sal individual; las sesiones guardan hashes
+  del token, expiran a las ocho horas y requieren cookie Secure/HttpOnly.
+- Los cambios de contraseña, rol o estado revocan las sesiones correspondientes.
+- Las peticiones de control verifican sesión, rol, origen y token CSRF.
+- Se limitan los intentos de acceso por usuario y dirección IP.
+Respaldar el directorio privado completo y el historial original; no incluir
+esos datos ni credenciales en GitHub. Para una copia coherente de los archivos,
+detener el servicio cuando no haya operaciones activas o usar el backup de SQLite.
+
+Laboratorios:
+Los datos se separan por cuenta, pero los contenedores Docker del servidor son
+compartidos. Un bloqueo común admite una sola operación a la vez. Las acciones
+que modifican el banco invalidan la preparación anterior de los demás espacios.
+Cada usuario solo puede detener la auditoría que inició en su espacio.
+
+Proxy Nginx de esta instalación:
+- centinela.novaflow.com.co es el único nombre del virtual host.
+- HTTP redirige a HTTPS. TLS termina en Nginx.
+- El backend escucha en 127.0.0.1:8765.
+- Host de upstream: 127.0.0.1:8765.
+- Origin: traducir solo https://centinela.novaflow.com.co a
+  http://127.0.0.1:8765; conservar otros orígenes para que se rechacen.
+- X-Real-IP se sobrescribe con $remote_addr para el límite de intentos.
+- La autenticación ahora pertenece a la aplicación; no requiere auth_basic.
+
+Validación:
+Pruebas de acceso anónimo, cookie segura, roles, CSRF, expiración, revocación,
+aislamiento por identificador y ruta, informes, supervisión, uso exclusivo del
+laboratorio y persistencia tras reiniciar. Las pruebas de cuentas no ejecutan
+herramientas de auditoría reales ni consumen API.

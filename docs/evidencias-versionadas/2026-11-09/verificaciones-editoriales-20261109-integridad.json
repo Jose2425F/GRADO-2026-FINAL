@@ -1,0 +1,113 @@
+{
+  "archivo_zip": "verificaciones-editoriales-20261109.zip",
+  "fecha_publicacion": "2026-11-09",
+  "archivos": [
+    {
+      "archivo": "ntc-1486-2022/Cotejo_NTC_1486_2022.txt",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/ntc-1486-2022/Cotejo_NTC_1486_2022.txt",
+      "bytes": 6109,
+      "sha256_original": "d68feecc2cbe093078fd7a32a98376726c9cf23ade56f31efface19a04851140",
+      "sha256_publicado": "d68feecc2cbe093078fd7a32a98376726c9cf23ade56f31efface19a04851140",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "ntc-1486-2022/adenda-integridad.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/ntc-1486-2022/adenda-integridad.json",
+      "bytes": 5417,
+      "sha256_original": "3addfc5745d3cc92e0bd8c1d8f350951e1c3b5e2c7fb111a1b40a51231629414",
+      "sha256_publicado": "3addfc5745d3cc92e0bd8c1d8f350951e1c3b5e2c7fb111a1b40a51231629414",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "ntc-1486-2022/ajuste-tabla42.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/ntc-1486-2022/ajuste-tabla42.json",
+      "bytes": 217,
+      "sha256_original": "48a1b8603c30eae60a0654e8db7f2149d04d0d03f6b454956551c5bbbf33ba56",
+      "sha256_publicado": "48a1b8603c30eae60a0654e8db7f2149d04d0d03f6b454956551c5bbbf33ba56",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "ntc-1486-2022/cambios-ntc.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/ntc-1486-2022/cambios-ntc.json",
+      "bytes": 55314,
+      "sha256_original": "4bb629100766565e825b17d0e50b712d65d4b569d212f8e006b4ad0eadb00ddd",
+      "sha256_publicado": "4bb629100766565e825b17d0e50b712d65d4b569d212f8e006b4ad0eadb00ddd",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "ntc-1486-2022/compactacion-resultados.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/ntc-1486-2022/compactacion-resultados.json",
+      "bytes": 373,
+      "sha256_original": "3091fd663e8c36356fee692628cf2ba8262acf31f5a7280a1dc9614104a7cb0f",
+      "sha256_publicado": "3091fd663e8c36356fee692628cf2ba8262acf31f5a7280a1dc9614104a7cb0f",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "ntc-1486-2022/conservacion-contenido.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/ntc-1486-2022/conservacion-contenido.json",
+      "bytes": 552,
+      "sha256_original": "06d7386fd8c6d7325f2772f84e7cdee94a7cc8643375612eb93626f5056040ad",
+      "sha256_publicado": "06d7386fd8c6d7325f2772f84e7cdee94a7cc8643375612eb93626f5056040ad",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "ntc-1486-2022/continuaciones-tablas.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/ntc-1486-2022/continuaciones-tablas.json",
+      "bytes": 3463,
+      "sha256_original": "b465bce4802a5a54ccf52eea9632caf28e8ed234d680201e2ee87e7e8635f928",
+      "sha256_publicado": "b465bce4802a5a54ccf52eea9632caf28e8ed234d680201e2ee87e7e8635f928",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "ntc-1486-2022/cotejo-11-10.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/ntc-1486-2022/cotejo-11-10.json",
+      "bytes": 7161,
+      "sha256_original": "515c14ba54ef98cf2a0f5eaa72d0120896ed16683b653175b62ae81309818ebd",
+      "sha256_publicado": "515c14ba54ef98cf2a0f5eaa72d0120896ed16683b653175b62ae81309818ebd",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "ntc-1486-2022/cursivas.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/ntc-1486-2022/cursivas.json",
+      "bytes": 192,
+      "sha256_original": "c3cce22601d07965b77054c9f4b28fbe240ffae5c0d455964a72539a6032062e",
+      "sha256_publicado": "c3cce22601d07965b77054c9f4b28fbe240ffae5c0d455964a72539a6032062e",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "ntc-1486-2022/revision-visual-final.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/ntc-1486-2022/revision-visual-final.json",
+      "bytes": 40476,
+      "sha256_original": "4e302e13197e1ac5a81ba2b2f68e0f141671db0a73a40bf125103df07d6c398a",
+      "sha256_publicado": "4e302e13197e1ac5a81ba2b2f68e0f141671db0a73a40bf125103df07d6c398a",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "ntc-1486-2022/verificacion-indices-final.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/ntc-1486-2022/verificacion-indices-final.json",
+      "bytes": 229,
+      "sha256_original": "1965ac6ebd133c626fee8af675c65c9905c59f6be9f6d5cbf29624c631cba516",
+      "sha256_publicado": "1965ac6ebd133c626fee8af675c65c9905c59f6be9f6d5cbf29624c631cba516",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "revision-textos-ntc/restauracion-titulo.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/revision-textos-ntc/restauracion-titulo.json",
+      "bytes": 1454,
+      "sha256_original": "f99d39886bc688b3de26bad6844792a3b46bf716c6793ce62bf051926362528c",
+      "sha256_publicado": "f99d39886bc688b3de26bad6844792a3b46bf716c6793ce62bf051926362528c",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "revision-textos-ntc/verificacion-comparacion.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/revision-textos-ntc/verificacion-comparacion.json",
+      "bytes": 877,
+      "sha256_original": "f082c96a37a77185f9c0b7010c963468b61249d09b5d0eaaf7f526a65457afa6",
+      "sha256_publicado": "f082c96a37a77185f9c0b7010c963468b61249d09b5d0eaaf7f526a65457afa6",
+      "transformacion": "ninguna; copia binaria idéntica"
+    }
+  ],
+  "archivos_totales": 13,
+  "bytes_originales": 121834,
+  "criterio": "Copias binarias idénticas de archivos identificados; no altera los originales locales."
+}

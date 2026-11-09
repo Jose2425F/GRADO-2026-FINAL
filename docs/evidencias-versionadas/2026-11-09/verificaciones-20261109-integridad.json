@@ -1,0 +1,2369 @@
+{
+  "archivo_zip": "verificaciones-20261109.zip",
+  "fecha_publicacion": "2026-11-09",
+  "archivos": [
+    {
+      "archivo": "Estado_de_los_ajustes.txt",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/Estado_de_los_ajustes.txt",
+      "bytes": 7629,
+      "sha256_original": "403e63d6292e250ac8730c23755b1d2c77790aecc39eaf46f23867a3e82f0d93",
+      "sha256_publicado": "403e63d6292e250ac8730c23755b1d2c77790aecc39eaf46f23867a3e82f0d93",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evaluation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evaluation.json",
+      "bytes": 669,
+      "sha256_original": "e7e6c05a8af20d32fa2f6d921a0f20bdd36ba402fde7b93b259bec30c26af4f5",
+      "sha256_publicado": "e7e6c05a8af20d32fa2f6d921a0f20bdd36ba402fde7b93b259bec30c26af4f5",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/events.sqlite3",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/events.sqlite3",
+      "bytes": 147456,
+      "sha256_original": "bc9a20b0e9f9d2837dd307b5570cbe628537a95905fff009de68161b90f38a33",
+      "sha256_publicado": "bc9a20b0e9f9d2837dd307b5570cbe628537a95905fff009de68161b90f38a33",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_app_crm_application_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_app_crm_application_confirmation.json",
+      "bytes": 4539,
+      "sha256_original": "048bcbb32b91b59ee5528483969aeebedb1119bc64658713087e6de41f6dc360",
+      "sha256_publicado": "048bcbb32b91b59ee5528483969aeebedb1119bc64658713087e6de41f6dc360",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_app_crm_application_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_app_crm_application_state.json",
+      "bytes": 4501,
+      "sha256_original": "2fa613f9ccb1784dafe2ea51e58a6a390d2be923de3cdfce8cb0f3b312d85237",
+      "sha256_publicado": "2fa613f9ccb1784dafe2ea51e58a6a390d2be923de3cdfce8cb0f3b312d85237",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_app_erp_application_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_app_erp_application_confirmation.json",
+      "bytes": 4553,
+      "sha256_original": "4f71ed9f126568798ddd3ef5d387d648549746889d42cfb9548f14e57733607f",
+      "sha256_publicado": "4f71ed9f126568798ddd3ef5d387d648549746889d42cfb9548f14e57733607f",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_app_erp_application_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_app_erp_application_state.json",
+      "bytes": 4515,
+      "sha256_original": "b5828babbd7b14fd022d725a7e78d84334d7eddd8f362a766cf9ad59be887af4",
+      "sha256_publicado": "b5828babbd7b14fd022d725a7e78d84334d7eddd8f362a766cf9ad59be887af4",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_app_intranet_application_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_app_intranet_application_confirmation.json",
+      "bytes": 4263,
+      "sha256_original": "d7375841225069830683d03435f479da1c4aff5c0d78db6a470e2da4751e39e7",
+      "sha256_publicado": "d7375841225069830683d03435f479da1c4aff5c0d78db6a470e2da4751e39e7",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_app_intranet_application_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_app_intranet_application_state.json",
+      "bytes": 4225,
+      "sha256_original": "e951dbaa91da9094416d8115d7167321bde50183606f5370d1a162af0c1d9a3c",
+      "sha256_publicado": "e951dbaa91da9094416d8115d7167321bde50183606f5370d1a162af0c1d9a3c",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_app_portal_application_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_app_portal_application_confirmation.json",
+      "bytes": 4365,
+      "sha256_original": "ddc9ab5dd9c85079a3b3465b1441f6c9c11889651ff13b3726d7f3f87ec7ca52",
+      "sha256_publicado": "ddc9ab5dd9c85079a3b3465b1441f6c9c11889651ff13b3726d7f3f87ec7ca52",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_app_portal_application_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_app_portal_application_state.json",
+      "bytes": 4327,
+      "sha256_original": "ad96ecc068d553b0140f661e88bede175480c73a6ec0da4534b6396f3e890bb7",
+      "sha256_publicado": "ad96ecc068d553b0140f661e88bede175480c73a6ec0da4534b6396f3e890bb7",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_bastion_ftp.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_bastion_ftp.json",
+      "bytes": 245,
+      "sha256_original": "d1ae67bc89268d0579b6876093db467d3b99edd749ddab5a0f4b364e4227a9cd",
+      "sha256_publicado": "d1ae67bc89268d0579b6876093db467d3b99edd749ddab5a0f4b364e4227a9cd",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_bastion_services.xml",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_bastion_services.xml",
+      "bytes": 1711,
+      "sha256_original": "58f05b3ab144a9345c0ca05b6309e7c062d7f75faac1dd06c092ae037dc6bd0d",
+      "sha256_publicado": "58f05b3ab144a9345c0ca05b6309e7c062d7f75faac1dd06c092ae037dc6bd0d",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_bastion_ssh.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_bastion_ssh.json",
+      "bytes": 245,
+      "sha256_original": "a0f85c8a6e929fec04857342d5887605205ec493e4daf376aa8a3f6001c13d56",
+      "sha256_publicado": "a0f85c8a6e929fec04857342d5887605205ec493e4daf376aa8a3f6001c13d56",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_legacy_http_get.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_legacy_http_get.json",
+      "bytes": 261,
+      "sha256_original": "c65fe0ba7663f7f6c5e8cee8ea034ffa492322ca3933e908f93beb4392518253",
+      "sha256_publicado": "c65fe0ba7663f7f6c5e8cee8ea034ffa492322ca3933e908f93beb4392518253",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_legacy_http_get_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_legacy_http_get_confirmation.json",
+      "bytes": 195,
+      "sha256_original": "fb061fe23b976398b288235a979ee4fee286041e727fa6129d09d3173f5c116b",
+      "sha256_publicado": "fb061fe23b976398b288235a979ee4fee286041e727fa6129d09d3173f5c116b",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_legacy_services.xml",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_legacy_services.xml",
+      "bytes": 4596,
+      "sha256_original": "591fbaccb462ebe4878077fc9728bbeaed50b6d30322305a4cac21d1f9b7077d",
+      "sha256_publicado": "591fbaccb462ebe4878077fc9728bbeaed50b6d30322305a4cac21d1f9b7077d",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_portal_ftp.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_portal_ftp.json",
+      "bytes": 244,
+      "sha256_original": "f7402ebc670643903ea0b84f9338e5ef1ae92f4646853c8879dfb4984035139e",
+      "sha256_publicado": "f7402ebc670643903ea0b84f9338e5ef1ae92f4646853c8879dfb4984035139e",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_portal_ftp_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_portal_ftp_confirmation.json",
+      "bytes": 172,
+      "sha256_original": "9d3e801b0dc0bbabd85be00f0a3ceed674ed085db888793a8ba027624a046935",
+      "sha256_publicado": "9d3e801b0dc0bbabd85be00f0a3ceed674ed085db888793a8ba027624a046935",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_portal_services.xml",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_portal_services.xml",
+      "bytes": 1711,
+      "sha256_original": "a3f519a1c947c3255ee50c6988a26f87c7c073df8e9a3078d2c05cb5bbc86e3f",
+      "sha256_publicado": "a3f519a1c947c3255ee50c6988a26f87c7c073df8e9a3078d2c05cb5bbc86e3f",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_portal_ssh.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_portal_ssh.json",
+      "bytes": 244,
+      "sha256_original": "4eb0e744d5a7f73ef21aaac5f3831530d105d0b8ad174d6bec8c2e92956fc06c",
+      "sha256_publicado": "4eb0e744d5a7f73ef21aaac5f3831530d105d0b8ad174d6bec8c2e92956fc06c",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_portal_ssh_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_portal_ssh_confirmation.json",
+      "bytes": 174,
+      "sha256_original": "6af42b71111042f16e2e4d5d806c6c7929e7979eca007e85c36d2f8412a16dd9",
+      "sha256_publicado": "6af42b71111042f16e2e4d5d806c6c7929e7979eca007e85c36d2f8412a16dd9",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_atomic_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_atomic_confirmation.json",
+      "bytes": 9708,
+      "sha256_original": "8e0f2979b6efd9e662d81caaef2773f3dccc6d9a433e0c41025596af2415a929",
+      "sha256_publicado": "8e0f2979b6efd9e662d81caaef2773f3dccc6d9a433e0c41025596af2415a929",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_atomic_control.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_atomic_control.pcap",
+      "bytes": 124,
+      "sha256_original": "af28e6391e1ff34b21c72c67b10fc7d8b38e29e967f4a390c1f5fe4023890813",
+      "sha256_publicado": "af28e6391e1ff34b21c72c67b10fc7d8b38e29e967f4a390c1f5fe4023890813",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_atomic_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_atomic_restoration.json",
+      "bytes": 2363,
+      "sha256_original": "84d247a6f3633ea7b8278c260daa65184fa26a062f3dcc7ede60a5f31a7f2238",
+      "sha256_publicado": "84d247a6f3633ea7b8278c260daa65184fa26a062f3dcc7ede60a5f31a7f2238",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_atomic_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_atomic_state.json",
+      "bytes": 9661,
+      "sha256_original": "ab863abef7ecf55cb19c353b71d77194078ae24d161d9365d2f10c9193cacbbb",
+      "sha256_publicado": "ab863abef7ecf55cb19c353b71d77194078ae24d161d9365d2f10c9193cacbbb",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_atomic_variant.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_atomic_variant.pcap",
+      "bytes": 133,
+      "sha256_original": "86feee7c7c7eedc20d1b72cdf30fb440d083f62c8849e75d0e1c0e324b92214f",
+      "sha256_publicado": "86feee7c7c7eedc20d1b72cdf30fb440d083f62c8849e75d0e1c0e324b92214f",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_dad_na.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_dad_na.pcap",
+      "bytes": 126,
+      "sha256_original": "ffdd749340de11aa44578afd186ccdae1705a41c7e851c5528346433195b24bf",
+      "sha256_publicado": "ffdd749340de11aa44578afd186ccdae1705a41c7e851c5528346433195b24bf",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_dad_na_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_dad_na_confirmation.json",
+      "bytes": 7687,
+      "sha256_original": "52953578f8f80e569fa07d040ac617fdae0701040d70f1691c9d858668f45d4d",
+      "sha256_publicado": "52953578f8f80e569fa07d040ac617fdae0701040d70f1691c9d858668f45d4d",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_dad_na_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_dad_na_restoration.json",
+      "bytes": 2363,
+      "sha256_original": "25d694348754fb9f8d808d33aed6b39a2421378c787932a34d22c8312ed4d76d",
+      "sha256_publicado": "25d694348754fb9f8d808d33aed6b39a2421378c787932a34d22c8312ed4d76d",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_dad_na_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_dad_na_state.json",
+      "bytes": 7640,
+      "sha256_original": "7abf376b6163d3427e665c5214c697efb9a31311a197319ec235818c64adc3a4",
+      "sha256_publicado": "7abf376b6163d3427e665c5214c697efb9a31311a197319ec235818c64adc3a4",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_incomplete_chain_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_incomplete_chain_confirmation.json",
+      "bytes": 11540,
+      "sha256_original": "aa7ef8a5f560825d569400aff89dd1b6e3808f3b0aae1c5fc80537b475c11ea3",
+      "sha256_publicado": "aa7ef8a5f560825d569400aff89dd1b6e3808f3b0aae1c5fc80537b475c11ea3",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_incomplete_chain_control.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_incomplete_chain_control.pcap",
+      "bytes": 1605,
+      "sha256_original": "37590dea2cd80c3fb3c800a8dd3954910b127a2e1a70955f765cca59b737b077",
+      "sha256_publicado": "37590dea2cd80c3fb3c800a8dd3954910b127a2e1a70955f765cca59b737b077",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_incomplete_chain_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_incomplete_chain_restoration.json",
+      "bytes": 2383,
+      "sha256_original": "003398069b7c58534b98bf20854db8562c839c8b12ebed83f47249dddacf4732",
+      "sha256_publicado": "003398069b7c58534b98bf20854db8562c839c8b12ebed83f47249dddacf4732",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_incomplete_chain_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_incomplete_chain_state.json",
+      "bytes": 11493,
+      "sha256_original": "36194cd54f13edf2a1080a43a1ed628e06f05ce9ac2122e2e315039c65fdad9a",
+      "sha256_publicado": "36194cd54f13edf2a1080a43a1ed628e06f05ce9ac2122e2e315039c65fdad9a",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_incomplete_chain_variant.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_incomplete_chain_variant.pcap",
+      "bytes": 226,
+      "sha256_original": "4aa170aae6f580bc5e2fe7617a12b2cfffa86df864f1105db3add02784661629",
+      "sha256_publicado": "4aa170aae6f580bc5e2fe7617a12b2cfffa86df864f1105db3add02784661629",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_na_neighbor.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_na_neighbor.pcap",
+      "bytes": 126,
+      "sha256_original": "1fedfe9d66c5ec6e5cbc3cb72037a0ff3bf10140656c30b43ea9c6a921a9bad3",
+      "sha256_publicado": "1fedfe9d66c5ec6e5cbc3cb72037a0ff3bf10140656c30b43ea9c6a921a9bad3",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_na_neighbor_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_na_neighbor_confirmation.json",
+      "bytes": 7427,
+      "sha256_original": "ba38a081b97a0c85b93bc4d6b61c61a87afdfe5ee5cd30bb33d7c9d765024470",
+      "sha256_publicado": "ba38a081b97a0c85b93bc4d6b61c61a87afdfe5ee5cd30bb33d7c9d765024470",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_na_neighbor_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_na_neighbor_restoration.json",
+      "bytes": 2168,
+      "sha256_original": "64051c47561c88c02bc15578369dbf2ea56568170cea88aa5184a37a392ccd37",
+      "sha256_publicado": "64051c47561c88c02bc15578369dbf2ea56568170cea88aa5184a37a392ccd37",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_na_neighbor_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_na_neighbor_state.json",
+      "bytes": 7380,
+      "sha256_original": "5198510f2ae8dbae877b9eee13f6ecd8e7ca961562dccb30447275093f7eb44b",
+      "sha256_publicado": "5198510f2ae8dbae877b9eee13f6ecd8e7ca961562dccb30447275093f7eb44b",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_confirmation.json",
+      "bytes": 10899,
+      "sha256_original": "a691f12fa5029c532ca0e0c18c702486b49b273ae0eaa503e6a07b4294a15d89",
+      "sha256_publicado": "a691f12fa5029c532ca0e0c18c702486b49b273ae0eaa503e6a07b4294a15d89",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_control.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_control.pcap",
+      "bytes": 1605,
+      "sha256_original": "b855a6ffecdeeeb6fb669724d71990ba33c777833fe36d7ea2f894fbae64cc00",
+      "sha256_publicado": "b855a6ffecdeeeb6fb669724d71990ba33c777833fe36d7ea2f894fbae64cc00",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_middle_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_middle_confirmation.json",
+      "bytes": 10795,
+      "sha256_original": "d457ba57b3490ec30c8bff720ea3fd47b57ee3f2dcfc72a5dabc549499491cab",
+      "sha256_publicado": "d457ba57b3490ec30c8bff720ea3fd47b57ee3f2dcfc72a5dabc549499491cab",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_middle_control.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_middle_control.pcap",
+      "bytes": 2883,
+      "sha256_original": "3b44e5af53774fb1841db755c9a05f597f32f508ecb84b646421a699e8874905",
+      "sha256_publicado": "3b44e5af53774fb1841db755c9a05f597f32f508ecb84b646421a699e8874905",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_middle_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_middle_restoration.json",
+      "bytes": 2071,
+      "sha256_original": "dae9f6d0e6ae008fabf58ac4246955c0686326f3c1a84f1be5245cb2e7cf9b0d",
+      "sha256_publicado": "dae9f6d0e6ae008fabf58ac4246955c0686326f3c1a84f1be5245cb2e7cf9b0d",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_middle_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_middle_state.json",
+      "bytes": 10748,
+      "sha256_original": "5127c9de0b9a679684e10ac5ef0fe981ba4068a8dc90ac78c0c8c47155cbbfe3",
+      "sha256_publicado": "5127c9de0b9a679684e10ac5ef0fe981ba4068a8dc90ac78c0c8c47155cbbfe3",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_middle_variant.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_middle_variant.pcap",
+      "bytes": 2883,
+      "sha256_original": "ea237bdaaecbcc9fa3dc967728dc83812f7eebe8ead59d3ce2b002d7d6cc9f23",
+      "sha256_publicado": "ea237bdaaecbcc9fa3dc967728dc83812f7eebe8ead59d3ce2b002d7d6cc9f23",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_restoration.json",
+      "bytes": 2164,
+      "sha256_original": "d8ac9a7fd0aa0a962998a691de2750ff18de4c6aafa1df8dbe395cf433810a55",
+      "sha256_publicado": "d8ac9a7fd0aa0a962998a691de2750ff18de4c6aafa1df8dbe395cf433810a55",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_state.json",
+      "bytes": 10852,
+      "sha256_original": "435365bb21738716a57903a83f6b404212e697812c71feeb4fc73cfde847c660",
+      "sha256_publicado": "435365bb21738716a57903a83f6b404212e697812c71feeb4fc73cfde847c660",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_variant.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_overlap_variant.pcap",
+      "bytes": 1605,
+      "sha256_original": "8f9c833a22747d9c30d438337df3a00cadea0babd2608727ffc4a09fa5008225",
+      "sha256_publicado": "8f9c833a22747d9c30d438337df3a00cadea0babd2608727ffc4a09fa5008225",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_ra_mtu.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_ra_mtu.pcap",
+      "bytes": 118,
+      "sha256_original": "d3fda9625fd72e19daffd8781dda69bda15446808e6fb4eb2296ea974e50fd7f",
+      "sha256_publicado": "d3fda9625fd72e19daffd8781dda69bda15446808e6fb4eb2296ea974e50fd7f",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_ra_mtu_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_ra_mtu_confirmation.json",
+      "bytes": 7845,
+      "sha256_original": "f7fa7c4ade87e47fdc68f468571961e08bb2278216c1e8df04b6702a4a1ed197",
+      "sha256_publicado": "f7fa7c4ade87e47fdc68f468571961e08bb2278216c1e8df04b6702a4a1ed197",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_ra_mtu_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_ra_mtu_restoration.json",
+      "bytes": 2362,
+      "sha256_original": "a51394a6f0a3d05b0101b6ffe4585b0911e4ccaa7253ceadce32194de92b228e",
+      "sha256_publicado": "a51394a6f0a3d05b0101b6ffe4585b0911e4ccaa7253ceadce32194de92b228e",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_ra_mtu_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_ra_mtu_state.json",
+      "bytes": 7798,
+      "sha256_original": "e93595aed08a3775cf1bc5b4d481195fc7413cda7e20a4c3b69629cdcde940a0",
+      "sha256_publicado": "e93595aed08a3775cf1bc5b4d481195fc7413cda7e20a4c3b69629cdcde940a0",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_ra_route.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_ra_route.pcap",
+      "bytes": 110,
+      "sha256_original": "ea28663b8eee44f695f779c896e99def2aa5f5f58c0f67e9364ca775e3693a37",
+      "sha256_publicado": "ea28663b8eee44f695f779c896e99def2aa5f5f58c0f67e9364ca775e3693a37",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_ra_route_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_ra_route_confirmation.json",
+      "bytes": 36306,
+      "sha256_original": "3462f0574d1a312b8c683e068a0e5efc7aa190d506dc949e98062f7e7d73e6fa",
+      "sha256_publicado": "3462f0574d1a312b8c683e068a0e5efc7aa190d506dc949e98062f7e7d73e6fa",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_ra_route_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_ra_route_restoration.json",
+      "bytes": 2361,
+      "sha256_original": "3a965f9f6dc910c51a62cd3047310319747d3bd408da7521bbbb4f5bc57d2154",
+      "sha256_publicado": "3a965f9f6dc910c51a62cd3047310319747d3bd408da7521bbbb4f5bc57d2154",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_ra_route_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_ra_route_state.json",
+      "bytes": 36259,
+      "sha256_original": "b18f88e713cc038f39198ea8f3959a525f4aeedbf119ddce72d49053687703c7",
+      "sha256_publicado": "b18f88e713cc038f39198ea8f3959a525f4aeedbf119ddce72d49053687703c7",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_slaac_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_slaac_confirmation.json",
+      "bytes": 50054,
+      "sha256_original": "445a52656349e104b16c4c1d71bb0ee45d324b6ed22f14a7386a7558660b7517",
+      "sha256_publicado": "445a52656349e104b16c4c1d71bb0ee45d324b6ed22f14a7386a7558660b7517",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_slaac_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_slaac_restoration.json",
+      "bytes": 16779,
+      "sha256_original": "63ad2bac437afe5ade471884e209894dde45592605f4f20309b43cfcf31df7bf",
+      "sha256_publicado": "63ad2bac437afe5ade471884e209894dde45592605f4f20309b43cfcf31df7bf",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_slaac_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_a_slaac_state.json",
+      "bytes": 50007,
+      "sha256_original": "33e16e07a578026474b35607bb1a614bf7e212e3812f1df5019ad8e69f9b9bdb",
+      "sha256_publicado": "33e16e07a578026474b35607bb1a614bf7e212e3812f1df5019ad8e69f9b9bdb",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_atomic_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_atomic_confirmation.json",
+      "bytes": 10806,
+      "sha256_original": "65aab70b4507ef383cb553c6859b6f2f4d81ae7ff499ff64bf64c3ea9137fd54",
+      "sha256_publicado": "65aab70b4507ef383cb553c6859b6f2f4d81ae7ff499ff64bf64c3ea9137fd54",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_atomic_control.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_atomic_control.pcap",
+      "bytes": 124,
+      "sha256_original": "748cb0eab2dfbc48398aaeb26816e955e46a11fa1092bbde0d1a27f864caea61",
+      "sha256_publicado": "748cb0eab2dfbc48398aaeb26816e955e46a11fa1092bbde0d1a27f864caea61",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_atomic_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_atomic_restoration.json",
+      "bytes": 2462,
+      "sha256_original": "8b316abba3db7415c3947e1c5bd7825112a96b56ef39fefc0ba987003aa4d8b0",
+      "sha256_publicado": "8b316abba3db7415c3947e1c5bd7825112a96b56ef39fefc0ba987003aa4d8b0",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_atomic_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_atomic_state.json",
+      "bytes": 10759,
+      "sha256_original": "1617da248b88cabee3dfdc2281aac24a5de08a307f9d475518cc5bff75d0809f",
+      "sha256_publicado": "1617da248b88cabee3dfdc2281aac24a5de08a307f9d475518cc5bff75d0809f",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_atomic_variant.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_atomic_variant.pcap",
+      "bytes": 133,
+      "sha256_original": "a15fb69b5107371b878a197519780a21fabd79a4cb536af4e8446a269ce44d45",
+      "sha256_publicado": "a15fb69b5107371b878a197519780a21fabd79a4cb536af4e8446a269ce44d45",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_dad_na.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_dad_na.pcap",
+      "bytes": 126,
+      "sha256_original": "8545bb8f6f0cda130304aab6c65f20e46dfc7d00a3971ec84507a3d5f9fdf6d2",
+      "sha256_publicado": "8545bb8f6f0cda130304aab6c65f20e46dfc7d00a3971ec84507a3d5f9fdf6d2",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_dad_na_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_dad_na_confirmation.json",
+      "bytes": 7747,
+      "sha256_original": "06479884f36fcfdfc8ce94fb48479fdc2589c3ea7ce21ade3b1ffa79c754c245",
+      "sha256_publicado": "06479884f36fcfdfc8ce94fb48479fdc2589c3ea7ce21ade3b1ffa79c754c245",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_dad_na_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_dad_na_restoration.json",
+      "bytes": 2262,
+      "sha256_original": "0299d2cffe81abc79ba8ae3cb79e848a9499e35903a2b0c9590e776eb9a2e012",
+      "sha256_publicado": "0299d2cffe81abc79ba8ae3cb79e848a9499e35903a2b0c9590e776eb9a2e012",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_dad_na_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_dad_na_state.json",
+      "bytes": 7700,
+      "sha256_original": "fdaccb75011204796436c98d54716e66b09e39ed79bf63b586058764bcf4a2b7",
+      "sha256_publicado": "fdaccb75011204796436c98d54716e66b09e39ed79bf63b586058764bcf4a2b7",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_incomplete_chain_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_incomplete_chain_confirmation.json",
+      "bytes": 11239,
+      "sha256_original": "35236157672b6042849d59f88bd64602f31f1f4995ac8927c410612de1c54952",
+      "sha256_publicado": "35236157672b6042849d59f88bd64602f31f1f4995ac8927c410612de1c54952",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_incomplete_chain_control.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_incomplete_chain_control.pcap",
+      "bytes": 1605,
+      "sha256_original": "3080c6a73bd3a94dc65cab7adb6439e73e8be077d9ab7799313b919b7276247b",
+      "sha256_publicado": "3080c6a73bd3a94dc65cab7adb6439e73e8be077d9ab7799313b919b7276247b",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_incomplete_chain_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_incomplete_chain_restoration.json",
+      "bytes": 2472,
+      "sha256_original": "51750e760f2c687b32283ad94e4d6a923e1c185d54e9373aafbaddc599093947",
+      "sha256_publicado": "51750e760f2c687b32283ad94e4d6a923e1c185d54e9373aafbaddc599093947",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_incomplete_chain_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_incomplete_chain_state.json",
+      "bytes": 11192,
+      "sha256_original": "2e10d7971e335d373646faefbc0ee46d429a0886747bf26b428d85e63ebdcb99",
+      "sha256_publicado": "2e10d7971e335d373646faefbc0ee46d429a0886747bf26b428d85e63ebdcb99",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_incomplete_chain_variant.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_incomplete_chain_variant.pcap",
+      "bytes": 226,
+      "sha256_original": "77c0032a27d8a7c904f0c550db3acd843510b9782c5c276d2a920eaa47c2209e",
+      "sha256_publicado": "77c0032a27d8a7c904f0c550db3acd843510b9782c5c276d2a920eaa47c2209e",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_na_neighbor.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_na_neighbor.pcap",
+      "bytes": 126,
+      "sha256_original": "91216513952f98fd076bfdd112c656f0321221367ea17dab3033568bc519ff18",
+      "sha256_publicado": "91216513952f98fd076bfdd112c656f0321221367ea17dab3033568bc519ff18",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_na_neighbor_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_na_neighbor_confirmation.json",
+      "bytes": 7330,
+      "sha256_original": "0a3a1f7e63e909faadc55d96adb5765e89fc3fd4eb23ba7aa83b5716ac7e95c2",
+      "sha256_publicado": "0a3a1f7e63e909faadc55d96adb5765e89fc3fd4eb23ba7aa83b5716ac7e95c2",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_na_neighbor_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_na_neighbor_restoration.json",
+      "bytes": 2467,
+      "sha256_original": "7a8e1419b894672a6a9205168fdf95b7682dc1c45fc0319278d2e4b9647d39ad",
+      "sha256_publicado": "7a8e1419b894672a6a9205168fdf95b7682dc1c45fc0319278d2e4b9647d39ad",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_na_neighbor_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_na_neighbor_state.json",
+      "bytes": 7283,
+      "sha256_original": "4e043a8cbf59bd89cbb1c42b85bd1e62e5c419bb4c986b12c9a074b8df05471d",
+      "sha256_publicado": "4e043a8cbf59bd89cbb1c42b85bd1e62e5c419bb4c986b12c9a074b8df05471d",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_confirmation.json",
+      "bytes": 10873,
+      "sha256_original": "acec3ee246c22e4033d933ebe630b4c21555805ead2d83e91e353586db3c7d76",
+      "sha256_publicado": "acec3ee246c22e4033d933ebe630b4c21555805ead2d83e91e353586db3c7d76",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_control.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_control.pcap",
+      "bytes": 1605,
+      "sha256_original": "6447fee879881bb11c61e0d843e72d5b5b5fab327400775e2dd3c525c6d1dd37",
+      "sha256_publicado": "6447fee879881bb11c61e0d843e72d5b5b5fab327400775e2dd3c525c6d1dd37",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_middle_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_middle_confirmation.json",
+      "bytes": 11282,
+      "sha256_original": "c28fd5ddc90a77552844629a47f5ff485fdc40438eca000978ce38722d1bf521",
+      "sha256_publicado": "c28fd5ddc90a77552844629a47f5ff485fdc40438eca000978ce38722d1bf521",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_middle_control.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_middle_control.pcap",
+      "bytes": 2883,
+      "sha256_original": "b89ad2c2de440a127bbbb4a5c44e0afffc7ac21c2c0bd0753862a203e17f1184",
+      "sha256_publicado": "b89ad2c2de440a127bbbb4a5c44e0afffc7ac21c2c0bd0753862a203e17f1184",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_middle_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_middle_restoration.json",
+      "bytes": 2470,
+      "sha256_original": "53153b7765dcf1cc6b73c9175078bab91acb5bb92ed6fac69d8f64a1b9645d8a",
+      "sha256_publicado": "53153b7765dcf1cc6b73c9175078bab91acb5bb92ed6fac69d8f64a1b9645d8a",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_middle_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_middle_state.json",
+      "bytes": 11235,
+      "sha256_original": "0bce09c1d88f9c63168dddc66d7116f756009ad564b5eb54f8df8ecda2bea228",
+      "sha256_publicado": "0bce09c1d88f9c63168dddc66d7116f756009ad564b5eb54f8df8ecda2bea228",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_middle_variant.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_middle_variant.pcap",
+      "bytes": 2883,
+      "sha256_original": "4dd4a620655bb1d418b76ae6938c9f3d73fa23e9b07b41c0886bbb73ccef0536",
+      "sha256_publicado": "4dd4a620655bb1d418b76ae6938c9f3d73fa23e9b07b41c0886bbb73ccef0536",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_restoration.json",
+      "bytes": 2244,
+      "sha256_original": "7c982a0622d96b72a2d148f6af301d435d9a17c64b63a2bfa1a223b4738d7666",
+      "sha256_publicado": "7c982a0622d96b72a2d148f6af301d435d9a17c64b63a2bfa1a223b4738d7666",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_state.json",
+      "bytes": 10826,
+      "sha256_original": "7409fc1dbba430c84d71d6564a6fdcb0c057caaa69e2304f6d00ff509b48cd62",
+      "sha256_publicado": "7409fc1dbba430c84d71d6564a6fdcb0c057caaa69e2304f6d00ff509b48cd62",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_variant.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_overlap_variant.pcap",
+      "bytes": 1605,
+      "sha256_original": "58a99577ddd5cb9a06ee79a39db309320ec7e47eface00fbf19ae05ec6a36345",
+      "sha256_publicado": "58a99577ddd5cb9a06ee79a39db309320ec7e47eface00fbf19ae05ec6a36345",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_ra_mtu.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_ra_mtu.pcap",
+      "bytes": 118,
+      "sha256_original": "c08437b15ae97e79141a744b17d18f27e710a859c9d98870b5d414e78494c1c5",
+      "sha256_publicado": "c08437b15ae97e79141a744b17d18f27e710a859c9d98870b5d414e78494c1c5",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_ra_mtu_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_ra_mtu_confirmation.json",
+      "bytes": 7851,
+      "sha256_original": "b9e9c14352b3f4133f6809171f5aac6a6896dd228d9038d089e3d8adfd308e22",
+      "sha256_publicado": "b9e9c14352b3f4133f6809171f5aac6a6896dd228d9038d089e3d8adfd308e22",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_ra_mtu_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_ra_mtu_restoration.json",
+      "bytes": 2262,
+      "sha256_original": "b88e35523dbcb42123227fcafec15928f272ea1d49e37d377c2f86a26759cd8d",
+      "sha256_publicado": "b88e35523dbcb42123227fcafec15928f272ea1d49e37d377c2f86a26759cd8d",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_ra_mtu_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_ra_mtu_state.json",
+      "bytes": 7804,
+      "sha256_original": "7594738241f76c7559b7a2f7f20045ce890c1dea1c15f556a76bc86e7252c736",
+      "sha256_publicado": "7594738241f76c7559b7a2f7f20045ce890c1dea1c15f556a76bc86e7252c736",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_ra_route.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_ra_route.pcap",
+      "bytes": 110,
+      "sha256_original": "f846beddbbf3168e967e03abf94c3a077ca8fcb1e6eb06e5b3325bff73d3c7e1",
+      "sha256_publicado": "f846beddbbf3168e967e03abf94c3a077ca8fcb1e6eb06e5b3325bff73d3c7e1",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_ra_route_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_ra_route_confirmation.json",
+      "bytes": 44287,
+      "sha256_original": "af9ae099fc844be73df165f79d58a98422e13ae8ba90b0e856631dae49fa0dab",
+      "sha256_publicado": "af9ae099fc844be73df165f79d58a98422e13ae8ba90b0e856631dae49fa0dab",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_ra_route_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_ra_route_restoration.json",
+      "bytes": 2464,
+      "sha256_original": "45aaf17a587beb64e2190020666f56384bb5bfbf1cb6e702acffca2c47364a34",
+      "sha256_publicado": "45aaf17a587beb64e2190020666f56384bb5bfbf1cb6e702acffca2c47364a34",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_ra_route_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_ra_route_state.json",
+      "bytes": 44240,
+      "sha256_original": "2882379711f17c62d9c0ce8be993dbcdef03601295e6b99ecd119b1a07ad64f7",
+      "sha256_publicado": "2882379711f17c62d9c0ce8be993dbcdef03601295e6b99ecd119b1a07ad64f7",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_slaac_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_slaac_confirmation.json",
+      "bytes": 62399,
+      "sha256_original": "db4226ed5bd11d4d5e9480240234015d131c8ba947094162627b7b4125ba472a",
+      "sha256_publicado": "db4226ed5bd11d4d5e9480240234015d131c8ba947094162627b7b4125ba472a",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_slaac_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_slaac_restoration.json",
+      "bytes": 20894,
+      "sha256_original": "87734bfc0b6a01c5162669a3d565fef0d8938321e152643fc7e55dbc2790882c",
+      "sha256_publicado": "87734bfc0b6a01c5162669a3d565fef0d8938321e152643fc7e55dbc2790882c",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_slaac_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_receiver_b_slaac_state.json",
+      "bytes": 62352,
+      "sha256_original": "ebbb268f8e8916d3a1b8bab8c48af0b34b58dfb694bbfa0241ae06678d6cd6d0",
+      "sha256_publicado": "ebbb268f8e8916d3a1b8bab8c48af0b34b58dfb694bbfa0241ae06678d6cd6d0",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_records_postgres.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_records_postgres.json",
+      "bytes": 262,
+      "sha256_original": "461307ce1831e99408fa6fa2c669ceb917d0e7ac2877766f92a9b763867e5c1f",
+      "sha256_publicado": "461307ce1831e99408fa6fa2c669ceb917d0e7ac2877766f92a9b763867e5c1f",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_records_postgres_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_records_postgres_confirmation.json",
+      "bytes": 186,
+      "sha256_original": "fb77bbfba5c82ad5be1f029018ba06f40711a6c51161fb1ab60827ca4d74293c",
+      "sha256_publicado": "fb77bbfba5c82ad5be1f029018ba06f40711a6c51161fb1ab60827ca4d74293c",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_records_services.xml",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/evidence/emp_multiagent_da0cb814aa97_records_services.xml",
+      "bytes": 1449,
+      "sha256_original": "e9291508e0b9d4a1d1d62ee7aa2940d6874c8d622a10ec49afd7fd21eb8d6687",
+      "sha256_publicado": "e9291508e0b9d4a1d1d62ee7aa2940d6874c8d622a10ec49afd7fd21eb8d6687",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/manifest.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/manifest.json",
+      "bytes": 17358,
+      "sha256_original": "423f104031b1b42017dddcb820f71c3ca07d70287eee4ec58c74a7fac0bac7cb",
+      "sha256_publicado": "423f104031b1b42017dddcb820f71c3ca07d70287eee4ec58c74a7fac0bac7cb",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/plan.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/plan.json",
+      "bytes": 17139,
+      "sha256_original": "41042105fce497d5829020227fe625eefda705e6c17d63137b569e82179a06ed",
+      "sha256_publicado": "41042105fce497d5829020227fe625eefda705e6c17d63137b569e82179a06ed",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/preflight.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/preflight.json",
+      "bytes": 833,
+      "sha256_original": "d794f76079a89848ec08e9636159fe7ad8d296d084999730a84ff336e251272d",
+      "sha256_publicado": "d794f76079a89848ec08e9636159fe7ad8d296d084999730a84ff336e251272d",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/report.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/report.json",
+      "bytes": 69175,
+      "sha256_original": "c19e334cbf36ed824c4fd4e2e1f23077c8b58a67ea376aa869fb076f5ab64bca",
+      "sha256_publicado": "c19e334cbf36ed824c4fd4e2e1f23077c8b58a67ea376aa869fb076f5ab64bca",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/request.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/request.json",
+      "bytes": 3944,
+      "sha256_original": "897af1e1f8430219386678acd8d4059c55b06a508a19539bbfa5d2d03207c443",
+      "sha256_publicado": "897af1e1f8430219386678acd8d4059c55b06a508a19539bbfa5d2d03207c443",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/runtime.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final-20261109/emp_multiagent_da0cb814aa97_20261109T023550/runtime.json",
+      "bytes": 246,
+      "sha256_original": "cf3fb38706c6133020a3a0e94874cb286f0e52c2fa3af9b74f2c0bda97ef007d",
+      "sha256_publicado": "cf3fb38706c6133020a3a0e94874cb286f0e52c2fa3af9b74f2c0bda97ef007d",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-final.log",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-final.log",
+      "bytes": 0,
+      "sha256_original": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256_publicado": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109.log",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109.log",
+      "bytes": 0,
+      "sha256_original": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256_publicado": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evaluation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evaluation.json",
+      "bytes": 669,
+      "sha256_original": "e7e6c05a8af20d32fa2f6d921a0f20bdd36ba402fde7b93b259bec30c26af4f5",
+      "sha256_publicado": "e7e6c05a8af20d32fa2f6d921a0f20bdd36ba402fde7b93b259bec30c26af4f5",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/events.sqlite3",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/events.sqlite3",
+      "bytes": 139264,
+      "sha256_original": "e82d715705ad919a6d98819fab324ba8442bb73440e406a2ee8052414a8a9c02",
+      "sha256_publicado": "e82d715705ad919a6d98819fab324ba8442bb73440e406a2ee8052414a8a9c02",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_app_crm_application_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_app_crm_application_confirmation.json",
+      "bytes": 4539,
+      "sha256_original": "6d0a99eecccea7625f99f973932720ea0f0f0c5384ab90ec2ea42994848eb620",
+      "sha256_publicado": "6d0a99eecccea7625f99f973932720ea0f0f0c5384ab90ec2ea42994848eb620",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_app_crm_application_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_app_crm_application_state.json",
+      "bytes": 4501,
+      "sha256_original": "18f69f51aaedb372172cf36978913dde3a75ad6d5061060bf2d9b882c5c408b2",
+      "sha256_publicado": "18f69f51aaedb372172cf36978913dde3a75ad6d5061060bf2d9b882c5c408b2",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_app_erp_application_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_app_erp_application_confirmation.json",
+      "bytes": 4553,
+      "sha256_original": "e8ff21200f61e2efcd7cbf466b49aa25f17d7c0d90e04465268fdd6398a05bbe",
+      "sha256_publicado": "e8ff21200f61e2efcd7cbf466b49aa25f17d7c0d90e04465268fdd6398a05bbe",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_app_erp_application_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_app_erp_application_state.json",
+      "bytes": 4515,
+      "sha256_original": "ed784697a852b968c2b3a8e408e2aa0641811ad2d4195ff1dea92df43ac16c07",
+      "sha256_publicado": "ed784697a852b968c2b3a8e408e2aa0641811ad2d4195ff1dea92df43ac16c07",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_app_intranet_application_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_app_intranet_application_confirmation.json",
+      "bytes": 4263,
+      "sha256_original": "7f858994f2ba2ab50fc10f90d4b82854fc242b3328489184ef9b979f40236600",
+      "sha256_publicado": "7f858994f2ba2ab50fc10f90d4b82854fc242b3328489184ef9b979f40236600",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_app_intranet_application_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_app_intranet_application_state.json",
+      "bytes": 4225,
+      "sha256_original": "51396f1391b3e9720ba426ba4e6b15f90be0986283e21954561edfb55a36df78",
+      "sha256_publicado": "51396f1391b3e9720ba426ba4e6b15f90be0986283e21954561edfb55a36df78",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_app_portal_application_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_app_portal_application_confirmation.json",
+      "bytes": 4365,
+      "sha256_original": "5f85ff9b18cb8bc13cf2d2329e101e13a8da35263dc9c1d31c71688addcd5af1",
+      "sha256_publicado": "5f85ff9b18cb8bc13cf2d2329e101e13a8da35263dc9c1d31c71688addcd5af1",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_app_portal_application_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_app_portal_application_state.json",
+      "bytes": 4327,
+      "sha256_original": "4e3cfd92700cefd3a90e3c8e32066111732d4a0abf8efe53a6c4afb3f8f8819e",
+      "sha256_publicado": "4e3cfd92700cefd3a90e3c8e32066111732d4a0abf8efe53a6c4afb3f8f8819e",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_bastion_ftp.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_bastion_ftp.json",
+      "bytes": 245,
+      "sha256_original": "d1ae67bc89268d0579b6876093db467d3b99edd749ddab5a0f4b364e4227a9cd",
+      "sha256_publicado": "d1ae67bc89268d0579b6876093db467d3b99edd749ddab5a0f4b364e4227a9cd",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_bastion_services.xml",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_bastion_services.xml",
+      "bytes": 1711,
+      "sha256_original": "e7b529c129d3a106a8a38795bf65ee38eda19e407039df2e2e0573b3a169689c",
+      "sha256_publicado": "e7b529c129d3a106a8a38795bf65ee38eda19e407039df2e2e0573b3a169689c",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_bastion_ssh.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_bastion_ssh.json",
+      "bytes": 245,
+      "sha256_original": "a0f85c8a6e929fec04857342d5887605205ec493e4daf376aa8a3f6001c13d56",
+      "sha256_publicado": "a0f85c8a6e929fec04857342d5887605205ec493e4daf376aa8a3f6001c13d56",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_legacy_http_get.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_legacy_http_get.json",
+      "bytes": 261,
+      "sha256_original": "c65fe0ba7663f7f6c5e8cee8ea034ffa492322ca3933e908f93beb4392518253",
+      "sha256_publicado": "c65fe0ba7663f7f6c5e8cee8ea034ffa492322ca3933e908f93beb4392518253",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_legacy_http_get_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_legacy_http_get_confirmation.json",
+      "bytes": 195,
+      "sha256_original": "fb061fe23b976398b288235a979ee4fee286041e727fa6129d09d3173f5c116b",
+      "sha256_publicado": "fb061fe23b976398b288235a979ee4fee286041e727fa6129d09d3173f5c116b",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_legacy_services.xml",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_legacy_services.xml",
+      "bytes": 4596,
+      "sha256_original": "844f59751cda5fe6f2ce6fe512f9e5fe71d268de308bb99f17a732967ee8ecaa",
+      "sha256_publicado": "844f59751cda5fe6f2ce6fe512f9e5fe71d268de308bb99f17a732967ee8ecaa",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_portal_ftp.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_portal_ftp.json",
+      "bytes": 244,
+      "sha256_original": "f7402ebc670643903ea0b84f9338e5ef1ae92f4646853c8879dfb4984035139e",
+      "sha256_publicado": "f7402ebc670643903ea0b84f9338e5ef1ae92f4646853c8879dfb4984035139e",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_portal_ftp_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_portal_ftp_confirmation.json",
+      "bytes": 172,
+      "sha256_original": "9d3e801b0dc0bbabd85be00f0a3ceed674ed085db888793a8ba027624a046935",
+      "sha256_publicado": "9d3e801b0dc0bbabd85be00f0a3ceed674ed085db888793a8ba027624a046935",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_portal_services.xml",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_portal_services.xml",
+      "bytes": 1711,
+      "sha256_original": "2ddae5ddfbc7293e538580b4d1b21254aa0a641a75adac879306e7230570452b",
+      "sha256_publicado": "2ddae5ddfbc7293e538580b4d1b21254aa0a641a75adac879306e7230570452b",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_portal_ssh.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_portal_ssh.json",
+      "bytes": 244,
+      "sha256_original": "4eb0e744d5a7f73ef21aaac5f3831530d105d0b8ad174d6bec8c2e92956fc06c",
+      "sha256_publicado": "4eb0e744d5a7f73ef21aaac5f3831530d105d0b8ad174d6bec8c2e92956fc06c",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_portal_ssh_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_portal_ssh_confirmation.json",
+      "bytes": 174,
+      "sha256_original": "6af42b71111042f16e2e4d5d806c6c7929e7979eca007e85c36d2f8412a16dd9",
+      "sha256_publicado": "6af42b71111042f16e2e4d5d806c6c7929e7979eca007e85c36d2f8412a16dd9",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_atomic_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_atomic_confirmation.json",
+      "bytes": 10444,
+      "sha256_original": "d5a5bca787bcb393bf2c449bc433205529afcff6ded8031806883ec13dc302cc",
+      "sha256_publicado": "d5a5bca787bcb393bf2c449bc433205529afcff6ded8031806883ec13dc302cc",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_atomic_control.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_atomic_control.pcap",
+      "bytes": 124,
+      "sha256_original": "be5d9eed8a839d4c61b4facca1f8400e4c3b8ae7314c4ccf26596e5ea63672ae",
+      "sha256_publicado": "be5d9eed8a839d4c61b4facca1f8400e4c3b8ae7314c4ccf26596e5ea63672ae",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_atomic_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_atomic_restoration.json",
+      "bytes": 2065,
+      "sha256_original": "5afbd615d7df1a686baa47c41709f372600cec653325182fe4f1e0c7c4f8c16a",
+      "sha256_publicado": "5afbd615d7df1a686baa47c41709f372600cec653325182fe4f1e0c7c4f8c16a",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_atomic_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_atomic_state.json",
+      "bytes": 10397,
+      "sha256_original": "9247f3facb66a3d291c085fd79e15c7dd3cde43f62203d2677f6f2598dcddc6b",
+      "sha256_publicado": "9247f3facb66a3d291c085fd79e15c7dd3cde43f62203d2677f6f2598dcddc6b",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_atomic_variant.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_atomic_variant.pcap",
+      "bytes": 133,
+      "sha256_original": "88285962f12ad3621b642822c417fa0e695fc58d180a434c7b76ecb2e70d2389",
+      "sha256_publicado": "88285962f12ad3621b642822c417fa0e695fc58d180a434c7b76ecb2e70d2389",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_dad_na.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_dad_na.pcap",
+      "bytes": 126,
+      "sha256_original": "a2e39f52b1a92aff342644cb611100599c9f943a97205882e29a704979e9cfb2",
+      "sha256_publicado": "a2e39f52b1a92aff342644cb611100599c9f943a97205882e29a704979e9cfb2",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_dad_na_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_dad_na_confirmation.json",
+      "bytes": 7957,
+      "sha256_original": "4e60dacea1ff03afa74f0ae1b0f5e683e199a8afc7a2b3a1957efd64db7dd48c",
+      "sha256_publicado": "4e60dacea1ff03afa74f0ae1b0f5e683e199a8afc7a2b3a1957efd64db7dd48c",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_dad_na_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_dad_na_restoration.json",
+      "bytes": 2456,
+      "sha256_original": "a980542e8fa3ce2585d0421482284f90aa58775ee69a7721e1dc199a49c63d38",
+      "sha256_publicado": "a980542e8fa3ce2585d0421482284f90aa58775ee69a7721e1dc199a49c63d38",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_dad_na_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_dad_na_state.json",
+      "bytes": 7910,
+      "sha256_original": "04577fe8d07349109ab324761674ed3a9cae64ee6c7326ce2323fdf3b6323711",
+      "sha256_publicado": "04577fe8d07349109ab324761674ed3a9cae64ee6c7326ce2323fdf3b6323711",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_incomplete_chain_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_incomplete_chain_confirmation.json",
+      "bytes": 11082,
+      "sha256_original": "f22b0c79feee53f9a64ca8b4a9a2b20767014b53e72c14ae890b9a021dc5a985",
+      "sha256_publicado": "f22b0c79feee53f9a64ca8b4a9a2b20767014b53e72c14ae890b9a021dc5a985",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_incomplete_chain_control.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_incomplete_chain_control.pcap",
+      "bytes": 1605,
+      "sha256_original": "ac4b2b4020d58cf80d6835e2afb14ffdf2ebd99a32404a3fddb4e4a9c9f08611",
+      "sha256_publicado": "ac4b2b4020d58cf80d6835e2afb14ffdf2ebd99a32404a3fddb4e4a9c9f08611",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_incomplete_chain_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_incomplete_chain_restoration.json",
+      "bytes": 2571,
+      "sha256_original": "1bd2d96029246ab032bb42262f71c30e4c58524367d23003535221dfa8cc11a1",
+      "sha256_publicado": "1bd2d96029246ab032bb42262f71c30e4c58524367d23003535221dfa8cc11a1",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_incomplete_chain_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_incomplete_chain_state.json",
+      "bytes": 11035,
+      "sha256_original": "c4f40d981234b23e4a26ce2425f38b227f439edea8b2e1e8e10fe0c2dfbc81fc",
+      "sha256_publicado": "c4f40d981234b23e4a26ce2425f38b227f439edea8b2e1e8e10fe0c2dfbc81fc",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_incomplete_chain_variant.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_incomplete_chain_variant.pcap",
+      "bytes": 226,
+      "sha256_original": "d41fc47250a590a2d4d28860b6a655bd21b7088306cbb76bc4477ce5e0a93e84",
+      "sha256_publicado": "d41fc47250a590a2d4d28860b6a655bd21b7088306cbb76bc4477ce5e0a93e84",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_na_neighbor.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_na_neighbor.pcap",
+      "bytes": 126,
+      "sha256_original": "16b88287c29e178258736a4400fca76c2d93b74c536fb172fd319c17806da4b6",
+      "sha256_publicado": "16b88287c29e178258736a4400fca76c2d93b74c536fb172fd319c17806da4b6",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_na_neighbor_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_na_neighbor_confirmation.json",
+      "bytes": 7118,
+      "sha256_original": "1dfbc212a8025cfa10594cf761a5d3df445fd94ef41c33b92698c325ebb6d5e1",
+      "sha256_publicado": "1dfbc212a8025cfa10594cf761a5d3df445fd94ef41c33b92698c325ebb6d5e1",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_na_neighbor_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_na_neighbor_restoration.json",
+      "bytes": 2456,
+      "sha256_original": "42a8b3b2bfa35545a83d0a8a03d9dde72c4089c62f9780250406cf491e36a1e5",
+      "sha256_publicado": "42a8b3b2bfa35545a83d0a8a03d9dde72c4089c62f9780250406cf491e36a1e5",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_na_neighbor_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_na_neighbor_state.json",
+      "bytes": 7071,
+      "sha256_original": "3f4245670237ffdb5a7a2fa3b6bae0409ec3a8358a7d79141298714b1010eeec",
+      "sha256_publicado": "3f4245670237ffdb5a7a2fa3b6bae0409ec3a8358a7d79141298714b1010eeec",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_confirmation.json",
+      "bytes": 11177,
+      "sha256_original": "f35aa80b3eeb01b37a96f0a4fcb81c0af14996dc2b06ead9b60e4b217c6bf9ac",
+      "sha256_publicado": "f35aa80b3eeb01b37a96f0a4fcb81c0af14996dc2b06ead9b60e4b217c6bf9ac",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_control.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_control.pcap",
+      "bytes": 1605,
+      "sha256_original": "e6d233fec8ba213f6f00be141106742bf23f6d65bc2ef402af53f89a368921bb",
+      "sha256_publicado": "e6d233fec8ba213f6f00be141106742bf23f6d65bc2ef402af53f89a368921bb",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_middle_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_middle_confirmation.json",
+      "bytes": 11344,
+      "sha256_original": "07b534633ae07d68b354b41cdb0e5b1c103895ef965fe62f6db10c600cdff8f4",
+      "sha256_publicado": "07b534633ae07d68b354b41cdb0e5b1c103895ef965fe62f6db10c600cdff8f4",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_middle_control.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_middle_control.pcap",
+      "bytes": 2883,
+      "sha256_original": "b7cd153ad9747fefe6114cc9e04f2a37641b6739830b4c5547be2cf403870d91",
+      "sha256_publicado": "b7cd153ad9747fefe6114cc9e04f2a37641b6739830b4c5547be2cf403870d91",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_middle_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_middle_restoration.json",
+      "bytes": 2258,
+      "sha256_original": "b603ae8cb7ca7d647ae7962fe28ef1108c74fc5c7e53e9a6d4c593ae4122ddac",
+      "sha256_publicado": "b603ae8cb7ca7d647ae7962fe28ef1108c74fc5c7e53e9a6d4c593ae4122ddac",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_middle_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_middle_state.json",
+      "bytes": 11297,
+      "sha256_original": "e1d632c02f11b34dba808257e94c121f38149af04f884f99b78840b36f9c830a",
+      "sha256_publicado": "e1d632c02f11b34dba808257e94c121f38149af04f884f99b78840b36f9c830a",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_middle_variant.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_middle_variant.pcap",
+      "bytes": 2883,
+      "sha256_original": "9814803eed4223443e8d239c260d44e1c94b495fdde97f68a3f5aebf957b1603",
+      "sha256_publicado": "9814803eed4223443e8d239c260d44e1c94b495fdde97f68a3f5aebf957b1603",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_restoration.json",
+      "bytes": 2364,
+      "sha256_original": "048e48ff15c746cc8609cdb07b7ff1c7f6007daf394bea4d4427d65112acdb7f",
+      "sha256_publicado": "048e48ff15c746cc8609cdb07b7ff1c7f6007daf394bea4d4427d65112acdb7f",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_state.json",
+      "bytes": 11130,
+      "sha256_original": "d6a3175bce421a7cad60b5466e3860f8c7d1ec5297356481da1e91d787f35378",
+      "sha256_publicado": "d6a3175bce421a7cad60b5466e3860f8c7d1ec5297356481da1e91d787f35378",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_variant.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_overlap_variant.pcap",
+      "bytes": 1605,
+      "sha256_original": "de7f66534dc1a4627543be3039168a3d181404ce1cfba71f3b5995480ab1626e",
+      "sha256_publicado": "de7f66534dc1a4627543be3039168a3d181404ce1cfba71f3b5995480ab1626e",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_ra_mtu.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_ra_mtu.pcap",
+      "bytes": 118,
+      "sha256_original": "82aeba44a507780f89a8fd361c11c9ca198f48b9b501fd6be2adeed2d54110f5",
+      "sha256_publicado": "82aeba44a507780f89a8fd361c11c9ca198f48b9b501fd6be2adeed2d54110f5",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_ra_mtu_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_ra_mtu_confirmation.json",
+      "bytes": 7593,
+      "sha256_original": "f110ea75da74e0684d570238fa9e305ab1bb194c110cf764acba25e6e27b11f3",
+      "sha256_publicado": "f110ea75da74e0684d570238fa9e305ab1bb194c110cf764acba25e6e27b11f3",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_ra_mtu_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_ra_mtu_restoration.json",
+      "bytes": 1979,
+      "sha256_original": "def41be59a99daf3ee9a3070e10b1a9e06b54b78086057095934614497a52d67",
+      "sha256_publicado": "def41be59a99daf3ee9a3070e10b1a9e06b54b78086057095934614497a52d67",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_ra_mtu_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_ra_mtu_state.json",
+      "bytes": 7546,
+      "sha256_original": "0ad610b6de7190e8595af9624d5993a3ef75067486113cd592f49590f9a5bbc9",
+      "sha256_publicado": "0ad610b6de7190e8595af9624d5993a3ef75067486113cd592f49590f9a5bbc9",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_ra_route.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_ra_route.pcap",
+      "bytes": 110,
+      "sha256_original": "8ab6d85c096ff9b9e8b3bfb983ca8fea093be9be0f9a296ba93f8f0b94784a78",
+      "sha256_publicado": "8ab6d85c096ff9b9e8b3bfb983ca8fea093be9be0f9a296ba93f8f0b94784a78",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_ra_route_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_ra_route_confirmation.json",
+      "bytes": 35048,
+      "sha256_original": "f0b95dec2976f455aae4f6688cc1b5ad408a201aac3d5c455e824d2184fe3b7d",
+      "sha256_publicado": "f0b95dec2976f455aae4f6688cc1b5ad408a201aac3d5c455e824d2184fe3b7d",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_ra_route_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_ra_route_restoration.json",
+      "bytes": 2453,
+      "sha256_original": "ac403988ce9ae355cc3ad4c8eb08e50dd74755b021a87a09fc81b6243541f819",
+      "sha256_publicado": "ac403988ce9ae355cc3ad4c8eb08e50dd74755b021a87a09fc81b6243541f819",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_ra_route_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_ra_route_state.json",
+      "bytes": 35001,
+      "sha256_original": "b520e8c8d746ff157b0d9981cb75add91419df255740792b25b698a16fe31ec6",
+      "sha256_publicado": "b520e8c8d746ff157b0d9981cb75add91419df255740792b25b698a16fe31ec6",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_slaac_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_slaac_confirmation.json",
+      "bytes": 48329,
+      "sha256_original": "58e4d02ee998ef01a1f5268c7b72c488c8f299bba046fa209ab8c28788a02ac0",
+      "sha256_publicado": "58e4d02ee998ef01a1f5268c7b72c488c8f299bba046fa209ab8c28788a02ac0",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_slaac_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_slaac_restoration.json",
+      "bytes": 16204,
+      "sha256_original": "0133c754a59814183699832ead5b85b3dec3566ba2c522cca8dfa934907bbe71",
+      "sha256_publicado": "0133c754a59814183699832ead5b85b3dec3566ba2c522cca8dfa934907bbe71",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_slaac_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_a_slaac_state.json",
+      "bytes": 48282,
+      "sha256_original": "d6e3c9a92f9ce8064b530d71ad980431d094f5a66ca86653732cf540146099bb",
+      "sha256_publicado": "d6e3c9a92f9ce8064b530d71ad980431d094f5a66ca86653732cf540146099bb",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_atomic_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_atomic_confirmation.json",
+      "bytes": 11106,
+      "sha256_original": "f34a22d88d2e25002d7ddc99aa06ffae57b2b1b104b7a59136024c0809bb7f19",
+      "sha256_publicado": "f34a22d88d2e25002d7ddc99aa06ffae57b2b1b104b7a59136024c0809bb7f19",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_atomic_control.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_atomic_control.pcap",
+      "bytes": 124,
+      "sha256_original": "f573f22a0700c5c2fd9592eca2e1cd6934f73f25572e0ce58b5588fb1f47e273",
+      "sha256_publicado": "f573f22a0700c5c2fd9592eca2e1cd6934f73f25572e0ce58b5588fb1f47e273",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_atomic_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_atomic_restoration.json",
+      "bytes": 2462,
+      "sha256_original": "c8804a5c2478a04f7d4dc7602f9fcaebc85fd4c931733d0aa96463a8a818eab7",
+      "sha256_publicado": "c8804a5c2478a04f7d4dc7602f9fcaebc85fd4c931733d0aa96463a8a818eab7",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_atomic_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_atomic_state.json",
+      "bytes": 11059,
+      "sha256_original": "c480125f1fec58b90b830861be5031169003bc0bc63504cdb8c472bbc8e8ad4d",
+      "sha256_publicado": "c480125f1fec58b90b830861be5031169003bc0bc63504cdb8c472bbc8e8ad4d",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_atomic_variant.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_atomic_variant.pcap",
+      "bytes": 133,
+      "sha256_original": "bacc67c0b7395fd977263c68661f7891da2f976639c6875782442d6fad640d84",
+      "sha256_publicado": "bacc67c0b7395fd977263c68661f7891da2f976639c6875782442d6fad640d84",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_dad_na.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_dad_na.pcap",
+      "bytes": 126,
+      "sha256_original": "2a3b5c1dff5704827a5e17649b48068a61762a47b86b408c9ac29f13390c47de",
+      "sha256_publicado": "2a3b5c1dff5704827a5e17649b48068a61762a47b86b408c9ac29f13390c47de",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_dad_na_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_dad_na_confirmation.json",
+      "bytes": 7349,
+      "sha256_original": "1c68c48fcd9550b7691c0715b92efc4bc69e21835f5e2f75ae823bd35de40eba",
+      "sha256_publicado": "1c68c48fcd9550b7691c0715b92efc4bc69e21835f5e2f75ae823bd35de40eba",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_dad_na_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_dad_na_restoration.json",
+      "bytes": 2462,
+      "sha256_original": "10fd6c46a0eb466bdaa3bfac9af4280a06a0ffe4b33547067b83b56108317847",
+      "sha256_publicado": "10fd6c46a0eb466bdaa3bfac9af4280a06a0ffe4b33547067b83b56108317847",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_dad_na_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_dad_na_state.json",
+      "bytes": 7302,
+      "sha256_original": "8105b9cf52b4f64c1f6ede49100b6436196fdc563b18696cec557df6c192a0f9",
+      "sha256_publicado": "8105b9cf52b4f64c1f6ede49100b6436196fdc563b18696cec557df6c192a0f9",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_incomplete_chain_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_incomplete_chain_confirmation.json",
+      "bytes": 11437,
+      "sha256_original": "a9bf075567a591a09353cf5bc737b2fcaaf987f51954c6efab73e63e5a615efc",
+      "sha256_publicado": "a9bf075567a591a09353cf5bc737b2fcaaf987f51954c6efab73e63e5a615efc",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_incomplete_chain_control.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_incomplete_chain_control.pcap",
+      "bytes": 1605,
+      "sha256_original": "10084aa2254b08b4afffb04e5ee6321350606f7953ed3da4efa1c5bb50dcb354",
+      "sha256_publicado": "10084aa2254b08b4afffb04e5ee6321350606f7953ed3da4efa1c5bb50dcb354",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_incomplete_chain_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_incomplete_chain_restoration.json",
+      "bytes": 2472,
+      "sha256_original": "9444d6bae0e56448649eff425cb07cc0b620dcdef50e7a93420fe2f25d2509af",
+      "sha256_publicado": "9444d6bae0e56448649eff425cb07cc0b620dcdef50e7a93420fe2f25d2509af",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_incomplete_chain_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_incomplete_chain_state.json",
+      "bytes": 11390,
+      "sha256_original": "4800f907d8b2a7c532ec8f9b42b58c6b9db20d52a99773d9167885a99e435a62",
+      "sha256_publicado": "4800f907d8b2a7c532ec8f9b42b58c6b9db20d52a99773d9167885a99e435a62",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_incomplete_chain_variant.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_incomplete_chain_variant.pcap",
+      "bytes": 226,
+      "sha256_original": "f9caf352d064e05d74723ae65b1c296c99c243dad48e4f23e80b9e5c73c8d25a",
+      "sha256_publicado": "f9caf352d064e05d74723ae65b1c296c99c243dad48e4f23e80b9e5c73c8d25a",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_na_neighbor.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_na_neighbor.pcap",
+      "bytes": 126,
+      "sha256_original": "e9936f388e73b002846c3727767b248d91a31dc607dcb80c4a6ce6caa5db83be",
+      "sha256_publicado": "e9936f388e73b002846c3727767b248d91a31dc607dcb80c4a6ce6caa5db83be",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_na_neighbor_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_na_neighbor_confirmation.json",
+      "bytes": 6747,
+      "sha256_original": "7ad25571eb38e8c471411dfc686fbeb17cbcf2ad92923c20baec4eb6ae7244f6",
+      "sha256_publicado": "7ad25571eb38e8c471411dfc686fbeb17cbcf2ad92923c20baec4eb6ae7244f6",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_na_neighbor_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_na_neighbor_restoration.json",
+      "bytes": 2083,
+      "sha256_original": "01b4d146511fd9c38d3ae4b8a78b66a378d999dd55aa1ead12eac643a7a727a1",
+      "sha256_publicado": "01b4d146511fd9c38d3ae4b8a78b66a378d999dd55aa1ead12eac643a7a727a1",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_na_neighbor_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_na_neighbor_state.json",
+      "bytes": 6700,
+      "sha256_original": "6ee5abb263106a1be49378a8ad54c4616a5eb5c8414ae285fce67f037ec27acb",
+      "sha256_publicado": "6ee5abb263106a1be49378a8ad54c4616a5eb5c8414ae285fce67f037ec27acb",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_confirmation.json",
+      "bytes": 10984,
+      "sha256_original": "5847a8e2537e0a8c1e57f95dec5a0f69887083ee725b47dde14283721e086722",
+      "sha256_publicado": "5847a8e2537e0a8c1e57f95dec5a0f69887083ee725b47dde14283721e086722",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_control.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_control.pcap",
+      "bytes": 1605,
+      "sha256_original": "724cbb16aaf7867eeb1449b4f7f544ac4e2612b165396a7ef7f1cb454775f9aa",
+      "sha256_publicado": "724cbb16aaf7867eeb1449b4f7f544ac4e2612b165396a7ef7f1cb454775f9aa",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_middle_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_middle_confirmation.json",
+      "bytes": 11815,
+      "sha256_original": "d2764d89cde3f3845ab00e96430befc6cf841aa652461548f092dab1e2277c9b",
+      "sha256_publicado": "d2764d89cde3f3845ab00e96430befc6cf841aa652461548f092dab1e2277c9b",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_middle_control.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_middle_control.pcap",
+      "bytes": 2883,
+      "sha256_original": "0a8bd9f86249a842cf77fb8c8072616498e138129e5e35251e9e383629a98b81",
+      "sha256_publicado": "0a8bd9f86249a842cf77fb8c8072616498e138129e5e35251e9e383629a98b81",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_middle_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_middle_restoration.json",
+      "bytes": 2558,
+      "sha256_original": "31d2342f42b00921e80b814ddcab3c05e25551f1d43bfa8946ea18cdf251811c",
+      "sha256_publicado": "31d2342f42b00921e80b814ddcab3c05e25551f1d43bfa8946ea18cdf251811c",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_middle_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_middle_state.json",
+      "bytes": 11768,
+      "sha256_original": "aaf31c49f91a901e6e6df3a23143c16cd93ed20c8e617d176fff2c91d3030630",
+      "sha256_publicado": "aaf31c49f91a901e6e6df3a23143c16cd93ed20c8e617d176fff2c91d3030630",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_middle_variant.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_middle_variant.pcap",
+      "bytes": 2883,
+      "sha256_original": "b44d2807643c1a50b8036ef9c60d94b291f7021941fad8fd5e1492fa7abe0227",
+      "sha256_publicado": "b44d2807643c1a50b8036ef9c60d94b291f7021941fad8fd5e1492fa7abe0227",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_restoration.json",
+      "bytes": 2351,
+      "sha256_original": "3ba468025c230cc7fbfff5c87cec13d30cdb3cd2151b96acf2402d9796254be3",
+      "sha256_publicado": "3ba468025c230cc7fbfff5c87cec13d30cdb3cd2151b96acf2402d9796254be3",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_state.json",
+      "bytes": 10937,
+      "sha256_original": "9e8a2e96e7270bf5babff98eb117e38bf21f378e57ba95f5ad8c9d85d1706d4a",
+      "sha256_publicado": "9e8a2e96e7270bf5babff98eb117e38bf21f378e57ba95f5ad8c9d85d1706d4a",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_variant.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_overlap_variant.pcap",
+      "bytes": 1605,
+      "sha256_original": "403255f32e0ca3a4aa755d706ae59e5ef8a00cb48bee280c9a65f48e6bf3c605",
+      "sha256_publicado": "403255f32e0ca3a4aa755d706ae59e5ef8a00cb48bee280c9a65f48e6bf3c605",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_ra_mtu.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_ra_mtu.pcap",
+      "bytes": 118,
+      "sha256_original": "4a97de9d680ca4e0ee3e60bb6235ffc5c0997dd1f7086e3711aae7fde64cd1e8",
+      "sha256_publicado": "4a97de9d680ca4e0ee3e60bb6235ffc5c0997dd1f7086e3711aae7fde64cd1e8",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_ra_mtu_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_ra_mtu_confirmation.json",
+      "bytes": 7753,
+      "sha256_original": "505848cba51ebd1e2f246f0caef1a430a7b4b380ba43f691ec6b07aeec3fa4aa",
+      "sha256_publicado": "505848cba51ebd1e2f246f0caef1a430a7b4b380ba43f691ec6b07aeec3fa4aa",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_ra_mtu_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_ra_mtu_restoration.json",
+      "bytes": 2164,
+      "sha256_original": "ac63669f5d159bcfcd4eeda091351add2ce5c2ee46cea639acf8b62568205def",
+      "sha256_publicado": "ac63669f5d159bcfcd4eeda091351add2ce5c2ee46cea639acf8b62568205def",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_ra_mtu_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_ra_mtu_state.json",
+      "bytes": 7706,
+      "sha256_original": "937e9977a8f00bfdb6b7f235bcc767ead627ddb469a9e0a286437e89c563927b",
+      "sha256_publicado": "937e9977a8f00bfdb6b7f235bcc767ead627ddb469a9e0a286437e89c563927b",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_ra_route.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_ra_route.pcap",
+      "bytes": 110,
+      "sha256_original": "aea29539f666c457d1d6d0cfdffe8fe6d9b63d22409b48ae8f432d5d29746e9f",
+      "sha256_publicado": "aea29539f666c457d1d6d0cfdffe8fe6d9b63d22409b48ae8f432d5d29746e9f",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_ra_route_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_ra_route_confirmation.json",
+      "bytes": 55802,
+      "sha256_original": "0229fe38fda699c232469b1d5503c6d89c1ca879fbb9e1175b2c172a326a61ae",
+      "sha256_publicado": "0229fe38fda699c232469b1d5503c6d89c1ca879fbb9e1175b2c172a326a61ae",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_ra_route_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_ra_route_restoration.json",
+      "bytes": 2464,
+      "sha256_original": "f0e43f758e485e9855158e4c3ec97b117601a78266555d7682274221bb2dc3a2",
+      "sha256_publicado": "f0e43f758e485e9855158e4c3ec97b117601a78266555d7682274221bb2dc3a2",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_ra_route_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_ra_route_state.json",
+      "bytes": 55755,
+      "sha256_original": "cc06a0ae8690759c61fefd33f866a4a05fd8844f517a2c485c77da623ccf45d9",
+      "sha256_publicado": "cc06a0ae8690759c61fefd33f866a4a05fd8844f517a2c485c77da623ccf45d9",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_slaac_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_slaac_confirmation.json",
+      "bytes": 79670,
+      "sha256_original": "254d0188eb01aa031cd592a307d1698ac8c020fd348b6c83ba781343a724ce20",
+      "sha256_publicado": "254d0188eb01aa031cd592a307d1698ac8c020fd348b6c83ba781343a724ce20",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_slaac_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_slaac_restoration.json",
+      "bytes": 26651,
+      "sha256_original": "ccc530280a3db1257744303bc5a5d9f52d1204e3c562c9b1aa58f8137e89817e",
+      "sha256_publicado": "ccc530280a3db1257744303bc5a5d9f52d1204e3c562c9b1aa58f8137e89817e",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_slaac_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_receiver_b_slaac_state.json",
+      "bytes": 79623,
+      "sha256_original": "0541aeeae00687dcdd80ad9504b909e0f31fae536a5abda206271876a6a0d365",
+      "sha256_publicado": "0541aeeae00687dcdd80ad9504b909e0f31fae536a5abda206271876a6a0d365",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_records_postgres.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_records_postgres.json",
+      "bytes": 262,
+      "sha256_original": "461307ce1831e99408fa6fa2c669ceb917d0e7ac2877766f92a9b763867e5c1f",
+      "sha256_publicado": "461307ce1831e99408fa6fa2c669ceb917d0e7ac2877766f92a9b763867e5c1f",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_records_postgres_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_records_postgres_confirmation.json",
+      "bytes": 186,
+      "sha256_original": "fb77bbfba5c82ad5be1f029018ba06f40711a6c51161fb1ab60827ca4d74293c",
+      "sha256_publicado": "fb77bbfba5c82ad5be1f029018ba06f40711a6c51161fb1ab60827ca4d74293c",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_records_services.xml",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/evidence/emp_multiagent_e66b185274b4_records_services.xml",
+      "bytes": 1449,
+      "sha256_original": "2f4225bd9d596e2443cbcebf06f56ceceefef5c5d53ff7e16015f766d632c9fe",
+      "sha256_publicado": "2f4225bd9d596e2443cbcebf06f56ceceefef5c5d53ff7e16015f766d632c9fe",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/manifest.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/manifest.json",
+      "bytes": 5898,
+      "sha256_original": "75649dde768ce3e0a005243719e85ce85b00716e423999e64859126b4d661812",
+      "sha256_publicado": "75649dde768ce3e0a005243719e85ce85b00716e423999e64859126b4d661812",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/plan.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/plan.json",
+      "bytes": 17139,
+      "sha256_original": "49329416822bf44a506bc712622e8189fb789aab131300c35e84b0db1b24fd32",
+      "sha256_publicado": "49329416822bf44a506bc712622e8189fb789aab131300c35e84b0db1b24fd32",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/preflight.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/preflight.json",
+      "bytes": 833,
+      "sha256_original": "d794f76079a89848ec08e9636159fe7ad8d296d084999730a84ff336e251272d",
+      "sha256_publicado": "d794f76079a89848ec08e9636159fe7ad8d296d084999730a84ff336e251272d",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/report.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/report.json",
+      "bytes": 68339,
+      "sha256_original": "38f1e25519c3860c5b29e07767cfd45920ecd3cc0b621c0c93d27a3ac3c41864",
+      "sha256_publicado": "38f1e25519c3860c5b29e07767cfd45920ecd3cc0b621c0c93d27a3ac3c41864",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/request.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/request.json",
+      "bytes": 3944,
+      "sha256_original": "824c466a4b410e5594798f5ea066475ea838b624f7835680ae8c55f2ecf8adcd",
+      "sha256_publicado": "824c466a4b410e5594798f5ea066475ea838b624f7835680ae8c55f2ecf8adcd",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/runtime.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-real-20261109/emp_multiagent_e66b185274b4_20261109T022353/runtime.json",
+      "bytes": 246,
+      "sha256_original": "4a5f87cf393c3fe9eeb7f29ac209bc67179d73855ad8bffce56a9477e131aea9",
+      "sha256_publicado": "4a5f87cf393c3fe9eeb7f29ac209bc67179d73855ad8bffce56a9477e131aea9",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "analizar_sensibilidad.py",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/analizar_sensibilidad.py",
+      "bytes": 4064,
+      "sha256_original": "f47627ec2576407e0929dfe25bb05c7a01d5a4b2683e618d5cd1c54989f4b176",
+      "sha256_publicado": "f47627ec2576407e0929dfe25bb05c7a01d5a4b2683e618d5cd1c54989f4b176",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "archivos-adicionales-paquete.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/archivos-adicionales-paquete.json",
+      "bytes": 3536,
+      "sha256_original": "37dbd36f43cf3b613f9de8253976afd3d80b8906e79c02a814f9a772012030c7",
+      "sha256_publicado": "37dbd36f43cf3b613f9de8253976afd3d80b8906e79c02a814f9a772012030c7",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "compatibilidad-observador-historico.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/compatibilidad-observador-historico.json",
+      "bytes": 136,
+      "sha256_original": "42343101dc27b981a0a96ad7090ef9bd2651a63043335da07ceb92375df044c4",
+      "sha256_publicado": "42343101dc27b981a0a96ad7090ef9bd2651a63043335da07ceb92375df044c4",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "completar_paquete.py",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/completar_paquete.py",
+      "bytes": 1862,
+      "sha256_original": "03c622939bb223afe2858602581b4c1a0d972a505a36cd020d5189844c377643",
+      "sha256_publicado": "03c622939bb223afe2858602581b4c1a0d972a505a36cd020d5189844c377643",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "descarga-dependencias.log",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/descarga-dependencias.log",
+      "bytes": 24995,
+      "sha256_original": "c1c9669e26ea5ff8b598d2eb3b2c1407f9b579b7c8f0ffb5ebba8a9a93d16308",
+      "sha256_publicado": "c1c9669e26ea5ff8b598d2eb3b2c1407f9b579b7c8f0ffb5ebba8a9a93d16308",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "diagnosticar_segmentos.py",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/diagnosticar_segmentos.py",
+      "bytes": 5701,
+      "sha256_original": "9f0c5ae07cac51ca4463ec0cf114662a1546e90ae0797cfde92760211dffc54c",
+      "sha256_publicado": "9f0c5ae07cac51ca4463ec0cf114662a1546e90ae0797cfde92760211dffc54c",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "diagnostico-11-1/concurrencia/diagnostico.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/diagnostico-11-1/concurrencia/diagnostico.json",
+      "bytes": 72499,
+      "sha256_original": "dc46c69d0cbb87b424586f758a5cf5061ae327a1df391179b1042d559a5b856b",
+      "sha256_publicado": "dc46c69d0cbb87b424586f758a5cf5061ae327a1df391179b1042d559a5b856b",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "diagnostico-11-1/concurrencia/events.sqlite3",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/diagnostico-11-1/concurrencia/events.sqlite3",
+      "bytes": 77824,
+      "sha256_original": "7f6977af2b631524a456abd2b5e73410de03af2d268ebca92b229b78ffacd20f",
+      "sha256_publicado": "7f6977af2b631524a456abd2b5e73410de03af2d268ebca92b229b78ffacd20f",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "diagnostico-11-1/fallo-restauracion/diagnostico.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/diagnostico-11-1/fallo-restauracion/diagnostico.json",
+      "bytes": 60225,
+      "sha256_original": "84a0f4b3dce976b29e868d05cbf12f4a7635bd735cd850258ae6ec7b63fae14c",
+      "sha256_publicado": "84a0f4b3dce976b29e868d05cbf12f4a7635bd735cd850258ae6ec7b63fae14c",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "diagnostico-11-1/fallo-restauracion/events.sqlite3",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/diagnostico-11-1/fallo-restauracion/events.sqlite3",
+      "bytes": 61440,
+      "sha256_original": "26fb5f1f4d6e85f2e8695f9d0785cbd061b84704903e74da0f0ff3f48df1bdb1",
+      "sha256_publicado": "26fb5f1f4d6e85f2e8695f9d0785cbd061b84704903e74da0f0ff3f48df1bdb1",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "diagnostico-11-1/fallo-restauracion/evidence/emp_multiagent_0ec8d645baa5_receiver_a_ra_route_execution_failure.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/diagnostico-11-1/fallo-restauracion/evidence/emp_multiagent_0ec8d645baa5_receiver_a_ra_route_execution_failure.json",
+      "bytes": 563,
+      "sha256_original": "5aa2685a4ab455cb5640a7ee57b0a96f05e2bfca31dcb7b43b3bcf8ea0f72148",
+      "sha256_publicado": "5aa2685a4ab455cb5640a7ee57b0a96f05e2bfca31dcb7b43b3bcf8ea0f72148",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "diagnostico-11-1/resumen.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/diagnostico-11-1/resumen.json",
+      "bytes": 620,
+      "sha256_original": "93ea2669d886500b4498c9f069fd4ac25162ebd312c7cafb9a855d28d96e2d30",
+      "sha256_publicado": "93ea2669d886500b4498c9f069fd4ac25162ebd312c7cafb9a855d28d96e2d30",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "ensayo_fallo_real.py",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/ensayo_fallo_real.py",
+      "bytes": 4539,
+      "sha256_original": "d7d5bce4e090c6409f76e78c93f8d3f3d977a61606eac523c06c46afa0c8fa5d",
+      "sha256_publicado": "d7d5bce4e090c6409f76e78c93f8d3f3d977a61606eac523c06c46afa0c8fa5d",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "entorno-20261109.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/entorno-20261109.json",
+      "bytes": 18125,
+      "sha256_original": "3d6bd42e03c1fec2ca6dcd3a9ca399f4bcf59a1ee1b1451de5d3f557baa7b56f",
+      "sha256_publicado": "3d6bd42e03c1fec2ca6dcd3a9ca399f4bcf59a1ee1b1451de5d3f557baa7b56f",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1-v2/after-recovery/events.sqlite3",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1-v2/after-recovery/events.sqlite3",
+      "bytes": 12288,
+      "sha256_original": "22882f0058ee73d95b99d2ee2300722b0f3f1cd8b2fef4f7c9e8f8ec871cd41c",
+      "sha256_publicado": "22882f0058ee73d95b99d2ee2300722b0f3f1cd8b2fef4f7c9e8f8ec871cd41c",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1-v2/after-recovery/evidence/emp_multiagent_a8c6a286a41d_receiver_b_slaac_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1-v2/after-recovery/evidence/emp_multiagent_a8c6a286a41d_receiver_b_slaac_confirmation.json",
+      "bytes": 6500,
+      "sha256_original": "92d015f530bb73892ba36cd670c2d27521b0a29462c7e3ce0db3b3738fdd0a92",
+      "sha256_publicado": "92d015f530bb73892ba36cd670c2d27521b0a29462c7e3ce0db3b3738fdd0a92",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1-v2/after-recovery/evidence/emp_multiagent_a8c6a286a41d_receiver_b_slaac_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1-v2/after-recovery/evidence/emp_multiagent_a8c6a286a41d_receiver_b_slaac_restoration.json",
+      "bytes": 2261,
+      "sha256_original": "69a6dac4a2c1258f7a9ba0a635a5e2ae08600cf7abbb1b753b5211eb71357a7e",
+      "sha256_publicado": "69a6dac4a2c1258f7a9ba0a635a5e2ae08600cf7abbb1b753b5211eb71357a7e",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1-v2/after-recovery/evidence/emp_multiagent_a8c6a286a41d_receiver_b_slaac_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1-v2/after-recovery/evidence/emp_multiagent_a8c6a286a41d_receiver_b_slaac_state.json",
+      "bytes": 6453,
+      "sha256_original": "0edb11f55463a69a93d0ba59fd34b96bea2365ded1a47ce0db3a6aa224464332",
+      "sha256_publicado": "0edb11f55463a69a93d0ba59fd34b96bea2365ded1a47ce0db3a6aa224464332",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1-v2/after-recovery/result.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1-v2/after-recovery/result.json",
+      "bytes": 657,
+      "sha256_original": "8a910763b125d644c68b30ea72f47f39e425142bcf96c076992c31071aaba42c",
+      "sha256_publicado": "8a910763b125d644c68b30ea72f47f39e425142bcf96c076992c31071aaba42c",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1-v2/events.sqlite3",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1-v2/events.sqlite3",
+      "bytes": 24576,
+      "sha256_original": "e215e4effd990798157f5975d53d23f72849b97d2c4cb0faa1e7affce12557a6",
+      "sha256_publicado": "e215e4effd990798157f5975d53d23f72849b97d2c4cb0faa1e7affce12557a6",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1-v2/evidence/emp_multiagent_a8c6a286a41d_receiver_a_ra_route.pcap",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1-v2/evidence/emp_multiagent_a8c6a286a41d_receiver_a_ra_route.pcap",
+      "bytes": 110,
+      "sha256_original": "d56856a494336bb1dd8031f4150806136e63e5ea6d2b68fcecaecc6ae4a943e9",
+      "sha256_publicado": "d56856a494336bb1dd8031f4150806136e63e5ea6d2b68fcecaecc6ae4a943e9",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1-v2/evidence/emp_multiagent_a8c6a286a41d_receiver_a_ra_route_execution_failure.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1-v2/evidence/emp_multiagent_a8c6a286a41d_receiver_a_ra_route_execution_failure.json",
+      "bytes": 707,
+      "sha256_original": "1503dfd6782ea888b0c0438b32ca4625471c95783f0a7e8f58496b88e556bcec",
+      "sha256_publicado": "1503dfd6782ea888b0c0438b32ca4625471c95783f0a7e8f58496b88e556bcec",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1-v2/evidence/emp_multiagent_a8c6a286a41d_receiver_a_slaac_confirmation.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1-v2/evidence/emp_multiagent_a8c6a286a41d_receiver_a_slaac_confirmation.json",
+      "bytes": 15266,
+      "sha256_original": "e5f3fd1d8797a93d21fe9366bb2179bdcda3a19e4f69c590d742d2abb1b58554",
+      "sha256_publicado": "e5f3fd1d8797a93d21fe9366bb2179bdcda3a19e4f69c590d742d2abb1b58554",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1-v2/evidence/emp_multiagent_a8c6a286a41d_receiver_a_slaac_restoration.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1-v2/evidence/emp_multiagent_a8c6a286a41d_receiver_a_slaac_restoration.json",
+      "bytes": 5183,
+      "sha256_original": "3c053321b75735f8f13268a4e9833aeb11d1ed0cb9cd6a84d7e30cd1eb95eb8f",
+      "sha256_publicado": "3c053321b75735f8f13268a4e9833aeb11d1ed0cb9cd6a84d7e30cd1eb95eb8f",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1-v2/evidence/emp_multiagent_a8c6a286a41d_receiver_a_slaac_state.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1-v2/evidence/emp_multiagent_a8c6a286a41d_receiver_a_slaac_state.json",
+      "bytes": 15219,
+      "sha256_original": "85cfaf2938976dc6de99141d8e1badca38407fe6cf837b5030f364b8d63c5515",
+      "sha256_publicado": "85cfaf2938976dc6de99141d8e1badca38407fe6cf837b5030f364b8d63c5515",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1-v2/failure-results.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1-v2/failure-results.json",
+      "bytes": 2245,
+      "sha256_original": "d2585dae2b46d0a56f152a9a0b5ef29acafe89eaa43ae0c883dc61399ef28eab",
+      "sha256_publicado": "d2585dae2b46d0a56f152a9a0b5ef29acafe89eaa43ae0c883dc61399ef28eab",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1-v2/plan.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1-v2/plan.json",
+      "bytes": 1470,
+      "sha256_original": "9a51b3e0c8fe1d4e17d4f0897e2ba081dd15050962546a1030684c03feed019f",
+      "sha256_publicado": "9a51b3e0c8fe1d4e17d4f0897e2ba081dd15050962546a1030684c03feed019f",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1-v2/preflight.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1-v2/preflight.json",
+      "bytes": 833,
+      "sha256_original": "d794f76079a89848ec08e9636159fe7ad8d296d084999730a84ff336e251272d",
+      "sha256_publicado": "d794f76079a89848ec08e9636159fe7ad8d296d084999730a84ff336e251272d",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1-v2/recovery.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1-v2/recovery.json",
+      "bytes": 7114,
+      "sha256_original": "64b94eaddd725744519f416772e96ad47270e710e06824a0d08cfff02226c9de",
+      "sha256_publicado": "64b94eaddd725744519f416772e96ad47270e710e06824a0d08cfff02226c9de",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1-v2/request.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1-v2/request.json",
+      "bytes": 3944,
+      "sha256_original": "82801a9cc23752fca0ad6176954ed773ecee74f6e3c503d7c33790e3b75809d7",
+      "sha256_publicado": "82801a9cc23752fca0ad6176954ed773ecee74f6e3c503d7c33790e3b75809d7",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1-v2/summary.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1-v2/summary.json",
+      "bytes": 665,
+      "sha256_original": "e4a29cd1a9136af5aa8fc65ac221da19e45ba40b907d0f244064a860dc6a50b7",
+      "sha256_publicado": "e4a29cd1a9136af5aa8fc65ac221da19e45ba40b907d0f244064a860dc6a50b7",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1/events.sqlite3",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1/events.sqlite3",
+      "bytes": 12288,
+      "sha256_original": "0b8046767819be67c8a78b7e1e1e3d154e7eaa73ab7e1dcdaae732efbee2df36",
+      "sha256_publicado": "0b8046767819be67c8a78b7e1e1e3d154e7eaa73ab7e1dcdaae732efbee2df36",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1/plan.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1/plan.json",
+      "bytes": 1470,
+      "sha256_original": "4cfca6690ffadf4898819c52ba05a2d96661f9d4eebbe49b73a3408a2f9bdf28",
+      "sha256_publicado": "4cfca6690ffadf4898819c52ba05a2d96661f9d4eebbe49b73a3408a2f9bdf28",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1/preflight.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1/preflight.json",
+      "bytes": 833,
+      "sha256_original": "d794f76079a89848ec08e9636159fe7ad8d296d084999730a84ff336e251272d",
+      "sha256_publicado": "d794f76079a89848ec08e9636159fe7ad8d296d084999730a84ff336e251272d",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1/recovery-after-invalid-harness.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1/recovery-after-invalid-harness.json",
+      "bytes": 6682,
+      "sha256_original": "3fb2ad99812cf581ac98c38d33aa2250f65b5161ed97fdae24be186313250a99",
+      "sha256_publicado": "3fb2ad99812cf581ac98c38d33aa2250f65b5161ed97fdae24be186313250a99",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-11-1/request.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-11-1/request.json",
+      "bytes": 3944,
+      "sha256_original": "39c98f64624e64be176410411cd01d27612724a4a95385bac99163dd714fbf03",
+      "sha256_publicado": "39c98f64624e64be176410411cd01d27612724a4a95385bac99163dd714fbf03",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real-v2.log",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real-v2.log",
+      "bytes": 600,
+      "sha256_original": "ccbe9068d83320643c9a5cfe3e5a021e391bf2d8ff70e34bb023e175373532e2",
+      "sha256_publicado": "ccbe9068d83320643c9a5cfe3e5a021e391bf2d8ff70e34bb023e175373532e2",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "fallo-real.log",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/fallo-real.log",
+      "bytes": 839,
+      "sha256_original": "b47ef0f8ac50c6975433379547e7921f34404efc2e8fcacd655c276fff63021e",
+      "sha256_publicado": "b47ef0f8ac50c6975433379547e7921f34404efc2e8fcacd655c276fff63021e",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "informes-aceptacion-20261109/cotejo-proyeccion.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/informes-aceptacion-20261109/cotejo-proyeccion.json",
+      "bytes": 4269,
+      "sha256_original": "0389623d2ce789de6dff4e3e41c67dffd8b45350ed999e11712f5c3f5f926b29",
+      "sha256_publicado": "0389623d2ce789de6dff4e3e41c67dffd8b45350ed999e11712f5c3f5f926b29",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "informes-aceptacion-20261109/executive.html",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/informes-aceptacion-20261109/executive.html",
+      "bytes": 21624,
+      "sha256_original": "f75476a0ffdcb1387c8735b52fd2a6dff5ac11d39734def009ac7b5ca29abc20",
+      "sha256_publicado": "f75476a0ffdcb1387c8735b52fd2a6dff5ac11d39734def009ac7b5ca29abc20",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "informes-aceptacion-20261109/proyeccion.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/informes-aceptacion-20261109/proyeccion.json",
+      "bytes": 344095,
+      "sha256_original": "f40ec753f7214ff741a128aadf1d78bf40b0e3b9dbb6d0169eeb2da4d5f24117",
+      "sha256_publicado": "f40ec753f7214ff741a128aadf1d78bf40b0e3b9dbb6d0169eeb2da4d5f24117",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "informes-aceptacion-20261109/technical.html",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/informes-aceptacion-20261109/technical.html",
+      "bytes": 54888,
+      "sha256_original": "469a5d9da19e0282df0b553f918251eb17d33a85dc1c2ac3f356e37a64d0c8ce",
+      "sha256_publicado": "469a5d9da19e0282df0b553f918251eb17d33a85dc1c2ac3f356e37a64d0c8ce",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "instalacion-reproducida.log",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/instalacion-reproducida.log",
+      "bytes": 15726,
+      "sha256_original": "ef04c40e3eec50a009743e483671b314db8a1d13c7c41a450469f5ba921419d1",
+      "sha256_publicado": "ef04c40e3eec50a009743e483671b314db8a1d13c7c41a450469f5ba921419d1",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "matriz-bibliografica-20261109.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/matriz-bibliografica-20261109.json",
+      "bytes": 96661,
+      "sha256_original": "569f845f7e36ceecf9ede988fd5e7ac02e11e56a6eeaf95d1a441f601313fc42",
+      "sha256_publicado": "569f845f7e36ceecf9ede988fd5e7ac02e11e56a6eeaf95d1a441f601313fc42",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "observar_privilegios.py",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/observar_privilegios.py",
+      "bytes": 2932,
+      "sha256_original": "5e25f3bfc6ba5784d1bd410bc4cad16b3fedde3517840bcff0e1b1042c05a496",
+      "sha256_publicado": "5e25f3bfc6ba5784d1bd410bc4cad16b3fedde3517840bcff0e1b1042c05a496",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "paquete-privado-referencia/LEEME.txt",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/paquete-privado/LEEME.txt",
+      "bytes": 5288,
+      "sha256_original": "721e9a79c15708c10b0b302c9314d9fedbcf39184207f31b4f4ae004aae3833c",
+      "sha256_publicado": "721e9a79c15708c10b0b302c9314d9fedbcf39184207f31b4f4ae004aae3833c",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "paquete-privado-referencia/identidad-codigo-imagenes.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/paquete-privado/identidad-codigo-imagenes.json",
+      "bytes": 39480,
+      "sha256_original": "ad9edc8790385dcb015be77f83f2e5448109a8330501951ff2862ea784104fe5",
+      "sha256_publicado": "ad9edc8790385dcb015be77f83f2e5448109a8330501951ff2862ea784104fe5",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "paquete-privado-referencia/integridad-paquete.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/paquete-privado/integridad-paquete.json",
+      "bytes": 91468,
+      "sha256_original": "19c8c1cd18a6fd8153c43d3e6d972a509d7e45258c716cb5ea2f32d6664751e1",
+      "sha256_publicado": "19c8c1cd18a6fd8153c43d3e6d972a509d7e45258c716cb5ea2f32d6664751e1",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "paquete-privado-referencia/verificar_paquete.py",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/paquete-privado/verificar_paquete.py",
+      "bytes": 3509,
+      "sha256_original": "bf5e30893f137f20d77b9b91d71a99092d86fd5787297c49259f597a9b676874",
+      "sha256_publicado": "bf5e30893f137f20d77b9b91d71a99092d86fd5787297c49259f597a9b676874",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "privilegios-efectivos-20261109.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/privilegios-efectivos-20261109.json",
+      "bytes": 32028,
+      "sha256_original": "e542897764426fb65297d7bf9822e52dacc51dfc17cb3c87968cace31885105b",
+      "sha256_publicado": "e542897764426fb65297d7bf9822e52dacc51dfc17cb3c87968cace31885105b",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "privilegios-efectivos-analisis.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/privilegios-efectivos-analisis.json",
+      "bytes": 1224,
+      "sha256_original": "baf6c2f9fa912dd17e5cb2f5155ff01e257c95491a9fdf31884f6a837a21a3f5",
+      "sha256_publicado": "baf6c2f9fa912dd17e5cb2f5155ff01e257c95491a9fdf31884f6a837a21a3f5",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "pruebas-11-1-inicial.xml",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/pruebas-11-1-inicial.xml",
+      "bytes": 42584,
+      "sha256_original": "8edc1a740da662168f7a0895bcba81753823e417d4f01a3029666a3d7e88f245",
+      "sha256_publicado": "8edc1a740da662168f7a0895bcba81753823e417d4f01a3029666a3d7e88f245",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "pruebas-11-1.xml",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/pruebas-11-1.xml",
+      "bytes": 15278,
+      "sha256_original": "763e9c838038f7f422ea242c33453eec3d3c4d6a24f7aa964c66a1e76782a469",
+      "sha256_publicado": "763e9c838038f7f422ea242c33453eec3d3c4d6a24f7aa964c66a1e76782a469",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "pruebas-11-2.xml",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/pruebas-11-2.xml",
+      "bytes": 8215,
+      "sha256_original": "f53baf5228757cfaa360ebfbd1a10c541588f326a503978a3e75842bf2642f90",
+      "sha256_publicado": "f53baf5228757cfaa360ebfbd1a10c541588f326a503978a3e75842bf2642f90",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "pruebas-11-4-11-5.xml",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/pruebas-11-4-11-5.xml",
+      "bytes": 9817,
+      "sha256_original": "9089ea41d62f234411ffdb20e6152970cd6aeaf72eed94e999b154a282159bcd",
+      "sha256_publicado": "9089ea41d62f234411ffdb20e6152970cd6aeaf72eed94e999b154a282159bcd",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "recuperacion-11-8-drive.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/recuperacion-11-8-drive.json",
+      "bytes": 2813,
+      "sha256_original": "cc7797e3e68ccd850d7fdab308861482fecaa33ef12d21dea02e6cba793ece9f",
+      "sha256_publicado": "cc7797e3e68ccd850d7fdab308861482fecaa33ef12d21dea02e6cba793ece9f",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "referencias-v3.log",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/referencias-v3.log",
+      "bytes": 5222,
+      "sha256_original": "56866a05ba8c243b94d096174b538d3e1eb9a30dfac960c98cf33cd5e381853b",
+      "sha256_publicado": "56866a05ba8c243b94d096174b538d3e1eb9a30dfac960c98cf33cd5e381853b",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "regresion-completa.log",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/regresion-completa.log",
+      "bytes": 4969,
+      "sha256_original": "361a91a22f150e67c103ee9c477c785463b03d4123ab62391b09500b3ae06c00",
+      "sha256_publicado": "361a91a22f150e67c103ee9c477c785463b03d4123ab62391b09500b3ae06c00",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "regresion-completa.xml",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/regresion-completa.xml",
+      "bytes": 124450,
+      "sha256_original": "770fcc4e1ca7441f0765afa9aa7704c5a3739e882f44954b2a311afda3838c21",
+      "sha256_publicado": "770fcc4e1ca7441f0765afa9aa7704c5a3739e882f44954b2a311afda3838c21",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "regresion-entorno-reproducido.log",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/regresion-entorno-reproducido.log",
+      "bytes": 1525,
+      "sha256_original": "1cfc4f62ebdbfb575fdc73b613f5807d2572f95cd930d4be58c02f768e7e6030",
+      "sha256_publicado": "1cfc4f62ebdbfb575fdc73b613f5807d2572f95cd930d4be58c02f768e7e6030",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "regresion-entorno-reproducido.xml",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/regresion-entorno-reproducido.xml",
+      "bytes": 123378,
+      "sha256_original": "257eb7a3a78d2ac5c7776dace83938ff79fc2a94f65513179706400523b59c13",
+      "sha256_publicado": "257eb7a3a78d2ac5c7776dace83938ff79fc2a94f65513179706400523b59c13",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "regresion-panel-y-caidas.log",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/regresion-panel-y-caidas.log",
+      "bytes": 811,
+      "sha256_original": "1aeeb32e902e197b99eef4408c0970fe5cc7eadbce1ab3bdbf6c1c2ae24aa557",
+      "sha256_publicado": "1aeeb32e902e197b99eef4408c0970fe5cc7eadbce1ab3bdbf6c1c2ae24aa557",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "regresion-panel-y-caidas.xml",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/regresion-panel-y-caidas.xml",
+      "bytes": 4455,
+      "sha256_original": "c65dfb531b0990dae12578426314727dd1ea33e42ddce176cee47c9797eb095f",
+      "sha256_publicado": "c65dfb531b0990dae12578426314727dd1ea33e42ddce176cee47c9797eb095f",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "regresion-paquete-completo.log",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/regresion-paquete-completo.log",
+      "bytes": 7183,
+      "sha256_original": "90d9930ea18c9c3931249af87d89eea43ade3ffa07d12614fdaeffffb7828f1c",
+      "sha256_publicado": "90d9930ea18c9c3931249af87d89eea43ade3ffa07d12614fdaeffffb7828f1c",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "regresion-paquete-completo.xml",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/regresion-paquete-completo.xml",
+      "bytes": 123470,
+      "sha256_original": "bd5ebb566d1f6423af93b164750d192040d0b9c9ab75f44b06df716ef8c2d878",
+      "sha256_publicado": "bd5ebb566d1f6423af93b164750d192040d0b9c9ab75f44b06df716ef8c2d878",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "regresion-paquete-extraido.log",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/regresion-paquete-extraido.log",
+      "bytes": 54331,
+      "sha256_original": "c56df24dd12e073e99db3aa1075490f3c2f6378b3a712b5355764d736ffe09c2",
+      "sha256_publicado": "c56df24dd12e073e99db3aa1075490f3c2f6378b3a712b5355764d736ffe09c2",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "regresion-paquete-extraido.xml",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/regresion-paquete-extraido.xml",
+      "bytes": 160277,
+      "sha256_original": "17478c03de613ff7d642399aab1a6443c363439754ca61a2b5cc68561e616b5d",
+      "sha256_publicado": "17478c03de613ff7d642399aab1a6443c363439754ca61a2b5cc68561e616b5d",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "requirements-verificados-20261109.txt",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/requirements-verificados-20261109.txt",
+      "bytes": 1092,
+      "sha256_original": "77a536a78e4529bca2d696ab8569963977347700d31eae2561f242838c50c2ee",
+      "sha256_publicado": "77a536a78e4529bca2d696ab8569963977347700d31eae2561f242838c50c2ee",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "seguimiento.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/seguimiento.json",
+      "bytes": 85374,
+      "sha256_original": "f4f02a12306b0fe81c0cfe89a85734c2e7f1378d00f17f8f515c9de9c6de30b5",
+      "sha256_publicado": "f4f02a12306b0fe81c0cfe89a85734c2e7f1378d00f17f8f515c9de9c6de30b5",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "sensibilidad-11-9.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/sensibilidad-11-9.json",
+      "bytes": 14726,
+      "sha256_original": "0d3e4ed67e33b4e8d47b2be101b8fb587900b7f0012ab5c0e2d0087fff85cd7c",
+      "sha256_publicado": "0d3e4ed67e33b4e8d47b2be101b8fb587900b7f0012ab5c0e2d0087fff85cd7c",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "verificacion-editorial-11-8-v2.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/verificacion-editorial-11-8-v2.json",
+      "bytes": 78099,
+      "sha256_original": "c2a0e670c70a82b7b9bce1cd5a4950644b206f3422d3b36ba8098556fa7c159a",
+      "sha256_publicado": "c2a0e670c70a82b7b9bce1cd5a4950644b206f3422d3b36ba8098556fa7c159a",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "verificacion-editorial-11-8-v3.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/verificacion-editorial-11-8-v3.json",
+      "bytes": 145657,
+      "sha256_original": "28d97cd99df13807d33330f0f8399e84772f012ca602ad731dae529453ff969e",
+      "sha256_publicado": "28d97cd99df13807d33330f0f8399e84772f012ca602ad731dae529453ff969e",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "verificacion-editorial-11-8.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/verificacion-editorial-11-8.json",
+      "bytes": 62863,
+      "sha256_original": "3aff30dfc96c6b66b85c6428e0765cf97cfdbf4d784e4171ae56c2adf23c8e5a",
+      "sha256_publicado": "3aff30dfc96c6b66b85c6428e0765cf97cfdbf4d784e4171ae56c2adf23c8e5a",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "verificacion-historica-paquete.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/verificacion-historica-paquete.json",
+      "bytes": 1014,
+      "sha256_original": "8f8346fd7378611b2a49ce3df934dd8f6dd51c363a3b7837a4fb5694a035f5e4",
+      "sha256_publicado": "8f8346fd7378611b2a49ce3df934dd8f6dd51c363a3b7837a4fb5694a035f5e4",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "verificacion-paquete-final.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/verificacion-paquete-final.json",
+      "bytes": 193,
+      "sha256_original": "f8d04670d6ba701a68865341073da419c5b411c4a60deee905a57a134dcac5d4",
+      "sha256_publicado": "f8d04670d6ba701a68865341073da419c5b411c4a60deee905a57a134dcac5d4",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "verificar_referencias.py",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/verificar_referencias.py",
+      "bytes": 2704,
+      "sha256_original": "250b602ce43df775d0405dd9751930177d49db535a2bcc1f370d96a26600cc68",
+      "sha256_publicado": "250b602ce43df775d0405dd9751930177d49db535a2bcc1f370d96a26600cc68",
+      "transformacion": "ninguna; copia binaria idéntica"
+    }
+  ],
+  "archivos_totales": 295,
+  "bytes_originales": 4414343,
+  "criterio": "Copias binarias idénticas de archivos identificados; no altera los originales locales."
+}

@@ -76,9 +76,8 @@ def guarded(command, log, max_seconds):
             return child.returncode
         finally:
             if child.poll() is None:
-                os.killpg(child.pid,signal.SIGTERM)
-                try:child.wait(timeout=10)
-                except subprocess.TimeoutExpired:os.killpg(child.pid,signal.SIGKILL);child.wait()
+                from tesis.procesos import terminate_group
+                terminate_group(child)
 
 
 def ensure_identity(protocol):

@@ -1,0 +1,86 @@
+{
+  "fecha": "2026-11-09",
+  "archivos_revisados": 3968,
+  "patrones_privados_comprobados": [
+    "patron_clave_openai",
+    "patron_token_github",
+    "clave_privada",
+    "identificador_acceso_aws",
+    "contrasena_cuenta_conocida",
+    "clave_configurada_openai"
+  ],
+  "coincidencias_revisadas": [
+    {
+      "archivo_fuente": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/pruebas-11-4-11-5.xml",
+      "patron": "patron_clave_openai",
+      "coincidencias": 1,
+      "resultado": "cadena ficticia de prueba parametrizada, conservada"
+    },
+    {
+      "archivo_fuente": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/regresion-completa.xml",
+      "patron": "patron_clave_openai",
+      "coincidencias": 1,
+      "resultado": "cadena ficticia de prueba parametrizada, conservada"
+    },
+    {
+      "archivo_fuente": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/regresion-entorno-reproducido.xml",
+      "patron": "patron_clave_openai",
+      "coincidencias": 1,
+      "resultado": "cadena ficticia de prueba parametrizada, conservada"
+    },
+    {
+      "archivo_fuente": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/regresion-paquete-completo.xml",
+      "patron": "patron_clave_openai",
+      "coincidencias": 1,
+      "resultado": "cadena ficticia de prueba parametrizada, conservada"
+    },
+    {
+      "archivo_fuente": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/regresion-paquete-extraido.xml",
+      "patron": "patron_clave_openai",
+      "coincidencias": 1,
+      "resultado": "cadena ficticia de prueba parametrizada, conservada"
+    }
+  ],
+  "alcance": "Búsqueda de la clave privada configurada y patrones de credenciales en todos los bytes de entradas, incluidas capturas y SQLite; revisión de estructuras de las corridas de laboratorio.",
+  "limite": "No acredita detectar todo secreto desconocido. Los servicios, credenciales y respuestas del laboratorio son datos de prueba autorizados.",
+  "copias_depuradas": 0,
+  "evidencias_modificadas": 0,
+  "exclusiones_editoriales": [
+    {
+      "origen": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/aceptacion-actual-job.json",
+      "motivo": "Documento de evaluación, borrador o herramienta editorial; la versión académica se publica por separado."
+    },
+    {
+      "origen": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/actualizar_seguimiento.py",
+      "motivo": "Documento de evaluación, borrador o herramienta editorial; la versión académica se publica por separado."
+    },
+    {
+      "origen": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/cambios-documentales.json",
+      "motivo": "Documento de evaluación, borrador o herramienta editorial; la versión académica se publica por separado."
+    },
+    {
+      "origen": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/conservacion-tablas-originales.json",
+      "motivo": "Documento de evaluación, borrador o herramienta editorial; la versión académica se publica por separado."
+    },
+    {
+      "origen": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/editar_tesis.py",
+      "motivo": "Documento de evaluación, borrador o herramienta editorial; la versión académica se publica por separado."
+    },
+    {
+      "origen": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/informe-estructura.json",
+      "motivo": "Documento de evaluación, borrador o herramienta editorial; la versión académica se publica por separado."
+    },
+    {
+      "origen": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/informe-extraido.txt",
+      "motivo": "Documento de evaluación, borrador o herramienta editorial; la versión académica se publica por separado."
+    },
+    {
+      "origen": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/propuesta-recuperada-drive.txt",
+      "motivo": "Documento de evaluación, borrador o herramienta editorial; la versión académica se publica por separado."
+    },
+    {
+      "origen": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/revision-visual.json",
+      "motivo": "Documento de evaluación, borrador o herramienta editorial; la versión académica se publica por separado."
+    }
+  ]
+}

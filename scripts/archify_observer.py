@@ -16,6 +16,8 @@ ASSETS = REPOSITORY / "scripts" / "archify_viewer"
 DEFAULT_DIAGRAM = REPOSITORY / ".archify" / "architecture-auditoria-dualstack-20261012-204850" / "auditoria-dualstack.html"
 if not DEFAULT_DIAGRAM.is_file():
     DEFAULT_DIAGRAM = REPOSITORY / "docs" / "diagramas-finales" / "arquitectura-v2-historica.html"
+if not DEFAULT_DIAGRAM.is_file():
+    DEFAULT_DIAGRAM = REPOSITORY / "piloto_kali" / "despliegue" / "diagrama_despliegue.svg"
 
 
 def make_server(diagram: Path, port: int = 8766, panel_port: int = 8765) -> ThreadingHTTPServer:
@@ -26,7 +28,8 @@ def make_server(diagram: Path, port: int = 8766, panel_port: int = 8765) -> Thre
         "/": (ASSETS / "index.html", "text/html; charset=utf-8"),
         "/viewer.js": (ASSETS / "viewer.js", "text/javascript; charset=utf-8"),
         "/viewer.css": (ASSETS / "viewer.css", "text/css; charset=utf-8"),
-        "/diagram": (diagram, "text/html; charset=utf-8"),
+        "/diagram": (diagram, "image/svg+xml; charset=utf-8" if diagram.suffix.lower() == ".svg"
+                     else "text/html; charset=utf-8"),
     }
 
     class Handler(BaseHTTPRequestHandler):

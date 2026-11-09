@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import sqlite3
 import time
 import threading
@@ -12,6 +13,7 @@ from pathlib import Path
 from uuid import uuid4
 
 from .contracts import Event
+from .sanitization import sanitize, sanitize_evidence, omission_receipt
 
 
 def sha256_bytes(data: bytes) -> str:
@@ -19,6 +21,12 @@ def sha256_bytes(data: bytes) -> str:
 
 
 def write_json(path: Path, value: object) -> None:
+    value,omissions=sanitize(value)
+    if omissions:
+        receipt={"artifact":path.name,**omission_receipt(omissions)}
+        fd=os.open(path.parent/'sanitization.jsonl',os.O_WRONLY|os.O_APPEND|os.O_CREAT|os.O_NOFOLLOW,0o600)
+        with os.fdopen(fd,'a',encoding='utf-8') as stream:
+            stream.write(json.dumps(receipt,sort_keys=True)+'\n')
     path.write_text(
         json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True), encoding="utf-8"
     )
@@ -52,6 +60,9 @@ class RunStore:
     def event(
         self, component: str, kind: str, *, task_id: str | None = None, payload: dict | None = None
     ) -> Event:
+        payload,omissions=sanitize(payload or {})
+        if omissions:
+            payload={**payload,"_sanitization":omission_receipt(omissions)}
         event = Event(
             event_id=str(uuid4()),
             audit_id=self.audit_id,
@@ -83,6 +94,15 @@ class RunStore:
             raise ValueError("task_id no apto para ruta de evidencia")
         if extension not in {"xml", "txt", "json", "pcap"}:
             raise ValueError("extension de evidencia no admitida")
+        try:
+            data,omissions=sanitize_evidence(data,extension)
+        except (ValueError,UnicodeError):
+            self.event('persistence','evidence_rejected',task_id=task_id,
+                       payload={'format':extension,'reason_code':'unsafe_or_invalid_evidence'})
+            raise ValueError('unsafe_or_invalid_evidence') from None
+        if omissions:
+            self.event('persistence','evidence_sanitized',task_id=task_id,
+                       payload={'format':extension,**omission_receipt(omissions)})
         relative = Path("evidence") / f"{task_id}.{extension}"
         with (self.root / relative).open("xb") as stream:
             stream.write(data)

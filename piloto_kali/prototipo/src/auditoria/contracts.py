@@ -205,6 +205,7 @@ class Authentication(StrictModel):
 
 class TaskResult(StrictModel):
     task_id: str
+    attempt_id: str | None = Field(default=None, pattern=r"^[a-f0-9]{32}$")
     status: TaskStatus
     reason_code: str | None = None
     services: list[Service] = Field(default_factory=list)

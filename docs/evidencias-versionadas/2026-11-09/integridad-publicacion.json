@@ -1,0 +1,97 @@
+{
+  "fecha": "2026-11-09",
+  "version": "evidencias-20261109",
+  "archivos": [
+    {
+      "archivo": "LEEME.txt",
+      "bytes": 5543,
+      "sha256": "608360f29a8a3ee1d43682a5c90f93531a4d8a9ed68d219218ba2ad4f4dfc396"
+    },
+    {
+      "archivo": "campana-api-20261108-integridad.json",
+      "bytes": 2338606,
+      "sha256": "65311d6d43389a9f79f58e1906c18baad5e7dd201112ebd382dda78de4110002"
+    },
+    {
+      "archivo": "campana-api-20261108.zip",
+      "bytes": 6013563,
+      "sha256": "60edc45719fbce61e7b97c64422f36b94186d983df6e7242dfee60f6aac2a740"
+    },
+    {
+      "archivo": "codigo-calculo/evaluacion_manual.py",
+      "bytes": 22953,
+      "sha256": "d14a356e798a1a71e06fbfe02946ebc3d219582edfe8615b6b00497cc5a9f99b"
+    },
+    {
+      "archivo": "codigo-calculo/panel_metricas.py",
+      "bytes": 13928,
+      "sha256": "ad8e655a7d698d167624726fa4c1e83aed274cb230ee913750a85d9b0af35db0"
+    },
+    {
+      "archivo": "codigo-calculo/protocolo_manual.py",
+      "bytes": 13677,
+      "sha256": "f1e2411972c47be0aa2e9083650c202d5549cc9b19c7b8e8cce84771973cf8ce"
+    },
+    {
+      "archivo": "comparacion-campanas-20261109.json",
+      "bytes": 104476,
+      "sha256": "43ff0c736dd78128758ff66e17ff2cb0cb4969583c37e84cdfa77b27a204b17b"
+    },
+    {
+      "archivo": "comparacion-campanas-20261109.txt",
+      "bytes": 6394,
+      "sha256": "562586534e4f67172e274bfc73f1cdd59b3484481591d16cba50dbdef9cf7a1d"
+    },
+    {
+      "archivo": "procedencia.json",
+      "bytes": 4535,
+      "sha256": "5e1ea7a5be7143dd7bfc3d67c672950c69448ca642f45d6dd9a07a19a74b96e3"
+    },
+    {
+      "archivo": "referencia-historica-20261018/pairs.json",
+      "bytes": 23886,
+      "sha256": "a9120684eea0aff79c348e9ff87a047ac64bc2e160fc370fbad2fd3d15e6d8c2"
+    },
+    {
+      "archivo": "referencia-historica-20261018/protocol.json",
+      "bytes": 20992,
+      "sha256": "816b7e03747279c836c5ba8c21c54123b0ca48a006f8fe9d4949cb3a37639ab1"
+    },
+    {
+      "archivo": "referencia-historica-20261018/runs.json",
+      "bytes": 182311,
+      "sha256": "56fc650b1b049b776444153e407ff555546b6a95a44dba9494e360433a0520c3"
+    },
+    {
+      "archivo": "revision-publicacion.json",
+      "bytes": 4470,
+      "sha256": "65df5daf03ce5366c439d4c380166e6a87f136fa96ee80cccf66ca2a89b34bc5"
+    },
+    {
+      "archivo": "verificaciones-20261109-integridad.json",
+      "bytes": 182849,
+      "sha256": "1552f4bb74a96f6fb5d440eb408ebc52a06c7d22796059e260fda83e59c357e6"
+    },
+    {
+      "archivo": "verificaciones-20261109.zip",
+      "bytes": 644033,
+      "sha256": "8a8cbc95eb00a6169bb6ad6fba7a765555b6db274a29ab60ad2789123d846c25"
+    },
+    {
+      "archivo": "verificaciones-editoriales-20261109-integridad.json",
+      "bytes": 6482,
+      "sha256": "ec2aeaaf4ff7294c15a971c1914461eef57d135d1de2e78700d8309c659fda02"
+    },
+    {
+      "archivo": "verificaciones-editoriales-20261109.zip",
+      "bytes": 31648,
+      "sha256": "cb096dc4c75845c7ee76f6cdbf83dbe5c40042ac9e021e8fae13292f0ebec5bd"
+    },
+    {
+      "archivo": "verificar.py",
+      "bytes": 4303,
+      "sha256": "08c353c879fc7e3ccc39a173eeb59589200d90e3f0f8327ebf9b2aaf84f6e418"
+    }
+  ],
+  "nota": "Este índice no se incluye a sí mismo; el commit Git fija su identidad."
+}

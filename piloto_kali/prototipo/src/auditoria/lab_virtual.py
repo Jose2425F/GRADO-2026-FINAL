@@ -66,6 +66,7 @@ def _ip_json(*args: str) -> list[dict]:
 
 
 def observer_snapshot(config: VirtualLabConfig) -> dict:
+    from .observer_schema import virtual_observer
     token = os.environ.get(config.observer_token_env, "")
     if not token:
         raise VirtualLabError("falta el token del observador en el entorno")
@@ -80,11 +81,12 @@ def observer_snapshot(config: VirtualLabConfig) -> dict:
     )
     try:
         with urllib.request.urlopen(request, context=context, timeout=5) as response:
-            snapshot = json.load(response)
-    except (OSError, ValueError) as exc:
-        raise VirtualLabError("observador de gestión inaccesible o respuesta inválida") from exc
-    if snapshot.get("asset_id") != config.asset_id or not isinstance(snapshot.get("state"), dict):
-        raise VirtualLabError("identidad o estructura del observador inesperada")
+            raw = response.read(262145)
+            if len(raw) > 262144 or response.status != 200:
+                raise ValueError("observer_response_rejected")
+            snapshot = virtual_observer(json.loads(raw), config.asset_id)
+    except (OSError, ValueError):
+        raise VirtualLabError("observador de gestión inaccesible o respuesta inválida") from None
     return snapshot
 
 

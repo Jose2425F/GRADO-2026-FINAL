@@ -1,0 +1,3 @@
+#!/bin/sh
+printf "%s\n" "TEST_GUARD: real audit tool invocation blocked" >&2
+exit 126

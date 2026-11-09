@@ -1,40 +1,238 @@
 <!doctype html>
 <html lang="es">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Informe {{ 'técnico' if audience == 'technical' else 'ejecutivo' }} · {{ run.name }}</title>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 2.5 34.5 8v11.2c0 9.3-6.1 15.6-14.5 18.3C11.6 34.8 5.5 28.5 5.5 19.2V8Z' fill='%232f6df6'/%3E%3Crect x='19.1' y='7.5' width='1.8' height='4.5' fill='%23fff'/%3E%3Ccircle cx='20' cy='7.4' r='2.1' fill='%237dd3fc'/%3E%3Crect x='11.5' y='11' width='17' height='13' rx='4.5' fill='%23fff'/%3E%3Crect x='14' y='14.8' width='12' height='5.4' rx='2.7' fill='%231d47b0'/%3E%3Cpath d='M13.5 31.5c0-3.6 2.9-5.8 6.5-5.8s6.5 2.2 6.5 5.8' fill='%23fff'/%3E%3C/svg%3E">
+<title>Informe {{ 'técnico' if audience == 'technical' else 'ejecutivo' }} · {{ run.name }}</title>
+{% set sev_names = {'critical':'Crítica','high':'Alta','medium':'Media','low':'Baja'} %}
+{% set counts = report_view.severity_counts or {} %}
+{% set sec = namespace(n=0) %}
 <style>
-:root{--ink:#172a32;--muted:#52666e;--line:#dce6e8;--accent:#286cf0}*{box-sizing:border-box}body{margin:0;background:#edf2f3;color:var(--ink);font:14px/1.65 system-ui,sans-serif}.report{max-width:1000px;margin:24px auto 48px;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden}.cover{padding:42px 46px;background:#0b1830;color:white}.brand{font-size:11px;letter-spacing:2px;font-weight:750;color:#80dcc5}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:#667f87;margin:0 0 8px}.cover .eyebrow{color:#b1ccce;margin-top:28px}.cover h1{font-size:32px;line-height:1.2;letter-spacing:-1px;margin:8px 0 18px}.meta{font-size:11px;color:#627981;overflow-wrap:anywhere}.cover .meta{color:#b6cdce}.content{padding:32px 46px 40px}h2{font-size:20px;letter-spacing:-.5px;margin:32px 0 12px}h3{font-size:16px;margin:0 0 10px}p{margin:8px 0 14px;color:var(--muted)}.lead{font-size:20px;line-height:1.55;letter-spacing:-.4px;color:#173f43;margin:0 0 24px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:12px;margin:22px 0;overflow:hidden}.metric{padding:20px;border-right:1px solid var(--line);font-size:11px;color:var(--muted)}.metric:last-child{border:0}.metric strong{display:block;font-size:32px;line-height:1.3;color:var(--ink)}.finding,.action{border:1px solid var(--line);border-radius:12px;padding:22px;margin:16px 0;break-inside:avoid}.finding header,.action header{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}.badge{display:inline-block;font-size:10px;font-weight:650;padding:4px 9px;background:#e7f4ee;color:#246552;border-radius:5px;white-space:nowrap}.badge.high,.badge.critical{background:#fff0ef;color:#a53f3b}.badge.medium{background:#fff4de;color:#8a5c17}.fix{background:#eff7f4;border-left:3px solid #26907a;padding:15px 18px;margin-top:18px;border-radius:0 8px 8px 0}.fix p{margin:6px 0;color:#24584f}.label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#5e747c;font-weight:750}.targets{font:11px/1.8 ui-monospace,monospace;overflow-wrap:anywhere}.action-number{font-size:11px;font-weight:750;color:#087868}.assistant{border:1px solid #bddbda;border-radius:12px;background:#f1f8f7;padding:21px;margin:15px 0}.assistant h3{color:#155f58}.assistant p:last-child{margin-bottom:0}.assistant .label{color:#13796d}.issue{background:#fff8eb;border:1px solid #ecd7ac;border-radius:12px;padding:18px;margin:20px 0}.issue p{color:#80612f}.issue li{font-size:12px;color:#755c35;margin:8px 0}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:12px}td,th{text-align:left;vertical-align:top;border-bottom:1px solid var(--line);padding:12px 10px;overflow-wrap:anywhere}th{color:#698087;font-size:10px;text-transform:uppercase;letter-spacing:.5px}.service-host{margin:25px 0 12px}.section-note{font-size:12px;color:#657c84}.technical-appendix{border:1px solid var(--line);border-radius:12px;margin-top:32px;padding:18px}.technical-appendix>summary{cursor:pointer;font-weight:650;font-size:13px}.technical-appendix .diagnostic{padding:18px 0;border-bottom:1px solid var(--line);break-inside:avoid}.technical-appendix code{font:11px/1.8 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere}.footer{border-top:1px solid var(--line);margin-top:30px;padding-top:20px;font-size:10px;color:#6d8289}.buttons{max-width:1000px;margin:22px auto 0;display:flex;gap:10px;flex-wrap:wrap;align-items:center}.button,button{font:650 12px system-ui;text-decoration:none;border:1px solid #d3e0e2;border-radius:9px;background:#fff;color:#38545d;padding:12px 16px;cursor:pointer}button{color:#fff;background:var(--accent);border-color:var(--accent)}.buttons label{font-size:11px;color:#5d777e}.empty{padding:22px;background:#f4f7f8;border:1px solid var(--line);border-radius:12px}.empty p{margin:0}.proof{font-size:11px;color:#627a82;margin-top:15px}.proof summary{cursor:pointer}a{color:#08796c}.next-step{margin:20px 0;padding:18px;border-radius:12px;background:#f0f6f6;color:#335d5c}.next-step p{margin:5px 0}.service-host h3{font-size:14px;margin:0}.references{font-size:11px;overflow-wrap:anywhere}@media(max-width:650px){.report{margin:15px 10px}.cover,.content{padding:25px}.buttons{margin:15px 10px}.cover h1{font-size:25px}.lead{font-size:18px}.metrics{grid-template-columns:1fr}.metric{border-right:0;border-bottom:1px solid var(--line);padding:13px 18px}.metric strong{font-size:26px}.finding header,.action header{flex-wrap:wrap}}@media print{@page{size:A4;margin:16mm}.buttons{display:none}body{background:white;font-size:11px}.report{margin:0;border:0;border-radius:0;max-width:none}.cover{background:white;color:#143e42;padding:0 0 22px;border-bottom:3px solid #148475}.cover .meta,.cover .eyebrow{color:#58747c}.brand{color:#087666}.cover h1{font-size:26px}.content{padding:24px 0}.lead{font-size:18px}.finding,.action,.assistant{break-inside:avoid;padding:16px}h2{break-after:avoid}.metrics{break-inside:avoid}details:not([open]){display:none}.technical-appendix{break-before:page}.technical-appendix[open]{display:block}.footer{font-size:9px}}
-
-/* Lectura por decisiones: hechos, cobertura, acciones y evidencia. */
-.report-nav{display:flex;gap:18px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding:0 0 18px;margin-bottom:28px;font-size:12px}.report-nav a{text-decoration:none;font-weight:650}.execution-summary{background:#f6f9f9;border:1px solid var(--line);border-radius:14px;padding:22px;margin:24px 0}.execution-summary h2{margin:0 0 8px}.execution-summary p{font-size:12px}.outcome-line{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}.outcome-line span{font-size:12px;background:#e6f1ed;padding:6px 10px;border-radius:6px}.outcome-line .warning{background:#ffedcb;color:#815815}.stage-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px;margin:18px 0}.stage-box{border-left:3px solid #218b78;padding:7px 12px;background:white;border-radius:0 8px 8px 0}.stage-box strong{display:block;font-size:24px}.stage-box span{font-size:11px;display:block}.stage-box small{font-size:10px;color:var(--muted)}.stage-box.warning{border-color:#c58a29}.scope-line{font-size:12px;margin:12px 0;color:#405d66}.scope-line strong{color:var(--ink)}.closure-note{font-size:12px;border-left:3px solid #8fb9b1;padding-left:12px}.host-matrix td:first-child{font-family:ui-monospace,monospace}.host-matrix .result{font-size:11px;font-weight:650}.host-matrix .result.alert{color:#a13d38}.host-matrix .result.review{color:#8a5e20}.incident-card{border-top:1px solid #ead8b4;padding-top:14px;margin-top:14px}.incident-card h3{font-size:14px;color:#705122}.incident-card p{font-size:12px;margin:5px 0}.endpoint{padding:8px 0;border-bottom:1px solid var(--line);font-size:12px}.endpoint strong{font-family:ui-monospace,monospace}.verification{margin-top:12px;padding-top:12px;border-top:1px solid #c9dfd6}.evidence-id{display:inline-block;font-size:11px;letter-spacing:1px;color:#187466;margin-bottom:8px}.finding h3{font-size:18px}.finding .targets{font-size:13px;color:#235e60}.finding .proof[open]{border-top:1px solid var(--line);padding-top:14px}.decision-intro{background:#0b1830;color:#ecf7f4;padding:20px 24px;border-radius:12px;margin:20px 0}.decision-intro p{color:#c8dedd;font-size:13px;margin:5px 0}.small-note{font-size:11px;color:#607982}.report h2[id]{scroll-margin-top:20px}@media(max-width:650px){.execution-summary{padding:16px}.host-matrix{font-size:11px}.host-matrix td,.host-matrix th{padding:9px 5px}.report-nav{gap:12px}.stage-grid{grid-template-columns:1fr 1fr}.stage-box{padding:7px 9px}.stage-box strong{font-size:21px}.cover h1{overflow-wrap:anywhere}.decision-intro{padding:16px}}
-@media print{.report-nav{display:none}.execution-summary{padding:14px;break-inside:avoid}.stage-grid{grid-template-columns:repeat(3,1fr)}.host-matrix tr{break-inside:avoid}.incident-card{break-inside:avoid}.decision-intro{background:white;color:var(--ink);border:1px solid var(--line)}.decision-intro p{color:var(--muted)}.finding .proof[open]{display:block}.stage-box{background:transparent}}
+:root{--ink:#101828;--ink-2:#344054;--muted:#667085;--faint:#98a2b3;--line:#e4e7ec;--soft:#f9fafb;--soft-2:#f2f4f7;--blue:#2f6df6;--blue-50:#eef4ff;--blue-700:#1d47b0;--green:#067647;--green-bg:#ecfdf3;--green-line:#abefc6;--amber:#b54708;--amber-bg:#fffaeb;--amber-line:#fedf89;--crit:#b42318;--high:#e8590c;--med:#d29a06;--low:#2f6df6;--mono:"JetBrains Mono","Cascadia Mono",Consolas,ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:#eef1f5;color:var(--ink-2);font:14px/1.6 "Inter","Segoe UI",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{color:var(--ink);margin:0;letter-spacing:-.015em}
+p{margin:0}
+a{color:var(--blue)}
+.toolbar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:12px max(16px,calc((100vw - 960px)/2));margin-bottom:8px;background:rgba(238,241,245,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.toolbar .spacer{flex:1}
+.btn{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 13px;border:1px solid #d0d5dd;border-radius:8px;background:#fff;color:var(--ink-2);font:600 13.5px/1 inherit;text-decoration:none;cursor:pointer;box-shadow:0 1px 2px rgba(16,24,40,.05)}
+.btn:hover{background:var(--soft)}
+.btn.primary{border-color:var(--blue);background:var(--blue);color:#fff}
+.btn.primary:hover{background:#2559d6}
+.toolbar label{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+.report{max-width:960px;margin:0 auto 48px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 32px -16px rgba(16,24,40,.18);overflow:hidden}
+.cover{padding:40px 48px 32px;border-bottom:1px solid var(--line)}
+.cover-top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:36px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:650;font-size:16px}
+.brand svg{width:28px;height:28px;color:var(--blue)}
+.brand small{display:block;font-size:11px;font-weight:500;color:var(--muted)}
+.doc-type{padding:5px 11px;border-radius:999px;background:var(--blue-50);color:var(--blue-700);font-size:11px;font-weight:700;letter-spacing:.06em}
+.eyebrow{font-size:12.5px;font-weight:600;color:var(--blue);margin-bottom:6px}
+.cover h1{font-size:30px;line-height:1.2;letter-spacing:-.025em}
+.cover .company{margin-top:6px;font-size:16px;color:var(--muted)}
+.meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:28px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.meta div{padding:12px 14px;border-right:1px solid var(--line)}
+.meta div:last-child{border-right:0}
+.meta span{display:block;font-size:11.5px;color:var(--muted)}
+.meta strong{display:block;margin-top:2px;font-size:13.5px;color:var(--ink);overflow-wrap:anywhere}
+.content{padding:32px 48px 40px}
+.toc{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px}
+.toc a{padding:5px 10px;border:1px solid var(--line);border-radius:999px;font-size:12.5px;color:var(--ink-2);text-decoration:none}
+.toc a:hover{border-color:var(--blue);color:var(--blue)}
+section.block{margin-top:36px}
+section.block:first-of-type{margin-top:0}
+.block>h2{display:flex;align-items:baseline;gap:10px;font-size:19px;padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.block>h2 .n{font:600 12px/1 var(--mono);color:var(--faint)}
+.lead{font-size:17px;line-height:1.55;color:var(--ink);margin-bottom:18px}
+.note{font-size:12.5px;color:var(--muted);margin-top:10px}
+.score{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.score div{padding:14px 16px;border:1px solid var(--line);border-top:3px solid var(--c);border-radius:10px}
+.score span{display:block;font-size:12.5px;color:var(--muted)}
+.score strong{display:block;font-size:26px;line-height:1.2;color:var(--ink)}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+.kpis div{padding:14px 16px;border-radius:10px;background:var(--soft)}
+.kpis span{display:block;font-size:12.5px;color:var(--muted)}
+.kpis strong{display:block;font-size:20px;color:var(--ink)}
+.item{position:relative;margin:12px 0;padding:18px 20px 18px 22px;border:1px solid var(--line);border-left:4px solid var(--c,#d0d5dd);border-radius:10px;break-inside:avoid}
+.item header{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:8px}
+.item .tag{font:600 11.5px/1 var(--mono);color:var(--faint);margin-bottom:6px}
+.item h3{font-size:16px;line-height:1.35}
+.sev{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:650;white-space:nowrap}
+.sev.critical{background:#fef3f2;color:var(--crit)}.sev.high{background:#fff4ed;color:var(--high)}.sev.medium{background:var(--amber-bg);color:#9a6b00}.sev.low{background:var(--blue-50);color:var(--blue-700)}.sev.unknown{background:var(--soft-2);color:var(--ink-2)}
+.where{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}
+.where span{padding:2px 8px;border-radius:6px;background:var(--soft-2);font:500 12px/1.6 var(--mono);color:var(--ink-2)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.cols div,.fix{padding:12px 14px;border-radius:9px;background:var(--soft)}
+.label{display:block;font-size:11.5px;font-weight:650;color:var(--muted);margin-bottom:3px}
+.fix{margin-top:10px;background:var(--green-bg);border:1px solid var(--green-line)}
+.fix .label{color:var(--green)}
+.fix .verify{margin-top:8px;padding-top:8px;border-top:1px solid var(--green-line)}
+.proof{margin-top:10px;font-size:12.5px;color:var(--muted)}
+.proof summary{cursor:pointer;font-weight:600;color:var(--ink-2)}
+.refs{font:11.5px/1.7 var(--mono);color:var(--muted);overflow-wrap:anywhere;margin-top:6px}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{padding:10px 12px;background:var(--soft);border-bottom:1px solid var(--line);text-align:left;font-size:12px;font-weight:600;color:var(--muted)}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}
+tr:last-child td{border-bottom:0}
+td.addr{font-family:var(--mono);font-size:12.5px;color:var(--ink)}
+.result{font-weight:600}.result.alert{color:var(--crit)}.result.review{color:var(--amber)}.result.ok{color:var(--green)}
+.stages{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:12px 0}
+.stages div{padding:12px 14px;border:1px solid var(--line);border-radius:10px}
+.stages div.warn{border-color:var(--amber-line);background:var(--amber-bg)}
+.stages strong{display:block;font-size:20px;color:var(--ink)}
+.stages span{display:block;font-size:13px;color:var(--ink-2)}
+.stages small{font-size:12px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 12px}
+.chips span{padding:4px 10px;border-radius:999px;background:var(--soft-2);font-size:12.5px}
+.chips .warn{background:var(--amber-bg);color:var(--amber)}
+.callout{padding:16px 18px;border-radius:10px;background:var(--blue-50);color:#1e3a8a}
+.callout strong{display:block;color:var(--blue-700);margin-bottom:2px}
+.warn-box{margin-top:12px;padding:16px 18px;border:1px solid var(--amber-line);border-radius:10px;background:var(--amber-bg)}
+.warn-box h3{font-size:14px;color:var(--amber)}
+.warn-box p{font-size:13px;margin-top:4px}
+.ai{margin:12px 0;padding:16px 18px;border:1px solid var(--line);border-radius:10px;background:var(--soft)}
+.ai h3{font-size:15px}
+.ai p{margin-top:6px;font-size:13.5px}
+.appendix{margin-top:36px;border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.appendix>summary{cursor:pointer;font-weight:650;color:var(--ink)}
+.appendix h2{font-size:16px;margin:22px 0 10px}
+.diag{padding:12px 0;border-bottom:1px solid var(--line);break-inside:avoid}
+.diag h3{font-size:13.5px}
+.diag code{display:block;margin-top:6px;padding:8px 10px;border-radius:6px;background:var(--soft-2);font:11.5px/1.7 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere}
+.footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted)}
+@media(max-width:700px){.toolbar{padding:10px 12px}.report{margin:0 0 24px;border-radius:0}.cover,.content{padding:24px 18px}.meta,.score,.kpis,.cols{grid-template-columns:1fr 1fr}.cover h1{font-size:24px}}
+@media print{
+  @page{size:A4;margin:14mm}
+  body{background:#fff;font-size:11px}
+  .toolbar,.toc{display:none}
+  .report{margin:0;border:0;border-radius:0;box-shadow:none;max-width:none}
+  .cover{padding:0 0 20px}.content{padding:20px 0 0}
+  .item,.score,.kpis,.stages,tr,.ai,.warn-box{break-inside:avoid}
+  .block>h2{break-after:avoid}
+  details:not([open]){display:none}
+  .appendix[open]{break-before:page}
+  .proof[open]{display:block}
+}
 </style></head><body>
-<div class="buttons"><a class="button" href="/{{ "#future" if archive_id else "#live" }}">Volver al panel</a><a class="button" href="/report?key={{ run.key|urlencode }}{% if archive_id %}&amp;archive={{ archive_id|urlencode }}{% endif %}&amp;audience={{ audience }}&amp;download=1">Guardar HTML</a><a class="button" href="/report?key={{ run.key|urlencode }}{% if archive_id %}&amp;archive={{ archive_id|urlencode }}{% endif %}&amp;audience={{ 'executive' if audience == 'technical' else 'technical' }}">Ver informe {{ 'ejecutivo' if audience == 'technical' else 'técnico' }}</a><button onclick="window.print()">Guardar PDF / imprimir</button>{% if audience=='technical' %}<label><input type="checkbox" onchange="document.getElementById('technical-appendix').open=this.checked"> Incluir anexo técnico</label>{% endif %}</div>
-<article class="report"><header class="cover"><div class="brand">NOVAFLOW LABS / INFORME {{ 'TÉCNICO' if audience=='technical' else 'EJECUTIVO' }}</div><p class="eyebrow">Evaluación de seguridad · {{ run.status_name }}</p><h1>{{ run.name }}</h1><div class="meta">{{ run.started_display }} · America/New_York{% if run.seconds is number %} · {{ '%.1f'|format(run.seconds) }} s{% endif %} · {{ 'Multiagente' if run.architecture=='multiagent' else 'Agente único' }}{% if audience=='technical' %}<br>{{ run.id }}{% endif %}</div></header>
-<div class="content"><nav class="report-nav" aria-label="Secciones del informe"><a href="#resultado">Resultado</a><a href="#ejecucion">Qué se evaluó</a>{% if brief.cards %}<a href="#hallazgos">{{ 'Plan de acción' if audience=='executive' else 'Hallazgos y evidencia' }}</a>{% endif %}{% if report_view.hosts %}<a href="#equipos">Resultado por equipo</a>{% endif %}{% if report_view.issues %}<a href="#incidencias">Incidencias</a>{% endif %}</nav><p id="resultado" class="eyebrow">Resultado principal</p><p class="lead">{{ report_view.headline }}</p>
-<div class="metrics"><div class="metric"><strong>{{ report_view.service_count if brief.is_inventory else brief.cards|length }}</strong>{{ 'Servicios TCP abiertos' if brief.is_inventory else 'Hallazgos confirmados' }}</div><div class="metric"><strong>{{ report_view.exposed_hosts if brief.is_inventory else brief.affected }}</strong>{{ 'Direcciones con servicios abiertos' if brief.is_inventory else 'Objetivos afectados' }}</div><div class="metric"><strong>{{ brief.checked if brief.is_inventory else report_view.priorities|length }}</strong>{{ 'Operaciones ejecutadas correctamente' if brief.is_inventory else 'Acciones de corrección' }}</div></div>
-<section id="ejecucion" class="execution-summary"><h2>Qué se evaluó y cómo terminó</h2>
-<div class="outcome-line"><span><strong>{{ report_view.progress.closed }} / {{ report_view.progress.total }}</strong> operaciones cerradas</span><span><strong>{{ report_view.progress.successful }}</strong> ejecutadas correctamente</span>{% if report_view.progress.issues %}<span class="warning"><strong>{{ report_view.progress.issues }}</strong> con incidencias</span>{% endif %}{% if report_view.progress.skipped %}<span class="warning">{{ report_view.progress.skipped }} omitidas</span>{% endif %}{% if report_view.progress.remaining %}<span class="warning">{{ report_view.progress.remaining }} sin cerrar</span>{% endif %}</div>
-<div class="stage-grid">{% for stage in report_view.progress.stages %}<div class="stage-box {{ 'warning' if stage.issues else '' }}"><strong>{{ stage.total }}</strong><span>{{ stage.label }}</span><small>{{ stage.successful }} correctas{% if stage.key=="credentials" %} ({{ stage.no_detection }} sin detección){% endif %}{% if stage.issues %} · {{ stage.issues }} con incidencias{% endif %}{% if stage.skipped %} · {{ stage.skipped }} omitidas{% endif %}</small></div>{% endfor %}</div>
-{% if brief.inventory %}<p class="scope-line"><strong>{{ report_view.scope_count }} direcciones incluidas</strong> · {{ report_view.exposed_hosts }} con servicios TCP abiertos · {{ report_view.service_count }} servicios observados.{% if report_view.down_count %} {{ report_view.down_count }} direcciones no respondieron al descubrimiento y no se escanearon sus puertos. Esto no demuestra que estén apagadas.{% endif %}</p>{% endif %}
-<p>{{ report_view.progress.explanation }}</p><p class="closure-note">Cerrar el 100 % de las operaciones no significa que todas hayan sido válidas. Los intentos de credenciales sin detección no garantizan la seguridad de una cuenta, ni representan vulnerabilidades distintas.</p>
-{% if run.llm.known_tokens %}<p class="small-note">IA registrada: {{ run.llm.model }} · {{ run.llm.known_tokens }} tokens conocidos{% if not run.llm.usage_complete %} (consumo incompleto){% endif %}. Este informe reutiliza la evidencia y el análisis guardados; abrirlo o exportarlo consume 0 tokens adicionales.</p>{% endif %}</section>
+<nav class="toolbar" aria-label="Acciones del informe">
+  <a class="btn" href="/">← Volver</a>
+  <a class="btn" href="/report?key={{ run.key|urlencode }}{% if archive_id %}&amp;archive={{ archive_id|urlencode }}{% endif %}&amp;audience={{ 'executive' if audience == 'technical' else 'technical' }}">Ver informe {{ 'ejecutivo' if audience == 'technical' else 'técnico' }}</a>
+  <span class="spacer"></span>
+  {% if audience=='technical' %}<label><input type="checkbox" onchange="document.getElementById('technical-appendix').open=this.checked"> Incluir anexo técnico</label>{% endif %}
+  <a class="btn" href="/report?key={{ run.key|urlencode }}{% if archive_id %}&amp;archive={{ archive_id|urlencode }}{% endif %}&amp;audience={{ audience }}&amp;download=1">Guardar HTML</a>
+  <button class="btn primary" type="button" onclick="window.print()">Guardar PDF</button>
+</nav>
+
+<article class="report">
+<header class="cover">
+  <div class="cover-top">
+    <div class="brand"><svg class="brand-glyph mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="mk-informe" x1="6" y1="2" x2="34" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#5b8cff"/><stop offset="1" stop-color="#1d47b0"/></linearGradient></defs><path class="mark-shield" d="M20 2.5 34.5 8v11.2c0 9.3-6.1 15.6-14.5 18.3C11.6 34.8 5.5 28.5 5.5 19.2V8Z" fill="url(#mk-informe)"/><g class="mark-agent"><path d="M20 11.8V9.6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><circle class="mark-node" cx="20" cy="8.4" r="1.7" fill="#7dd3fc"/><rect x="10.7" y="15.3" width="1.9" height="4.2" rx=".95" fill="#dbe8ff"/><rect x="27.4" y="15.3" width="1.9" height="4.2" rx=".95" fill="#dbe8ff"/><rect x="12.6" y="11.8" width="14.8" height="11.6" rx="4" fill="#fff"/><rect x="14.8" y="15.2" width="10.4" height="4.8" rx="2.4" fill="#1d47b0"/><g class="mark-eyes"><circle cx="17.8" cy="17.6" r="1.15" fill="#7dd3fc"/><circle cx="22.2" cy="17.6" r="1.15" fill="#7dd3fc"/></g><path d="M14 31c0-3.3 2.7-5.4 6-5.4s6 2.1 6 5.4" fill="#fff" opacity=".92"/></g></svg><div>Centinela<small>by Novaflow</small></div></div>
+    <span class="doc-type">{{ 'INFORME TÉCNICO' if audience=='technical' else 'INFORME EJECUTIVO' }}</span>
+  </div>
+  <p class="eyebrow">Evaluación de seguridad de red · IPv4 + IPv6</p>
+  <h1>{{ run.name }}</h1>
+  {% if brief.company and brief.company != 'Mi laboratorio' %}<p class="company">{{ brief.company }}</p>{% endif %}
+  <div class="meta">
+    <div><span>Fecha</span><strong>{{ run.started_display }}</strong></div>
+    <div><span>Alcance</span><strong>{{ report_view.scope_count }} {{ 'direcciones' if brief.inventory else 'equipos' }}</strong></div>
+    <div><span>Ejecución</span><strong>{{ 'Multiagente' if run.architecture=='multiagent' else 'Agente único' }}{% if run.seconds is number %} · {{ (run.seconds/60)|round(1) }} min{% endif %}</strong></div>
+    <div><span>Estado</span><strong>{{ run.status_name }}</strong></div>
+  </div>
+  {% if audience=='technical' %}<p class="note">Identificador: {{ run.id }}</p>{% endif %}
+</header>
+
+<div class="content">
+<nav class="toc" aria-label="Contenido"><a href="#resumen">Resumen</a>{% if brief.cards %}<a href="#hallazgos">{{ 'Plan de acción' if audience=='executive' else 'Hallazgos' }}</a>{% endif %}{% if report_view.hosts %}<a href="#equipos">Equipos</a>{% endif %}<a href="#alcance">Alcance</a>{% if report_view.issues %}<a href="#incidencias">Incidencias</a>{% endif %}</nav>
+
+<section class="block" id="resumen">
+  <h2>{% set sec.n = sec.n + 1 %}<span class="n">{{ "%02d"|format(sec.n) }}</span>Resumen</h2>
+  <p class="lead">{{ report_view.headline }}</p>
+  <div class="score">
+    {% for key,color in [('critical','var(--crit)'),('high','var(--high)'),('medium','var(--med)'),('low','var(--low)')] %}<div style="--c:{{ color }}"><span>{{ sev_names[key] }}</span><strong>{{ counts.get(key,0) }}</strong></div>{% endfor %}
+  </div>
+  <div class="kpis">
+    <div><span>{{ 'Servicios TCP abiertos' if brief.is_inventory else 'Hallazgos confirmados' }}</span><strong>{{ report_view.service_count if brief.is_inventory else brief.cards|length }}</strong></div>
+    <div><span>{{ 'Direcciones con servicios' if brief.is_inventory else 'Equipos afectados' }}</span><strong>{{ report_view.exposed_hosts if brief.is_inventory else brief.affected }}</strong></div>
+    <div><span>{{ 'Operaciones correctas' if brief.is_inventory else 'Acciones de corrección' }}</span><strong>{{ brief.checked if brief.is_inventory else report_view.priorities|length }}</strong></div>
+  </div>
+  {% if not brief.cards %}<div class="callout" style="margin-top:14px"><strong>{{ 'Siguiente paso: revisar los servicios expuestos' if brief.is_inventory else 'Sin hallazgos confirmados' }}</strong>{{ 'El inventario no ejecutó pruebas de vulnerabilidad. Selecciona las pruebas compatibles antes de concluir.' if brief.is_inventory else 'Las comprobaciones realizadas no confirmaron problemas. El resultado no se extiende a sistemas o pruebas fuera del alcance.' }}</div>{% endif %}
+</section>
+
 {% if audience=='executive' %}
-{% if report_view.priorities %}<h2 id="hallazgos">Decisiones y acciones recomendadas</h2><div class="decision-intro"><strong>Encargar la corrección y exigir una verificación de cierre</strong><p>{{ brief.cards|length }} condiciones confirmadas en {{ brief.affected }} objetivos. La prioridad se apoya en la severidad registrada y en la evidencia de cada hallazgo.</p></div>{% for action in report_view.priorities %}<section class="action"><header><div><span class="action-number">ACCIÓN {{ '%02d'|format(action.order) }}</span><h3>{{ action.title }}</h3></div><span class="badge {{ action.severity }}">{{ {'critical':'Crítica','high':'Alta','medium':'Media','low':'Baja'}.get(action.severity,'Por clasificar') }}</span></header><p>{{ action.impact }}</p><p class="targets">{{ action.count }} condiciones confirmadas · Objetivos: {{ action.targets|join(', ') }}</p><div>{% for endpoint in action.endpoints %}<div class="endpoint"><strong>{{ endpoint.address }}{% if endpoint.ports %} · TCP {{ endpoint.ports|join(', ') }}{% endif %}</strong><br>{{ endpoint.title }}</div>{% endfor %}</div><div class="fix"><span class="label">Acción a encargar · {{ action.owner }}</span><p>{{ action.fix }}</p><div class="verification"><span class="label">Criterio de cierre</span><p>{{ action.verification }}</p></div></div></section>{% endfor %}{% endif %}
+{% if report_view.priorities %}<section class="block" id="hallazgos">
+  <h2>{% set sec.n = sec.n + 1 %}<span class="n">{{ "%02d"|format(sec.n) }}</span>Decisiones y acciones recomendadas</h2>
+  <div class="callout"><strong>Encargar la corrección y exigir una verificación de cierre</strong>{{ brief.cards|length }} condiciones confirmadas en {{ brief.affected }} equipos. Las acciones están ordenadas por severidad.</div>
+  {% for action in report_view.priorities %}{% set c = {'critical':'var(--crit)','high':'var(--high)','medium':'var(--med)','low':'var(--low)'}.get(action.severity,'#d0d5dd') %}
+  <div class="item" style="--c:{{ c }}"><header><div><p class="tag">ACCIÓN {{ '%02d'|format(action.order) }}</p><h3>{{ action.title }}</h3></div><span class="sev {{ action.severity }}">{{ sev_names.get(action.severity,'Por clasificar') }}</span></header>
+    <p>{{ action.impact }}</p>
+    <div class="where">{% for endpoint in action.endpoints %}<span>{{ endpoint.address }}{% if endpoint.ports %}:{{ endpoint.ports|join(',') }}{% endif %}</span>{% endfor %}</div>
+    <div class="fix"><span class="label">Qué encargar · {{ action.owner }}</span><p>{{ action.fix }}</p><div class="verify"><span class="label">Criterio de cierre</span><p>{{ action.verification }}</p></div></div>
+  </div>{% endfor %}
+</section>{% endif %}
 {% else %}
-{% if brief.cards %}<h2 id="hallazgos">Hallazgos confirmados</h2>{% for card in report_view.findings %}<section class="finding"><header><div><span class="evidence-id">HALLAZGO {{ "%02d"|format(loop.index) }} · CONFIRMADO</span><h3>{{ card.title }}</h3></div><span class="badge {{ card.severity }}">{{ {'critical':'Crítica','high':'Alta','medium':'Media','low':'Baja'}.get(card.severity,'Sin clasificación') }}</span></header><div class="targets">{{ card.address }}{% if card.ports %} · TCP {{ card.ports|join(", ") }}{% endif %}<br><small>{{ card.asset }}</small></div><p><span class="label">Qué ocurrió</span><br>{{ card.meaning }}</p><p><span class="label">Impacto</span><br>{{ card.impact }}</p><div class="fix"><span class="label">Cómo corregirlo</span><p>{{ card.fix }}</p><div class="verification"><span class="label">Cómo verificar la corrección</span><p>{{ card.verification }}</p></div></div><details class="proof" open><summary>Cómo se comprobó · referencias de evidencia</summary><p>{{ card.confirmation }}</p><p class="references">Tarea: {{ card.task_id }}<br>Evidencia: {{ card.evidence }}<br>Corroboración: {{ card.confirmation_ref }}{% if card.reference %}<br>Referencia: {{ card.reference }}{% endif %}</p></details></section>{% endfor %}{% endif %}
+{% if brief.cards %}<section class="block" id="hallazgos">
+  <h2>{% set sec.n = sec.n + 1 %}<span class="n">{{ "%02d"|format(sec.n) }}</span>Hallazgos confirmados</h2>
+  {% for card in report_view.findings %}{% set c = {'critical':'var(--crit)','high':'var(--high)','medium':'var(--med)','low':'var(--low)'}.get(card.severity,'#d0d5dd') %}
+  <div class="item" style="--c:{{ c }}"><header><div><p class="tag">HALLAZGO {{ "%02d"|format(loop.index) }}</p><h3>{{ card.title }}</h3></div><span class="sev {{ card.severity }}">{{ sev_names.get(card.severity,'Sin clasificación') }}</span></header>
+    <div class="where"><span>{{ card.address }}{% if card.ports %}:{{ card.ports|join(',') }}{% endif %}</span><span>{{ card.asset }}</span></div>
+    <div class="cols"><div><span class="label">Qué ocurrió</span><p>{{ card.meaning }}</p></div><div><span class="label">Impacto</span><p>{{ card.impact }}</p></div></div>
+    <div class="fix"><span class="label">Cómo corregirlo</span><p>{{ card.fix }}</p><div class="verify"><span class="label">Cómo verificar la corrección</span><p>{{ card.verification }}</p></div></div>
+    <details class="proof" open><summary>Cómo se comprobó</summary><p style="margin-top:4px">{{ card.confirmation }}</p><p class="refs">Tarea: {{ card.task_id }}<br>Evidencia: {{ card.evidence }}<br>Corroboración: {{ card.confirmation_ref }}{% if card.reference %}<br>Referencia: {{ card.reference }}{% endif %}</p></details>
+  </div>{% endfor %}
+</section>{% endif %}
 {% endif %}
-{% if report_view.hosts %}<h2 id="equipos">Resultado por equipo</h2><p class="section-note">Cruce de exposición, hallazgos e incidencias. Un equipo puede tener un hallazgo confirmado y otras comprobaciones incompletas.</p><div class="table-wrap"><table class="host-matrix"><thead><tr><th>Equipo</th><th>Servicios abiertos</th><th>Hallazgos</th><th>Incidencias</th><th>Conclusión</th></tr></thead><tbody>{% for host in report_view.hosts %}<tr><td>{{ host.address }}</td><td>{% if not host.services %}{{ host.activity }}{% endif %}{% for service in host.services %}{{ service.port }}/{{ service.name }}{% if not loop.last %}<br>{% endif %}{% endfor %}</td><td>{{ host.findings }}</td><td>{{ host.issues }}</td><td class="result {{ 'alert' if host.findings else 'review' if host.issues else '' }}">{{ host.conclusion }}</td></tr>{% endfor %}</tbody></table></div>{% if audience=="technical" and report_view.exposures %}<h2>Servicios expuestos</h2><p class="section-note">Solo puertos observados como abiertos. La exposición y la versión de un servicio no confirman una vulnerabilidad.</p>{% for item in report_view.exposures %}<section class="service-host"><h3>{{ item.address }}{% if audience=='technical' %} · {{ item.asset }}{% endif %}</h3><div class="table-wrap"><table><thead><tr><th>Puerto TCP</th><th>Servicio</th>{% if audience=='technical' %}<th>Producto / versión observada</th>{% endif %}</tr></thead><tbody>{% for service in item.open_services %}<tr><td>{{ service.port }}</td><td>{{ service.name }}</td>{% if audience=='technical' %}<td>{{ service.version or 'No identificada' }}</td>{% endif %}</tr>{% endfor %}</tbody></table></div></section>{% endfor %}{% endif %}{% endif %}
-{% if not brief.cards %}<section class="next-step"><strong>{{ 'Siguiente paso: revisar la necesidad y el acceso de los servicios expuestos' if brief.is_inventory else 'Siguiente paso: revisar cobertura y conservar los controles verificados' }}</strong><p>{{ 'El inventario no ejecutó pruebas de vulnerabilidad. Seleccionar las pruebas compatibles antes de emitir una conclusión de seguridad.' if brief.is_inventory else 'No hay hallazgos confirmados dentro de las comprobaciones realizadas. El resultado no se extiende a los sistemas o pruebas que quedaron fuera del alcance.' }}</p></section>{% endif %}
-{% if report_view.issues %}<aside id="incidencias" class="issue"><strong>Evaluación parcial: {{ report_view.issues|length }} operaciones con incidencias</strong><p>Los hallazgos confirmados se conservan. Las comprobaciones afectadas requieren revisión antes de cerrar la evaluación.</p>{% for item in report_view.incident_groups %}<section class="incident-card"><h3>{{ item.address }}{% if item.ports %} · TCP {{ item.ports|join(', ') }}{% endif %} · {{ item.count }} {{ 'intento' if item.count==1 else 'intentos' }}</h3><p><strong>{{ item.title }}</strong> · {{ item.label }}</p><p>{{ item.meaning }}</p><p><strong>Siguiente paso:</strong> {{ item.next_step }}</p>{% if audience=='technical' %}<p class="meta">Motivo registrado: {{ item.reason }}</p>{% endif %}</section>{% endfor %}</aside>{% endif %}
-{% if report_view.reviews %}<h2>Análisis asistido por IA</h2><p class="section-note">Cada rol interpreta un subconjunto de observaciones de su especialidad y puede tener contexto parcial. El resumen consolidado y las fichas anteriores reúnen los resultados confirmados; las interpretaciones de IA no sustituyen su evidencia independiente.</p>{% for review in report_view.reviews %}<section class="assistant"><h3>{{ {'network':'Superficie de red','credentials':'Acceso a servicios','applications':'Protección de aplicaciones','ipv6':'Controles IPv6','fragmentation':'Fragmentación','generalist':'Visión de la auditoría'}.get(review.role,'Análisis') }}</h3><p>{{ review.interpretation }}</p><p><span class="label">Acción recomendada</span><br>{{ review.next_step }}</p><p class="section-note"><strong>Límite observado:</strong> {{ review.limitation }}</p>{% for action in review.prioritized_actions|default([]) %}<div class="verification"><strong>{{ action.title }} · {{ action.addresses|join(', ') }}</strong><p>{{ action.why }}</p><p><span class="label">Verificación de cierre</span><br>{{ action.verification }}</p><p class="references">{{ action.evidence_tasks|join(', ') }}</p></div>{% endfor %}{% if review.references %}<p class="references">{% if audience=='technical' %}Observaciones citadas: {% for ref in review.references %}{{ ref.ref }} → {{ ref.address }}{% if not loop.last %} · {% endif %}{% endfor %}{% else %}Observaciones de: {{ review.references|map(attribute='address')|unique|join(', ') }}{% endif %}</p>{% endif %}</section>{% endfor %}{% endif %}
-{% if audience=='technical' and cve_candidates %}<h2>Candidatos CVE pendientes de contraste</h2><p class="section-note">Catálogo local acotado. Una coincidencia de versión no confirma vulnerabilidad; los backports y condiciones del producto requieren contraste. No cuentan como hallazgos ni TP.</p>{% for candidate in cve_candidates %}<section class="issue"><h3>{{ candidate.cve }} · {{ candidate.address }} · TCP {{ candidate.port }}</h3><p>{{ candidate.observed_product }} {{ candidate.observed_version }}</p><p>{{ candidate.condition }}</p><p>{{ candidate.next_step }}</p><p class="references"><a href="{{ candidate.url }}">Aviso del fabricante</a> · {{ candidate.catalog_version }}<br>Evidencia: {{ candidate.evidence_ref }}</p></section>{% endfor %}{% endif %}
+
+{% if report_view.hosts %}<section class="block" id="equipos">
+  <h2>{% set sec.n = sec.n + 1 %}<span class="n">{{ "%02d"|format(sec.n) }}</span>Resultado por equipo</h2>
+  <div class="table-wrap"><table><thead><tr><th>Equipo</th><th>Servicios abiertos</th><th>Hallazgos</th><th>Incidencias</th><th>Conclusión</th></tr></thead><tbody>
+  {% for host in report_view.hosts %}<tr><td class="addr">{{ host.address }}</td><td>{% if not host.services %}{{ host.activity }}{% endif %}{% for service in host.services %}{{ service.port }}/{{ service.name }}{% if not loop.last %}<br>{% endif %}{% endfor %}</td><td>{{ host.findings }}</td><td>{{ host.issues }}</td><td class="result {{ 'alert' if host.findings else 'review' if host.issues else 'ok' }}">{{ host.conclusion }}</td></tr>{% endfor %}
+  </tbody></table></div>
+  {% if audience=="technical" and report_view.exposures %}<h3 style="margin:22px 0 8px;font-size:15px">Servicios expuestos</h3><p class="note" style="margin:0 0 10px">Solo puertos observados como abiertos. La versión de un servicio no confirma por sí sola una vulnerabilidad.</p>
+  <div class="table-wrap"><table><thead><tr><th>Equipo</th><th>Puerto TCP</th><th>Servicio</th><th>Producto / versión</th></tr></thead><tbody>{% for item in report_view.exposures %}{% for service in item.open_services %}<tr><td class="addr">{{ item.address }}</td><td>{{ service.port }}</td><td>{{ service.name }}</td><td>{{ service.version or 'No identificada' }}</td></tr>{% endfor %}{% endfor %}</tbody></table></div>{% endif %}
+</section>{% endif %}
+
+<section class="block" id="alcance">
+  <h2>{% set sec.n = sec.n + 1 %}<span class="n">{{ "%02d"|format(sec.n) }}</span>Qué se evaluó</h2>
+  <div class="chips"><span><b>{{ report_view.progress.closed }} / {{ report_view.progress.total }}</b> operaciones cerradas</span><span><b>{{ report_view.progress.successful }}</b> correctas</span>{% if report_view.progress.issues %}<span class="warn"><b>{{ report_view.progress.issues }}</b> con incidencias</span>{% endif %}{% if report_view.progress.skipped %}<span class="warn">{{ report_view.progress.skipped }} omitidas</span>{% endif %}{% if report_view.progress.remaining %}<span class="warn">{{ report_view.progress.remaining }} sin cerrar</span>{% endif %}</div>
+  <div class="stages">{% for stage in report_view.progress.stages %}<div class="{{ 'warn' if stage.issues else '' }}"><strong>{{ stage.total }}</strong><span>{{ stage.label }}</span><small>{{ stage.successful }} correctas{% if stage.key=="credentials" %} · {{ stage.no_detection }} sin detección{% endif %}{% if stage.issues %} · {{ stage.issues }} con incidencias{% endif %}</small></div>{% endfor %}</div>
+  {% if brief.inventory %}<p class="note">{{ report_view.scope_count }} direcciones incluidas · {{ report_view.exposed_hosts }} con servicios TCP abiertos · {{ report_view.service_count }} servicios observados.{% if report_view.down_count %} {{ report_view.down_count }} direcciones no respondieron al descubrimiento; eso no demuestra que estén apagadas.{% endif %}</p>{% endif %}
+  <p class="note">{{ report_view.progress.explanation }}</p>
+  {% if run.llm.known_tokens %}<p class="note">IA: {{ run.llm.model }} · {{ run.llm.known_tokens }} tokens{% if not run.llm.usage_complete %} (medición incompleta){% endif %}. Abrir o exportar este informe no consume tokens adicionales.</p>{% endif %}
+</section>
+
+{% if report_view.issues %}<section class="block" id="incidencias">
+  <h2>{% set sec.n = sec.n + 1 %}<span class="n">{{ "%02d"|format(sec.n) }}</span>Incidencias de la evaluación</h2>
+  <p class="note" style="margin:0">{{ report_view.issues|length }} operaciones con incidencias. Los hallazgos confirmados se conservan; estas comprobaciones requieren revisión.</p>
+  {% for item in report_view.incident_groups %}<div class="warn-box"><h3>{{ item.address }}{% if item.ports %} · TCP {{ item.ports|join(', ') }}{% endif %} · {{ item.title }}</h3><p>{{ item.meaning }}</p><p><b>Siguiente paso:</b> {{ item.next_step }}</p>{% if audience=='technical' %}<p class="refs">Motivo registrado: {{ item.reason }}</p>{% endif %}</div>{% endfor %}
+</section>{% endif %}
+
+{% if report_view.reviews %}<section class="block">
+  <h2>{% set sec.n = sec.n + 1 %}<span class="n">{{ "%02d"|format(sec.n) }}</span>Análisis asistido por IA</h2>
+  <p class="note" style="margin:0 0 6px">Interpretaciones por especialidad. No sustituyen la evidencia independiente de cada hallazgo.</p>
+  {% for review in report_view.reviews %}<div class="ai"><h3>{{ {'network':'Superficie de red','credentials':'Acceso a servicios','applications':'Protección de aplicaciones','ipv6':'Controles IPv6','fragmentation':'Fragmentación','generalist':'Visión de la auditoría'}.get(review.role,'Análisis') }}</h3><p>{{ review.interpretation }}</p><p><span class="label">Acción recomendada</span>{{ review.next_step }}</p><p class="note">Límite observado: {{ review.limitation }}</p>
+  {% for action in review.prioritized_actions|default([]) %}<div class="fix"><span class="label">{{ action.title }} · {{ action.addresses|join(', ') }}</span><p>{{ action.why }}</p><div class="verify"><span class="label">Verificación de cierre</span><p>{{ action.verification }}</p></div></div>{% endfor %}
+  {% if review.references and audience=='technical' %}<p class="refs">Observaciones citadas: {% for ref in review.references %}{{ ref.ref }} → {{ ref.address }}{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}</div>{% endfor %}
+</section>{% endif %}
+
+{% if audience=='technical' and cve_candidates %}<section class="block">
+  <h2>{% set sec.n = sec.n + 1 %}<span class="n">{{ "%02d"|format(sec.n) }}</span>Candidatos CVE por contrastar</h2>
+  <p class="note" style="margin:0">Coincidencias de versión en el catálogo local. No son hallazgos confirmados.</p>
+  {% for candidate in cve_candidates %}<div class="warn-box"><h3>{{ candidate.cve }} · {{ candidate.address }} · TCP {{ candidate.port }}</h3><p>{{ candidate.observed_product }} {{ candidate.observed_version }} · {{ candidate.condition }}</p><p>{{ candidate.next_step }}</p><p class="refs"><a href="{{ candidate.url }}">Aviso del fabricante</a> · {{ candidate.catalog_version }} · {{ candidate.evidence_ref }}</p></div>{% endfor %}
+</section>{% endif %}
+
 {% if audience=='technical' %}
-<details id="technical-appendix" class="technical-appendix"><summary>Anexo · cobertura, diagnóstico y evidencia completa</summary>
-<h2>Cobertura de las pruebas</h2><p class="section-note">{{ report_view.progress.successful }} / {{ report_view.progress.total }} operaciones ejecutadas correctamente; {{ report_view.progress.closed }} cerradas en total. {{ report_view.down_count }} direcciones sin respuesta al descubrimiento, sin afirmar que estén apagadas. {{ report_view.closed_ports }} observaciones de puertos cerrados.</p>
-{% if report_view.coverage %}<div class="table-wrap"><table><thead><tr><th>Equipo</th><th>Prueba solicitada</th><th>Resultado</th></tr></thead><tbody>{% for item in report_view.coverage %}{% for name,state in item.checks %}<tr><td>{{ item.address }}</td><td>{{ name }}</td><td>{{ {'completed':'Completada','confirmed':'Confirmada con evidencia','not_detected':'Sin detección en la prueba','incomplete':'Incompleta','not_evaluated':'Sin evaluación válida'}.get(state,state) }}</td></tr>{% endfor %}{% endfor %}</tbody></table></div>{% endif %}
-<div class="table-wrap"><table><thead><tr><th>Objetivo</th><th>Perfil</th><th>Estado</th></tr></thead><tbody>{% for task in brief.tasks %}<tr><td>{{ task.asset_name }}</td><td>{{ task.label }}</td><td>{{ task.status_name }}{% if task.reason %} · {{ task.reason }}{% endif %}</td></tr>{% endfor %}</tbody></table></div>
-{% if brief.inventory %}<h2>Detalle del descubrimiento y estados TCP</h2>{% for item in brief.inventory %}<div class="diagnostic"><h3>{{ item.address }}</h3>{% if item.host_state=='down' %}<p class="section-note">Sin respuesta al descubrimiento. Puertos sin escanear.</p>{% else %}<p class="section-note">{% for port in item.ports %}{{ port.port }}/tcp: {{ port.state }}{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}</div>{% endfor %}{% endif %}
-<h2>Herramientas y trazabilidad técnica</h2>{% for item in technical %}<div class="diagnostic"><h3>{{ item.tool }} · {{ item.address }}</h3><p class="meta">{{ item.id }} · {{ item.state }}</p>{% if item.command %}<code>{{ item.command }}</code>{% endif %}{% if item.evidence %}<p class="references">Evidencia: {{ item.evidence }}<br>Integridad SHA-256: {{ 'coincide' if item.hash_matches==true else 'no coincide' if item.hash_matches==false else 'sin contraste disponible' }}{% if item.confirmation %}<br>Corroboración: {{ item.confirmation }}{% endif %}</p>{% endif %}</div>{% endfor %}
-{% if run.llm.known_tokens %}<h2>Asistencia registrada</h2><p class="section-note">Modelo: {{ run.llm.model }} · {{ run.llm.known_tokens }} tokens conocidos · límite {{ run.llm.budget }}. Abrir o exportar este informe consume 0 tokens adicionales.{% if not run.llm.usage_complete %} Medición de uso incompleta.{% endif %}{% if run.llm.fallbacks %} {{ run.llm.fallbacks }} decisiones de respaldo.{% endif %}</p>{% endif %}
-</details>{% endif %}
-<footer class="footer">Alcance: {{ report_view.scope_count }} {{ 'direcciones' if brief.inventory else 'objetivos' }} del laboratorio autorizado. Se informan las pruebas ejecutadas y su evidencia; el resultado no acredita seguridad general. {{ 'Descubrimiento automático TCP 1–65535, sujeto a los límites e incidencias registrados.' if brief.automatic_ports else 'La evaluación cubre los puertos TCP seleccionados.' if brief.inventory else '' }} Las acciones propuestas deben asignarse y comprobarse después de corregir.</footer></div></article></body></html>
+<details id="technical-appendix" class="appendix"><summary>Anexo · cobertura, diagnóstico y evidencia completa</summary>
+  <h2>Cobertura por equipo</h2>
+  {% if report_view.coverage %}<div class="table-wrap"><table><thead><tr><th>Equipo</th><th>Prueba</th><th>Resultado</th></tr></thead><tbody>{% for item in report_view.coverage %}{% for name,state in item.checks %}<tr><td class="addr">{{ item.address }}</td><td>{{ name }}</td><td>{{ {'completed':'Completada','confirmed':'Confirmada con evidencia','not_detected':'Sin detección','incomplete':'Incompleta','not_evaluated':'Sin evaluación válida'}.get(state,state) }}</td></tr>{% endfor %}{% endfor %}</tbody></table></div>{% endif %}
+  <h2>Tareas ejecutadas</h2>
+  <div class="table-wrap"><table><thead><tr><th>Objetivo</th><th>Perfil</th><th>Estado</th></tr></thead><tbody>{% for task in brief.tasks %}<tr><td>{{ task.asset_name }}</td><td>{{ task.label }}</td><td>{{ task.status_name }}{% if task.reason %} · {{ task.reason }}{% endif %}</td></tr>{% endfor %}</tbody></table></div>
+  {% if brief.inventory %}<h2>Descubrimiento y estados TCP</h2>{% for item in brief.inventory %}<div class="diag"><h3>{{ item.address }}</h3>{% if item.host_state=='down' %}<p class="note">Sin respuesta al descubrimiento. Puertos sin escanear.</p>{% else %}<p class="note">{% for port in item.ports %}{{ port.port }}/tcp: {{ port.state }}{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}</div>{% endfor %}{% endif %}
+  <h2>Herramientas y trazabilidad técnica</h2>
+  {% for item in technical %}<div class="diag"><h3>{{ item.tool }} · {{ item.address }}</h3><p class="refs">{{ item.id }} · {{ item.state }}</p>{% if item.command %}<code>{{ item.command }}</code>{% endif %}{% if item.evidence %}<p class="refs">Evidencia: {{ item.evidence }}<br>Integridad SHA-256: {{ 'coincide' if item.hash_matches==true else 'no coincide' if item.hash_matches==false else 'sin contraste disponible' }}{% if item.confirmation %}<br>Corroboración: {{ item.confirmation }}{% endif %}</p>{% endif %}</div>{% endfor %}
+  {% if run.llm.known_tokens %}<h2>Asistencia registrada</h2><p class="note">Modelo {{ run.llm.model }} · {{ run.llm.known_tokens }} tokens · límite {{ run.llm.budget }}.{% if run.llm.fallbacks %} {{ run.llm.fallbacks }} decisiones de respaldo.{% endif %}</p>{% endif %}
+</details>
+{% endif %}
+
+<footer class="footer">Alcance: {{ report_view.scope_count }} {{ 'direcciones' if brief.inventory else 'equipos' }} autorizados. Este informe describe las pruebas ejecutadas y su evidencia en la fecha indicada; no acredita la seguridad general de la organización. {{ 'Descubrimiento automático TCP 1–65535, sujeto a los límites registrados.' if brief.automatic_ports else '' }} Elaborado por Novaflow con Centinela.</footer>
+</div></article></body></html>

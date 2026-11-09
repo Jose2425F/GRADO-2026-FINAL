@@ -10,7 +10,7 @@ import time
 import unittest
 import pytest
 
-pytestmark = pytest.mark.usefixtures("healthy_kernel")
+pytestmark = pytest.mark.usefixtures("healthy_kernel", "simulated_bank_restoration")
 from unittest.mock import patch
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
@@ -50,13 +50,19 @@ class EmpresaPanelTests(unittest.TestCase):
     def test_same_32_tasks_serial_or_parallel_with_protocol_and_asset_isolation(self):
         for architecture,limit in [('single',1),('multiagent',2)]:
             active=[];peak=0;lock=threading.Lock()
+            first_pair_started=threading.Event()
             def worker(task,store):
                 nonlocal peak
                 with lock:
                     self.assertNotIn(task.target.asset_id,[t.target.asset_id for t in active])
                     if task.agent_type in {'ipv6_ndp','ipv6_fragmentation'}:
                         self.assertFalse(any(t.agent_type in {'ipv6_ndp','ipv6_fragmentation'} for t in active))
+                    first_worker=peak==0
                     active.append(task);peak=max(peak,len(active))
+                    if len(active)==2:first_pair_started.set()
+                if limit==2 and first_worker:
+                    self.assertTrue(first_pair_started.wait(timeout=5),
+                                    'No se despacharon dos tareas independientes')
                 time.sleep(.003)
                 with lock:active.remove(task)
                 return TaskResult(task_id=task.task_id,status='completed_no_findings')

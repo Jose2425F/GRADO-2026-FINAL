@@ -22,6 +22,8 @@ C = 'sha256:' + 'c' * 64
 @pytest.fixture
 def bank(tmp_path, monkeypatch):
     """Docker is entirely simulated; unrecognized subprocesses always fail."""
+    from auditoria import lab_empresa
+    monkeypatch.setattr(lab_empresa, 'preflight', lambda state: {'simulation_only': True, 'network_ready': True})
     source = tmp_path / 'original' / 'docker-compose.yml'
     source.parent.mkdir()
     definition = {'name': 'novaflow-lab', 'services': {

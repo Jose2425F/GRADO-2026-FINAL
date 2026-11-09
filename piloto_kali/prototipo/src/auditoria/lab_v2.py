@@ -200,13 +200,17 @@ def http_json(address, port, path, *, token=None, nonce=None, data=None, indepen
 
 
 def snapshot(receiver):
+    from .observer_schema import packet_observer, ObserverResponseError
     name = receiver["container"]
+    status, observed = http_json(receiver["address"], 8000, "/state")
+    if status != 200:
+        raise ObserverResponseError("observer_http_status_rejected")
     return {
         "addresses": json.loads(docker("exec", name, "ip", "-j", "-6", "addr", "show", "dev", "eth0")),
         "routes": json.loads(docker("exec", name, "ip", "-j", "-6", "route", "show")),
         "neighbors": json.loads(docker("exec", name, "ip", "-j", "-6", "neigh", "show")),
         "mtu": int(docker("exec", name, "cat", "/proc/sys/net/ipv6/conf/eth0/mtu").strip()),
-        "observer": http_json(receiver["address"], 8000, "/state")[1],
+        "observer": packet_observer(observed),
         "observed_at": time.monotonic(),
     }
 

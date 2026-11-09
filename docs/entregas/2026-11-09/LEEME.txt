@@ -1,0 +1,9 @@
+VERSIONES DEL DOCUMENTO DEL 9 DE NOVIEMBRE DE 2026
+
+v1 conserva el título original solicitado por los autores y la revisión NTC anterior.
+v2 añade la sección 5.8, el Anexo I y la Tabla 44; identifica los resultados históricos de octubre y la verificación descriptiva del 8 de noviembre. Se conserva el título original.
+
+Las mediciones de noviembre están clasificadas fuera de la cohorte formal. No se sustituyen los KPI históricos ni se mezclan las campañas. Los índices se actualizaron con 194 referencias de página. Se conservan los ajustes de presentación de la NTC 1486:2022; el título original y la citación numérica se mantienen con los límites documentados en el cotejo. Esta revisión no declara cerrados todos los puntos del informe del profesor.
+
+Evidencia: ../../evidencias-versionadas/2026-11-09/LEEME.txt
+Los archivos de versiones anteriores permanecen conservados en sus rutas y en el historial Git.

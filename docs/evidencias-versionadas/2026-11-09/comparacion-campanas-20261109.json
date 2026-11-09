@@ -1,0 +1,1933 @@
+{
+  "kind": "read_only_descriptive_comparison_of_separate_campaigns",
+  "analysis_date": "2026-11-09",
+  "selection": {
+    "historic": "50 preserved records with run IDs dated 2026-10-18/19; eligible flags from pairs.json retained",
+    "new": "50 manifest/manual_context positions whose recorded started_at and run IDs are dated 2026-11-08",
+    "warning": "Both campaigns reuse study_id langgraph_manual_20261018 and logical protocol hash; select by date + full run_id, not study_id alone",
+    "read_only": true,
+    "api_calls": false,
+    "audits_executed": false
+  },
+  "historical": {
+    "attempts": 50,
+    "statuses": {
+      "partial": 2,
+      "complete": 48
+    },
+    "eligible_pairs": 23,
+    "means_full_precision": {
+      "TRTO_percent": 19.35573162098956,
+      "IDE_percent": 26.41335717422674,
+      "ETV_ratio": 1.5117028572815006
+    },
+    "total_tokens_all_attempts": 891821,
+    "source_identities": {
+      "f9989505e528b788a5655b1acc3a990768489732b2af9fe0a2b634f7620e530d": 50
+    },
+    "adapter_identities": {
+      "85b971a140fbbcb2261fed46faac84d26c03d1cb0b197c6c9b5e214ebfe70a3f": 2,
+      "e7cebf5cd1564b3cef04bdad7eb12aee16fd29cbb92896daeebc54776ad42a89": 48
+    }
+  },
+  "new_campaign": {
+    "attempts": 50,
+    "statuses": {
+      "complete": 50
+    },
+    "eligible_pairs_current_rules": 25,
+    "means_panel_rounded_per_pair": {
+      "TRTO_percent": 30.642523999999998,
+      "IDE_percent": 27.236492000000002,
+      "ETV_ratio": 1.530056
+    },
+    "means_full_precision": {
+      "TRTO_percent": 30.642519596683197,
+      "IDE_percent": 27.236507936507934,
+      "ETV_ratio": 1.530060143232677
+    },
+    "total_tokens_all_attempts": 891244,
+    "total_estimated_cost_all_attempts_usd": 2.2770971,
+    "source_identities": {
+      "b71168c1be21f6c9270efe4cf0b743bf6bafb0cb29c514d6082de51bf1e43937": 50
+    },
+    "adapter_identities": {
+      "de898d3348fb4671db446ecb1dff8641c6ba7a0938da07e3758927dede6e0956": 50
+    },
+    "model_names": {
+      "gpt-6.1-sol": 50
+    },
+    "reported_models": {
+      "['gpt-6.1-sol']": 50
+    },
+    "protocol_identity": {
+      "34e4066e28895a08d43438ec97f5fe20397e6800287251da165b9debe604e4ef": 50
+    }
+  },
+  "common_23_positions": {
+    "n": 23,
+    "selection": "New campaign positions having same scenario and pair number as historical eligible pairs; removes integrado/1 and reforzado/1 from new campaign. It does not make code or images identical across dates.",
+    "new_means_full_precision": {
+      "TRTO_percent": 30.038482500264273,
+      "IDE_percent": 27.672532781228433,
+      "ETV_ratio": 1.523506679302374
+    },
+    "new_means_panel_rounded_per_pair": {
+      "TRTO_percent": 30.038486956521737,
+      "IDE_percent": 27.67251739130435,
+      "ETV_ratio": 1.5235
+    },
+    "new_minus_old": {
+      "TRTO_percent": 10.682750879274714,
+      "IDE_percent": 1.2591756070016942,
+      "ETV_ratio": 0.011803822020873378
+    }
+  },
+  "formulas": {
+    "per_pair": "TRTO=100*(t_single-t_multi)/t_single; IDE=100*(TP_multi-TP_single)/TP_single; ETV=(tokens_single/TP_single)/(tokens_multi/TP_multi)",
+    "aggregation": "Arithmetic mean of per-pair ratios. Current panel rounds each pair to 4 decimal places before describing; full precision independently recomputed here from report measurements. Not ratio of pooled totals.",
+    "time": "report.metrics.elapsed_seconds as read by dashboard.collect_run; not execution_seconds alone",
+    "units": "TRTO and IDE in percent; ETV is a dimensionless ratio. Differences of percent values are percentage points."
+  },
+  "recorded_identity_differences_across_50_matching_positions": {
+    "source_sha256": 50,
+    "adapter_sha256": 50,
+    "graph_sha256": 2,
+    "ground_truth_sha256": 0,
+    "images_sha256": 50,
+    "scenario_source_sha256": 40,
+    "fixture_sha256": 50,
+    "token_budget": 0,
+    "max_runtime_seconds": 0
+  },
+  "limits": [
+    "Different auditor/controller hashes and image IDs establish different executable contexts; do not establish which change caused each KPI difference.",
+    "Same ground-truth hashes, model name and limits do not guarantee identical responses, workload timing, prompts, environment or runtime state.",
+    "No causal effect of upgrades can be isolated from these campaign means.",
+    "Post-review November 9 acceptance and 775 software tests are different measurements and not new paired API audits.",
+    "No historical attempts or exclusions were overwritten or imputed."
+  ],
+  "example_pair": {
+    "scenario": "comercial",
+    "pair": 2,
+    "old": [
+      {
+        "run_id": "panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234",
+        "started_at": "2026-10-19T01:02:34.252154+00:00",
+        "status": "complete",
+        "seconds": 172.252,
+        "TP": 9,
+        "FP": 0,
+        "FN": 0,
+        "TN": 7,
+        "known_tokens": 13913,
+        "source_sha256": "f9989505e528b788a5655b1acc3a990768489732b2af9fe0a2b634f7620e530d",
+        "adapter_sha256": "e7cebf5cd1564b3cef04bdad7eb12aee16fd29cbb92896daeebc54776ad42a89",
+        "images_sha256": "94e4e1a906880fc7c4c7a5e52bfa702bafe6d3a9f595b8c7d8237fd79c82526c",
+        "ground_truth_sha256": "711c04a8e2e48491d671472b9f5bfa300ac069b874ede3600e116e0537c4869f",
+        "token_budget": 60000,
+        "max_runtime_seconds": 2400
+      },
+      {
+        "run_id": "panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626",
+        "started_at": "2026-10-19T01:06:26.470544+00:00",
+        "status": "complete",
+        "seconds": 187.846,
+        "TP": 6,
+        "FP": 0,
+        "FN": 3,
+        "TN": 7,
+        "known_tokens": 15381,
+        "source_sha256": "f9989505e528b788a5655b1acc3a990768489732b2af9fe0a2b634f7620e530d",
+        "adapter_sha256": "e7cebf5cd1564b3cef04bdad7eb12aee16fd29cbb92896daeebc54776ad42a89",
+        "images_sha256": "94e4e1a906880fc7c4c7a5e52bfa702bafe6d3a9f595b8c7d8237fd79c82526c",
+        "ground_truth_sha256": "711c04a8e2e48491d671472b9f5bfa300ac069b874ede3600e116e0537c4869f",
+        "token_budget": 60000,
+        "max_runtime_seconds": 2400
+      }
+    ],
+    "new": [
+      {
+        "run_id": "panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443",
+        "started_at": "2026-11-08T20:44:43.543750+00:00",
+        "status": "complete",
+        "seconds": 124.265,
+        "TP": 9,
+        "FP": 0,
+        "FN": 0,
+        "TN": 7,
+        "known_tokens": 14186,
+        "source_sha256": "b71168c1be21f6c9270efe4cf0b743bf6bafb0cb29c514d6082de51bf1e43937",
+        "adapter_sha256": "de898d3348fb4671db446ecb1dff8641c6ba7a0938da07e3758927dede6e0956",
+        "images_sha256": "f64f1a1e05571bf539abc02aad30617cb8d0439c013a7a46638b76971c59a210",
+        "ground_truth_sha256": "711c04a8e2e48491d671472b9f5bfa300ac069b874ede3600e116e0537c4869f",
+        "token_budget": 60000,
+        "max_runtime_seconds": 2400
+      },
+      {
+        "run_id": "panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742",
+        "started_at": "2026-11-08T20:47:42.521456+00:00",
+        "status": "complete",
+        "seconds": 169.811,
+        "TP": 6,
+        "FP": 0,
+        "FN": 3,
+        "TN": 6,
+        "known_tokens": 15228,
+        "source_sha256": "b71168c1be21f6c9270efe4cf0b743bf6bafb0cb29c514d6082de51bf1e43937",
+        "adapter_sha256": "de898d3348fb4671db446ecb1dff8641c6ba7a0938da07e3758927dede6e0956",
+        "images_sha256": "f64f1a1e05571bf539abc02aad30617cb8d0439c013a7a46638b76971c59a210",
+        "ground_truth_sha256": "711c04a8e2e48491d671472b9f5bfa300ac069b874ede3600e116e0537c4869f",
+        "token_budget": 60000,
+        "max_runtime_seconds": 2400
+      }
+    ],
+    "old_metrics": {
+      "ETV_ratio": 1.6582692445913894,
+      "IDE_percent": 50.0,
+      "TRTO_percent": 8.301481000393936,
+      "token_reduction_percent": 9.544242897080814
+    },
+    "new_metrics": {
+      "TRTO_percent": 26.821583996325327,
+      "IDE_percent": 50.0,
+      "ETV_ratio": 1.6101790497673762
+    }
+  },
+  "new_pairs": [
+    {
+      "scenario": "integrado",
+      "pair": 1,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": false,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 42.2125,
+        "IDE_percent": 44.4444,
+        "ETV_ratio": 1.8553
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 42.2125045272237,
+        "IDE_percent": 44.44444444444444,
+        "ETV_ratio": 1.8552608771017507
+      },
+      "runs": {
+        "single": "panel/e133a8f102e5/emp_single_218442c8fa6c_20261108T175517",
+        "multiagent": "panel/1081821af346/emp_multiagent_ff19d3527818_20261108T180512"
+      }
+    },
+    {
+      "scenario": "integrado",
+      "pair": 2,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 39.1224,
+        "IDE_percent": 44.4444,
+        "ETV_ratio": 1.8123
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 39.12242359955376,
+        "IDE_percent": 44.44444444444444,
+        "ETV_ratio": 1.8123150608535905
+      },
+      "runs": {
+        "single": "panel/671d7a2b6664/emp_single_b0839765543f_20261108T181026",
+        "multiagent": "panel/b7635fa79688/emp_multiagent_c526709fb59f_20261108T181519"
+      }
+    },
+    {
+      "scenario": "integrado",
+      "pair": 3,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 38.3052,
+        "IDE_percent": 30.0,
+        "ETV_ratio": 1.664
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 38.30515381801173,
+        "IDE_percent": 30.0,
+        "ETV_ratio": 1.6639717425431713
+      },
+      "runs": {
+        "single": "panel/c4e8ea40894e/emp_single_6684422feb2b_20261108T194347",
+        "multiagent": "panel/c596fed6ea58/emp_multiagent_ebec966aaa87_20261108T194052"
+      }
+    },
+    {
+      "scenario": "integrado",
+      "pair": 4,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 38.9443,
+        "IDE_percent": 44.4444,
+        "ETV_ratio": 1.8334
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 38.944336555456154,
+        "IDE_percent": 44.44444444444444,
+        "ETV_ratio": 1.8333632501645427
+      },
+      "runs": {
+        "single": "panel/8136d1f387ae/emp_single_231523dfe11f_20261108T194818",
+        "multiagent": "panel/c07bad76f866/emp_multiagent_fcf592f277ec_20261108T195245"
+      }
+    },
+    {
+      "scenario": "integrado",
+      "pair": 5,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 39.9416,
+        "IDE_percent": 30.0,
+        "ETV_ratio": 1.6497
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 39.941577409931845,
+        "IDE_percent": 30.0,
+        "ETV_ratio": 1.64971356208165
+      },
+      "runs": {
+        "single": "panel/2aa829fd56f6/emp_single_c4f83ef51967_20261108T195845",
+        "multiagent": "panel/af77515d1cd3/emp_multiagent_b82025b8a9fb_20261108T195545"
+      }
+    },
+    {
+      "scenario": "sucursal",
+      "pair": 1,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 22.4883,
+        "IDE_percent": 50.0,
+        "ETV_ratio": 1.5187
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 22.488279107119634,
+        "IDE_percent": 50.0,
+        "ETV_ratio": 1.5186784963810411
+      },
+      "runs": {
+        "single": "panel/d08913135cb7/emp_single_c4b45a42dd47_20261108T200610",
+        "multiagent": "panel/1a150b82baab/emp_multiagent_54057d626d1f_20261108T200302"
+      }
+    },
+    {
+      "scenario": "sucursal",
+      "pair": 2,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 14.7354,
+        "IDE_percent": 28.5714,
+        "ETV_ratio": 1.3391
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 14.735431199926877,
+        "IDE_percent": 28.57142857142857,
+        "ETV_ratio": 1.3391402475579222
+      },
+      "runs": {
+        "single": "panel/dae04437f360/emp_single_e8aeeefb484b_20261108T201005",
+        "multiagent": "panel/d4792d40ffb8/emp_multiagent_509e6808695f_20261108T201339"
+      }
+    },
+    {
+      "scenario": "sucursal",
+      "pair": 3,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 22.0586,
+        "IDE_percent": 28.5714,
+        "ETV_ratio": 1.362
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 22.058613452303767,
+        "IDE_percent": 28.57142857142857,
+        "ETV_ratio": 1.3620429702223895
+      },
+      "runs": {
+        "single": "panel/37e7db2683f1/emp_single_57c4b17fa0e7_20261108T201649",
+        "multiagent": "panel/934a178f3573/emp_multiagent_754dba003ec4_20261108T202101"
+      }
+    },
+    {
+      "scenario": "sucursal",
+      "pair": 4,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 15.6787,
+        "IDE_percent": 50.0,
+        "ETV_ratio": 1.612
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 15.678698583874247,
+        "IDE_percent": 50.0,
+        "ETV_ratio": 1.6120121850815081
+      },
+      "runs": {
+        "single": "panel/9cdf14a1909d/emp_single_426fea06c466_20261108T202741",
+        "multiagent": "panel/6b973cc761cb/emp_multiagent_90430a417702_20261108T202413"
+      }
+    },
+    {
+      "scenario": "sucursal",
+      "pair": 5,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 30.9186,
+        "IDE_percent": 28.5714,
+        "ETV_ratio": 1.2952
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 30.918576753480636,
+        "IDE_percent": 28.57142857142857,
+        "ETV_ratio": 1.2952238571091352
+      },
+      "runs": {
+        "single": "panel/8b82edfc8759/emp_single_0b1fdad10398_20261108T203418",
+        "multiagent": "panel/790d124613fc/emp_multiagent_ef351986c8ff_20261108T203124"
+      }
+    },
+    {
+      "scenario": "comercial",
+      "pair": 1,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 4.788,
+        "IDE_percent": 12.5,
+        "ETV_ratio": 1.1898
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 4.787959801361663,
+        "IDE_percent": 12.5,
+        "ETV_ratio": 1.1898185336643785
+      },
+      "runs": {
+        "single": "panel/7d8724d2a2b8/emp_single_6fc884c3b5e3_20261108T203816",
+        "multiagent": "panel/ab187d3cfdfd/emp_multiagent_5847747f7e2b_20261108T204128"
+      }
+    },
+    {
+      "scenario": "comercial",
+      "pair": 2,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 26.8216,
+        "IDE_percent": 50.0,
+        "ETV_ratio": 1.6102
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 26.821583996325327,
+        "IDE_percent": 50.0,
+        "ETV_ratio": 1.6101790497673762
+      },
+      "runs": {
+        "single": "panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742",
+        "multiagent": "panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443"
+      }
+    },
+    {
+      "scenario": "comercial",
+      "pair": 3,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 33.9338,
+        "IDE_percent": 50.0,
+        "ETV_ratio": 1.7565
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 33.93377352152388,
+        "IDE_percent": 50.0,
+        "ETV_ratio": 1.7565017261219793
+      },
+      "runs": {
+        "single": "panel/9f14a71daba7/emp_single_2e6ab55a7f27_20261108T205438",
+        "multiagent": "panel/fc4f7b7b5a07/emp_multiagent_c0d11c7b97af_20261108T205134"
+      }
+    },
+    {
+      "scenario": "comercial",
+      "pair": 4,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 20.3812,
+        "IDE_percent": 28.5714,
+        "ETV_ratio": 1.433
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 20.381211552974,
+        "IDE_percent": 28.57142857142857,
+        "ETV_ratio": 1.433032789442486
+      },
+      "runs": {
+        "single": "panel/4014e39e6df3/emp_single_0a05791af64b_20261108T205845",
+        "multiagent": "panel/8a0623d4cfdc/emp_multiagent_bedeb36ab096_20261108T210249"
+      }
+    },
+    {
+      "scenario": "comercial",
+      "pair": 5,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 16.9738,
+        "IDE_percent": 28.5714,
+        "ETV_ratio": 1.4169
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 16.973810114469998,
+        "IDE_percent": 28.57142857142857,
+        "ETV_ratio": 1.4169285456699807
+      },
+      "runs": {
+        "single": "panel/dd29ae26b87a/emp_single_21294c21f8ea_20261108T210936",
+        "multiagent": "panel/13742bde7142/emp_multiagent_01dcd917a4ef_20261108T210611"
+      }
+    },
+    {
+      "scenario": "mixto",
+      "pair": 1,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 36.1571,
+        "IDE_percent": 10.0,
+        "ETV_ratio": 1.3448
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 36.157087185976614,
+        "IDE_percent": 10.0,
+        "ETV_ratio": 1.3448457839802979
+      },
+      "runs": {
+        "single": "panel/bd2cb73bcdc6/emp_single_40fe99b9dd34_20261108T211323",
+        "multiagent": "panel/e29b66d9e70c/emp_multiagent_ae4cb1fd036a_20261108T211743"
+      }
+    },
+    {
+      "scenario": "mixto",
+      "pair": 2,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 39.7052,
+        "IDE_percent": 22.2222,
+        "ETV_ratio": 1.558
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 39.705191709569085,
+        "IDE_percent": 22.22222222222222,
+        "ETV_ratio": 1.5580329790351368
+      },
+      "runs": {
+        "single": "panel/5b094c065c2a/emp_single_c5357997a601_20261108T212427",
+        "multiagent": "panel/3b54ef636f13/emp_multiagent_9caf2b0fed31_20261108T212107"
+      }
+    },
+    {
+      "scenario": "mixto",
+      "pair": 3,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 37.1408,
+        "IDE_percent": 22.2222,
+        "ETV_ratio": 1.5451
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 37.14083423984395,
+        "IDE_percent": 22.22222222222222,
+        "ETV_ratio": 1.5450719778074036
+      },
+      "runs": {
+        "single": "panel/2fcd4539bb05/emp_single_3b52f90cc240_20261108T212917",
+        "multiagent": "panel/a7de49669449/emp_multiagent_643b876d0879_20261108T213350"
+      }
+    },
+    {
+      "scenario": "mixto",
+      "pair": 4,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 37.2114,
+        "IDE_percent": 22.2222,
+        "ETV_ratio": 1.5409
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 37.211443783961194,
+        "IDE_percent": 22.22222222222222,
+        "ETV_ratio": 1.5408845221929333
+      },
+      "runs": {
+        "single": "panel/73cc61c65073/emp_single_fd2eba84ba80_20261108T214032",
+        "multiagent": "panel/2938e9eda8fa/emp_multiagent_6a2f4cb9db89_20261108T213711"
+      }
+    },
+    {
+      "scenario": "mixto",
+      "pair": 5,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 38.675,
+        "IDE_percent": 22.2222,
+        "ETV_ratio": 1.5794
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 38.674980999408874,
+        "IDE_percent": 22.22222222222222,
+        "ETV_ratio": 1.5793737816764133
+      },
+      "runs": {
+        "single": "panel/d940e3d67f66/emp_single_b40cfbc726f9_20261108T214516",
+        "multiagent": "panel/a30f1cf3c45b/emp_multiagent_f07173a7d8f0_20261108T215002"
+      }
+    },
+    {
+      "scenario": "reforzado",
+      "pair": 1,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": false,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 32.9654,
+        "IDE_percent": 0.0,
+        "ETV_ratio": 1.3556
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 32.96538788377796,
+        "IDE_percent": 0.0,
+        "ETV_ratio": 1.3555890797605723
+      },
+      "runs": {
+        "single": "panel/a338f8eaa39d/emp_single_988c2edbfb3c_20261108T215727",
+        "multiagent": "panel/23d9c208d26d/emp_multiagent_5991649b4e5e_20261108T215342"
+      }
+    },
+    {
+      "scenario": "reforzado",
+      "pair": 2,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 28.6795,
+        "IDE_percent": 0.0,
+        "ETV_ratio": 1.4174
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 28.679466354219368,
+        "IDE_percent": 0.0,
+        "ETV_ratio": 1.417413636821432
+      },
+      "runs": {
+        "single": "panel/37fa2623b753/emp_single_d2cf177440d0_20261108T220242",
+        "multiagent": "panel/e38f055db00e/emp_multiagent_bc1cf64737a8_20261108T220740"
+      }
+    },
+    {
+      "scenario": "reforzado",
+      "pair": 3,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 33.4041,
+        "IDE_percent": 0.0,
+        "ETV_ratio": 1.3547
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 33.40406512894629,
+        "IDE_percent": 0.0,
+        "ETV_ratio": 1.3547317073170733
+      },
+      "runs": {
+        "single": "panel/19f16acb6516/emp_single_473bf82b0791_20261108T221139",
+        "multiagent": "panel/23af0cfb04f9/emp_multiagent_a157a1b4ad54_20261108T221658"
+      }
+    },
+    {
+      "scenario": "reforzado",
+      "pair": 4,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 31.0636,
+        "IDE_percent": 0.0,
+        "ETV_ratio": 1.3585
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 31.063568266635784,
+        "IDE_percent": 0.0,
+        "ETV_ratio": 1.3584969532836833
+      },
+      "runs": {
+        "single": "panel/74d7fc0d5f21/emp_single_33687ca5db08_20261108T222048",
+        "multiagent": "panel/164f6f6138cd/emp_multiagent_d7658d2e63c6_20261108T222557"
+      }
+    },
+    {
+      "scenario": "reforzado",
+      "pair": 5,
+      "eligible_current_rules": true,
+      "in_historic_eligible_positions": true,
+      "metrics_panel_rounded_per_pair": {
+        "TRTO_percent": 43.757,
+        "IDE_percent": 33.3333,
+        "ETV_ratio": 1.8489
+      },
+      "metrics_full_precision": {
+        "TRTO_percent": 43.7570303712036,
+        "IDE_percent": 33.33333333333333,
+        "ETV_ratio": 1.8488802651790766
+      },
+      "runs": {
+        "single": "panel/11765f52366b/emp_single_41f3bf435c3b_20261108T223357",
+        "multiagent": "panel/2227ff62eb1a/emp_multiagent_8940c02eb4da_20261108T222958"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "role": "historic_runs.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/revision-respaldo-drive/soportes-recuperados/docs/evaluacion-langgraph/runs.json",
+      "sha256": "56fc650b1b049b776444153e407ff555546b6a95a44dba9494e360433a0520c3"
+    },
+    {
+      "role": "historic_pairs.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/revision-respaldo-drive/soportes-recuperados/docs/evaluacion-langgraph/pairs.json",
+      "sha256": "a9120684eea0aff79c348e9ff87a047ac64bc2e160fc370fbad2fd3d15e6d8c2"
+    },
+    {
+      "role": "historic_protocol.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/revision-respaldo-drive/soportes-recuperados/docs/evaluacion-langgraph/protocol.json",
+      "sha256": "816b7e03747279c836c5ba8c21c54123b0ca48a006f8fe9d4949cb3a37639ab1"
+    },
+    {
+      "role": "current_calculation_code",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/scripts/panel_metricas.py",
+      "sha256": "ad8e655a7d698d167624726fa4c1e83aed274cb230ee913750a85d9b0af35db0"
+    },
+    {
+      "role": "current_calculation_code",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/scripts/tesis/evaluacion_manual.py",
+      "sha256": "d14a356e798a1a71e06fbfe02946ebc3d219582edfe8615b6b00497cc5a9f99b"
+    },
+    {
+      "role": "current_calculation_code",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/scripts/tesis/protocolo_manual.py",
+      "sha256": "f1e2411972c47be0aa2e9083650c202d5549cc9b19c7b8e8cce84771973cf8ce"
+    }
+  ],
+  "new_input_files": [
+    {
+      "run_id": "panel/e133a8f102e5/emp_single_218442c8fa6c_20261108T175517",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/e133a8f102e5/emp_single_218442c8fa6c_20261108T175517/report.json",
+      "sha256": "45f27cb21e77f3aa19b07e25abe8e4c28ddd3a61f0192131bc8d549591251bb4"
+    },
+    {
+      "run_id": "panel/e133a8f102e5/emp_single_218442c8fa6c_20261108T175517",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/e133a8f102e5/emp_single_218442c8fa6c_20261108T175517/manifest.json",
+      "sha256": "1d331ee6c00bc9659cdc71da03d5341f2ed6fe5d38db42ea990ce1ac2f8bba30"
+    },
+    {
+      "run_id": "panel/e133a8f102e5/emp_single_218442c8fa6c_20261108T175517",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/e133a8f102e5/emp_single_218442c8fa6c_20261108T175517/evaluation.json",
+      "sha256": "2b0a8b9848861fc4aa6479f3732b27853cba1eb7ffa5794f789ba4aea214fd6b"
+    },
+    {
+      "run_id": "panel/e133a8f102e5/emp_single_218442c8fa6c_20261108T175517",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/e133a8f102e5/emp_single_218442c8fa6c_20261108T175517/runtime.json",
+      "sha256": "d405208d7698e561c53706ef138b0c66d7ac91735f52daaec4d7289efae92e25"
+    },
+    {
+      "run_id": "panel/1081821af346/emp_multiagent_ff19d3527818_20261108T180512",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/1081821af346/emp_multiagent_ff19d3527818_20261108T180512/report.json",
+      "sha256": "52f4dcd2a4cffa809f903bd379ababd45cfd2351a5238f274a15d7c34d1f6551"
+    },
+    {
+      "run_id": "panel/1081821af346/emp_multiagent_ff19d3527818_20261108T180512",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/1081821af346/emp_multiagent_ff19d3527818_20261108T180512/manifest.json",
+      "sha256": "ebbc55b444bd00b552e982e68ff5d5a978c68481c763a65cd6a511d7bca0df37"
+    },
+    {
+      "run_id": "panel/1081821af346/emp_multiagent_ff19d3527818_20261108T180512",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/1081821af346/emp_multiagent_ff19d3527818_20261108T180512/evaluation.json",
+      "sha256": "99191b99e2ca8767dd99bf4f158c972387cc4c5b50eaf34551bce027b52e588e"
+    },
+    {
+      "run_id": "panel/1081821af346/emp_multiagent_ff19d3527818_20261108T180512",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/1081821af346/emp_multiagent_ff19d3527818_20261108T180512/runtime.json",
+      "sha256": "68da0dabdf13db2a9b1bc2bc6031905992bf749c772001f3eed934334e09e030"
+    },
+    {
+      "run_id": "panel/671d7a2b6664/emp_single_b0839765543f_20261108T181026",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/671d7a2b6664/emp_single_b0839765543f_20261108T181026/report.json",
+      "sha256": "83059e0e4962201c482997ea1545c95faaf4617d094ade15c641bb5934a30d31"
+    },
+    {
+      "run_id": "panel/671d7a2b6664/emp_single_b0839765543f_20261108T181026",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/671d7a2b6664/emp_single_b0839765543f_20261108T181026/manifest.json",
+      "sha256": "3e98d1074469c52f93486e02b6a94642f45373c2bdc87e2b922a72f72a8bfe7d"
+    },
+    {
+      "run_id": "panel/671d7a2b6664/emp_single_b0839765543f_20261108T181026",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/671d7a2b6664/emp_single_b0839765543f_20261108T181026/evaluation.json",
+      "sha256": "2b0a8b9848861fc4aa6479f3732b27853cba1eb7ffa5794f789ba4aea214fd6b"
+    },
+    {
+      "run_id": "panel/671d7a2b6664/emp_single_b0839765543f_20261108T181026",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/671d7a2b6664/emp_single_b0839765543f_20261108T181026/runtime.json",
+      "sha256": "2649abd61430d778605e61da53e27f44b5879af5249fc71a6ca321a77b170c21"
+    },
+    {
+      "run_id": "panel/b7635fa79688/emp_multiagent_c526709fb59f_20261108T181519",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/b7635fa79688/emp_multiagent_c526709fb59f_20261108T181519/report.json",
+      "sha256": "2ebc8d191e5875074d3356ea7c05d2664d29fe9d8016158aa8566696e74f2597"
+    },
+    {
+      "run_id": "panel/b7635fa79688/emp_multiagent_c526709fb59f_20261108T181519",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/b7635fa79688/emp_multiagent_c526709fb59f_20261108T181519/manifest.json",
+      "sha256": "decc2e112232b2aa02b9a24194c761c54fe0dc9e731d9e1f382a80db107e70c9"
+    },
+    {
+      "run_id": "panel/b7635fa79688/emp_multiagent_c526709fb59f_20261108T181519",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/b7635fa79688/emp_multiagent_c526709fb59f_20261108T181519/evaluation.json",
+      "sha256": "99191b99e2ca8767dd99bf4f158c972387cc4c5b50eaf34551bce027b52e588e"
+    },
+    {
+      "run_id": "panel/b7635fa79688/emp_multiagent_c526709fb59f_20261108T181519",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/b7635fa79688/emp_multiagent_c526709fb59f_20261108T181519/runtime.json",
+      "sha256": "7eb2764154bcbdba5973717935a3b0813060ca97019168d7c14f00b3470b67d4"
+    },
+    {
+      "run_id": "panel/c596fed6ea58/emp_multiagent_ebec966aaa87_20261108T194052",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/c596fed6ea58/emp_multiagent_ebec966aaa87_20261108T194052/report.json",
+      "sha256": "02685656e53536bd2247085d4c861428c8c83d23aea3b9f9aacb793190107d28"
+    },
+    {
+      "run_id": "panel/c596fed6ea58/emp_multiagent_ebec966aaa87_20261108T194052",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/c596fed6ea58/emp_multiagent_ebec966aaa87_20261108T194052/manifest.json",
+      "sha256": "73494cbc8feb41c233051905615f4e7c74c49083298add86b3c6069dbdfbf15e"
+    },
+    {
+      "run_id": "panel/c596fed6ea58/emp_multiagent_ebec966aaa87_20261108T194052",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/c596fed6ea58/emp_multiagent_ebec966aaa87_20261108T194052/evaluation.json",
+      "sha256": "99191b99e2ca8767dd99bf4f158c972387cc4c5b50eaf34551bce027b52e588e"
+    },
+    {
+      "run_id": "panel/c596fed6ea58/emp_multiagent_ebec966aaa87_20261108T194052",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/c596fed6ea58/emp_multiagent_ebec966aaa87_20261108T194052/runtime.json",
+      "sha256": "6d168c2be09ce51101f1c1b36a770173d49af95bc5226bd911b81d7e774945c4"
+    },
+    {
+      "run_id": "panel/c4e8ea40894e/emp_single_6684422feb2b_20261108T194347",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/c4e8ea40894e/emp_single_6684422feb2b_20261108T194347/report.json",
+      "sha256": "d274ddeef0de6d16ba80d141b664406e81c074bc137ac87815e07e78e31c2419"
+    },
+    {
+      "run_id": "panel/c4e8ea40894e/emp_single_6684422feb2b_20261108T194347",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/c4e8ea40894e/emp_single_6684422feb2b_20261108T194347/manifest.json",
+      "sha256": "a8ca5389328e410481a9ca81f55a20af9fabf9da468cc7804486dbe97703cce9"
+    },
+    {
+      "run_id": "panel/c4e8ea40894e/emp_single_6684422feb2b_20261108T194347",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/c4e8ea40894e/emp_single_6684422feb2b_20261108T194347/evaluation.json",
+      "sha256": "ff4e04599f3fc9c65e2cb99f6787638099d205f8a7da96dd47a2b4fa827b7d5a"
+    },
+    {
+      "run_id": "panel/c4e8ea40894e/emp_single_6684422feb2b_20261108T194347",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/c4e8ea40894e/emp_single_6684422feb2b_20261108T194347/runtime.json",
+      "sha256": "c814dc07a19eb269329ffcf654fe7db425e2baa6ef5690cb8aeaf7cfbef3991a"
+    },
+    {
+      "run_id": "panel/8136d1f387ae/emp_single_231523dfe11f_20261108T194818",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/8136d1f387ae/emp_single_231523dfe11f_20261108T194818/report.json",
+      "sha256": "78f608c09bb22a2818e58e0115eacc5da470580a07f263cbe2d24920090d993a"
+    },
+    {
+      "run_id": "panel/8136d1f387ae/emp_single_231523dfe11f_20261108T194818",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/8136d1f387ae/emp_single_231523dfe11f_20261108T194818/manifest.json",
+      "sha256": "a39affc892fcedb9b872bcd7389f4679764e2b235ce6787a5cbb6c02c4fa9156"
+    },
+    {
+      "run_id": "panel/8136d1f387ae/emp_single_231523dfe11f_20261108T194818",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/8136d1f387ae/emp_single_231523dfe11f_20261108T194818/evaluation.json",
+      "sha256": "2b0a8b9848861fc4aa6479f3732b27853cba1eb7ffa5794f789ba4aea214fd6b"
+    },
+    {
+      "run_id": "panel/8136d1f387ae/emp_single_231523dfe11f_20261108T194818",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/8136d1f387ae/emp_single_231523dfe11f_20261108T194818/runtime.json",
+      "sha256": "96143e19bc2fc71f949deac349ae3dd9b3202715e6a11cdc15f2fb701a24bee2"
+    },
+    {
+      "run_id": "panel/c07bad76f866/emp_multiagent_fcf592f277ec_20261108T195245",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/c07bad76f866/emp_multiagent_fcf592f277ec_20261108T195245/report.json",
+      "sha256": "a9c382e99c423334bda9e9385fd986a430137e169382c5c96aa5ded729775321"
+    },
+    {
+      "run_id": "panel/c07bad76f866/emp_multiagent_fcf592f277ec_20261108T195245",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/c07bad76f866/emp_multiagent_fcf592f277ec_20261108T195245/manifest.json",
+      "sha256": "ccc0424bf44ddecdeb593c71217a96c3e9434be66a084c251bcd44b321462f34"
+    },
+    {
+      "run_id": "panel/c07bad76f866/emp_multiagent_fcf592f277ec_20261108T195245",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/c07bad76f866/emp_multiagent_fcf592f277ec_20261108T195245/evaluation.json",
+      "sha256": "99191b99e2ca8767dd99bf4f158c972387cc4c5b50eaf34551bce027b52e588e"
+    },
+    {
+      "run_id": "panel/c07bad76f866/emp_multiagent_fcf592f277ec_20261108T195245",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/c07bad76f866/emp_multiagent_fcf592f277ec_20261108T195245/runtime.json",
+      "sha256": "8bfcf61cc6d3d91c880d296fc3ceb7f57b8f4a734edc8d0ff0ceaae22d258b40"
+    },
+    {
+      "run_id": "panel/af77515d1cd3/emp_multiagent_b82025b8a9fb_20261108T195545",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/af77515d1cd3/emp_multiagent_b82025b8a9fb_20261108T195545/report.json",
+      "sha256": "5cebb19a8d7b667563efbf16bf9e847d33d81e54c9ce5919223d498d79a4a09f"
+    },
+    {
+      "run_id": "panel/af77515d1cd3/emp_multiagent_b82025b8a9fb_20261108T195545",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/af77515d1cd3/emp_multiagent_b82025b8a9fb_20261108T195545/manifest.json",
+      "sha256": "55918da7194fd13a068555151074751215fa057c750e491a52c5c5da14e2c6bf"
+    },
+    {
+      "run_id": "panel/af77515d1cd3/emp_multiagent_b82025b8a9fb_20261108T195545",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/af77515d1cd3/emp_multiagent_b82025b8a9fb_20261108T195545/evaluation.json",
+      "sha256": "99191b99e2ca8767dd99bf4f158c972387cc4c5b50eaf34551bce027b52e588e"
+    },
+    {
+      "run_id": "panel/af77515d1cd3/emp_multiagent_b82025b8a9fb_20261108T195545",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/af77515d1cd3/emp_multiagent_b82025b8a9fb_20261108T195545/runtime.json",
+      "sha256": "0aea4d3271214fd5bb847d57f62da234dbaa0b6bb970e3092b06f6f1c1b18f43"
+    },
+    {
+      "run_id": "panel/2aa829fd56f6/emp_single_c4f83ef51967_20261108T195845",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/2aa829fd56f6/emp_single_c4f83ef51967_20261108T195845/report.json",
+      "sha256": "b814f28c8224be08e8a3c362adf7cc5cdc3cb1c5f8da25c9dbf159145fcb657c"
+    },
+    {
+      "run_id": "panel/2aa829fd56f6/emp_single_c4f83ef51967_20261108T195845",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/2aa829fd56f6/emp_single_c4f83ef51967_20261108T195845/manifest.json",
+      "sha256": "45099eb6376fb8418bc307d8d4319bcf058600baaea4c4987fc5ad18b8b940a3"
+    },
+    {
+      "run_id": "panel/2aa829fd56f6/emp_single_c4f83ef51967_20261108T195845",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/2aa829fd56f6/emp_single_c4f83ef51967_20261108T195845/evaluation.json",
+      "sha256": "ff4e04599f3fc9c65e2cb99f6787638099d205f8a7da96dd47a2b4fa827b7d5a"
+    },
+    {
+      "run_id": "panel/2aa829fd56f6/emp_single_c4f83ef51967_20261108T195845",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/2aa829fd56f6/emp_single_c4f83ef51967_20261108T195845/runtime.json",
+      "sha256": "f9b75c8032f4afae1f2a7940f210bbc6ed34997cbc0a207ffc0476cbc74adce3"
+    },
+    {
+      "run_id": "panel/1a150b82baab/emp_multiagent_54057d626d1f_20261108T200302",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/1a150b82baab/emp_multiagent_54057d626d1f_20261108T200302/report.json",
+      "sha256": "918c652bd2099ee2ff0a0c1ee84cdf39eca26e9e67556039c7d1ab3b695e01e5"
+    },
+    {
+      "run_id": "panel/1a150b82baab/emp_multiagent_54057d626d1f_20261108T200302",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/1a150b82baab/emp_multiagent_54057d626d1f_20261108T200302/manifest.json",
+      "sha256": "6c2980734a2ef85fd724935fa4eec51f70f38a580503cf225e5ec73c61e20ab3"
+    },
+    {
+      "run_id": "panel/1a150b82baab/emp_multiagent_54057d626d1f_20261108T200302",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/1a150b82baab/emp_multiagent_54057d626d1f_20261108T200302/evaluation.json",
+      "sha256": "b3d722732daa2566d5696ec194dbd9f24f393900b105a5686d1f64549ed06b7d"
+    },
+    {
+      "run_id": "panel/1a150b82baab/emp_multiagent_54057d626d1f_20261108T200302",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/1a150b82baab/emp_multiagent_54057d626d1f_20261108T200302/runtime.json",
+      "sha256": "15aab290c60fff01a93ad7a9ba323c87d4b87e3b06d20b3eb8b11b4c089be667"
+    },
+    {
+      "run_id": "panel/d08913135cb7/emp_single_c4b45a42dd47_20261108T200610",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/d08913135cb7/emp_single_c4b45a42dd47_20261108T200610/report.json",
+      "sha256": "f2008bd2a0da2a700f86e45be20f0a09b0cda71a1bfd37dd92a2d193d8f7823a"
+    },
+    {
+      "run_id": "panel/d08913135cb7/emp_single_c4b45a42dd47_20261108T200610",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/d08913135cb7/emp_single_c4b45a42dd47_20261108T200610/manifest.json",
+      "sha256": "b42a678cf5ec521a0084286f4ee9a41b28f92b07e26ebad9f6aabbf9816970c8"
+    },
+    {
+      "run_id": "panel/d08913135cb7/emp_single_c4b45a42dd47_20261108T200610",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/d08913135cb7/emp_single_c4b45a42dd47_20261108T200610/evaluation.json",
+      "sha256": "afb100ffc3d2c97c15f794ae99f7876a6cbf4b6caf335764bfa70b9137d3aa32"
+    },
+    {
+      "run_id": "panel/d08913135cb7/emp_single_c4b45a42dd47_20261108T200610",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/d08913135cb7/emp_single_c4b45a42dd47_20261108T200610/runtime.json",
+      "sha256": "366d33993bac30836c43aa65728169ca0324427288b76b480c96a1bc2d0b022a"
+    },
+    {
+      "run_id": "panel/dae04437f360/emp_single_e8aeeefb484b_20261108T201005",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/dae04437f360/emp_single_e8aeeefb484b_20261108T201005/report.json",
+      "sha256": "17a23e7db443f988a5caf88111a38ff59d1e14fe2c43d342a2cde929b026579f"
+    },
+    {
+      "run_id": "panel/dae04437f360/emp_single_e8aeeefb484b_20261108T201005",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/dae04437f360/emp_single_e8aeeefb484b_20261108T201005/manifest.json",
+      "sha256": "9c92a3f0003c69480bfad7d45277de2f7dc54703b91118faba3484ed13f99ecd"
+    },
+    {
+      "run_id": "panel/dae04437f360/emp_single_e8aeeefb484b_20261108T201005",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/dae04437f360/emp_single_e8aeeefb484b_20261108T201005/evaluation.json",
+      "sha256": "362ba3f24c83a012b77b3bed8c52b9450467cdd8619247629d2fe98b12660cdc"
+    },
+    {
+      "run_id": "panel/dae04437f360/emp_single_e8aeeefb484b_20261108T201005",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/dae04437f360/emp_single_e8aeeefb484b_20261108T201005/runtime.json",
+      "sha256": "eda2732e292d0f61d7a635229e12db7775ed7c14d5f95749c7feb1bfae0d53c3"
+    },
+    {
+      "run_id": "panel/d4792d40ffb8/emp_multiagent_509e6808695f_20261108T201339",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/d4792d40ffb8/emp_multiagent_509e6808695f_20261108T201339/report.json",
+      "sha256": "033474d694b9977f12978c3c73cd4a1a4561b1f47872cc9e5eef8038b97da217"
+    },
+    {
+      "run_id": "panel/d4792d40ffb8/emp_multiagent_509e6808695f_20261108T201339",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/d4792d40ffb8/emp_multiagent_509e6808695f_20261108T201339/manifest.json",
+      "sha256": "c78feceba38c2e8b23292c7ae2d353e345164e3bd60ebe1e6b29a5e285a160bb"
+    },
+    {
+      "run_id": "panel/d4792d40ffb8/emp_multiagent_509e6808695f_20261108T201339",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/d4792d40ffb8/emp_multiagent_509e6808695f_20261108T201339/evaluation.json",
+      "sha256": "b3d722732daa2566d5696ec194dbd9f24f393900b105a5686d1f64549ed06b7d"
+    },
+    {
+      "run_id": "panel/d4792d40ffb8/emp_multiagent_509e6808695f_20261108T201339",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/d4792d40ffb8/emp_multiagent_509e6808695f_20261108T201339/runtime.json",
+      "sha256": "d14c887562263358c7c743f4d28b71410d0f4baa9567636eb4bf50add95863d9"
+    },
+    {
+      "run_id": "panel/37e7db2683f1/emp_single_57c4b17fa0e7_20261108T201649",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/37e7db2683f1/emp_single_57c4b17fa0e7_20261108T201649/report.json",
+      "sha256": "12af1d92fe43df9c2f76189203762bdd61fa7459395923a67461db967babc4c7"
+    },
+    {
+      "run_id": "panel/37e7db2683f1/emp_single_57c4b17fa0e7_20261108T201649",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/37e7db2683f1/emp_single_57c4b17fa0e7_20261108T201649/manifest.json",
+      "sha256": "971af0a31ec8d07c6b27a476d32d69656def72ed46c950d67002e30d82e03b89"
+    },
+    {
+      "run_id": "panel/37e7db2683f1/emp_single_57c4b17fa0e7_20261108T201649",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/37e7db2683f1/emp_single_57c4b17fa0e7_20261108T201649/evaluation.json",
+      "sha256": "d8bd6a4c37f4b369211d4a489c538f2dd833a218e86db191b4b9cbfc5a451882"
+    },
+    {
+      "run_id": "panel/37e7db2683f1/emp_single_57c4b17fa0e7_20261108T201649",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/37e7db2683f1/emp_single_57c4b17fa0e7_20261108T201649/runtime.json",
+      "sha256": "500513d5433c934006bd3bbdb3dc9b3c7c0c08657071ef70ef366e304da175a0"
+    },
+    {
+      "run_id": "panel/934a178f3573/emp_multiagent_754dba003ec4_20261108T202101",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/934a178f3573/emp_multiagent_754dba003ec4_20261108T202101/report.json",
+      "sha256": "9cc3368df20ef5fa2855ddac08ee5260d84e9b91607b344ddaeb5ccbcde8945c"
+    },
+    {
+      "run_id": "panel/934a178f3573/emp_multiagent_754dba003ec4_20261108T202101",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/934a178f3573/emp_multiagent_754dba003ec4_20261108T202101/manifest.json",
+      "sha256": "067ffeb0f87f49fa174e9bb748696076b0b6d87c5140b353acd376da205d3143"
+    },
+    {
+      "run_id": "panel/934a178f3573/emp_multiagent_754dba003ec4_20261108T202101",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/934a178f3573/emp_multiagent_754dba003ec4_20261108T202101/evaluation.json",
+      "sha256": "b3d722732daa2566d5696ec194dbd9f24f393900b105a5686d1f64549ed06b7d"
+    },
+    {
+      "run_id": "panel/934a178f3573/emp_multiagent_754dba003ec4_20261108T202101",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/934a178f3573/emp_multiagent_754dba003ec4_20261108T202101/runtime.json",
+      "sha256": "393a135becb72f1b675c72c40fbec36d97aaf0ddf9a0d24864fea2eeebfd5951"
+    },
+    {
+      "run_id": "panel/6b973cc761cb/emp_multiagent_90430a417702_20261108T202413",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/6b973cc761cb/emp_multiagent_90430a417702_20261108T202413/report.json",
+      "sha256": "fd17b3e636875adb602508b5e009faa9e54a51cd994c67a24a96b983a85bcdbf"
+    },
+    {
+      "run_id": "panel/6b973cc761cb/emp_multiagent_90430a417702_20261108T202413",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/6b973cc761cb/emp_multiagent_90430a417702_20261108T202413/manifest.json",
+      "sha256": "860548788c7f85998029f505449b6ad0f087bee58ecf60b5752abe175e83b567"
+    },
+    {
+      "run_id": "panel/6b973cc761cb/emp_multiagent_90430a417702_20261108T202413",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/6b973cc761cb/emp_multiagent_90430a417702_20261108T202413/evaluation.json",
+      "sha256": "b3d722732daa2566d5696ec194dbd9f24f393900b105a5686d1f64549ed06b7d"
+    },
+    {
+      "run_id": "panel/6b973cc761cb/emp_multiagent_90430a417702_20261108T202413",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/6b973cc761cb/emp_multiagent_90430a417702_20261108T202413/runtime.json",
+      "sha256": "9b1e695f549dd2ffcac98d25ef724d1f96bfed8f7064aa88cbffd4055511f594"
+    },
+    {
+      "run_id": "panel/9cdf14a1909d/emp_single_426fea06c466_20261108T202741",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/9cdf14a1909d/emp_single_426fea06c466_20261108T202741/report.json",
+      "sha256": "dc765b09b202926f2c70b14eb5a449162aa7a2d66e8e732169686fba73bb8e72"
+    },
+    {
+      "run_id": "panel/9cdf14a1909d/emp_single_426fea06c466_20261108T202741",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/9cdf14a1909d/emp_single_426fea06c466_20261108T202741/manifest.json",
+      "sha256": "8dbd1e5dc6ff7accac711ff73f2df4122c79bad215fe6f8ac98895e612cfbf74"
+    },
+    {
+      "run_id": "panel/9cdf14a1909d/emp_single_426fea06c466_20261108T202741",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/9cdf14a1909d/emp_single_426fea06c466_20261108T202741/evaluation.json",
+      "sha256": "afb100ffc3d2c97c15f794ae99f7876a6cbf4b6caf335764bfa70b9137d3aa32"
+    },
+    {
+      "run_id": "panel/9cdf14a1909d/emp_single_426fea06c466_20261108T202741",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/9cdf14a1909d/emp_single_426fea06c466_20261108T202741/runtime.json",
+      "sha256": "33bccd99e58cf28f23e7fa4037f02ee7c7230dd1f9f8542f3e5893c16837299b"
+    },
+    {
+      "run_id": "panel/790d124613fc/emp_multiagent_ef351986c8ff_20261108T203124",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/790d124613fc/emp_multiagent_ef351986c8ff_20261108T203124/report.json",
+      "sha256": "7b6ef9b139f0abbfb78106a3ff84f7dfc5336d5cc40d86fd5df6f5219a593807"
+    },
+    {
+      "run_id": "panel/790d124613fc/emp_multiagent_ef351986c8ff_20261108T203124",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/790d124613fc/emp_multiagent_ef351986c8ff_20261108T203124/manifest.json",
+      "sha256": "986e5fe8496993f6b61670bf515e19c22d661688a3d8a0e21f131a7d384c17d1"
+    },
+    {
+      "run_id": "panel/790d124613fc/emp_multiagent_ef351986c8ff_20261108T203124",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/790d124613fc/emp_multiagent_ef351986c8ff_20261108T203124/evaluation.json",
+      "sha256": "b3d722732daa2566d5696ec194dbd9f24f393900b105a5686d1f64549ed06b7d"
+    },
+    {
+      "run_id": "panel/790d124613fc/emp_multiagent_ef351986c8ff_20261108T203124",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/790d124613fc/emp_multiagent_ef351986c8ff_20261108T203124/runtime.json",
+      "sha256": "c39efa2aa2d713d2dcccfa1360af3475e1dd25efcf89182c8bfa77772b26dd93"
+    },
+    {
+      "run_id": "panel/8b82edfc8759/emp_single_0b1fdad10398_20261108T203418",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/8b82edfc8759/emp_single_0b1fdad10398_20261108T203418/report.json",
+      "sha256": "17d727f3438e1e8ba84c647fc97114af8d0d6b4112e9d92a3cde1fb160fc7a4f"
+    },
+    {
+      "run_id": "panel/8b82edfc8759/emp_single_0b1fdad10398_20261108T203418",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/8b82edfc8759/emp_single_0b1fdad10398_20261108T203418/manifest.json",
+      "sha256": "8d3d9fbec9d82018c9146bed9ca2a7649bc3b0e314602629ae2f744da00fbc7a"
+    },
+    {
+      "run_id": "panel/8b82edfc8759/emp_single_0b1fdad10398_20261108T203418",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/8b82edfc8759/emp_single_0b1fdad10398_20261108T203418/evaluation.json",
+      "sha256": "362ba3f24c83a012b77b3bed8c52b9450467cdd8619247629d2fe98b12660cdc"
+    },
+    {
+      "run_id": "panel/8b82edfc8759/emp_single_0b1fdad10398_20261108T203418",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/8b82edfc8759/emp_single_0b1fdad10398_20261108T203418/runtime.json",
+      "sha256": "edade572930650e4065e5c234e046367c7c5dbb4b784e8ab0e6b6855f52ca551"
+    },
+    {
+      "run_id": "panel/7d8724d2a2b8/emp_single_6fc884c3b5e3_20261108T203816",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/7d8724d2a2b8/emp_single_6fc884c3b5e3_20261108T203816/report.json",
+      "sha256": "59a4f04b4782a6c4c819e08b7e9abfb8fe888ae245f76a77466dced83ea8963b"
+    },
+    {
+      "run_id": "panel/7d8724d2a2b8/emp_single_6fc884c3b5e3_20261108T203816",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/7d8724d2a2b8/emp_single_6fc884c3b5e3_20261108T203816/manifest.json",
+      "sha256": "7b45fe040d603119ffff2456b64babf1477dbeecd6d3cb677655495b5939790c"
+    },
+    {
+      "run_id": "panel/7d8724d2a2b8/emp_single_6fc884c3b5e3_20261108T203816",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/7d8724d2a2b8/emp_single_6fc884c3b5e3_20261108T203816/evaluation.json",
+      "sha256": "0d857e8533adce2d4fc8226212ac312117e1216be191e88a6b12bcd08d026fac"
+    },
+    {
+      "run_id": "panel/7d8724d2a2b8/emp_single_6fc884c3b5e3_20261108T203816",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/7d8724d2a2b8/emp_single_6fc884c3b5e3_20261108T203816/runtime.json",
+      "sha256": "ba9de4df63b2e3bc550a2be25671293a63a09e66932c10c2a4bf4a4a18138e51"
+    },
+    {
+      "run_id": "panel/ab187d3cfdfd/emp_multiagent_5847747f7e2b_20261108T204128",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/ab187d3cfdfd/emp_multiagent_5847747f7e2b_20261108T204128/report.json",
+      "sha256": "7d799248f4f71428c4460fd5f943e3e849ccea8b4a7c4387629d51b3c44311a9"
+    },
+    {
+      "run_id": "panel/ab187d3cfdfd/emp_multiagent_5847747f7e2b_20261108T204128",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/ab187d3cfdfd/emp_multiagent_5847747f7e2b_20261108T204128/manifest.json",
+      "sha256": "f9f49feccb4506323228eb9bcac5058e9b657f27b9f88cdd5a9176f640582871"
+    },
+    {
+      "run_id": "panel/ab187d3cfdfd/emp_multiagent_5847747f7e2b_20261108T204128",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/ab187d3cfdfd/emp_multiagent_5847747f7e2b_20261108T204128/evaluation.json",
+      "sha256": "e570a8ba545f6b060ea63e995b09e2094d56aa17ff372b3685ff33aac2fbc4f4"
+    },
+    {
+      "run_id": "panel/ab187d3cfdfd/emp_multiagent_5847747f7e2b_20261108T204128",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/ab187d3cfdfd/emp_multiagent_5847747f7e2b_20261108T204128/runtime.json",
+      "sha256": "7620ede459493f8edbe33deea53500c59b7ef429d46528665300cba31c7b7035"
+    },
+    {
+      "run_id": "panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443/report.json",
+      "sha256": "9e8cab1c3a84307bae220db6d0f21d38befd04e16e985935056ce6acfcedc168"
+    },
+    {
+      "run_id": "panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443/manifest.json",
+      "sha256": "653a63fb50e434a6e021a56fa5f67073f1f8bb487ec6600aad56ee79567f41ed"
+    },
+    {
+      "run_id": "panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443/evaluation.json",
+      "sha256": "e570a8ba545f6b060ea63e995b09e2094d56aa17ff372b3685ff33aac2fbc4f4"
+    },
+    {
+      "run_id": "panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443/runtime.json",
+      "sha256": "fe6898d45a059c8dd0eedf2d5f01faa126e902b107b83e54689649dd040f1afe"
+    },
+    {
+      "run_id": "panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/report.json",
+      "sha256": "207d16008b624574ec37a413e1f3ad7d6f153ed6707708872ac90a56285aca70"
+    },
+    {
+      "run_id": "panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/manifest.json",
+      "sha256": "384293dd9ffaa61a09c78e28f0c0b4473d0f2ba8205a71614a5265f98b172729"
+    },
+    {
+      "run_id": "panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/evaluation.json",
+      "sha256": "b6819ccfdd727d0fcc4cdf6b281aea560de618377b785f449ce4061f6a9aba23"
+    },
+    {
+      "run_id": "panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742/runtime.json",
+      "sha256": "3f12ece8aeb68af15d4d4e96822f7d5973f3bbb794aaae534972e3209fb6de00"
+    },
+    {
+      "run_id": "panel/fc4f7b7b5a07/emp_multiagent_c0d11c7b97af_20261108T205134",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/fc4f7b7b5a07/emp_multiagent_c0d11c7b97af_20261108T205134/report.json",
+      "sha256": "2bcc18ae93ecffc8a8ff852d2ef4d67150a96fb2daeaf9eeb473940958df474e"
+    },
+    {
+      "run_id": "panel/fc4f7b7b5a07/emp_multiagent_c0d11c7b97af_20261108T205134",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/fc4f7b7b5a07/emp_multiagent_c0d11c7b97af_20261108T205134/manifest.json",
+      "sha256": "1ca6b7c6016f4972b3d04b4cdf25cc00537664b4692428465a15d44db232d573"
+    },
+    {
+      "run_id": "panel/fc4f7b7b5a07/emp_multiagent_c0d11c7b97af_20261108T205134",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/fc4f7b7b5a07/emp_multiagent_c0d11c7b97af_20261108T205134/evaluation.json",
+      "sha256": "e570a8ba545f6b060ea63e995b09e2094d56aa17ff372b3685ff33aac2fbc4f4"
+    },
+    {
+      "run_id": "panel/fc4f7b7b5a07/emp_multiagent_c0d11c7b97af_20261108T205134",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/fc4f7b7b5a07/emp_multiagent_c0d11c7b97af_20261108T205134/runtime.json",
+      "sha256": "9546b0aeecc244cd719a6a14c5a75686f930f37bfe9f9c19ce135cdbaf877b09"
+    },
+    {
+      "run_id": "panel/9f14a71daba7/emp_single_2e6ab55a7f27_20261108T205438",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/9f14a71daba7/emp_single_2e6ab55a7f27_20261108T205438/report.json",
+      "sha256": "a0cfaadcdbebd5c36363a06a2db0c8ea5320b42f831522e64b62fc664515e841"
+    },
+    {
+      "run_id": "panel/9f14a71daba7/emp_single_2e6ab55a7f27_20261108T205438",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/9f14a71daba7/emp_single_2e6ab55a7f27_20261108T205438/manifest.json",
+      "sha256": "cf012824686a5217f2d2145bdb21b3be5f09791ac24542b3130ee1f731035c21"
+    },
+    {
+      "run_id": "panel/9f14a71daba7/emp_single_2e6ab55a7f27_20261108T205438",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/9f14a71daba7/emp_single_2e6ab55a7f27_20261108T205438/evaluation.json",
+      "sha256": "b6819ccfdd727d0fcc4cdf6b281aea560de618377b785f449ce4061f6a9aba23"
+    },
+    {
+      "run_id": "panel/9f14a71daba7/emp_single_2e6ab55a7f27_20261108T205438",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/9f14a71daba7/emp_single_2e6ab55a7f27_20261108T205438/runtime.json",
+      "sha256": "c51a1b3c104780cc575298da5027e0477f422f79ddedcd43925f1f4bc1fb5f03"
+    },
+    {
+      "run_id": "panel/4014e39e6df3/emp_single_0a05791af64b_20261108T205845",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/4014e39e6df3/emp_single_0a05791af64b_20261108T205845/report.json",
+      "sha256": "d054d9d69829ec4c4ebeb6e16ff121cde558209ac419680f051b13a088380cf0"
+    },
+    {
+      "run_id": "panel/4014e39e6df3/emp_single_0a05791af64b_20261108T205845",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/4014e39e6df3/emp_single_0a05791af64b_20261108T205845/manifest.json",
+      "sha256": "276cab5bfd25cfaef971eef0d8ef312adc551b479798356ee4e0b382dc27e5df"
+    },
+    {
+      "run_id": "panel/4014e39e6df3/emp_single_0a05791af64b_20261108T205845",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/4014e39e6df3/emp_single_0a05791af64b_20261108T205845/evaluation.json",
+      "sha256": "6b836095097b2be710c4000760243ef48f27dd859f1702013f16ef44c05e0506"
+    },
+    {
+      "run_id": "panel/4014e39e6df3/emp_single_0a05791af64b_20261108T205845",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/4014e39e6df3/emp_single_0a05791af64b_20261108T205845/runtime.json",
+      "sha256": "de6c6d5e5bc712592c9e51a657ab3e338f1a100118070bf459f7e65534614f34"
+    },
+    {
+      "run_id": "panel/8a0623d4cfdc/emp_multiagent_bedeb36ab096_20261108T210249",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/8a0623d4cfdc/emp_multiagent_bedeb36ab096_20261108T210249/report.json",
+      "sha256": "befb232d9dc8d3f847afc146d4a98acf0f5bafe579621349aafe34aa7ff11f9c"
+    },
+    {
+      "run_id": "panel/8a0623d4cfdc/emp_multiagent_bedeb36ab096_20261108T210249",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/8a0623d4cfdc/emp_multiagent_bedeb36ab096_20261108T210249/manifest.json",
+      "sha256": "6ef8c3e6b6c319494ca664d39909b971e0cbe7d0eb66c64e65e550bdc4c1e464"
+    },
+    {
+      "run_id": "panel/8a0623d4cfdc/emp_multiagent_bedeb36ab096_20261108T210249",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/8a0623d4cfdc/emp_multiagent_bedeb36ab096_20261108T210249/evaluation.json",
+      "sha256": "e570a8ba545f6b060ea63e995b09e2094d56aa17ff372b3685ff33aac2fbc4f4"
+    },
+    {
+      "run_id": "panel/8a0623d4cfdc/emp_multiagent_bedeb36ab096_20261108T210249",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/8a0623d4cfdc/emp_multiagent_bedeb36ab096_20261108T210249/runtime.json",
+      "sha256": "b9806d9ebf260080da3130618a9c8350764fc393d46e8530a1bbdb1e96bd65e3"
+    },
+    {
+      "run_id": "panel/13742bde7142/emp_multiagent_01dcd917a4ef_20261108T210611",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/13742bde7142/emp_multiagent_01dcd917a4ef_20261108T210611/report.json",
+      "sha256": "277a46030a1f532831b8d1be5e0f2223652a1ffb2d0c2109415e4f1950728441"
+    },
+    {
+      "run_id": "panel/13742bde7142/emp_multiagent_01dcd917a4ef_20261108T210611",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/13742bde7142/emp_multiagent_01dcd917a4ef_20261108T210611/manifest.json",
+      "sha256": "ec45154a01bbdffd67c3169d83f37801d7be4fae4911ef70577433386d102358"
+    },
+    {
+      "run_id": "panel/13742bde7142/emp_multiagent_01dcd917a4ef_20261108T210611",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/13742bde7142/emp_multiagent_01dcd917a4ef_20261108T210611/evaluation.json",
+      "sha256": "e570a8ba545f6b060ea63e995b09e2094d56aa17ff372b3685ff33aac2fbc4f4"
+    },
+    {
+      "run_id": "panel/13742bde7142/emp_multiagent_01dcd917a4ef_20261108T210611",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/13742bde7142/emp_multiagent_01dcd917a4ef_20261108T210611/runtime.json",
+      "sha256": "a97ecf591fbcca79f4a77798decfd475f480c03efe09f6f7f81d7d7ba3c53d09"
+    },
+    {
+      "run_id": "panel/dd29ae26b87a/emp_single_21294c21f8ea_20261108T210936",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/dd29ae26b87a/emp_single_21294c21f8ea_20261108T210936/report.json",
+      "sha256": "7c997ace1b69109c212952898e82f2845f940243d361b58ccce2e3b4c1c42146"
+    },
+    {
+      "run_id": "panel/dd29ae26b87a/emp_single_21294c21f8ea_20261108T210936",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/dd29ae26b87a/emp_single_21294c21f8ea_20261108T210936/manifest.json",
+      "sha256": "88ad93258fd69313557990b9dae71b32b018ede400b4cc245da64ec64ca37279"
+    },
+    {
+      "run_id": "panel/dd29ae26b87a/emp_single_21294c21f8ea_20261108T210936",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/dd29ae26b87a/emp_single_21294c21f8ea_20261108T210936/evaluation.json",
+      "sha256": "6b836095097b2be710c4000760243ef48f27dd859f1702013f16ef44c05e0506"
+    },
+    {
+      "run_id": "panel/dd29ae26b87a/emp_single_21294c21f8ea_20261108T210936",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/dd29ae26b87a/emp_single_21294c21f8ea_20261108T210936/runtime.json",
+      "sha256": "5bf9ea0ac950e50bc94e66338776953eb5130629a4dbc5153b95f54fc289c32b"
+    },
+    {
+      "run_id": "panel/bd2cb73bcdc6/emp_single_40fe99b9dd34_20261108T211323",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/bd2cb73bcdc6/emp_single_40fe99b9dd34_20261108T211323/report.json",
+      "sha256": "d18cfe02178590b650515dd80f0a39963a56a1ab268aa3f97ba5f972ad0d1054"
+    },
+    {
+      "run_id": "panel/bd2cb73bcdc6/emp_single_40fe99b9dd34_20261108T211323",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/bd2cb73bcdc6/emp_single_40fe99b9dd34_20261108T211323/manifest.json",
+      "sha256": "6d767a64eb78bf6765832a1cd0375e8c5c5137b35f1bd98d70bc52a4d6d07c6f"
+    },
+    {
+      "run_id": "panel/bd2cb73bcdc6/emp_single_40fe99b9dd34_20261108T211323",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/bd2cb73bcdc6/emp_single_40fe99b9dd34_20261108T211323/evaluation.json",
+      "sha256": "f15c7d7b0140257e255847b9983098c4cb5dbfe420f266f7b2e42189f7b6b65e"
+    },
+    {
+      "run_id": "panel/bd2cb73bcdc6/emp_single_40fe99b9dd34_20261108T211323",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/bd2cb73bcdc6/emp_single_40fe99b9dd34_20261108T211323/runtime.json",
+      "sha256": "0bc96f90d7f41fa6eaa6a4ed3900251c8a84b5bd351264282a96b4fd9af8bfa0"
+    },
+    {
+      "run_id": "panel/e29b66d9e70c/emp_multiagent_ae4cb1fd036a_20261108T211743",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/e29b66d9e70c/emp_multiagent_ae4cb1fd036a_20261108T211743/report.json",
+      "sha256": "7289a3302cba5086a5836dabdf63a4f02f914a6fc5a64178adadca147a203ae3"
+    },
+    {
+      "run_id": "panel/e29b66d9e70c/emp_multiagent_ae4cb1fd036a_20261108T211743",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/e29b66d9e70c/emp_multiagent_ae4cb1fd036a_20261108T211743/manifest.json",
+      "sha256": "1901f7ca84051c91344294cfd40df861f252454de1178893a892eea0155a43a5"
+    },
+    {
+      "run_id": "panel/e29b66d9e70c/emp_multiagent_ae4cb1fd036a_20261108T211743",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/e29b66d9e70c/emp_multiagent_ae4cb1fd036a_20261108T211743/evaluation.json",
+      "sha256": "744d5f00ce90387b80563c19394e748c53037a8231a4e8fb01d2ffca4ec074f4"
+    },
+    {
+      "run_id": "panel/e29b66d9e70c/emp_multiagent_ae4cb1fd036a_20261108T211743",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/e29b66d9e70c/emp_multiagent_ae4cb1fd036a_20261108T211743/runtime.json",
+      "sha256": "d6169255fcab9cfe2f2e7222bd1f44fc2a65dd91da203164d17376af53d6936f"
+    },
+    {
+      "run_id": "panel/3b54ef636f13/emp_multiagent_9caf2b0fed31_20261108T212107",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/3b54ef636f13/emp_multiagent_9caf2b0fed31_20261108T212107/report.json",
+      "sha256": "b749cdb3d8b4be9003ddcab433a9fbc7a15a2c73d544d5e0a67a591fdd425936"
+    },
+    {
+      "run_id": "panel/3b54ef636f13/emp_multiagent_9caf2b0fed31_20261108T212107",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/3b54ef636f13/emp_multiagent_9caf2b0fed31_20261108T212107/manifest.json",
+      "sha256": "c9480e463af457a6f6e6f6247e8c99bceab3834d91674aeab0cb16c6cf9613b7"
+    },
+    {
+      "run_id": "panel/3b54ef636f13/emp_multiagent_9caf2b0fed31_20261108T212107",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/3b54ef636f13/emp_multiagent_9caf2b0fed31_20261108T212107/evaluation.json",
+      "sha256": "744d5f00ce90387b80563c19394e748c53037a8231a4e8fb01d2ffca4ec074f4"
+    },
+    {
+      "run_id": "panel/3b54ef636f13/emp_multiagent_9caf2b0fed31_20261108T212107",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/3b54ef636f13/emp_multiagent_9caf2b0fed31_20261108T212107/runtime.json",
+      "sha256": "17d3d7d22c408ae65a16f439340a2dd87789bac72d7be0c3715b8f154dd04d13"
+    },
+    {
+      "run_id": "panel/5b094c065c2a/emp_single_c5357997a601_20261108T212427",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/5b094c065c2a/emp_single_c5357997a601_20261108T212427/report.json",
+      "sha256": "3b0a75b6aa49a27c6299d0279e61611cd34b048dd255273f5870c7b2355aa060"
+    },
+    {
+      "run_id": "panel/5b094c065c2a/emp_single_c5357997a601_20261108T212427",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/5b094c065c2a/emp_single_c5357997a601_20261108T212427/manifest.json",
+      "sha256": "3e62b63041920fdbbf9028473a084e0860abc8577ee45f1ca41345e1bd0f5e24"
+    },
+    {
+      "run_id": "panel/5b094c065c2a/emp_single_c5357997a601_20261108T212427",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/5b094c065c2a/emp_single_c5357997a601_20261108T212427/evaluation.json",
+      "sha256": "a1d2ca2238f6fbdd32632bc7a2af1023ed240090172ea16ff01632a9287ffc5a"
+    },
+    {
+      "run_id": "panel/5b094c065c2a/emp_single_c5357997a601_20261108T212427",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/5b094c065c2a/emp_single_c5357997a601_20261108T212427/runtime.json",
+      "sha256": "fd6752ed34e268eef6b67f14cbf4130832ea461af5b8e6d29b1b3af42af81a3d"
+    },
+    {
+      "run_id": "panel/2fcd4539bb05/emp_single_3b52f90cc240_20261108T212917",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/2fcd4539bb05/emp_single_3b52f90cc240_20261108T212917/report.json",
+      "sha256": "e731f724b4576fe5748508972b616fec23dd5f394f400dcc1129d8e08db4e3cd"
+    },
+    {
+      "run_id": "panel/2fcd4539bb05/emp_single_3b52f90cc240_20261108T212917",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/2fcd4539bb05/emp_single_3b52f90cc240_20261108T212917/manifest.json",
+      "sha256": "15bffe6a60f28c4b912019e66af1de888a8840ba6d2328aaaee3caaac325878a"
+    },
+    {
+      "run_id": "panel/2fcd4539bb05/emp_single_3b52f90cc240_20261108T212917",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/2fcd4539bb05/emp_single_3b52f90cc240_20261108T212917/evaluation.json",
+      "sha256": "9826e5cbf07e38b38171dd2e6a8e7d88024fb8f33a53787894d5bf5dd170a4af"
+    },
+    {
+      "run_id": "panel/2fcd4539bb05/emp_single_3b52f90cc240_20261108T212917",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/2fcd4539bb05/emp_single_3b52f90cc240_20261108T212917/runtime.json",
+      "sha256": "164e1e4709aa1876f53ac9b8d8a40b2475f49e897f8fe19ae4597b7e30d65157"
+    },
+    {
+      "run_id": "panel/a7de49669449/emp_multiagent_643b876d0879_20261108T213350",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/a7de49669449/emp_multiagent_643b876d0879_20261108T213350/report.json",
+      "sha256": "32fbf0b49b4d332967b4fa4f5efb5f6d6ac76681663080b53f10442b4fbdf3b3"
+    },
+    {
+      "run_id": "panel/a7de49669449/emp_multiagent_643b876d0879_20261108T213350",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/a7de49669449/emp_multiagent_643b876d0879_20261108T213350/manifest.json",
+      "sha256": "dc86495705bea67bc6f1889961525608502e2f6a7ff4b91cb03d1a1cd947f91c"
+    },
+    {
+      "run_id": "panel/a7de49669449/emp_multiagent_643b876d0879_20261108T213350",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/a7de49669449/emp_multiagent_643b876d0879_20261108T213350/evaluation.json",
+      "sha256": "744d5f00ce90387b80563c19394e748c53037a8231a4e8fb01d2ffca4ec074f4"
+    },
+    {
+      "run_id": "panel/a7de49669449/emp_multiagent_643b876d0879_20261108T213350",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/a7de49669449/emp_multiagent_643b876d0879_20261108T213350/runtime.json",
+      "sha256": "bd20a118ef682acc3e5e958095a4ce4bf385955f2ff59430d0998778fa3b7127"
+    },
+    {
+      "run_id": "panel/2938e9eda8fa/emp_multiagent_6a2f4cb9db89_20261108T213711",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/2938e9eda8fa/emp_multiagent_6a2f4cb9db89_20261108T213711/report.json",
+      "sha256": "24b0d65d678d7c549db68546bce4c68e34f4d65f694cab75922b72f530237c84"
+    },
+    {
+      "run_id": "panel/2938e9eda8fa/emp_multiagent_6a2f4cb9db89_20261108T213711",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/2938e9eda8fa/emp_multiagent_6a2f4cb9db89_20261108T213711/manifest.json",
+      "sha256": "2c379ff3c2e0c99465f12411bccb6fccdbd3295b04d6742507697a2f3a7efeab"
+    },
+    {
+      "run_id": "panel/2938e9eda8fa/emp_multiagent_6a2f4cb9db89_20261108T213711",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/2938e9eda8fa/emp_multiagent_6a2f4cb9db89_20261108T213711/evaluation.json",
+      "sha256": "744d5f00ce90387b80563c19394e748c53037a8231a4e8fb01d2ffca4ec074f4"
+    },
+    {
+      "run_id": "panel/2938e9eda8fa/emp_multiagent_6a2f4cb9db89_20261108T213711",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/2938e9eda8fa/emp_multiagent_6a2f4cb9db89_20261108T213711/runtime.json",
+      "sha256": "299d5219a6b9e13115e43a445ff9f0b49bb87d21af6528b69530373ca793ce15"
+    },
+    {
+      "run_id": "panel/73cc61c65073/emp_single_fd2eba84ba80_20261108T214032",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/73cc61c65073/emp_single_fd2eba84ba80_20261108T214032/report.json",
+      "sha256": "71f2a897dd6964e697294bc89da014daacfa6120fa16b48dc92697abe2ba145e"
+    },
+    {
+      "run_id": "panel/73cc61c65073/emp_single_fd2eba84ba80_20261108T214032",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/73cc61c65073/emp_single_fd2eba84ba80_20261108T214032/manifest.json",
+      "sha256": "2a67e82ea8d5f203b3578fc082df32d1bd823183292b91433e979a6fe1dfdbcf"
+    },
+    {
+      "run_id": "panel/73cc61c65073/emp_single_fd2eba84ba80_20261108T214032",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/73cc61c65073/emp_single_fd2eba84ba80_20261108T214032/evaluation.json",
+      "sha256": "a1d2ca2238f6fbdd32632bc7a2af1023ed240090172ea16ff01632a9287ffc5a"
+    },
+    {
+      "run_id": "panel/73cc61c65073/emp_single_fd2eba84ba80_20261108T214032",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/73cc61c65073/emp_single_fd2eba84ba80_20261108T214032/runtime.json",
+      "sha256": "da2a574acfa514eb3f3766c00f1924db7a892fa27351da9f0c1f79826ebd8ed2"
+    },
+    {
+      "run_id": "panel/d940e3d67f66/emp_single_b40cfbc726f9_20261108T214516",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/d940e3d67f66/emp_single_b40cfbc726f9_20261108T214516/report.json",
+      "sha256": "75251efb9aa9b4b4a1fd12e383df2729341c1f35034b352c1526db5603b1cbfa"
+    },
+    {
+      "run_id": "panel/d940e3d67f66/emp_single_b40cfbc726f9_20261108T214516",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/d940e3d67f66/emp_single_b40cfbc726f9_20261108T214516/manifest.json",
+      "sha256": "2819b6a81f1ab6bf4aeaa2070531ab453a98978be4145721b329b81334622365"
+    },
+    {
+      "run_id": "panel/d940e3d67f66/emp_single_b40cfbc726f9_20261108T214516",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/d940e3d67f66/emp_single_b40cfbc726f9_20261108T214516/evaluation.json",
+      "sha256": "a1d2ca2238f6fbdd32632bc7a2af1023ed240090172ea16ff01632a9287ffc5a"
+    },
+    {
+      "run_id": "panel/d940e3d67f66/emp_single_b40cfbc726f9_20261108T214516",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/d940e3d67f66/emp_single_b40cfbc726f9_20261108T214516/runtime.json",
+      "sha256": "c6a4638950570a8028c77274a82d4ceb5d8d822e10b6ec0a126cd3498bd16eb6"
+    },
+    {
+      "run_id": "panel/a30f1cf3c45b/emp_multiagent_f07173a7d8f0_20261108T215002",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/a30f1cf3c45b/emp_multiagent_f07173a7d8f0_20261108T215002/report.json",
+      "sha256": "f12a6856b2af38d2ce414445599685c415abe32134f2530cdb6f924af13ac45f"
+    },
+    {
+      "run_id": "panel/a30f1cf3c45b/emp_multiagent_f07173a7d8f0_20261108T215002",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/a30f1cf3c45b/emp_multiagent_f07173a7d8f0_20261108T215002/manifest.json",
+      "sha256": "39c2872fdebb99d664c222cf7747c541c2b50d6783f0c5962cd69c86529db13d"
+    },
+    {
+      "run_id": "panel/a30f1cf3c45b/emp_multiagent_f07173a7d8f0_20261108T215002",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/a30f1cf3c45b/emp_multiagent_f07173a7d8f0_20261108T215002/evaluation.json",
+      "sha256": "744d5f00ce90387b80563c19394e748c53037a8231a4e8fb01d2ffca4ec074f4"
+    },
+    {
+      "run_id": "panel/a30f1cf3c45b/emp_multiagent_f07173a7d8f0_20261108T215002",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/a30f1cf3c45b/emp_multiagent_f07173a7d8f0_20261108T215002/runtime.json",
+      "sha256": "da15cbfd1f7404797e55d21a3bc00e6a7f70372a9222d849fbc60fb4b89de44d"
+    },
+    {
+      "run_id": "panel/23d9c208d26d/emp_multiagent_5991649b4e5e_20261108T215342",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/23d9c208d26d/emp_multiagent_5991649b4e5e_20261108T215342/report.json",
+      "sha256": "c0c5422ab8b7faa38e0a46a026876c08ea557e521e10a0c7d96822009fea888b"
+    },
+    {
+      "run_id": "panel/23d9c208d26d/emp_multiagent_5991649b4e5e_20261108T215342",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/23d9c208d26d/emp_multiagent_5991649b4e5e_20261108T215342/manifest.json",
+      "sha256": "f627afa4838e3cef9586ecc2338f90d63bfcbb55e96eb0a45b56be2393f646b5"
+    },
+    {
+      "run_id": "panel/23d9c208d26d/emp_multiagent_5991649b4e5e_20261108T215342",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/23d9c208d26d/emp_multiagent_5991649b4e5e_20261108T215342/evaluation.json",
+      "sha256": "e8b4dc76e2fbc168f347d44f12f5664d141d8707e7b3a0942bfd26c807864ec7"
+    },
+    {
+      "run_id": "panel/23d9c208d26d/emp_multiagent_5991649b4e5e_20261108T215342",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/23d9c208d26d/emp_multiagent_5991649b4e5e_20261108T215342/runtime.json",
+      "sha256": "fd3ca5a7adb158b0aa53eaba0d4c1e8ab13f14f5f7c71009a381ee6b81dbfc9b"
+    },
+    {
+      "run_id": "panel/a338f8eaa39d/emp_single_988c2edbfb3c_20261108T215727",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/a338f8eaa39d/emp_single_988c2edbfb3c_20261108T215727/report.json",
+      "sha256": "f7808a057276af9f8f01817acbc28ba73197abf829ed19f11a30086827df3881"
+    },
+    {
+      "run_id": "panel/a338f8eaa39d/emp_single_988c2edbfb3c_20261108T215727",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/a338f8eaa39d/emp_single_988c2edbfb3c_20261108T215727/manifest.json",
+      "sha256": "a52f7f8484bb19a867f0cd5d30f80ca8432e1666a23a9ca64b51860c3bf521d9"
+    },
+    {
+      "run_id": "panel/a338f8eaa39d/emp_single_988c2edbfb3c_20261108T215727",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/a338f8eaa39d/emp_single_988c2edbfb3c_20261108T215727/evaluation.json",
+      "sha256": "00cd1e33027817968d00e8de02f41722dd475ddd656295d334ed714ec8e63541"
+    },
+    {
+      "run_id": "panel/a338f8eaa39d/emp_single_988c2edbfb3c_20261108T215727",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/a338f8eaa39d/emp_single_988c2edbfb3c_20261108T215727/runtime.json",
+      "sha256": "2d9ed584ef596cdaa2bc8d878522b9cada359d25b2f7b117beeefb36244e4579"
+    },
+    {
+      "run_id": "panel/37fa2623b753/emp_single_d2cf177440d0_20261108T220242",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/37fa2623b753/emp_single_d2cf177440d0_20261108T220242/report.json",
+      "sha256": "86782b71e78838527245ff1328aa812b64757e7319ab592fa668acf8ed8d4ccb"
+    },
+    {
+      "run_id": "panel/37fa2623b753/emp_single_d2cf177440d0_20261108T220242",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/37fa2623b753/emp_single_d2cf177440d0_20261108T220242/manifest.json",
+      "sha256": "03eb9ca67fc5f8d1a3b55b5687a37dd0290fb5705de94bdc88d8d2d9a3128bdd"
+    },
+    {
+      "run_id": "panel/37fa2623b753/emp_single_d2cf177440d0_20261108T220242",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/37fa2623b753/emp_single_d2cf177440d0_20261108T220242/evaluation.json",
+      "sha256": "00cd1e33027817968d00e8de02f41722dd475ddd656295d334ed714ec8e63541"
+    },
+    {
+      "run_id": "panel/37fa2623b753/emp_single_d2cf177440d0_20261108T220242",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/37fa2623b753/emp_single_d2cf177440d0_20261108T220242/runtime.json",
+      "sha256": "55ae7f0bc4791d90b9c69ddc8290d223726d3c18e581d418867c1f2c9a0d16ac"
+    },
+    {
+      "run_id": "panel/e38f055db00e/emp_multiagent_bc1cf64737a8_20261108T220740",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/e38f055db00e/emp_multiagent_bc1cf64737a8_20261108T220740/report.json",
+      "sha256": "517d5793124a7d93d6723ea2e093e4fb917533265c890ad2e125298f71aa0781"
+    },
+    {
+      "run_id": "panel/e38f055db00e/emp_multiagent_bc1cf64737a8_20261108T220740",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/e38f055db00e/emp_multiagent_bc1cf64737a8_20261108T220740/manifest.json",
+      "sha256": "b02417e62b687bc2644cb20991bdce364556df6de36b3766d4f77e1aab5826a4"
+    },
+    {
+      "run_id": "panel/e38f055db00e/emp_multiagent_bc1cf64737a8_20261108T220740",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/e38f055db00e/emp_multiagent_bc1cf64737a8_20261108T220740/evaluation.json",
+      "sha256": "e8b4dc76e2fbc168f347d44f12f5664d141d8707e7b3a0942bfd26c807864ec7"
+    },
+    {
+      "run_id": "panel/e38f055db00e/emp_multiagent_bc1cf64737a8_20261108T220740",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/e38f055db00e/emp_multiagent_bc1cf64737a8_20261108T220740/runtime.json",
+      "sha256": "4812aba281632cb198df30a3a0c443fc6731a33c08cb19ecb50d6a06a4505ea9"
+    },
+    {
+      "run_id": "panel/19f16acb6516/emp_single_473bf82b0791_20261108T221139",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/19f16acb6516/emp_single_473bf82b0791_20261108T221139/report.json",
+      "sha256": "069008a1a337d518dcdabb45985bff0500647b2ae7ac2820844a18a7d71411c7"
+    },
+    {
+      "run_id": "panel/19f16acb6516/emp_single_473bf82b0791_20261108T221139",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/19f16acb6516/emp_single_473bf82b0791_20261108T221139/manifest.json",
+      "sha256": "d06d73275a03c607b68eda0727879d3e55b04f58a5c6ae3d6c9c67fa0fb09c2e"
+    },
+    {
+      "run_id": "panel/19f16acb6516/emp_single_473bf82b0791_20261108T221139",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/19f16acb6516/emp_single_473bf82b0791_20261108T221139/evaluation.json",
+      "sha256": "00cd1e33027817968d00e8de02f41722dd475ddd656295d334ed714ec8e63541"
+    },
+    {
+      "run_id": "panel/19f16acb6516/emp_single_473bf82b0791_20261108T221139",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/19f16acb6516/emp_single_473bf82b0791_20261108T221139/runtime.json",
+      "sha256": "4eb1ae44a81dba4d9dcc8384ab4dc9cf711494ac5cf064a1be0a2f1f4231469f"
+    },
+    {
+      "run_id": "panel/23af0cfb04f9/emp_multiagent_a157a1b4ad54_20261108T221658",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/23af0cfb04f9/emp_multiagent_a157a1b4ad54_20261108T221658/report.json",
+      "sha256": "fd792564cb90773c0db0330d8842452909d8a3bee99c6358f11ba8df0628170a"
+    },
+    {
+      "run_id": "panel/23af0cfb04f9/emp_multiagent_a157a1b4ad54_20261108T221658",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/23af0cfb04f9/emp_multiagent_a157a1b4ad54_20261108T221658/manifest.json",
+      "sha256": "8620452b76d41c1d8e52e70fbc26f0a6ab74da97c8391a418f534afc3be933d1"
+    },
+    {
+      "run_id": "panel/23af0cfb04f9/emp_multiagent_a157a1b4ad54_20261108T221658",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/23af0cfb04f9/emp_multiagent_a157a1b4ad54_20261108T221658/evaluation.json",
+      "sha256": "e8b4dc76e2fbc168f347d44f12f5664d141d8707e7b3a0942bfd26c807864ec7"
+    },
+    {
+      "run_id": "panel/23af0cfb04f9/emp_multiagent_a157a1b4ad54_20261108T221658",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/23af0cfb04f9/emp_multiagent_a157a1b4ad54_20261108T221658/runtime.json",
+      "sha256": "0605e525b8f60e35171fdacd4ea2370986b30bc89185d59f8915074881727fa9"
+    },
+    {
+      "run_id": "panel/74d7fc0d5f21/emp_single_33687ca5db08_20261108T222048",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/74d7fc0d5f21/emp_single_33687ca5db08_20261108T222048/report.json",
+      "sha256": "7219535a028858d8160c6e06f6874ec2525179670326c1fa96380e4c39e91e4c"
+    },
+    {
+      "run_id": "panel/74d7fc0d5f21/emp_single_33687ca5db08_20261108T222048",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/74d7fc0d5f21/emp_single_33687ca5db08_20261108T222048/manifest.json",
+      "sha256": "440cb7d5dd73873297c710aabb14e23ccc24b1e4e80580ed767188e533399f26"
+    },
+    {
+      "run_id": "panel/74d7fc0d5f21/emp_single_33687ca5db08_20261108T222048",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/74d7fc0d5f21/emp_single_33687ca5db08_20261108T222048/evaluation.json",
+      "sha256": "00cd1e33027817968d00e8de02f41722dd475ddd656295d334ed714ec8e63541"
+    },
+    {
+      "run_id": "panel/74d7fc0d5f21/emp_single_33687ca5db08_20261108T222048",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/74d7fc0d5f21/emp_single_33687ca5db08_20261108T222048/runtime.json",
+      "sha256": "5f9a3f585ff1fb8153761acecd0bc91b088f3c24e6b9b8f88ef6cef0a4168507"
+    },
+    {
+      "run_id": "panel/164f6f6138cd/emp_multiagent_d7658d2e63c6_20261108T222557",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/164f6f6138cd/emp_multiagent_d7658d2e63c6_20261108T222557/report.json",
+      "sha256": "9afafbc7edb417bf455ef26280d3baa4497de6b1cdbc2f2f98f232eb27301562"
+    },
+    {
+      "run_id": "panel/164f6f6138cd/emp_multiagent_d7658d2e63c6_20261108T222557",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/164f6f6138cd/emp_multiagent_d7658d2e63c6_20261108T222557/manifest.json",
+      "sha256": "eb9bb1a2a5908ad89b9310fb655f535dfc5f5c94473f23c45d74130d2924b2af"
+    },
+    {
+      "run_id": "panel/164f6f6138cd/emp_multiagent_d7658d2e63c6_20261108T222557",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/164f6f6138cd/emp_multiagent_d7658d2e63c6_20261108T222557/evaluation.json",
+      "sha256": "e8b4dc76e2fbc168f347d44f12f5664d141d8707e7b3a0942bfd26c807864ec7"
+    },
+    {
+      "run_id": "panel/164f6f6138cd/emp_multiagent_d7658d2e63c6_20261108T222557",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/164f6f6138cd/emp_multiagent_d7658d2e63c6_20261108T222557/runtime.json",
+      "sha256": "baffc0ac36e05f933badef08cf4b0c85048cd823f9abf5328e11cbb9070e3fa2"
+    },
+    {
+      "run_id": "panel/2227ff62eb1a/emp_multiagent_8940c02eb4da_20261108T222958",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/2227ff62eb1a/emp_multiagent_8940c02eb4da_20261108T222958/report.json",
+      "sha256": "9b6420a40dc49741d8c4d1ab20e6918f5507b763baa706bb25d0f5281374bb0e"
+    },
+    {
+      "run_id": "panel/2227ff62eb1a/emp_multiagent_8940c02eb4da_20261108T222958",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/2227ff62eb1a/emp_multiagent_8940c02eb4da_20261108T222958/manifest.json",
+      "sha256": "d7ac7a8a368288abbb00449adbeb991098c0b4be43ec1c5c3be9669385120e82"
+    },
+    {
+      "run_id": "panel/2227ff62eb1a/emp_multiagent_8940c02eb4da_20261108T222958",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/2227ff62eb1a/emp_multiagent_8940c02eb4da_20261108T222958/evaluation.json",
+      "sha256": "e8b4dc76e2fbc168f347d44f12f5664d141d8707e7b3a0942bfd26c807864ec7"
+    },
+    {
+      "run_id": "panel/2227ff62eb1a/emp_multiagent_8940c02eb4da_20261108T222958",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/2227ff62eb1a/emp_multiagent_8940c02eb4da_20261108T222958/runtime.json",
+      "sha256": "09b8c35e1f794072de0036ab3e9953400eac39f539c69c2aea223eba8800579c"
+    },
+    {
+      "run_id": "panel/11765f52366b/emp_single_41f3bf435c3b_20261108T223357",
+      "file": "report.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/11765f52366b/emp_single_41f3bf435c3b_20261108T223357/report.json",
+      "sha256": "10b18c2411ba0c937484d73f763957f51a905fa2efef0803b84892a403e40091"
+    },
+    {
+      "run_id": "panel/11765f52366b/emp_single_41f3bf435c3b_20261108T223357",
+      "file": "manifest.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/11765f52366b/emp_single_41f3bf435c3b_20261108T223357/manifest.json",
+      "sha256": "b0b676cbd9c29f06cf0aba55307224cc656365bafb7dede79301281f04e5b21b"
+    },
+    {
+      "run_id": "panel/11765f52366b/emp_single_41f3bf435c3b_20261108T223357",
+      "file": "evaluation.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/11765f52366b/emp_single_41f3bf435c3b_20261108T223357/evaluation.json",
+      "sha256": "9ec562022de0b4713a718eea655863005566e72aa9d29659292cbafa180f7b0f"
+    },
+    {
+      "run_id": "panel/11765f52366b/emp_single_41f3bf435c3b_20261108T223357",
+      "file": "runtime.json",
+      "path": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/piloto_kali/prototipo/corridas/panel/11765f52366b/emp_single_41f3bf435c3b_20261108T223357/runtime.json",
+      "sha256": "54bf7302975bc324210688802ff917c22b70802fbe04298cadb5ae4788ca3334"
+    }
+  ]
+}

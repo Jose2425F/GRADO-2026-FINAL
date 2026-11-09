@@ -1,0 +1,17 @@
+{
+  "scope": "Integration with real Nmap constrained to exact TCP loopback fixture profile; only currently listening dual-stack fixture port, no API; external network, Hydra and Docker blocked",
+  "command": [
+    "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/entorno-reproducido/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "scripts/tests/test_aplicaciones_personales.py::ApplicationTests::test_whole_runner_real_nmap_and_web_without_api_in_both_architectures",
+    "--junitxml=/home/kali/Documents/Codex/2026-11-07/cone/work/publicacion-20261109/pruebas-publicacion/python-loopback.xml"
+  ],
+  "cwd": "/home/kali/Documents/Codex/2026-11-07/cone/work/publicacion-20261109/repo",
+  "started_at": "2026-11-09T04:22:47.123623+00:00",
+  "ended_at": "2026-11-09T04:23:09.523543+00:00",
+  "exit_code": 0,
+  "log": "python-loopback.log",
+  "sha256_log": "d1f5bac70b7047498dfa057b4ba2127601289446b7b54e0b3f1c712d54cfd4eb"
+}

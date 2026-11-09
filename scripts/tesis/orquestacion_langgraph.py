@@ -14,6 +14,7 @@ from pathlib import Path
 import sqlite3
 import time
 from typing import TypedDict
+from uuid import uuid4
 
 from langgraph.graph import END, START, StateGraph
 
@@ -21,7 +22,7 @@ from auditoria.contracts import TaskResult, TaskStatus
 from auditoria.lab import LabError
 
 
-GRAPH_VERSION = "novaflow-langgraph-1"
+GRAPH_VERSION = "novaflow-langgraph-2"
 NODES = ("preflight", "admission", "execution", "validation", "abort", "review", "close")
 SUCCESS = {TaskStatus.COMPLETED, TaskStatus.COMPLETED_NO_FINDINGS}
 IPV6 = {"ipv6_ndp", "ipv6_fragmentation"}
@@ -107,7 +108,8 @@ class LangGraphOrchestrator:
 
     def __init__(self, *, tasks, workers, deadline, store, prepare, execute,
                  terminal, close, authorize=None, clock=None, started=None,
-                 reserve_seconds=240, repair_trace=None, task_limit=None, on_admission=None):
+                 reserve_seconds=240, repair_trace=None, task_limit=None, on_admission=None,
+                 segments=None):
         if workers not in {1, 2}:
             raise ValueError("unsupported_execution_concurrency")
         self.tasks = list(tasks)
@@ -119,7 +121,9 @@ class LangGraphOrchestrator:
         self.task_limit = len(self.tasks) if task_limit is None else task_limit
         self.admitted_task_ids = []
         self.admitted_at = {}
+        self.attempt_ids = {}
         self.on_admission = on_admission or (lambda controller: None)
+        self.segments = segments
         self.workers = workers
         self.deadline = deadline
         self.store = store
@@ -217,8 +221,7 @@ class LangGraphOrchestrator:
         result = self.record_terminal(task, result)
         self.completed[task.task_id] = result
 
-    def _admission(self, state):
-        pending = list(state["pending"])
+    def _propagate_failed_dependencies(self, pending):
         # Propagar fallos por toda la cadena, incluso si no queda ninguna tarea activa.
         changed = True
         while changed:
@@ -230,11 +233,18 @@ class LangGraphOrchestrator:
                     self._terminal(task, TaskResult(task_id=task_id, status=TaskStatus.BLOCKED,
                                                    reason_code="dependency_failed"))
                     changed = True
+
+    def _admission(self, state):
+        pending = list(state["pending"])
+        unavailable = set()
+        self._propagate_failed_dependencies(pending)
         while (pending and len(self.futures) < self.workers and len(self.admitted_task_ids) < self.task_limit
                and self.deadline - self.clock() >= self.reserve_seconds):
             active = list(self.futures.values())
             ready = [self.by_id[task_id] for task_id in pending
-                     if all(dep in self.completed for dep in self.by_id[task_id].dependencies)
+                     if task_id not in unavailable
+                     if all(dep in self.completed and self.completed[dep].status in SUCCESS
+                            for dep in self.by_id[task_id].dependencies)
                      and not any(item.target.asset_id == self.by_id[task_id].target.asset_id for item in active)
                      and not (self.by_id[task_id].agent_type in IPV6 and any(item.agent_type in IPV6 for item in active))]
             if not ready:
@@ -252,14 +262,31 @@ class LangGraphOrchestrator:
             # Se vuelve a comprobar el alcance antes de cada despacho. El adaptador
             # conserva además su propia comprobación de objetivo/perfil al ejecutar.
             self.authorize(choice)
+            if self.segments is not None:
+                from .segmentos import SegmentBusy, SegmentQuarantined
+                try:
+                    self.segments.acquire(choice)
+                except (SegmentBusy, SegmentQuarantined) as exc:
+                    reason = "segment_busy" if isinstance(exc, SegmentBusy) else "segment_quarantined"
+                    self.store.event("orchestration", "segment_admission_denied", task_id=choice.task_id,
+                                     payload={"segment": choice.target.interface, "reason_code": reason})
+                    unavailable.add(choice.task_id)
+                    if reason == "segment_quarantined" or not self.futures:
+                        pending.remove(choice.task_id)
+                        self._terminal(choice, TaskResult(task_id=choice.task_id, status=TaskStatus.BLOCKED,
+                                                          reason_code=reason))
+                        self._propagate_failed_dependencies(pending)
+                    continue
             pending.remove(choice.task_id)
             # La reserva precede al despacho: un fallo de herramienta o de
             # admisión no devuelve capacidad ni permite sobrepasar el tope.
             self.admitted_task_ids.append(choice.task_id)
+            self.attempt_ids[choice.task_id] = uuid4().hex
             self.admitted_at[choice.task_id] = self.clock()
             self.on_admission(self)
             self.store.event("controller", "task_admitted", task_id=choice.task_id,
                              payload={"profile": choice.action_profile, "asset": choice.target.asset_id,
+                                      "attempt_id": self.attempt_ids[choice.task_id],
                                       "engine": "langgraph", "executed_tasks": len(self.admitted_task_ids),
                                       "task_limit": self.task_limit, "catalogue_size": len(self.tasks)})
             self.futures[self._pool.submit(self.execute_task, choice)] = choice
@@ -285,6 +312,10 @@ class LangGraphOrchestrator:
                     raise TaskExecutionError(stage="tool_execution",reason_code="invalid_tool_result")
             except Exception as exc:
                 result = self._execution_failure(task,exc)
+            finally:
+                if self.segments is not None:
+                    self.segments.release(task)
+            result = result.model_copy(update={"attempt_id": self.attempt_ids[task.task_id]})
             self.finished.append((task, result))
         return self._snapshot(state)
 
@@ -297,6 +328,7 @@ class LangGraphOrchestrator:
             seen.add(id(current));chain.append(_safe_exception(current))
             current = current.__cause__ if current.__cause__ is not None else current.__context__
         diagnostic = {"schema_version":1,"kind":"execution_failure", "task_id":task.task_id,
+            "attempt_id":self.attempt_ids[task.task_id],
             "action_profile":task.action_profile, **primary, "exception_chain":chain,
             "admission_index":self.admitted_task_ids.index(task.task_id)+1,
             "task_limit":self.task_limit,"catalogue_size":len(self.tasks),
@@ -363,6 +395,9 @@ class LangGraphOrchestrator:
 
     def _close(self, state):
         self._pool.shutdown(wait=True)
+        if self.segments is not None:
+            for task in self.tasks:
+                self.segments.release(task)
         self.persist_close(self)
         self._closed = True
         return self._snapshot(state, closed=True)
@@ -385,6 +420,9 @@ class LangGraphOrchestrator:
                     self._abort(initial)
                 finally:
                     self._pool.shutdown(wait=True)
+                    if self.segments is not None:
+                        for task in self.tasks:
+                            self.segments.release(task)
                     self.persist_close(self)
                     self._closed = True
             raise

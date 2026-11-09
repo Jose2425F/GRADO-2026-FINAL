@@ -1,0 +1,819 @@
+[
+  {
+    "analysis": {
+      "ETV_ratio": {
+        "max": 1.5839193351542977,
+        "mean": 1.3396286321045616,
+        "min": 1.15753384856761,
+        "n": 4,
+        "stddev": 0.2123313435221308
+      },
+      "IDE_percent": {
+        "max": 30.0,
+        "mean": 12.045454545454547,
+        "min": 0.0,
+        "n": 4,
+        "stddev": 14.721940673365134
+      },
+      "TRTO_percent": {
+        "max": 26.477109019813284,
+        "mean": 20.059747191676646,
+        "min": 13.206622599411974,
+        "n": 4,
+        "stddev": 5.893724125482193
+      },
+      "token_reduction_percent": {
+        "max": 18.54044349556019,
+        "mean": 16.082663679737013,
+        "min": 13.609437751004016,
+        "n": 4,
+        "stddev": 2.5093219814403755
+      }
+    },
+    "completed_runs": 9,
+    "eligible_pairs": 4,
+    "failed_runs": 1,
+    "id": "integrado",
+    "laboratory": "NovaFlow · banco integrado",
+    "pairs": [
+      {
+        "complete": false,
+        "eligible": false,
+        "metrics": {
+          "ETV_ratio": null,
+          "IDE_percent": null,
+          "TRTO_percent": null,
+          "token_reduction_percent": null
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/7bef155eb03e/emp_multiagent_768b2c956f9c_20261018T225330",
+          "sequence": 2,
+          "status": "complete"
+        },
+        "pair": 1,
+        "reasons": [
+          "Ambas ejecuciones deben ser reales y estar completas.",
+          "Hay tareas incompletas; conserva ese intento y compara otra pareja completa.",
+          "Los escenarios o sus imágenes/configuraciones son diferentes; compara las arquitecturas dentro del mismo laboratorio.",
+          "Falta un primer intento completo en ambas arquitecturas.",
+          "La evaluación registrada no declara apta esta pareja.",
+          "Las identidades de código, grafo, catálogo, imágenes o referencia no coinciden."
+        ],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/b0044cf8746b/emp_single_fb73c485a609_20261018T224152",
+          "sequence": 1,
+          "status": "partial"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.4508036043061059,
+          "IDE_percent": 18.181818181818183,
+          "TRTO_percent": 26.477109019813284,
+          "token_reduction_percent": 18.54044349556019
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/8cf17c4df185/emp_multiagent_eb3c70c7ec8a_20261018T234838",
+          "sequence": 4,
+          "status": "complete"
+        },
+        "pair": 2,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/db52e98470ed/emp_single_76225c07de35_20261018T234154",
+          "sequence": 3,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.1662577403902326,
+          "IDE_percent": 0.0,
+          "TRTO_percent": 17.45228274550616,
+          "token_reduction_percent": 14.255660188339009
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/4d134e39fdaf/emp_multiagent_190d822d1380_20261018T235200",
+          "sequence": 5,
+          "status": "complete"
+        },
+        "pair": 3,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/3974c9c9fb45/emp_single_b2c1b0525fcd_20261018T235528",
+          "sequence": 6,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.15753384856761,
+          "IDE_percent": 0.0,
+          "TRTO_percent": 13.206622599411974,
+          "token_reduction_percent": 13.609437751004016
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/9e9b3c5e683f/emp_multiagent_03e59ec9515f_20261019T000422",
+          "sequence": 8,
+          "status": "complete"
+        },
+        "pair": 4,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/4122d0ea89c8/emp_single_762ec1c31eaf_20261019T000012",
+          "sequence": 7,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.5839193351542977,
+          "IDE_percent": 30.0,
+          "TRTO_percent": 23.102974401975167,
+          "token_reduction_percent": 17.925113284044837
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/d13f4ec89d96/emp_multiagent_31c6159d9c64_20261019T000805",
+          "sequence": 9,
+          "status": "complete"
+        },
+        "pair": 5,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/842185267899/emp_single_6252a35a40a1_20261019T001156",
+          "sequence": 10,
+          "status": "complete"
+        }
+      }
+    ],
+    "planned_runs": 10,
+    "recorded_runs": 10
+  },
+  {
+    "analysis": {
+      "ETV_ratio": {
+        "max": 1.533666719168373,
+        "mean": 1.3095109536082994,
+        "min": 0.9432847577786531,
+        "n": 5,
+        "stddev": 0.22425690896223688
+      },
+      "IDE_percent": {
+        "max": 50.0,
+        "mean": 27.142857142857146,
+        "min": 0.0,
+        "n": 5,
+        "stddev": 17.78557085426962
+      },
+      "TRTO_percent": {
+        "max": 33.09737515807656,
+        "mean": 14.60599727001223,
+        "min": -21.235736938929833,
+        "n": 5,
+        "stddev": 20.87935069072986
+      },
+      "token_reduction_percent": {
+        "max": 10.00778816199377,
+        "mean": 2.2791741385218756,
+        "min": -6.012526096033403,
+        "n": 5,
+        "stddev": 5.94495027050489
+      }
+    },
+    "completed_runs": 10,
+    "eligible_pairs": 5,
+    "failed_runs": 0,
+    "id": "sucursal",
+    "laboratory": "NovaFlow · Sucursal Esencial",
+    "pairs": [
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.3550896376947625,
+          "IDE_percent": 28.57142857142857,
+          "TRTO_percent": -21.235736938929833,
+          "token_reduction_percent": 5.119613496454453
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/489269040600/emp_multiagent_cd3ca153bf36_20261019T001738",
+          "sequence": 11,
+          "status": "complete"
+        },
+        "pair": 1,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/78f1127cb5a7/emp_single_ed0ac84b0dc8_20261019T002207",
+          "sequence": 12,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.4286950608889162,
+          "IDE_percent": 28.57142857142857,
+          "TRTO_percent": 33.09737515807656,
+          "token_reduction_percent": 10.00778816199377
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/ba458706b6d8/emp_multiagent_5ae2f7b74abc_20261019T003011",
+          "sequence": 14,
+          "status": "complete"
+        },
+        "pair": 2,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/76df73b31501/emp_single_b20830851642_20261019T002602",
+          "sequence": 13,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 0.9432847577786531,
+          "IDE_percent": 0.0,
+          "TRTO_percent": 17.100363121686378,
+          "token_reduction_percent": -6.012526096033403
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/1f4b7b8e89a4/emp_multiagent_4df0d0d61ad2_20261019T003700",
+          "sequence": 16,
+          "status": "complete"
+        },
+        "pair": 3,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/f3e28137d409/emp_single_5111f19159de_20261019T003320",
+          "sequence": 15,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.286818592510792,
+          "IDE_percent": 28.57142857142857,
+          "TRTO_percent": 21.461241970021415,
+          "token_reduction_percent": 0.08581682009673897
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/59a0b5a7ae0a/emp_multiagent_dc392a663bc9_20261019T004014",
+          "sequence": 17,
+          "status": "complete"
+        },
+        "pair": 4,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/bcc3e074fa29/emp_single_76be082a5a1a_20261019T004325",
+          "sequence": 18,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.533666719168373,
+          "IDE_percent": 50.0,
+          "TRTO_percent": 22.606743039206627,
+          "token_reduction_percent": 2.1951783100978206
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/aa51416802c4/emp_multiagent_f69761c26004_20261019T004713",
+          "sequence": 19,
+          "status": "complete"
+        },
+        "pair": 5,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/623f7bc071a6/emp_single_f9f661b57b87_20261019T005036",
+          "sequence": 20,
+          "status": "complete"
+        }
+      }
+    ],
+    "planned_runs": 10,
+    "recorded_runs": 10
+  },
+  {
+    "analysis": {
+      "ETV_ratio": {
+        "max": 1.8199192782526115,
+        "mean": 1.6446974634979283,
+        "min": 1.2957627440553066,
+        "n": 5,
+        "stddev": 0.20403444746134566
+      },
+      "IDE_percent": {
+        "max": 50.0,
+        "mean": 42.5,
+        "min": 12.5,
+        "n": 5,
+        "stddev": 16.77050983124842
+      },
+      "TRTO_percent": {
+        "max": 18.72623837935341,
+        "mean": 13.13504845740099,
+        "min": 8.301481000393936,
+        "n": 5,
+        "stddev": 3.9993182714538387
+      },
+      "token_reduction_percent": {
+        "max": 17.578761985519538,
+        "mean": 13.26685271963434,
+        "min": 9.544242897080814,
+        "n": 5,
+        "stddev": 2.969333694950948
+      }
+    },
+    "completed_runs": 10,
+    "eligible_pairs": 5,
+    "failed_runs": 0,
+    "id": "comercial",
+    "laboratory": "NovaFlow · Operación Comercial",
+    "pairs": [
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.8199192782526115,
+          "IDE_percent": 50.0,
+          "TRTO_percent": 18.72623837935341,
+          "token_reduction_percent": 17.578761985519538
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/5abaaf7477d7/emp_multiagent_321733da6791_20261019T005915",
+          "sequence": 22,
+          "status": "complete"
+        },
+        "pair": 1,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/adac284b40ad/emp_single_21dfdcbb639a_20261019T005508",
+          "sequence": 21,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.6582692445913894,
+          "IDE_percent": 50.0,
+          "TRTO_percent": 8.301481000393936,
+          "token_reduction_percent": 9.544242897080814
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234",
+          "sequence": 23,
+          "status": "complete"
+        },
+        "pair": 2,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626",
+          "sequence": 24,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.7477388462415444,
+          "IDE_percent": 50.0,
+          "TRTO_percent": 12.253194918937355,
+          "token_reduction_percent": 14.174820613176777
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/6f491cbef691/emp_multiagent_d88ce9ccb41b_20261019T011034",
+          "sequence": 25,
+          "status": "complete"
+        },
+        "pair": 3,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/9fb8acb81634/emp_single_4e8bc523359f_20261019T011419",
+          "sequence": 26,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.7017972043487908,
+          "IDE_percent": 50.0,
+          "TRTO_percent": 15.26694962287189,
+          "token_reduction_percent": 11.857887874837028
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/32f8de22313a/emp_multiagent_c5653142fe85_20261019T012218",
+          "sequence": 28,
+          "status": "complete"
+        },
+        "pair": 4,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/fa41fb98ef2b/emp_single_d6e2e98e7042_20261019T011813",
+          "sequence": 27,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.2957627440553066,
+          "IDE_percent": 12.5,
+          "TRTO_percent": 11.127378365448354,
+          "token_reduction_percent": 13.178550227557547
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/56e47351ee0a/emp_multiagent_538962b4dc88_20261019T012556",
+          "sequence": 29,
+          "status": "complete"
+        },
+        "pair": 5,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/4091920045c7/emp_single_4599614962a2_20261019T012931",
+          "sequence": 30,
+          "status": "complete"
+        }
+      }
+    ],
+    "planned_runs": 10,
+    "recorded_runs": 10
+  },
+  {
+    "analysis": {
+      "ETV_ratio": {
+        "max": 1.5662534773359515,
+        "mean": 1.5353391418743143,
+        "min": 1.5102290394135136,
+        "n": 5,
+        "stddev": 0.022743269561441348
+      },
+      "IDE_percent": {
+        "max": 22.22222222222222,
+        "mean": 22.22222222222222,
+        "min": 22.22222222222222,
+        "n": 5,
+        "stddev": 0.0
+      },
+      "TRTO_percent": {
+        "max": 31.739186180690744,
+        "mean": 25.027027765638046,
+        "min": 20.236549834126635,
+        "n": 5,
+        "stddev": 5.542638323576035
+      },
+      "token_reduction_percent": {
+        "max": 21.96523488004597,
+        "mean": 20.380042705437592,
+        "min": 19.070406519473135,
+        "n": 5,
+        "stddev": 1.1770488897021298
+      }
+    },
+    "completed_runs": 10,
+    "eligible_pairs": 5,
+    "failed_runs": 0,
+    "id": "mixto",
+    "laboratory": "NovaFlow · Empresa Mixta",
+    "pairs": [
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.5102290394135136,
+          "IDE_percent": 22.22222222222222,
+          "TRTO_percent": 30.29584169959194,
+          "token_reduction_percent": 19.070406519473135
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/af4fdc557abc/emp_multiagent_cb7c6bf2ebe6_20261019T013833",
+          "sequence": 32,
+          "status": "complete"
+        },
+        "pair": 1,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/756fd20ca29a/emp_single_97277b21af88_20261019T013333",
+          "sequence": 31,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.5438367540633529,
+          "IDE_percent": 22.22222222222222,
+          "TRTO_percent": 31.739186180690744,
+          "token_reduction_percent": 20.832159293697757
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/f23bf4e375d2/emp_multiagent_87c6a52edf90_20261019T014220",
+          "sequence": 33,
+          "status": "complete"
+        },
+        "pair": 2,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/9716ea76344f/emp_single_cc1dfbe1158c_20261019T014623",
+          "sequence": 34,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.5406045604859906,
+          "IDE_percent": 22.22222222222222,
+          "TRTO_percent": 22.228525085642616,
+          "token_reduction_percent": 20.666064896194595
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/3cd831cb2fb2/emp_multiagent_8e5b439ca4a3_20261019T015626",
+          "sequence": 36,
+          "status": "complete"
+        },
+        "pair": 3,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/5504485351a7/emp_single_576fbf44964b_20261019T015141",
+          "sequence": 35,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.515771878072763,
+          "IDE_percent": 22.22222222222222,
+          "TRTO_percent": 20.63503602813829,
+          "token_reduction_percent": 19.36634793777651
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/fee0a3a17e39/emp_multiagent_6c2bfcb2ef4d_20261019T020029",
+          "sequence": 37,
+          "status": "complete"
+        },
+        "pair": 4,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/1d8495a89d05/emp_single_4944d6d4c34a_20261019T020451",
+          "sequence": 38,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.5662534773359515,
+          "IDE_percent": 22.22222222222222,
+          "TRTO_percent": 20.236549834126635,
+          "token_reduction_percent": 21.96523488004597
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/5a6cf83a8426/emp_multiagent_d55a8e58bb9f_20261019T021425",
+          "sequence": 40,
+          "status": "complete"
+        },
+        "pair": 5,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/6066e9723ee5/emp_single_f61ab333d639_20261019T020941",
+          "sequence": 39,
+          "status": "complete"
+        }
+      }
+    ],
+    "planned_runs": 10,
+    "recorded_runs": 10
+  },
+  {
+    "analysis": {
+      "ETV_ratio": {
+        "max": 1.9177487007235843,
+        "mean": 1.7407283485383895,
+        "min": 1.3819816279412487,
+        "n": 4,
+        "stddev": 0.24381934889724022
+      },
+      "IDE_percent": {
+        "max": 33.33333333333333,
+        "mean": 24.999999999999996,
+        "min": 0.0,
+        "n": 4,
+        "stddev": 16.666666666666664
+      },
+      "TRTO_percent": {
+        "max": 33.52215928023992,
+        "mean": 25.27561776269923,
+        "min": 18.369731661772395,
+        "n": 4,
+        "stddev": 6.289309300595719
+      },
+      "token_reduction_percent": {
+        "max": 30.47403276402928,
+        "mean": 28.120579730143085,
+        "min": 25.992742353551062,
+        "n": 4,
+        "stddev": 1.858511392704943
+      }
+    },
+    "completed_runs": 9,
+    "eligible_pairs": 4,
+    "failed_runs": 1,
+    "id": "reforzado",
+    "laboratory": "NovaFlow · Entorno Reforzado",
+    "pairs": [
+      {
+        "complete": false,
+        "eligible": false,
+        "metrics": {
+          "ETV_ratio": null,
+          "IDE_percent": null,
+          "TRTO_percent": null,
+          "token_reduction_percent": null
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/822375b234be/emp_multiagent_846794b8de91_20261019T021843",
+          "sequence": 41,
+          "status": "complete"
+        },
+        "pair": 1,
+        "reasons": [
+          "Ambas ejecuciones deben ser reales y estar completas.",
+          "Hay tareas incompletas; conserva ese intento y compara otra pareja completa.",
+          "Falta un primer intento completo en ambas arquitecturas.",
+          "La evaluación registrada no declara apta esta pareja."
+        ],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/cccef3d26dbe/emp_single_d08f31a946dc_20261019T022259",
+          "sequence": 42,
+          "status": "partial"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.8016251050714487,
+          "IDE_percent": 33.33333333333333,
+          "TRTO_percent": 25.622847454034876,
+          "token_reduction_percent": 25.992742353551062
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/fc81ed7ece82/emp_multiagent_9875303519bc_20261019T023456",
+          "sequence": 44,
+          "status": "complete"
+        },
+        "pair": 2,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/a7960f951221/emp_single_bec31fd725e9_20261019T022909",
+          "sequence": 43,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.861557960417276,
+          "IDE_percent": 33.33333333333333,
+          "TRTO_percent": 23.587732654749736,
+          "token_reduction_percent": 28.375405886665966
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/f0b950afed9a/emp_multiagent_12cce97f053f_20261019T024541",
+          "sequence": 46,
+          "status": "complete"
+        },
+        "pair": 3,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/ecc1486d2d14/emp_single_4e1e250acf16_20261019T023927",
+          "sequence": 45,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.3819816279412487,
+          "IDE_percent": 0.0,
+          "TRTO_percent": 18.369731661772395,
+          "token_reduction_percent": 27.640137916326026
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/1b42e7f24ff0/emp_multiagent_f95da8ce81ac_20261019T025612",
+          "sequence": 48,
+          "status": "complete"
+        },
+        "pair": 4,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/ee41281dd8a8/emp_single_ac60d12b5183_20261019T025038",
+          "sequence": 47,
+          "status": "complete"
+        }
+      },
+      {
+        "complete": true,
+        "eligible": true,
+        "metrics": {
+          "ETV_ratio": 1.9177487007235843,
+          "IDE_percent": 33.33333333333333,
+          "TRTO_percent": 33.52215928023992,
+          "token_reduction_percent": 30.47403276402928
+        },
+        "multiagent": {
+          "recorded": true,
+          "run_id": "panel/96358bce8d43/emp_multiagent_8e9df3070993_20261019T030102",
+          "sequence": 49,
+          "status": "complete"
+        },
+        "pair": 5,
+        "reasons": [],
+        "single": {
+          "recorded": true,
+          "run_id": "panel/fcede35b38cd/emp_single_ff31a804c833_20261019T030605",
+          "sequence": 50,
+          "status": "complete"
+        }
+      }
+    ],
+    "planned_runs": 10,
+    "recorded_runs": 10
+  }
+]

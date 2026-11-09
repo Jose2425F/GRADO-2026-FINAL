@@ -138,7 +138,8 @@ def build_plan(req):
             for service, port in host["services"]:
                 tasks.append(Task(task_id=req.audit_id + "_" + t.asset_id + "_" + service.replace("-", "_"),
                     target=t, agent_type=Category.IPV4_CREDENTIALS, protocol="tcp",
-                    action_profile=f"hydra_{service.replace('-', '_')}_single_v1", timeout_seconds=60))
+                    action_profile=f"hydra_{service.replace('-', '_')}_single_v1", timeout_seconds=60,
+                    dependencies=[req.audit_id + "_" + t.asset_id + "_services"]))
         elif t.asset_id in lab.APPS and ":" not in t.address:
             tasks.append(Task(task_id=req.audit_id + "_" + t.asset_id + "_application", target=t,
                 agent_type=Category.APPLICATION_ACCESS, protocol="http_dualstack",

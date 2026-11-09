@@ -174,7 +174,9 @@ class PanelTests(unittest.TestCase):
         for tokens in [80001,True,-1]:
             with self.assertRaises(ValueError):validate_options({**good,'tokens':tokens})
         with self.assertRaises(ValueError):validate_options({**good,'scope':'v2','tokens':60000,'expert_mode':False})
-        with self.assertRaises(ValueError):validate_options({**good,'scope':'personal','personal':{'ipv4':'192.168.56.10','ports':'22','interface':'eth0'},'tokens':60000})
+        personal={**good,'scope':'personal','personal':{'ipv4':'192.168.56.10','ports':'22','interface':'eth0'}}
+        for tokens in [20000,37500,60000,80000]:self.assertEqual(validate_options({**personal,'tokens':tokens})['tokens'],tokens)
+        with self.assertRaises(ValueError):validate_options({**personal,'tokens':80001})
 
     def test_console_projects_evidence_without_prompts_or_bodies(self):
         self.fixture(report=True)

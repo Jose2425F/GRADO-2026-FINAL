@@ -94,3 +94,22 @@ def test_scope_rejection_precedes_all_network_operations():
     engine.targets=lambda:[]
     with pytest.raises(PolicyError):execute_protocol(task,store,engine,bank)
     bank.wait_receiver.assert_not_called();bank.probe.assert_not_called()
+
+
+def test_restoration_receipt_is_emitted_even_when_probe_fails():
+    task,bank,engine,store,_=fixture()
+    bank.probe.side_effect=TimeoutError('probe failed')
+    verified=Mock()
+    with pytest.raises(TaskExecutionError):
+        execute_protocol(task,store,engine,bank,on_restored=verified)
+    verified.assert_called_once_with(task,bank.reset_receiver.return_value)
+
+
+def test_failed_restoration_never_emits_a_success_receipt():
+    task,bank,engine,store,_=fixture()
+    bank.reset_receiver.side_effect=TimeoutError('restore failed')
+    verified=Mock()
+    with pytest.raises(TaskExecutionError) as error:
+        execute_protocol(task,store,engine,bank,on_restored=verified)
+    assert error.value.stage=='ipv6_restore'
+    verified.assert_not_called()

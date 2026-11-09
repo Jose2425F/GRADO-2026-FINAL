@@ -102,7 +102,18 @@ def cmd_auditar(args):
     options=validate_options({'name':'Auditoría NovaFlow · terminal','authorization':args.autorizacion,
         'scope':'empresa','architecture':args.arquitectura,'ia':'openai' if args.openai else 'none','tokens':args.tokens})
     RUNS.mkdir(parents=True,exist_ok=True)
-    code=run_panel(options,RUNS)
+    import subprocess
+    import tempfile
+    from tesis.procesos import wait_bounded
+    with tempfile.TemporaryDirectory(prefix='novaflow-terminal-') as temporary:
+        job=Path(temporary)/'job.json'
+        job.write_text(json.dumps({'options':options}),encoding='utf-8')
+        job.chmod(0o600)
+        process=subprocess.Popen([sys.executable,str(Path(__file__).resolve()),'--job',str(job),
+                                  '--output',str(RUNS)],start_new_session=True)
+        code,timed_out=wait_bounded(process,3780)
+        if timed_out:
+            print('[NovaFlow] Plazo agotado; evidencia parcial conservada. Restaure el banco antes de repetir.')
     print(f"Resultado en {RUNS}; también aparece en el historial del panel.")
     raise SystemExit(code)
 
@@ -208,14 +219,16 @@ def run_panel(options, output, *, study_context=None, bank_context=None):
     write_json(directory / "request.json", req.model_dump(mode="json"))
     write_json(directory / "plan.json", [t.model_dump(mode="json") for t in tasks])
     from auditoria.cli import source_fingerprint
+    from tesis.entorno import dependency_receipt
     manifest = {"bank": "empresa", "mode": "live", "auditor_source_sha256": source_fingerprint(),
         "source_sha256":__import__("auditoria.cli",fromlist=["source_fingerprint"]).source_fingerprint(),
         "purpose": "vulnerability_detection_instrumented_lab", "expert_mode":bool(options.get("expert_mode")),
         "adapter_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
-        'extensions_sha256':{name:hashlib.sha256((Path(__file__).parent/name).read_bytes()).hexdigest() for name in ['llm_especialistas.py','tesis/llm_contexto.py','tesis/candidatos.py','tesis/evaluacion.py','tesis/orquestacion_langgraph.py','tesis/restauracion_manual.py','tesis/protocolo_manual.py','tesis/evaluacion_manual.py','tesis/presupuesto_deteccion.py','tesis/protocolo_ipv6.py','tesis/restauracion_banco.py']},
+        'extensions_sha256':{name:hashlib.sha256((Path(__file__).parent/name).read_bytes()).hexdigest() for name in ['llm_especialistas.py','tesis/llm_contexto.py','tesis/candidatos.py','tesis/evaluacion.py','tesis/orquestacion_langgraph.py','tesis/restauracion_manual.py','tesis/protocolo_manual.py','tesis/evaluacion_manual.py','tesis/presupuesto_deteccion.py','tesis/protocolo_ipv6.py','tesis/restauracion_banco.py','tesis/segmentos.py','tesis/inventario.py','tesis/procesos.py','tesis/entorno.py']},
+        'dependencies':dependency_receipt(PROTOTIPO),
         "orchestration": orchestration, "execution_concurrency": workers,
         **({"scenario":bank_context.metadata} if bank_context is not None else {}), "maximum_runtime_seconds": req.max_runtime_seconds,
-        "protocol_isolation": "one_ipv6_task_at_a_time", "study": "preregistered_novaflow" if study_context else "manual_not_formal_cohort",
+        "protocol_isolation": "persistent_segment_lock_and_one_ipv6_task_at_a_time", "study": "preregistered_novaflow" if study_context else "manual_not_formal_cohort",
         **({'manual_context':manual_context} if manual_context else {}),
         'detection_budget':detection_budget,
         'catalogue_size':len(tasks),'task_limit':task_limit,'task_limit_fraction':detection_budget['fraction'],
@@ -248,6 +261,10 @@ def run_panel(options, output, *, study_context=None, bank_context=None):
         # El ejecutor puede comenzar después de la admisión. Comprobar otra vez
         # evita emitir tráfico si la ventana o la solicitud cambiaron entretanto.
         authorize(task, stage="execution")
+        from tesis.inventario import credential_block
+        blocked = credential_block(task, controller.completed, bank)
+        if blocked is not None:
+            return blocked
         return engine.run_task(task, store)
 
     def terminal(task, result):
@@ -269,7 +286,8 @@ def run_panel(options, output, *, study_context=None, bank_context=None):
         except Exception:
             record = {"task_id": task.task_id, "state": "indeterminate", "reason": "validation_error"}
             detected = []
-            result = TaskResult(task_id=task.task_id, status=TaskStatus.FAILED, reason_code="validation_error")
+            result = TaskResult(task_id=task.task_id, attempt_id=result.attempt_id,
+                                status=TaskStatus.FAILED, reason_code="validation_error")
         if result.status in {TaskStatus.COMPLETED, TaskStatus.COMPLETED_NO_FINDINGS} and record.get("state") == "indeterminate":
             result = result.model_copy(update={"status": TaskStatus.FAILED, "reason_code": "evidence_not_validated"})
         results.append(result)
@@ -279,6 +297,8 @@ def run_panel(options, output, *, study_context=None, bank_context=None):
         terminal_results[task.task_id] = result
         store.event("orchestration", "task_terminal", task_id=task.task_id,
                     payload={"status": result.status.value, "reason_code": result.reason_code,
+                             "attempt_id":result.attempt_id,"evidence_ref":result.evidence_ref,
+                             "evidence_sha256":result.evidence_sha256,"diagnostic_ref":result.diagnostic_ref,
                              "findings": len(detected), "engine": "langgraph"})
         return result
 
@@ -333,6 +353,7 @@ def run_panel(options, output, *, study_context=None, bank_context=None):
         return None
 
     def close(controller):
+        from tesis.inventario import build_inventory
         nonlocal complete
         scheduler = controller.scheduler
         # El cierre del transporte y su resumen no pueden impedir la persistencia.
@@ -369,7 +390,8 @@ def run_panel(options, output, *, study_context=None, bank_context=None):
             complete = False
         report = {"audit_id":req.audit_id,"architecture":req.architecture,"status":"complete" if complete else "partial",
                   "mode":"live","purpose":"vulnerability_detection_instrumented_lab","findings":list(findings.values()),
-                  "tasks":[r.model_dump(mode='json') for r in results],"validation":validations,"inventory":[],"llm":llm,
+                  "tasks":[r.model_dump(mode='json') for r in results],"validation":validations,
+                  "inventory":build_inventory(tasks,results,targets=req.targets),"llm":llm,
                   "orchestration":{**orchestration,"transitions":list(controller.transitions),
                                    "transition_count":len(controller.transitions)},
                   **({'manual_context':manual_context} if manual_context else {}),
@@ -423,12 +445,14 @@ def run_panel(options, output, *, study_context=None, bank_context=None):
         save_manifest()
 
     try:
+        from tesis.segmentos import DEFAULT_ROOT, SegmentGuard
+        segments = SegmentGuard(DEFAULT_ROOT, store)
         controller = LangGraphOrchestrator(tasks=tasks, workers=workers, deadline=deadline, started=started,
             store=store, prepare=prepare, execute=execute, terminal=terminal,
             authorize=lambda task: authorize(task,stage="admission"), close=close, repair_trace=repair_trace,
-            task_limit=task_limit,on_admission=record_admission)
+            task_limit=task_limit,on_admission=record_admission,segments=segments)
         from tesis.protocolo_ipv6 import instrument_protocol
-        with instrument_protocol(engine,bank):
+        with instrument_protocol(engine,bank,on_restored=segments.restored):
             controller.invoke(findings=lambda: list(findings.values()))
     finally:
         store.close()

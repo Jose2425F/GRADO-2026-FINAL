@@ -1,5 +1,71 @@
 'use strict';
-const $ = id => document.getElementById(id);
+// ---- Redibujo estable ----
+// El panel consulta el estado cada segundo y reconstruye listas completas. Para que nada parpadee,
+// no se reinicien las animaciones ni se cierren los desplegables, cada lista se arma primero en una
+// copia fuera de la página y al final solo se cambian en pantalla los elementos que de verdad cambiaron.
+const STABLE_LISTS=new Set(['findings','incidents','tasks','events','history','archive-list','agent-decisions','agent-roster','agent-preview','thesis-kpi-scores','thesis-gates','thesis-capabilities','suite-lab-grid','study-results','progress-stages','operational-runs','model-role-cards','manual-run-matrix','manual-protocol-values','manual-protocol-order','manual-protocol-limits','manual-kpi-results','kpi-scorecards','acceptance-five-labs','result-insights','activity-map','halos']);
+const stableBuffers=new Map();
+let stableQueued=false;
+const FIELDS='input,select,textarea';
+function stableSig(node){
+  if(node.nodeType!==1)return node.nodeType+':'+node.textContent;
+  let sig=node.outerHTML.replace(/ open=""/g,'');
+  for(const field of node.querySelectorAll(FIELDS))sig+='|'+field.value+(field.checked?'1':'0');
+  return sig;
+}
+function stableCopy(real){
+  const copy=real.cloneNode(true),from=real.querySelectorAll(FIELDS),to=copy.querySelectorAll(FIELDS);
+  from.forEach((field,index)=>{to[index].value=field.value;if(field.type==='checkbox'||field.type==='radio')to[index].checked=field.checked;});
+  return copy;
+}
+const detailsKey=node=>(node.querySelector(':scope>summary')?.textContent||'').replace(/[\d.,]+/g,'#').trim();
+function keepOpen(old,next){
+  if(old.nodeType!==1||next.nodeType!==1)return;
+  const all=node=>[...(node.matches('details')?[node]:[]),...node.querySelectorAll('details')];
+  const opened=new Set(all(old).filter(item=>item.open).map(detailsKey).filter(Boolean));
+  if(opened.size)for(const item of all(next))if(opened.has(detailsKey(item)))item.open=true;
+}
+function stableCommit(){
+  stableQueued=false;
+  const pending=[...stableBuffers.values()];stableBuffers.clear();
+  for(const {real,copy} of pending){
+    if(!real.isConnected)continue;
+    for(const name of real.getAttributeNames())if(!copy.hasAttribute(name))real.removeAttribute(name);
+    for(const name of copy.getAttributeNames()){const value=copy.getAttribute(name);if(real.getAttribute(name)!==value)real.setAttribute(name,value);}
+    const before=[...real.childNodes],after=[...copy.childNodes];
+    after.forEach((next,index)=>{
+      const old=before[index];
+      if(old&&stableSig(old)===stableSig(next))return;
+      if(old){keepOpen(old,next);real.replaceChild(next,old);}else real.appendChild(next);
+    });
+    for(const old of before.slice(after.length))old.remove();
+  }
+}
+const $ = id => {
+  const active=stableBuffers.get(id);if(active)return active.copy;
+  for(const {copy} of stableBuffers.values()){const inner=copy.querySelector('#'+CSS.escape(id));if(inner)return inner;}
+  const node=document.getElementById(id);
+  if(node&&STABLE_LISTS.has(id)){
+    const copy=stableCopy(node);stableBuffers.set(id,{real:node,copy});
+    if(!stableQueued){stableQueued=true;queueMicrotask(stableCommit);}
+    return copy;
+  }
+  return node;
+};
+// Escribir el mismo texto o reemplazar una etiqueta por otra idéntica no debe tocar la página.
+{
+  const text=Object.getOwnPropertyDescriptor(Node.prototype,'textContent');
+  Object.defineProperty(Node.prototype,'textContent',{...text,set(value){
+    const next=value==null?'':String(value),only=this.firstChild;
+    if(this.nodeType===1&&(next===''?!only:only&&only===this.lastChild&&only.nodeType===3&&only.data===next))return;
+    text.set.call(this,next);
+  }});
+  const replaceWith=Element.prototype.replaceWith;
+  Element.prototype.replaceWith=function(...nodes){
+    if(nodes.length===1&&nodes[0] instanceof Element&&this.isConnected&&nodes[0].outerHTML===this.outerHTML)return;
+    return replaceWith.apply(this,nodes);
+  };
+}
 const csrf = document.querySelector('meta[name="csrf-token"]').content;
 const form = $('audit-form');
 let state = {runs:[],jobs:[],lab:{status:'unknown'},busy:false};
@@ -23,15 +89,15 @@ function renderSetupHelp(){
   const scope=options().scope, personal=scope==='personal', empresa=scope==='empresa';
   const future=!empresa;
   $('scope-options').hidden=!future;$('scope-options').dataset.exploratory=String(future);
-  $('audit-track-note').textContent=future?'Desarrollo futuro · práctica exploratoria, separada de la muestra final.':'Nueva evaluación manual. Cada corrida se registra con su laboratorio, pareja y arquitectura.';
-  document.querySelector('#page-new .intro-panel .eyebrow').textContent=future?'DESARROLLO FUTURO / PRÁCTICA EXPLORATORIA':'TESIS / PREPARAR AUDITORÍA';
-  $('setup-description').textContent=personal?'Evalúa tus equipos por IP o rango. El inventario es automático; las pruebas de acceso y aplicaciones se activan en el siguiente paso.':empresa?'Elige uno de los cinco laboratorios y el número de pareja. Después selecciona arquitectura, comprueba el banco e inicia tú la corrida.':'Reproduce el catálogo fijo del banco v2 histórico. Sus resultados se conservan separados del banco de tesis.';
+  $('audit-track-note').textContent=personal?'Escribe las direcciones de la empresa. Centinela descubre los equipos, sus puertos y servicios, y aplica las pruebas compatibles.':future?'Banco histórico v2, separado del estudio.':'Corrida del estudio: queda registrada con su laboratorio, pareja y arquitectura.';
+  document.querySelector('#page-new .intro-panel .eyebrow').textContent=personal?'Auditoría de red · IPv4 + IPv6':future?'Banco histórico':'Estudio de grado · laboratorio';
+  $('setup-description').textContent=personal?'Asigna las direcciones IPv4 e IPv6 de la empresa y Centinela hace el resto: inventario, pruebas y un informe listo para publicar.':empresa?'Elige uno de los cinco laboratorios y el número de pareja. Después selecciona arquitectura, comprueba el banco e inicia tú la corrida.':'Reproduce el catálogo fijo del banco v2 histórico. Sus resultados se conservan separados del banco de tesis.';
   const guides=personal?{
-    1:['Una red, un alcance claro.','Introduce las direcciones autorizadas. IPv4 admite rangos; IPv6 requiere una lista de direcciones conocidas.'],
+    1:['Una red, un alcance claro.','IPv4 admite una IP, una lista, un CIDR o un rango. IPv6 recibe direcciones concretas separadas por comas.'],
     2:['Elige qué comprobar.','El inventario está incluido. Activa credenciales o configura recursos web si preparaste esos escenarios.'],
-    3:['Revisa antes de iniciar.','Comprueba rutas e interfaz. El presupuesto de 240 segundos es compartido: los equipos pendientes no cuentan como evaluados.']
+    3:['Revisa antes de iniciar.','Pulsa Comprobar para validar que Centinela llega a cada dirección. Después inicia la auditoría.']
   }:{
-    1:['Un banco con objetivos conocidos.',empresa?`${scenarioInfo()?.name||'NovaFlow'} tiene ${scenarioInfo()?.targets||10} objetivos definidos. Aquí no debes introducir IP; para tus equipos usa Mi red por IP.`:'El banco histórico tiene 6 objetivos fijos. Para direcciones propias elige Mi red por IP.'],
+    1:['Un banco con objetivos conocidos.',empresa?`${scenarioInfo()?.name||'NovaFlow'} tiene ${scenarioInfo()?.targets||10} objetivos definidos. Las direcciones ya están definidas.`:'El banco histórico tiene 6 objetivos fijos. Para direcciones propias elige Mi red por IP.'],
     2:['Un catálogo reproducible.',empresa?`El catálogo contiene ${scenarioInfo()?.tasks||32} tareas sobre servicios, credenciales, aplicaciones y protocolos IPv6. La IA prioriza dentro del límite de esta corrida.`:'Se ejecutan las 22 tareas del catálogo v2. No se amplía a otros equipos desde este banco.'],
     3:['Comprueba el estado actual.','Una aceptación anterior no garantiza disponibilidad ahora. Comprueba el banco y revisa agentes, IA y presupuesto.']
   };
@@ -125,7 +191,7 @@ function renderManualControls(){
 function runOrchestration(run){return run?.orchestration||null;}
 function langGraphConfirmed(run){return runOrchestration(run)?.engine==='langgraph';}
 function renderRunProvenance(){
-  const run=detail?.run,proof=runOrchestration(run),confirmed=langGraphConfirmed(run),context=run?.manual_context;
+  const run=detail?.run,proof=runOrchestration(run),confirmed=langGraphConfirmed(run),context=run?.manual_context?.pair?run.manual_context:null;
   $('run-orchestration').hidden=!proof;$('run-orchestration').textContent=confirmed?'LangGraph confirmado'+(proof.version?' · '+proof.version:''):'Motor registrado: '+(proof?.engine||'sin identificar');$('run-orchestration').className='pill '+(confirmed?'green':'subtle');
   $('run-manual-context').hidden=!context;$('run-manual-context').textContent=context?`Evaluación manual · pareja ${context.pair}/5 · ${run.architecture==='single'?'Agente único':'Multiagente'}`:'';
 }
@@ -210,20 +276,21 @@ function renderContext() {
   $('scope-name').textContent=empresa?'Empresa NovaFlow S.A.S.':personal?'Mi laboratorio':'Empresa Andina Demo';
   const selectedScenario=empresa&&page==='new'?scenarioInfo():null;
   $('scope-description').textContent=empresa?(page==='live'?'Laboratorio instrumentado NovaFlow. El seguimiento muestra los activos y las tareas de esta corrida.':`Laboratorio instrumentado NovaFlow. Cinco capacidades; ${selectedScenario?.targets||10} objetivos en ${selectedScenario?.containers||12} contenedores.`):personal?'Red definida por el operador. Pruebas y cobertura por equipo.':'Escenario empresarial simulado. Pruebas controladas por IPv4 e IPv6.';
-  $('footer-scope').textContent=empresa?'DualStack · Empresa NovaFlow (detección)':personal?'DualStack · Mi laboratorio por IP':'DualStack · Escenario empresarial simulado';
-  if(!['new','live'].includes(page))$('footer-scope').textContent=page==='future'?'NovaFlow Labs · Desarrollo futuro y archivo':'NovaFlow Labs · Investigación dual-stack';
+  $('footer-scope').textContent=empresa?'Centinela · Laboratorio NovaFlow':personal?'Centinela · Laboratorio por IP':'Centinela · Laboratorio simulado';
+  if(!['new','live'].includes(page))$('footer-scope').textContent='Centinela by Novaflow · Seguridad experimental';
   $('result-help').textContent=options().scope==='personal'&&!$('personal-creds').checked&&!$('personal-web').checked?'Los estados de tus puertos y los servicios reconocidos, con consola y dos informes. No se confirman vulnerabilidades en este modo.':'Una explicación de cada problema, el objetivo afectado, su riesgo y los pasos para corregirlo. Puedes guardar o imprimir el informe.';
 }
 function showPage(next,historyMode='push') {
   const [route,query='']=next.split('?');next=route;
+  if(next==='future')next='thesis';
   const requestedScope=new URLSearchParams(query).get('scope');
   if(next==='new'&&['empresa','personal','v2'].includes(requestedScope)&&requestedScope!==options().scope){
     form.querySelector(`input[name=scope][value="${requestedScope}"]`).checked=true;personalCheckKey=null;updateOptions();showSetupStep(1);
   }
-  if(!['thesis','lab','models','future','new','live','history','kpi'].includes(next)) next = 'thesis';
+  if(!['thesis','lab','models','new','live','history','kpi'].includes(next)) next = 'thesis';
   const changed=page!==next;
   page = next;
-  for(const id of ['thesis','lab','models','future','new','live','history','kpi']) $('page-'+id).hidden = id !== page;
+  for(const id of ['thesis','lab','models','new','live','history','kpi']) $('page-'+id).hidden = id !== page;
   for(const node of document.querySelectorAll('nav [data-page]')) node.classList.toggle('selected',node.dataset.page===page);
   for(const node of document.querySelectorAll('.workspace-switch [data-page]'))node.classList.toggle('selected',node.dataset.page===(page==='future'||(page==='new'&&options().scope!=='empresa')?'future':'thesis'));
   const hash='#'+page+(page==='new'&&options().scope!=='empresa'?'?scope='+options().scope:'');
@@ -242,8 +309,8 @@ function selectTab(next) {
   renderMap(); drawHalos(); if(tab==='console')renderConsole();if(tab==='agents')renderAgents();
 }
 function updateOptions() {
-  const selectedScope=options().scope,limit=selectedScope==='empresa'?80000:20000;
-  for(const item of $('tokens').options)item.disabled=Number(item.value)>limit;
+  const selectedScope=options().scope,limit=['empresa','personal'].includes(selectedScope)?80000:20000;
+  $('tokens').max=String(limit);
   if($('tokens').dataset.scope!==selectedScope){
     const previous=$('tokens').dataset.scope;
     if(selectedScope==='empresa'&&previous!==undefined)$('tokens').value='60000';
@@ -291,13 +358,14 @@ function updateButtons() {
   $('check-lab').disabled = !connected || busy || guard;
   $('close-scenario').disabled = !connected || busy || guard;
   $('restore-lab').disabled = !connected || busy || guard || options().scope==='personal';
-  $('start-note').textContent = !connected ? 'Esperando conexión con el panel.' : busy ? 'Espera a que termine la operación actual.' : options().scope==='empresa' ? (currentLab().status==='ready'?`Catálogo de ${scenarioInfo()?.tasks||32} tareas${manualContextEnabled()&&manualProtocolFrozen()?' · tope '+manualTaskLimit()+' por corrida':''} ${withAI?'con OpenAI':'sin IA'}. Agente único en serie; multiagente hasta dos tareas independientes. Las pruebas IPv6 se aíslan.`:`Pulsa Comprobar para verificar los ${scenarioInfo()?.containers||12} contenedores y las rutas del escenario.`) : currentLab().status === 'ready' ? (options().scope==='personal' ? ($('personal-web').checked ? 'Inventario y pruebas web configuradas con dos clientes independientes. 240 s compartidos; lo pendiente queda incompleto.' : $('personal-creds').checked ? 'Máximo 256 hosts y 240 s. Inventaría servicios y probará credenciales por defecto con corroboración; una credencial aceptada es un hallazgo real.' : 'Máximo 256 hosts y 240 s. Inventaría servicios; no confirma vulnerabilidades. Los pendientes por tiempo quedan sin evaluar.') : withAI ? `Ejecutará las 22 tareas reales con OpenAI. Límite compartido: ${num(options().tokens)} tokens.` : 'Ejecutará las 22 tareas reales sin IA, con cero tokens.') : options().scope==='personal' ? 'Comprueba las rutas de todos tus objetivos para iniciar. Este modo no restaura tus equipos.' : 'Comprueba o restaura el laboratorio para iniciar.';
+  let startNote = !connected ? 'Esperando conexión con el panel.' : busy ? 'Espera a que termine la operación actual.' : options().scope==='empresa' ? (currentLab().status==='ready'?`Catálogo de ${scenarioInfo()?.tasks||32} tareas${manualContextEnabled()&&manualProtocolFrozen()?' · tope '+manualTaskLimit()+' por corrida':''} ${withAI?'con OpenAI':'sin IA'}. Agente único en serie; multiagente hasta dos tareas independientes. Las pruebas IPv6 se aíslan.`:`Pulsa Comprobar para verificar los ${scenarioInfo()?.containers||12} contenedores y las rutas del escenario.`) : currentLab().status === 'ready' ? (options().scope==='personal' ? ($('personal-web').checked ? 'Inventario y pruebas web configuradas con dos clientes independientes. 240 s compartidos; lo pendiente queda incompleto.' : $('personal-creds').checked ? 'Máximo 256 hosts y 240 s. Inventaría servicios y probará credenciales por defecto con corroboración; una credencial aceptada es un hallazgo real.' : 'Máximo 256 hosts y 240 s. Inventaría servicios; no confirma vulnerabilidades. Los pendientes por tiempo quedan sin evaluar.') : withAI ? `Ejecutará las 22 tareas reales con OpenAI. Límite compartido: ${num(options().tokens)} tokens.` : 'Ejecutará las 22 tareas reales sin IA, con cero tokens.') : options().scope==='personal' ? 'Comprueba las rutas de todos tus objetivos para iniciar. Este modo no restaura tus equipos.' : 'Comprueba o restaura el laboratorio para iniciar.';
   const active = state.jobs.find(job=>job.action==='audit'&&job.status==='running'&&job.run_key===selectedKey);
   $('stop-audit').hidden = !active || detail?.run.status !== 'running';
   $('stop-audit').disabled = busy && posting;
-  if(connected&&guard)$('start-note').textContent=state.execution_guard.message;
-  else if(connected&&!busy&&manualError)$('start-note').textContent=manualError;
-  else if(connected&&!busy&&currentLab().status==='error')$('start-note').textContent=currentLab().message;
+  if(connected&&guard)startNote=state.execution_guard.message;
+  else if(connected&&!busy&&manualError)startNote=manualError;
+  else if(connected&&!busy&&currentLab().status==='error')startNote=currentLab().message;
+  $('start-note').textContent=startNote;
 }
 async function post(path, body) {
   if(posting) return null;
@@ -551,11 +619,12 @@ function renderEvents() {
 function activity() {
   const running=connected&&detailFresh&&detail?.run.key===selectedKey&&detail.run.status==='running'&&state.runs.some(run=>run.key===selectedKey&&run.status==='running');
   const tasks=running?detail.brief.tasks.filter(task=>task.status==='running'):[];
-  return {running,apps:tasks.filter(task=>task.agent==='application_access'||task.agent==='ipv4_services'||task.agent==='ipv4_credentials').length,ipv6:tasks.filter(task=>task.agent==='ipv6_ndp'||task.agent==='ipv6_fragmentation'||task.agent==='ipv6_services').length,recorded:connected&&performance.now()<recordedUntil};
+  return {running,ipv4:tasks.filter(task=>task.agent==='ipv4_services'||task.agent==='ipv4_credentials').length,apps:tasks.filter(task=>task.agent==='application_access').length,ipv6:tasks.filter(task=>task.agent==='ipv6_ndp'||task.agent==='ipv6_fragmentation'||task.agent==='ipv6_services').length,recorded:connected&&performance.now()<recordedUntil};
 }
 function renderMap() {
   const current=activity();$('activity-map').replaceChildren();
-  const nodes=[['◎','Coordinación',current.running?'Corrida activa':'En espera',current.running,false],['▤',detail?.brief.is_inventory?'Servicios IPv4':'Aplicaciones',current.apps?`${current.apps} tareas activas`:'Sin tareas activas',current.apps,false],['◇',detail?.brief.is_inventory?'Servicios IPv6':'Red IPv6',current.ipv6?`${current.ipv6} tareas activas`:'Sin tareas activas',current.ipv6,false],['≡','Registro',current.recorded?'Nuevo evento observado':'Evidencia local',false,current.recorded]];
+  const busy=n=>n?`${n} ${n===1?'tarea activa':'tareas activas'}`:'Sin tareas activas';
+  const nodes=[['LG','Coordinación',current.running?'Corrida activa':'En espera',current.running,false],['v4','Red IPv4',busy(current.ipv4),current.ipv4,false],['v6','Red IPv6',busy(current.ipv6),current.ipv6,false],['APP','Aplicaciones',busy(current.apps),current.apps,false],['LOG','Registro',current.recorded?'Nuevo evento observado':'Evidencia guardada',false,current.recorded]];
   for(const [icon,title,note,active,recorded] of nodes){const node=el('div',undefined,'map-node'+(active?' active':'')+(recorded?' recorded':''));node.append(el('span',icon),el('strong',title),el('small',note));$('activity-map').append(node);}
 }
 function drawHalos() {
@@ -697,7 +766,8 @@ function addReferenceCase(){
   const remove=el('button','Quitar','button ghost');remove.type='button';remove.addEventListener('click',()=>row.remove());row.append(remove);$('reference-cases').append(row);
 }
 function renderReferenceChoices(){
-  const select=$('compare-reference'),selected=select.value;select.replaceChildren();const empty=el('option','Sin referencia: solo métricas operativas');empty.value='';select.append(empty);
+  const select=$('compare-reference'),selected=select.value,signature=JSON.stringify((state.evaluation_references||[]).map(item=>[item.id,item.name,item.cases]));
+  if(select.dataset.signature===signature)return;select.dataset.signature=signature;select.replaceChildren();const empty=el('option','Sin referencia: solo métricas operativas');empty.value='';select.append(empty);
   for(const item of state.evaluation_references||[]){const option=el('option',`${item.name} · ${item.cases} condiciones`);option.value=item.id;select.append(option);}select.value=[...select.options].some(o=>o.value===selected)?selected:'';
 }
 $('add-reference-case').addEventListener('click',addReferenceCase);

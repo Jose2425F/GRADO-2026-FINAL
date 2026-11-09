@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import secrets
@@ -13,6 +14,7 @@ import sys
 import tempfile
 import threading
 import time
+from contextlib import contextmanager
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -203,11 +205,60 @@ def kernel_warning():
     return None
 
 
+# Contenedores realmente activos por laboratorio, según Docker. El estado en memoria del
+# panel queda viejo si un laboratorio se enciende o apaga por consola, desde otra sesión
+# o al reiniciar la VM; la consola lo usa para mostrar Encendido/Apagado con la verdad.
+_lab_runtime_cache = {'at': 0.0, 'value': {'available': False}}
+_lab_runtime_lock = threading.Lock()
+
+
+def label_interfaces(items):
+    """Añade a cada interfaz el laboratorio y la zona que simula (br-nova-* y br-nf<n>-*)."""
+    import re
+    try:
+        from tesis.laboratorios import catalog, profile
+        labs = {'nova': ('integrado', 'NovaFlow · banco integrado', 0)}
+        for row in catalog():
+            index = profile(row['id'])['index']
+            labs[f'nf{index}'] = (row['id'], row['name'], index)
+    except (ImportError, KeyError, ValueError, TypeError):
+        labs = {'nova': ('integrado', 'NovaFlow · banco integrado', 0)}
+    zones = {'dmz': ('DMZ', 0), 'corp': ('Red corporativa', 1), 'dc': ('Datacenter', 2)}
+    for item in items:
+        match = re.fullmatch(r'br-(nova|nf\d+)-(dmz|corp|dc)', item.get('name', ''))
+        if match and match.group(1) in labs:
+            lab_id, lab_name, order = labs[match.group(1)]
+            zone, zone_order = zones[match.group(2)]
+            item.update(lab_id=lab_id, lab=lab_name, zone=zone, order=[order, zone_order])
+        else:
+            item.update(lab_id=None, lab=None, zone=None, order=[99, 0])
+    return sorted(items, key=lambda item: (item['order'], item['name']))
+
+
+def lab_runtime():
+    with _lab_runtime_lock:
+        if _lab_runtime_cache['at'] and time.monotonic() - _lab_runtime_cache['at'] < 4:
+            return dict(_lab_runtime_cache['value'])
+        try:
+            names = subprocess.run(['docker', 'ps', '--format', '{{.Names}}'], capture_output=True, text=True,
+                                   timeout=5, check=True).stdout.split()
+            from tesis.laboratorios import catalog, profile
+            value = {'available': True, 'integrado': sum(name.startswith('nova-') for name in names)}
+            for row in catalog():
+                prefix = f"nf{profile(row['id'])['index']}-"
+                value[row['id']] = sum(name.startswith(prefix) for name in names)
+        except (OSError, subprocess.SubprocessError, ValueError, KeyError, TypeError):
+            value = {'available': False}
+        _lab_runtime_cache.update(at=time.monotonic(), value=value)
+        return dict(value)
+
+
 class Operations:
     def __init__(self, root: Path, pilot: Path = PILOT, popen=subprocess.Popen):
         self.root, self.pilot, self.popen = root, pilot, popen
         self.lock = threading.RLock()
         self.jobs = []
+        self.reserved = False
         self.lab = {"status": "unknown", "message": "Comprueba el laboratorio antes de iniciar.", "checked_at": None}
         self.personal_lab={"status":"unknown","message":"Indica las IP y comprueba sus rutas antes de iniciar.","signature":None}
         self.empresa_lab={"status":"unknown","message":"Comprueba NovaFlow antes de iniciar sus 32 tareas.","checked_at":None}
@@ -242,11 +293,24 @@ class Operations:
                 empresa_lab.update(status='error',message=warning)
             return {"jobs": [dict(job) for job in self.jobs[-20:]], "lab": lab, 'personal_lab':personal_lab,
                     'empresa_lab':empresa_lab,
-                    'scenario_labs':{row['id']:{**self.scenario_labs.get(row['id'],{'status':'unknown'}),**self.restorations.public(row['id'])} for row in catalog()},'scenario_catalog':catalog(),'suite_progress':suite,'suite_acceptance':acceptance_status(),
+                    'scenario_labs':{row['id']:{**self.scenario_labs.get(row['id'],{'status':'unknown'}),**self.restorations.public(row['id'])} for row in catalog()},'scenario_catalog':catalog(),'lab_runtime':lab_runtime(),'suite_progress':suite,'suite_acceptance':acceptance_status(),
                     'execution_guard': {'blocked': bool(warning), 'reason': 'kernel_fault' if warning else None,
                                         'message': warning or ''},
                     'study_progress': external, 'acceptance_five': five_acceptance,
-                    "busy": external.get('active',False) or suite.get('active',False) or five_acceptance.get('active',False) or any(job["status"] in {"queued", "running", "stopping"} for job in self.jobs)}
+                    "busy": self.reserved or external.get('active',False) or suite.get('active',False) or five_acceptance.get('active',False) or any(job["status"] in {"queued", "running", "stopping"} for job in self.jobs)}
+
+    @contextmanager
+    def reserve(self):
+        """Reserve synchronous network work without blocking state requests."""
+        with self.lock:
+            if self.snapshot()['busy'] or study_summary()['active'] or any(r['status']=='running' for r in collect_state(self.root)['runs']):
+                raise ValueError('Hay una auditoría u operación activa. Espera a que termine.')
+            self.reserved = True
+        try:
+            yield
+        finally:
+            with self.lock:
+                self.reserved = False
 
     def start(self, action: str, options: dict | None = None):
         with self.lock:
@@ -361,17 +425,21 @@ class Operations:
                     job.update(status="running", message="Auditoría iniciada." if job["action"] == "audit" else 'Aceptación sin IA en curso: se comprueban cinco laboratorios con el catálogo completo.' if job['action']=='acceptance_all' else self.lab["message"])
                     if job['action']=='audit':
                         write_json(output/'panel_status.json',{'status':'running','pid':process.pid,'identity':process_identity(process.pid)})
-                code = process.wait()
+                from tesis.procesos import wait_bounded
+                maximum = 18600 if job['action']=='acceptance_all' else 3780 if job['action']=='audit' else 900
+                code, timed_out = wait_bounded(process, maximum)
                 log.seek(max(0, log.seek(0, os.SEEK_END) - 16000))
                 tail = log.read().decode("utf-8", errors="replace")
             with self.lock:
                 cancelled = job["status"] == "stopping"
                 job.update(status="interrupted" if cancelled else "complete" if code == 0 else "partial" if code == 3 and job["action"] == "audit" else "failed", ended_at=now())
+                if timed_out:
+                    job.update(reason_code='controller_timeout',maximum_runtime_seconds=maximum)
                 if job["action"] == "audit":
                     candidates = list(output.glob("*/request.json"))
                     if candidates:
                         job["run_key"] = candidates[0].parent.relative_to(self.root).as_posix()
-                    job["message"] = "La auditoría se detuvo. Revisa la cobertura y restaura el banco antes de otra prueba." if cancelled else "El resultado está disponible." if code in {0, 3} and job["run_key"] else friendly_error(tail)
+                    job["message"] = "La auditoría superó el plazo y se detuvo. Se conserva la evidencia parcial; restaura el banco antes de repetir." if timed_out else "La auditoría se detuvo. Revisa la cobertura y restaura el banco antes de otra prueba." if cancelled else "El resultado está disponible." if code in {0, 3} and job["run_key"] else friendly_error(tail)
                     if cancelled or code not in {0, 3}:
                         self.lab.update(status="unknown", message="Vuelve a comprobar o restaurar el laboratorio.")
                     if job['options']['scope']=='empresa':
@@ -408,7 +476,8 @@ class Operations:
             if job['action']=='audit' and (output/'panel_job.json').is_file():
                 from auditoria.store import write_json
                 write_json(output/'panel_status.json',{'status':job['status'],'ended_at':job.get('ended_at'),
-                    'run_key':job.get('run_key')})
+                    'run_key':job.get('run_key'),'reason_code':job.get('reason_code'),
+                    'maximum_runtime_seconds':job.get('maximum_runtime_seconds')})
 
     def stop(self):
         with self.lock:
@@ -431,7 +500,14 @@ class Panel:
         self.lock = threading.RLock()
         self.cached_at = 0
         self.cached = None
-        self.environment = Environment(loader=FileSystemLoader(ASSETS), autoescape=select_autoescape(["html"]))
+        self.environment = Environment(loader=FileSystemLoader(ASSETS), autoescape=select_autoescape(["html"]), auto_reload=True)
+        self.environment.globals['asset_url'] = self.asset_url
+
+    def asset_url(self, name: str):
+        # Compute on each page render: edits are detected without a build, restart
+        # or reliance on timestamps (which deployment tools may preserve).
+        digest = hashlib.sha256((ASSETS / name).read_bytes()).hexdigest()[:16]
+        return f'/{name}?v={digest}'
 
     def safe_file(self, path: Path, limit=8_000_000):
         try:
@@ -513,6 +589,10 @@ class Panel:
         return self.archive_panels[identifier]
 
     def detail(self, key: str):
+        with self.lock:
+            return self._detail(key)
+
+    def _detail(self, key: str):
         if not isinstance(key, str) or not key or any(part in {"..", ".", ""} for part in key.split("/")) or "\\" in key:
             raise ValueError("Auditoría no disponible.")
         run = next((r for r in self.state()["runs"] if r["key"] == key), None)
@@ -623,7 +703,85 @@ class Panel:
         return result
 
 
-def make_server(panel: Panel, port: int = 8765):
+# Resumen del estudio para la pantalla de acceso. Solo agregados (parejas aptas y KPI por
+# laboratorio): sin direcciones, hallazgos ni nombres de corridas. Se recalcula cada 60 s.
+LOGIN_STUDY_TARGETS = (
+    ('TRTO_percent', 'TRTO', 'Reducción del tiempo', 30.0, ' %', 'menos tiempo para cerrar la auditoría'),
+    ('IDE_percent', 'IDE', 'Detección adicional', 20.0, ' %', 'más hallazgos validados'),
+    ('ETV_ratio', 'ETV', 'Eficiencia por token', 1.10, ' ×', 'detecciones por token frente al agente único'),
+)
+_login_study_cache = {'at': 0.0, 'value': None}
+_login_study_lock = threading.Lock()
+
+
+def _es_number(value, digits=1):
+    return f'{value:,.{digits}f}'.replace(',', ' ').replace('.', ',')
+
+
+def login_study(panel):
+    with _login_study_lock:
+        if _login_study_cache['at'] and time.monotonic() - _login_study_cache['at'] < 60:
+            return _login_study_cache['value']
+        try:
+            manual = panel.state().get('manual_evaluation') or {}
+        except Exception:
+            manual = None
+        if not isinstance(manual, dict) or not manual:
+            value = None
+        else:
+            planned = manual.get('planned_pairs') or 25
+            done = manual.get('completed_pairs') or 0
+            analysis = manual.get('analysis') or {}
+            kpis = []
+            for key, code, label, target, suffix, meaning in LOGIN_STUDY_TARGETS:
+                metric = analysis.get(key) or {}
+                n = metric.get('n') or 0
+                mean = metric.get('mean') if n else None
+                digits = 2 if key == 'ETV_ratio' else 1
+                ci = metric.get('mean_ci95_percentile_bootstrap')
+                ok = isinstance(mean, (int, float))
+                kpis.append({
+                    'code': code, 'label': label, 'meaning': meaning, 'n': n,
+                    'value': _es_number(mean, digits) + suffix if ok else None,
+                    'target': '≥ ' + _es_number(target, 2 if key == 'ETV_ratio' else 0) + suffix,
+                    'status': ('cumple' if mean >= target else 'no-cumple') if ok else 'pendiente',
+                    'ratio': max(0.0, min(1.0, mean / (target * 2))) if ok and target else 0.0,
+                    'ci': f'IC 95 %: {_es_number(ci[0], digits)} a {_es_number(ci[1], digits)}' if ok and isinstance(ci, list) and len(ci) == 2 else None,
+                })
+            labs = []
+            for scenario in manual.get('scenarios') or []:
+                cells = []
+                for row in (scenario.get('pairs') or [])[:5]:
+                    if row.get('eligible'):
+                        cells.append('apta')
+                    elif row.get('single') and row.get('multiagent'):
+                        cells.append('excluida')
+                    elif row.get('single') or row.get('multiagent'):
+                        cells.append('en-curso')
+                    else:
+                        cells.append('pendiente')
+                cells += ['pendiente'] * (5 - len(cells))
+                name = str(scenario.get('label') or scenario.get('name') or scenario.get('id') or 'Laboratorio')
+                name = name.replace('NovaFlow · ', '')
+                labs.append({'name': name[:1].upper() + name[1:], 'done': scenario.get('completed_pairs') or 0, 'cells': cells})
+            value = {
+                'done': done, 'planned': planned, 'percent': round(100 * done / planned) if planned else 0,
+                'runs': manual.get('completed_runs') or 0, 'runs_planned': manual.get('planned_runs') or 50,
+                'kpis': kpis, 'labs': labs,
+                'updated': datetime.now(ZoneInfo('America/Bogota')).strftime('%H:%M'),
+            }
+        _login_study_cache.update(at=time.monotonic(), value=value)
+        return value
+
+
+def make_server(panel: Panel, port: int = 8765, identity=None):
+    server_panel=panel
+    if identity:
+        from centinela_tenancy import Workspaces
+        workspaces=Workspaces(panel,identity)
+
+        from centinela_publications import Publications
+        deliveries = Publications(workspaces, identity)
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *_):
             pass
@@ -641,6 +799,8 @@ def make_server(panel: Panel, port: int = 8765):
             self.send_header("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; frame-src 'self'; frame-ancestors 'self'; base-uri 'none'; object-src 'none'")
             if download:
                 self.send_header("Content-Disposition", f'attachment; filename="{download}"')
+            for key,value in getattr(self,"extra_headers",[]):
+                self.send_header(key,value)
             self.end_headers()
             try:
                 self.wfile.write(body)
@@ -650,16 +810,124 @@ def make_server(panel: Panel, port: int = 8765):
         def json(self, value, status=200):
             self.send(json.dumps(value, ensure_ascii=False, allow_nan=False).encode(), "application/json; charset=utf-8", status)
 
+        def cookies(self):
+            from http.cookies import SimpleCookie
+            cookie=SimpleCookie()
+            try:cookie.load(self.headers.get('Cookie',''))
+            except Exception:return {}
+            return {k:v.value for k,v in cookie.items()}
+
+        def redirect(self,path):
+            self.extra_headers=[('Location',path)]
+            self.send(b'', 'text/plain',303)
+
+        def identify(self):
+            self.user=identity.session(self.cookies().get('__Host-centinela_session','')) if identity else None
+            if identity and not self.user:
+                if urlsplit(self.path).path.startswith('/api/'):
+                    self.json({'error':'Tu sesión ha caducado. Inicia sesión de nuevo.'},401)
+                else:self.redirect('/login')
+                return False
+            return True
+
+        def account_request(self):
+            path=urlsplit(self.path).path
+            if self.headers.get('Origin') != 'http://'+self.headers.get('Host',''):
+                self.json({'error':'Origen no autorizado.'},403);return
+            try:
+                size=int(self.headers.get('Content-Length','0'))
+                if not 0<size<=8192 or self.headers.get('Content-Type','').split(';')[0]!='application/json':raise ValueError('Solicitud no válida.')
+                value=json.loads(self.rfile.read(size))
+                if not isinstance(value,dict):raise ValueError('Solicitud no válida.')
+                if path=='/api/auth/login':
+                    challenge=self.cookies().get('__Host-centinela_login','')
+                    if not challenge or not secrets.compare_digest(challenge,self.headers.get('X-CSRF-Token','')):
+                        self.json({'error':'Recarga la página e inténtalo de nuevo.'},403);return
+                    token=identity.login(value.get('username'),value.get('password'),self.headers.get('X-Real-IP',self.client_address[0]))
+                    self.extra_headers=[('Set-Cookie','__Host-centinela_session='+token+'; Path=/; Max-Age=28800; Secure; HttpOnly; SameSite=Lax'),('Set-Cookie','__Host-centinela_login=; Path=/; Max-Age=0; Secure; HttpOnly; SameSite=Strict')]
+                    self.json({'ok':True});return
+                if not self.identify():return
+                if not secrets.compare_digest(self.user['csrf'],self.headers.get('X-CSRF-Token','')):
+                    self.json({'error':'Solicitud no autorizada.'},403);return
+                if path=='/api/auth/logout':
+                    identity.logout(self.user['token_hash'])
+                    self.extra_headers=[('Set-Cookie','__Host-centinela_session=; Path=/; Max-Age=0; Secure; HttpOnly; SameSite=Lax')]
+                    self.json({'ok':True});return
+                if path=='/api/auth/password':
+                    identity.change_password(self.user,value.get('current_password'),value.get('password'))
+                    self.json({'ok':True});return
+                if self.user['role']!='admin':
+                    self.json({'error':'Acceso reservado al administrador.'},403);return
+                if path=='/api/admin/users/create':
+                    uid=identity.create_user(value.get('username'),value.get('name'),value.get('password'),value.get('role','auditor'),self.user['id'])
+                    workspaces.for_id(uid)
+                    self.json({'id':uid},201);return
+                if path=='/api/admin/users/update':
+                    identity.update_user(self.user['id'],value.get('id'),value.get('role'),value.get('active'),value.get('password'))
+                    self.json({'ok':True});return
+                if path=='/api/admin/workspace':
+                    identity.workspace(self.user,value.get('id'))
+                    self.json({'ok':True});return
+                if path in {'/api/admin/publish','/api/admin/unpublish'} and self.user.get('workspace') not in (None,self.user['id']):
+                    self.json({'error':'La supervisión es de solo lectura. Vuelve a tu espacio para publicar.'},403);return
+                if path=='/api/admin/publish':
+                    self.json(deliveries.publish(self.user,value.get('key'),value.get('user')),201);return
+                if path=='/api/admin/unpublish':
+                    self.json(deliveries.unpublish(self.user,value.get('key'),value.get('user')));return
+                self.json({'error':'No encontrado.'},404)
+            except OSError:
+                self.json({'error':'No se pudo guardar el cambio. Inténtalo de nuevo.'},503)
+            except (ValueError,TypeError) as exc:
+                self.json({'error':str(exc) if isinstance(exc,ValueError) and not isinstance(exc,json.JSONDecodeError) else 'Solicitud no válida.'},400)
+
         def do_GET(self):
             if not self.valid_host():
                 self.json({"error": "Host no permitido"}, 403)
                 return
             request = urlsplit(self.path)
+            if identity:
+                if request.path in {'/login.css','/login.js'}:
+                    self.send((ASSETS/request.path[1:]).read_bytes(),'text/css' if request.path.endswith('.css') else 'text/javascript');return
+                if request.path=='/login':
+                    challenge=secrets.token_urlsafe(32)
+                    self.extra_headers=[('Set-Cookie','__Host-centinela_login='+challenge+'; Path=/; Secure; HttpOnly; SameSite=Strict; Max-Age=1800')]
+                    self.send(workspaces.base.environment.get_template('login.html').render(csrf=challenge,study=login_study(workspaces.base)).encode(),'text/html; charset=utf-8');return
+                if not self.identify():return
+                panel=workspaces.for_session(self.user)
+                if request.path in {'/account','/admin'}:
+                    if request.path=='/admin' and self.user['role']!='admin':
+                        self.json({'error':'Acceso reservado al administrador.'},403);return
+                    self.send(panel.environment.get_template('account.html').render(current_user=self.user,csrf=self.user['csrf'],admin=request.path=='/admin').encode(),'text/html; charset=utf-8');return
+                if request.path=='/api/admin/users':
+                    if self.user['role']!='admin':
+                        self.json({'error':'Acceso reservado al administrador.'},403);return
+                    self.json({'users':identity.users()});return
+                if request.path=='/api/lab/personal/interfaces':
+                    if self.user['role']!='admin':
+                        self.json({'error':'Acceso reservado al administrador.'},403);return
+                    from descubrimiento_red import interfaces
+                    self.json({'interfaces':label_interfaces(interfaces())});return
+                if request.path=='/api/admin/publications':
+                    if self.user['role']!='admin':
+                        self.json({'error':'Acceso reservado al administrador.'},403);return
+                    self.json({'publications':deliveries.listing(self.user)});return
+                if request.path=='/':
+                    owner=next((u for u in identity.users() if u['id']==(self.user.get('workspace') or self.user['id'])),self.user)
+                    if self.user['role']!='admin' or owner['role']!='admin':
+                        self.send(panel.environment.get_template('cliente.html').render(current_user=owner,csrf=self.user['csrf']).encode(),'text/html; charset=utf-8');return
+                if request.path=='/api/me':
+                    from centinela_identity import PUBLIC_USER
+                    owner=next(u for u in identity.users() if u['id']==(self.user.get('workspace') or self.user['id']))
+                    self.json({'user':{k:self.user[k] for k in PUBLIC_USER},'workspace':owner,'supervising':owner['id']!=self.user['id']});return
+                if request.path=='/api-history' and self.user['id']!=workspaces.legacy_owner:
+                    self.json({'error':'No disponible.'},403);return
+            else:
+                panel=server_panel
             query = parse_qs(request.query)
             try:
                 if request.path == "/":
-                    self.send(panel.environment.get_template("index.html").render(csrf=panel.csrf).encode(), "text/html; charset=utf-8")
-                elif request.path in {"/app.js", "/workspace.js", "/styles.css", "/novaflow.css"}:
+                    self.send(panel.environment.get_template("index.html").render(csrf=self.user['csrf'] if identity else panel.csrf,current_user=self.user if identity else None).encode(), "text/html; charset=utf-8")
+                elif request.path in {"/app.js", "/workspace.js", "/styles.css", "/novaflow.css", "/interface.css", "/portal.css", "/portal.js", "/account.js", "/cliente.js"}:
                     self.send((ASSETS / request.path[1:]).read_bytes(), "text/javascript; charset=utf-8" if request.path.endswith(".js") else "text/css; charset=utf-8")
                 elif request.path in {'/brand/wordmark.webp','/brand/emblem.webp'}:
                     self.send((ASSETS/request.path[1:]).read_bytes(),'image/webp')
@@ -701,15 +969,16 @@ def make_server(panel: Panel, port: int = 8765):
                     html = panel.environment.get_template("report.html").render(**detail, audience=audience, archive_id=query.get("archive",[None])[0], status_names=STATUS_NAMES)
                     self.send(html.encode(), "text/html; charset=utf-8", download=f"informe-{'tecnico' if audience=='technical' else 'ejecutivo'}.html" if query.get("download") == ["1"] else None)
                 elif request.path == "/download":
-                    key = query.get("key", [""])[0]
-                    detail = panel.detail(key)
-                    file = {"pdf": "report.pdf", "html": "report.html"}.get(query.get("kind", [""])[0])
-                    if not file or file not in detail["run"]["artifacts"]:
-                        raise ValueError("Archivo no disponible.")
-                    body = panel.safe_file(panel.root / key / file)
-                    if body is None:
-                        raise ValueError("Archivo no disponible.")
-                    self.send(body, "application/pdf" if file.endswith(".pdf") else "text/html; charset=utf-8", download=file)
+                    with panel.lock:
+                        key = query.get("key", [""])[0]
+                        detail = panel.detail(key)
+                        file = {"pdf": "report.pdf", "html": "report.html"}.get(query.get("kind", [""])[0])
+                        if not file or file not in detail["run"]["artifacts"]:
+                            raise ValueError("Archivo no disponible.")
+                        body = panel.safe_file(panel.root / key / file)
+                        if body is None:
+                            raise ValueError("Archivo no disponible.")
+                        self.send(body, "application/pdf" if file.endswith(".pdf") else "text/html; charset=utf-8", download=file)
                 else:
                     self.json({"error": "No encontrado"}, 404)
             except ComparisonConfigurationError as exc:
@@ -721,8 +990,20 @@ def make_server(panel: Panel, port: int = 8765):
             if not self.valid_host():
                 self.json({"error": "Host no permitido"}, 403)
                 return
+            if identity:
+                path=urlsplit(self.path).path
+                if path.startswith('/api/auth/') or path.startswith('/api/admin/'):
+                    self.account_request();return
+                if not self.identify():return
+                panel=workspaces.for_session(self.user)
+                if self.user.get('workspace') and self.user['workspace']!=self.user['id']:
+                    self.json({'error':'La supervisión es de solo lectura. Vuelve a tu espacio para ejecutar operaciones.'},403);return
+                if self.user['role']!='admin':
+                    self.json({'error':'Tu cuenta es de consulta. Novaflow ejecuta las auditorías y publica aquí sus resultados.'},403);return
+            else:
+                panel=server_panel
             origin = self.headers.get("Origin")
-            if origin != "http://" + self.headers.get("Host", "") or not secrets.compare_digest(self.headers.get("X-CSRF-Token", ""), panel.csrf):
+            if origin != "http://" + self.headers.get("Host", "") or not secrets.compare_digest(self.headers.get("X-CSRF-Token", ""), self.user["csrf"] if identity else panel.csrf):
                 self.json({"error": "Solicitud de control no autorizada."}, 403)
                 return
             if self.headers.get("Content-Type", "").split(";")[0] != "application/json":
@@ -733,6 +1014,8 @@ def make_server(panel: Panel, port: int = 8765):
                 if not 0 < size <= 32768:
                     raise ValueError("La solicitud supera el tamaño permitido.")
                 options = json.loads(self.rfile.read(size))
+                if not isinstance(options,dict):
+                    raise ValueError('La configuración debe ser un objeto JSON.')
                 path = urlsplit(self.path).path
                 if path == '/api/evaluation-reference':
                     from referencia_laboratorio import save_reference
@@ -747,6 +1030,7 @@ def make_server(panel: Panel, port: int = 8765):
                     self.json({'name':name,'message':'Sesión guardada de forma privada. El valor no se incluye en informes ni historial.'})
                     return
                 elif path == "/api/audit":
+                    if identity and options.get('scope') not in {'empresa','personal'}:raise ValueError('Elige la red de una empresa o un laboratorio de Centinela.')
                     job = panel.operations.start("audit", options)
                 elif path in {"/api/lab/check", "/api/lab/restore"}:
                     if options != {}:
@@ -754,6 +1038,13 @@ def make_server(panel: Panel, port: int = 8765):
                     job = panel.operations.start("check" if path.endswith("check") else "restore")
                 elif path=='/api/lab/personal/check':
                     job=panel.operations.start('personal_check',options)
+                elif path=='/api/lab/personal/discover':
+                    from descubrimiento_red import discover
+                    if set(options)-{'interface'}:raise ValueError('Indica solo la interfaz de red.')
+                    with panel.operations.reserve():
+                        result=discover(options.get('interface'))
+                    self.json(result)
+                    return
                 elif path in {'/api/lab/empresa/check','/api/lab/empresa/restore','/api/lab/empresa/down'}:
                     if options!={}:raise ValueError('Esta operación no recibe opciones.')
                     job=panel.operations.start('empresa_'+path.rsplit('/',1)[-1])
@@ -787,15 +1078,13 @@ def main():
         parser.error("El puerto debe estar entre 1024 y 65535.")
     panel = Panel(args.runs)
     try:
-        server = make_server(panel, args.port)
+        from centinela_identity import IdentityStore
+        identity=IdentityStore(os.environ.get('CENTINELA_DATA_DIR','/var/lib/centinela'))
+        if not identity.users():raise ValueError('Configura la primera cuenta de administrador antes de iniciar.')
+        server = make_server(panel, args.port, identity=identity)
     except OSError:
         parser.error("El puerto está ocupado. Cierra el panel anterior o usa --port con otro puerto.")
     print(f"Panel unificado: http://127.0.0.1:{server.server_port}/ · Ctrl+C para cerrar", flush=True)
-    try:
-        if not kernel_warning():
-            panel.operations.start("empresa_check")
-    except ValueError:
-        pass
     try:
         server.serve_forever()
     except KeyboardInterrupt:

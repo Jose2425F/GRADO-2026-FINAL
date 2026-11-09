@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "node --test test_centinela_ui.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "valid": true,
+  "date": "2026-11-09",
+  "python_passed": 775,
+  "python_skipped": 2,
+  "python_subtests_passed": 59,
+  "javascript_tests_passed": 4,
+  "external_connections_permitted": false,
+  "connections_outside_loopback_blocked": 1,
+  "provider_api_calls": 0,
+  "experimental_audits_executed": 0,
+  "nmap_fixture_invocations": 4,
+  "nmap_scope": "Exact TCP profile on 127.0.0.1 and ::1; two ephemeral fixture ports listening on both families; interface lo",
+  "source_files_identical_during_validation": 265,
+  "source_changes_detected": [],
+  "historical_environment_reproduced": false,
+  "skip_reasons": [
+    {
+      "class": "piloto_kali.prototipo.tests.test_v2_agent",
+      "name": "test_archived_independent_evidence_revalidates_all_profiles_and_deduplicates",
+      "reason": "Fixture histórico privado no distribuido; regresión no ejecutada en el paquete público"
+    },
+    {
+      "class": "piloto_kali.prototipo.tests.test_v2_agent",
+      "name": "test_v2_access_demo_cancels_every_pending_task_after_verified_access",
+      "reason": "Fixture histórico privado no distribuido; regresión no ejecutada en el paquete público"
+    }
+  ],
+  "note": "The total combines the broad run, separately guarded Nmap loopback case and six legacy stub tests. JS dependency bootstrap failure is preserved separately and was resolved by reusing installed dependencies, without changing product code. Unknown asyncio_mode config warning is preserved in all Python runs."
+}

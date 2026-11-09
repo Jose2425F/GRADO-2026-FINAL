@@ -1,0 +1,76 @@
+{
+  "entrada": "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/TrabajoDeGrado_II_Ajustado_NTC_Titulo_Original_20261109.docx",
+  "salida": "/home/kali/Documents/Codex/2026-11-07/cone/work/publicacion-20261109/TrabajoDeGrado_II_Revision_20261109_v2.docx",
+  "sha256_entrada": "3223464a3586010e6b183c86a78ec0b6cb10487b56c3cddae5f45597f1ce41a9",
+  "sha256_salida": "3112bb323442b3771961625aacdb5547de03325d897aba2cab4367a3a340dbde",
+  "titulo_original_conservado": true,
+  "cambios_de_coherencia": [
+    {
+      "antes": "NovaFlow es un prototipo multiagente que automatiza auditorías de ciberseguridad autorizadas en laboratorios IPv4/IPv6 y conserva evidencia verificable. El documento desarrolla el problema, los antecedentes, la arquitectura, la implementación y la evaluación; los anexos reúnen requisitos, protocolo y trazabilidad. Se implementaron con LangGraph un agente único secuencial y un modo multiagente especializado, con hasta dos tareas independientes en paralelo. Se compararon mediante 50 auditorías en cinco laboratorios, con el mismo modelo, presupuestos equivalentes y un límite del 60 % del catálogo de cada banco. Hubo 48 auditorías completas y dos parciales; 23 parejas cumplieron los criterios de comparación. En ellas, la reducción temporal media fue del 19,36 %, la mejora relativa media de detección del 26,41 % y la razón de eficiencia de tokens por condición detectada de 1,51. Se superaron las metas descriptivas de detección y eficiencia, pero no la meta temporal del 30 %. Los 50 intentos consumieron 891.821 tokens, con un costo local estimado de USD 2,28. Los resultados describen las configuraciones ensayadas y no acreditan cobertura universal ni aceptación fuera del laboratorio.",
+      "despues": "NovaFlow es un prototipo multiagente que automatiza auditorías de ciberseguridad autorizadas en laboratorios IPv4/IPv6 y conserva evidencia verificable. El documento desarrolla el problema, los antecedentes, la arquitectura, la implementación y la evaluación; los anexos reúnen requisitos, protocolo y trazabilidad. Se implementaron con LangGraph un agente único secuencial y un modo multiagente especializado, con hasta dos tareas independientes en paralelo. La campaña de octubre comparó ambos modos mediante 50 auditorías en cinco laboratorios, con el mismo modelo, presupuestos equivalentes y un límite del 60 % del catálogo de cada banco. Hubo 48 auditorías completas y dos parciales; 23 parejas cumplieron los criterios de comparación. En ellas, la reducción temporal media fue del 19,36 %, la mejora relativa media de detección del 26,41 % y la razón de eficiencia de tokens por condición detectada de 1,51. Se superaron las metas descriptivas de detección y eficiencia, pero no la meta temporal del 30 %. Los 50 intentos consumieron 891.821 tokens, con un costo local estimado de USD 2,28. Los resultados describen las configuraciones ensayadas y no acreditan cobertura universal ni aceptación fuera del laboratorio. Las mediciones posteriores se documentan por separado, sin sustituir estos resultados."
+    },
+    {
+      "antes": "NovaFlow is a multi-agent prototype that automates authorized cybersecurity audits in IPv4/IPv6 laboratories and preserves verifiable evidence. The document presents the problem, prior work, architecture, implementation and evaluation; its appendices provide requirements, protocol and traceability. LangGraph was used to implement a sequential single agent and a specialized multi-agent configuration with up to two independent tasks running concurrently. The configurations were compared through 50 audits across five laboratories, using the same model, equivalent budgets and a limit of 60% of each laboratory’s task catalogue. Forty-eight audits completed and two were partial; 23 pairs met the comparison criteria. Across these pairs, the mean time reduction was 19.36%, the mean relative detection improvement was 26.41%, and the token-efficiency ratio per detected condition was 1.51. The descriptive detection and efficiency targets were exceeded, while the 30% time-reduction target was not reached. The 50 attempts consumed 891,821 tokens, with an estimated local cost of USD 2.28. The findings describe the tested configurations and do not establish universal coverage or acceptance outside the laboratory.",
+      "despues": "NovaFlow is a multi-agent prototype that automates authorized cybersecurity audits in IPv4/IPv6 laboratories and preserves verifiable evidence. The document presents the problem, prior work, architecture, implementation and evaluation; its appendices provide requirements, protocol and traceability. LangGraph was used to implement a sequential single agent and a specialized multi-agent configuration with up to two independent tasks running concurrently. The October campaign compared the configurations through 50 audits across five laboratories, using the same model, equivalent budgets and a limit of 60% of each laboratory’s task catalogue. Forty-eight audits completed and two were partial; 23 pairs met the comparison criteria. Across these pairs, the mean time reduction was 19.36%, the mean relative detection improvement was 26.41%, and the token-efficiency ratio per detected condition was 1.51. The descriptive detection and efficiency targets were exceeded, while the 30% time-reduction target was not reached. The 50 attempts consumed 891,821 tokens, with an estimated local cost of USD 2.28. The findings describe the tested configurations and do not establish universal coverage or acceptance outside the laboratory. Subsequent measurements are documented separately and do not replace these results."
+    },
+    {
+      "antes": "El documento presenta el problema, los antecedentes y las decisiones de diseño. Los capítulos 3 y 4 describen la arquitectura implementada y su comprobación funcional. El capítulo 5 analiza las 50 auditorías de la evaluación con LangGraph. Los anexos reúnen el protocolo, las configuraciones y los registros necesarios para revisar los resultados.",
+      "despues": "El documento presenta el problema, los antecedentes y las decisiones de diseño. Los capítulos 3 y 4 describen la arquitectura implementada y su comprobación funcional. El capítulo 5 analiza las 50 auditorías de octubre con LangGraph y presenta después la comparación descriptiva con las mediciones de noviembre. Los anexos reúnen el protocolo, las configuraciones y los registros necesarios para revisar los resultados."
+    },
+    {
+      "antes": "Se compararon los modos de agente único y multiagente de NovaFlow en cinco laboratorios. Se registraron las cincuenta auditorías previstas: cuarenta y ocho completas y dos parciales. Veintitrés de las veinticinco parejas cumplieron los criterios de comparación. En estas parejas, la reducción temporal media fue del 19,36 %, la mejora relativa de detección del 26,41 % y la razón de eficiencia de tokens por condición detectada de 1,51. Los apartados siguientes describen el procedimiento, los resultados y sus límites.",
+      "despues": "En la campaña de octubre se compararon los modos de agente único y multiagente de NovaFlow en cinco laboratorios. Se registraron las cincuenta auditorías previstas: cuarenta y ocho completas y dos parciales. Veintitrés de las veinticinco parejas cumplieron los criterios de comparación. En estas parejas, la reducción temporal media fue del 19,36 %, la mejora relativa de detección del 26,41 % y la razón de eficiencia de tokens por condición detectada de 1,51. Los apartados siguientes describen el procedimiento, los resultados y sus límites."
+    },
+    {
+      "antes": "6.2.4. Para el cuarto objetivo se registraron cincuenta auditorías con el mismo modelo y límites por laboratorio. Cuarenta y ocho terminaron completas y dos fueron parciales. Veintitrés parejas fueron aptas para la comparación; los dos pares excluidos y sus consumos se conservaron. El modo multiagente obtuvo un TRTO medio del 19,36 %, un IDE medio del 26,41 % y una razón ETV de 1,51. Se superaron las metas descriptivas de detección y eficiencia de tokens, mientras la meta temporal del 30 % no se alcanzó. La media de IDE superó el 20 %, pero su intervalo exploratorio incluyó valores por debajo de esa meta.",
+      "despues": "6.2.4. Para el cuarto objetivo, la campaña de octubre registró cincuenta auditorías con el mismo modelo y límites por laboratorio. Cuarenta y ocho terminaron completas y dos fueron parciales. Veintitrés parejas fueron aptas para la comparación; los dos pares excluidos y sus consumos se conservaron. El modo multiagente obtuvo un TRTO medio del 19,36 %, un IDE medio del 26,41 % y una razón ETV de 1,51. Se superaron las metas descriptivas de detección y eficiencia de tokens, mientras la meta temporal del 30 % no se alcanzó. La media de IDE superó el 20 %, pero su intervalo exploratorio incluyó valores por debajo de esa meta."
+    },
+    {
+      "antes": "Las mediciones se identifican como langgraph_manual_20261018, bajo el protocolo novaflow-langgraph-manual-3. Estos identificadores permiten localizar las cincuenta posiciones y sus huellas de integridad.",
+      "despues": "Las mediciones históricas de octubre se registraron como langgraph_manual_20261018, bajo el protocolo novaflow-langgraph-manual-3. Los registros del 8 de noviembre reutilizaron estos identificadores; por ello, la fecha y el identificador completo de cada corrida se conservan para distinguir ambos conjuntos."
+    }
+  ],
+  "seccion_nueva": "5.8 COMPARACIÓN CON LAS MEDICIONES DEL 8 DE NOVIEMBRE DE 2026",
+  "parrafos_seccion": [
+    "El 8 de noviembre de 2026 se registraron cincuenta auditorías completas en los cinco laboratorios. Las veinticinco parejas cumplieron las comprobaciones de elegibilidad aplicadas a sus registros. Los manifiestos las clasificaron como ejecuciones manuales fuera de la cohorte formal, por lo que se conservaron como una verificación posterior.",
+    "Coincidieron el modelo registrado, la referencia de evaluación y los límites de 60.000 tokens y 2.400 segundos por auditoría. Cambiaron las huellas del código, del controlador, de las imágenes y de la preparación del laboratorio. Las nuevas mediciones correspondieron, por tanto, a un conjunto de ejecutables distinto.",
+    "Las medias de noviembre fueron del 30,64 % en TRTO, del 27,24 % en IDE y de 1,5301 en ETV. Sobre las mismas veintitrés posiciones elegibles de octubre se obtuvieron 30,04 %, 27,67 % y 1,5235. Se promediaron los indicadores por pareja, como en la evaluación histórica. El contraste hizo explícito el cambio de población, pero mantuvo las diferencias de versión y entorno.",
+    "El recálculo de octubre conservó los KPI reportados en 5.3. Los valores nuevos se informaron por separado, sin agregarlos a una sola media histórica. Atribuir su variación a una modificación del aplicativo requiere comparar versiones bajo condiciones equivalentes y con repeticiones definidas antes de medir. El Anexo I relaciona los resultados, las posiciones y los archivos utilizados."
+  ],
+  "tabla_nueva": [
+    [
+      "Mediciones",
+      "Parejas",
+      "TRTO (%)",
+      "IDE (%)",
+      "ETV"
+    ],
+    [
+      "Octubre de 2026",
+      "23",
+      "19,3557",
+      "26,4134",
+      "1,5117"
+    ],
+    [
+      "8 de noviembre",
+      "25",
+      "30,6425",
+      "27,2365",
+      "1,5301"
+    ],
+    [
+      "8 de noviembre: posiciones comunes",
+      "23",
+      "30,0385",
+      "27,6725",
+      "1,5235"
+    ]
+  ],
+  "anexo_nuevo": "ANEXO I COMPARACIÓN DE LAS MEDICIONES DE OCTUBRE Y NOVIEMBRE*",
+  "tablas_logicas": 44,
+  "tramos_tablas": 82,
+  "campos_indices": 194,
+  "limite": "Comparación descriptiva; registros de noviembre clasificados fuera de cohorte formal. No se cambian KPI ni archivos históricos.",
+  "paginas": 162
+}

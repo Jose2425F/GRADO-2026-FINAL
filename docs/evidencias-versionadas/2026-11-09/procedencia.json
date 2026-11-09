@@ -1,0 +1,82 @@
+{
+  "fecha": "2026-11-09",
+  "version_evidencias": "20261109",
+  "archivos_zip": [
+    {
+      "archivo": "campana-api-20261108.zip",
+      "sha256": "60edc45719fbce61e7b97c64422f36b94186d983df6e7242dfee60f6aac2a740",
+      "bytes": 6013563,
+      "entradas": 3652,
+      "manifiesto": "campana-api-20261108-integridad.json"
+    },
+    {
+      "archivo": "verificaciones-20261109.zip",
+      "sha256": "8a8cbc95eb00a6169bb6ad6fba7a765555b6db274a29ab60ad2789123d846c25",
+      "bytes": 644033,
+      "entradas": 295,
+      "manifiesto": "verificaciones-20261109-integridad.json"
+    },
+    {
+      "archivo": "verificaciones-editoriales-20261109.zip",
+      "sha256": "cb096dc4c75845c7ee76f6cdbf83dbe5c40042ac9e021e8fae13292f0ebec5bd",
+      "bytes": 31648,
+      "entradas": 13,
+      "manifiesto": "verificaciones-editoriales-20261109-integridad.json"
+    }
+  ],
+  "copias_sueltas": [
+    {
+      "archivo": "referencia-historica-20261018/runs.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/revision-respaldo-drive/soportes-recuperados/docs/evaluacion-langgraph/runs.json",
+      "bytes": 182311,
+      "sha256_original": "56fc650b1b049b776444153e407ff555546b6a95a44dba9494e360433a0520c3",
+      "sha256_publicado": "56fc650b1b049b776444153e407ff555546b6a95a44dba9494e360433a0520c3",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "referencia-historica-20261018/pairs.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/revision-respaldo-drive/soportes-recuperados/docs/evaluacion-langgraph/pairs.json",
+      "bytes": 23886,
+      "sha256_original": "a9120684eea0aff79c348e9ff87a047ac64bc2e160fc370fbad2fd3d15e6d8c2",
+      "sha256_publicado": "a9120684eea0aff79c348e9ff87a047ac64bc2e160fc370fbad2fd3d15e6d8c2",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "referencia-historica-20261018/protocol.json",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/revision-respaldo-drive/soportes-recuperados/docs/evaluacion-langgraph/protocol.json",
+      "bytes": 20992,
+      "sha256_original": "816b7e03747279c836c5ba8c21c54123b0ca48a006f8fe9d4949cb3a37639ab1",
+      "sha256_publicado": "816b7e03747279c836c5ba8c21c54123b0ca48a006f8fe9d4949cb3a37639ab1",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "codigo-calculo/panel_metricas.py",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/scripts/panel_metricas.py",
+      "bytes": 13928,
+      "sha256_original": "ad8e655a7d698d167624726fa4c1e83aed274cb230ee913750a85d9b0af35db0",
+      "sha256_publicado": "ad8e655a7d698d167624726fa4c1e83aed274cb230ee913750a85d9b0af35db0",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "codigo-calculo/evaluacion_manual.py",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/scripts/tesis/evaluacion_manual.py",
+      "bytes": 22953,
+      "sha256_original": "d14a356e798a1a71e06fbfe02946ebc3d219582edfe8615b6b00497cc5a9f99b",
+      "sha256_publicado": "d14a356e798a1a71e06fbfe02946ebc3d219582edfe8615b6b00497cc5a9f99b",
+      "transformacion": "ninguna; copia binaria idéntica"
+    },
+    {
+      "archivo": "codigo-calculo/protocolo_manual.py",
+      "origen_local": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/scripts/tesis/protocolo_manual.py",
+      "bytes": 13677,
+      "sha256_original": "f1e2411972c47be0aa2e9083650c202d5549cc9b19c7b8e8cce84771973cf8ce",
+      "sha256_publicado": "f1e2411972c47be0aa2e9083650c202d5549cc9b19c7b8e8cce84771973cf8ce",
+      "transformacion": "ninguna; copia binaria idéntica"
+    }
+  ],
+  "separacion": "Los archivos anteriores de GitHub permanecen en sus rutas y commits; este directorio es una versión adicional.",
+  "campana_api": "2026-11-08, 50 intentos completos; comparación descriptiva de 25 parejas bajo reglas actuales.",
+  "rotulo_manifest": "study=manual_not_formal_cohort; manual_context.study_id reutiliza langgraph_manual_20261018 y no identifica por sí solo la fecha real.",
+  "verificacion_sin_api": "2026-11-09; pruebas y aceptaciones posteriores, no se agregan a las 50 posiciones históricas.",
+  "exclusiones": "No se publican la clave/configuración privada, cuentas ni sesiones, imágenes Docker, entornos Python, ruedas descargadas, norma PDF o extracción íntegra de la norma. El documento académico final se publica por separado."
+}

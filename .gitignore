@@ -20,6 +20,7 @@ dist/
 *.local
 **/.lab*/
 **/.manual-restorations*
+**/.segment-locks/
 **/private/
 **/privado/
 **/private-evidence/
@@ -58,3 +59,9 @@ docs/verificacion-postevaluacion/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Archivos de trabajo y configuración del equipo
+work/
+.codex/
+.claude/
+.agents/

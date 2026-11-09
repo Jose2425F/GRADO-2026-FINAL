@@ -351,6 +351,18 @@ def _containers(definition, *, allow_missing):
 
 
 def restore_pinned(state):
+    """Excluye auditorías mientras restaura y verifica también el estado de red."""
+    from auditoria import lab_empresa
+    from .segmentos import DEFAULT_ROOT, SegmentGuard
+    def checked():
+        receipt = _restore_pinned(state)
+        return {"images": receipt, "preflight": lab_empresa.preflight(state)}
+    proof = SegmentGuard(DEFAULT_ROOT).recover(
+        [bridge for bridge, _, _ in lab_empresa.NETWORKS.values()], checked)
+    return proof["images"]
+
+
+def _restore_pinned(state):
     """Recrea con los IDs congelados y comprueba identidad antes/después."""
     with _locked(state) as state:
         kernel_ok()

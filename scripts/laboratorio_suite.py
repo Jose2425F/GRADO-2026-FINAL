@@ -48,6 +48,17 @@ def operation(action,scenario):
 
 
 def compose(ctx,action):
+    if action != 'up':
+        return _compose(ctx,action)
+    from tesis.segmentos import DEFAULT_ROOT,SegmentGuard
+    def checked():
+        _compose(ctx,action)
+        return {'preflight':ready(ctx),'images':images(ctx)}
+    return SegmentGuard(DEFAULT_ROOT).recover(
+        [bridge for bridge,_,_ in ctx.lab.NETWORKS.values()],checked)
+
+
+def _compose(ctx,action):
     kernel_ok()
     command=['docker','compose','--env-file',str(ctx.state/'lab.env'),'-f',str(ctx.lab.COMPOSE)]
     if action=='up':

@@ -1,0 +1,103 @@
+EVIDENCIAS ADICIONALES DE LA REVISIÓN DEL 9 DE NOVIEMBRE DE 2026
+
+Esta versión reúne las corridas del 8 de noviembre y las comprobaciones
+posteriores del aplicativo, conservando la separación respecto de la campaña
+histórica de octubre. Su incorporación al repositorio no requiere borrar ni
+sustituir archivos de las versiones anteriores.
+
+CONTENIDO
+
+campana-api-20261108.zip
+    Cincuenta carpetas completas de ejecución con 3.652 archivos originales:
+    solicitudes, planes, manifiestos, evaluaciones, informes, uso del modelo,
+    pruebas técnicas, capturas del laboratorio y bases SQLite de eventos.
+    Conserva la ruta panel/<espacio>/<run_id> de cada intento. Contiene datos
+    de los laboratorios autorizados; no incluye las cuentas del portal ni
+    su configuración privada.
+
+verificaciones-20261109.zip
+    Diagnósticos, pruebas de fallo, aceptaciones, regresiones, análisis de
+    privilegios, inventario y estado de los ajustes. Se conservan también
+    los primeros intentos y sus incidencias, para no presentar sólo los
+    pases satisfactorios. Los registros del paquete privado se incluyen
+    como inventario y referencia: el ZIP no pretende contener las imágenes
+    Docker, la clave privada ni todo el paquete local descrito por ese
+    inventario. El verificador de ese inventario requiere el paquete local
+    completo; verificar.py es el verificador de esta publicación.
+
+verificaciones-editoriales-20261109.zip
+    Cotejo NTC y comprobaciones de conservación, referencias y numeración
+    de la copia revisada. Los registros describen su propia versión: el
+    título abreviado documentado en el primer cotejo se retiró después por
+    instrucción de los autores. restauracion-titulo.json registra el retorno
+    al título original. El Word académico más reciente se publica aparte.
+
+comparacion-campanas-20261109.json y .txt
+    Comparación descriptiva de los datos históricos y posteriores. Incluyen
+    fechas, fórmulas, población, versiones, un ejemplo concreto y fuentes.
+
+referencia-historica-20261018/
+    Copias binarias de runs.json, pairs.json y protocol.json recuperados de
+    la evidencia histórica. Permiten comprobar el cálculo en este paquete;
+    no reemplazan los archivos históricos que ya tiene el repositorio.
+
+codigo-calculo/
+    Copia del código utilizado para interpretar la selección y las fórmulas
+    del panel en la revisión del 9 de noviembre. El verificador independiente
+    usa únicamente la biblioteca estándar y no importa el aplicativo.
+
+INTEGRIDAD Y RECÁLCULO SIN COSTOS
+
+Desde esta carpeta, ejecutar:
+
+    python3 verificar.py
+
+El comando comprueba SHA-256 y tamaño de los archivos publicados, verifica
+las 3.960 entradas de los tres ZIP y recalcula TRTO, IDE y ETV. No extrae
+capturas, no ejecuta comandos contra activos y no usa red, Docker ni API.
+Los resultados esperados, antes de redondear para presentación, son:
+
+    Octubre, 23 parejas: TRTO 19,3557316 %; IDE 26,4133572 %; ETV 1,511702857.
+    Noviembre, 25 parejas: TRTO 30,6425196 %; IDE 27,23650794 %; ETV 1,530060143.
+    Noviembre, 23 posiciones comunes: TRTO 30,0384825 %;
+        IDE 27,67253278 %; ETV 1,523506679.
+
+IDENTIFICACIÓN DE LA COMPARACIÓN POSTERIOR
+
+Los manifiestos nuevos registran study=manual_not_formal_cohort y reutilizan
+manual_context.study_id=langgraph_manual_20261018. El identificador del estudio
+no prueba que una corrida sea de octubre: deben consultarse fecha y run_id.
+La comparación de noviembre es descriptiva y no se incorpora automáticamente
+a la cohorte formal. Las 25 parejas nuevas se consideran comparables bajo
+las reglas actuales del aplicativo; no equivale a una revisión metodológica
+independiente de cada regla.
+
+Los cambios en código, controlador, imágenes y preparación del laboratorio
+impiden atribuir toda la diferencia a una modificación concreta. El contraste
+sobre las 23 posiciones comunes hace visible el efecto de la selección de
+la población, pero no controla las demás diferencias. Las pruebas sin API
+y las 775 pruebas de software aprobadas son verificaciones posteriores,
+no parejas nuevas que se deban sumar a las cincuenta auditorías históricas.
+
+COPIAS, PRIVACIDAD Y LÍMITES
+
+Cada entrada conserva sus bytes originales. Los manifiestos *-integridad.json
+guardan ruta de origen, tamaño y SHA-256 original y publicado. No se han
+borrado menciones a herramientas o asistentes de los registros de ejecución.
+Las rutas locales forman parte de su procedencia y pueden no existir en
+otro equipo; para leer la evidencia deben usarse las rutas dentro del ZIP.
+
+Se comprobaron los bytes, incluidas capturas y SQLite, buscando la clave
+configurada y patrones de credenciales privadas. Cinco XML de pruebas
+contienen una cadena ficticia con forma de clave API en el nombre de un
+caso parametrizado de saneamiento. Es un dato de prueba y se conservó para
+mantener íntegros los XML. revision-publicacion.json registra esa revisión.
+La búsqueda no garantiza detectar cualquier secreto desconocido. Las
+credenciales de servicios deliberadamente vulnerables del laboratorio son
+datos de prueba; no son credenciales de cuentas reales del portal.
+
+No se publican imágenes Docker, entornos Python instalados, ruedas
+descargadas, cuentas, sesiones ni configuración privada. La norma PDF y
+su extracción íntegra tampoco se redistribuyen. Los soportes técnicos que
+quedan privados se identifican por sus inventarios y huellas; las huellas
+por sí solas no sustituyen disponer de los ejecutables o las imágenes.

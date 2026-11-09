@@ -1,0 +1,55 @@
+{
+  "paginas": 162,
+  "campos_pageref": 194,
+  "destinos_pdf": 194,
+  "campos_con_cache_distinta": [],
+  "marcadores_destino_existentes": true,
+  "referencias_antes": 65,
+  "referencias_despues": 65,
+  "bibliografia_identica": true,
+  "tramos_tablas_antes": 81,
+  "tramos_tablas_despues": 82,
+  "tramos_originales_diferentes": [],
+  "medios_originales": 11,
+  "medios_identicos": true,
+  "titulos_originales_identicos": true,
+  "pies_no_correlativos": [],
+  "sha256_salida": "3112bb323442b3771961625aacdb5547de03325d897aba2cab4367a3a340dbde",
+  "metodo_comparacion_visual": "Render final a110dpi comparado píxel a píxel contra render previo a110dpi; portadas1–2 renderizadas desde PDF previo con Poppler bundled. Imágenes idénticas heredan la revisión previa; se abrieron e inspeccionaron todas las páginas distintas y nuevas.",
+  "paginas_preexistentes_con_imagen_identica": 147,
+  "paginas_preexistentes_distintas_inspeccionadas": [
+    7,
+    8,
+    9,
+    11,
+    13,
+    16,
+    17,
+    18,
+    28,
+    68,
+    77,
+    78,
+    135
+  ],
+  "paginas_nuevas_inspeccionadas": [
+    161,
+    162
+  ],
+  "defectos_visuales": [],
+  "pagina28_mismo_texto_y_ecuaciones_legibles": true,
+  "pagina28_bbox_diferencia": [
+    454,
+    661,
+    696,
+    700
+  ],
+  "redaccion_revisada": {
+    "tono": "Conserva pasado impersonal y exposición técnica con denominadores y límites explícitos",
+    "historico_y_posterior_separados": true,
+    "clasificacion_manual_fuera_cohorte_formal_explicita": true,
+    "sin_atribucion_causal_no_demostrada": true
+  },
+  "resultado": "APROBADO",
+  "nota_alcance": "Control de conservación, índices y presentación. No certifica cumplimiento integral NTC ni validación causal de resultados."
+}

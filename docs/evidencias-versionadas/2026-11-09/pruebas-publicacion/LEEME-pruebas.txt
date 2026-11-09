@@ -1,0 +1,15 @@
+VALIDACIÓN DE LA COPIA INTEGRADA PARA PUBLICACIÓN — 9 DE NOVIEMBRE DE 2026
+
+La regresión se ejecutó contra la copia repo/ integrada desde origin/main y los cambios locales. Se conservaron los comandos, las horas, los códigos de salida, los logs y los XML.
+
+Resultados: 775 pruebas Python aprobadas, dos omitidas y 59 subpruebas aprobadas; cuatro pruebas JavaScript DOM aprobadas. Son comprobaciones de software y de fixtures; no son nuevas corridas de la campaña experimental ni consumieron API.
+
+Se ejecutaron tres grupos Python: 768 aprobadas y 57 subpruebas en la batería amplia; una prueba y dos subpruebas de integración TCP en loopback; seis pruebas del grafo anterior con agentes stub. El grupo amplio excluyó expresamente el caso Nmap para ejecutarlo con una guarda separada. No se suman las cuatro pruebas JavaScript al total de auditorías ni de pruebas Python.
+
+Las conexiones Python se limitaron a loopback y se bloquearon los ejecutables reales de Hydra y Docker. El único Nmap real admitido fue el perfil TCP exacto del arnés contra 127.0.0.1 y ::1, en los dos puertos efímeros que atendían las aplicaciones sintéticas. Se registraron las cuatro invocaciones. Los intentos fuera de loopback fueron bloqueados y se registran en network-guard.log; no se permitieron conexiones externas.
+
+El primer intento JavaScript falló por falta de jsdom y de .venv en la copia limpia; javascript-ui.log conserva ese diagnóstico. El intento final usa el node_modules ya instalado y el entorno Python reproducido, con PYTHONPATH apuntando a la copia integrada. No se modificó código para resolver ese problema ambiental.
+
+Se mantiene el aviso de configuración asyncio_mode desconocida en el entorno sin pytest-asyncio; las pruebas seleccionadas no requieren ejecutar corutinas a través de ese complemento. Las dos omisiones se detallan en resumen-validacion.json.
+
+fuentes-validadas-sha256.json identifica 265 archivos fuente/de pruebas; sus hashes seguían idénticos al cerrar esta validación. No se afirma identidad completa con el entorno experimental de octubre.

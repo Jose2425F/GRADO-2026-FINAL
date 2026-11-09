@@ -61,3 +61,9 @@ Las pruebas automatizadas usan dobles de herramientas y proveedor; no sustituyen
 Esta distribución publica el código fuente, la interfaz, los adaptadores, los laboratorios y las pruebas automatizadas. El [respaldo histórico de la evaluación del 18–19 de octubre de 2026](docs/evidencias-historicas/2026-10-18/README.md) incorpora las 50 auditorías originales, la aceptación de los cinco laboratorios, los recibos de pruebas y un verificador local de integridad y KPI. Las credenciales, la configuración privada y el documento académico se conservan por separado.
 
 El paquete que ejecuta el panel está en `piloto_kali/prototipo/`; utiliza el comando de instalación indicado arriba. Sus dependencias y versión de LangGraph se declaran en su propio `pyproject.toml` y `uv.lock`.
+
+## Versión del 9 de noviembre de 2026
+
+La revisión del aplicativo incorpora acceso por cuentas, separación de empresas, publicación de resultados y correcciones de ejecución y trazabilidad. Las [evidencias adicionales](docs/evidencias-versionadas/2026-11-09/LEEME.txt) conservan las corridas del 8 de noviembre y las comprobaciones posteriores, con un verificador de integridad y de KPI. Los [documentos v1 y v2](docs/entregas/2026-11-09/LEEME.txt) se conservan por separado. Las mediciones posteriores son descriptivas y mantienen su clasificación fuera de la cohorte formal.
+
+La evidencia histórica continúa en `docs/evidencias-historicas/2026-10-18/` y `docs/evaluacion-langgraph/`. La nueva carpeta no sustituye esos archivos.

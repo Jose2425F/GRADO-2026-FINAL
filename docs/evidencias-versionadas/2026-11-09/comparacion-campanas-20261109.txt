@@ -1,0 +1,61 @@
+COMPARACIÓN DESCRIPTIVA DE LAS CAMPAÑAS DE OCTUBRE Y NOVIEMBRE
+Análisis del 9 de noviembre de 2026. Se leyeron archivos conservados; no se ejecutaron auditorías ni llamadas a la API y no se modificó evidencia original.
+
+Los KPI históricos corresponden a 50 intentos del 18/19 de octubre: 48 completos y dos parciales, con 23 parejas elegibles. La campaña local del 8 de noviembre contiene otros 50 intentos completos, 25 parejas elegibles bajo las reglas actuales y ningún duplicado.
+
+Ambas campañas reutilizan study_id langgraph_manual_20261018 y la huella lógica de protocolo 34e4066e28895a08d43438ec97f5fe20397e6800287251da165b9debe604e4ef. Se distinguen por fecha y run_id completo; el nombre antiguo del estudio no identifica por sí solo la fecha real de ejecución.
+
+RESULTADOS RECALCULADOS
+Octubre, 23 parejas: TRTO 19.355732 %; IDE 26.413357 %; ETV 1.511703
+Noviembre, 25 parejas: TRTO 30.642520 %; IDE 27.236508 %; ETV 1.530060
+Noviembre, mismas 23 posiciones elegibles históricas: TRTO 30.038483 %; IDE 27.672533 %; ETV 1.523507
+La tercera fila elimina integrado/1 y reforzado/1 de noviembre; mantiene el resto de posiciones. Permite mostrar por separado el cambio de población, pero no convierte versiones diferentes en una repetición del mismo ejecutable.
+
+FÓRMULAS
+Por pareja: TRTO = 100 × (tiempo_único − tiempo_multi)/tiempo_único.
+IDE = 100 × (TP_multi − TP_único)/TP_único.
+ETV = (tokens_único/TP_único)/(tokens_multi/TP_multi).
+Se promedian razones por pareja. No se calcula una razón de totales agrupados. El tiempo es report.metrics.elapsed_seconds, el mismo utilizado por collect_run. El panel actual redondea cada razón a cuatro decimales antes de agregar: TRTO 30.642524 %; IDE 27.236492 %; ETV 1.530056. La diferencia con el recálculo sin redondear es sólo de precisión.
+
+CONTEXTO REGISTRADO
+En las 50 posiciones cotejadas cambiaron la huella del código completo, la del controlador, las imágenes y la huella de preparación del laboratorio; la fuente del escenario cambió en 40. El grafo difiere sólo en las dos posiciones iniciales de octubre; el resto conserva la misma huella del grafo estabilizado. La referencia reservada se mantuvo en las 50 posiciones. Coinciden los nombres de modelo declarados y respondidos, el presupuesto de 60.000 tokens y el máximo de 2.400 s. Estas coincidencias y diferencias documentadas no prueban la causa de la variación de los indicadores.
+
+Código histórico: f9989505e528b788a5655b1acc3a990768489732b2af9fe0a2b634f7620e530d.
+Código del 8 de noviembre: b71168c1be21f6c9270efe4cf0b743bf6bafb0cb29c514d6082de51bf1e43937.
+
+EJEMPLO CONCRETO: COMERCIAL, PAREJA 2
+Octubre: panel/7d3a79056ea9/emp_multiagent_84eb0f9eb2b0_20261019T010234
+  Tiempo 172.252 s; TP 9; FN 0; tokens 13913.
+Octubre: panel/9df47fbcfc8b/emp_single_fe5da3cf965c_20261019T010626
+  Tiempo 187.846 s; TP 6; FN 3; tokens 15381.
+Noviembre: panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742
+  Tiempo 169.811 s; TP 6; FN 3; tokens 15228.
+Noviembre: panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443
+  Tiempo 124.265 s; TP 9; FN 0; tokens 14186.
+Octubre: TRTO 8.301481 %; IDE 50.000000 %; ETV 1.658269
+Noviembre: TRTO 26.821584 %; IDE 50.000000 %; ETV 1.610179
+En esta pareja los TP permanecen en 6 para único y 9 para multiagente; el tiempo y los tokens cambian. La diferencia de TRTO no proviene de una mayor cantidad de TP.
+
+CÓMO PRESENTARLO EN LA TESIS
+La evaluación histórica y sus resultados siguen identificados por su fecha y versión. La campaña posterior se presenta en una tabla o anexo separado, con resultados de las 25 parejas y un análisis descriptivo de las 23 posiciones comunes. No se mezclan en una sola media ni se sustituyen resultados antiguos por nuevos. Las comprobaciones sin API del 9 de noviembre y las 775 pruebas de software se informan por separado: no son parejas nuevas del experimento.
+
+Texto propuesto para revisión, todavía no incorporado a la tesis:
+«Los indicadores corresponden a campañas de medición diferentes. La campaña histórica de octubre conserva 50 intentos y 23 parejas elegibles. La campaña posterior del 8 de noviembre registra otros 50 intentos completos y 25 parejas elegibles bajo las reglas actuales. Aunque se mantuvieron el modelo nominal, los límites y la referencia de evaluación, cambiaron las identidades del código y de las imágenes. Por ello, la variación observada se presenta como un resultado descriptivo entre campañas y no como un efecto causal demostrado de las modificaciones. Se conserva además un contraste sobre las mismas 23 posiciones históricamente elegibles para hacer explícito el efecto de la selección de la población analizada.»
+
+Antes de atribuir la mejora a una corrección concreta se necesita un contraste controlado de versiones, con entorno y reglas equivalentes y repeticiones predefinidas. Tampoco corresponde atribuirla únicamente a la variabilidad del modelo sin revisar trazas y llamadas.
+
+FUENTES
+/home/kali/Documents/Codex/2026-11-07/cone/work/revision-respaldo-drive/soportes-recuperados/docs/evaluacion-langgraph/runs.json
+SHA-256 56fc650b1b049b776444153e407ff555546b6a95a44dba9494e360433a0520c3
+/home/kali/Documents/Codex/2026-11-07/cone/work/revision-respaldo-drive/soportes-recuperados/docs/evaluacion-langgraph/pairs.json
+SHA-256 a9120684eea0aff79c348e9ff87a047ac64bc2e160fc370fbad2fd3d15e6d8c2
+/home/kali/Documents/Codex/2026-11-07/cone/work/revision-respaldo-drive/soportes-recuperados/docs/evaluacion-langgraph/protocol.json
+SHA-256 816b7e03747279c836c5ba8c21c54123b0ca48a006f8fe9d4949cb3a37639ab1
+/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/scripts/panel_metricas.py
+SHA-256 ad8e655a7d698d167624726fa4c1e83aed274cb230ee913750a85d9b0af35db0
+/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/scripts/tesis/evaluacion_manual.py
+SHA-256 d14a356e798a1a71e06fbfe02946ebc3d219582edfe8615b6b00497cc5a9f99b
+/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/scripts/tesis/protocolo_manual.py
+SHA-256 f1e2411972c47be0aa2e9083650c202d5549cc9b19c7b8e8cce84771973cf8ce
+
+Los 200 archivos de entrada nuevos y sus SHA-256 se enumeran en la comparación JSON. Los informes del ejemplo están bajo las rutas corridas/panel/53bac6930cd9/emp_multiagent_92cfd81f21f1_20261108T204443 y corridas/panel/0b0e51a3f375/emp_single_2ebff5ca44bd_20261108T204742.

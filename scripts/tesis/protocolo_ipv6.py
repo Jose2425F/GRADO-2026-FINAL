@@ -16,17 +16,17 @@ from .orquestacion_langgraph import TaskExecutionError
 
 
 @contextmanager
-def instrument_protocol(engine,bank):
+def instrument_protocol(engine,bank, *, on_restored=None):
     """Sustituye sólo el adaptador en memoria y conserva el despachador autorizado."""
     original=engine._run_protocol
-    engine._run_protocol=lambda task,store:execute_protocol(task,store,engine,bank)
+    engine._run_protocol=lambda task,store:execute_protocol(task,store,engine,bank,on_restored=on_restored)
     try:
         yield
     finally:
         engine._run_protocol=original
 
 
-def execute_protocol(task, store, engine, bank):
+def execute_protocol(task, store, engine, bank, *, on_restored=None):
     if task.target not in engine.targets():
         raise PolicyError('empresa_target_denied', 'Activo fuera del banco autorizado.')
     profile=task.action_profile.removeprefix('ipv6_').removesuffix('_v2')
@@ -68,6 +68,8 @@ def execute_protocol(task, store, engine, bank):
              'profile':task.action_profile,'before':before,'readiness_recovery':recovered}
     if profile=='slaac':
         payload.update(after=before,restored=before)
+        if on_restored is not None:
+            on_restored(task, before)
     else:
         try:
             if profile=='na_neighbor':
@@ -86,6 +88,8 @@ def execute_protocol(task, store, engine, bank):
                     bank.probe,receiver,profile,store,task.task_id+'_variant')
         finally:
             payload['restored']=call('ipv6_restore','ipv6_restore_failed',bank.reset_receiver,receiver)
+            if on_restored is not None:
+                on_restored(task, payload['restored'])
     corroboration={**payload,'channel':'packet_observer_and_kernel_state'}
     evidence,eh=call('evidence_persistence','evidence_write_failed',store.evidence,
                     task.task_id+'_state','json',json.dumps(payload,sort_keys=True).encode())

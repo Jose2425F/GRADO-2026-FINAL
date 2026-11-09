@@ -1,0 +1,41 @@
+{
+  "scope": "Regresión sin API ni herramientas de auditoría reales. HTTP local de pruebas permitido.",
+  "excluded_test": "test_whole_runner_real_nmap_and_web_without_api_in_both_architectures (requires real Nmap loopback execution)",
+  "network_guard": "Python sockets/getaddrinfo restricted to loopback; command wrappers reject nmap/hydra/docker",
+  "results": [
+    {
+      "name": "python-regresion",
+      "command": [
+        "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/entorno-reproducido/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "scripts/tests",
+        "piloto_kali/prototipo/tests",
+        "-k",
+        "not test_whole_runner_real_nmap_and_web_without_api_in_both_architectures",
+        "--junitxml=/home/kali/Documents/Codex/2026-11-07/cone/work/publicacion-20261109/pruebas-publicacion/python-regresion.xml"
+      ],
+      "cwd": "/home/kali/Documents/Codex/2026-11-07/cone/work/publicacion-20261109/repo",
+      "started_at": "2026-11-09T04:22:06.160797+00:00",
+      "ended_at": "2026-11-09T04:23:56.079429+00:00",
+      "exit_code": 0,
+      "log": "python-regresion.log",
+      "sha256_log": "e34348c80e5525035aa005159e97363da094609b02723bf39dd2dba7198f8d35"
+    },
+    {
+      "name": "javascript-ui",
+      "command": [
+        "/home/kali/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--test",
+        "scripts/tests/test_centinela_ui.cjs"
+      ],
+      "cwd": "/home/kali/Documents/Codex/2026-11-07/cone/work/publicacion-20261109/repo",
+      "started_at": "2026-11-09T04:23:56.080443+00:00",
+      "ended_at": "2026-11-09T04:23:56.236229+00:00",
+      "exit_code": 1,
+      "log": "javascript-ui.log",
+      "sha256_log": "d3229bc6f5b028d6a87a07966e47ce09e2ac4efe306398281747c65b415e8131"
+    }
+  ]
+}

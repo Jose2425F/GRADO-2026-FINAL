@@ -13,6 +13,8 @@ from unittest.mock import patch
 
 import pytest
 
+pytestmark = pytest.mark.usefixtures("simulated_bank_restoration")
+
 ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(ROOT / "scripts"), str(ROOT / "piloto_kali/prototipo/src")]
 
@@ -426,6 +428,7 @@ def test_real_api_practice_uses_floor_sixty_percent_in_each_lab_without_network(
         ran = []
         reviewed = []
         lock = threading.Lock()
+        first_pair_started = threading.Event()
         def worker(task, store):
             manifest = json.loads((store.root/'manifest.json').read_text())
             assert task.task_id in manifest['detection_budget']['admitted_task_ids']
@@ -435,6 +438,13 @@ def test_real_api_practice_uses_floor_sixty_percent_in_each_lab_without_network(
                 if task.agent_type in {'ipv6_ndp','ipv6_fragmentation'}:
                     assert not any(item.agent_type in {'ipv6_ndp','ipv6_fragmentation'} for item in active)
                 active.append(task);ran.append(task);peak[0]=max(peak[0],len(active))
+                first_worker = len(ran) == 1
+                if len(active) == 2:
+                    first_pair_started.set()
+            # Mantener la primera tarea hasta observar la segunda: 3 ms no
+            # garantizan solapamiento en equipos lentos ni con disco ocupado.
+            if workers == 2 and first_worker:
+                assert first_pair_started.wait(timeout=5), 'No se despacharon dos tareas independientes'
             time.sleep(.003)
             with lock:active.remove(task)
             return TaskResult(task_id=task.task_id, status='completed_no_findings')

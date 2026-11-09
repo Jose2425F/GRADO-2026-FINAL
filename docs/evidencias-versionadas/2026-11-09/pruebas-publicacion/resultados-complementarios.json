@@ -1,0 +1,39 @@
+{
+  "scope": "Legacy graph stubs and current JS DOM regression; no API/audit tools; dependencies reused from existing environment with source imports restricted to integrated checkout",
+  "environment_note": "First JS attempt failed because the clean checkout lacked jsdom and .venv. Preserved in javascript-ui.log. Final attempt reuses installed jsdom via NODE_PATH and the reproduced Python environment via an ignored .venv symlink.",
+  "NODE_PATH": "/home/kali/Documents/Codex/2026-11-07/cone/work/GRADO-2026-FINAL/scripts/tests/node_modules",
+  "PYTHONPATH": "/home/kali/Documents/Codex/2026-11-07/cone/work/publicacion-20261109/pruebas-publicacion/guardas:/home/kali/Documents/Codex/2026-11-07/cone/work/publicacion-20261109/repo/piloto_kali/prototipo/src:/home/kali/Documents/Codex/2026-11-07/cone/work/publicacion-20261109/repo/scripts:/home/kali/Documents/Codex/2026-11-07/cone/work/publicacion-20261109/repo/src",
+  "results": [
+    {
+      "name": "python-legacy",
+      "command": [
+        "/home/kali/Documents/Codex/2026-11-07/cone/work/ajustes-profesor-20261109/entorno-reproducido/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests",
+        "--junitxml=/home/kali/Documents/Codex/2026-11-07/cone/work/publicacion-20261109/pruebas-publicacion/python-legacy.xml"
+      ],
+      "cwd": "/home/kali/Documents/Codex/2026-11-07/cone/work/publicacion-20261109/repo",
+      "started_at": "2026-11-09T04:24:51.635040+00:00",
+      "ended_at": "2026-11-09T04:24:53.187675+00:00",
+      "exit_code": 0,
+      "log": "python-legacy.log",
+      "sha256_log": "65eba102da6302b671ae2eaaf8c7a66d879426b9c72560463c15f4a80c3bc26c"
+    },
+    {
+      "name": "javascript-ui-validated",
+      "command": [
+        "/home/kali/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--test",
+        "scripts/tests/test_centinela_ui.cjs"
+      ],
+      "cwd": "/home/kali/Documents/Codex/2026-11-07/cone/work/publicacion-20261109/repo",
+      "started_at": "2026-11-09T04:24:53.188150+00:00",
+      "ended_at": "2026-11-09T04:24:56.606643+00:00",
+      "exit_code": 0,
+      "log": "javascript-ui-validated.log",
+      "sha256_log": "564473f114c4c783f45b871c4ae41386cbb856c543b68bf26ab06b1f11cec1ed"
+    }
+  ]
+}

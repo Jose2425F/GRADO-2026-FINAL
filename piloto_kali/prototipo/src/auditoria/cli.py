@@ -99,6 +99,7 @@ def source_fingerprint() -> str:
     deploy = source.parents[2] / "despliegue"
     paths = sorted(
         [p for p in source.rglob("*") if p.suffix in {".py", ".j2"}]
+        + [source.parents[1] / name for name in ("pyproject.toml", "uv.lock")]
         + [
             p
             for p in deploy.rglob("*")
