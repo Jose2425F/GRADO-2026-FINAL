@@ -683,6 +683,7 @@ class Panel:
         from panel_informe import report_view
         detail['cve_candidates']=candidates_for_view(report,plan,observation['technical'])
         detail['report_view']=report_view(run,brief,observation['technical'],detail['assistance'],plan,report.get('tasks',[]))
+        detail['report_scope']=report.get('scope')
         return detail
 
     def comparison(self,single_key,multi_key,reference_key=None):

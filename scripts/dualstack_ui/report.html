@@ -166,6 +166,7 @@ td.addr{font-family:var(--mono);font-size:12.5px;color:var(--ink)}
   {% for action in report_view.priorities %}{% set c = {'critical':'var(--crit)','high':'var(--high)','medium':'var(--med)','low':'var(--low)'}.get(action.severity,'#d0d5dd') %}
   <div class="item" style="--c:{{ c }}"><header><div><p class="tag">ACCIÓN {{ '%02d'|format(action.order) }}</p><h3>{{ action.title }}</h3></div><span class="sev {{ action.severity }}">{{ sev_names.get(action.severity,'Por clasificar') }}</span></header>
     <p>{{ action.impact }}</p>
+    {% if action.finding_ids %}<p class="refs">Hallazgos: {{ action.finding_ids|join(', ') }}</p>{% endif %}
     <div class="where">{% for endpoint in action.endpoints %}<span>{{ endpoint.address }}{% if endpoint.ports %}:{{ endpoint.ports|join(',') }}{% endif %}</span>{% endfor %}</div>
     <div class="fix"><span class="label">Qué encargar · {{ action.owner }}</span><p>{{ action.fix }}</p><div class="verify"><span class="label">Criterio de cierre</span><p>{{ action.verification }}</p></div></div>
   </div>{% endfor %}
@@ -178,7 +179,7 @@ td.addr{font-family:var(--mono);font-size:12.5px;color:var(--ink)}
     <div class="where"><span>{{ card.address }}{% if card.ports %}:{{ card.ports|join(',') }}{% endif %}</span><span>{{ card.asset }}</span></div>
     <div class="cols"><div><span class="label">Qué ocurrió</span><p>{{ card.meaning }}</p></div><div><span class="label">Impacto</span><p>{{ card.impact }}</p></div></div>
     <div class="fix"><span class="label">Cómo corregirlo</span><p>{{ card.fix }}</p><div class="verify"><span class="label">Cómo verificar la corrección</span><p>{{ card.verification }}</p></div></div>
-    <details class="proof" open><summary>Cómo se comprobó</summary><p style="margin-top:4px">{{ card.confirmation }}</p><p class="refs">Tarea: {{ card.task_id }}<br>Evidencia: {{ card.evidence }}<br>Corroboración: {{ card.confirmation_ref }}{% if card.reference %}<br>Referencia: {{ card.reference }}{% endif %}</p></details>
+    <details class="proof" open><summary>Cómo se comprobó</summary><p style="margin-top:4px">{{ card.confirmation }}</p><p class="refs">Hallazgo: {{ card.finding_id }}<br>Tarea: {{ card.task_id }}<br>Evidencia: {{ card.evidence }}<br>Corroboración: {{ card.confirmation_ref }}{% if card.reference %}<br>Referencia: {{ card.reference }}{% endif %}</p></details>
   </div>{% endfor %}
 </section>{% endif %}
 {% endif %}
@@ -194,6 +195,7 @@ td.addr{font-family:var(--mono);font-size:12.5px;color:var(--ink)}
 
 <section class="block" id="alcance">
   <h2>{% set sec.n = sec.n + 1 %}<span class="n">{{ "%02d"|format(sec.n) }}</span>Qué se evaluó</h2>
+  {% if report_scope %}<p class="note">Alcance declarado: IPv4 {{ report_scope.ipv4|join(', ') or 'no declarado' }} · IPv6 {{ report_scope.ipv6|join(', ') or 'no declarado' }}. Referencia: {{ report_scope.authorization_ref or 'no consignada' }}.</p>{% endif %}
   <div class="chips"><span><b>{{ report_view.progress.closed }} / {{ report_view.progress.total }}</b> operaciones cerradas</span><span><b>{{ report_view.progress.successful }}</b> correctas</span>{% if report_view.progress.issues %}<span class="warn"><b>{{ report_view.progress.issues }}</b> con incidencias</span>{% endif %}{% if report_view.progress.skipped %}<span class="warn">{{ report_view.progress.skipped }} omitidas</span>{% endif %}{% if report_view.progress.remaining %}<span class="warn">{{ report_view.progress.remaining }} sin cerrar</span>{% endif %}</div>
   <div class="stages">{% for stage in report_view.progress.stages %}<div class="{{ 'warn' if stage.issues else '' }}"><strong>{{ stage.total }}</strong><span>{{ stage.label }}</span><small>{{ stage.successful }} correctas{% if stage.key=="credentials" %} · {{ stage.no_detection }} sin detección{% endif %}{% if stage.issues %} · {{ stage.issues }} con incidencias{% endif %}</small></div>{% endfor %}</div>
   {% if brief.inventory %}<p class="note">{{ report_view.scope_count }} direcciones incluidas · {{ report_view.exposed_hosts }} con servicios TCP abiertos · {{ report_view.service_count }} servicios observados.{% if report_view.down_count %} {{ report_view.down_count }} direcciones no respondieron al descubrimiento; eso no demuestra que estén apagadas.{% endif %}</p>{% endif %}

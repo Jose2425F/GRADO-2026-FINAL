@@ -104,11 +104,14 @@ def report_view(run, brief, technical, assistance, plan=None, results=None):
         key = 'default_credentials' if condition in {'ssh_default_credential','ftp_default_credential','postgres_default_credential','http_get_default_credential'} else condition
         if key not in groups:
             groups[key] = {'title': 'Eliminar las credenciales por defecto de los servicios' if key=='default_credentials' else card['title'], 'fix': card['fix'], 'impact': card['impact'],
-                           'owner': OWNERS.get(key, 'Sistemas'), 'targets': [], 'count': 0,
+                           'owner': OWNERS.get(key, 'Sistemas'), 'targets': [], 'count': 0, 'finding_ids': [],
                            'severity': card.get('severity', 'unknown'), 'observations': [], 'endpoints': [],
                            'verification': ('Repetir la prueba autorizada: la credencial conocida debe ser rechazada, una cuenta válida debe seguir funcionando y la evidencia independiente debe confirmar el resultado.'
                                             if key=='default_credentials' else 'Repetir el caso que confirmó el hallazgo y su control protegido; conservar ambas evidencias antes de cerrar la acción.')}
         card['verification'] = groups[key]['verification']
+        identifier = card.get('finding_id') or card.get('id')
+        if identifier and identifier not in groups[key]['finding_ids']:
+            groups[key]['finding_ids'].append(identifier)
         target = card.get('address') or card.get('asset') or 'Objetivo'
         if target not in groups[key]['targets']:
             groups[key]['targets'].append(target)

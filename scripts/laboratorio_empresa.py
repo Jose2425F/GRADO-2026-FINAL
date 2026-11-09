@@ -34,6 +34,7 @@ from auditoria import lab_empresa as lab  # noqa: E402
 from auditoria.lab import LabError  # noqa: E402
 from auditoria.policy import PolicyError  # noqa: E402
 from auditoria.store import RunStore, write_json  # noqa: E402
+from auditoria.modulo_reportes import prepare_report, report_scope, save_report  # noqa: E402
 
 STATE = PROTOTIPO / ".lab-empresa"
 RUNS = PROTOTIPO / "corridas" / "empresa"
@@ -146,6 +147,7 @@ def _record_request_rejection(req, output, reason_code):
         write_json(directory / "manifest.json", {"bank": "empresa", "mode": "live",
             "status": "rejected", "orchestration": engine_metadata()})
         write_json(directory / "report.json", {"audit_id": req.audit_id,
+            "scope": report_scope(req),
             "architecture": req.architecture, "status": "rejected", "mode": "live",
             "purpose": "vulnerability_detection_instrumented_lab", "reason_code": reason_code,
             "error": reason_code, "tasks": [], "findings": [], "inventory": [], "validation": [],
@@ -396,7 +398,8 @@ def run_panel(options, output, *, study_context=None, bank_context=None):
         except OSError:
             controller.error = controller.error or 'manifest_persistence_error'
             complete = False
-        report = {"audit_id":req.audit_id,"architecture":req.architecture,"status":"complete" if complete else "partial",
+        report = {"audit_id":req.audit_id,"operator":req.operator,"authorization_ref":req.authorization_ref,
+                  "architecture":req.architecture,"status":"complete" if complete else "partial",
                   "mode":"live","purpose":"vulnerability_detection_instrumented_lab","findings":list(findings.values()),
                   "tasks":[r.model_dump(mode='json') for r in results],"validation":validations,
                   "inventory":build_inventory(tasks,results,targets=req.targets),"llm":llm,
@@ -420,7 +423,8 @@ def run_panel(options, output, *, study_context=None, bank_context=None):
             report['cve_candidates']=[]
             report['candidate_note']='Candidatos no disponibles; hallazgos corroborados conservados.'
         try:
-            write_json(directory/'report.json',report)
+            report = prepare_report(report, req)
+            save_report(directory, report)
             # El evaluador se ejecuta después del auditor y nunca alimenta el LLM.
             try:
                 from tesis.evaluacion import score
@@ -442,7 +446,7 @@ def run_panel(options, output, *, study_context=None, bank_context=None):
         report.update(status='partial', error=controller.error)
         report['orchestration']['trace_complete'] = False
         try:
-            write_json(directory/'report.json',report)
+            save_report(directory, report)
         finally:
             runtime.update(status='finished',ended_at=datetime.now(timezone.utc).isoformat())
             write_json(directory/'runtime.json',runtime)

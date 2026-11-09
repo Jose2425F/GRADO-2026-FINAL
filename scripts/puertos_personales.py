@@ -122,9 +122,10 @@ def run_automatic(options,output):
     runtime={'status':'running','pid':P.os.getpid(),'identity':process_identity(P.os.getpid()),'started_at':datetime.now(timezone.utc).isoformat()}
     write_json(directory/'runtime.json',runtime)
     purpose='network_vulnerability_evaluation' if applications else 'service_inventory_with_default_credentials' if options.get('creds') else 'service_inventory_not_vulnerability_evaluation'
-    write_json(directory/'request.json',{'audit_id':audit_id,'bank':'personal','architecture':options['architecture'],'token_budget':options['tokens'],
+    request={'audit_id':audit_id,'bank':'personal','architecture':options['architecture'],'token_budget':options['tokens'],
         'llm_mode':'scheduler' if options['ia']=='openai' else 'disabled','personal':config,'applications':applications,
-        'expert_mode':bool(options.get('expert_mode')),'authorization_ref':options['authorization']})
+        'expert_mode':bool(options.get('expert_mode')),'authorization_ref':options['authorization']}
+    write_json(directory/'request.json',request)
     write_json(directory/'authorization.json',authorization.verify())
     workers=2 if options['architecture']=='multiagent' else 1
     write_json(directory/'manifest.json',{'bank':'personal','mode':'live','purpose':purpose,'port_discovery':'tcp_1_65535',
@@ -266,6 +267,10 @@ def run_automatic(options,output):
             'inventory':inventory,'llm':llm,'validation':validations,'coverage':P.coverage_for(targets,tasks,results,findings,states,bool(options.get('creds')),applications),
             'note':'Descubrimiento TCP 1-65535. El administrador programa reconocimiento en lotes de hasta 32 puertos observados abiertos y aplica únicamente perfiles compatibles. Una búsqueda incompleta no acredita ausencia.',
             'metrics':{'elapsed_seconds':round(time.monotonic()-started,6),'execution_seconds':execution_seconds,'expert_review_seconds':getattr(scheduler,'review_seconds',0)},'error':error}
-        report['cve_candidates']=__import__('tesis.candidatos',fromlist=['for_results']).for_results(tasks,results);write_json(directory/'report.json',report);store.event('report','report_saved',payload={'status':report['status'],'tasks_completed':len(results)})
+        report['cve_candidates']=__import__('tesis.candidatos',fromlist=['for_results']).for_results(tasks,results)
+        from auditoria.modulo_reportes import prepare_report, save_report
+        report = prepare_report(report, request)
+        save_report(directory, report)
+        store.event('report','report_saved',payload={'status':report['status'],'tasks_completed':len(results)})
         runtime.update(status='finished',ended_at=datetime.now(timezone.utc).isoformat());write_json(directory/'runtime.json',runtime);store.close()
     return 0 if complete else 3

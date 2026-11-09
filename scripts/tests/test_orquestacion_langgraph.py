@@ -283,12 +283,18 @@ def test_transient_terminal_event_failure_preserves_first_result_once_without_re
 @pytest.mark.usefixtures("healthy_kernel")
 @pytest.mark.parametrize('persistent', [False, True])
 def test_close_trace_failure_rewrites_partial_without_repeating_tools_or_provider(tmp_path, persistent):
+    from auditoria import modulo_reportes
     from dualstack_panel import validate_options
     options = validate_options({"name": "Simulated close trace failure", "authorization": "LAB-PROPIO", "scope": "empresa",
                                 "ia": "openai", "tokens": 6000, "expert_mode": True})
     original_event = RunStore.event
     failed = []
     executed = []
+    pdf_states = []
+    original_pdf = modulo_reportes.save_pdf
+    def observe_pdf(root, report):
+        pdf_states.append((report['status'], report.get('error'), report.get('orchestration', {}).get('trace_complete')))
+        return original_pdf(root, report)
 
     class Provider(FakeExpert):
         instances = []
@@ -320,12 +326,17 @@ def test_close_trace_failure_rewrites_partial_without_repeating_tools_or_provide
          patch.object(company.agent, "run_task", side_effect=worker), \
          patch.object(company, "validation_for", return_value=({"state": "observed"}, [])), \
          patch("auditoria.openai_provider.load_openai_config"), patch("llm_especialistas.ExpertScheduler", Provider), \
-         patch.object(RunStore, 'event', event):
+         patch.object(RunStore, 'event', event), patch.object(modulo_reportes, 'save_pdf', observe_pdf):
         assert company.run_panel(options, tmp_path) == 3
     root = next(tmp_path.glob('*/report.json')).parent
     report = json.loads((root / 'report.json').read_text())
     assert report['status'] == 'partial' and report['error'] == 'graph_trace_error'
     assert report['orchestration']['trace_complete'] is False
+    assert pdf_states[-1] == ('partial', 'graph_trace_error', False)
+    assert any(state[0] == 'complete' for state in pdf_states)
+    html = (root / 'report.html').read_text()
+    assert 'partial' in html and 'graph_trace_error' in html
+    assert (root / 'report.pdf').read_bytes().startswith(b'%PDF-')
     assert len(report['tasks']) == len({task['task_id'] for task in report['tasks']}) == 32
     assert len(executed) == len(set(executed)) == 19
     assert len(Provider.instances) == 1

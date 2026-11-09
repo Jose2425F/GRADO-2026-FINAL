@@ -15,6 +15,13 @@
   <p>Estado: <strong>{{ report.status }}</strong> · Modo: {{ report.mode }}</p>
   <p>Operador: {{ report.operator }} · Autorización: {{ report.authorization_ref }}</p>
   <p class="note">{{ report.note }}</p>
+  {% if report.error %}<p class="note">Incidencia registrada: {{ report.error }}</p>{% endif %}
+  <h2>Alcance declarado</h2>
+  {% if report.scope %}
+  <p>Banco: {{ report.scope.bank or 'No consignado' }} · Referencia: {{ report.scope.authorization_ref or 'No consignada' }}.</p>
+  <p>IPv4: {{ report.scope.ipv4|join(', ') or 'No declarado' }} · IPv6: {{ report.scope.ipv6|join(', ') or 'No declarado' }}.</p>
+  {% for target in report.scope.targets %}<p>{{ target.asset_id }} · {{ target.address }} · {{ target.interface }} · puertos {{ target.ports|join(', ') }}.</p>{% endfor %}
+  {% else %}<p>El alcance no se consolidó en esta versión del informe. Consultar la solicitud original.</p>{% endif %}
   {% if report.execution_control and report.execution_control.stopped %}
   <p class="note">Pruebas detenidas tras acceso verificado y corroborado. Tarea: {{ report.execution_control.trigger_task_id }}.
     Tareas canceladas: {{ report.execution_control.cancelled_tasks }}. La cobertura de esta demo es parcial.</p>
@@ -22,26 +29,28 @@
   <h2>Hallazgos verificados</h2>
   <p>Arquitectura: {{ report.architecture or 'multiagent' }} · Hallazgos: {{ report.findings|length }}.</p>
   {% for finding in report.findings %}<article><h3>{{ finding.asset_id }}: {{ finding.title }}</h3>
+  <p>ID: {{ finding.finding_id }} · Tarea: {{ finding.task_id }}</p>
   <p>{{ finding.defect_key }} · {{ finding.severity }}</p><p>{{ finding.remediation }}</p>
   <p>Evidencia: {{ finding.evidence_ref }} · Corroboración: {{ finding.confirmation_ref }}</p>
   <p>Referencia: <a href="{{ finding.reference }}">Criterio de validación</a></p></article>
   {% else %}<p>No hay hallazgos verificados.</p>{% endfor %}
   <h2>Tareas</h2>
-  <table><thead><tr><th>Agente</th><th>ID</th><th>Estado</th><th>Motivo</th><th>Evidencia</th><th>Diagnóstico</th></tr></thead><tbody>
-  {% for task in report.tasks %}<tr><td>{{ task.agent_name or '—' }}</td><td>{{ task.task_id }}</td><td>{{ task.status }}</td><td>{{ task.reason_code or '—' }}</td><td>{{ task.evidence_ref or '—' }}</td><td>{{ task.diagnostic_ref or '—' }}</td></tr>{% endfor %}
+  <table><thead><tr><th>Agente</th><th>ID</th><th>Intento</th><th>Estado</th><th>Motivo</th><th>Evidencia</th><th>Diagnóstico</th></tr></thead><tbody>
+  {% for task in report.tasks %}<tr><td>{{ task.agent_name or '—' }}</td><td>{{ task.task_id }}</td><td>{{ task.attempt_id or 'No ejecutada / no consignado' }}</td><td>{{ task.status }}</td><td>{{ task.reason_code or '—' }}</td><td>{{ task.evidence_ref or '—' }}</td><td>{{ task.diagnostic_ref or '—' }}</td></tr>{% endfor %}
   </tbody></table>
   <h2>Validación de observaciones</h2>
-  <p>Gemini: {{ report.llm.status }}{% if report.llm.model %} ({{ report.llm.model }}){% endif %}. Los candidatos requieren corroboración independiente.</p>
+  <p>IA: {{ report.llm.status }}{% if report.llm.model %} ({{ report.llm.model }}){% endif %}. Los candidatos requieren corroboración independiente.</p>
   <table><thead><tr><th>Activo / tarea</th><th>Caso</th><th>Estado</th><th>Motivo</th><th>Evidencia íntegra</th></tr></thead><tbody>
-  {% for item in report.validation %}<tr><td>{{ item.asset_id }} / {{ item.task_id }}</td><td>{{ item.case_id or '—' }}</td><td>{{ item.state }}</td><td>{{ item.reason }}</td><td>{{ 'sí' if item.evidence_integrity.valid is true else 'no' if item.evidence_integrity.valid is false else 'no generada' }}</td></tr>{% endfor %}
+  {% for item in report.validation %}{% set integrity = item.evidence_integrity|default({}, true) %}<tr><td>{{ item.asset_id }} / {{ item.task_id }}</td><td>{{ item.case_id or '—' }}</td><td>{{ item.state }}</td><td>{{ item.reason }}</td><td>{{ 'sí' if integrity.valid is true else 'no' if integrity.valid is false else 'no generada' }}</td></tr>{% endfor %}
   </tbody></table>
   <h2>Inventario de servicios</h2>
-  <table><thead><tr><th>Tarea</th><th>Puerto</th><th>Protocolo</th><th>Servicio</th><th>Producto</th></tr></thead><tbody>
-  {% for item in report.inventory %}{% for service in item.services %}<tr><td>{{ item.task_id }}</td><td>{{ service.port }}</td><td>{{ service.protocol }}</td><td>{{ service.name or '—' }}</td><td>{{ service.product or '—' }}</td></tr>{% endfor %}{% endfor %}
+  <table><thead><tr><th>Activo / dirección</th><th>Descubrimiento y evidencia</th><th>Puerto</th><th>Protocolo</th><th>Servicio</th><th>Producto</th></tr></thead><tbody>
+  {% for item in report.inventory %}{% for service in item.services or [none] %}<tr><td>{{ item.asset_id or '—' }}<br>{{ item.address or 'No consignada' }}</td><td>{% for discovery in item.discovery_tasks|default([]) %}{{ discovery.task_id }}<br>Intento: {{ discovery.attempt_id or 'No consignado' }}<br>{{ discovery.evidence_ref or 'No generada' }}{% if not loop.last %}<br>{% endif %}{% else %}{{ item.task_id or 'No solicitado / no consignado' }}{% endfor %}</td><td>{{ service.port if service else 'No observado' }}</td><td>{{ service.protocol if service else '—' }}</td><td>{{ (service.name or '—') if service else 'Sin servicios observados' }}</td><td>{{ (service.product or '—') if service else '—' }}</td></tr>{% endfor %}{% endfor %}
   </tbody></table>
   <h2>Autenticación</h2>
   <table><thead><tr><th>Tarea</th><th>Servicio</th><th>Puerto</th><th>Referencia</th><th>Resultado</th></tr></thead><tbody>
   {% for item in report.authentication %}<tr><td>{{ item.task_id }}</td><td>{{ item.service }}</td><td>{{ item.port }}</td><td>{{ item.credential_ref }}</td><td>{{ item.outcome }}</td></tr>{% endfor %}
   </tbody></table>
+  {% if report.limitations %}<h2>Limitaciones</h2>{% for limitation in report.limitations %}<p>{{ limitation }}</p>{% endfor %}{% endif %}
 </body>
 </html>

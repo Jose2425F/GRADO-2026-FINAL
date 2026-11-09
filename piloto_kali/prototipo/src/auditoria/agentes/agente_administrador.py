@@ -14,7 +14,7 @@ from ..contracts import AuditRequest, Category, LabPolicy, Task, TaskResult, Tas
 from ..ipv6_lab import IPv6LabError
 from ..policy import PolicyError, authorize_request
 from ..red import RouteDenied
-from ..modulo_reportes import make_report, save_report
+from ..modulo_reportes import make_report, prepare_report, save_report
 from ..findings import access_is_verified, confirm_findings
 from ..validation import validate_results
 from ..store import RunStore, write_json
@@ -397,6 +397,7 @@ def build_graph(store: RunStore, *, live: bool, started: float | None = None):
             ),
             "verified_findings": len(report["findings"]),
         }
+        report = prepare_report(report, state["request"])
         save_report(store.root, report)
         # Punto de medición: los informes JSON/HTML/PDF ya se persistieron.
         report["metrics"]["elapsed_seconds"] = round(time.monotonic() - started, 6)

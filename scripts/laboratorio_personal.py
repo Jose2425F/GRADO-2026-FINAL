@@ -616,7 +616,10 @@ def run(options,output):
             'coverage':coverage_for(targets,tasks,results,findings,host_states,sweep,applications),
             'note':('Inventario y pruebas web configuradas con dos clientes independientes. Los perfiles de red IPv6 todavía requieren observador.' if applications else 'Inventario TCP y prueba de credenciales por defecto sobre los servicios abiertos, con corroboración independiente. down significa sin respuesta al descubrimiento.' if sweep else 'Inventario TCP: no confirma vulnerabilidades. down significa sin respuesta al descubrimiento, no necesariamente apagado.'),
             'metrics':{'elapsed_seconds':round(time.monotonic()-started,6),'execution_seconds':execution_seconds,'expert_review_seconds':getattr(scheduler,'review_seconds',0)},'error':error}
-        report['cve_candidates']=__import__('tesis.candidatos',fromlist=['for_results']).for_results(tasks,results);write_json(directory/'report.json',report)
+        report['cve_candidates']=__import__('tesis.candidatos',fromlist=['for_results']).for_results(tasks,results)
+        from auditoria.modulo_reportes import prepare_report, save_report
+        report = prepare_report(report, request)
+        save_report(directory, report)
         store.event('report','report_saved',payload={'status':report['status'],'tasks_completed':len(results)})
         runtime.update(status='finished',ended_at=datetime.now(timezone.utc).isoformat());write_json(directory/'runtime.json',runtime)
         store.close()

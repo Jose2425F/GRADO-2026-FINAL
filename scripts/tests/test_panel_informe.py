@@ -27,11 +27,23 @@ class FocusedReportTests(unittest.TestCase):
                'coverage':[{'address':'192.0.2.1','inventory_state':'completed','credentials_state':'not_requested',
                             'web_checks':{'object_authorization':'not_configured'}}]}
         return run,brief
-    def html(self,run,brief,assistance,audience):
+    def html(self,run,brief,assistance,audience,scope=None):
         with tempfile.TemporaryDirectory() as root:
             env=Panel(Path(root)).environment
             return env.get_template('report.html').render(run=run,brief=brief,technical=[],assistance=assistance,
-                report_view=report_view(run,brief,[],assistance),audience=audience)
+                report_view=report_view(run,brief,[],assistance),audience=audience,report_scope=scope)
+    def test_report_displays_persisted_finding_identity_and_declared_scope(self):
+        from panel_presentacion import finding_card
+        run,brief=self.fixture()
+        brief.update(is_inventory=False,affected=1,cards=[finding_card({
+            'asset_id':'portal','defect_key':'ssh_default_credential','finding_id':'existing-public-id',
+            'task_id':'credential-task','evidence_ref':'evidence/access.json','confirmation_ref':'evidence/confirmation.json'})])
+        scope={'ipv4':['192.0.2.0/24'],'ipv6':['2001:db8::/64'],'authorization_ref':'LAB-PROPIO'}
+        for audience in ['technical','executive']:
+            html=self.html(run,brief,{},audience,scope)
+            self.assertIn('existing-public-id',html)
+            self.assertIn('192.0.2.0/24',html)
+            self.assertIn('2001:db8::/64',html)
     def test_executive_selects_exposure_without_inactive_hosts_or_modules(self):
         run,brief=self.fixture();before=copy.deepcopy(brief)
         html=self.html(run,brief,{'reviews':[{'status':'unavailable','role':'network'}]},'executive')

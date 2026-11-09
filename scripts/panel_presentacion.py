@@ -93,10 +93,12 @@ for _service,_label in [('ssh','SSH'),('ftp','FTP'),('postgres','PostgreSQL'),('
 
 
 def finding_card(finding: dict, *, preliminary: bool = False) -> dict:
+    from auditoria.modulo_reportes import finding_identifier
     condition = finding.get("condition") or finding.get("defect_key", "")
     explanation = EXPLANATIONS.get(condition, {})
     return {
         "id": f"{finding.get('asset_id', '')}:{finding.get('defect_key', condition)}",
+        "finding_id": finding_identifier(finding),
         "title": explanation.get("title") or finding.get("title", "Condición observada"),
         "asset": ASSET_NAMES.get(finding.get("asset_id"), finding.get("asset_id", "Objetivo")),
         "asset_id": finding.get("asset_id"), "address": finding.get("address", ""),
